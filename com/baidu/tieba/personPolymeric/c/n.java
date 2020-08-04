@@ -4,7 +4,7 @@ import android.os.Bundle;
 /* loaded from: classes18.dex */
 public class n {
     public Bundle hrx;
-    public int kPq;
-    public com.baidu.tieba.personCenter.d.a kWV;
+    public int kPs;
+    public com.baidu.tieba.personCenter.d.a kWX;
     public String title;
 }

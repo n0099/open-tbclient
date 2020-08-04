@@ -22,10 +22,10 @@ public class b extends BaseAdapter {
 
     public b(TbPageContext<SelectLocationActivity> tbPageContext) {
         this.dVN = tbPageContext;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.dlM().getLocationData();
-        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.c.dlM().dlN();
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.dlN().getLocationData();
+        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.c.dlN().dlO();
         if (locationData != null) {
-            this.data = i(locationData.dlL(), locationData.dlK());
+            this.data = i(locationData.dlM(), locationData.dlL());
         }
     }
 
@@ -114,7 +114,7 @@ public class b extends BaseAdapter {
     /* loaded from: classes17.dex */
     public static class C0690b {
         View gIw;
-        ImageView jFZ;
+        ImageView jGb;
         TextView title;
 
         private C0690b() {
@@ -131,7 +131,7 @@ public class b extends BaseAdapter {
                 View inflate = LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
                 c0690b = new C0690b();
                 c0690b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0690b.jFZ = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0690b.jGb = (ImageView) inflate.findViewById(R.id.select_location_tick);
                 c0690b.gIw = inflate.findViewById(R.id.select_location_line);
                 inflate.setTag(c0690b);
                 view2 = inflate;
@@ -140,10 +140,10 @@ public class b extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0690b.jFZ.setVisibility(0);
-                ao.setImageResource(c0690b.jFZ, R.drawable.icon_site_ok);
+                c0690b.jGb.setVisibility(0);
+                ao.setImageResource(c0690b.jGb, R.drawable.icon_site_ok);
             } else {
-                c0690b.jFZ.setVisibility(4);
+                c0690b.jGb.setVisibility(4);
             }
             c0690b.title.setText(str);
             ao.setBackgroundColor(c0690b.gIw, R.color.cp_bg_line_c);
@@ -158,8 +158,8 @@ public class b extends BaseAdapter {
     /* loaded from: classes17.dex */
     public static class a {
         TextView dpg;
-        TextView jFV;
-        ImageView jFZ;
+        TextView jFX;
+        ImageView jGb;
 
         private a() {
         }
@@ -174,21 +174,21 @@ public class b extends BaseAdapter {
                 view = LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
                 aVar2.dpg = (TextView) view.findViewById(R.id.select_location_name);
-                aVar2.jFV = (TextView) view.findViewById(R.id.select_location_address);
-                aVar2.jFZ = (ImageView) view.findViewById(R.id.select_location_tick);
+                aVar2.jFX = (TextView) view.findViewById(R.id.select_location_address);
+                aVar2.jGb = (ImageView) view.findViewById(R.id.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.jFV.setText(c0756a.getAddr());
+            aVar.jFX.setText(c0756a.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.jFZ.setVisibility(0);
+                aVar.jGb.setVisibility(0);
                 if (TextUtils.isEmpty(c0756a.getAddr())) {
-                    aVar.jFV.setText(R.string.select_location_current);
+                    aVar.jFX.setText(R.string.select_location_current);
                 }
             } else {
-                aVar.jFZ.setVisibility(4);
+                aVar.jGb.setVisibility(4);
             }
             aVar.dpg.setText(c0756a.getName());
             this.dVN.getLayoutMode().setNightMode(z);

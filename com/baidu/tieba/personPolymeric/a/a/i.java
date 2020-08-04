@@ -34,8 +34,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     private String afx;
     public BdUniqueId eEU;
     private int gEw;
-    private int kUR;
-    private int kUS;
+    private int kUT;
+    private int kUU;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -48,8 +48,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kUR = 0;
-        this.kUS = 0;
+        this.kUT = 0;
+        this.kUU = 0;
         this.gEw = 0;
         this.adN = new aa<l>() { // from class: com.baidu.tieba.personPolymeric.a.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -82,8 +82,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         eVar.setPageUniqueId(this.eEU);
         eVar.bg(1024);
         eVar.bg(32768);
-        if (this.kUR > 0) {
-            eVar.bf(this.kUR);
+        if (this.kUT > 0) {
+            eVar.bf(this.kUT);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -135,7 +135,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         aVar2.setPageId(this.eEU);
         sf.a(this.adN);
         sf.setSourceForPb(4);
-        aVar2.bt(this.kUS);
+        aVar2.bt(this.kUU);
         a(new z() { // from class: com.baidu.tieba.personPolymeric.a.a.i.3
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, com.baidu.adp.widget.ListView.q qVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -192,7 +192,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     }
 
     public void CV(int i) {
-        this.kUR = i;
+        this.kUT = i;
     }
 
     private void cnr() {
@@ -208,6 +208,6 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     }
 
     public void CU(int i) {
-        this.kUS = i;
+        this.kUU = i;
     }
 }

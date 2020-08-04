@@ -61,13 +61,13 @@ public class b extends l {
         }
     }
 
-    public void duN() {
+    public void duO() {
         if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).duN();
+            ((EditorInfoContainer) this.ezZ).duO();
         }
     }
 
-    public void duP() {
+    public void duQ() {
         if (this.ezZ instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.ezZ).hide();
         }

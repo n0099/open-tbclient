@@ -18,16 +18,16 @@ class fk {
         if (!TextUtils.isEmpty(bVar.f)) {
             cVar.e(bVar.f);
         }
-        cVar.b(bVar.f863a ? "1" : "0");
+        cVar.b(bVar.f866a ? "1" : "0");
         if (TextUtils.isEmpty(bVar.d)) {
             cVar.c("XIAOMI-SASL");
         } else {
             cVar.c(bVar.d);
         }
         fl flVar = new fl();
-        flVar.c(bVar.f864b);
+        flVar.c(bVar.f867b);
         flVar.a(Integer.parseInt(bVar.g));
-        flVar.b(bVar.f861a);
+        flVar.b(bVar.f864a);
         flVar.a("BIND", (String) null);
         flVar.a(flVar.e());
         com.xiaomi.channel.commonutils.logger.b.m49a("[Slim]: bind id=" + flVar.e());
@@ -35,10 +35,10 @@ class fk {
         hashMap.put("challenge", str);
         hashMap.put("token", bVar.c);
         hashMap.put("chid", bVar.g);
-        hashMap.put("from", bVar.f864b);
+        hashMap.put("from", bVar.f867b);
         hashMap.put("id", flVar.e());
         hashMap.put("to", "xiaomi.com");
-        if (bVar.f863a) {
+        if (bVar.f866a) {
             hashMap.put("kick", "1");
         } else {
             hashMap.put("kick", "0");

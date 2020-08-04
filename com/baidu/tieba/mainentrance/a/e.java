@@ -58,26 +58,26 @@ import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes18.dex */
 public class e implements b {
     private String hDo;
-    private d jHA;
-    private boolean jHN;
-    private c jHP;
+    private d jHC;
+    private boolean jHP;
+    private c jHR;
     private BaseActivity mActivity;
     private HotSearchInfoData mHotSearchInfo;
     private View mRootView;
-    private boolean jHO = true;
-    private CustomMessageListener jHQ = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
+    private boolean jHQ = true;
+    private CustomMessageListener jHS = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                e.this.jHA.re(!((Boolean) customResponsedMessage.getData()).booleanValue());
+                e.this.jHC.re(!((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     };
 
     public e(BaseActivity baseActivity, boolean z) {
         this.mActivity = baseActivity;
-        this.jHN = z;
+        this.jHP = z;
         init();
     }
 
@@ -121,22 +121,22 @@ public class e implements b {
             this.mActivity.finish();
             return;
         }
-        this.jHA = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
-        this.jHP = new c(this.mActivity, this, this.jHA);
+        this.jHC = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
+        this.jHR = new c(this.mActivity, this, this.jHC);
         cEf();
         cEg();
         cEh();
         cEi();
         cDz();
         cEl();
-        ah.a(this.jHA.cEc(), this.mActivity.getUniqueId());
-        ah.a(this.jHA.cEd(), this.mActivity.getUniqueId());
-        this.mActivity.registerListener(this.jHQ);
+        ah.a(this.jHC.cEc(), this.mActivity.getUniqueId());
+        ah.a(this.jHC.cEd(), this.mActivity.getUniqueId());
+        this.mActivity.registerListener(this.jHS);
     }
 
     public void onResume() {
-        if (this.jHA != null) {
-            this.jHA.onResume();
+        if (this.jHC != null) {
+            this.jHC.onResume();
         }
     }
 
@@ -179,20 +179,20 @@ public class e implements b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    if (e.this.jHO) {
+                    if (e.this.jHQ) {
                         e.this.hDo = editable.toString();
                         e.this.cEl();
                     }
-                    e.this.jHA.mu(!StringUtils.isNull(editable.toString()));
+                    e.this.jHC.mu(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.jHA.cEa() || e.this.jHA.cEa().getText() == null) {
-                    if (view == e.this.jHA.cEb()) {
-                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.jHA.cEa());
+                if (view != e.this.jHC.cEa() || e.this.jHC.cEa().getText() == null) {
+                    if (view == e.this.jHC.cEb()) {
+                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.jHC.cEa());
                         com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.8.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -203,16 +203,16 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.hDo = e.this.jHA.cEa().getText().toString();
+                e.this.hDo = e.this.jHC.cEa().getText().toString();
                 if (StringUtils.isNull(e.this.hDo)) {
                     e.this.cDT();
                 }
             }
         };
-        this.jHA.a(onFocusChangeListener);
-        this.jHA.a(onEditorActionListener);
-        this.jHA.d(textWatcher);
-        this.jHA.setOnClickListener(onClickListener);
+        this.jHC.a(onFocusChangeListener);
+        this.jHC.a(onEditorActionListener);
+        this.jHC.d(textWatcher);
+        this.jHC.setOnClickListener(onClickListener);
     }
 
     private void cEg() {
@@ -248,12 +248,12 @@ public class e implements b {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         };
-        this.jHA.b(onItemClickListener);
-        this.jHA.a(onScrollListener);
+        this.jHC.b(onItemClickListener);
+        this.jHC.a(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.jHA.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.jHC.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
     private void cEh() {
@@ -291,14 +291,14 @@ public class e implements b {
                 return true;
             }
         };
-        this.jHA.a(cVar);
-        this.jHA.a(fVar);
-        this.jHA.a(gVar);
-        this.jHA.a(bVar);
+        this.jHC.a(cVar);
+        this.jHC.a(fVar);
+        this.jHC.a(gVar);
+        this.jHC.a(bVar);
     }
 
     private void cEi() {
-        this.jHA.cEc().addJsPromptInterface(new a());
+        this.jHC.cEc().addJsPromptInterface(new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -321,19 +321,19 @@ public class e implements b {
             this.mActivity.showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (z) {
-                this.jHO = false;
-                this.jHA.Jg(str);
-                this.jHO = true;
+                this.jHQ = false;
+                this.jHC.Jg(str);
+                this.jHQ = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.jHA.cEa());
-            this.jHA.cDZ();
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.jHC.cEa());
+            this.jHC.cDZ();
             String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + ETAG.EQUAL + i;
             try {
                 str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.jHA.cEc().loadUrl(str2);
+            this.jHC.cEc().loadUrl(str2);
             ad.a(new ac<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -343,21 +343,21 @@ public class e implements b {
                     return true;
                 }
             }, null);
-            this.jHP.Jc(str);
+            this.jHR.Jc(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cEk() {
-        if (!this.jHA.cEe()) {
+        if (!this.jHC.cEe()) {
             cDF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cDT() {
-        this.jHP.cDT();
+        this.jHR.cDT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -376,7 +376,7 @@ public class e implements b {
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
         searchListNetMessage.mKey = this.hDo.trim();
-        searchListNetMessage.isForum = Integer.valueOf(this.jHN ? 1 : 0);
+        searchListNetMessage.isForum = Integer.valueOf(this.jHP ? 1 : 0);
         this.mActivity.sendMessage(searchListNetMessage);
     }
 
@@ -384,13 +384,13 @@ public class e implements b {
     public String cEm() {
         JSONObject jSONObject = new JSONObject();
         try {
-            MercatorModel.MercatorData mercatorData = MercatorModel.dme().getMercatorData();
+            MercatorModel.MercatorData mercatorData = MercatorModel.dmf().getMercatorData();
             if (mercatorData != null) {
-                d(jSONObject, "mercator_lat", mercatorData.dmg());
-                d(jSONObject, "mercator_lon", mercatorData.dmf());
-                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dmi()));
-                d(jSONObject, "mercator_radius", mercatorData.dmh());
-                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dmj()));
+                d(jSONObject, "mercator_lat", mercatorData.dmh());
+                d(jSONObject, "mercator_lon", mercatorData.dmg());
+                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dmj()));
+                d(jSONObject, "mercator_radius", mercatorData.dmi());
+                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dmk()));
             }
             d(jSONObject, "mod", Build.MODEL);
             d(jSONObject, "ov", Build.VERSION.RELEASE);
@@ -423,30 +423,30 @@ public class e implements b {
     }
 
     public BaseWebView cEn() {
-        return this.jHA.cEc();
+        return this.jHC.cEc();
     }
 
     private void cDz() {
-        if (this.jHA != null) {
+        if (this.jHC != null) {
             if (this.mHotSearchInfo == null) {
-                this.jHA.Jf(this.mActivity.getResources().getString(R.string.search_bar));
+                this.jHC.Jf(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.jHA.Jf(this.mHotSearchInfo.bUv());
+                this.jHC.Jf(this.mHotSearchInfo.bUv());
             }
         }
     }
 
     public void dV(List<String> list) {
-        this.jHA.j(list, this.hDo);
+        this.jHC.j(list, this.hDo);
     }
 
     public void dW(List<ForumInfo> list) {
-        this.jHA.k(list, this.hDo);
+        this.jHC.k(list, this.hDo);
     }
 
     public void onDestroy() {
-        if (this.jHA != null) {
-            this.jHA.onDestroy();
+        if (this.jHC != null) {
+            this.jHC.onDestroy();
         }
     }
 

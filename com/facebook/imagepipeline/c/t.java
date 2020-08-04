@@ -1,28 +1,20 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes4.dex */
 public class t implements n {
-    private static t naj = null;
+    private static t nal = null;
 
     private t() {
     }
 
-    public static synchronized t dGb() {
+    public static synchronized t dGc() {
         t tVar;
         synchronized (t.class) {
-            if (naj == null) {
-                naj = new t();
+            if (nal == null) {
+                nal = new t();
             }
-            tVar = naj;
+            tVar = nal;
         }
         return tVar;
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void dFT() {
-    }
-
-    @Override // com.facebook.imagepipeline.c.n
-    public void p(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -30,11 +22,11 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFV() {
+    public void p(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void q(com.facebook.cache.common.b bVar) {
+    public void dFV() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -42,11 +34,15 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void r(com.facebook.cache.common.b bVar) {
+    public void q(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
     public void dFX() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void r(com.facebook.cache.common.b bVar) {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -59,6 +55,10 @@ public class t implements n {
 
     @Override // com.facebook.imagepipeline.c.n
     public void dGa() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dGb() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

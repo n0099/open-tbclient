@@ -9,10 +9,10 @@ import java.nio.ByteBuffer;
 /* loaded from: classes19.dex */
 public final class a extends f {
     private ByteBuffer mBuffer;
-    private final int mKU;
-    private final d mKV;
-    private final UploadDataProvider mKs = new C0794a();
-    private boolean mJv = false;
+    private final int mKW;
+    private final d mKX;
+    private final UploadDataProvider mKu = new C0794a();
+    private boolean mJx = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d dVar, long j) {
@@ -25,9 +25,9 @@ public final class a extends f {
         if (j < 0) {
             throw new IllegalArgumentException("Content length < 0.");
         }
-        this.mKV = dVar;
-        this.mKU = (int) j;
-        this.mBuffer = ByteBuffer.allocate(this.mKU);
+        this.mKX = dVar;
+        this.mKW = (int) j;
+        this.mBuffer = ByteBuffer.allocate(this.mKW);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,8 +35,8 @@ public final class a extends f {
         if (dVar == null) {
             throw new NullPointerException();
         }
-        this.mKV = dVar;
-        this.mKU = -1;
+        this.mKX = dVar;
+        this.mKW = -1;
         this.mBuffer = ByteBuffer.allocate(16384);
     }
 
@@ -55,13 +55,13 @@ public final class a extends f {
     }
 
     private void HX(int i) throws IOException {
-        if (this.mKU != -1 && this.mBuffer.position() + i > this.mKU) {
-            throw new ProtocolException("exceeded content-length limit of " + this.mKU + " bytes");
+        if (this.mKW != -1 && this.mBuffer.position() + i > this.mKW) {
+            throw new ProtocolException("exceeded content-length limit of " + this.mKW + " bytes");
         }
-        if (this.mJv) {
+        if (this.mJx) {
             throw new IllegalStateException("Cannot write after being connected.");
         }
-        if (this.mKU == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
+        if (this.mKW == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
             ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.mBuffer.capacity() * 2, this.mBuffer.capacity() + i));
             this.mBuffer.flip();
             allocate.put(this.mBuffer);
@@ -71,9 +71,9 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dzD() throws IOException {
-        this.mJv = true;
-        if (this.mBuffer.position() < this.mKU) {
+    public void dzE() throws IOException {
+        this.mJx = true;
+        if (this.mBuffer.position() < this.mKW) {
             throw new ProtocolException("Content received is less than Content-Length");
         }
         this.mBuffer.flip();
@@ -81,13 +81,13 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dzE() throws IOException {
+    public void dzF() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dzF() {
-        return this.mKs;
+    public UploadDataProvider dzG() {
+        return this.mKu;
     }
 
     /* renamed from: com.baidu.turbonet.net.a.a$a  reason: collision with other inner class name */
@@ -98,10 +98,10 @@ public final class a extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long getLength() {
-            if (a.this.mKU == -1) {
-                return a.this.mJv ? a.this.mBuffer.limit() : a.this.mBuffer.position();
+            if (a.this.mKW == -1) {
+                return a.this.mJx ? a.this.mBuffer.limit() : a.this.mBuffer.position();
             }
-            return a.this.mKU;
+            return a.this.mKW;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -119,7 +119,7 @@ public final class a extends f {
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public void a(UploadDataSink uploadDataSink) {
             a.this.mBuffer.position(0);
-            uploadDataSink.dyq();
+            uploadDataSink.dyr();
         }
     }
 }

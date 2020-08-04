@@ -18,8 +18,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class b {
     private String dwi;
-    private final String mAO = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
-    private ArrayList<String> mtA;
+    private final String mAQ = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> mtC;
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !x.isEmpty(this.mtA)) {
+        if (spannable != null && !x.isEmpty(this.mtC)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.mtA.iterator();
+                Iterator<String> it = this.mtC.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (x.isEmpty(dtY())) {
+        if (x.isEmpty(dtZ())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -114,18 +114,18 @@ public class b {
     }
 
     public void aZ(ArrayList<String> arrayList) {
-        this.mtA = arrayList;
+        this.mtC = arrayList;
     }
 
-    public ArrayList<String> dtY() {
-        return this.mtA;
+    public ArrayList<String> dtZ() {
+        return this.mtC;
     }
 
     public void Py(String str) {
         this.dwi = str;
     }
 
-    public String duc() {
+    public String dud() {
         return this.dwi;
     }
 

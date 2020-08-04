@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.nXZ;
-        long j = this.opd;
-        long dTg = dTg();
-        long gO = gO(dTg);
+        E[] eArr = this.nYb;
+        long j = this.opf;
+        long dTh = dTh();
+        long gO = gO(dTh);
         if (b(eArr, gO) != null) {
-            if (dTg - dTh() > j) {
+            if (dTh - dTi() > j) {
                 return false;
             }
             do {
             } while (b(eArr, gO) != null);
             a(eArr, gO, e);
-            gQ(1 + dTg);
+            gQ(1 + dTh);
             return true;
         }
         a(eArr, gO, e);
-        gQ(1 + dTg);
+        gQ(1 + dTh);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dTh;
-        long dYA = dYA();
+        long dTi;
+        long dYB = dYB();
         do {
-            dTh = dTh();
-            if (dTh >= dYA) {
-                long dTg = dTg();
-                if (dTh >= dTg) {
+            dTi = dTi();
+            if (dTi >= dYB) {
+                long dTh = dTh();
+                if (dTi >= dTh) {
                     return null;
                 }
-                gR(dTg);
+                gR(dTh);
             }
-        } while (!Y(dTh, 1 + dTh));
-        long gO = gO(dTh);
-        E[] eArr = this.nXZ;
+        } while (!Y(dTi, 1 + dTi));
+        long gO = gO(dTi);
+        E[] eArr = this.nYb;
         E a = a(eArr, gO);
         b(eArr, gO, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E gP;
-        long dYA = dYA();
+        long dYB = dYB();
         do {
-            long dTh = dTh();
-            if (dTh >= dYA) {
-                long dTg = dTg();
-                if (dTh >= dTg) {
+            long dTi = dTi();
+            if (dTi >= dYB) {
+                long dTh = dTh();
+                if (dTi >= dTh) {
                     return null;
                 }
-                gR(dTg);
+                gR(dTh);
             }
-            gP = gP(gO(dTh));
+            gP = gP(gO(dTi));
         } while (gP == null);
         return gP;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dTh = dTh();
+        long dTi = dTi();
         while (true) {
-            long dTg = dTg();
-            long dTh2 = dTh();
-            if (dTh == dTh2) {
-                return (int) (dTg - dTh2);
+            long dTh = dTh();
+            long dTi2 = dTi();
+            if (dTi == dTi2) {
+                return (int) (dTh - dTi2);
             }
-            dTh = dTh2;
+            dTi = dTi2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dTh() == dTg();
+        return dTi() == dTh();
     }
 }

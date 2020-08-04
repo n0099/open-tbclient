@@ -117,17 +117,17 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             if (lVar.aTN() != null) {
                 oVar.eKO = String.valueOf(lVar.aTN().getFid());
                 if (lVar.aTN().aWD() != null) {
-                    oVar.lcM = lVar.aTN().aWD().video_md5;
-                    oVar.lcO = String.valueOf(lVar.aTN().aWD().is_vertical);
+                    oVar.lcO = lVar.aTN().aWD().video_md5;
+                    oVar.lcQ = String.valueOf(lVar.aTN().aWD().is_vertical);
                 }
             }
             oVar.dOV = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.lcL = lVar.bRY();
-            oVar.lcI = lVar.getWeight();
+            oVar.lcN = lVar.bRY();
+            oVar.lcK = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
             oVar.mFloor = String.valueOf(lVar.bRX());
-            oVar.lcP = String.valueOf(this.eeE);
+            oVar.lcR = String.valueOf(this.eeE);
         }
         return oVar;
     }

@@ -8,16 +8,16 @@ public class bw implements l.a {
     final /* synthetic */ XMPushService.i a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f901a;
+    final /* synthetic */ XMPushService f904a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(XMPushService xMPushService, XMPushService.i iVar) {
-        this.f901a = xMPushService;
+        this.f904a = xMPushService;
         this.a = iVar;
     }
 
     @Override // com.xiaomi.push.service.l.a
     public void a() {
-        this.f901a.a(this.a);
+        this.f904a.a(this.a);
     }
 }

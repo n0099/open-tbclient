@@ -1,7 +1,7 @@
 package com.baidu.tieba.pbextra.praise;
 /* loaded from: classes16.dex */
 public class a {
-    private long kMK;
+    private long kMM;
     private String mPortrait;
     private String mShowName;
     private String mUserId;
@@ -12,12 +12,12 @@ public class a {
         this.mUserName = null;
         this.mPortrait = null;
         this.mShowName = null;
-        this.kMK = 0L;
+        this.kMM = 0L;
         this.mUserId = str;
         this.mUserName = str2;
         this.mPortrait = str3;
         this.mShowName = str4;
-        this.kMK = j;
+        this.kMM = j;
     }
 
     public String getUserId() {
@@ -37,6 +37,6 @@ public class a {
     }
 
     public long cVj() {
-        return this.kMK;
+        return this.kMM;
     }
 }

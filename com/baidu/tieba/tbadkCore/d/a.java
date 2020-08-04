@@ -57,36 +57,36 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0755a {
         private final boolean dPr;
-        private final ap jxt;
+        private final ap jxv;
         private final String key;
-        private final String lOw;
-        private final String lOx;
+        private final String lOA;
         private final String lOy;
+        private final String lOz;
         private final String page;
 
         private C0755a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.lOw = str2;
+            this.lOy = str2;
             this.page = str3;
-            this.lOx = str4;
-            this.lOy = str5;
+            this.lOz = str4;
+            this.lOA = str5;
             this.dPr = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.jxt = dly();
+            this.jxv = dlz();
         }
 
-        private ap dly() {
+        private ap dlz() {
             ap apVar = new ap(this.key);
-            if (!StringUtils.isNull(this.lOw)) {
-                apVar = apVar.dn("line", this.lOw);
+            if (!StringUtils.isNull(this.lOy)) {
+                apVar = apVar.dn("line", this.lOy);
             }
             if (!StringUtils.isNull(this.page)) {
                 apVar = apVar.dn("page", this.page);
             }
-            if (!StringUtils.isNull(this.lOx)) {
-                apVar = apVar.dn("locate", this.lOx);
+            if (!StringUtils.isNull(this.lOz)) {
+                apVar = apVar.dn("locate", this.lOz);
             }
-            if (!StringUtils.isNull(this.lOy)) {
-                return apVar.dn("task", this.lOy);
+            if (!StringUtils.isNull(this.lOA)) {
+                return apVar.dn("task", this.lOA);
             }
             return apVar;
         }
@@ -94,33 +94,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public ap l(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.jxt.dn(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.jxv.dn(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.jxt.dn("obj_id", str2);
+                this.jxv.dn("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.jxt.dn("fid", str3);
+                this.jxv.dn("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.jxt.dn("fname", str4);
+                this.jxv.dn("fname", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.jxt.dn("tid", str5);
+                this.jxv.dn("tid", str5);
             }
-            this.jxt.ah("obj_cpid", 0).ah("obj_good_id", 0).dn("obj_throw_type", "BY_POST").dn("client_type", "MOBILE_APP").dn("user_timestamp", String.valueOf(System.currentTimeMillis())).dn("os", "android").dn("os_version", Build.VERSION.RELEASE).dn("log_ver", "1.1");
-            return this.jxt;
+            this.jxv.ah("obj_cpid", 0).ah("obj_good_id", 0).dn("obj_throw_type", "BY_POST").dn("client_type", "MOBILE_APP").dn("user_timestamp", String.valueOf(System.currentTimeMillis())).dn("os", "android").dn("os_version", Build.VERSION.RELEASE).dn("log_ver", "1.1");
+            return this.jxv;
         }
 
         public C0755a fB(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.jxt.dn(str, str2);
+                this.jxv.dn(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.jxt);
+            TiebaStatic.log(this.jxv);
             if (!this.dPr) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -130,7 +130,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.jxt.delete(str);
+            this.jxv.delete(str);
         }
     }
 }

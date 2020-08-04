@@ -54,10 +54,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class PassManagerStatic {
-    private static boolean kdT = false;
-    private static boolean kdU = false;
     private static boolean kdV = false;
-    private static SapiConfiguration kdW;
+    private static boolean kdW = false;
+    private static boolean kdX = false;
+    private static SapiConfiguration kdY;
 
     static {
         brK();
@@ -129,10 +129,10 @@ public class PassManagerStatic {
             public CustomResponsedMessage<?> run(CustomMessage<Application> customMessage) {
                 if (customMessage != null) {
                     Application data = customMessage.getData();
-                    if (!PassManagerStatic.kdU) {
+                    if (!PassManagerStatic.kdW) {
                         try {
                             WbSdk.install(data, new AuthInfo(data, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
-                            boolean unused = PassManagerStatic.kdU = true;
+                            boolean unused = PassManagerStatic.kdW = true;
                         } catch (Exception e) {
                         }
                     }
@@ -184,9 +184,9 @@ public class PassManagerStatic {
         SapiAccountManager.registerReceiveShareListener(new SapiAccountManager.ReceiveShareListener() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.14
             @Override // com.baidu.sapi2.SapiAccountManager.ReceiveShareListener
             public void onReceiveShare() {
-                if (PassManagerStatic.kdW != null) {
+                if (PassManagerStatic.kdY != null) {
                     try {
-                        SapiAccountManager.getInstance().init(PassManagerStatic.kdW);
+                        SapiAccountManager.getInstance().init(PassManagerStatic.kdY);
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -207,9 +207,9 @@ public class PassManagerStatic {
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA.forceHttps(true));
             builder.debug(true);
         }
-        kdW = builder.build();
+        kdY = builder.build();
         try {
-            SapiAccountManager.getInstance().init(kdW);
+            SapiAccountManager.getInstance().init(kdY);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -270,8 +270,8 @@ public class PassManagerStatic {
             public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.passaccount.a> customMessage) {
                 if (customMessage != null && (customMessage.getData() instanceof com.baidu.tieba.passaccount.a)) {
                     com.baidu.tieba.passaccount.a data = customMessage.getData();
-                    if (data.kdB != null && data.kdC != null && (data.kdC instanceof SendAuth.Resp)) {
-                        PassportSDK.getInstance().handleWXLoginResp(data.kdB, ((SendAuth.Resp) data.kdC).state, ((SendAuth.Resp) data.kdC).code, data.kdC.errCode);
+                    if (data.kdD != null && data.kdE != null && (data.kdE instanceof SendAuth.Resp)) {
+                        PassportSDK.getInstance().handleWXLoginResp(data.kdD, ((SendAuth.Resp) data.kdE).state, ((SendAuth.Resp) data.kdE).code, data.kdE.errCode);
                     }
                 }
                 return null;
@@ -282,11 +282,11 @@ public class PassManagerStatic {
     }
 
     public static void cJv() {
-        if (kdW != null) {
+        if (kdY != null) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                kdW.isNightMode = true;
+                kdY.isNightMode = true;
             } else {
-                kdW.isNightMode = false;
+                kdY.isNightMode = false;
             }
         }
     }

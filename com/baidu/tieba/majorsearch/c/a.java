@@ -6,15 +6,15 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes18.dex */
 public class a {
-    public List<String> jIk;
+    public List<String> jIm;
 
     public void parseJson(JSONArray jSONArray) {
-        this.jIk = new ArrayList();
+        this.jIm = new ArrayList();
         if (jSONArray != null && jSONArray.length() > 0) {
             for (int i = 0; i < jSONArray.length(); i++) {
                 String optString = jSONArray.optString(i);
                 if (!StringUtils.isNull(optString)) {
-                    this.jIk.add(optString);
+                    this.jIm.add(optString);
                 }
             }
         }

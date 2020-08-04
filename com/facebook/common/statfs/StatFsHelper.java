@@ -16,14 +16,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public class StatFsHelper {
-    private static StatFsHelper mRk;
-    private static final long mRl = TimeUnit.MINUTES.toMillis(2);
-    private volatile File mRn;
+    private static StatFsHelper mRm;
+    private static final long mRn = TimeUnit.MINUTES.toMillis(2);
     private volatile File mRp;
+    private volatile File mRr;
     @GuardedBy("lock")
-    private long mRq;
-    private volatile StatFs mRm = null;
+    private long mRs;
     private volatile StatFs mRo = null;
+    private volatile StatFs mRq = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper dCO() {
+    public static synchronized StatFsHelper dCP() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (mRk == null) {
-                mRk = new StatFsHelper();
+            if (mRm == null) {
+                mRm = new StatFsHelper();
             }
-            statFsHelper = mRk;
+            statFsHelper = mRm;
         }
         return statFsHelper;
     }
@@ -52,9 +52,9 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.mRn = Environment.getDataDirectory();
-                    this.mRp = Environment.getExternalStorageDirectory();
-                    dCQ();
+                    this.mRp = Environment.getDataDirectory();
+                    this.mRr = Environment.getExternalStorageDirectory();
+                    dCR();
                     this.mInitialized = true;
                 }
             } finally {
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        dCP();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.mRm : this.mRo;
+        dCQ();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.mRo : this.mRq;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void dCP() {
+    private void dCQ() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.mRq > mRl) {
-                    dCQ();
+                if (SystemClock.uptimeMillis() - this.mRs > mRn) {
+                    dCR();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,10 +102,10 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void dCQ() {
-        this.mRm = a(this.mRm, this.mRn);
+    private void dCR() {
         this.mRo = a(this.mRo, this.mRp);
-        this.mRq = SystemClock.uptimeMillis();
+        this.mRq = a(this.mRq, this.mRr);
+        this.mRs = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {

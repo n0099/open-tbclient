@@ -37,8 +37,8 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && CloudMusicActivity.this.mcs != null) {
-                CloudMusicActivity.this.mcs.dpK();
+            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && CloudMusicActivity.this.mcu != null) {
+                CloudMusicActivity.this.mcu.dpL();
             }
         }
     };
@@ -50,8 +50,8 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View mRootView;
-    private c.a mcs;
-    private a mct;
+    private c.a mcu;
+    private a mcv;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -85,12 +85,12 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
         this.hxb.a(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds30), l.getDimens(getPageContext().getPageActivity(), R.dimen.ds24), l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16), l.getDimens(getPageContext().getPageActivity(), R.dimen.ds24), l.getDimens(getPageContext().getPageActivity(), R.dimen.ds20), l.getDimens(getPageContext().getPageActivity(), R.dimen.ds4), l.getDimens(getPageContext().getPageActivity(), R.dimen.ds64), R.color.cp_cont_j, R.color.cp_cont_b);
         this.eog = (BdBaseViewPager) findViewById(R.id.cloud_music_view_pager);
         this.eog.setOffscreenPageLimit(2);
-        this.mct = new a(getSupportFragmentManager());
-        this.eog.setAdapter(this.mct);
+        this.mcv = new a(getSupportFragmentManager());
+        this.eog.setAdapter(this.mcv);
         this.hxb.setViewPager(this.eog);
         registerListener(this.dLm);
-        if (this.mcs != null) {
-            this.mcs.dpK();
+        if (this.mcu != null) {
+            this.mcu.dpL();
         }
     }
 
@@ -116,7 +116,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
 
     @Override // com.baidu.tieba.video.cloudmusic.c.b
     public void a(c.a aVar) {
-        this.mcs = aVar;
+        this.mcu = aVar;
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.b
@@ -140,7 +140,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
                 this.mFragments.add(CloudMusicListFragment.a(cloudMusicData.music_tag_list.get(i2)));
                 i = i2 + 1;
             } else {
-                this.mct.notifyDataSetChanged();
+                this.mcv.notifyDataSetChanged();
                 this.hxb.notifyDataSetChanged();
                 return;
             }
@@ -159,19 +159,19 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        com.baidu.tieba.video.editvideo.model.a.dqo().dqp();
+        com.baidu.tieba.video.editvideo.model.a.dqp().dqq();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MusicPlayer.dpL().dpM();
+        MusicPlayer.dpM().dpN();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        MusicPlayer.dpL().dpN();
+        MusicPlayer.dpM().dpO();
     }
 
     /* loaded from: classes17.dex */
@@ -210,8 +210,8 @@ public class CloudMusicActivity extends BaseFragmentActivity implements c.b {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.mcs.ceq();
-        MusicPlayer.dpL().aOt();
-        com.baidu.tieba.video.editvideo.model.a.dqo().dqq();
+        this.mcu.ceq();
+        MusicPlayer.dpM().aOt();
+        com.baidu.tieba.video.editvideo.model.a.dqp().dqr();
     }
 }

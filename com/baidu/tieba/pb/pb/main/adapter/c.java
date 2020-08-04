@@ -17,16 +17,16 @@ import java.util.LinkedList;
 public class c extends o<com.baidu.tieba.pb.data.o, a> {
     private static int azq;
     private View.OnClickListener eio;
-    private e kxG;
-    private final LinkedList<a> kxH;
+    private e kxI;
+    private final LinkedList<a> kxJ;
 
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
-        this.kxH = new LinkedList<>();
+        this.kxJ = new LinkedList<>();
         if (bVar != null && bVar.cLP() != null) {
             azq = bVar.cLP().cOv();
         }
-        this.kxG = new e(bVar);
+        this.kxI = new e(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
     /* renamed from: cq */
     public a b(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.kxH.add(aVar);
+        this.kxJ.add(aVar);
         return aVar;
     }
 
@@ -43,9 +43,9 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.o oVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) oVar, (com.baidu.tieba.pb.data.o) aVar);
         if (oVar != null && aVar != null) {
-            aVar.kxI.setOnClickOutListener(this.eio);
-            aVar.kxI.setPostId(getPostId());
-            aVar.kxI.setForumId(getForumId());
+            aVar.kxK.setOnClickOutListener(this.eio);
+            aVar.kxK.setPostId(getPostId());
+            aVar.kxK.setForumId(getForumId());
             aVar.b(oVar);
         }
         return view;
@@ -53,32 +53,32 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
 
     public void onDestroy() {
         cQU();
-        if (this.kxG != null) {
-            this.kxG.onDestroy();
+        if (this.kxI != null) {
+            this.kxI.onDestroy();
         }
     }
 
     private void cQU() {
-        Iterator<a> it = this.kxH.iterator();
+        Iterator<a> it = this.kxJ.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.kxI != null) {
-                next.kxI.onDestroy();
+            if (next != null && next.kxK != null) {
+                next.kxK.onDestroy();
             }
         }
     }
 
     public void yq(String str) {
-        if (this.kxH.size() > 0) {
-            Iterator<a> it = this.kxH.iterator();
+        if (this.kxJ.size() > 0) {
+            Iterator<a> it = this.kxJ.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.kxI != null) {
-                    next.kxI.yq(str);
+                if (next != null && next.kxK != null) {
+                    next.kxK.yq(str);
                 }
             }
         } else if (cQV() != null) {
-            this.kxG.e(cQV().aYc());
+            this.kxI.e(cQV().aYc());
         }
     }
 
@@ -88,14 +88,14 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
     }
 
     private String getForumId() {
-        return this.kmC.cLP() != null ? this.kmC.cLP().getForumId() : "";
+        return this.kmE.cLP() != null ? this.kmE.cLP().getForumId() : "";
     }
 
     private bv cQV() {
-        if (this.kmC.cLP() == null || this.kmC.cLP().getPbData() == null) {
+        if (this.kmE.cLP() == null || this.kmE.cLP().getPbData() == null) {
             return null;
         }
-        return this.kmC.cLP().getPbData().cKx();
+        return this.kmE.cLP().getPbData().cKx();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -104,22 +104,22 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
 
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        public PbThreadCommentAndPraiseInfoLayout kxI;
-        public View kxJ;
-        private int kxK;
+        public PbThreadCommentAndPraiseInfoLayout kxK;
+        public View kxL;
+        private int kxM;
 
         public a(View view) {
             super(view);
             if (view != null) {
-                this.kxI = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+                this.kxK = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
                 com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
                 cVar.dNB = 4;
                 cVar.dNH = 7;
-                cVar.dNC = this.kxK;
+                cVar.dNC = this.kxM;
                 cVar.dNF = c.azq;
-                this.kxI.setAgreeStatisticData(cVar);
-                this.kxJ = view.findViewById(R.id.bottom_divider_line);
-                this.kxJ.setVisibility(0);
+                this.kxK.setAgreeStatisticData(cVar);
+                this.kxL = view.findViewById(R.id.bottom_divider_line);
+                this.kxL.setVisibility(0);
             }
         }
 
@@ -129,14 +129,14 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
                 if (aTN.aYc() != null) {
                     aTN.aYc().postId = aTN.aWC();
                 }
-                this.kxI.a(aTN, oVar.getAnti());
-                this.kxJ.setVisibility(oVar.cLr() ? 0 : 8);
+                this.kxK.a(aTN, oVar.getAnti());
+                this.kxL.setVisibility(oVar.cLr() ? 0 : 8);
                 if (aTN.aUR() && aTN.aWD() != null) {
-                    this.kxK = 2;
+                    this.kxM = 2;
                 } else {
-                    this.kxK = 1;
+                    this.kxM = 1;
                 }
-                if (oVar.kiN) {
+                if (oVar.kiP) {
                     getView().setPadding(0, 0, 0, l.getDimens(getView().getContext(), R.dimen.tbds32));
                 }
             }
@@ -144,8 +144,8 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
         }
 
         public void onChangeSkinType() {
-            ao.setBackgroundColor(this.kxJ, R.color.cp_bg_line_b);
-            this.kxI.onChangeSkinType();
+            ao.setBackgroundColor(this.kxL, R.color.cp_bg_line_b);
+            this.kxK.onChangeSkinType();
         }
     }
 }

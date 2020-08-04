@@ -19,9 +19,9 @@ import java.util.Map;
 import tbclient.T;
 /* loaded from: classes16.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
-    private static LinkedHashMap<String, List<EmotionImageData>> kzm = new LinkedHashMap<>();
+    private static LinkedHashMap<String, List<EmotionImageData>> kzo = new LinkedHashMap<>();
     private final HttpMessageListener eEo;
-    private a kzl;
+    private a kzn;
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -36,13 +36,13 @@ public class QueryMatchEmotionModel extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.kzl != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.kzn != null) {
                     QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
                     if (queryMatchEmotionResponseMessage.getData() == null) {
-                        QueryMatchEmotionModel.this.kzl.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+                        QueryMatchEmotionModel.this.kzn.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
                     } else if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
-                        QueryMatchEmotionModel.this.kzl.o(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.kzn.o(str, queryMatchEmotionResponseMessage.getData());
                         QueryMatchEmotionModel.this.p(str, queryMatchEmotionResponseMessage.getData());
                     }
                 }
@@ -60,10 +60,10 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     public void a(String str, a aVar) {
-        this.kzl = aVar;
-        if (this.kzl != null) {
+        this.kzn = aVar;
+        if (this.kzn != null) {
             if (!x.isEmpty(KY(str))) {
-                this.kzl.o(str, kzm.get(str));
+                this.kzn.o(str, kzo.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(1003369);
@@ -76,28 +76,28 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void p(String str, List<EmotionImageData> list) {
         if (!TextUtils.isEmpty(str) && !x.isEmpty(list)) {
-            if (kzm == null) {
-                kzm = new LinkedHashMap<>();
+            if (kzo == null) {
+                kzo = new LinkedHashMap<>();
             }
-            if (!kzm.containsKey(str)) {
-                if (kzm.size() > 10) {
-                    Map.Entry<String, List<EmotionImageData>> next = kzm.entrySet().iterator().next();
+            if (!kzo.containsKey(str)) {
+                if (kzo.size() > 10) {
+                    Map.Entry<String, List<EmotionImageData>> next = kzo.entrySet().iterator().next();
                     if (next != null) {
-                        kzm.remove(next.getKey());
+                        kzo.remove(next.getKey());
                     } else {
-                        kzm.clear();
+                        kzo.clear();
                     }
                 }
-                kzm.put(str, list);
+                kzo.put(str, list);
             }
         }
     }
 
     private List<EmotionImageData> KY(String str) {
-        if (kzm == null || !kzm.containsKey(str)) {
+        if (kzo == null || !kzo.containsKey(str)) {
             return null;
         }
-        return kzm.get(str);
+        return kzo.get(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

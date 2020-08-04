@@ -84,16 +84,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements BdPageContextCreator {
-    private static a lvq = null;
-    private e lvr;
-    private d lvs;
-    private f lvt;
-    private g lvu;
-    private BdUniqueId lvv;
-    private BdUniqueId lvw;
+    private static a lvs = null;
+    private String lvA;
+    private e lvt;
+    private d lvu;
+    private f lvv;
+    private g lvw;
     private BdUniqueId lvx;
-    private String lvy;
-    private c lvz = new c() { // from class: com.baidu.tieba.sdk.d.a.1
+    private BdUniqueId lvy;
+    private BdUniqueId lvz;
+    private c lvB = new c() { // from class: com.baidu.tieba.sdk.d.a.1
     };
     private HttpMessageListener syncListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.sdk.d.a.5
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class a implements BdPageContextCreator {
             Message<?> orginalMessage;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
                 AlaSyncHttpResponseMessage alaSyncHttpResponseMessage = (AlaSyncHttpResponseMessage) httpResponsedMessage;
-                if ((alaSyncHttpResponseMessage.getError() == 0) && (orginalMessage = alaSyncHttpResponseMessage.getOrginalMessage()) != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.lvx) && alaSyncHttpResponseMessage.FT() != null && alaSyncHttpResponseMessage.FT().aBW != null && !TextUtils.isEmpty(alaSyncHttpResponseMessage.FT().aBW.aCW)) {
+                if ((alaSyncHttpResponseMessage.getError() == 0) && (orginalMessage = alaSyncHttpResponseMessage.getOrginalMessage()) != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.lvz) && alaSyncHttpResponseMessage.FT() != null && alaSyncHttpResponseMessage.FT().aBW != null && !TextUtils.isEmpty(alaSyncHttpResponseMessage.FT().aBW.aCW)) {
                     a.ddW().aV(TbadkCoreApplication.getInst(), alaSyncHttpResponseMessage.FT().aBW.aCW);
                 }
             }
@@ -116,10 +116,10 @@ public class a implements BdPageContextCreator {
                 LiveSyncHttpResponseMessage liveSyncHttpResponseMessage = (LiveSyncHttpResponseMessage) httpResponsedMessage;
                 if (liveSyncHttpResponseMessage.getError() == 0) {
                     Message<?> orginalMessage = liveSyncHttpResponseMessage.getOrginalMessage();
-                    if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.lvv) && liveSyncHttpResponseMessage.FY() != null && liveSyncHttpResponseMessage.FY().aEu != null && !TextUtils.isEmpty(liveSyncHttpResponseMessage.FY().aEu.aFc)) {
+                    if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.lvx) && liveSyncHttpResponseMessage.FY() != null && liveSyncHttpResponseMessage.FY().aEu != null && !TextUtils.isEmpty(liveSyncHttpResponseMessage.FY().aEu.aFc)) {
                         a.ddW().aV(TbadkCoreApplication.getInst(), liveSyncHttpResponseMessage.FY().aEu.aFc);
-                    } else if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.lvw)) {
-                        a.this.aT(null, a.this.lvy);
+                    } else if (orginalMessage != null && orginalMessage.getTag() != null && orginalMessage.getTag().equals(a.this.lvy)) {
+                        a.this.aT(null, a.this.lvA);
                     }
                 }
             }
@@ -131,14 +131,14 @@ public class a implements BdPageContextCreator {
 
     public static a ddW() {
         a aVar;
-        if (lvq != null) {
-            return lvq;
+        if (lvs != null) {
+            return lvs;
         }
         synchronized (a.class) {
-            if (lvq == null) {
-                lvq = new a();
+            if (lvs == null) {
+                lvs = new a();
             }
-            aVar = lvq;
+            aVar = lvs;
         }
         return aVar;
     }
@@ -298,17 +298,17 @@ public class a implements BdPageContextCreator {
             aT(context, str);
             return;
         }
-        this.lvy = str;
+        this.lvA = str;
         MessageManager.getInstance().registerListener(this.ber);
-        this.lvw = BdUniqueId.gen();
-        com.baidu.live.v.a.Hs().d(this.lvw);
+        this.lvy = BdUniqueId.gen();
+        com.baidu.live.v.a.Hs().d(this.lvy);
         com.baidu.live.v.a.Hs().c(null);
     }
 
     public void aT(Context context, String str) {
         com.baidu.live.entereffect.a.xD().bc(true);
         aU(context, str);
-        this.lvy = null;
+        this.lvA = null;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0044  */
@@ -363,23 +363,23 @@ public class a implements BdPageContextCreator {
     }
 
     public void a(e eVar) {
-        this.lvr = eVar;
+        this.lvt = eVar;
     }
 
     public e dea() {
-        return this.lvr;
+        return this.lvt;
     }
 
     public void a(d dVar) {
-        this.lvs = dVar;
+        this.lvu = dVar;
     }
 
     public d deb() {
-        return this.lvs;
+        return this.lvu;
     }
 
     public void a(f fVar) {
-        this.lvt = fVar;
+        this.lvv = fVar;
     }
 
     public void fE(long j) {
@@ -387,7 +387,7 @@ public class a implements BdPageContextCreator {
     }
 
     public f dec() {
-        return this.lvt;
+        return this.lvv;
     }
 
     public void a(final com.baidu.tieba.sdk.b.b bVar) {
@@ -412,11 +412,11 @@ public class a implements BdPageContextCreator {
     }
 
     public void a(g gVar) {
-        this.lvu = gVar;
+        this.lvw = gVar;
     }
 
     public g ded() {
-        return this.lvu;
+        return this.lvw;
     }
 
     private void aU(Context context, String str) {
@@ -452,8 +452,8 @@ public class a implements BdPageContextCreator {
         UrlManager.getInstance().setWebListener(new UrlManager.UrlWebDealListener() { // from class: com.baidu.tieba.sdk.d.a.3
             @Override // com.baidu.live.tbadk.core.util.UrlManager.UrlWebDealListener
             public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
-                if (a.this.lvu != null) {
-                    a.this.lvu.IV(str2);
+                if (a.this.lvw != null) {
+                    a.this.lvw.IV(str2);
                 }
             }
         });
@@ -633,9 +633,9 @@ public class a implements BdPageContextCreator {
                     ddW().aV(context, string);
                     return;
                 }
-                this.lvx = BdUniqueId.gen();
+                this.lvz = BdUniqueId.gen();
                 MessageManager.getInstance().registerListener(this.syncListener);
-                com.baidu.live.v.a.Hs().c(this.lvx);
+                com.baidu.live.v.a.Hs().c(this.lvz);
             }
         }
     }

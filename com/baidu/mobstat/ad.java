@@ -2,9 +2,8 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.lang.Thread;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class ad implements Thread.UncaughtExceptionHandler {
+class ad implements Thread.UncaughtExceptionHandler {
     private static final ad a = new ad();
     private Thread.UncaughtExceptionHandler b;
     private Context c;

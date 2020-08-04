@@ -25,82 +25,82 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aWf = new LinkedList();
     private BdTypeRecyclerView hnH;
-    private m iCA;
-    private l iCB;
-    private o iCC;
-    private d iCD;
-    private com.baidu.tieba.homepage.tabfeed.a.b iCE;
-    private com.baidu.tieba.homepage.tabfeed.a.a iCF;
-    private com.baidu.tieba.homepage.tabfeed.a.c iCG;
-    private j iCH;
-    private n iCI;
-    private HomePageTabFeedFragment iCr;
-    private p iCs;
-    private e iCt;
-    private g iCu;
-    private f iCv;
-    private h iCw;
-    private q iCx;
-    private i iCy;
-    private k iCz;
+    private i iCA;
+    private k iCB;
+    private m iCC;
+    private l iCD;
+    private o iCE;
+    private d iCF;
+    private com.baidu.tieba.homepage.tabfeed.a.b iCG;
+    private com.baidu.tieba.homepage.tabfeed.a.a iCH;
+    private com.baidu.tieba.homepage.tabfeed.a.c iCI;
+    private j iCJ;
+    private n iCK;
+    private HomePageTabFeedFragment iCt;
+    private p iCu;
+    private e iCv;
+    private g iCw;
+    private f iCx;
+    private h iCy;
+    private q iCz;
 
     public a(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iCr = homePageTabFeedFragment;
+        this.iCt = homePageTabFeedFragment;
         this.hnH = bdTypeRecyclerView;
         DS();
     }
 
     private void DS() {
-        this.iCs = new p(this.iCr.getPageContext(), bv.dRB, this.iCr.getUniqueId(), this.iCr.getTabName());
-        this.iCs.a(this.hnH);
-        this.aWf.add(this.iCs);
-        this.iCt = new e(this.iCr.getPageContext(), bv.dRG, this.iCr.getUniqueId(), this.iCr.getTabName());
-        this.iCt.a(this.hnH);
-        this.aWf.add(this.iCt);
-        this.iCu = new g(this.iCr.getPageContext(), bv.dRE, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCu = new p(this.iCt.getPageContext(), bv.dRB, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCu.a(this.hnH);
         this.aWf.add(this.iCu);
-        this.iCv = new f(this.iCr.getPageContext(), bv.dRF, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCv = new e(this.iCt.getPageContext(), bv.dRG, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCv.a(this.hnH);
         this.aWf.add(this.iCv);
-        this.iCw = new h(this.iCr.getPageContext(), bv.dRC, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCw = new g(this.iCt.getPageContext(), bv.dRE, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCw.a(this.hnH);
         this.aWf.add(this.iCw);
-        this.iCx = new q(this.iCr.getPageContext(), bv.dRS, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCx = new f(this.iCt.getPageContext(), bv.dRF, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCx.a(this.hnH);
         this.aWf.add(this.iCx);
-        this.iCy = new i(this.iCr.getPageContext(), bv.dRL, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCy = new h(this.iCt.getPageContext(), bv.dRC, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCy.a(this.hnH);
         this.aWf.add(this.iCy);
-        this.iCz = new k(this.iCr.getPageContext(), bv.dRM, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCz = new q(this.iCt.getPageContext(), bv.dRS, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCz.a(this.hnH);
         this.aWf.add(this.iCz);
-        this.iCA = new m(this.iCr.getPageContext(), bv.dRO, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCA = new i(this.iCt.getPageContext(), bv.dRL, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCA.a(this.hnH);
         this.aWf.add(this.iCA);
-        this.iCB = new l(this.iCr.getPageContext(), bv.dRP, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCB = new k(this.iCt.getPageContext(), bv.dRM, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCB.a(this.hnH);
         this.aWf.add(this.iCB);
-        this.iCC = new o(this.iCr.getPageContext(), bv.dRH, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCC = new m(this.iCt.getPageContext(), bv.dRO, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCC.a(this.hnH);
         this.aWf.add(this.iCC);
-        this.iCD = new d(this.iCr.getPageContext(), bv.dRK, this.iCr.getUniqueId(), this.iCr.getTabName());
+        this.iCD = new l(this.iCt.getPageContext(), bv.dRP, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCD.a(this.hnH);
         this.aWf.add(this.iCD);
-        this.iCG = new com.baidu.tieba.homepage.tabfeed.a.c(this.iCr.getPageContext(), com.baidu.tieba.card.data.j.TYPE, this.iCr.getTabName());
-        this.aWf.add(this.iCG);
-        this.iCE = new com.baidu.tieba.homepage.tabfeed.a.b(this.iCr.getPageContext(), bn.dOm);
+        this.iCE = new o(this.iCt.getPageContext(), bv.dRH, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCE.a(this.hnH);
         this.aWf.add(this.iCE);
-        this.iCF = new com.baidu.tieba.homepage.tabfeed.a.a(this.iCr.getPageContext(), bi.dOm);
+        this.iCF = new d(this.iCt.getPageContext(), bv.dRK, this.iCt.getUniqueId(), this.iCt.getTabName());
         this.iCF.a(this.hnH);
         this.aWf.add(this.iCF);
-        this.iCH = new j(this.iCr.getPageContext());
+        this.iCI = new com.baidu.tieba.homepage.tabfeed.a.c(this.iCt.getPageContext(), com.baidu.tieba.card.data.j.TYPE, this.iCt.getTabName());
+        this.aWf.add(this.iCI);
+        this.iCG = new com.baidu.tieba.homepage.tabfeed.a.b(this.iCt.getPageContext(), bn.dOm);
+        this.iCG.a(this.hnH);
+        this.aWf.add(this.iCG);
+        this.iCH = new com.baidu.tieba.homepage.tabfeed.a.a(this.iCt.getPageContext(), bi.dOm);
         this.iCH.a(this.hnH);
         this.aWf.add(this.iCH);
-        this.iCI = new n(this.iCr.getPageContext());
-        this.iCI.a(this.hnH);
-        this.aWf.add(this.iCI);
+        this.iCJ = new j(this.iCt.getPageContext());
+        this.iCJ.a(this.hnH);
+        this.aWf.add(this.iCJ);
+        this.iCK = new n(this.iCt.getPageContext());
+        this.iCK.a(this.hnH);
+        this.aWf.add(this.iCK);
         this.hnH.addAdapters(this.aWf);
     }
 
@@ -113,8 +113,8 @@ public class a {
     }
 
     public void setTabName(String str) {
-        if (this.iCF != null) {
-            this.iCF.setTabName(str);
+        if (this.iCH != null) {
+            this.iCH.setTabName(str);
         }
     }
 }

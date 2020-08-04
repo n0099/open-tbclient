@@ -33,9 +33,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     private int fVJ;
     private String fVK;
     public HttpMessageListener httpListener;
-    private a jTN;
-    private PersonListActivity jTV;
-    private com.baidu.tbadk.coreExtra.model.a jTW;
+    private a jTP;
+    private PersonListActivity jTX;
+    private com.baidu.tbadk.coreExtra.model.a jTY;
     private String mId;
     private int mSex;
     public static final BdUniqueId MYFOLLOW = BdUniqueId.gen();
@@ -63,13 +63,13 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode != 200 || error != 0) {
-                            if (PersonListModel.this.jTN != null) {
+                            if (PersonListModel.this.jTP != null) {
                                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                    errorString = PersonListModel.this.jTV.getResources().getString(R.string.neterror);
+                                    errorString = PersonListModel.this.jTX.getResources().getString(R.string.neterror);
                                 } else {
                                     errorString = httpResponsedMessage.getErrorString();
                                 }
-                                PersonListModel.this.jTN.ar(errorString, false);
+                                PersonListModel.this.jTP.ar(errorString, false);
                                 return;
                             }
                             return;
@@ -83,8 +83,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                             data.type = PersonListModel.this.fVJ;
                             data.dQm = PersonListModel.this.fVK;
                         }
-                        if (PersonListModel.this.jTN != null) {
-                            PersonListModel.this.jTN.e(data, false);
+                        if (PersonListModel.this.jTP != null) {
+                            PersonListModel.this.jTP.e(data, false);
                         }
                     }
                 }
@@ -97,8 +97,8 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                     bb data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                     if (data2 == null) {
-                        if (PersonListModel.this.jTN != null) {
-                            PersonListModel.this.jTN.ar("", true);
+                        if (PersonListModel.this.jTP != null) {
+                            PersonListModel.this.jTP.ar("", true);
                             return;
                         }
                         return;
@@ -109,18 +109,18 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     }
                     data2.type = PersonListModel.this.fVJ;
                     data2.dQm = PersonListModel.this.fVK;
-                    if (PersonListModel.this.jTN != null) {
-                        PersonListModel.this.jTN.e(data2, true);
+                    if (PersonListModel.this.jTP != null) {
+                        PersonListModel.this.jTP.e(data2, true);
                     }
                 }
             }
         };
-        this.jTV = personListActivity;
-        this.jTW = new com.baidu.tbadk.coreExtra.model.a(this.jTV.getPageContext());
-        this.jTW.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.jTX = personListActivity;
+        this.jTY = new com.baidu.tbadk.coreExtra.model.a(this.jTX.getPageContext());
+        this.jTY.setLoadDataCallBack(this.mLoadDataCallBack);
         this.aUF = true;
         this.mId = null;
-        this.jTN = aVar;
+        this.jTP = aVar;
     }
 
     public int getPage() {

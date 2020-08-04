@@ -5,22 +5,22 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes9.dex */
 public class a {
-    InterfaceC0807a mWh;
-    final float mWi;
-    boolean mWj;
-    boolean mWk;
-    long mWl;
-    float mWm;
-    float mWn;
+    InterfaceC0807a mWj;
+    final float mWk;
+    boolean mWl;
+    boolean mWm;
+    long mWn;
+    float mWo;
+    float mWp;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0807a {
-        boolean dDR();
+        boolean dDS();
     }
 
     public a(Context context) {
-        this.mWi = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.mWk = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.mWh = null;
+        this.mWj = null;
         reset();
     }
 
     public void reset() {
-        this.mWj = false;
-        this.mWk = false;
+        this.mWl = false;
+        this.mWm = false;
     }
 
     public void a(InterfaceC0807a interfaceC0807a) {
-        this.mWh = interfaceC0807a;
+        this.mWj = interfaceC0807a;
     }
 
-    public boolean dEV() {
-        return this.mWj;
+    public boolean dEW() {
+        return this.mWl;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.mWj = true;
-                this.mWk = true;
-                this.mWl = motionEvent.getEventTime();
-                this.mWm = motionEvent.getX();
-                this.mWn = motionEvent.getY();
+                this.mWl = true;
+                this.mWm = true;
+                this.mWn = motionEvent.getEventTime();
+                this.mWo = motionEvent.getX();
+                this.mWp = motionEvent.getY();
                 break;
             case 1:
-                this.mWj = false;
-                if (Math.abs(motionEvent.getX() - this.mWm) > this.mWi || Math.abs(motionEvent.getY() - this.mWn) > this.mWi) {
-                    this.mWk = false;
+                this.mWl = false;
+                if (Math.abs(motionEvent.getX() - this.mWo) > this.mWk || Math.abs(motionEvent.getY() - this.mWp) > this.mWk) {
+                    this.mWm = false;
                 }
-                if (this.mWk && motionEvent.getEventTime() - this.mWl <= ViewConfiguration.getLongPressTimeout() && this.mWh != null) {
-                    this.mWh.dDR();
+                if (this.mWm && motionEvent.getEventTime() - this.mWn <= ViewConfiguration.getLongPressTimeout() && this.mWj != null) {
+                    this.mWj.dDS();
                 }
-                this.mWk = false;
+                this.mWm = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.mWm) > this.mWi || Math.abs(motionEvent.getY() - this.mWn) > this.mWi) {
-                    this.mWk = false;
+                if (Math.abs(motionEvent.getX() - this.mWo) > this.mWk || Math.abs(motionEvent.getY() - this.mWp) > this.mWk) {
+                    this.mWm = false;
                     break;
                 }
                 break;
             case 3:
-                this.mWj = false;
-                this.mWk = false;
+                this.mWl = false;
+                this.mWm = false;
                 break;
         }
         return true;

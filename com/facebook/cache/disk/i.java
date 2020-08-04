@@ -5,26 +5,26 @@ import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object mQn = new Object();
-    private static i mQo;
-    private static int mQp;
-    private String lcP;
-    private IOException mLt;
-    private com.facebook.cache.common.b mQq;
-    private long mQr;
-    private long mQs;
+    private static final Object mQp = new Object();
+    private static i mQq;
+    private static int mQr;
+    private String lcR;
+    private IOException mLv;
+    private com.facebook.cache.common.b mQs;
     private long mQt;
-    private CacheEventListener.EvictionReason mQu;
-    private i mQv;
+    private long mQu;
+    private long mQv;
+    private CacheEventListener.EvictionReason mQw;
+    private i mQx;
 
     @ReturnsOwnership
-    public static i dCn() {
-        synchronized (mQn) {
-            if (mQo != null) {
-                i iVar = mQo;
-                mQo = iVar.mQv;
-                iVar.mQv = null;
-                mQp--;
+    public static i dCo() {
+        synchronized (mQp) {
+            if (mQq != null) {
+                i iVar = mQq;
+                mQq = iVar.mQx;
+                iVar.mQx = null;
+                mQr--;
                 return iVar;
             }
             return new i();
@@ -35,60 +35,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i h(com.facebook.cache.common.b bVar) {
-        this.mQq = bVar;
+        this.mQs = bVar;
         return this;
     }
 
     public i Rm(String str) {
-        this.lcP = str;
+        this.lcR = str;
         return this;
     }
 
     public i fU(long j) {
-        this.mQr = j;
-        return this;
-    }
-
-    public i fV(long j) {
         this.mQt = j;
         return this;
     }
 
+    public i fV(long j) {
+        this.mQv = j;
+        return this;
+    }
+
     public i fW(long j) {
-        this.mQs = j;
+        this.mQu = j;
         return this;
     }
 
     public i e(IOException iOException) {
-        this.mLt = iOException;
+        this.mLv = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.mQu = evictionReason;
+        this.mQw = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (mQn) {
-            if (mQp < 5) {
+        synchronized (mQp) {
+            if (mQr < 5) {
                 reset();
-                mQp++;
-                if (mQo != null) {
-                    this.mQv = mQo;
+                mQr++;
+                if (mQq != null) {
+                    this.mQx = mQq;
                 }
-                mQo = this;
+                mQq = this;
             }
         }
     }
 
     private void reset() {
-        this.mQq = null;
-        this.lcP = null;
-        this.mQr = 0L;
-        this.mQs = 0L;
+        this.mQs = null;
+        this.lcR = null;
         this.mQt = 0L;
-        this.mLt = null;
-        this.mQu = null;
+        this.mQu = 0L;
+        this.mQv = 0L;
+        this.mLv = null;
+        this.mQw = null;
     }
 }

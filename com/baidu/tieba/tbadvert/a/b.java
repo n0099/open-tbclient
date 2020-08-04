@@ -7,7 +7,7 @@ public class b {
     public int dTc;
     public long endTime;
     public int id;
-    public String lRu;
+    public String lRw;
     public String linkUrl;
     public long showTime = 3000;
     public int showType;
@@ -22,12 +22,12 @@ public class b {
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
             this.dTc = jSONObject.optInt("show_status", 0);
-            this.lRu = jSONObject.optString("resource_url");
+            this.lRw = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean dmJ() {
+    public boolean dmK() {
         return this.showType == 1;
     }
 

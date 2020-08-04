@@ -30,8 +30,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes18.dex */
 public class b {
-    private static b jUj;
-    private volatile boolean jUk = false;
+    private static b jUl;
+    private volatile boolean jUm = false;
 
     private b() {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(1003067, CmdConfigSocket.CMD_GET_STORE_REMIND_TIME) { // from class: com.baidu.tieba.myCollection.b.1
@@ -58,22 +58,22 @@ public class b {
     }
 
     public static b cGU() {
-        if (jUj == null) {
+        if (jUl == null) {
             synchronized (b.class) {
-                if (jUj == null) {
-                    jUj = new b();
+                if (jUl == null) {
+                    jUl = new b();
                 }
             }
         }
-        return jUj;
+        return jUl;
     }
 
     public void rs(boolean z) {
-        this.jUk = z;
+        this.jUm = z;
     }
 
     public void rt(boolean z) {
-        if (this.jUk) {
+        if (this.jUm) {
             z = false;
         }
         com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);

@@ -131,7 +131,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(q.dSM());
+                aVar = new io.reactivex.internal.queue.a<>(q.dSN());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

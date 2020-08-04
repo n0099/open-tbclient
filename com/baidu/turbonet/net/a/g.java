@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 public class g implements Executor {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final String mUrl;
-    private boolean mLv = false;
-    private boolean mLw = false;
+    private boolean mLx = false;
+    private boolean mLy = false;
     private long mThreadId = -1;
     private final BlockingQueue<Runnable> mQueue = new LinkedBlockingQueue();
 
@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean dzU() {
+    private boolean dzV() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -55,30 +55,30 @@ public class g implements Executor {
         }
     }
 
-    public void dzV() throws IOException {
+    public void dzW() throws IOException {
         Ia(0);
     }
 
     public void Ia(int i) throws IOException {
-        if (!$assertionsDisabled && !dzU()) {
+        if (!$assertionsDisabled && !dzV()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (this.mLw) {
+        if (this.mLy) {
             throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
-        if (this.mLv) {
+        if (this.mLx) {
             throw new IllegalStateException("Cannot run loop when it is already running.");
         }
-        this.mLv = true;
-        while (this.mLv) {
+        this.mLx = true;
+        while (this.mLx) {
             if (i == 0) {
                 try {
                     f(false, 0L).run();
                 } catch (InterruptedIOException | RuntimeException e) {
-                    this.mLv = false;
-                    this.mLw = true;
+                    this.mLx = false;
+                    this.mLy = true;
                     throw e;
                 }
             } else {
@@ -88,10 +88,10 @@ public class g implements Executor {
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !dzU()) {
+        if (!$assertionsDisabled && !dzV()) {
             throw new AssertionError();
         }
-        this.mLv = false;
+        this.mLx = false;
     }
 
     @Override // java.util.concurrent.Executor

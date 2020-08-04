@@ -8,13 +8,13 @@ import java.util.List;
 public class ShapeStroke implements b {
     private final float Er;
     private final List<com.tb.airbnb.lottie.model.a.b> Es;
+    private final LineJoinType nPA;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nPK;
-    private final com.tb.airbnb.lottie.model.a.a nPe;
-    private final com.tb.airbnb.lottie.model.a.d nPm;
-    private final com.tb.airbnb.lottie.model.a.b nPw;
-    private final LineCapType nPx;
-    private final LineJoinType nPy;
+    private final com.tb.airbnb.lottie.model.a.b nPM;
+    private final com.tb.airbnb.lottie.model.a.a nPg;
+    private final com.tb.airbnb.lottie.model.a.d nPo;
+    private final com.tb.airbnb.lottie.model.a.b nPy;
+    private final LineCapType nPz;
     private final String name;
 
     /* loaded from: classes5.dex */
@@ -57,13 +57,13 @@ public class ShapeStroke implements b {
 
     public ShapeStroke(String str, @Nullable com.tb.airbnb.lottie.model.a.b bVar, List<com.tb.airbnb.lottie.model.a.b> list, com.tb.airbnb.lottie.model.a.a aVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
         this.name = str;
-        this.nPK = bVar;
+        this.nPM = bVar;
         this.Es = list;
-        this.nPe = aVar;
-        this.nPm = dVar;
-        this.nPw = bVar2;
-        this.nPx = lineCapType;
-        this.nPy = lineJoinType;
+        this.nPg = aVar;
+        this.nPo = dVar;
+        this.nPy = bVar2;
+        this.nPz = lineCapType;
+        this.nPA = lineJoinType;
         this.Er = f;
     }
 
@@ -76,32 +76,32 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.a dRI() {
-        return this.nPe;
+    public com.tb.airbnb.lottie.model.a.a dRJ() {
+        return this.nPg;
     }
 
-    public com.tb.airbnb.lottie.model.a.d dRi() {
-        return this.nPm;
+    public com.tb.airbnb.lottie.model.a.d dRj() {
+        return this.nPo;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dRr() {
-        return this.nPw;
+    public com.tb.airbnb.lottie.model.a.b dRs() {
+        return this.nPy;
     }
 
     public List<com.tb.airbnb.lottie.model.a.b> iw() {
         return this.Es;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dRu() {
-        return this.nPK;
+    public com.tb.airbnb.lottie.model.a.b dRv() {
+        return this.nPM;
     }
 
-    public LineCapType dRs() {
-        return this.nPx;
+    public LineCapType dRt() {
+        return this.nPz;
     }
 
-    public LineJoinType dRt() {
-        return this.nPy;
+    public LineJoinType dRu() {
+        return this.nPA;
     }
 
     public float iy() {

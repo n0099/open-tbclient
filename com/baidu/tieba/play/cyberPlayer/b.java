@@ -12,65 +12,65 @@ import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
     private bv dLK;
-    private long lcW;
-    private o lcX;
-    private boolean lcZ;
-    private long lcV = 0;
+    private long lcY;
+    private o lcZ;
+    private boolean ldb;
+    private long lcX = 0;
     private long mStartTime = 0;
-    private String lcY = "1";
-    private k lda = new k();
+    private String lda = "1";
+    private k ldc = new k();
 
     public void cZe() {
-        this.lda.cGB();
+        this.ldc.cGB();
     }
 
     public void fB(long j) {
-        this.lcW = j;
-        this.lda.cGC();
+        this.lcY = j;
+        this.ldc.cGC();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
+            this.lcX = (System.currentTimeMillis() - this.mStartTime) + this.lcX;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.lcZ = true;
-        this.lda.cGD();
+        this.ldb = true;
+        this.ldc.cGD();
     }
 
     public void b(TbCyberVideoView tbCyberVideoView) {
-        this.lda.a(tbCyberVideoView);
+        this.ldc.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
+            this.lcX = (System.currentTimeMillis() - this.mStartTime) + this.lcX;
             this.mStartTime = 0L;
         }
-        this.lcZ = false;
+        this.ldb = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
+            this.lcX = (System.currentTimeMillis() - this.mStartTime) + this.lcX;
             this.mStartTime = 0L;
         }
         cZf();
-        this.lcV = 0L;
+        this.lcX = 0L;
         this.mStartTime = 0L;
-        this.lcZ = false;
-        this.lda.cGA();
+        this.ldb = false;
+        this.ldc.cGA();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.lcV = (System.currentTimeMillis() - this.mStartTime) + this.lcV;
+            this.lcX = (System.currentTimeMillis() - this.mStartTime) + this.lcX;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(o oVar) {
-        this.lcX = oVar;
+        this.lcZ = oVar;
     }
 
     public void setThreadData(bv bvVar) {
@@ -78,22 +78,22 @@ public class b {
     }
 
     public void setPlayMode(String str) {
-        this.lcY = str;
+        this.lda = str;
     }
 
     private void cZf() {
-        if (this.lcV >= 0 && this.lcV < 86400000) {
-            if (this.lcV > 0) {
+        if (this.lcX >= 0 && this.lcX < 86400000) {
+            if (this.lcX > 0) {
                 ap apVar = new ap(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                apVar.t("obj_duration", this.lcV);
-                apVar.dn("obj_type", this.lcY);
-                apVar.t("playduration", this.lcW);
+                apVar.t("obj_duration", this.lcX);
+                apVar.dn("obj_type", this.lda);
+                apVar.t("playduration", this.lcY);
                 apVar.ah("player_type", 1);
                 if (!as.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     apVar.dn("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.lcX != null) {
-                    this.lcX.f(apVar);
+                if (this.lcZ != null) {
+                    this.lcZ.f(apVar);
                 }
                 if (!apVar.xO("obj_param5") && this.dLK != null) {
                     if (this.dLK.getBaijiahaoData() != null) {
@@ -107,9 +107,9 @@ public class b {
                     }
                 }
                 TiebaStatic.log(apVar);
-                h.a(this.lcV, this.lcY, this.lcX, "", this.lcW);
-            } else if (this.lcZ) {
-                h.a(this.lcV, this.lcY, this.lcX, "", this.lcW);
+                h.a(this.lcX, this.lda, this.lcZ, "", this.lcY);
+            } else if (this.ldb) {
+                h.a(this.lcX, this.lda, this.lcZ, "", this.lcY);
             }
         }
     }

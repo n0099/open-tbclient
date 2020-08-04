@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes10.dex */
 public @interface c {
-    String[] dKT() default {};
+    String[] dKU() default {};
 
     String value();
 }

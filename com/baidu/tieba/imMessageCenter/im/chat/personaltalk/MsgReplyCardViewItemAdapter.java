@@ -30,7 +30,7 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
         MsgReplyCardView cra = aVar.cra();
         cra.a(this.mPageContext, chatMessage, viewGroup);
-        cra.a(this.iQB);
+        cra.a(this.iQD);
         cra.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);

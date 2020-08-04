@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void dyv();
-
     void dyw();
 
     void dyx();
+
+    void dyy();
 
     Object getTag();
 
@@ -58,26 +58,26 @@ public interface UrlRequest {
     public static final class Builder {
         String dfN;
         final Executor mExecutor;
-        final Callback mHO;
-        boolean mIf;
-        boolean mIg;
+        final Callback mHQ;
         boolean mIh;
+        boolean mIi;
         boolean mIj;
-        int mIk;
-        int mIl;
+        boolean mIl;
         int mIm;
         int mIn;
-        String mIo;
-        String mIq;
-        final TurbonetEngine mJE;
-        UploadDataProvider mKs;
-        Executor mKt;
-        boolean mKu;
+        int mIo;
+        int mIq;
+        String mIr;
+        String mIt;
+        final TurbonetEngine mJG;
+        UploadDataProvider mKu;
+        Executor mKv;
+        boolean mKw;
         Object mTag;
         final String mUrl;
-        final ArrayList<Pair<String, String>> mKr = new ArrayList<>();
+        final ArrayList<Pair<String, String>> mKt = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> mIe = Collections.emptyList();
+        Collection<Object> mIg = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes19.dex */
@@ -98,18 +98,18 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.mHO = callback;
+            this.mHQ = callback;
             this.mExecutor = executor;
-            this.mJE = turbonetEngine;
-            this.mKu = false;
-            this.mIj = false;
-            this.mIk = 0;
-            this.mIl = 0;
+            this.mJG = turbonetEngine;
+            this.mKw = false;
+            this.mIl = false;
             this.mIm = 0;
             this.mIn = 0;
+            this.mIo = 0;
+            this.mIq = 0;
             this.mTag = null;
-            this.mIo = null;
-            this.mIq = null;
+            this.mIr = null;
+            this.mIt = null;
         }
 
         public Builder Qu(String str) {
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.mKr.add(Pair.create(str, str2));
+                this.mKt.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder dzp() {
-            this.mIf = true;
-            return this;
-        }
-
         public Builder dzq() {
-            this.mKu = true;
-            return this;
-        }
-
-        public Builder dzr() {
             this.mIh = true;
             return this;
         }
 
+        public Builder dzr() {
+            this.mKw = true;
+            return this;
+        }
+
+        public Builder dzs() {
+            this.mIj = true;
+            return this;
+        }
+
         public Builder HS(int i) {
-            this.mIk = i;
-            return this;
-        }
-
-        public Builder HT(int i) {
-            this.mIl = i;
-            return this;
-        }
-
-        public Builder HU(int i) {
             this.mIm = i;
             return this;
         }
 
+        public Builder HT(int i) {
+            this.mIn = i;
+            return this;
+        }
+
+        public Builder HU(int i) {
+            this.mIo = i;
+            return this;
+        }
+
         public Builder Qv(String str) {
-            this.mIo = str;
+            this.mIr = str;
             return this;
         }
 
         public Builder Qw(String str) {
-            this.mIq = str;
+            this.mIt = str;
             return this;
         }
 
@@ -185,50 +185,50 @@ public interface UrlRequest {
             if (this.dfN == null) {
                 this.dfN = "POST";
             }
-            this.mKs = uploadDataProvider;
-            this.mKt = executor;
+            this.mKu = uploadDataProvider;
+            this.mKv = executor;
             return this;
         }
 
-        public UrlRequest dzs() {
-            UrlRequest a = this.mJE.a(this.mUrl, this.mHO, this.mExecutor, this.mPriority, this.mIe, this.mIf, this.mIg, this.mIh);
+        public UrlRequest dzt() {
+            UrlRequest a = this.mJG.a(this.mUrl, this.mHQ, this.mExecutor, this.mPriority, this.mIg, this.mIh, this.mIi, this.mIj);
             if (this.dfN != null) {
                 a.Qi(this.dfN);
             }
-            Iterator<Pair<String, String>> it = this.mKr.iterator();
+            Iterator<Pair<String, String>> it = this.mKt.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a.addHeader((String) next.first, (String) next.second);
             }
-            if (this.mKs != null) {
-                a.a(this.mKs, this.mKt);
+            if (this.mKu != null) {
+                a.a(this.mKu, this.mKv);
             }
-            if (this.mKu) {
-                a.dyw();
-            }
-            if (this.mIj) {
+            if (this.mKw) {
                 a.dyx();
             }
-            if (this.mIk > 0) {
-                a.setTimeout(this.mIk);
-            }
-            if (this.mIl > 0) {
-                a.HD(this.mIl);
+            if (this.mIl) {
+                a.dyy();
             }
             if (this.mIm > 0) {
-                a.HE(this.mIm);
+                a.setTimeout(this.mIm);
             }
             if (this.mIn > 0) {
-                a.HF(this.mIn);
+                a.HD(this.mIn);
+            }
+            if (this.mIo > 0) {
+                a.HE(this.mIo);
+            }
+            if (this.mIq > 0) {
+                a.HF(this.mIq);
             }
             if (this.mTag != null) {
                 a.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.mIo)) {
-                a.Qj(this.mIo);
+            if (!TextUtils.isEmpty(this.mIr)) {
+                a.Qj(this.mIr);
             }
-            if (!TextUtils.isEmpty(this.mIq)) {
-                a.Qk(this.mIq);
+            if (!TextUtils.isEmpty(this.mIt)) {
+                a.Qk(this.mIt);
             }
             return a;
         }

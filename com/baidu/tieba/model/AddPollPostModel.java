@@ -12,8 +12,8 @@ import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
 /* loaded from: classes.dex */
 public class AddPollPostModel extends BdBaseModel {
     private long dEQ;
-    private a jRj;
-    private com.baidu.adp.framework.listener.a jRk;
+    private a jRl;
+    private com.baidu.adp.framework.listener.a jRm;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class AddPollPostModel extends BdBaseModel {
 
     public AddPollPostModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jRk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
+        this.jRm = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String str;
@@ -45,8 +45,8 @@ public class AddPollPostModel extends BdBaseModel {
                             i = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                             str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                         }
-                        if (AddPollPostModel.this.jRj != null) {
-                            AddPollPostModel.this.jRj.aq(i, str);
+                        if (AddPollPostModel.this.jRl != null) {
+                            AddPollPostModel.this.jRl.aq(i, str);
                         }
                     }
                 }
@@ -71,15 +71,15 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        registerListener(this.jRk);
+        registerListener(this.jRm);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.jRk);
+        MessageManager.getInstance().unRegisterListener(this.jRm);
     }
 
     public void a(a aVar) {
-        this.jRj = aVar;
+        this.jRl = aVar;
     }
 
     public void setTid(long j) {

@@ -3,8 +3,9 @@ package com.baidu.bdhttpdns;
 import com.baidu.bdhttpdns.BDHttpDns;
 import com.baidu.bdhttpdns.BDHttpDnsResult;
 import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes9.dex */
-class b implements Runnable {
+public class b implements Runnable {
     final /* synthetic */ BDHttpDns.a abG;
     final /* synthetic */ BDHttpDns abH;
     final /* synthetic */ ArrayList b;

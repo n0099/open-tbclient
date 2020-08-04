@@ -83,7 +83,7 @@ public class FrsActivityStatic {
         caP();
         caQ();
         caR();
-        LocationModel.dlS();
+        LocationModel.dlT();
         caV();
         caT();
         caW();

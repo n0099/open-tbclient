@@ -14,8 +14,8 @@ import com.baidu.tieba.sdk.b.d;
 import com.baidu.tieba.sdk.e.a;
 /* loaded from: classes4.dex */
 public class LivePlayerActivity extends MAActivity implements BdPageContextSupport {
-    private a lvn;
-    c lvo = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
+    private a lvp;
+    c lvq = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
         @Override // com.baidu.tieba.ala.player.c
         public void b(boolean z, boolean z2, long j) {
             LivePlayerActivity.this.finish();
@@ -38,8 +38,8 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
             return;
         }
         com.baidu.tieba.sdk.a.ddS().ddU();
-        this.lvn = com.baidu.tieba.sdk.a.ddS().a(this);
-        this.lvn.a(this.lvo);
+        this.lvp = com.baidu.tieba.sdk.a.ddS().a(this);
+        this.lvp.a(this.lvq);
         if (dVar != null) {
             dVar.b(this);
         }
@@ -48,7 +48,7 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.lvn.onStart();
+        this.lvp.onStart();
         d deb = com.baidu.tieba.sdk.d.a.ddW().deb();
         if (deb != null) {
             deb.e(this);
@@ -58,7 +58,7 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.lvn.onResume();
+        this.lvp.onResume();
         d deb = com.baidu.tieba.sdk.d.a.ddW().deb();
         if (deb != null) {
             deb.c(this);
@@ -68,7 +68,7 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.lvn.onPause();
+        this.lvp.onPause();
         d deb = com.baidu.tieba.sdk.d.a.ddW().deb();
         if (deb != null) {
             deb.d(this);
@@ -78,7 +78,7 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        this.lvn.onStop();
+        this.lvp.onStop();
         d deb = com.baidu.tieba.sdk.d.a.ddW().deb();
         if (deb != null) {
             deb.f(this);
@@ -88,14 +88,14 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.lvn != null) {
-            this.lvn.onWindowFocusChanged(z);
+        if (this.lvp != null) {
+            this.lvp.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.lvn.onKeyDown(i, keyEvent)) {
+        if (this.lvp.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -104,14 +104,14 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.lvn.onActivityResult(i, i2, intent);
+        this.lvp.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.lvn != null) {
-            this.lvn.onConfigurationChanged(configuration);
+        if (this.lvp != null) {
+            this.lvp.onConfigurationChanged(configuration);
         }
     }
 
@@ -122,8 +122,8 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
             deb.g(this);
         }
         super.onDestroy();
-        if (this.lvn != null) {
-            this.lvn.onDestroy();
+        if (this.lvp != null) {
+            this.lvp.onDestroy();
         }
         if (deb != null) {
             deb.h(this);
@@ -132,6 +132,6 @@ public class LivePlayerActivity extends MAActivity implements BdPageContextSuppo
 
     @Override // com.baidu.live.adp.base.BdPageContextSupport, com.baidu.live.tbadk.TbPageContextSupport
     public BdPageContext getPageContext() {
-        return this.lvn;
+        return this.lvp;
     }
 }

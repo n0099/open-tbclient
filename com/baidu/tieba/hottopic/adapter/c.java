@@ -48,17 +48,17 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.a aVar, final com.baidu.tieba.hottopic.data.b bVar) {
         if (aVar != null && bVar != null) {
             String string = StringUtils.isNull(bVar.cpb()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cpb();
-            aVar.iLl.setText(bVar.cpa());
-            aVar.iLj.setText(string);
-            aVar.iLp.startLoad(bVar.coZ(), 10, false);
+            aVar.iLn.setText(bVar.cpa());
+            aVar.iLl.setText(string);
+            aVar.iLr.startLoad(bVar.coZ(), 10, false);
             if (StringUtils.isNull(bVar.getName())) {
-                aVar.iLk.setVisibility(8);
-                aVar.iLl.setPadding(0, 0, 0, 0);
+                aVar.iLm.setVisibility(8);
+                aVar.iLn.setPadding(0, 0, 0, 0);
             } else {
-                aVar.iLk.setVisibility(0);
-                aVar.iLk.setText(bVar.getName());
+                aVar.iLm.setVisibility(0);
+                aVar.iLm.setText(bVar.getName());
             }
-            aVar.iLq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
+            aVar.iLs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(bVar.getId()), bVar.getName(), "5")));
@@ -74,12 +74,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             if (aVar.aho != this.mSkinType) {
                 aVar.aho = this.mSkinType;
                 ao.setBackgroundColor(aVar.getView(), R.color.cp_bg_line_d);
-                ao.setViewTextColor(aVar.iLj, R.color.cp_cont_d, 1);
-                ao.setViewTextColor(aVar.iLk, R.color.cp_cont_b, 1);
-                ao.setViewTextColor(aVar.iLl, R.color.cp_cont_c, 1);
-                ao.setBackgroundColor(aVar.iLn, R.color.cp_bg_line_c);
-                ao.setBackgroundColor(aVar.iLo, R.color.cp_bg_line_c);
-                ao.setBackgroundResource(aVar.iLq, R.drawable.hot_topic_ranklist_bg);
+                ao.setViewTextColor(aVar.iLl, R.color.cp_cont_d, 1);
+                ao.setViewTextColor(aVar.iLm, R.color.cp_cont_b, 1);
+                ao.setViewTextColor(aVar.iLn, R.color.cp_cont_c, 1);
+                ao.setBackgroundColor(aVar.iLp, R.color.cp_bg_line_c);
+                ao.setBackgroundColor(aVar.iLq, R.color.cp_bg_line_c);
+                ao.setBackgroundResource(aVar.iLs, R.drawable.hot_topic_ranklist_bg);
             }
         }
     }

@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String mbh;
-    private a mbi;
+    private String mbj;
+    private a mbk;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,8 +22,8 @@ public class c extends BdAsyncTask<String, String, Integer> {
     }
 
     public c(String str, a aVar) {
-        this.mbh = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.mbi = aVar;
+        this.mbj = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.mbk = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            z zVar = new z(this.mbh);
+            z zVar = new z(this.mbj);
             zVar.bav().baW().mIsNeedAddCommenParam = false;
             zVar.bav().baW().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(zVar.getNetData())).optJSONArray("result");
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.mbi != null && num != null) {
+        if (this.mbk != null && num != null) {
             if (num.intValue() == -1) {
-                this.mbi.onError(null);
+                this.mbk.onError(null);
             } else if (num.intValue() == 1) {
-                this.mbi.cAg();
+                this.mbk.cAg();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.mbi.cAh();
+                this.mbk.cAh();
             } else {
-                this.mbi.cAi();
+                this.mbk.cAi();
             }
         }
     }

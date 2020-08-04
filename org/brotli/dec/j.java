@@ -7,56 +7,56 @@ import java.io.InputStream;
 public final class j {
     int distance;
     int j;
-    int nLM;
-    int ohC;
-    int ohD;
-    byte[] ohE;
-    byte[] ohF;
-    int ohG;
-    int ohH;
+    int nLO;
+    int ohE;
+    int ohF;
+    byte[] ohG;
+    byte[] ohH;
     int ohI;
     int ohJ;
     int ohK;
     int ohL;
-    byte[] ohM;
+    int ohM;
     int ohN;
-    int ohO;
+    byte[] ohO;
     int ohP;
     int ohQ;
     int ohR;
     int ohS;
     int ohT;
-    int ohY;
-    int ohZ;
-    int ohj;
-    byte[] ohl;
-    int oho;
-    boolean ohp;
-    boolean ohq;
+    int ohU;
+    int ohV;
+    int ohl;
+    byte[] ohn;
+    int ohq;
     boolean ohr;
+    boolean ohs;
+    boolean oht;
     int oia;
     int oib;
+    int oic;
+    int oid;
     byte[] output;
-    int ohi = 0;
-    final a ohk = new a();
-    final int[] ohm = new int[3240];
-    final int[] ohn = new int[3240];
-    final g ohs = new g();
-    final g oht = new g();
+    int ohk = 0;
+    final a ohm = new a();
+    final int[] oho = new int[3240];
+    final int[] ohp = new int[3240];
     final g ohu = new g();
-    final int[] ohv = new int[3];
-    final int[] ohw = new int[3];
-    final int[] ohx = new int[6];
-    final int[] ohy = {16, 15, 11, 4};
+    final g ohv = new g();
+    final g ohw = new g();
+    final int[] ohx = new int[3];
+    final int[] ohy = new int[3];
+    final int[] ohz = new int[6];
+    final int[] ohA = {16, 15, 11, 4};
     int pos = 0;
     int fUV = 0;
-    int ohz = 0;
-    boolean ohA = false;
     int ohB = 0;
-    int ohU = 0;
-    long ohV = 0;
-    byte[] ohW = new byte[0];
-    int ohX = 0;
+    boolean ohC = false;
+    int ohD = 0;
+    int ohW = 0;
+    long ohX = 0;
+    byte[] ohY = new byte[0];
+    int ohZ = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.ohi != 0) {
+        if (jVar.ohk != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.ohk, inputStream);
-        int i = i(jVar.ohk);
+        a.a(jVar.ohm, inputStream);
+        int i = i(jVar.ohm);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.ohT = 1 << i;
-        jVar.ohS = jVar.ohT - 16;
-        jVar.ohi = 1;
+        jVar.ohV = 1 << i;
+        jVar.ohU = jVar.ohV - 16;
+        jVar.ohk = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.ohi == 0) {
+        if (jVar.ohk == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.ohi != 11) {
-            jVar.ohi = 11;
-            a.e(jVar.ohk);
+        if (jVar.ohk != 11) {
+            jVar.ohk = 11;
+            a.e(jVar.ohm);
         }
     }
 }

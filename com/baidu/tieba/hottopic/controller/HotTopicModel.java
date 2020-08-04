@@ -16,7 +16,7 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 0;
-    private a iJt;
+    private a iJv;
     private BaseActivity<?> mActivity;
     private com.baidu.adp.framework.listener.a netMessageListener;
 
@@ -27,7 +27,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
 
     public HotTopicModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.iJt = null;
+        this.iJv = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(1003041, CmdConfigSocket.CMD_HOT_TOPIC) { // from class: com.baidu.tieba.hottopic.controller.HotTopicModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -40,7 +40,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                         if (!StringUtils.isNull(responsedMessage.getErrorString())) {
                             HotTopicModel.this.mActivity.showToast(responsedMessage.getErrorString());
                         }
-                        HotTopicModel.this.iJt.a(false, null);
+                        HotTopicModel.this.iJv.a(false, null);
                     }
                 }
             }
@@ -94,12 +94,12 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
             if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                 eVar.sortType = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
             }
-            this.iJt.a(!responsedMessage.hasError(), eVar);
+            this.iJv.a(!responsedMessage.hasError(), eVar);
         }
     }
 
     public void a(a aVar) {
-        this.iJt = aVar;
+        this.iJv = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

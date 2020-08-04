@@ -16,16 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.m> {
-    private HTypeListView kNB;
-    private com.baidu.tieba.personPolymeric.a.o kZn;
-    private View.OnClickListener kZv;
+    private HTypeListView kND;
+    private com.baidu.tieba.personPolymeric.a.o kZp;
+    private View.OnClickListener kZx;
     private View mRootView;
     private TextView mTitleView;
     private long uid;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.kZv = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
+        this.kZx = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 j.this.cYi();
@@ -34,8 +34,8 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         this.currentPageType = 4;
         this.mRootView = getView();
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.card_person_vedio_list_title);
-        this.kNB = (HTypeListView) this.mRootView.findViewById(R.id.card_person_vedio_view_pager);
-        this.kZn = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.kNB);
+        this.kND = (HTypeListView) this.mRootView.findViewById(R.id.card_person_vedio_view_pager);
+        this.kZp = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.kND);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -55,14 +55,14 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || x.isEmpty(mVar.kWU)) {
+        if (mVar == null || x.isEmpty(mVar.kWW)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = mVar.uid;
         this.mTitleView.setText(R.string.video_title_str);
-        this.kNB.setData(eK(mVar.kWU));
-        this.kZn.Z(this.kZv);
+        this.kND.setData(eK(mVar.kWW));
+        this.kZp.Z(this.kZx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

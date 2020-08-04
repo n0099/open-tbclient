@@ -10,17 +10,17 @@ public class bb {
         private static final bb a = new bb();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f123a;
+        public int f126a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f124a;
+        public Object f127a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f125a;
+        public String f128a;
 
         a(int i, Object obj) {
-            this.f123a = i;
-            this.f124a = obj;
+            this.f126a = i;
+            this.f127a = obj;
         }
     }
 

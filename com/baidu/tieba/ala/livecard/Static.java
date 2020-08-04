@@ -35,8 +35,8 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bv.dRU, null));
                         absDelegateAdapterList.add(new h(null, bv.dRT, null));
                         absDelegateAdapterList.add(new g(null, bv.dRV, null));
-                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.lKQ, null));
-                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.lKT, null));
+                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.g.lKS, null));
+                        absDelegateAdapterList.add(new e(null, com.baidu.tieba.tbadkCore.h.lKV, null));
                     }
                 }
             });
@@ -49,7 +49,7 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bv.dRU, null));
                         absDelegateAdapterList.add(new f(null, bv.dRT, null));
                         absDelegateAdapterList.add(new d(null, bv.dRV, null));
-                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.lKT, null));
+                        absDelegateAdapterList.add(new f(null, com.baidu.tieba.tbadkCore.h.lKV, null));
                     }
                 }
             });

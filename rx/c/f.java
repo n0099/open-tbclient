@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f opO = new f();
-    static final b opT = new b() { // from class: rx.c.f.1
+    private static final f opQ = new f();
+    static final b opV = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> opP = new AtomicReference<>();
-    private final AtomicReference<d> opQ = new AtomicReference<>();
-    private final AtomicReference<h> opR = new AtomicReference<>();
-    private final AtomicReference<a> opS = new AtomicReference<>();
-    private final AtomicReference<g> ojL = new AtomicReference<>();
+    private final AtomicReference<b> opR = new AtomicReference<>();
+    private final AtomicReference<d> opS = new AtomicReference<>();
+    private final AtomicReference<h> opT = new AtomicReference<>();
+    private final AtomicReference<a> opU = new AtomicReference<>();
+    private final AtomicReference<g> ojN = new AtomicReference<>();
 
     @Deprecated
-    public static f dYK() {
-        return opO;
+    public static f dYL() {
+        return opQ;
     }
 
     f() {
     }
 
-    public b dYL() {
-        if (this.opP.get() == null) {
+    public b dYM() {
+        if (this.opR.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.opP.compareAndSet(null, opT);
+                this.opR.compareAndSet(null, opV);
             } else {
-                this.opP.compareAndSet(null, (b) a);
-            }
-        }
-        return this.opP.get();
-    }
-
-    public d dYM() {
-        if (this.opQ.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.opQ.compareAndSet(null, e.dYJ());
-            } else {
-                this.opQ.compareAndSet(null, (d) a);
-            }
-        }
-        return this.opQ.get();
-    }
-
-    public h dYN() {
-        if (this.opR.get() == null) {
-            Object a = a(h.class, System.getProperties());
-            if (a == null) {
-                this.opR.compareAndSet(null, i.dYX());
-            } else {
-                this.opR.compareAndSet(null, (h) a);
+                this.opR.compareAndSet(null, (b) a);
             }
         }
         return this.opR.get();
     }
 
-    public a dYO() {
+    public d dYN() {
         if (this.opS.get() == null) {
-            Object a = a(a.class, System.getProperties());
+            Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.opS.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
+                this.opS.compareAndSet(null, e.dYK());
             } else {
-                this.opS.compareAndSet(null, (a) a);
+                this.opS.compareAndSet(null, (d) a);
             }
         }
         return this.opS.get();
+    }
+
+    public h dYO() {
+        if (this.opT.get() == null) {
+            Object a = a(h.class, System.getProperties());
+            if (a == null) {
+                this.opT.compareAndSet(null, i.dYY());
+            } else {
+                this.opT.compareAndSet(null, (h) a);
+            }
+        }
+        return this.opT.get();
+    }
+
+    public a dYP() {
+        if (this.opU.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.opU.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.opU.compareAndSet(null, (a) a);
+            }
+        }
+        return this.opU.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dYP() {
-        if (this.ojL.get() == null) {
+    public g dYQ() {
+        if (this.ojN.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.ojL.compareAndSet(null, g.dYW());
+                this.ojN.compareAndSet(null, g.dYX());
             } else {
-                this.ojL.compareAndSet(null, (g) a);
+                this.ojN.compareAndSet(null, (g) a);
             }
         }
-        return this.ojL.get();
+        return this.ojN.get();
     }
 }

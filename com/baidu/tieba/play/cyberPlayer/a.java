@@ -10,26 +10,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean lcR;
-    private boolean lcS;
-    private HashMap<String, Integer> lcT;
+    private boolean lcT;
+    private boolean lcU;
+    private HashMap<String, Integer> lcV;
 
     public void dN(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.lcR;
-            this.lcR = jSONObject.optInt("switch", 0) == 1;
-            this.lcS = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.lcT;
+            this.lcT = jSONObject.optInt("switch", 0) == 1;
+            this.lcU = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.lcT = new HashMap<>();
+                this.lcV = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.lcT.put(optString, 0);
+                        this.lcV.put(optString, 0);
                     }
                 }
             }
-            if (this.lcR) {
+            if (this.lcT) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
@@ -47,20 +47,20 @@ public class a {
     }
 
     public boolean cZc() {
-        if (this.lcR) {
+        if (this.lcT) {
             c.init();
         }
-        return this.lcR;
+        return this.lcT;
     }
 
     public boolean cZd() {
-        return this.lcS;
+        return this.lcU;
     }
 
     public boolean x(Uri uri) {
-        if (this.lcT == null || uri == null) {
+        if (this.lcV == null || uri == null) {
             return false;
         }
-        return this.lcT.containsKey(uri.getHost());
+        return this.lcV.containsKey(uri.getHost());
     }
 }

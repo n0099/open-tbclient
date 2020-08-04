@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class c {
-    private boolean nau;
-    private boolean nav;
+    @Nullable
+    private com.facebook.imagepipeline.decoder.b naA;
     private boolean naw;
     private boolean nax;
-    @Nullable
-    private com.facebook.imagepipeline.decoder.b nay;
-    private int nat = 100;
+    private boolean nay;
+    private boolean naz;
+    private int nav = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dGh() {
-        return this.nat;
-    }
-
-    public boolean dGi() {
-        return this.nau;
-    }
-
-    public boolean dGj() {
+    public int dGi() {
         return this.nav;
     }
 
-    public boolean dGk() {
+    public boolean dGj() {
         return this.naw;
     }
 
+    public boolean dGk() {
+        return this.nax;
+    }
+
+    public boolean dGl() {
+        return this.nay;
+    }
+
     public c xj(boolean z) {
-        this.nax = z;
+        this.naz = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dGl() {
-        return this.nay;
+    public com.facebook.imagepipeline.decoder.b dGm() {
+        return this.naA;
     }
 
-    public boolean dGm() {
-        return this.nax;
+    public boolean dGn() {
+        return this.naz;
     }
 
-    public Bitmap.Config dGn() {
+    public Bitmap.Config dGo() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dGo() {
+    public b dGp() {
         return new b(this);
     }
 }

@@ -1,8 +1,8 @@
 package org.brotli.dec;
 /* loaded from: classes4.dex */
 final class e {
-    static final int[] ogU = {0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
-    static final int[] ogV = {0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
+    static final int[] ogW = {0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
+    static final int[] ogX = {0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
 
     /* loaded from: classes4.dex */
     private static class b {
@@ -27,7 +27,7 @@ final class e {
 
     /* loaded from: classes4.dex */
     private static class a {
-        static final byte[] ogW = new byte[122784];
+        static final byte[] ogY = new byte[122784];
 
         static {
             String[] strArr = {b.getData(), c.getData(), d.getData()};
@@ -35,7 +35,7 @@ final class e {
             for (String str : strArr) {
                 i += str.length();
             }
-            if (i != ogW.length) {
+            if (i != ogY.length) {
                 throw new RuntimeException("Corrupted brotli dictionary");
             }
             int length = strArr.length;
@@ -46,7 +46,7 @@ final class e {
                 int i4 = i3;
                 int i5 = 0;
                 while (i5 < str2.length()) {
-                    ogW[i4] = (byte) str2.charAt(i5);
+                    ogY[i4] = (byte) str2.charAt(i5);
                     i5++;
                     i4++;
                 }
@@ -58,6 +58,6 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static byte[] getData() {
-        return a.ogW;
+        return a.ogY;
     }
 }

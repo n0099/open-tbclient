@@ -12,7 +12,7 @@ import com.baidu.tieba.card.data.h;
 /* loaded from: classes18.dex */
 public class c extends com.baidu.adp.widget.ListView.a<h, a> {
     private aa fWK;
-    private com.baidu.tieba.godSquare.b.b iqm;
+    private com.baidu.tieba.godSquare.b.b iqo;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,11 +21,11 @@ public class c extends com.baidu.adp.widget.ListView.a<h, a> {
         this.fWK = new aa() { // from class: com.baidu.tieba.godSquare.a.c.1
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.b bVar) {
-                if (view != null && c.this.iqm != null && (bVar instanceof h)) {
+                if (view != null && c.this.iqo != null && (bVar instanceof h)) {
                     h hVar = (h) bVar;
                     if (hVar.dSF != null && !StringUtils.isNull(hVar.dSF.getUserId())) {
-                        if (view.getId() != c.this.iqm.iqu.getId()) {
-                            if (view.getId() == c.this.iqm.getView().getId() || view.getId() == c.this.iqm.imB.getId()) {
+                        if (view.getId() != c.this.iqo.iqw.getId()) {
+                            if (view.getId() == c.this.iqo.getView().getId() || view.getId() == c.this.iqo.imD.getId()) {
                                 TiebaStatic.log(new ap("c10951").dn("obj_id", hVar.dSF.getUserId()));
                                 return;
                             }
@@ -44,30 +44,30 @@ public class c extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: by */
     public a b(ViewGroup viewGroup) {
-        this.iqm = new com.baidu.tieba.godSquare.b.b(this.mPageContext);
-        this.iqm.m(this.mPageContext.getUniqueId());
-        this.iqm.c(this.fWK);
-        return new a(this.iqm);
+        this.iqo = new com.baidu.tieba.godSquare.b.b(this.mPageContext);
+        this.iqo.m(this.mPageContext.getUniqueId());
+        this.iqo.c(this.fWK);
+        return new a(this.iqo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
-        if (aVar == null || aVar.iqo == null) {
+        if (aVar == null || aVar.iqq == null) {
             return null;
         }
-        aVar.iqo.a(hVar);
+        aVar.iqq.a(hVar);
         return aVar.getView();
     }
 
     /* loaded from: classes18.dex */
     public class a extends ad.a {
-        public com.baidu.tieba.godSquare.b.b iqo;
+        public com.baidu.tieba.godSquare.b.b iqq;
 
         public a(com.baidu.tieba.godSquare.b.b bVar) {
             super(bVar.getView());
-            this.iqo = bVar;
+            this.iqq = bVar;
         }
     }
 }

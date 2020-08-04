@@ -18,41 +18,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class GameVideoFragment extends BaseFragment implements ao {
-    private c ivy;
+    private c ivA;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.ivy == null) {
-            this.ivy = new c(getPageContext(), getUniqueId());
+        if (this.ivA == null) {
+            this.ivA = new c(getPageContext(), getUniqueId());
         }
-        this.ivy.init();
+        this.ivA.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.ivy == null || this.ivy.getView() == null) {
+        if (this.ivA == null || this.ivA.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.ivy.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.ivy.getView().getParent()).removeView(this.ivy.getView());
+        if (this.ivA.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.ivA.getView().getParent()).removeView(this.ivA.getView());
         }
-        return this.ivy.getView();
+        return this.ivA.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.ivy != null) {
-            this.ivy.loadData();
+        if (this.ivA != null) {
+            this.ivA.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
     public void IH() {
-        if (this.ivy != null) {
-            this.ivy.IH();
+        if (this.ivA != null) {
+            this.ivA.IH();
         }
     }
 
@@ -80,8 +80,8 @@ public class GameVideoFragment extends BaseFragment implements ao {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ivy != null) {
-            this.ivy.bci();
+        if (this.ivA != null) {
+            this.ivA.bci();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements ao {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.ivy != null) {
-            this.ivy.setPrimary(isPrimary());
+        if (this.ivA != null) {
+            this.ivA.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.ivy != null) {
-            this.ivy.onPause();
+        if (this.ivA != null) {
+            this.ivA.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.ivy != null) {
-            this.ivy.onDestroy();
+        if (this.ivA != null) {
+            this.ivA.onDestroy();
         }
     }
 

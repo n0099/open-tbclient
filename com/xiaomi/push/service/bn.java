@@ -19,9 +19,9 @@ class bn extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.a.f803a != null) {
-            this.a.f803a.b(15, (Exception) null);
-            this.a.f803a = null;
+        if (this.a.f806a != null) {
+            this.a.f806a.b(15, (Exception) null);
+            this.a.f806a = null;
         }
     }
 }

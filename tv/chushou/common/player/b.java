@@ -5,8 +5,6 @@ public interface b {
 
     void Ky(int i);
 
-    void dMP();
-
     void dMQ();
 
     void dMR();
@@ -22,4 +20,6 @@ public interface b {
     void dMW();
 
     void dMX();
+
+    void dMY();
 }

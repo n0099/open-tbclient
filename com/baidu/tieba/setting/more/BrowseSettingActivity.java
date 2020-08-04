@@ -6,35 +6,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes20.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c lxV = null;
+    private c lxX = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.lxV = new c(this);
+        this.lxX = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lxV.onChangeSkinType(i);
+        this.lxX.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lxV.dfb()) {
-            this.lxV.dff();
+        if (view == this.lxX.dfb()) {
+            this.lxX.dff();
             TiebaStatic.log("c10649");
         }
-        if (view == this.lxV.dfc()) {
-            this.lxV.dfg();
+        if (view == this.lxX.dfc()) {
+            this.lxX.dfg();
             TiebaStatic.log("c10653");
-        } else if (view == this.lxV.dfd()) {
-            this.lxV.dfh();
-        } else if (view == this.lxV.dfe()) {
-            this.lxV.dfi();
+        } else if (view == this.lxX.dfd()) {
+            this.lxX.dfh();
+        } else if (view == this.lxX.dfe()) {
+            this.lxX.dfi();
         }
     }
 }

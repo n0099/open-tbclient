@@ -48,9 +48,9 @@ import tbclient.BaijiahaoInfo;
 /* loaded from: classes18.dex */
 public class c {
     private com.baidu.tbadk.coreExtra.model.a eaU;
-    private com.baidu.tieba.personPolymeric.c.a kXD;
-    private b kXE;
-    private h kXF;
+    private com.baidu.tieba.personPolymeric.c.a kXF;
+    private b kXG;
+    private h kXH;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private UserData mUserData;
@@ -58,28 +58,28 @@ public class c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String intro;
-            if (view == c.this.kXE.cXH()) {
+            if (view == c.this.kXG.cXH()) {
                 c.this.cXT();
-            } else if (view == c.this.kXE.cXI()) {
+            } else if (view == c.this.kXG.cXI()) {
                 c.this.cXS();
-            } else if (view != c.this.kXE.cXJ()) {
-                if (view == c.this.kXE.getUserName()) {
+            } else if (view != c.this.kXG.cXJ()) {
+                if (view == c.this.kXG.getUserName()) {
                     if (c.this.mIsHost) {
                         TiebaStatic.log(new ap("c12502").dn("obj_locate", "7"));
                         c.this.cYb();
                     }
-                } else if (view != c.this.kXE.cXK() && view != c.this.kXE.cXR()) {
-                    if (view == c.this.kXE.cXL()) {
+                } else if (view != c.this.kXG.cXK() && view != c.this.kXG.cXR()) {
+                    if (view == c.this.kXG.cXL()) {
                         c.this.cXX();
-                    } else if (view == c.this.kXE.cXN()) {
+                    } else if (view == c.this.kXG.cXN()) {
                         c.this.cXY();
-                    } else if (view == c.this.kXE.cXM()) {
+                    } else if (view == c.this.kXG.cXM()) {
                         c.this.cXZ();
-                    } else if (view == c.this.kXE.cXO()) {
+                    } else if (view == c.this.kXG.cXO()) {
                         c.this.cXW();
-                    } else if (view == c.this.kXE.cXP()) {
+                    } else if (view == c.this.kXG.cXP()) {
                         c.this.cXU();
-                    } else if (view == c.this.kXE.cXQ()) {
+                    } else if (view == c.this.kXG.cXQ()) {
                         if (c.this.mIsHost) {
                             TiebaStatic.log(new ap("c13613").dn("obj_param1", "0"));
                         } else {
@@ -132,7 +132,7 @@ public class c {
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 != null && message2.getTag() != null && message2.getTag().equals(c.this.mPageContext.getUniqueId())) {
-                    c.this.kXE.tW(c.this.mUserData.isLike());
+                    c.this.kXG.tW(c.this.mUserData.isLike());
                     if (updateAttentionMessage.getData() == null || as.isEmpty(updateAttentionMessage.getData().errorString)) {
                         if (c.this.mUserData.getIsLike()) {
                             c.this.mPageContext.showToast(R.string.unlike_failure);
@@ -151,49 +151,49 @@ public class c {
     public c(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.kXE = new b(this.mPageContext, this.mIsHost, this.mClickListener);
+        this.kXG = new b(this.mPageContext, this.mIsHost, this.mClickListener);
         this.mPageContext.registerListener(this.eaY);
-        this.kXF = new h(this.mPageContext, this.mPageContext.getUniqueId(), z);
+        this.kXH = new h(this.mPageContext, this.mPageContext.getUniqueId(), z);
     }
 
     public void b(com.baidu.tieba.personPolymeric.c.a aVar) {
         if (aVar != null && aVar.getUserData() != null) {
-            this.kXD = aVar;
-            this.mUserData = this.kXD.getUserData();
-            this.kXE.a(this.kXD.getUserData(), this.kXD.cXG());
-            this.kXF.d(aVar);
+            this.kXF = aVar;
+            this.mUserData = this.kXF.getUserData();
+            this.kXG.a(this.kXF.getUserData(), this.kXF.cXG());
+            this.kXH.d(aVar);
         }
     }
 
     public View getView() {
-        return this.kXE.getView();
+        return this.kXG.getView();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kXE != null) {
-            this.kXE.onChangeSkinType(i);
+        if (this.kXG != null) {
+            this.kXG.onChangeSkinType(i);
         }
     }
 
     public void cXx() {
-        if (this.kXF != null) {
-            this.kXF.cXx();
+        if (this.kXH != null) {
+            this.kXH.cXx();
         }
     }
 
     public void Z(Intent intent) {
-        if (this.kXF != null) {
-            this.kXF.Z(intent);
+        if (this.kXH != null) {
+            this.kXH.Z(intent);
         }
     }
 
     public void tX(boolean z) {
-        this.kXE.tX(z);
+        this.kXG.tX(z);
     }
 
     public void LH(String str) {
-        if (this.kXE != null) {
-            this.kXE.LH(str);
+        if (this.kXG != null) {
+            this.kXG.LH(str);
         }
     }
 
@@ -204,7 +204,7 @@ public class c {
                 this.eaU = new com.baidu.tbadk.coreExtra.model.a(this.mPageContext);
             }
             this.eaU.a(!this.mUserData.isLike(), this.mUserData.getPortrait(), this.mUserData.getUserId(), this.mUserData.isGod(), "2", this.mPageContext.getUniqueId(), null, "0");
-            this.kXE.tW(this.mUserData.isLike() ? false : true);
+            this.kXG.tW(this.mUserData.isLike() ? false : true);
             ap apVar = new ap("c13570");
             apVar.dn("obj_id", this.mUserData.getUserId());
             apVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -264,13 +264,13 @@ public class c {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(mVar);
-        this.kXF.a((com.baidu.adp.widget.ListView.q) mVar, (List<com.baidu.adp.widget.ListView.q>) arrayList, 0);
+        this.kXH.a((com.baidu.adp.widget.ListView.q) mVar, (List<com.baidu.adp.widget.ListView.q>) arrayList, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cXV() {
-        if (this.kXD != null && this.kXD.cXG() != null && !TextUtils.isEmpty(this.kXD.cXG().goods_url)) {
-            bd.baV().a(this.mPageContext, new String[]{this.kXD.cXG().goods_url}, true);
+        if (this.kXF != null && this.kXF.cXG() != null && !TextUtils.isEmpty(this.kXF.cXG().goods_url)) {
+            bd.baV().a(this.mPageContext, new String[]{this.kXF.cXG().goods_url}, true);
         }
     }
 
@@ -358,8 +358,8 @@ public class c {
                 if (this.mUserData.alaUserData != null) {
                     personChangeData.setAlaId(this.mUserData.alaUserData.ala_id);
                 }
-                if (this.kXD.kWA != null) {
-                    personChangeData.setNickNameLeftDays(this.kXD.kWA.left_days.intValue());
+                if (this.kXF.kWC != null) {
+                    personChangeData.setNickNameLeftDays(this.kXF.kWC.left_days.intValue());
                 }
                 if (this.mUserData.getBirthdayInfo() != null) {
                     personChangeData.setUserAge(this.mUserData.getBirthdayInfo().age);
@@ -372,11 +372,11 @@ public class c {
     }
 
     public void onDestroy() {
-        if (this.kXF != null) {
-            this.kXF.onDestroy();
+        if (this.kXH != null) {
+            this.kXH.onDestroy();
         }
-        if (this.kXE != null) {
-            this.kXE.onDestroy();
+        if (this.kXG != null) {
+            this.kXG.onDestroy();
         }
     }
 }

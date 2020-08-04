@@ -54,7 +54,7 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
         dVar.ePY.setGifIconSupport(false);
         dVar.ePZ = (TextView) view.findViewById(R.id.m_forum_name_textview);
         dVar.eQb = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
-        dVar.iHU = 16908308;
+        dVar.iHW = 16908308;
         return dVar;
     }
 

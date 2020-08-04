@@ -14,8 +14,8 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.m;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e>> {
-    private com.baidu.tieba.card.e hUO;
-    private aa hUP;
+    private com.baidu.tieba.card.e hUQ;
+    private aa hUR;
     private String mForumId;
     private String mForumName;
     private TbPageContext<?> mPageContext;
@@ -33,8 +33,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.e> b(ViewGroup viewGroup) {
-        this.hUO = new com.baidu.tieba.card.e(this.mPageContext, this.mForumId, this.mForumName);
-        return new com.baidu.tieba.card.a.a<>(this.hUO);
+        this.hUQ = new com.baidu.tieba.card.e(this.mPageContext, this.mForumId, this.mForumName);
+        return new com.baidu.tieba.card.a.a<>(this.hUQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,12 +66,12 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
         createFromThreadCfg.setStartFrom(0);
         m.Ez(aVar.aTN().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
-        if (this.hUP != null) {
-            this.hUP.a(view, aVar);
+        if (this.hUR != null) {
+            this.hUR.a(view, aVar);
         }
     }
 
     public void d(aa aaVar) {
-        this.hUP = aaVar;
+        this.hUR = aaVar;
     }
 }

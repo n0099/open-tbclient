@@ -6,23 +6,23 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 /* loaded from: classes5.dex */
 public class y {
     boolean a = false;
-    final /* synthetic */ InstallActivity niD;
+    final /* synthetic */ InstallActivity niF;
 
     public void a(p pVar) {
-        synchronized (this.niD) {
+        synchronized (this.niF) {
             if (!this.a) {
-                InstallActivity.a(this.niD, pVar);
+                InstallActivity.a(this.niF, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.niD, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.niF, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.niD)) {
-                            InstallActivity.e(this.niD);
+                        if (!InstallActivity.d(this.niF)) {
+                            InstallActivity.e(this.niF);
                         }
-                        InstallActivity.a(this.niD, (Exception) null);
+                        InstallActivity.a(this.niF, (Exception) null);
                         break;
                 }
                 this.a = true;
@@ -31,19 +31,19 @@ public class y {
     }
 
     public void a(Exception exc) {
-        synchronized (this.niD) {
+        synchronized (this.niF) {
             if (!this.a) {
                 this.a = true;
-                InstallActivity.a(this.niD, p.CANCELLED);
+                InstallActivity.a(this.niF, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.niD, exc);
+                InstallActivity.a(this.niF, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.niD = installActivity;
+        this.niF = installActivity;
     }
 }

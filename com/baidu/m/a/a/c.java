@@ -9,9 +9,9 @@ public interface c {
 
     void Rc(String str);
 
-    boolean dAW();
+    boolean dAX();
 
-    c dBg();
+    c dBh();
 
     String getAAID();
 

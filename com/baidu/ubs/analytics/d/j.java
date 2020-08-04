@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public final class j {
-    private static int mNN = 1000;
-    private static boolean mNO = true;
+    private static int mNP = 1000;
+    private static boolean mNQ = true;
 
     public static void c(boolean z) {
-        mNO = z;
+        mNQ = z;
     }
 
     public static void I(String str) {
-        if (mNO) {
+        if (mNQ) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (mNO) {
+        if (mNQ) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (mNO) {
+        if (mNQ) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (mNO) {
+        if (mNQ) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= mNN) {
+            if (str2.length() >= mNP) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, mNN));
+                        Log.v(str, str2.substring(0, mNP));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, mNN));
+                        Log.d(str, str2.substring(0, mNP));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, mNN));
+                        Log.i(str, str2.substring(0, mNP));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, mNN));
+                        Log.w(str, str2.substring(0, mNP));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, mNN));
+                        Log.e(str, str2.substring(0, mNP));
                         break;
                 }
             } else {

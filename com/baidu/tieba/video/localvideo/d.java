@@ -6,7 +6,7 @@ public class d {
     private long duration;
     private boolean hasLoaded = false;
     private long lastModified;
-    private String mhu;
+    private String mhw;
     private String mimeType;
     private Bitmap thumbnailBitmap;
     private int videoHeight;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void OV(String str) {
-        this.mhu = str;
+        this.mhw = str;
     }
 
     public long getLastModified() {
@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean drf() {
+    public boolean drg() {
         return this.hasLoaded;
     }
 }

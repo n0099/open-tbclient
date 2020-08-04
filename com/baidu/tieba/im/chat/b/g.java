@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g iUR;
+    private static g iUT;
 
     private g() {
     }
@@ -23,10 +23,10 @@ public class g {
     public static synchronized g crD() {
         g gVar;
         synchronized (g.class) {
-            if (iUR == null) {
-                iUR = new g();
+            if (iUT == null) {
+                iUT = new g();
             }
-            gVar = iUR;
+            gVar = iUT;
         }
         return gVar;
     }

@@ -22,14 +22,14 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public abstract class a {
-    private String iWT;
-    private Class<? extends ChatMessage> iWU;
-    List<String> iWV = null;
+    private String iWV;
+    private Class<? extends ChatMessage> iWW;
+    List<String> iWX = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
-        this.iWT = str;
-        this.iWU = cls;
+        this.iWV = str;
+        this.iWW = cls;
     }
 
     public int Ht(String str) {
@@ -37,7 +37,7 @@ public abstract class a {
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = h.ctm().rawQuery("select count(*) from " + (this.iWT + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                cursor = h.ctm().rawQuery("select count(*) from " + (this.iWV + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.close(cursor);
                 } else {
@@ -61,7 +61,7 @@ public abstract class a {
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
             try {
-                cursor = h.ctm().rawQuery("select max(mid) from " + (this.iWT + str), null);
+                cursor = h.ctm().rawQuery("select max(mid) from " + (this.iWV + str), null);
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.close(cursor);
                 } else {
@@ -102,7 +102,7 @@ public abstract class a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = this.iWT;
+            ?? r2 = this.iWV;
             try {
                 try {
                     cursor = h.ctm().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
@@ -185,7 +185,7 @@ public abstract class a {
             i2 = 20;
         }
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-        ?? r2 = this.iWT + str;
+        ?? r2 = this.iWV + str;
         try {
             try {
                 if (TextUtils.isEmpty(str2)) {
@@ -256,7 +256,7 @@ public abstract class a {
         }
         LinkedList<ChatMessage> linkedList = new LinkedList<>();
         ?? sb = new StringBuilder();
-        ?? r5 = this.iWT;
+        ?? r5 = this.iWV;
         String sb2 = sb.append(r5).append(valueOf).toString();
         try {
             try {
@@ -272,8 +272,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.iWU.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.jju));
+                            ChatMessage newInstance = this.iWW.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.jjw));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -348,7 +348,7 @@ public abstract class a {
         if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
             valueOf = String.valueOf(j2);
         }
-        String str3 = this.iWT + valueOf;
+        String str3 = this.iWV + valueOf;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mid", str2);
@@ -367,7 +367,7 @@ public abstract class a {
     }
 
     public void j(long j, boolean z) {
-        String str = this.iWT + j;
+        String str = this.iWV + j;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
@@ -383,13 +383,13 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j);
-        String str = this.iWT + valueOf;
-        if (this.iWV == null) {
-            this.iWV = ctb();
+        String str = this.iWV + valueOf;
+        if (this.iWX == null) {
+            this.iWX = ctb();
         }
-        if (!this.iWV.contains(valueOf)) {
+        if (!this.iWX.contains(valueOf)) {
             Hz(valueOf);
-            this.iWV.add(valueOf);
+            this.iWX.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -506,7 +506,7 @@ public abstract class a {
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", (Integer) 1);
-            h.ctm().a(this.iWT + str, contentValues, "mid=?", new String[]{str2});
+            h.ctm().a(this.iWV + str, contentValues, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -519,7 +519,7 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            h.ctm().a(this.iWT + str, "mid=?", new String[]{str2});
+            h.ctm().a(this.iWV + str, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -531,46 +531,46 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.iWV == null) {
-            this.iWV = ctb();
+        if (this.iWX == null) {
+            this.iWX = ctb();
         }
-        if (this.iWV != null && this.iWV.contains(str)) {
-            Iterator<String> it = this.iWV.iterator();
+        if (this.iWX != null && this.iWX.contains(str)) {
+            Iterator<String> it = this.iWX.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.iWV.remove(next);
+                    this.iWX.remove(next);
                     break;
                 }
             }
         }
-        return h.ctm().HI("DROP TABLE IF EXISTS " + (this.iWT + str));
+        return h.ctm().HI("DROP TABLE IF EXISTS " + (this.iWV + str));
     }
 
     public boolean Hx(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.iWV == null) {
-            this.iWV = ctb();
+        if (this.iWX == null) {
+            this.iWX = ctb();
         }
-        if (this.iWV != null && this.iWV.contains(str)) {
-            Iterator<String> it = this.iWV.iterator();
+        if (this.iWX != null && this.iWX.contains(str)) {
+            Iterator<String> it = this.iWX.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.iWV.remove(next);
+                    this.iWX.remove(next);
                     break;
                 }
             }
         }
-        return h.ctm().HI("delete from " + (this.iWT + str));
+        return h.ctm().HI("delete from " + (this.iWV + str));
     }
 
     public boolean Hy(String str) {
@@ -585,7 +585,7 @@ public abstract class a {
 
     public synchronized void Hz(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.ctm().HI("CREATE TABLE IF NOT EXISTS " + (this.iWT + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
+            h.ctm().HI("CREATE TABLE IF NOT EXISTS " + (this.iWV + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
         }
     }
 
@@ -598,8 +598,8 @@ public abstract class a {
                 cursor.moveToFirst();
                 while (cursor.moveToNext()) {
                     String string = cursor.getString(cursor.getColumnIndex("name"));
-                    if (string.startsWith(this.iWT)) {
-                        linkedList.add(string.subSequence(this.iWT.length(), string.length()).toString());
+                    if (string.startsWith(this.iWV)) {
+                        linkedList.add(string.subSequence(this.iWV.length(), string.length()).toString());
                     }
                 }
             }
@@ -613,14 +613,14 @@ public abstract class a {
     }
 
     public void ctc() {
-        this.iWV = null;
+        this.iWX = null;
     }
 
     public boolean aT(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            String str2 = this.iWT + str;
+            String str2 = this.iWV + str;
             if (i < 1000) {
                 i = 1000;
             }
@@ -668,7 +668,7 @@ public abstract class a {
         Iterator<String> it = keySet.iterator();
         int i2 = 0;
         while (it.hasNext()) {
-            sb.append("SELECT * FROM ").append(this.iWT + it.next()).append(" WHERE ").append("msg_type").append(" = 7").append(" AND ").append("is_delete").append(" = ").append(0);
+            sb.append("SELECT * FROM ").append(this.iWV + it.next()).append(" WHERE ").append("msg_type").append(" = 7").append(" AND ").append("is_delete").append(" = ").append(0);
             int i3 = i2 + 1;
             if (i2 != map.size() - 1) {
                 sb.append(" UNION ALL ");
@@ -681,7 +681,7 @@ public abstract class a {
             cursor = h.ctm().rawQuery(sb.toString(), new String[]{String.valueOf(i)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
-                    ChatMessage newInstance = this.iWU.newInstance();
+                    ChatMessage newInstance = this.iWW.newInstance();
                     newInstance.setObjContent(map.get(cursor.getString(cursor.getColumnIndex("uid"))));
                     newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                     newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));

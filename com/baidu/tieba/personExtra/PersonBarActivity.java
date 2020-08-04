@@ -5,32 +5,32 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
 /* loaded from: classes18.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter kRD = null;
-    private PersonBarModel kRE = null;
+    private PersonBarAdapter kRF = null;
+    private PersonBarModel kRG = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.kQU && this.jhS != 23011) {
+        if (this.kQW && this.jhU != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.kRE = new PersonBarModel(getPageContext(), cwL());
-        this.kRE.setSex(getSex());
-        this.kRE.setId(getUid());
-        this.kRE.setUniqueId(getUniqueId());
+        this.kRG = new PersonBarModel(getPageContext(), cwL());
+        this.kRG.setSex(getSex());
+        this.kRG.setId(getUid());
+        this.kRG.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.kRD == null) {
-            this.kRD = new PersonBarAdapter(this, cwL());
+        if (this.kRF == null) {
+            this.kRF = new PersonBarAdapter(this, cwL());
         }
-        return this.kRD;
+        return this.kRF;
     }
 
     public PersonBarModel cWn() {
-        return this.kRE;
+        return this.kRG;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
@@ -73,13 +73,13 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         BaseFragment baseFragment;
         c cWx;
         super.onPageSelected(i);
-        if (this.kRD != null && this.kRD.getItem(i) != null && (baseFragment = (BaseFragment) this.kRD.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (cWx = ((PersonBarFragment) baseFragment).cWx()) != null) {
+        if (this.kRF != null && this.kRF.getItem(i) != null && (baseFragment = (BaseFragment) this.kRF.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (cWx = ((PersonBarFragment) baseFragment).cWx()) != null) {
             cWx.jO(false);
             cWx.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.jhS;
+        return this.jhU;
     }
 }

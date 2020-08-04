@@ -13,15 +13,15 @@ import com.baidu.tieba.im.data.GroupInfoData;
 public class f extends ad.a {
     public int aho;
     public View dividerLine;
-    public GroupImageView jag;
-    public TextView jah;
-    public TextView jai;
+    public GroupImageView jai;
     public TextView jaj;
     public TextView jak;
-    public ImageView jal;
-    public ImageView jam;
+    public TextView jal;
+    public TextView jam;
     public ImageView jan;
-    public ImageView[] jao;
+    public ImageView jao;
+    public ImageView jap;
+    public ImageView[] jaq;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
@@ -29,41 +29,41 @@ public class f extends ad.a {
         this.aho = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.jag = (GroupImageView) view.findViewById(R.id.item_head);
-        this.jah = (TextView) view.findViewById(R.id.item_group_name);
-        this.jai = (TextView) view.findViewById(R.id.item_group_meizi);
-        this.jaj = (TextView) view.findViewById(R.id.item_group_num);
-        this.jak = (TextView) view.findViewById(R.id.item_introduce);
-        this.jal = (ImageView) view.findViewById(R.id.item_grade1);
-        this.jam = (ImageView) view.findViewById(R.id.item_grade2);
-        this.jan = (ImageView) view.findViewById(R.id.item_grade3);
+        this.jai = (GroupImageView) view.findViewById(R.id.item_head);
+        this.jaj = (TextView) view.findViewById(R.id.item_group_name);
+        this.jak = (TextView) view.findViewById(R.id.item_group_meizi);
+        this.jal = (TextView) view.findViewById(R.id.item_group_num);
+        this.jam = (TextView) view.findViewById(R.id.item_introduce);
+        this.jan = (ImageView) view.findViewById(R.id.item_grade1);
+        this.jao = (ImageView) view.findViewById(R.id.item_grade2);
+        this.jap = (ImageView) view.findViewById(R.id.item_grade3);
         this.dividerLine = view.findViewById(R.id.divider_line);
-        this.jao = new ImageView[4];
-        this.jao[1] = this.jal;
-        this.jao[2] = this.jam;
-        this.jao[3] = this.jan;
+        this.jaq = new ImageView[4];
+        this.jaq[1] = this.jan;
+        this.jaq[2] = this.jao;
+        this.jaq[3] = this.jap;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.jag.setTag(null);
-            this.jag.setDrawBorder(true);
-            this.jag.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.jai.setTag(null);
+            this.jai.setDrawBorder(true);
+            this.jai.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.jag.setTag(portrait);
-                this.jag.startLoad(portrait, 10, false);
+                this.jai.setTag(portrait);
+                this.jai.startLoad(portrait, 10, false);
             }
-            this.jah.setText(groupInfoData.getName());
-            this.jai.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.jaj.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.jak.setText(groupInfoData.getIntro().trim());
-            a(this.jao, groupInfoData.getGrade());
+            this.jaj.setText(groupInfoData.getName());
+            this.jak.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.jal.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.jam.setText(groupInfoData.getIntro().trim());
+            a(this.jaq, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                ao.setViewTextColor(this.jah, R.color.common_color_10009, 1);
-                ao.setImageResource(this.jal, R.drawable.icon_vip_grade_big_small_s);
-                ao.setImageResource(this.jam, R.drawable.icon_vip_grade_big_small_s);
+                ao.setViewTextColor(this.jaj, R.color.common_color_10009, 1);
                 ao.setImageResource(this.jan, R.drawable.icon_vip_grade_big_small_s);
+                ao.setImageResource(this.jao, R.drawable.icon_vip_grade_big_small_s);
+                ao.setImageResource(this.jap, R.drawable.icon_vip_grade_big_small_s);
             }
         }
     }

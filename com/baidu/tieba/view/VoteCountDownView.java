@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VoteCountDownView extends LinearLayout {
-    private a kAV;
+    private a kAX;
     private Context mContext;
-    private View mqK;
-    private View mqL;
-    private TextView mqN;
-    private TextView mqO;
-    private CountDownTimer mqP;
+    private View mqM;
+    private View mqN;
+    private TextView mqP;
+    private TextView mqQ;
+    private CountDownTimer mqR;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -46,8 +46,8 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     private void dF(long j) {
-        if (this.mqP == null) {
-            this.mqP = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
+        if (this.mqR == null) {
+            this.mqR = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + 60000;
@@ -60,34 +60,34 @@ public class VoteCountDownView extends LinearLayout {
                     VoteCountDownView.this.buU();
                 }
             };
-            this.mqP.start();
+            this.mqR.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void buU() {
-        if (this.kAV != null) {
-            this.kAV.RQ();
+        if (this.kAX != null) {
+            this.kAX.RQ();
         }
     }
 
     private void ss() {
-        this.mqK = findViewById(R.id.hour_num_container);
-        this.mqL = findViewById(R.id.minute_num_container);
-        this.mqN = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.mqO = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.mqM = findViewById(R.id.hour_num_container);
+        this.mqN = findViewById(R.id.minute_num_container);
+        this.mqP = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.mqQ = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.mqO.setText(String.valueOf(j2));
-        this.mqN.setText(String.valueOf(j));
+        this.mqQ.setText(String.valueOf(j2));
+        this.mqP.setText(String.valueOf(j));
     }
 
     public void qZ(int i) {
-        ao.setBackgroundResource(this.mqK, R.drawable.bg_gradient_round, i);
-        ao.setBackgroundResource(this.mqL, R.drawable.bg_gradient_round, i);
-        ao.setViewTextColor(this.mqN, R.color.cp_cont_a, 1, i);
-        ao.setViewTextColor(this.mqN, R.color.cp_cont_a, 1, i);
+        ao.setBackgroundResource(this.mqM, R.drawable.bg_gradient_round, i);
+        ao.setBackgroundResource(this.mqN, R.drawable.bg_gradient_round, i);
+        ao.setViewTextColor(this.mqP, R.color.cp_cont_a, 1, i);
+        ao.setViewTextColor(this.mqP, R.color.cp_cont_a, 1, i);
     }
 
     public void setData(long j) {
@@ -97,6 +97,6 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public void setOnCountDownFinished(a aVar) {
-        this.kAV = aVar;
+        this.kAX = aVar;
     }
 }

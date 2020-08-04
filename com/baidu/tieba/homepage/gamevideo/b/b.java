@@ -29,25 +29,25 @@ public class b {
     private ImageView fVy;
     private RelativeLayout fjP;
     private RelativeLayout fvE;
-    private GameVideoGridView ivN;
-    private com.baidu.tieba.homepage.gamevideo.a.b ivO;
-    private com.baidu.tieba.homepage.gamevideo.view.a ivR;
-    private TextView ivS;
-    private a ivT;
-    private TranslateAnimation ivU;
-    private TranslateAnimation ivV;
+    private GameVideoGridView ivP;
+    private com.baidu.tieba.homepage.gamevideo.a.b ivQ;
+    private com.baidu.tieba.homepage.gamevideo.view.a ivT;
+    private TextView ivU;
+    private a ivV;
+    private TranslateAnimation ivW;
+    private TranslateAnimation ivX;
     private BdUniqueId mBdUniqueId;
     private View mRootView;
-    private boolean ivW = false;
-    private Animation.AnimationListener ivX = new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.1
+    private boolean ivY = false;
+    private Animation.AnimationListener ivZ = new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.1
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
-            b.this.ivW = true;
+            b.this.ivY = true;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            b.this.ivW = false;
+            b.this.ivY = false;
             b.this.cmt();
         }
 
@@ -58,11 +58,11 @@ public class b {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (b.this.ivO != null && i < b.this.ivO.getCount() && b.this.ivO.getItem(i) != null && (b.this.ivO.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) b.this.ivO.getItem(i);
+            if (b.this.ivQ != null && i < b.this.ivQ.getCount() && b.this.ivQ.getItem(i) != null && (b.this.ivQ.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) b.this.ivQ.getItem(i);
                 if (aVar.enable == 1) {
-                    if (b.this.ivT != null) {
-                        b.this.ivT.b(aVar);
+                    if (b.this.ivV != null) {
+                        b.this.ivV.b(aVar);
                     }
                     com.baidu.tbadk.core.sharedPref.b.aZP().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
@@ -81,12 +81,12 @@ public class b {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.4
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (b.this.ivT != null) {
-                b.this.ivT.cmw();
+            if (b.this.ivV != null) {
+                b.this.ivV.cmw();
             }
         }
     };
-    private a.InterfaceC0645a ivY = new a.InterfaceC0645a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
+    private a.InterfaceC0645a iwa = new a.InterfaceC0645a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
         @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0645a
         public void cmu() {
             b.this.cmr();
@@ -113,34 +113,34 @@ public class b {
         this.fvE = (RelativeLayout) this.mRootView.findViewById(R.id.id_game_video_choose_half_wrapper);
         this.fjP = (RelativeLayout) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_wrapper);
         this.fVy = (ImageView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_img);
-        this.ivS = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_txt);
-        this.ivN = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_half_gridview);
-        this.ivN.setMaxHeight(l.getEquipmentWidth(this.dVN.getPageActivity()));
-        this.ivN.setNumColumns(4);
-        this.ivN.setEmptyView(this.fjP);
-        this.ivO = new com.baidu.tieba.homepage.gamevideo.a.b(this.dVN, 102, this.mBdUniqueId);
-        this.ivN.setAdapter((ListAdapter) this.ivO);
-        this.ivN.setOnItemClickListener(this.mOnItemClickListener);
+        this.ivU = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_half_empty_txt);
+        this.ivP = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_half_gridview);
+        this.ivP.setMaxHeight(l.getEquipmentWidth(this.dVN.getPageActivity()));
+        this.ivP.setNumColumns(4);
+        this.ivP.setEmptyView(this.fjP);
+        this.ivQ = new com.baidu.tieba.homepage.gamevideo.a.b(this.dVN, 102, this.mBdUniqueId);
+        this.ivP.setAdapter((ListAdapter) this.ivQ);
+        this.ivP.setOnItemClickListener(this.mOnItemClickListener);
         this.mRootView.setOnClickListener(this.mOnClickListener);
         cmq();
         onChangeSkinType();
     }
 
     private void cmq() {
-        this.ivU = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
-        this.ivU.setDuration(300L);
-        this.ivU.setFillAfter(true);
-        this.ivU.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.ivV = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
-        this.ivV.setDuration(200L);
-        this.ivV.setFillAfter(true);
-        this.ivV.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.ivV.setAnimationListener(this.ivX);
+        this.ivW = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
+        this.ivW.setDuration(300L);
+        this.ivW.setFillAfter(true);
+        this.ivW.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.ivX = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
+        this.ivX.setDuration(200L);
+        this.ivX.setFillAfter(true);
+        this.ivX.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.ivX.setAnimationListener(this.ivZ);
     }
 
     public void xx(int i) {
-        if (this.ivO != null) {
-            this.ivO.xx(i);
+        if (this.ivQ != null) {
+            this.ivQ.xx(i);
         }
     }
 
@@ -148,8 +148,8 @@ public class b {
         if (this.fvE != null) {
             ao.setBackgroundResource(this.fvE, R.color.cp_bg_line_d);
         }
-        if (this.ivS != null) {
-            ao.setViewTextColor(this.ivS, R.color.cp_cont_d);
+        if (this.ivU != null) {
+            ao.setViewTextColor(this.ivU, R.color.cp_cont_d);
         }
         if (this.fVy != null) {
             ao.setImageResource(this.fVy, R.drawable.new_pic_emotion_08);
@@ -157,74 +157,74 @@ public class b {
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
-        this.ivO.setData(list);
+        this.ivQ.setData(list);
     }
 
     public void cn(View view) {
         if (view != null) {
-            this.ivO.notifyDataSetChanged();
-            if (this.ivR == null) {
-                this.ivR = new com.baidu.tieba.homepage.gamevideo.view.a(this.dVN, this.mRootView, -1, -1);
-                this.ivR.setBackgroundDrawable(new ColorDrawable(this.dVN.getResources().getColor(R.color.black_alpha66)));
-                this.ivR.setAnimationStyle(0);
-                this.ivR.a(this.ivY);
-                this.ivR.setFocusable(true);
-                this.ivR.setOnDismissListener(this.mOnDismissListener);
+            this.ivQ.notifyDataSetChanged();
+            if (this.ivT == null) {
+                this.ivT = new com.baidu.tieba.homepage.gamevideo.view.a(this.dVN, this.mRootView, -1, -1);
+                this.ivT.setBackgroundDrawable(new ColorDrawable(this.dVN.getResources().getColor(R.color.black_alpha66)));
+                this.ivT.setAnimationStyle(0);
+                this.ivT.a(this.iwa);
+                this.ivT.setFocusable(true);
+                this.ivT.setOnDismissListener(this.mOnDismissListener);
             }
-            if (this.ivR.isShowing()) {
-                this.ivR.dismiss();
+            if (this.ivT.isShowing()) {
+                this.ivT.dismiss();
             }
-            this.ivR.showAsDropDown(view, 0, 0);
-            this.ivN.cmD();
-            if (this.fvE != null && this.ivU != null) {
-                this.fvE.startAnimation(this.ivU);
+            this.ivT.showAsDropDown(view, 0, 0);
+            this.ivP.cmD();
+            if (this.fvE != null && this.ivW != null) {
+                this.fvE.startAnimation(this.ivW);
             }
-            if (this.ivT != null) {
-                this.ivT.cmv();
+            if (this.ivV != null) {
+                this.ivV.cmv();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cmr() {
-        if (this.ivV != null && this.fvE != null && !this.ivW) {
-            this.fvE.startAnimation(this.ivV);
+        if (this.ivX != null && this.fvE != null && !this.ivY) {
+            this.fvE.startAnimation(this.ivX);
         }
     }
 
     public void cms() {
-        if (this.ivR != null) {
-            this.ivR.dismiss();
+        if (this.ivT != null) {
+            this.ivT.dismiss();
         }
     }
 
     public void cmt() {
-        if (this.ivR != null) {
-            this.ivR.byi();
+        if (this.ivT != null) {
+            this.ivT.byi();
         }
     }
 
     public boolean isShowing() {
-        if (this.ivR != null) {
-            return this.ivR.isShowing();
+        if (this.ivT != null) {
+            return this.ivT.isShowing();
         }
         return false;
     }
 
     public void a(a aVar) {
-        this.ivT = aVar;
+        this.ivV = aVar;
     }
 
     public void onDestroy() {
         cmt();
-        if (this.ivU != null) {
-            this.ivU.cancel();
+        if (this.ivW != null) {
+            this.ivW.cancel();
         }
-        if (this.ivV != null) {
-            this.ivV.cancel();
+        if (this.ivX != null) {
+            this.ivX.cancel();
         }
-        if (this.ivN != null) {
-            this.ivN.onDestroy();
+        if (this.ivP != null) {
+            this.ivP.onDestroy();
         }
     }
 }

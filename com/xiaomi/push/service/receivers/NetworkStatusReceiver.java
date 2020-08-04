@@ -23,28 +23,28 @@ import java.util.concurrent.TimeUnit;
 public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f929b;
+    private boolean f932b;
     private static int a = 1;
     private static int b = 1;
     private static int c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static BlockingQueue<Runnable> f926a = new LinkedBlockingQueue();
+    private static BlockingQueue<Runnable> f929a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f927a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f926a);
+    private static ThreadPoolExecutor f930a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f929a);
 
     /* renamed from: a  reason: collision with other field name */
-    private static boolean f928a = false;
+    private static boolean f931a = false;
 
     public NetworkStatusReceiver() {
-        this.f929b = false;
-        this.f929b = true;
+        this.f932b = false;
+        this.f932b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
-        this.f929b = false;
-        f928a = true;
+        this.f932b = false;
+        f931a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,14 +92,14 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     }
 
     public static boolean a() {
-        return f928a;
+        return f931a;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (this.f929b) {
+        if (this.f932b) {
             return;
         }
-        f927a.execute(new a(this, context));
+        f930a.execute(new a(this, context));
     }
 }

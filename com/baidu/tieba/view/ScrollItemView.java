@@ -20,8 +20,8 @@ import java.util.List;
 /* loaded from: classes15.dex */
 public class ScrollItemView extends ListView {
     private int mCurrentPosition;
-    private a mry;
-    private Runnable mrz;
+    private a mrA;
+    private Runnable mrB;
 
     static /* synthetic */ int c(ScrollItemView scrollItemView) {
         int i = scrollItemView.mCurrentPosition + 1;
@@ -32,14 +32,14 @@ public class ScrollItemView extends ListView {
     public ScrollItemView(Context context) {
         super(context);
         this.mCurrentPosition = 0;
-        this.mrz = new Runnable() { // from class: com.baidu.tieba.view.ScrollItemView.1
+        this.mrB = new Runnable() { // from class: com.baidu.tieba.view.ScrollItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.f.e.lt().removeCallbacks(ScrollItemView.this.mrz);
+                com.baidu.adp.lib.f.e.lt().removeCallbacks(ScrollItemView.this.mrB);
                 if (ScrollItemView.this.getItemCount() > 0) {
                     ScrollItemView.this.smoothScrollToPositionFromTop(ScrollItemView.c(ScrollItemView.this), 0, 300);
                 }
-                com.baidu.adp.lib.f.e.lt().postDelayed(ScrollItemView.this.mrz, 3000L);
+                com.baidu.adp.lib.f.e.lt().postDelayed(ScrollItemView.this.mrB, 3000L);
             }
         };
         init(context);
@@ -48,14 +48,14 @@ public class ScrollItemView extends ListView {
     public ScrollItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCurrentPosition = 0;
-        this.mrz = new Runnable() { // from class: com.baidu.tieba.view.ScrollItemView.1
+        this.mrB = new Runnable() { // from class: com.baidu.tieba.view.ScrollItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.f.e.lt().removeCallbacks(ScrollItemView.this.mrz);
+                com.baidu.adp.lib.f.e.lt().removeCallbacks(ScrollItemView.this.mrB);
                 if (ScrollItemView.this.getItemCount() > 0) {
                     ScrollItemView.this.smoothScrollToPositionFromTop(ScrollItemView.c(ScrollItemView.this), 0, 300);
                 }
-                com.baidu.adp.lib.f.e.lt().postDelayed(ScrollItemView.this.mrz, 3000L);
+                com.baidu.adp.lib.f.e.lt().postDelayed(ScrollItemView.this.mrB, 3000L);
             }
         };
         init(context);
@@ -64,22 +64,22 @@ public class ScrollItemView extends ListView {
     public ScrollItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCurrentPosition = 0;
-        this.mrz = new Runnable() { // from class: com.baidu.tieba.view.ScrollItemView.1
+        this.mrB = new Runnable() { // from class: com.baidu.tieba.view.ScrollItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.f.e.lt().removeCallbacks(ScrollItemView.this.mrz);
+                com.baidu.adp.lib.f.e.lt().removeCallbacks(ScrollItemView.this.mrB);
                 if (ScrollItemView.this.getItemCount() > 0) {
                     ScrollItemView.this.smoothScrollToPositionFromTop(ScrollItemView.c(ScrollItemView.this), 0, 300);
                 }
-                com.baidu.adp.lib.f.e.lt().postDelayed(ScrollItemView.this.mrz, 3000L);
+                com.baidu.adp.lib.f.e.lt().postDelayed(ScrollItemView.this.mrB, 3000L);
             }
         };
         init(context);
     }
 
     private void init(Context context) {
-        this.mry = new a(context);
-        setAdapter((ListAdapter) this.mry);
+        this.mrA = new a(context);
+        setAdapter((ListAdapter) this.mrA);
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.view.ScrollItemView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -98,31 +98,31 @@ public class ScrollItemView extends ListView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getItemCount() {
-        if (this.mry == null) {
+        if (this.mrA == null) {
             return 0;
         }
-        return this.mry.getDataSize();
+        return this.mrA.getDataSize();
     }
 
     public void setData(List<String> list) {
         stopScroll();
-        this.mry.setData(list);
-        dtR();
+        this.mrA.setData(list);
+        dtS();
         ceb();
     }
 
-    private void dtR() {
+    private void dtS() {
         this.mCurrentPosition = (int) Math.floor(getItemCount() * Math.random());
         smoothScrollToPosition(this.mCurrentPosition);
     }
 
     public void stopScroll() {
-        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mrz);
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mrB);
         setSelection(this.mCurrentPosition);
     }
 
     public void ceb() {
-        com.baidu.adp.lib.f.e.lt().postDelayed(this.mrz, 3000L);
+        com.baidu.adp.lib.f.e.lt().postDelayed(this.mrB, 3000L);
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View

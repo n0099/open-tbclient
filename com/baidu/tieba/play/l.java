@@ -1,17 +1,17 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class l {
-    private int kaR = 0;
-    private int lcf = 0;
+    private int kaT = 0;
+    private int lch = 0;
     private boolean hoZ = false;
-    private boolean lcg = true;
+    private boolean lci = true;
 
     public int cYR() {
-        return this.kaR;
+        return this.kaT;
     }
 
     public int cYS() {
-        return this.lcf;
+        return this.lch;
     }
 
     public boolean cYT() {
@@ -19,16 +19,16 @@ public class l {
     }
 
     public boolean cYU() {
-        return this.lcg;
+        return this.lci;
     }
 
     public void m(int i, int i2, boolean z) {
-        this.kaR = i;
-        this.lcf = i2;
+        this.kaT = i;
+        this.lch = i2;
         this.hoZ = z;
     }
 
     public void qX(boolean z) {
-        this.lcg = z;
+        this.lci = z;
     }
 }

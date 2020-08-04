@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile SharedPreferences ovU;
+    private static volatile SharedPreferences ovW;
 
     b() {
     }
@@ -15,14 +15,14 @@ public class b {
     }
 
     private static SharedPreferences gP(Context context) {
-        if (ovU == null) {
+        if (ovW == null) {
             synchronized (b.class) {
-                if (ovU == null) {
-                    ovU = context.getSharedPreferences("keyboard.common", 0);
+                if (ovW == null) {
+                    ovW = context.getSharedPreferences("keyboard.common", 0);
                 }
             }
         }
-        return ovU;
+        return ovW;
     }
 
     public static int H(Context context, int i) {

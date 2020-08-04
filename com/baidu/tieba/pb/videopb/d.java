@@ -8,39 +8,39 @@ import java.util.LinkedList;
 /* loaded from: classes16.dex */
 public class d {
     private boolean aib;
-    private com.baidu.tieba.pb.data.f kGD;
-    private Rect kGF;
-    private boolean kGG;
-    private com.baidu.tieba.pb.data.f kkM;
-    private p<bv> kGE = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> kGH = new LinkedList<>();
-    private p<bv> kGI = new p<>();
-    private p<bv> kGJ = new p<>();
-    private p<Boolean> kGK = new p<>();
-    private p<Boolean> kGL = new p<>();
+    private com.baidu.tieba.pb.data.f kGF;
+    private Rect kGH;
+    private boolean kGI;
+    private com.baidu.tieba.pb.data.f kkO;
+    private p<bv> kGG = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> kGJ = new LinkedList<>();
+    private p<bv> kGK = new p<>();
+    private p<bv> kGL = new p<>();
     private p<Boolean> kGM = new p<>();
     private p<Boolean> kGN = new p<>();
-    private p<Integer> kGO = new p<>();
+    private p<Boolean> kGO = new p<>();
+    private p<Boolean> kGP = new p<>();
+    private p<Integer> kGQ = new p<>();
 
     public void L(com.baidu.tieba.pb.data.f fVar) {
-        this.kGD = fVar;
+        this.kGF = fVar;
         setData(fVar);
-        this.kGI.setValue(null);
-        this.kGE.setValue(fVar.cKx());
+        this.kGK.setValue(null);
+        this.kGG.setValue(fVar.cKx());
     }
 
     public com.baidu.tieba.pb.data.f cTx() {
-        return this.kGD;
+        return this.kGF;
     }
 
     public com.baidu.tieba.pb.data.f cTy() {
-        return this.kkM;
+        return this.kkO;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kkM = fVar;
+        this.kkO = fVar;
         if (fVar != null) {
-            this.kGE.setValue(fVar.cKx());
+            this.kGG.setValue(fVar.cKx());
             if (!x.isEmpty(fVar.cKZ())) {
                 aO(fVar.cKZ().get(0));
             }
@@ -48,7 +48,7 @@ public class d {
     }
 
     public p<bv> cTz() {
-        return this.kGE;
+        return this.kGG;
     }
 
     public boolean isFromCDN() {
@@ -60,66 +60,66 @@ public class d {
     }
 
     public void i(Rect rect) {
-        this.kGF = rect;
+        this.kGH = rect;
     }
 
     public Rect cTA() {
-        return this.kGF;
-    }
-
-    public void tw(boolean z) {
-        this.kGG = z;
-    }
-
-    public boolean cTB() {
-        return this.kGG;
-    }
-
-    public LinkedList<com.baidu.tieba.pb.data.f> cTC() {
         return this.kGH;
     }
 
-    public void aN(bv bvVar) {
-        this.kGI.setValue(bvVar);
+    public void tw(boolean z) {
+        this.kGI = z;
     }
 
-    public void aO(bv bvVar) {
-        this.kGJ.setValue(bvVar);
-    }
-
-    public p<bv> cTD() {
+    public boolean cTB() {
         return this.kGI;
     }
 
-    public p<bv> cTE() {
+    public LinkedList<com.baidu.tieba.pb.data.f> cTC() {
         return this.kGJ;
     }
 
-    public p<Boolean> cTF() {
+    public void aN(bv bvVar) {
+        this.kGK.setValue(bvVar);
+    }
+
+    public void aO(bv bvVar) {
+        this.kGL.setValue(bvVar);
+    }
+
+    public p<bv> cTD() {
         return this.kGK;
     }
 
-    public void tx(boolean z) {
-        this.kGK.setValue(Boolean.valueOf(z));
-    }
-
-    public p<Boolean> cTG() {
+    public p<bv> cTE() {
         return this.kGL;
     }
 
-    public void ty(boolean z) {
-        this.kGL.postValue(Boolean.valueOf(z));
+    public p<Boolean> cTF() {
+        return this.kGM;
     }
 
-    public void setIsLoading(boolean z) {
-        this.kGN.setValue(Boolean.valueOf(z));
+    public void tx(boolean z) {
+        this.kGM.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cTH() {
+    public p<Boolean> cTG() {
         return this.kGN;
     }
 
+    public void ty(boolean z) {
+        this.kGN.postValue(Boolean.valueOf(z));
+    }
+
+    public void setIsLoading(boolean z) {
+        this.kGP.setValue(Boolean.valueOf(z));
+    }
+
+    public p<Boolean> cTH() {
+        return this.kGP;
+    }
+
     public p<Integer> cTI() {
-        return this.kGO;
+        return this.kGQ;
     }
 }

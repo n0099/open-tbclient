@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public abstract class b {
-    protected boolean hOj;
-    protected g ieb;
-    protected a iec;
-    protected boolean ied;
+    protected boolean hOl;
+    protected g ied;
+    protected a iee;
+    protected boolean ief;
     protected Intent mIntent;
     protected int mState = 0;
 
@@ -26,20 +26,20 @@ public abstract class b {
     public abstract void chX();
 
     public b(g gVar, Intent intent) {
-        this.ied = true;
-        this.hOj = false;
-        this.ieb = gVar;
+        this.ief = true;
+        this.hOl = false;
+        this.ied = gVar;
         this.mIntent = intent;
         e Gt = d.cic().Gt(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.ied = Gt.cie();
-        this.hOj = Gt.cid();
+        this.ief = Gt.cie();
+        this.hOl = Gt.cid();
         if (Gt.cif()) {
-            ((RelativeLayout.LayoutParams) this.ieb.ier.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+            ((RelativeLayout.LayoutParams) this.ied.iet.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public void a(a aVar) {
-        this.iec = aVar;
+        this.iee = aVar;
     }
 
     public int getState() {

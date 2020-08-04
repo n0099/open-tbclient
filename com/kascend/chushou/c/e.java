@@ -1871,13 +1871,13 @@ public class e {
                                                     JSONObject optJSONObject10 = optJSONObject9.optJSONObject("landscape");
                                                     if (optJSONObject10 != null) {
                                                         aVar.o = optJSONObject10.optString("url", "");
-                                                        aVar.nAW = eh(optJSONObject10);
+                                                        aVar.nAY = eh(optJSONObject10);
                                                         aVar.a = optJSONObject10.optInt("duration", 0);
                                                     }
                                                     JSONObject optJSONObject11 = optJSONObject9.optJSONObject("portrait");
                                                     if (optJSONObject11 != null) {
                                                         aVar.o = optJSONObject11.optString("url", "");
-                                                        aVar.nAX = eh(optJSONObject11);
+                                                        aVar.nAZ = eh(optJSONObject11);
                                                         aVar.a = optJSONObject11.optInt("duration", 0);
                                                     }
                                                     if (arrayList11 == null) {
@@ -3013,11 +3013,11 @@ public class e {
         dVar.q = jSONObject.optString("displayType", HttpConfig.UBC_HTTP_ID);
         JSONObject optJSONObject = jSONObject.optJSONObject("landscape");
         if (optJSONObject != null) {
-            dVar.nAW = eh(optJSONObject);
+            dVar.nAY = eh(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("portrait");
         if (optJSONObject2 != null) {
-            dVar.nAX = eh(optJSONObject2);
+            dVar.nAZ = eh(optJSONObject2);
         }
         dVar.o = jSONObject.optString("url", "");
     }
@@ -3107,10 +3107,10 @@ public class e {
         if (jSONArray == null && jSONArray2 == null) {
             return true;
         }
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dZH().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar != null) {
             str = bVar.getAppKey();
-            str2 = bVar.dOo();
+            str2 = bVar.dOp();
         } else {
             str = null;
         }

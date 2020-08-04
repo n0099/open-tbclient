@@ -64,6 +64,6 @@ public class ee extends ed {
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
     public String mo161a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f233a);
+        return b() + "|" + d() + "|" + e() + "|" + a(this.f236a);
     }
 }

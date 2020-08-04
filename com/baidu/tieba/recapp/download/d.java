@@ -30,7 +30,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class d implements s {
     private static int eal = 2097152;
     private final com.baidu.tbadk.core.util.a.a eag;
-    private com.baidu.tieba.recapp.download.http.c lmx = new com.baidu.tieba.recapp.download.http.c();
+    private com.baidu.tieba.recapp.download.http.c lmz = new com.baidu.tieba.recapp.download.http.c();
     private Context mContext = TbadkCoreApplication.getInst().getApp();
 
     public d(com.baidu.tbadk.core.util.a.a aVar) {
@@ -125,13 +125,13 @@ public class d implements s {
 
     @Override // com.baidu.tbadk.core.util.s
     public void cancelNetConnect() {
-        this.lmx.cancel();
+        this.lmz.cancel();
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void setCancel() {
-        if (this.lmx != null) {
-            this.lmx.setCancel();
+        if (this.lmz != null) {
+            this.lmz.setCancel();
         }
     }
 
@@ -215,13 +215,13 @@ public class d implements s {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.lmx.isCanceled()) {
+            if (this.lmz.isCanceled()) {
                 return null;
             }
-            if (this.lmx.b(this.eag.baW().bba().mUrl, this.eag.baW().bba().mPostData, this.eag.baW().bba().mRequestGzip, 5, -1, bay()) == null) {
+            if (this.lmz.b(this.eag.baW().bba().mUrl, this.eag.baW().bba().mPostData, this.eag.baW().bba().mRequestGzip, 5, -1, bay()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g dco = this.lmx.dco();
+            com.baidu.tieba.recapp.download.http.g dco = this.lmz.dco();
             if (dco == null) {
                 return null;
             }
@@ -238,7 +238,7 @@ public class d implements s {
                 }
                 TiebaStatic.net(this.eag);
                 return null;
-            } else if (this.lmx.isCanceled()) {
+            } else if (this.lmz.isCanceled()) {
                 return null;
             } else {
                 str = new String(dcq.retBytes, "utf-8");
@@ -379,12 +379,12 @@ public class d implements s {
             e = e5;
             iVar = null;
         }
-        if (this.lmx.isCanceled()) {
+        if (this.lmz.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.lmx.b(str, z, 5, 100, -1, -1, bay());
-        com.baidu.tieba.recapp.download.http.g dco = this.lmx.dco();
+        this.lmz.b(str, z, 5, 100, -1, -1, bay());
+        com.baidu.tieba.recapp.download.http.g dco = this.lmz.dco();
         if (dco == null) {
             return null;
         }
@@ -561,13 +561,13 @@ public class d implements s {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.lmx.isCanceled()) {
+            if (this.lmz.isCanceled()) {
                 return null;
             }
-            if (this.lmx.b(this.eag.baW().bba().mUrl, this.eag.baW().bba().mPostData, this.eag.baW().bba().mRequestGzip, 5, -1, bay()) == null) {
+            if (this.lmz.b(this.eag.baW().bba().mUrl, this.eag.baW().bba().mPostData, this.eag.baW().bba().mRequestGzip, 5, -1, bay()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g dco = this.lmx.dco();
+            com.baidu.tieba.recapp.download.http.g dco = this.lmz.dco();
             if (dco == null) {
                 return null;
             }
@@ -584,7 +584,7 @@ public class d implements s {
                 }
                 TiebaStatic.net(this.eag);
                 return null;
-            } else if (this.lmx.isCanceled()) {
+            } else if (this.lmz.isCanceled()) {
                 return null;
             } else {
                 str = new String(dcq.retBytes, "utf-8");
@@ -671,10 +671,10 @@ public class d implements s {
     @Override // com.baidu.tbadk.core.util.s
     public boolean downloadFile(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.lmx.isCanceled()) {
+            if (this.lmz.isCanceled()) {
                 return false;
             }
-            return this.lmx.a(this.eag.baW().bba().mUrl, (z ? new File(str) : n.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, bay(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
+            return this.lmz.a(this.eag.baW().bba().mUrl, (z ? new File(str) : n.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, bay(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
                 int ean = 0;
                 int eao = 0;
                 int eap = 0;

@@ -22,8 +22,8 @@ import java.util.List;
 public class d {
     private BdTypeRecyclerView VT;
     private PbListView fsC;
-    private final a iLh;
-    private final b iLi;
+    private final a iLj;
+    private final b iLk;
     private final TbPageContext mPageContext;
     private View mRootView;
 
@@ -34,7 +34,7 @@ public class d {
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.iLh = aVar;
+        this.iLj = aVar;
         this.VT = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
         this.VT.setLayoutManager(new LinearLayoutManager(this.VT.getContext()));
         this.VT.setFadingEdgeLength(0);
@@ -51,11 +51,11 @@ public class d {
         this.fsC.endLoadData();
         this.fsC.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.iLi = new b(tbPageContext, this.VT);
+        this.iLk = new b(tbPageContext, this.VT);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.iLi.b(tbPageTag);
+        this.iLk.b(tbPageTag);
     }
 
     public void onChangeSkinType() {

@@ -5,13 +5,13 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class FlowableRepeatUntil<T> extends a<T, T> {
-    final io.reactivex.c.e nTq;
+    final io.reactivex.c.e nTs;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RepeatSubscriber(cVar, this.nTq, subscriptionArbiter, this.nSE).subscribeNext();
+        new RepeatSubscriber(cVar, this.nTs, subscriptionArbiter, this.nSG).subscribeNext();
     }
 
     /* loaded from: classes7.dex */

@@ -5,9 +5,9 @@ import android.view.MotionEvent;
 /* loaded from: classes17.dex */
 class b {
     private Camera mCamera;
-    private float mie;
-    private int mif;
-    private i mig;
+    private float mig;
+    private int mih;
+    private i mii;
     private int mode = 0;
 
     public b(Camera camera) {
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.mig = iVar;
+        this.mii = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.mig == null || !this.mig.bdw()) {
+        if (this.mii == null || !this.mii.bdw()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.mie) / 10.0f);
+                        int i = (int) ((spacing - this.mig) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.mif;
+                            int i2 = i + this.mih;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.mie = spacing;
+                            this.mig = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.mie = spacing(motionEvent);
+                    this.mig = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.mif = i;
+                this.mih = i;
             }
         }
     }

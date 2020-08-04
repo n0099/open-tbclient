@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore;
 public interface q {
     void a(int i, boolean z, f fVar);
 
-    void b(m mVar);
+    void c(m mVar);
 
     void cbJ();
 

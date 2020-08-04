@@ -9,8 +9,8 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class m extends a {
-    public static String iWT = "tb_private_msg_";
-    private static a iXr;
+    public static String iWV = "tb_private_msg_";
+    private static a iXt;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
@@ -19,10 +19,10 @@ public class m extends a {
     public static synchronized m ctz() {
         m mVar;
         synchronized (m.class) {
-            if (iXr == null) {
-                iXr = new m();
+            if (iXt == null) {
+                iXt = new m();
             }
-            mVar = (m) iXr;
+            mVar = (m) iXt;
         }
         return mVar;
     }
@@ -48,7 +48,7 @@ public class m extends a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = iWT;
+            ?? r2 = iWV;
             try {
                 try {
                     cursor = h.ctm().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});

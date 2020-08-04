@@ -155,7 +155,7 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
         if (context == null || TextUtils.isEmpty(str)) {
             interfaceC0470a.s(null);
         } else if (com.baidu.swan.apps.storage.b.pJ(str) == PathType.NETWORK) {
-            com.facebook.drawee.a.a.c.dDo().e(ImageRequestBuilder.ab(al.getUri(str)).dKr(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
+            com.facebook.drawee.a.a.c.dDp().e(ImageRequestBuilder.ab(al.getUri(str)).dKs(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
                 @Override // com.facebook.imagepipeline.e.b
                 protected void h(@Nullable Bitmap bitmap) {
                     if (a.DEBUG) {
@@ -171,7 +171,7 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
                     }
                     interfaceC0470a.s(null);
                 }
-            }, i.dCu());
+            }, i.dCv());
         } else {
             File file = new File(str);
             if (file.exists()) {

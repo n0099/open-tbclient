@@ -3,7 +3,7 @@ package com.baidu.tieba.video;
 public interface d {
     void Gn(int i);
 
-    void dpt();
+    void dpu();
 
     void onConvertAborted();
 

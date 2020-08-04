@@ -7,33 +7,33 @@ import android.widget.TextView;
 /* loaded from: classes17.dex */
 public class BestStringsFitTextView extends TextView {
     private float bdX;
-    private String lJM;
-    private String lJN;
-    private boolean lJO;
+    private String lJO;
+    private String lJP;
+    private boolean lJQ;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.lJM = " ";
+        this.lJO = " ";
         this.bdX = 0.0f;
-        this.lJN = "";
-        this.lJO = false;
+        this.lJP = "";
+        this.lJQ = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lJM = " ";
+        this.lJO = " ";
         this.bdX = 0.0f;
-        this.lJN = "";
-        this.lJO = false;
+        this.lJP = "";
+        this.lJQ = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lJM = " ";
+        this.lJO = " ";
         this.bdX = 0.0f;
-        this.lJN = "";
-        this.lJO = false;
+        this.lJP = "";
+        this.lJQ = false;
     }
 
     protected void dke() {
@@ -41,23 +41,23 @@ public class BestStringsFitTextView extends TextView {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.lJM);
+                sb.append(this.lJO);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
             if (this.bdX < getPaint().measureText(sb2)) {
                 break;
             }
-            this.lJO = true;
-            this.lJN = sb2;
+            this.lJQ = true;
+            this.lJP = sb2;
         }
-        setText(this.lJN);
+        setText(this.lJP);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.lJO) {
+        if (this.textArray != null && !this.lJQ) {
             dke();
         }
     }
@@ -68,10 +68,10 @@ public class BestStringsFitTextView extends TextView {
     }
 
     public String getSeperator() {
-        return this.lJM;
+        return this.lJO;
     }
 
     public void setSeperator(String str) {
-        this.lJM = str;
+        this.lJO = str;
     }
 }

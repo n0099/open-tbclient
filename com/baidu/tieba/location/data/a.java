@@ -6,7 +6,7 @@ import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
 /* loaded from: classes17.dex */
 public class a {
-    private ArrayList<C0688a> jFF = new ArrayList<>();
+    private ArrayList<C0688a> jFH = new ArrayList<>();
 
     /* renamed from: com.baidu.tieba.location.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
@@ -43,11 +43,11 @@ public class a {
     }
 
     public ArrayList<C0688a> cDk() {
-        return this.jFF;
+        return this.jFH;
     }
 
     public void aB(ArrayList<C0688a> arrayList) {
-        this.jFF = arrayList;
+        this.jFH = arrayList;
     }
 
     public void a(DataRes dataRes) {
@@ -56,7 +56,7 @@ public class a {
             for (Lbs lbs : list) {
                 C0688a c0688a = new C0688a();
                 c0688a.b(lbs);
-                this.jFF.add(c0688a);
+                this.jFH.add(c0688a);
             }
         }
     }

@@ -11,11 +11,11 @@ import com.baidu.tieba.frs.e.b;
 /* loaded from: classes16.dex */
 public class f {
     private com.baidu.tbadk.n.a.a VQ;
-    private g ieb;
-    private b iek;
+    private g ied;
+    private b iem;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a iel = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
+    private b.a ien = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
         @Override // com.baidu.tieba.frs.e.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
@@ -45,17 +45,17 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.ieb = new g(context);
-        this.iek = c.a(this.ieb, intent);
-        this.iek.a(this.iel);
+        this.ied = new g(context);
+        this.iem = c.a(this.ied, intent);
+        this.iem.a(this.ien);
     }
 
     public void cig() {
         if (this.mParent != null) {
             cii();
-            this.mParent.addView(this.ieb.mRootView);
+            this.mParent.addView(this.ied.mRootView);
             cih();
-            this.iek.chW();
+            this.iem.chW();
         }
     }
 
@@ -68,12 +68,12 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
-        if (this.iek.getState() == 1) {
+        if (this.iem.getState() == 1) {
             com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.iek.chX();
+        this.iem.chX();
     }
 
     public static boolean U(Intent intent) {
@@ -102,9 +102,9 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cii() {
-        ViewParent parent = this.ieb.mRootView.getParent();
+        ViewParent parent = this.ied.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.ieb.mRootView);
+            ((ViewGroup) parent).removeView(this.ied.mRootView);
         }
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
     }

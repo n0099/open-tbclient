@@ -14,14 +14,14 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
 import java.util.LinkedList;
 /* loaded from: classes15.dex */
 public class HotTopicListModel extends BdBaseModel {
-    private b kdm;
+    private b kdo;
     private boolean mIsLoading;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
         super(tbPageContext);
         cmP();
-        this.kdm = bVar;
+        this.kdo = bVar;
     }
 
     private void cmP() {
@@ -37,22 +37,22 @@ public class HotTopicListModel extends BdBaseModel {
                             hotRanklistData = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
                         }
                         if (hotRanklistData != null) {
-                            if (x.isEmpty(hotRanklistData.iKN)) {
+                            if (x.isEmpty(hotRanklistData.iKP)) {
                                 z = false;
                             } else {
                                 LinkedList linkedList = new LinkedList();
-                                int size = hotRanklistData.iKN.size();
+                                int size = hotRanklistData.iKP.size();
                                 for (int i = 0; i < size; i++) {
-                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.iKN.get(i), i));
+                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.iKP.get(i), i));
                                 }
-                                HotTopicListModel.this.kdm.n(responsedMessage.getError(), linkedList);
+                                HotTopicListModel.this.kdo.n(responsedMessage.getError(), linkedList);
                                 z = true;
                             }
                             if (z) {
                                 return;
                             }
                         }
-                        HotTopicListModel.this.kdm.n(-1, null);
+                        HotTopicListModel.this.kdo.n(-1, null);
                     }
                 }
             }

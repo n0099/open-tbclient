@@ -53,7 +53,7 @@ public class PostSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.dmb();
+                com.baidu.tieba.tbadkCore.util.a.dmc();
                 return new CustomResponsedMessage<>(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA);
             }
         });

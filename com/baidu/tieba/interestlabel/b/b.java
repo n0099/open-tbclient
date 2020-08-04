@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes17.dex */
 public class b {
-    private List<a> jvC;
-    private List<Integer> jvD;
-    private List<a> jvG;
+    private List<a> jvE;
+    private List<Integer> jvF;
+    private List<a> jvI;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!x.isEmpty(dataRes.sex_taglist)) {
-                this.jvG = new ArrayList();
-                t(this.jvG, dataRes.sex_taglist);
+                this.jvI = new ArrayList();
+                t(this.jvI, dataRes.sex_taglist);
             }
             if (!x.isEmpty(dataRes.taglist)) {
-                this.jvC = new ArrayList();
-                this.jvD = new ArrayList();
-                t(this.jvC, dataRes.taglist);
+                this.jvE = new ArrayList();
+                this.jvF = new ArrayList();
+                t(this.jvE, dataRes.taglist);
             }
         }
     }
@@ -33,8 +33,8 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.jvD != null && aVar.isFollow) {
-                        this.jvD.add(Integer.valueOf(aVar.labelId));
+                    if (this.jvF != null && aVar.isFollow) {
+                        this.jvF.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
@@ -42,14 +42,14 @@ public class b {
     }
 
     public List<a> cAr() {
-        return this.jvG;
+        return this.jvI;
     }
 
     public List<a> cAs() {
-        return this.jvC;
+        return this.jvE;
     }
 
     public List<Integer> cAt() {
-        return this.jvD;
+        return this.jvF;
     }
 }

@@ -20,7 +20,7 @@ import java.util.Random;
 /* loaded from: classes16.dex */
 public class ay {
     private static TextView eLc;
-    private static final int[] kuT = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static final int[] kuV = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     public static Intent aB(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -35,7 +35,7 @@ public class ay {
     }
 
     public static int cPr() {
-        return kuT[new Random().nextInt(kuT.length)];
+        return kuV[new Random().nextInt(kuV.length)];
     }
 
     public static String KN(String str) {

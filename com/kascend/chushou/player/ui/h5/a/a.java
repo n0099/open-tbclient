@@ -8,8 +8,8 @@ import tv.chushou.zues.c;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0837a nAv;
-    private final c nAu = new c(Looper.getMainLooper());
+    private InterfaceC0837a nAx;
+    private final c nAw = new c(Looper.getMainLooper());
     private final List<com.kascend.chushou.player.ui.h5.c.b> c = new ArrayList();
 
     /* renamed from: com.kascend.chushou.player.ui.h5.a.a$a  reason: collision with other inner class name */
@@ -20,21 +20,21 @@ public class a {
 
     public a(Activity activity) {
         try {
-            this.nAv = (InterfaceC0837a) activity;
+            this.nAx = (InterfaceC0837a) activity;
         } catch (Exception e) {
-            this.nAv = null;
+            this.nAx = null;
         }
     }
 
     public void a() {
         this.c.clear();
-        this.nAu.ch(null);
+        this.nAw.ch(null);
     }
 
     public void b() {
         this.c.clear();
-        this.nAu.ch(null);
-        this.nAv = null;
+        this.nAw.ch(null);
+        this.nAx = null;
     }
 
     public void a(List<com.kascend.chushou.player.ui.h5.c.b> list) {
@@ -48,7 +48,7 @@ public class a {
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 final com.kascend.chushou.player.ui.h5.c.b bVar2 = this.c.get(i2);
                 if (bVar2.b > 0) {
-                    this.nAu.e(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
+                    this.nAw.e(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.b(bVar2);
@@ -56,8 +56,8 @@ public class a {
                     }, bVar2.b * 1000);
                 }
             }
-            if (this.nAv != null) {
-                this.nAv.c(this.c.size());
+            if (this.nAx != null) {
+                this.nAx.c(this.c.size());
             }
         }
     }
@@ -88,8 +88,8 @@ public class a {
         if (bVar != null) {
             this.c.remove(bVar);
         }
-        if (this.nAv != null) {
-            this.nAv.c(this.c.size());
+        if (this.nAx != null) {
+            this.nAx.c(this.c.size());
         }
     }
 

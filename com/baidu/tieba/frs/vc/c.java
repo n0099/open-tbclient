@@ -11,16 +11,16 @@ import tbclient.PopInfo;
 /* loaded from: classes16.dex */
 public class c {
     private final FrsFragment hHU;
-    private a ifn;
+    private a ifp;
 
     public c(FrsFragment frsFragment) {
         this.hHU = frsFragment;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.hHU != null && this.hHU.cbZ() != null && this.hHU.cbZ().getForum() != null && !StringUtils.isNull(this.hHU.cbZ().getForum().getName()) && this.hHU.cbZ().enterFrsDialogInfo != null && cit() && this.ifn == null) {
-            this.ifn = new a();
-            this.ifn.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.hHU != null && this.hHU.cbZ() != null && this.hHU.cbZ().getForum() != null && !StringUtils.isNull(this.hHU.cbZ().getForum().getName()) && this.hHU.cbZ().enterFrsDialogInfo != null && cit() && this.ifp == null) {
+            this.ifp = new a();
+            this.ifp.execute(new Void[0]);
         }
     }
 

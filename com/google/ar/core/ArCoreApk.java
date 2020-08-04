@@ -69,8 +69,8 @@ public class ArCoreApk {
         void a(Availability availability);
     }
 
-    public static ArCoreApk dKJ() {
-        return o.dKR();
+    public static ArCoreApk dKK() {
+        return o.dKS();
     }
 
     /* loaded from: classes5.dex */

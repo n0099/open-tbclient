@@ -14,18 +14,18 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NavigationBarCoverTip extends LinearLayout {
     private View hKw;
-    private Animation ifF;
-    private Animation ifG;
+    private Animation ifH;
+    private Animation ifI;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
-    private a mpf;
+    private a mph;
 
     /* loaded from: classes.dex */
     public interface a {
         void GF();
 
-        void dtE();
+        void dtF();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -61,12 +61,12 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     private void initAnimation() {
-        this.ifF = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.ifF.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
+        this.ifH = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.ifH.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.mpf != null) {
-                    NavigationBarCoverTip.this.mpf.GF();
+                if (NavigationBarCoverTip.this.mph != null) {
+                    NavigationBarCoverTip.this.mph.GF();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -81,16 +81,16 @@ public class NavigationBarCoverTip extends LinearLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.ifG = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.ifG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.3
+        this.ifI = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.ifI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.mpf != null) {
-                    NavigationBarCoverTip.this.mpf.dtE();
+                if (NavigationBarCoverTip.this.mph != null) {
+                    NavigationBarCoverTip.this.mph.dtF();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -123,7 +123,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.ifF);
+        startAnimation(this.ifH);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
         com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, i);
     }
@@ -135,14 +135,14 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.ifF);
+        startAnimation(this.ifH);
         com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
         com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, i);
     }
 
     public void hideTip() {
         clearAnimation();
-        startAnimation(this.ifG);
+        startAnimation(this.ifI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -168,6 +168,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.mpf = aVar;
+        this.mph = aVar;
     }
 }

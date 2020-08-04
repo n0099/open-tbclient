@@ -9,12 +9,12 @@ import com.facebook.imagepipeline.memory.i;
 import com.facebook.imagepipeline.memory.q;
 /* loaded from: classes4.dex */
 public class d implements com.facebook.common.g.a {
-    private final b mZl;
-    private final i mZm;
+    private final b mZn;
+    private final i mZo;
 
     public d(q qVar) {
-        this.mZm = qVar.dJf();
-        this.mZl = new b(qVar.dJi());
+        this.mZo = qVar.dJg();
+        this.mZn = new b(qVar.dJj());
     }
 
     @Override // com.facebook.common.g.a
@@ -26,15 +26,15 @@ public class d implements com.facebook.common.g.a {
         PooledByteBuffer pooledByteBuffer;
         com.facebook.common.references.a<byte[]> IY;
         com.facebook.common.references.a<byte[]> aVar = null;
-        com.facebook.common.references.a<PooledByteBuffer> b = this.mZl.b((short) i, (short) i2);
+        com.facebook.common.references.a<PooledByteBuffer> b = this.mZn.b((short) i, (short) i2);
         try {
             com.facebook.imagepipeline.g.e eVar2 = new com.facebook.imagepipeline.g.e(b);
             try {
-                eVar2.c(com.facebook.c.b.mYf);
+                eVar2.c(com.facebook.c.b.mYh);
                 a = a(eVar2.getSampleSize(), config);
                 size = b.get().size();
                 pooledByteBuffer = b.get();
-                IY = this.mZm.IY(size + 2);
+                IY = this.mZo.IY(size + 2);
             } catch (Throwable th) {
                 th = th;
                 eVar = eVar2;

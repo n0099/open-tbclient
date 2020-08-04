@@ -11,7 +11,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public BdUniqueId eEU;
     private NEGFeedBackView.a far;
     aa<com.baidu.tieba.card.data.j> hly;
-    private com.baidu.tieba.card.k izi;
+    private com.baidu.tieba.card.k izk;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -23,12 +23,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
                 int i = 0;
-                if (c.this.izi.fiQ != view) {
-                    if (view != c.this.izi.fXb.getCommentContainer()) {
-                        if (view != c.this.izi.gUl.getCommentContainer()) {
-                            if (c.this.izi.bRq() != null && view.getId() == c.this.izi.bRq().getId()) {
+                if (c.this.izk.fiQ != view) {
+                    if (view != c.this.izk.fXb.getCommentContainer()) {
+                        if (view != c.this.izk.gUl.getCommentContainer()) {
+                            if (c.this.izk.bRq() != null && view.getId() == c.this.izk.bRq().getId()) {
                                 i = 2;
-                            } else if (c.this.izi.bRr() != null && view.getId() == c.this.izi.bRr().getId()) {
+                            } else if (c.this.izk.bRr() != null && view.getId() == c.this.izk.bRr().getId()) {
                                 i = 2;
                             }
                         }
@@ -53,12 +53,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.k> b(ViewGroup viewGroup) {
-        this.izi = new com.baidu.tieba.card.k(this.mPageContext, this.eEU);
-        this.izi.ta(2);
+        this.izk = new com.baidu.tieba.card.k(this.mPageContext, this.eEU);
+        this.izk.ta(2);
         if (this.eEU != null) {
-            this.izi.p(this.eEU);
+            this.izk.p(this.eEU);
         }
-        return new com.baidu.tieba.card.a.a<>(this.izi);
+        return new com.baidu.tieba.card.a.a<>(this.izk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -20,17 +20,17 @@ import java.util.Iterator;
 public class b {
     private TbPageContext dVN;
     private int gEw;
-    private com.baidu.tieba.personPolymeric.tab.fragments.a kYb;
-    private final CustomMessageListener kYc = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
+    private com.baidu.tieba.personPolymeric.tab.fragments.a kYd;
+    private final CustomMessageListener kYe = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bv) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.kYb != null && b.this.kYb.cYg()) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bv) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.kYd != null && b.this.kYd.cYg()) {
                 b.this.aU((bv) customResponsedMessage.getData());
             }
         }
     };
-    private final CustomMessageListener kYd = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
+    private final CustomMessageListener kYf = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,7 +39,7 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener kYe = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
+    private final CustomMessageListener kYg = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -53,14 +53,14 @@ public class b {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.personPolymeric.tab.fragments.a aVar, int i) {
         this.dVN = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.kYb = aVar;
+        this.kYd = aVar;
         this.gEw = i;
-        this.kYc.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kYc);
-        this.kYd.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kYd);
         this.kYe.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.kYe);
+        this.kYf.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kYf);
+        this.kYg.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kYg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -94,18 +94,18 @@ public class b {
     public void a(boolean z, bv bvVar) {
         bv i;
         boolean z2 = false;
-        if (bvVar != null && this.kYb != null && !x.isEmpty(this.kYb.cnZ()) && this.kYb.cYf() != null && this.kYb.cYf().cYh() != null) {
+        if (bvVar != null && this.kYd != null && !x.isEmpty(this.kYd.cnZ()) && this.kYd.cYf() != null && this.kYd.cYf().cYh() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.kYb.cnZ().size()) {
+                if (i2 >= this.kYd.cnZ().size()) {
                     break;
                 }
-                q qVar = this.kYb.cnZ().get(i2);
+                q qVar = this.kYd.cnZ().get(i2);
                 if (qVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(qVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(bvVar.tid)) {
                     i.isPrivacy = z;
                     c ay = com.baidu.tieba.personPolymeric.tab.b.a.ay(i);
                     if (ay != null) {
-                        this.kYb.cnZ().set(i2, ay);
+                        this.kYd.cnZ().set(i2, ay);
                         z2 = true;
                         break;
                     }
@@ -113,7 +113,7 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.kYb.cYf().eJ(this.kYb.cnZ());
+                this.kYd.cYf().eJ(this.kYd.cnZ());
             }
         }
     }
@@ -122,8 +122,8 @@ public class b {
     public void LJ(String str) {
         boolean z;
         bv i;
-        if (!StringUtils.isNull(str) && this.kYb != null && !x.isEmpty(this.kYb.cnZ()) && this.kYb.cYf() != null && this.kYb.cYf().cYh() != null) {
-            Iterator<q> it = this.kYb.cnZ().iterator();
+        if (!StringUtils.isNull(str) && this.kYd != null && !x.isEmpty(this.kYd.cnZ()) && this.kYd.cYf() != null && this.kYd.cYf().cYh() != null) {
+            Iterator<q> it = this.kYd.cnZ().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -137,7 +137,7 @@ public class b {
                 }
             }
             if (z) {
-                this.kYb.cYf().eJ(this.kYb.cnZ());
+                this.kYd.cYf().eJ(this.kYd.cnZ());
             }
         }
     }
@@ -146,8 +146,8 @@ public class b {
     public void removeThread(String str) {
         boolean z;
         bv i;
-        if (!StringUtils.isNull(str) && this.kYb != null && !x.isEmpty(this.kYb.cnZ()) && this.kYb.cYf() != null && this.kYb.cYf().cYh() != null) {
-            Iterator<q> it = this.kYb.cnZ().iterator();
+        if (!StringUtils.isNull(str) && this.kYd != null && !x.isEmpty(this.kYd.cnZ()) && this.kYd.cYf() != null && this.kYd.cYf().cYh() != null) {
+            Iterator<q> it = this.kYd.cnZ().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -161,7 +161,7 @@ public class b {
                 }
             }
             if (z) {
-                this.kYb.cYf().eJ(this.kYb.cnZ());
+                this.kYd.cYf().eJ(this.kYd.cnZ());
             }
         }
     }

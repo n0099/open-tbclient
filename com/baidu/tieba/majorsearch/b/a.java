@@ -23,19 +23,19 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
     private String drQ;
-    private SearchMajorActivity jHW;
-    private com.baidu.tieba.majorsearch.a jIi;
+    private SearchMajorActivity jHY;
+    private com.baidu.tieba.majorsearch.a jIk;
     private View mRootView;
 
     public a(SearchMajorActivity searchMajorActivity) {
-        this.jHW = searchMajorActivity;
+        this.jHY = searchMajorActivity;
         init();
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.jHW).inflate(R.layout.search_major_main, (ViewGroup) null);
-        this.jHW.setContentView(this.mRootView);
-        this.jIi = new com.baidu.tieba.majorsearch.a(this.mRootView, this.jHW);
+        this.mRootView = LayoutInflater.from(this.jHY).inflate(R.layout.search_major_main, (ViewGroup) null);
+        this.jHY.setContentView(this.mRootView);
+        this.jIk = new com.baidu.tieba.majorsearch.a(this.mRootView, this.jHY);
         cEt();
         cEg();
         this.drQ = "";
@@ -47,7 +47,7 @@ public class a {
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
-                    l.hideSoftKeyPad(a.this.jHW.getPageContext().getPageActivity(), view);
+                    l.hideSoftKeyPad(a.this.jHY.getPageContext().getPageActivity(), view);
                 } else {
                     a.this.cEu();
                 }
@@ -77,13 +77,13 @@ public class a {
                 if (editable != null) {
                     a.this.drQ = editable.toString();
                     a.this.cEu();
-                    a.this.jIi.mu(!StringUtils.isNull(editable.toString()));
+                    a.this.jIk.mu(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
-        this.jIi.a(onFocusChangeListener);
-        this.jIi.a(onEditorActionListener);
-        this.jIi.d(textWatcher);
+        this.jIk.a(onFocusChangeListener);
+        this.jIk.a(onEditorActionListener);
+        this.jIk.d(textWatcher);
     }
 
     private void cEg() {
@@ -92,14 +92,14 @@ public class a {
             public void Jh(String str) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-                a.this.jHW.ab(intent);
+                a.this.jHY.ab(intent);
             }
         };
         RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.majorsearch.b.a.5
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 if (i == 1 || i == 2) {
-                    l.hideSoftKeyPad(a.this.jHW.getPageContext().getPageActivity(), recyclerView);
+                    l.hideSoftKeyPad(a.this.jHY.getPageContext().getPageActivity(), recyclerView);
                 }
             }
 
@@ -107,51 +107,51 @@ public class a {
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             }
         };
-        this.jIi.a(interfaceC0695a);
-        this.jIi.a(onScrollListener);
+        this.jIk.a(interfaceC0695a);
+        this.jIk.a(onScrollListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cEu() {
-        if (this.jHW != null) {
+        if (this.jHY != null) {
             if (j.isNetWorkAvailable()) {
                 if (this.drQ != null) {
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
                     httpMessage.addParam("keyword", this.drQ.trim());
-                    this.jHW.sendMessage(httpMessage);
+                    this.jHY.sendMessage(httpMessage);
                 }
-            } else if (this.jIi != null) {
+            } else if (this.jIk != null) {
                 d(new ErrorData());
-                this.jHW.getRefreshView().oj(R.drawable.new_pic_emotion_05);
-                this.jHW.showNetRefreshViewNoClick(this.jIi.cEq(), null);
-                this.jHW.getRefreshView().zX(this.jHW.getString(R.string.im_error_default));
+                this.jHY.getRefreshView().oj(R.drawable.new_pic_emotion_05);
+                this.jHY.showNetRefreshViewNoClick(this.jIk.cEq(), null);
+                this.jHY.getRefreshView().zX(this.jHY.getString(R.string.im_error_default));
             }
         }
     }
 
     public void dX(List<String> list) {
-        if (this.jIi != null) {
-            this.jIi.l(list, this.drQ);
+        if (this.jIk != null) {
+            this.jIk.l(list, this.drQ);
         }
     }
 
     public void d(ErrorData errorData) {
-        if (this.jIi != null) {
-            this.jIi.c(errorData);
+        if (this.jIk != null) {
+            this.jIk.c(errorData);
         }
     }
 
     public void onResume() {
-        if (this.jIi != null) {
-            this.jIi.onResume();
+        if (this.jIk != null) {
+            this.jIk.onResume();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.jIi.onChangeSkinType(i);
+        this.jIk.onChangeSkinType(i);
     }
 
     public com.baidu.tieba.majorsearch.a cEv() {
-        return this.jIi;
+        return this.jIk;
     }
 }

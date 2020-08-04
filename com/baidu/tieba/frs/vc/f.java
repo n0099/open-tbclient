@@ -28,11 +28,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes16.dex */
 public class f {
     private FrsFragment hHU;
-    private TBSpecificationBtn ifJ;
-    private boolean ifL;
+    private TBSpecificationBtn ifL;
+    private boolean ifN;
     private LikeModel emT = null;
-    private ac ifK = null;
-    private AntiHelper.a ifM = new AntiHelper.a() { // from class: com.baidu.tieba.frs.vc.f.1
+    private ac ifM = null;
+    private AntiHelper.a ifO = new AntiHelper.a() { // from class: com.baidu.tieba.frs.vc.f.1
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
             TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ah("obj_locate", aw.a.LOCATE_LIKE_BAR));
@@ -43,7 +43,7 @@ public class f {
             TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ah("obj_locate", aw.a.LOCATE_LIKE_BAR));
         }
     };
-    private com.baidu.adp.base.d ifN = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.vc.f.2
+    private com.baidu.adp.base.d ifP = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.vc.f.2
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
             FrsViewData cbZ;
@@ -51,7 +51,7 @@ public class f {
             boolean z = false;
             if (f.this.hHU != null && (cbZ = f.this.hHU.cbZ()) != null && cbZ.getForum() != null && obj != null) {
                 if (AntiHelper.bB(f.this.emT.getErrorCode(), f.this.emT.getErrorString())) {
-                    if (AntiHelper.a(f.this.hHU.getActivity(), f.this.emT.getBlockPopInfoData(), f.this.ifM) != null) {
+                    if (AntiHelper.a(f.this.hHU.getActivity(), f.this.emT.getBlockPopInfoData(), f.this.ifO) != null) {
                         TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ah("obj_locate", aw.a.LOCATE_LIKE_BAR));
                         return;
                     }
@@ -83,11 +83,11 @@ public class f {
                     }
                     uVar.setLike(1);
                     cbZ.updateLikeData(uVar);
-                    cbZ.setLikeFeedForumDataList(uVar.dkt());
+                    cbZ.setLikeFeedForumDataList(uVar.dku());
                     if (cbt != null) {
-                        cbt.a(cbZ, f.this.ifL);
+                        cbt.a(cbZ, f.this.ifN);
                     }
-                    f.this.ifL = true;
+                    f.this.ifN = true;
                     f.this.hHU.showToast(f.this.hHU.getResources().getString(R.string.attention_success));
                     f.this.p(true, id);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar));
@@ -97,7 +97,7 @@ public class f {
             }
         }
     };
-    private ac.a ifO = new ac.a() { // from class: com.baidu.tieba.frs.vc.f.3
+    private ac.a ifQ = new ac.a() { // from class: com.baidu.tieba.frs.vc.f.3
         @Override // com.baidu.tieba.tbadkCore.ac.a
         public void x(String str, long j) {
             FrsViewData cbZ;
@@ -134,13 +134,13 @@ public class f {
     }
 
     public void e(TBSpecificationBtn tBSpecificationBtn) {
-        this.ifJ = tBSpecificationBtn;
+        this.ifL = tBSpecificationBtn;
         ceP();
     }
 
     public void ceP() {
-        if (this.ifJ != null) {
-            this.ifJ.bci();
+        if (this.ifL != null) {
+            this.ifL.bci();
         }
     }
 
@@ -151,21 +151,21 @@ public class f {
 
     public void cgL() {
         if (this.emT != null) {
-            this.emT.dkA();
+            this.emT.dkB();
         }
     }
 
     private void bxF() {
         if (this.hHU != null) {
             this.emT = new LikeModel(this.hHU.getPageContext());
-            this.emT.setLoadDataCallBack(this.ifN);
+            this.emT.setLoadDataCallBack(this.ifP);
         }
     }
 
     private void ciH() {
-        this.ifK = new ac();
-        this.ifK.setFrom("from_frs");
-        this.ifK.a(this.ifO);
+        this.ifM = new ac();
+        this.ifM.setFrom("from_frs");
+        this.ifM.a(this.ifQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -208,7 +208,7 @@ public class f {
                     TiebaStatic.log(new ap("c10359").dn("fid", cbZ.getForum().getId()));
                 }
                 this.emT.ay(cbZ.getForum().getName(), cbZ.getForum().getId(), "FRS");
-                this.ifL = z;
+                this.ifN = z;
             }
         }
     }
@@ -232,13 +232,13 @@ public class f {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    if (f.this.hHU != null && f.this.ifK != null) {
+                    if (f.this.hHU != null && f.this.ifM != null) {
                         FrsViewData cbZ2 = f.this.hHU.cbZ();
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         if (currentAccount == null || currentAccount.length() <= 0) {
                             TbadkCoreApplication.getInst().login(f.this.hHU.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(f.this.hHU.getActivity(), true, RequestResponseCode.REQUEST_LOGIN_UNLIKE)));
                         } else if (cbZ2 != null && cbZ2.getForum() != null) {
-                            f.this.ifK.J(cbZ2.getForum().getName(), com.baidu.adp.lib.f.b.toLong(cbZ2.getForum().getId(), 0L));
+                            f.this.ifM.J(cbZ2.getForum().getName(), com.baidu.adp.lib.f.b.toLong(cbZ2.getForum().getId(), 0L));
                         }
                     }
                 }

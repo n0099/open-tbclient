@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class p {
-    private String kiI;
-    private int lOl;
+    private String kiK;
+    private int lOn;
 
-    public int dlu() {
-        return this.lOl;
+    public int dlv() {
+        return this.lOn;
     }
 
     public void Ft(int i) {
-        this.lOl = i;
+        this.lOn = i;
     }
 
-    public String dlv() {
-        return this.kiI;
+    public String dlw() {
+        return this.kiK;
     }
 
     public void NO(String str) {
-        this.kiI = str;
+        this.kiK = str;
     }
 }

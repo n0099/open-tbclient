@@ -5166,7 +5166,7 @@ public final class R {
         public static final int commit_good_layout = 0x7f0f0ee3;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f963common = 0x7f0f01ad;
+        public static final int f966common = 0x7f0f01ad;
         public static final int common_loading_view = 0x7f0f19ef;
         public static final int common_progress = 0x7f0f0ef2;
         public static final int common_tab_content = 0x7f0f0ef0;

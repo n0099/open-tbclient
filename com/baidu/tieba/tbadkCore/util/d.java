@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     protected volatile int eet;
-    protected volatile HashMap<Long, Integer> lQg = new HashMap<>();
+    protected volatile HashMap<Long, Integer> lQi = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
@@ -17,24 +17,24 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.lQg.size() >= this.eet) {
-                    dmm();
+                if (this.lQi.size() >= this.eet) {
+                    dmn();
                 }
                 this.mWeight++;
-                this.lQg.put(valueOf, Integer.valueOf(this.mWeight));
+                this.lQi.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dmm() {
+    public void dmn() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.lQg.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.lQi.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.lQg.remove(l2);
+                this.lQi.remove(l2);
             } else {
-                this.lQg.clear();
+                this.lQi.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.lQg.get(valueOf) != null;
+                z = this.lQi.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class d {
 
     public boolean Oa(String str) {
         try {
-            return this.lQg.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.lQi.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dml() {
+    public void dmm() {
         synchronized (this) {
-            this.lQg.clear();
+            this.lQi.clear();
         }
     }
 }

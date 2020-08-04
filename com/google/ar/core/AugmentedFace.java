@@ -5,15 +5,15 @@ import java.nio.CharBuffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes5.dex */
 public class AugmentedFace extends TrackableBase {
-    private FloatBuffer nib;
-    private FloatBuffer nic;
     private FloatBuffer nie;
-    private CharBuffer nif;
+    private FloatBuffer nif;
+    private FloatBuffer nig;
+    private CharBuffer nih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AugmentedFace(long j, Session session) {
         super(j, session);
-        dKK();
+        dKL();
     }
 
     private native h nativeGetCenterPose(long j, long j2);
@@ -45,11 +45,11 @@ public class AugmentedFace extends TrackableBase {
         super(0L, null);
     }
 
-    void dKK() {
-        this.nib = Session.q(nativeGetMeshVerticesByteBuffer(this.nhZ.nia, this.nia)).asFloatBuffer().asReadOnlyBuffer();
-        this.nic = Session.q(nativeGetMeshNormalsByteBuffer(this.nhZ.nia, this.nia)).asFloatBuffer().asReadOnlyBuffer();
-        this.nie = Session.q(nativeGetMeshTextureCoordinatesByteBuffer(this.nhZ.nia, this.nia)).asFloatBuffer().asReadOnlyBuffer();
-        this.nif = Session.q(nativeGetMeshTriangleIndicesByteBuffer(this.nhZ.nia, this.nia)).asCharBuffer().asReadOnlyBuffer();
+    void dKL() {
+        this.nie = Session.q(nativeGetMeshVerticesByteBuffer(this.nib.nic, this.nic)).asFloatBuffer().asReadOnlyBuffer();
+        this.nif = Session.q(nativeGetMeshNormalsByteBuffer(this.nib.nic, this.nic)).asFloatBuffer().asReadOnlyBuffer();
+        this.nig = Session.q(nativeGetMeshTextureCoordinatesByteBuffer(this.nib.nic, this.nic)).asFloatBuffer().asReadOnlyBuffer();
+        this.nih = Session.q(nativeGetMeshTriangleIndicesByteBuffer(this.nib.nic, this.nic)).asCharBuffer().asReadOnlyBuffer();
     }
 
     @Override // com.google.ar.core.TrackableBase

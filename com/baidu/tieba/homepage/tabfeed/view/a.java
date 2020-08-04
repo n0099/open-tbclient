@@ -30,11 +30,11 @@ public class a {
     private BdSwipeRefreshLayout fuP;
     private SmartBubbleAnimatedView hoQ;
     private i hoU;
-    private HomePageTabFeedFragment iCr;
-    private c iDB;
-    private bc iDJ;
-    private HomePageTabFeedHeaderView iDK;
-    private com.baidu.tieba.homepage.tabfeed.a iDL;
+    private HomePageTabFeedFragment iCt;
+    private c iDD;
+    private bc iDL;
+    private HomePageTabFeedHeaderView iDM;
+    private com.baidu.tieba.homepage.tabfeed.a iDN;
     private g mPullView;
     private ViewGroup mRootView;
     private String tabName;
@@ -78,29 +78,29 @@ public class a {
             if (a.this.VT != null) {
                 a.this.VT.stopScroll();
             }
-            if (a.this.fsC != null && a.this.iDB != null && j.isNetWorkAvailable()) {
+            if (a.this.fsC != null && a.this.iDD != null && j.isNetWorkAvailable()) {
                 a.this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 a.this.fsC.setOnClickListener(null);
                 if (a.this.hasMore) {
                     a.this.fsC.showLoading();
-                    a.this.iDB.bWk();
+                    a.this.iDD.bWk();
                 }
             }
         }
     };
 
     public void bxS() {
-        if (this.fsC != null && this.iDB != null) {
+        if (this.fsC != null && this.iDD != null) {
             if (j.isNetWorkAvailable()) {
                 this.VT.setNextPage(this.fsC);
                 this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.fsC.setOnClickListener(null);
                 if (this.hasMore) {
                     this.fsC.showLoading();
-                    this.iDB.bWk();
+                    this.iDD.bWk();
                     return;
                 }
-                this.fsC.setText(this.iCr.getResources().getString(R.string.list_has_no_more));
+                this.fsC.setText(this.iCt.getResources().getString(R.string.list_has_no_more));
                 this.fsC.endLoadData();
                 return;
             }
@@ -109,25 +109,25 @@ public class a {
     }
 
     public a(HomePageTabFeedFragment homePageTabFeedFragment, c cVar, ViewGroup viewGroup, String str) {
-        this.iCr = homePageTabFeedFragment;
-        this.iDB = cVar;
+        this.iCt = homePageTabFeedFragment;
+        this.iDD = cVar;
         this.tabName = str;
         aT(viewGroup);
-        this.iDL = new com.baidu.tieba.homepage.tabfeed.a(homePageTabFeedFragment, this.VT);
-        this.iDL.setTabName(str);
+        this.iDN = new com.baidu.tieba.homepage.tabfeed.a(homePageTabFeedFragment, this.VT);
+        this.iDN.setTabName(str);
         jH(false);
     }
 
     private void aT(ViewGroup viewGroup) {
         this.mRootView = viewGroup;
         this.VT = (BdTypeRecyclerView) viewGroup.findViewById(R.id.tab_feed_recycler_view);
-        this.VT.setLayoutManager(new LinearLayoutManager(this.iCr.getContext()));
+        this.VT.setLayoutManager(new LinearLayoutManager(this.iCt.getContext()));
         this.VT.setFadingEdgeLength(0);
         this.VT.setOverScrollMode(2);
         this.VT.setOnSrollToBottomListener(this.fLV);
         this.VT.addOnScrollListener(this.gPJ);
-        this.mPullView = new g(this.iCr.getPageContext());
-        this.mPullView.setListPullRefreshListener(this.iDB);
+        this.mPullView = new g(this.iCt.getPageContext());
+        this.mPullView.setListPullRefreshListener(this.iDD);
         this.VT.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.homepage.tabfeed.view.a.4
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
@@ -137,10 +137,10 @@ public class a {
                 }
             }
         });
-        this.fsC = new PbListView(this.iCr.getPageContext().getPageActivity());
+        this.fsC = new PbListView(this.iCt.getPageContext().getPageActivity());
         this.fsC.getView();
         this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fsC.setHeight(l.getDimens(this.iCr.getPageContext().getPageActivity(), R.dimen.tbds182));
+        this.fsC.setHeight(l.getDimens(this.iCt.getPageContext().getPageActivity(), R.dimen.tbds182));
         this.fsC.setLineGone();
         this.fsC.setTextSize(R.dimen.tbfontsize33);
         this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
@@ -151,44 +151,44 @@ public class a {
             this.fuP = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.tab_feed_pull_refresh_layout);
             this.fuP.setProgressView(this.mPullView);
         }
-        this.iDJ = new bc();
-        this.hoQ = new SmartBubbleAnimatedView(this.iCr.getContext());
-        this.hoQ.setLayoutParams(new FrameLayout.LayoutParams(-1, l.getDimens(this.iCr.getContext(), R.dimen.tbds83)));
+        this.iDL = new bc();
+        this.hoQ = new SmartBubbleAnimatedView(this.iCt.getContext());
+        this.hoQ.setLayoutParams(new FrameLayout.LayoutParams(-1, l.getDimens(this.iCt.getContext(), R.dimen.tbds83)));
         if (this.hoU == null) {
-            this.hoU = new i(this.iCr.getPageContext(), this.VT);
+            this.hoU = new i(this.iCt.getPageContext(), this.VT);
             this.hoU.Dm(1);
-            this.hoU.setUniqueId(this.iCr.getUniqueId());
+            this.hoU.setUniqueId(this.iCt.getUniqueId());
         }
     }
 
     public void b(com.baidu.tieba.homepage.tabfeed.data.c cVar) {
         jH(false);
-        if (cVar != null && this.iDL != null && this.VT != null && this.fsC != null) {
+        if (cVar != null && this.iDN != null && this.VT != null && this.fsC != null) {
             this.hasMore = cVar.hasMore;
-            if (cVar.iDz != null || cVar.iDA != null) {
-                if (this.iDK == null) {
-                    this.iDK = new HomePageTabFeedHeaderView(this.iCr.getContext());
-                    this.VT.addHeaderView(this.iDK);
+            if (cVar.iDB != null || cVar.iDC != null) {
+                if (this.iDM == null) {
+                    this.iDM = new HomePageTabFeedHeaderView(this.iCt.getContext());
+                    this.VT.addHeaderView(this.iDM);
                 }
-                this.iDK.setData(cVar);
-            } else if (this.iDK != null && this.iDK.getParent() != null) {
-                this.VT.removeHeaderView(this.iDK);
-                this.iDK = null;
+                this.iDM.setData(cVar);
+            } else if (this.iDM != null && this.iDM.getParent() != null) {
+                this.VT.removeHeaderView(this.iDM);
+                this.iDM = null;
             }
-            if (cVar.iBq > 0) {
+            if (cVar.iBs > 0) {
                 int firstVisiblePosition = this.VT.getFirstVisiblePosition();
                 View childAt = this.VT.getChildAt(0);
                 int top = childAt == null ? 0 : childAt.getTop();
                 RecyclerView.LayoutManager layoutManager = this.VT.getLayoutManager();
-                int i = firstVisiblePosition - cVar.iBq;
+                int i = firstVisiblePosition - cVar.iBs;
                 if (layoutManager instanceof LinearLayoutManager) {
                     this.VT.pn();
                     ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(i, top);
                     this.VT.po();
                 }
             }
-            this.iDL.setData(cVar.iDy);
-            this.iDL.notifyDataSetChanged();
+            this.iDN.setData(cVar.iDA);
+            this.iDN.notifyDataSetChanged();
             if (this.hoU != null) {
                 this.hoU.a(this.VT.getFirstVisiblePosition(), this.VT.getLastVisiblePosition(), false, true);
             }
@@ -209,11 +209,11 @@ public class a {
             this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
             this.fsC.changeSkin(i);
         }
-        if (this.iDK != null) {
-            this.iDK.onChangeSkinType(i);
+        if (this.iDM != null) {
+            this.iDM.onChangeSkinType(i);
         }
-        if (this.iDL != null) {
-            this.iDL.notifyDataSetChanged();
+        if (this.iDN != null) {
+            this.iDN.notifyDataSetChanged();
         }
         if (this.hoQ != null) {
             this.hoQ.onChangeSkinType(i);

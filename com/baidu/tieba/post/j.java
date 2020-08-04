@@ -5,17 +5,17 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes17.dex */
 public class j implements com.baidu.tieba.k.h {
-    private String jRR;
+    private String jRT;
     private String mUuid;
     private HashMap<String, com.baidu.tieba.k.f> zl;
 
     /* loaded from: classes17.dex */
     private static class a {
-        private static final com.baidu.tieba.k.h lgK = new j();
+        private static final com.baidu.tieba.k.h lgM = new j();
     }
 
     public static com.baidu.tieba.k.h daa() {
-        return a.lgK;
+        return a.lgM;
     }
 
     private j() {
@@ -65,22 +65,22 @@ public class j implements com.baidu.tieba.k.h {
 
     @Override // com.baidu.tieba.k.h
     public void JM(String str) {
-        if (!StringUtils.isNull(this.jRR)) {
-            if (JK(this.jRR) || JL(this.jRR)) {
-                gW(this.jRR);
+        if (!StringUtils.isNull(this.jRT)) {
+            if (JK(this.jRT) || JL(this.jRT)) {
+                gW(this.jRT);
             } else {
-                com.baidu.tieba.k.d.JH(this.jRR);
+                com.baidu.tieba.k.d.JH(this.jRT);
                 this.zl.remove(this.mUuid);
             }
             cGn();
-            dab().eR(this.jRR, str);
-            this.jRR = null;
+            dab().eR(this.jRT, str);
+            this.jRT = null;
         }
     }
 
     @Override // com.baidu.tieba.k.h
     public void cGq() {
-        this.jRR = this.mUuid;
+        this.jRT = this.mUuid;
     }
 
     @Override // com.baidu.tieba.k.h

@@ -19,9 +19,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class LabelItemView extends LinearLayout {
-    private boolean jvL;
-    private int jvM;
-    private int jvN;
+    private boolean jvN;
+    private int jvO;
+    private int jvP;
     private Paint mPaint;
 
     public LabelItemView(Context context) {
@@ -46,7 +46,7 @@ public class LabelItemView extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setColor(ao.getColor(R.color.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.jvN = l.getDimens(getContext(), R.dimen.ds46);
+        this.jvP = l.getDimens(getContext(), R.dimen.ds46);
         for (int i = 0; i < 3; i++) {
             addView(cAx());
         }
@@ -54,9 +54,9 @@ public class LabelItemView extends LinearLayout {
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
         if (!x.isEmpty(list)) {
-            this.jvL = z;
-            this.jvM = Math.min(list.size(), 3);
-            for (int i = 0; i < this.jvM; i++) {
+            this.jvN = z;
+            this.jvO = Math.min(list.size(), 3);
+            for (int i = 0; i < this.jvO; i++) {
                 com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
                 if (aVar != null && (getChildAt(i) instanceof TextView)) {
                     TextView textView = (TextView) getChildAt(i);
@@ -72,7 +72,7 @@ public class LabelItemView extends LinearLayout {
                     textView.setTag(aVar);
                 }
             }
-            for (int i2 = this.jvM; i2 < getChildCount(); i2++) {
+            for (int i2 = this.jvO; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.setVisibility(8);
@@ -105,13 +105,13 @@ public class LabelItemView extends LinearLayout {
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.jvM) {
+            if (i2 >= this.jvO) {
                 break;
             }
-            canvas.drawLine(width * i2, (height - this.jvN) / 2, (width * i2) + 1, (this.jvN + height) / 2, this.mPaint);
+            canvas.drawLine(width * i2, (height - this.jvP) / 2, (width * i2) + 1, (this.jvP + height) / 2, this.mPaint);
             i = i2 + 1;
         }
-        if (!this.jvL) {
+        if (!this.jvN) {
             canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
         }
     }

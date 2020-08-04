@@ -14,7 +14,7 @@ public class fa {
     private static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, hw> f312a = null;
+    private static Map<String, hw> f315a = null;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -105,17 +105,17 @@ public class fa {
     /* renamed from: a  reason: collision with other method in class */
     public static hw m265a(String str) {
         hw[] values;
-        if (f312a == null) {
+        if (f315a == null) {
             synchronized (hw.class) {
-                if (f312a == null) {
-                    f312a = new HashMap();
+                if (f315a == null) {
+                    f315a = new HashMap();
                     for (hw hwVar : hw.values()) {
-                        f312a.put(hwVar.f478a.toLowerCase(), hwVar);
+                        f315a.put(hwVar.f481a.toLowerCase(), hwVar);
                     }
                 }
             }
         }
-        hw hwVar2 = f312a.get(str.toLowerCase());
+        hw hwVar2 = f315a.get(str.toLowerCase());
         return hwVar2 != null ? hwVar2 : hw.Invalid;
     }
 

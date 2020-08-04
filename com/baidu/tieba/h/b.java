@@ -10,24 +10,24 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements q {
-    public static final BdUniqueId imK = BdUniqueId.gen();
+    public static final BdUniqueId imM = BdUniqueId.gen();
     private List<a> fSM;
     private int gZF;
-    private String imL;
-    private String imM;
+    private String imN;
+    private String imO;
 
     public void a(Esport esport) {
         if (esport != null) {
             this.gZF = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.imL = esport._static.img;
-                this.imM = esport._static.url;
+                this.imN = esport._static.img;
+                this.imO = esport._static.url;
             }
             this.fSM = new ArrayList();
-            if (!StringUtils.isNull(this.imL)) {
+            if (!StringUtils.isNull(this.imN)) {
                 a aVar = new a();
-                aVar.GB(this.imL);
-                aVar.GC(this.imM);
+                aVar.GB(this.imN);
+                aVar.GC(this.imO);
                 this.fSM.add(aVar);
             }
             if (!x.isEmpty(esport.billboard)) {
@@ -50,6 +50,6 @@ public class b implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return imK;
+        return imM;
     }
 }

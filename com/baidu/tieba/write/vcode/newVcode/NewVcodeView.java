@@ -22,15 +22,15 @@ import com.baidu.tieba.write.vcode.newVcode.a.b;
 public class NewVcodeView {
     private BaseActivity fbZ;
     private float mRatio;
-    private b myw;
+    private b myy;
     private BaseWebView mWebView = null;
-    private View muC = null;
-    private View muD = null;
-    private a muF = null;
-    private TextView muE = null;
-    private c myA = null;
-    private boolean muG = false;
-    private Runnable muH = new Runnable() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.1
+    private View muE = null;
+    private View muF = null;
+    private a muH = null;
+    private TextView muG = null;
+    private c myC = null;
+    private boolean muI = false;
+    private Runnable muJ = new Runnable() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.1
         @Override // java.lang.Runnable
         public void run() {
             if (NewVcodeView.this.mWebView != null) {
@@ -47,8 +47,8 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.myw = bVar;
-        this.muG = false;
+        this.myy = bVar;
+        this.muI = false;
     }
 
     public void setRatio(float f) {
@@ -61,19 +61,19 @@ public class NewVcodeView {
         newVcodeActivity.setActivityBgTransparent();
         newVcodeActivity.setSwipeBackEnabled(false);
         newVcodeActivity.setContentView(R.layout.new_vcode_activity);
-        this.muC = newVcodeActivity.findViewById(R.id.new_vcode_black_layout);
-        this.muC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
+        this.muE = newVcodeActivity.findViewById(R.id.new_vcode_black_layout);
+        this.muE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.myw.dur();
+                NewVcodeView.this.myy.dus();
                 NewVcodeView.this.fbZ.finish();
             }
         });
-        this.muD = newVcodeActivity.findViewById(R.id.post_thread_loading_view);
-        this.muE = (TextView) this.muD.findViewById(R.id.custom_loading_text);
-        this.muE.setText(newVcodeActivity.getResources().getString(R.string.sending));
-        this.myA = new c();
-        this.myA.toastTime = 1000L;
+        this.muF = newVcodeActivity.findViewById(R.id.post_thread_loading_view);
+        this.muG = (TextView) this.muF.findViewById(R.id.custom_loading_text);
+        this.muG.setText(newVcodeActivity.getResources().getString(R.string.sending));
+        this.myC = new c();
+        this.myC.toastTime = 1000L;
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
@@ -88,15 +88,15 @@ public class NewVcodeView {
                         if (StringUtils.isNull(str)) {
                             return false;
                         }
-                        if (!NewVcodeView.this.muG) {
-                            NewVcodeView.this.muG = true;
-                            e.lt().postDelayed(NewVcodeView.this.muH, 500L);
-                            if (NewVcodeView.this.myw != null) {
-                                NewVcodeView.this.myw.onPageFinished(webView, str);
+                        if (!NewVcodeView.this.muI) {
+                            NewVcodeView.this.muI = true;
+                            e.lt().postDelayed(NewVcodeView.this.muJ, 500L);
+                            if (NewVcodeView.this.myy != null) {
+                                NewVcodeView.this.myy.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.myw != null) {
-                            return NewVcodeView.this.myw.c(webView, str);
+                        if (NewVcodeView.this.myy != null) {
+                            return NewVcodeView.this.myy.c(webView, str);
                         }
                         return false;
                     }
@@ -104,9 +104,9 @@ public class NewVcodeView {
                     @Override // android.webkit.WebViewClient
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
-                        NewVcodeView.this.muG = true;
-                        if (NewVcodeView.this.myw != null) {
-                            NewVcodeView.this.myw.onPageFinished(webView, str);
+                        NewVcodeView.this.muI = true;
+                        if (NewVcodeView.this.myy != null) {
+                            NewVcodeView.this.myy.onPageFinished(webView, str);
                         }
                     }
 
@@ -129,20 +129,20 @@ public class NewVcodeView {
     }
 
     public void showPostThreadLoadingView(boolean z) {
-        if (this.muD != null) {
+        if (this.muF != null) {
             if (z) {
-                this.muD.setVisibility(0);
+                this.muF.setVisibility(0);
             } else {
-                this.muD.setVisibility(8);
+                this.muF.setVisibility(8);
             }
         }
     }
 
     public void showToast(boolean z, String str) {
         if (z) {
-            this.myA.showSuccessToast(str);
+            this.myC.showSuccessToast(str);
         } else {
-            this.myA.showFailToast(str);
+            this.myC.showFailToast(str);
         }
     }
 
@@ -157,7 +157,7 @@ public class NewVcodeView {
     }
 
     public void onDestory() {
-        e.lt().removeCallbacks(this.muH);
+        e.lt().removeCallbacks(this.muJ);
     }
 
     public BaseActivity getContext() {
@@ -177,20 +177,20 @@ public class NewVcodeView {
     }
 
     public void showWebViewDelay(int i) {
-        e.lt().postDelayed(this.muH, i);
+        e.lt().postDelayed(this.muJ, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wo(boolean z) {
-        if (this.muF == null) {
-            this.muF = new a(this.fbZ.getPageContext());
-            this.muF.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.4
+        if (this.muH == null) {
+            this.muH = new a(this.fbZ.getPageContext());
+            this.muH.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.4
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     NewVcodeView.this.fbZ.finish();
                 }
             });
         }
-        this.muF.setDialogVisiable(z);
+        this.muH.setDialogVisiable(z);
     }
 }

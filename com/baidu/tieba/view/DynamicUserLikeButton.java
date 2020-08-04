@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
     private boolean ahP;
-    private a mph;
+    private a mpj;
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -74,8 +74,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bi(View view) {
-        if (this.mph != null) {
-            this.mph.bX(view);
+        if (this.mpj != null) {
+            this.mpj.bX(view);
         }
     }
 
@@ -89,7 +89,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setOnClickEvent(a aVar) {
-        this.mph = aVar;
+        this.mpj = aVar;
     }
 
     public void setUseNewStyle(boolean z) {

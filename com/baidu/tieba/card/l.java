@@ -144,13 +144,13 @@ public class l extends b<com.baidu.tieba.card.data.l> implements View.OnClickLis
             oVar.eKO = this.gWv.dLK.getFid() + "";
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
             oVar.mSource = this.gWv.dLK.mRecomSource;
-            oVar.lcL = this.gWv.dLK.mRecomAbTag;
-            oVar.lcH = this.gWv.dLK.mRecomAbTag;
-            oVar.lcI = this.gWv.dLK.mRecomWeight;
-            oVar.lcJ = "";
+            oVar.lcN = this.gWv.dLK.mRecomAbTag;
+            oVar.lcJ = this.gWv.dLK.mRecomAbTag;
+            oVar.lcK = this.gWv.dLK.mRecomWeight;
+            oVar.lcL = "";
             oVar.dOV = this.gWv.getExtra();
             if (this.gWv.dLK.aWD() != null) {
-                oVar.lcM = this.gWv.dLK.aWD().video_md5;
+                oVar.lcO = this.gWv.dLK.aWD().video_md5;
             }
             com.baidu.tieba.play.h.a(this.gWv.dLK.aWD().video_md5, "", "1", oVar, this.YH.getPcdnState());
         }

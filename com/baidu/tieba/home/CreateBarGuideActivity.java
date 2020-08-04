@@ -16,15 +16,15 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes18.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
     private String forumName;
-    private a irc;
-    private BfbInfoModel ird;
-    private BfbInfoModel.a ire = new BfbInfoModel.a() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.1
+    private a ire;
+    private BfbInfoModel irf;
+    private BfbInfoModel.a irg = new BfbInfoModel.a() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.1
         @Override // com.baidu.tieba.home.BfbInfoModel.a
         public void a(int i, String str, UserBfbInfo userBfbInfo) {
-            CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.irc.getRootView());
-            CreateBarGuideActivity.this.irc.clm();
+            CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.ire.getRootView());
+            CreateBarGuideActivity.this.ire.clm();
             if (i == 0) {
-                CreateBarGuideActivity.this.irc.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
+                CreateBarGuideActivity.this.ire.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
                 return;
             }
             CreateBarGuideActivity.this.showToast(str);
@@ -42,12 +42,12 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         if (!TextUtils.isEmpty(this.forumName) && this.forumName.length() > 30) {
             this.forumName = this.forumName.substring(0, 30);
         }
-        this.ird = new BfbInfoModel(this);
-        this.ird.a(this.ire);
-        this.irc = new a(this);
-        this.irc.cll();
-        showLoadingView(this.irc.getRootView());
-        this.ird.LoadData();
+        this.irf = new BfbInfoModel(this);
+        this.irf.a(this.irg);
+        this.ire = new a(this);
+        this.ire.cll();
+        showLoadingView(this.ire.getRootView());
+        this.irf.LoadData();
         TiebaStatic.log("c11222");
     }
 
@@ -79,15 +79,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.irc = null;
-        this.ird.clh();
+        this.ire = null;
+        this.irf.clh();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        if (this.irc != null) {
-            this.irc.bgV();
+        if (this.ire != null) {
+            this.ire.bgV();
         }
     }
 }

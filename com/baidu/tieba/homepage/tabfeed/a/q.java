@@ -123,9 +123,9 @@ public class q extends com.baidu.adp.widget.ListView.a<bu, com.baidu.card.a<bv>>
             oVar.mLocate = "20";
             oVar.ajJ = bvVar.tid;
             oVar.mSource = bvVar.mRecomSource;
-            oVar.lcH = bvVar.mRecomAbTag;
-            oVar.lcI = bvVar.mRecomWeight;
-            oVar.lcJ = "14";
+            oVar.lcJ = bvVar.mRecomAbTag;
+            oVar.lcK = bvVar.mRecomWeight;
+            oVar.lcL = "14";
             oVar.mGroupId = this.mTabName;
             oVar.mFloor = String.valueOf(bvVar.dPI);
             if (bvVar.aXB() != null) {
@@ -133,10 +133,10 @@ public class q extends com.baidu.adp.widget.ListView.a<bu, com.baidu.card.a<bv>>
             }
             if (bvVar.aTN() != null) {
                 oVar.eKO = String.valueOf(bvVar.aTN().getFid());
-                oVar.lcQ = bvVar.aTN().getNid();
+                oVar.lcS = bvVar.aTN().getNid();
                 if (bvVar.aTN().aWD() != null) {
-                    oVar.lcM = bvVar.aTN().aWD().video_md5;
-                    oVar.lcO = String.valueOf(bvVar.aTN().aWD().is_vertical);
+                    oVar.lcO = bvVar.aTN().aWD().video_md5;
+                    oVar.lcQ = String.valueOf(bvVar.aTN().aWD().is_vertical);
                 }
             }
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();

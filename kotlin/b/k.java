@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class k extends i {
-    public static final a nZg = new a(null);
-    private static final k nZf = new k(1, 0);
+    public static final a nZi = new a(null);
+    private static final k nZh = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);
@@ -13,12 +13,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return dUw() > dUx();
+        return dUx() > dUy();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (dUw() == ((k) obj).dUw() && dUx() == ((k) obj).dUx()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (dUx() == ((k) obj).dUx() && dUy() == ((k) obj).dUy()));
     }
 
     @Override // kotlin.b.i
@@ -26,12 +26,12 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (dUw() ^ (dUw() >>> 32))) + (dUx() ^ (dUx() >>> 32)));
+        return (int) ((31 * (dUx() ^ (dUx() >>> 32))) + (dUy() ^ (dUy() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return dUw() + IStringUtil.TOP_PATH + dUx();
+        return dUx() + IStringUtil.TOP_PATH + dUy();
     }
 
     @kotlin.h

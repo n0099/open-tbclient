@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class b implements a {
-    private final Map<String, Object> orF = new ConcurrentHashMap();
+    private final Map<String, Object> orH = new ConcurrentHashMap();
 
     @Override // tv.chushou.basis.c.a
     public String getString(String str, @Nullable String str2) {
@@ -17,7 +17,7 @@ public class b implements a {
     @Override // tv.chushou.basis.c.a
     public void putString(String str, String str2) {
         if (!TextUtils.isEmpty(str) && str2 != null) {
-            this.orF.put(str, str2);
+            this.orH.put(str, str2);
         }
     }
 
@@ -33,14 +33,14 @@ public class b implements a {
     @Override // tv.chushou.basis.c.a
     public void putInt(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.orF.put(str, Integer.valueOf(i));
+            this.orH.put(str, Integer.valueOf(i));
         }
     }
 
     @Override // tv.chushou.basis.c.a
     public void putBoolean(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            this.orF.put(str, Boolean.valueOf(z));
+            this.orH.put(str, Boolean.valueOf(z));
         }
     }
 
@@ -49,7 +49,7 @@ public class b implements a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.orF.get(str);
+        return this.orH.get(str);
     }
 
     @Override // tv.chushou.basis.c.a
@@ -57,6 +57,6 @@ public class b implements a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.orF.remove(str);
+        return this.orH.remove(str);
     }
 }

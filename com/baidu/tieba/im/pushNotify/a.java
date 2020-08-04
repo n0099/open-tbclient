@@ -26,9 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a jiM;
+    private static volatile a jiO;
     private List<ImMessageCenterPojo> mList = new LinkedList();
-    private final CustomMessageListener iTN = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
+    private final CustomMessageListener iTP = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,14 +55,14 @@ public class a {
     };
 
     public static a cwY() {
-        if (jiM == null) {
+        if (jiO == null) {
             synchronized (a.class) {
-                if (jiM == null) {
-                    jiM = new a();
+                if (jiO == null) {
+                    jiO = new a();
                 }
             }
         }
-        return jiM;
+        return jiO;
     }
 
     private a() {
@@ -70,11 +70,11 @@ public class a {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.iTN);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.iTN);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.iTN);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.iTN);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.iTN);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.iTP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.iTP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.iTP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.iTP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.iTP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

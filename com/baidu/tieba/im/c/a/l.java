@@ -13,11 +13,11 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class l implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     private int mCmd = 2001154;
-    private com.baidu.tieba.im.db.l jkn = com.baidu.tieba.im.db.l.ctw();
+    private com.baidu.tieba.im.db.l jkp = com.baidu.tieba.im.db.l.ctw();
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
-        if (this.jkn == null) {
+        if (this.jkp == null) {
             return zq(this.mCmd);
         }
         List<com.baidu.tieba.im.db.pojo.a> cty = com.baidu.tieba.im.db.l.cty();
@@ -28,13 +28,13 @@ public class l implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
         for (com.baidu.tieba.im.db.pojo.a aVar : cty) {
             hashMap.put(aVar.getGid(), aVar);
         }
-        LinkedList<ChatMessage> b = this.jkn.b(hashMap, 80);
+        LinkedList<ChatMessage> b = this.jkp.b(hashMap, 80);
         if (b == null) {
             return zq(this.mCmd);
         }
         OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
         OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
-        aVar2.jgZ = b;
+        aVar2.jhb = b;
         aVar2.msgList = cty;
         try {
             officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);

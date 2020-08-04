@@ -5,6 +5,6 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
     public List<q> eZc;
-    public int iBp = 0;
-    public int iBq = 0;
+    public int iBr = 0;
+    public int iBs = 0;
 }

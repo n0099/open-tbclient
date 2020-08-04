@@ -51,8 +51,8 @@ public class w extends com.baidu.tbadk.editortools.d {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.dlK())) {
-                    w.this.a(2, true, aVar.dlK());
+                if (aVar != null && !StringUtils.isNull(aVar.dlL())) {
+                    w.this.a(2, true, aVar.dlL());
                 } else {
                     onFail(null);
                 }
@@ -110,12 +110,12 @@ public class w extends com.baidu.tbadk.editortools.d {
             this.fbZ.showToast(R.string.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             bjq();
-        } else if (this.eBP.dlR()) {
+        } else if (this.eBP.dlS()) {
             bjm();
         } else {
             this.eBP.vp(false);
             a(1, true, null);
-            this.eBP.dlP();
+            this.eBP.dlQ();
         }
     }
 
@@ -134,7 +134,7 @@ public class w extends com.baidu.tbadk.editortools.d {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     w.this.a(1, true, null);
-                    w.this.eBP.dlT();
+                    w.this.eBP.dlU();
                 } else {
                     w.this.eCc.bjD();
                 }
@@ -152,12 +152,12 @@ public class w extends com.baidu.tbadk.editortools.d {
 
     public void bjr() {
         if (this.eBP.bNz()) {
-            if (this.eBP.dlR()) {
-                this.eCc.a(com.baidu.tieba.tbadkCore.location.c.dlM().getLocationData());
+            if (this.eBP.dlS()) {
+                this.eCc.a(com.baidu.tieba.tbadkCore.location.c.dlN().getLocationData());
                 return;
             }
             if (com.baidu.adp.lib.util.l.isNetOk()) {
-                this.eBP.dlP();
+                this.eBP.dlQ();
             }
             a(0, true, null);
             return;

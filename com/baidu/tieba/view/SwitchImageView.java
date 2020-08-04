@@ -7,66 +7,66 @@ import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
     private int bGB;
-    private int mrW;
-    private int mrX;
-    private boolean mrY;
-    private com.baidu.tbadk.core.util.d.a mrZ;
-    private com.baidu.tbadk.core.util.d.a msa;
+    private int mrY;
+    private int mrZ;
+    private boolean msa;
+    private com.baidu.tbadk.core.util.d.a msb;
+    private com.baidu.tbadk.core.util.d.a msc;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.mrY = false;
+        this.msa = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mrY = false;
+        this.msa = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mrY = false;
+        this.msa = false;
         init();
     }
 
     private void init() {
         this.bGB = 0;
-        this.mrW = 0;
-        this.mrX = 0;
+        this.mrY = 0;
+        this.mrZ = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.mrW = i;
-        this.mrX = i2;
+        this.mrY = i;
+        this.mrZ = i2;
     }
 
     public void setSvgStateImage(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
-        this.mrZ = aVar;
-        this.msa = aVar2;
-        this.mrY = true;
+        this.msb = aVar;
+        this.msc = aVar2;
+        this.msa = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
             this.bGB = 0;
-            if (this.mrY) {
-                setImageDrawable(this.mrZ.getDrawable());
+            if (this.msa) {
+                setImageDrawable(this.msb.getDrawable());
             } else {
-                setImageResource(this.mrW);
+                setImageResource(this.mrY);
             }
         } else if (i == 1) {
             this.bGB = 1;
-            if (this.mrY) {
-                setImageDrawable(this.msa.getDrawable());
+            if (this.msa) {
+                setImageDrawable(this.msc.getDrawable());
             } else {
-                setImageResource(this.mrX);
+                setImageResource(this.mrZ);
             }
         }
     }
 
-    public void dtS() {
+    public void dtT() {
         if (this.bGB == 0) {
             this.bGB = 1;
             setState(1);

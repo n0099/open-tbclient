@@ -1,15 +1,15 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public abstract long dVo();
+    public abstract long dVp();
 
-    public abstract int dVp();
+    public abstract int dVq();
 
-    public long dVq() {
+    public long dVr() {
         return 1500L;
     }
 
-    public boolean dVr() {
+    public boolean dVs() {
         return false;
     }
 }

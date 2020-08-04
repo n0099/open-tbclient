@@ -22,11 +22,11 @@ import java.util.List;
 /* loaded from: classes15.dex */
 public class c {
     private View huZ;
-    private Animation iOp;
-    private Animation iOq;
-    private ViewGroup iOv;
-    private a iOw;
-    private b iOx;
+    private Animation iOr;
+    private Animation iOs;
+    private ViewGroup iOx;
+    private a iOy;
+    private b iOz;
     private boolean isShow = false;
     private View rootView;
     private int topHeight;
@@ -37,11 +37,11 @@ public class c {
     }
 
     public c(ViewGroup viewGroup) {
-        this.iOv = viewGroup;
+        this.iOx = viewGroup;
     }
 
     public void a(a aVar) {
-        this.iOw = aVar;
+        this.iOy = aVar;
     }
 
     public boolean isShowing() {
@@ -52,7 +52,7 @@ public class c {
         if (!this.isShow) {
             this.isShow = true;
             this.rootView = b(context, list, i);
-            this.iOv.addView(this.rootView);
+            this.iOx.addView(this.rootView);
             if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {
                 this.rootView.setBackgroundColor(this.rootView.getContext().getResources().getColor(R.color.topic_more_background_1));
             } else {
@@ -74,13 +74,13 @@ public class c {
         yj(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(R.id.topic_scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.iOx = new b(context, i);
-        this.iOx.setTagList(list);
-        gridView.setAdapter((ListAdapter) this.iOx);
+        this.iOz = new b(context, i);
+        this.iOz.setTagList(list);
+        gridView.setAdapter((ListAdapter) this.iOz);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.indicator.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW, c.this.iOx.getItem(i2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW, c.this.iOz.getItem(i2)));
                 c.this.eQ(context);
             }
         });
@@ -94,27 +94,27 @@ public class c {
     }
 
     private Animation eR(Context context) {
-        if (this.iOp == null) {
-            this.iOp = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+        if (this.iOr == null) {
+            this.iOr = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
         }
-        return this.iOp;
+        return this.iOr;
     }
 
     private Animation eS(Context context) {
-        if (this.iOq == null) {
-            this.iOq = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+        if (this.iOs == null) {
+            this.iOs = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
         }
-        this.iOq.setAnimationListener(new d() { // from class: com.baidu.tieba.hottopic.view.indicator.c.2
+        this.iOs.setAnimationListener(new d() { // from class: com.baidu.tieba.hottopic.view.indicator.c.2
             @Override // com.baidu.adp.lib.f.d, android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
-                if (c.this.iOw != null) {
-                    c.this.iOw.cpz();
+                if (c.this.iOy != null) {
+                    c.this.iOy.cpz();
                 }
-                c.this.iOv.removeView(c.this.rootView);
+                c.this.iOx.removeView(c.this.rootView);
             }
         });
-        return this.iOq;
+        return this.iOs;
     }
 
     public void yk(int i) {

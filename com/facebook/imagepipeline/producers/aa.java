@@ -16,7 +16,7 @@ public class aa extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dJy() {
+    protected String dJz() {
         return "LocalFileFetchProducer";
     }
 }

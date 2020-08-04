@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes18.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
     private int[] fMQ;
-    private PersonThreadFragment lgd;
-    private PersonReplyFragment lge;
+    private PersonThreadFragment lgf;
+    private PersonReplyFragment lgg;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -16,27 +16,27 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString("key_empty_view_text", personPostActivity.cZO());
-        this.lge = new PersonReplyFragment();
-        this.lge.setArguments(bundle);
-        this.lge.a(personPostActivity);
-        this.lgd = new PersonThreadFragment();
-        this.lgd.setArguments(bundle);
-        this.lgd.a((d) personPostActivity);
-        this.lgd.a((b) personPostActivity);
+        this.lgg = new PersonReplyFragment();
+        this.lgg.setArguments(bundle);
+        this.lgg.a(personPostActivity);
+        this.lgf = new PersonThreadFragment();
+        this.lgf.setArguments(bundle);
+        this.lgf.a((d) personPostActivity);
+        this.lgf.a((b) personPostActivity);
         this.fMQ = new int[]{0, 1};
     }
 
     public PersonThreadFragment cZP() {
-        return this.lgd;
+        return this.lgf;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.lgd;
+                return this.lgf;
             case 1:
-                return this.lge;
+                return this.lgg;
             default:
                 return null;
         }

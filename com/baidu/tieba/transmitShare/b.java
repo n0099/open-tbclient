@@ -43,16 +43,16 @@ public class b implements View.OnClickListener {
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
     private ShareItem mShareItem;
-    private ShareGridLayout maN;
-    private a maO;
+    private ShareGridLayout maP;
+    private a maQ;
     private static final int gri = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds156);
     private static final int grj = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds234);
-    private static final int lBF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-    private static final int lBG = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
-    private static final int lBH = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private static final int lBH = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private static final int lBI = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
+    private static final int lBJ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     private static final int euD = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-    private boolean maP = false;
-    private CustomMessageListener jFk = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
+    private boolean maR = false;
+    private CustomMessageListener jFm = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -64,19 +64,19 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.jFk);
+        MessageManager.getInstance().registerListener(this.jFm);
     }
 
-    public ShareGridLayout doS() {
-        if (this.maN == null) {
+    public ShareGridLayout doT() {
+        if (this.maP == null) {
             initView();
         }
-        return this.maN;
+        return this.maP;
     }
 
     private void initView() {
-        this.maN = new ShareGridLayout(this.mContext);
-        this.maN.setItemParams(gri, grj);
+        this.maP = new ShareGridLayout(this.mContext);
+        this.maP.setItemParams(gri, grj);
     }
 
     private void b(com.baidu.tbadk.core.util.d.a aVar, int i, int i2) {
@@ -90,9 +90,9 @@ public class b implements View.OnClickListener {
             if (aVar instanceof com.baidu.tbadk.core.util.d.c) {
                 com.baidu.tbadk.core.util.e.a.bbr().ma(1).mb(R.color.cp_bg_line_i).aX(imageView);
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(lBF, lBF);
-            layoutParams.topMargin = lBG;
-            layoutParams.bottomMargin = lBH;
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(lBH, lBH);
+            layoutParams.topMargin = lBI;
+            layoutParams.bottomMargin = lBJ;
             layoutParams.gravity = 1;
             linearLayout.addView(imageView, layoutParams);
             TextView textView = new TextView(this.mContext);
@@ -104,7 +104,7 @@ public class b implements View.OnClickListener {
             imageView.setImageDrawable(aVar.getDrawable());
             ao.setViewTextColor(textView, R.color.cp_cont_f);
             linearLayout.setOnClickListener(this);
-            this.maN.addView(linearLayout, new ViewGroup.LayoutParams(gri, grj));
+            this.maP.addView(linearLayout, new ViewGroup.LayoutParams(gri, grj));
         }
     }
 
@@ -112,9 +112,9 @@ public class b implements View.OnClickListener {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.maN.removeAllViews();
-        this.maP = shareDialogConfig.mShowMoreForumShare;
-        if (this.maP) {
+        this.maP.removeAllViews();
+        this.maR = shareDialogConfig.mShowMoreForumShare;
+        if (this.maR) {
             b(new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -138,13 +138,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.maO = aVar;
+        this.maQ = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.maO != null) {
-            this.maO.dl(view);
+        if (this.maQ != null) {
+            this.maQ.dl(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -240,7 +240,7 @@ public class b implements View.OnClickListener {
             a("1", null, this.mPrivateThread);
             Gi(11);
         } else if (i == 13) {
-            doT();
+            doU();
             Gi(13);
         }
     }
@@ -249,10 +249,10 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void doT() {
+    private void doU() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.maP) {
+        if (this.maR) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);
@@ -291,7 +291,7 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.jFk);
+        MessageManager.getInstance().unRegisterListener(this.jFm);
     }
 
     private void h(String str, Object... objArr) {

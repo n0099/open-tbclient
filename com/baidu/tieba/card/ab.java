@@ -95,7 +95,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, R.string.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.lPO) ? bVar.lPO : ab.this.getString(R.string.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.lPQ) ? bVar.lPQ : ab.this.getString(R.string.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (ab.this.gZc == null) {
                                         ab.this.gZc = new com.baidu.tbadk.core.dialog.a(ab.this.mPageContext.getPageActivity());
@@ -123,10 +123,10 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, ab.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             } else if (dVar.Pv) {
-                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.lPO) ? dVar.lPO : ab.this.getString(R.string.mute_success, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.lPQ) ? dVar.lPQ : ab.this.getString(R.string.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.lPO) ? dVar.lPO : ab.this.getString(R.string.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.lPQ) ? dVar.lPQ : ab.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -141,7 +141,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, ab.this.getString(R.string.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ab.this.af(gVar.lPR);
+                                ab.this.af(gVar.lPT);
                                 return;
                             }
                         default:
@@ -433,7 +433,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, wVar));
             } else if (i == 3) {
                 this.aii.ld(0);
-                str = aF(gVar.lPO, R.string.operation_success);
+                str = aF(gVar.lPQ, R.string.operation_success);
                 z = false;
             } else if (i == 4) {
                 this.aii.lc(1);
@@ -443,7 +443,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, wVar2));
             } else if (i == 5) {
                 this.aii.lc(0);
-                str = aF(gVar.lPO, R.string.operation_success);
+                str = aF(gVar.lPQ, R.string.operation_success);
                 z = false;
             } else {
                 z = false;
@@ -452,7 +452,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             eVar.threadId = this.aii.getId();
             eVar.forumName = this.aii.aWp();
             eVar.forumId = String.valueOf(this.aii.getFid());
-            eVar.lPP = i;
+            eVar.lPR = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_THREAD_MANAGE, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.operation_success, new Object[0]);
@@ -463,8 +463,8 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             }
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.lPO)) {
-            string = gVar.lPO;
+        if (gVar != null && !TextUtils.isEmpty(gVar.lPQ)) {
+            string = gVar.lPQ;
         } else {
             string = getString(R.string.operation_failed, new Object[0]);
         }

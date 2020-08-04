@@ -19,20 +19,20 @@ import com.baidu.tieba.godSquare.model.b;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class GodSquareActivity extends BaseActivity<GodSquareActivity> implements BdListView.e, f.c {
-    private a iqa;
-    private b iqb;
+    private a iqc;
+    private b iqd;
     private boolean mHasMore = true;
-    private boolean iqc = false;
-    private b.a iqd = new b.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.1
+    private boolean iqe = false;
+    private b.a iqf = new b.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.1
         @Override // com.baidu.tieba.godSquare.model.b.a
         public void a(List<q> list, boolean z, boolean z2, String str) {
             GodSquareActivity.this.mHasMore = z2;
-            GodSquareActivity.this.iqa.getListView().completePullRefreshPostDelayed(0L);
-            GodSquareActivity.this.iqa.hideLoadingView();
+            GodSquareActivity.this.iqc.getListView().completePullRefreshPostDelayed(0L);
+            GodSquareActivity.this.iqc.hideLoadingView();
             if (x.isEmpty(list)) {
-                GodSquareActivity.this.iqa.ckT();
-                if (x.isEmpty(GodSquareActivity.this.iqb.hBA)) {
-                    GodSquareActivity.this.iqa.FJ(str);
+                GodSquareActivity.this.iqc.ckT();
+                if (x.isEmpty(GodSquareActivity.this.iqd.hBA)) {
+                    GodSquareActivity.this.iqc.FJ(str);
                     return;
                 }
                 GodSquareActivity.this.mHasMore = true;
@@ -42,18 +42,18 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 }
                 return;
             }
-            GodSquareActivity.this.iqa.bwX();
+            GodSquareActivity.this.iqc.bwX();
             if (z) {
-                GodSquareActivity.this.iqb.hBA = list;
-                GodSquareActivity.this.iqa.cX(GodSquareActivity.this.iqb.hBA);
+                GodSquareActivity.this.iqd.hBA = list;
+                GodSquareActivity.this.iqc.cX(GodSquareActivity.this.iqd.hBA);
             } else {
-                GodSquareActivity.this.iqb.hBA.addAll(list);
-                GodSquareActivity.this.iqa.notifyDataSetChanged();
+                GodSquareActivity.this.iqd.hBA.addAll(list);
+                GodSquareActivity.this.iqc.notifyDataSetChanged();
             }
             if (z2) {
-                GodSquareActivity.this.iqa.ckS();
+                GodSquareActivity.this.iqc.ckS();
             } else {
-                GodSquareActivity.this.iqa.ckU();
+                GodSquareActivity.this.iqc.ckU();
             }
         }
     };
@@ -64,8 +64,8 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                    if (GodSquareActivity.this.iqb.eB(com.baidu.adp.lib.f.b.toLong(updateAttentionMessage.getData().toUid, 0L))) {
-                        GodSquareActivity.this.iqc = true;
+                    if (GodSquareActivity.this.iqd.eB(com.baidu.adp.lib.f.b.toLong(updateAttentionMessage.getData().toUid, 0L))) {
+                        GodSquareActivity.this.iqe = true;
                     }
                 }
             }
@@ -75,10 +75,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
-                if (x.isEmpty(GodSquareActivity.this.iqb.hBA)) {
+                if (x.isEmpty(GodSquareActivity.this.iqd.hBA)) {
                     GodSquareActivity.this.ckR();
                 } else {
-                    GodSquareActivity.this.iqa.startPullRefresh();
+                    GodSquareActivity.this.iqc.startPullRefresh();
                 }
             }
         }
@@ -88,9 +88,9 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iqa = new a(this);
-        this.iqa.f(this.fqT);
-        this.iqb = new b(this.iqd, this);
+        this.iqc = new a(this);
+        this.iqc.f(this.fqT);
+        this.iqd = new b(this.iqf, this);
         registerListener(this.eaY);
         ckR();
     }
@@ -99,16 +99,16 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.iqa.notifyDataSetChanged();
-        if (this.iqc) {
-            this.iqa.startPullRefresh();
+        this.iqc.notifyDataSetChanged();
+        if (this.iqe) {
+            this.iqc.startPullRefresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ckR() {
-        this.iqa.showLoadingView();
-        this.iqb.update();
+        this.iqc.showLoadingView();
+        this.iqd.update();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -123,20 +123,20 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iqa.onChangeSkinType(i);
+        this.iqc.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.iqc = false;
-        this.iqb.update();
+        this.iqe = false;
+        this.iqd.update();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.mHasMore) {
-            this.iqb.bwE();
-            this.iqa.ckS();
+            this.iqd.bwE();
+            this.iqc.ckS();
         }
     }
 

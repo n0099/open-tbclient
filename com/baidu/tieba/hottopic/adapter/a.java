@@ -13,7 +13,7 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, C0652a> {
     private BdUniqueId eEU;
     private aa<com.baidu.tieba.card.data.l> hly;
-    private com.baidu.tieba.card.l iHX;
+    private com.baidu.tieba.card.l iHZ;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,11 +38,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bJ */
     public C0652a b(ViewGroup viewGroup) {
-        this.iHX = new com.baidu.tieba.card.l(this.mPageContext);
-        this.iHX.mA(false);
-        this.iHX.p(this.eEU);
-        this.iHX.setFrom(VideoMiddlePageActivityConfig.FROM_HOTTOPIC);
-        return new C0652a(this.iHX);
+        this.iHZ = new com.baidu.tieba.card.l(this.mPageContext);
+        this.iHZ.mA(false);
+        this.iHZ.p(this.eEU);
+        this.iHZ.setFrom(VideoMiddlePageActivityConfig.FROM_HOTTOPIC);
+        return new C0652a(this.iHZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             lVar.tj(i + 1);
             lVar.sourceType = 1;
         }
-        c0652a.iHZ.a(lVar);
-        c0652a.iHZ.c(this.hly);
+        c0652a.iIb.a(lVar);
+        c0652a.iIb.c(this.hly);
         if (this.mPageContext != null && (this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
             this.mPageContext.getOrignalPage().s(lVar);
         }
@@ -64,27 +64,27 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: com.baidu.tieba.hottopic.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
     public static class C0652a extends ad.a implements com.baidu.tieba.play.e {
-        public com.baidu.tieba.card.l iHZ;
+        public com.baidu.tieba.card.l iIb;
 
         public C0652a(com.baidu.tieba.card.l lVar) {
             super(lVar.getView());
-            this.iHZ = lVar;
+            this.iIb = lVar;
         }
 
         @Override // com.baidu.tieba.play.e
         public boolean isPlayStarted() {
-            if (this.iHZ == null) {
+            if (this.iIb == null) {
                 return false;
             }
-            return this.iHZ.isPlayStarted();
+            return this.iIb.isPlayStarted();
         }
 
         @Override // com.baidu.tieba.play.e
         public boolean isPlaying() {
-            if (this.iHZ == null) {
+            if (this.iIb == null) {
                 return false;
             }
-            return this.iHZ.isPlaying();
+            return this.iIb.isPlaying();
         }
 
         @Override // com.baidu.tieba.play.e
@@ -94,40 +94,40 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
         @Override // com.baidu.tieba.play.e
         public void startPlay() {
-            if (this.iHZ != null) {
-                this.iHZ.startPlay();
+            if (this.iIb != null) {
+                this.iIb.startPlay();
             }
         }
 
         @Override // com.baidu.tieba.play.e
         public void stopPlay() {
-            if (this.iHZ != null) {
-                this.iHZ.stopPlay();
+            if (this.iIb != null) {
+                this.iIb.stopPlay();
             }
         }
 
         @Override // com.baidu.tieba.play.e
         public View getVideoContainer() {
-            if (this.iHZ == null) {
+            if (this.iIb == null) {
                 return null;
             }
-            return this.iHZ.getVideoContainer();
+            return this.iIb.getVideoContainer();
         }
 
         @Override // com.baidu.tieba.play.e
         public String getPlayUrl() {
-            if (this.iHZ == null) {
+            if (this.iIb == null) {
                 return null;
             }
-            return this.iHZ.getPlayUrl();
+            return this.iIb.getPlayUrl();
         }
 
         @Override // com.baidu.tieba.play.e
         public int getCurrentPosition() {
-            if (this.iHZ == null) {
+            if (this.iIb == null) {
                 return 0;
             }
-            return this.iHZ.getCurrentPosition();
+            return this.iIb.getCurrentPosition();
         }
     }
 }

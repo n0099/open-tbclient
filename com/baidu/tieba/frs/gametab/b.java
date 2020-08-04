@@ -13,7 +13,7 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
     private com.baidu.tieba.f.b hKk;
-    private boolean hXE;
+    private boolean hXG;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
@@ -49,8 +49,8 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.hXE = z;
-        if (this.hXE) {
+        this.hXG = z;
+        if (this.hXG) {
             this.hKk = new com.baidu.tieba.f.b(context);
             this.hKk.a(this.heG);
         }
@@ -69,14 +69,14 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.hXE = false;
+                    this.hXG = false;
                     break;
                 } else {
-                    this.hXE = true;
+                    this.hXG = true;
                     break;
                 }
         }
-        if (this.hXE && this.hKk != null) {
+        if (this.hXG && this.hKk != null) {
             this.hKk.onTouchEvent(motionEvent);
         }
     }
@@ -92,7 +92,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void nV(boolean z) {
         this.eKW = z;
-        if (this.hXE) {
+        if (this.hXG) {
             E(!this.eKW, true);
         }
     }

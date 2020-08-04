@@ -21,10 +21,10 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes16.dex */
 public class c {
     private NewWriteModel eBQ;
-    private final ForumWriteData hRF;
-    private final SerializableItemInfo hRH;
-    private WriteData hRU;
-    private a hRV;
+    private final ForumWriteData hRH;
+    private final SerializableItemInfo hRJ;
+    private WriteData hRW;
+    private a hRX;
     private final BaseFragmentActivity hjZ;
     private InputMethodManager mInputManager;
     private com.baidu.tbadk.core.view.a eJP = null;
@@ -37,7 +37,7 @@ public class c {
                     c.this.hjZ.showToast(postWriteCallBackData.getErrorString());
                     return;
                 }
-                TiebaStatic.log(new ap("c13723").dn("tid", postWriteCallBackData.getThreadId()).dn("fid", c.this.hRF.forumId).dn("fname", c.this.hRF.forumName).dn("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ap("c13723").dn("tid", postWriteCallBackData.getThreadId()).dn("fid", c.this.hRH.forumId).dn("fname", c.this.hRH.forumName).dn("uid", TbadkCoreApplication.getCurrentAccount()));
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
@@ -56,8 +56,8 @@ public class c {
     public c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         this.mInputManager = null;
         this.hjZ = baseFragmentActivity;
-        this.hRF = forumWriteData;
-        this.hRH = serializableItemInfo;
+        this.hRH = forumWriteData;
+        this.hRJ = serializableItemInfo;
         this.mInputManager = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
         initUI();
         initData();
@@ -69,7 +69,7 @@ public class c {
 
     private void initData() {
         this.eBQ = new NewWriteModel();
-        this.hRU = new WriteData();
+        this.hRW = new WriteData();
         this.eBQ.b(this.eCe);
     }
 
@@ -77,24 +77,24 @@ public class c {
         if (!j.isNetWorkAvailable()) {
             l.showToast(this.hjZ, R.string.neterror);
         }
-        if (this.hRH != null) {
-            this.hRU.setItem_id(String.valueOf(this.hRH.id));
+        if (this.hRJ != null) {
+            this.hRW.setItem_id(String.valueOf(this.hRJ.id));
         }
-        this.hRU.setForumName(forumWriteData.forumName);
-        this.hRU.setContent(str);
-        this.hRU.setComment_head(str2);
-        this.hRU.setForumId(forumWriteData.forumId);
-        this.hRU.setTitle("");
-        this.hRU.setIsNoTitle(true);
-        if (this.hRV != null) {
-            this.hRV.a(this.mInputManager);
+        this.hRW.setForumName(forumWriteData.forumName);
+        this.hRW.setContent(str);
+        this.hRW.setComment_head(str2);
+        this.hRW.setForumId(forumWriteData.forumId);
+        this.hRW.setTitle("");
+        this.hRW.setIsNoTitle(true);
+        if (this.hRX != null) {
+            this.hRX.a(this.mInputManager);
         }
         cfA();
     }
 
     private void cfA() {
-        this.eBQ.d(this.hRU);
-        this.eBQ.dmw();
+        this.eBQ.d(this.hRW);
+        this.eBQ.dmx();
         showLoadingDialog();
     }
 
@@ -109,6 +109,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.hRV = aVar;
+        this.hRX = aVar;
     }
 }

@@ -5,43 +5,43 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a implements c {
-    private ArrayList<ImageView> nGD;
-    private int[] nGd;
-    private c nGn;
+    private ArrayList<ImageView> nGF;
+    private int[] nGf;
+    private c nGp;
 
     public a(ArrayList<ImageView> arrayList, int[] iArr) {
-        this.nGD = arrayList;
-        this.nGd = iArr;
+        this.nGF = arrayList;
+        this.nGf = iArr;
     }
 
     @Override // com.kascend.chushou.widget.convenientbanner.d.c
     public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-        if (this.nGn != null) {
-            this.nGn.onScrollStateChanged(recyclerView, i);
+        if (this.nGp != null) {
+            this.nGp.onScrollStateChanged(recyclerView, i);
         }
     }
 
     @Override // com.kascend.chushou.widget.convenientbanner.d.c
     public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-        if (this.nGn != null) {
-            this.nGn.onScrolled(recyclerView, i, i2);
+        if (this.nGp != null) {
+            this.nGp.onScrolled(recyclerView, i, i2);
         }
     }
 
     @Override // com.kascend.chushou.widget.convenientbanner.d.c
     public void onPageSelected(int i) {
-        for (int i2 = 0; i2 < this.nGD.size(); i2++) {
-            this.nGD.get(i).setImageResource(this.nGd[1]);
+        for (int i2 = 0; i2 < this.nGF.size(); i2++) {
+            this.nGF.get(i).setImageResource(this.nGf[1]);
             if (i != i2) {
-                this.nGD.get(i2).setImageResource(this.nGd[0]);
+                this.nGF.get(i2).setImageResource(this.nGf[0]);
             }
         }
-        if (this.nGn != null) {
-            this.nGn.onPageSelected(i);
+        if (this.nGp != null) {
+            this.nGp.onPageSelected(i);
         }
     }
 
     public void a(c cVar) {
-        this.nGn = cVar;
+        this.nGp = cVar;
     }
 }

@@ -6,22 +6,22 @@ import kotlin.collections.z;
 /* loaded from: classes7.dex */
 final class d extends z {
     private int index;
-    private final double[] nYu;
+    private final double[] nYw;
 
     public d(double[] dArr) {
         q.m(dArr, com.baidu.fsg.base.statistics.b.j);
-        this.nYu = dArr;
+        this.nYw = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.nYu.length;
+        return this.index < this.nYw.length;
     }
 
     @Override // kotlin.collections.z
     public double nextDouble() {
         try {
-            double[] dArr = this.nYu;
+            double[] dArr = this.nYw;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

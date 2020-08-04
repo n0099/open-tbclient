@@ -25,9 +25,9 @@ import java.util.List;
 public class a implements View.OnClickListener, InterestSelectionFragment.a {
     private View hHY;
     private BaseFragmentActivity hjZ;
-    private TextView kdh;
-    private InterestedForumFragment kdi;
-    private InterestSelectionFragment kdj;
+    private TextView kdj;
+    private InterestedForumFragment kdk;
+    private InterestSelectionFragment kdl;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
@@ -40,26 +40,26 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
     private void initUI() {
         this.mRoot = LayoutInflater.from(this.hjZ).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.kdh = new TextView(this.hjZ);
-        this.kdh.setClickable(true);
-        this.kdh.setText(this.hjZ.getString(R.string.skip));
-        this.kdh.setTextSize(0, l.getDimens(this.hjZ, R.dimen.tbds37));
-        ao.setViewTextColor(this.kdh, R.color.cp_cont_j);
+        this.kdj = new TextView(this.hjZ);
+        this.kdj.setClickable(true);
+        this.kdj.setText(this.hjZ.getString(R.string.skip));
+        this.kdj.setTextSize(0, l.getDimens(this.hjZ, R.dimen.tbds37));
+        ao.setViewTextColor(this.kdj, R.color.cp_cont_j);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         layoutParams.rightMargin = l.getDimens(this.hjZ, R.dimen.tbds44);
-        this.kdh.setLayoutParams(layoutParams);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kdh, this);
+        this.kdj.setLayoutParams(layoutParams);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kdj, this);
         this.hHY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.kdj = new InterestSelectionFragment();
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.kdj).commitAllowingStateLoss();
+        this.kdl = new InterestSelectionFragment();
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.kdl).commitAllowingStateLoss();
         TiebaStatic.log(new ap("c13681"));
     }
 
     private void cfu() {
-        this.kdh.setOnClickListener(this);
+        this.kdj.setOnClickListener(this);
         this.hHY.setOnClickListener(this);
-        this.kdj.a(this);
+        this.kdl.a(this);
     }
 
     public View getView() {
@@ -69,12 +69,12 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.hHY && this.hjZ != null) {
-            if (this.kdi != null && this.kdi.isVisible()) {
+            if (this.kdk != null && this.kdk.isVisible()) {
                 getFragmentManager().popBackStack();
             } else {
                 cJg();
             }
-        } else if (view == this.kdh) {
+        } else if (view == this.kdj) {
             cJg();
         }
     }
@@ -88,9 +88,9 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
 
     @Override // com.baidu.tieba.newinterest.fragment.InterestSelectionFragment.a
     public void el(List<b> list) {
-        this.kdi = new InterestedForumFragment();
-        this.kdi.em(list);
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.kdi).addToBackStack(null).commitAllowingStateLoss();
+        this.kdk = new InterestedForumFragment();
+        this.kdk.em(list);
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.kdk).addToBackStack(null).commitAllowingStateLoss();
     }
 
     private FragmentManager getFragmentManager() {

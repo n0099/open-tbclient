@@ -21,11 +21,11 @@ import java.util.ArrayList;
 public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     private View.OnClickListener awi;
     private ArrayList<OfficialAccountPushInfo> list;
-    private MsgSettingItemView lzi;
-    private MsgSettingItemView lzj;
     private MsgSettingItemView lzk;
-    private TbSettingTextTipView lzl;
-    private MsgReceiveActivity lzm;
+    private MsgSettingItemView lzl;
+    private MsgSettingItemView lzm;
+    private TbSettingTextTipView lzn;
+    private MsgReceiveActivity lzo;
     private View mBack;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
@@ -35,80 +35,80 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
         this.awi = new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && view == f.this.lzl) {
+                if (view != null && view == f.this.lzn) {
                     TiebaStatic.log(new ap("c13287").dn("uid", TbadkCoreApplication.getCurrentAccount()));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.lzm, f.this.getList())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.lzo, f.this.getList())));
                 }
             }
         };
-        this.lzm = msgReceiveActivity;
+        this.lzo = msgReceiveActivity;
     }
 
     public void init() {
-        if (this.lzm != null) {
+        if (this.lzo != null) {
             initUI();
         }
     }
 
     private void initUI() {
-        if (this.lzm != null) {
-            this.lzm.setContentView(R.layout.msg_receive_activity);
-            this.mRootView = (ViewGroup) this.lzm.findViewById(R.id.msg_receive_root_view);
-            this.mNavigationBar = (NavigationBar) this.lzm.findViewById(R.id.navigation_bar_msg_receive);
-            this.mNavigationBar.setCenterTextTitle(this.lzm.getPageContext().getString(R.string.receive_message));
+        if (this.lzo != null) {
+            this.lzo.setContentView(R.layout.msg_receive_activity);
+            this.mRootView = (ViewGroup) this.lzo.findViewById(R.id.msg_receive_root_view);
+            this.mNavigationBar = (NavigationBar) this.lzo.findViewById(R.id.navigation_bar_msg_receive);
+            this.mNavigationBar.setCenterTextTitle(this.lzo.getPageContext().getString(R.string.receive_message));
             this.mNavigationBar.showBottomLine();
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.lzi = (MsgSettingItemView) this.lzm.findViewById(R.id.item_view_friend_msg);
-            this.lzi.setText(R.string.friend_msg_switch);
-            this.lzi.setOnSwitchStateChangeListener(this.lzm);
-            this.lzj = (MsgSettingItemView) this.lzm.findViewById(R.id.item_view_stranger_msg);
-            this.lzj.setText(R.string.stranger_msg_switch);
-            this.lzj.setOnSwitchStateChangeListener(this.lzm);
-            this.lzj.setLineVisibility(false);
+            this.lzk = (MsgSettingItemView) this.lzo.findViewById(R.id.item_view_friend_msg);
+            this.lzk.setText(R.string.friend_msg_switch);
+            this.lzk.setOnSwitchStateChangeListener(this.lzo);
+            this.lzl = (MsgSettingItemView) this.lzo.findViewById(R.id.item_view_stranger_msg);
+            this.lzl.setText(R.string.stranger_msg_switch);
+            this.lzl.setOnSwitchStateChangeListener(this.lzo);
+            this.lzl.setLineVisibility(false);
             dfO();
-            this.lzk = (MsgSettingItemView) this.lzm.findViewById(R.id.item_view_forum_broadcast_msg);
-            this.lzk.setText(R.string.receive_forum_broadcast_message);
-            this.lzk.setOnSwitchStateChangeListener(this.lzm);
-            this.lzk.setLineVisibility(false);
+            this.lzm = (MsgSettingItemView) this.lzo.findViewById(R.id.item_view_forum_broadcast_msg);
+            this.lzm.setText(R.string.receive_forum_broadcast_message);
+            this.lzm.setOnSwitchStateChangeListener(this.lzo);
+            this.lzm.setLineVisibility(false);
             dfP();
-            this.lzl = (TbSettingTextTipView) this.lzm.findViewById(R.id.item_view_offical_account_push_msg);
-            this.lzl.setOnClickListener(this.awi);
+            this.lzn = (TbSettingTextTipView) this.lzo.findViewById(R.id.item_view_offical_account_push_msg);
+            this.lzn.setOnClickListener(this.awi);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void dfO() {
-        if (this.lzi == null || this.lzj == null) {
+        if (this.lzk == null || this.lzl == null) {
             return;
         }
         switch (GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) {
             case 0:
                 return;
             case 1:
-                this.lzi.getSwitchView().turnOnNoCallback();
-                this.lzi.setLineVisibility(true);
-                this.lzj.getSwitchView().turnOffNoCallback();
+                this.lzk.getSwitchView().turnOnNoCallback();
+                this.lzk.setLineVisibility(true);
+                this.lzl.getSwitchView().turnOffNoCallback();
                 return;
             default:
-                this.lzi.getSwitchView().turnOffNoCallback();
-                this.lzi.setLineVisibility(false);
-                this.lzj.setVisibility(8);
-                this.lzj.getSwitchView().turnOffNoCallback();
+                this.lzk.getSwitchView().turnOffNoCallback();
+                this.lzk.setLineVisibility(false);
+                this.lzl.setVisibility(8);
+                this.lzl.getSwitchView().turnOffNoCallback();
                 return;
         }
     }
 
     private void dfP() {
-        if (this.lzk != null) {
-            this.lzk.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bfO().bgi());
+        if (this.lzm != null) {
+            this.lzm.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bfO().bgi());
         }
     }
 
     public void uM(boolean z) {
         if (z) {
-            this.lzj.setVisibility(0);
+            this.lzl.setVisibility(0);
         } else {
-            this.lzj.setVisibility(8);
+            this.lzl.setVisibility(8);
         }
     }
 
@@ -118,11 +118,11 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
         ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c, i);
-        this.mNavigationBar.onChangeSkinType(this.lzm.getPageContext(), i);
-        this.lzi.onChangeSkinType(this.lzm.getPageContext(), i);
-        this.lzj.onChangeSkinType(this.lzm.getPageContext(), i);
-        this.lzk.onChangeSkinType(this.lzm.getPageContext(), i);
-        this.lzl.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(this.lzo.getPageContext(), i);
+        this.lzk.onChangeSkinType(this.lzo.getPageContext(), i);
+        this.lzl.onChangeSkinType(this.lzo.getPageContext(), i);
+        this.lzm.onChangeSkinType(this.lzo.getPageContext(), i);
+        this.lzn.onChangeSkinType(i);
     }
 
     public View cvP() {
@@ -130,19 +130,19 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     }
 
     public BdSwitchView dfQ() {
-        return this.lzi.getSwitchView();
-    }
-
-    public BdSwitchView dfR() {
-        return this.lzj.getSwitchView();
-    }
-
-    public BdSwitchView dfS() {
         return this.lzk.getSwitchView();
     }
 
+    public BdSwitchView dfR() {
+        return this.lzl.getSwitchView();
+    }
+
+    public BdSwitchView dfS() {
+        return this.lzm.getSwitchView();
+    }
+
     public void uN(boolean z) {
-        this.lzi.setLineVisibility(z);
+        this.lzk.setLineVisibility(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

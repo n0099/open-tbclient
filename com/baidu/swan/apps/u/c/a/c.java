@@ -82,7 +82,7 @@ public abstract class c<SelfT extends c<SelfT>> implements d<SelfT> {
     }
 
     public SelfT M(@Nullable String str, int i) {
-        com.baidu.swan.apps.u.c.a.a.f969com.b((c) this, str, (String) Integer.valueOf(i));
+        com.baidu.swan.apps.u.c.a.a.f972com.b((c) this, str, (String) Integer.valueOf(i));
         return (SelfT) ajc();
     }
 
@@ -111,11 +111,11 @@ public abstract class c<SelfT extends c<SelfT>> implements d<SelfT> {
     }
 
     public int getInt(String str) {
-        return com.baidu.swan.apps.u.c.a.a.f969com.a(this, str).intValue();
+        return com.baidu.swan.apps.u.c.a.a.f972com.a(this, str).intValue();
     }
 
     public int getInt(String str, int i) {
-        return com.baidu.swan.apps.u.c.a.a.f969com.a((c) this, str, (String) Integer.valueOf(i)).intValue();
+        return com.baidu.swan.apps.u.c.a.a.f972com.a((c) this, str, (String) Integer.valueOf(i)).intValue();
     }
 
     public long getLong(String str) {

@@ -12,28 +12,28 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a<T> extends RecyclerView.Adapter<b<T>> {
     protected List<T> aDV;
-    private boolean nGk;
-    private final int nGr;
-    private com.kascend.chushou.widget.convenientbanner.c.a<T> nGs;
-    private ConvenientBanner nGt;
+    private boolean nGm;
+    private final int nGt;
+    private com.kascend.chushou.widget.convenientbanner.c.a<T> nGu;
+    private ConvenientBanner nGv;
 
     public a(com.kascend.chushou.widget.convenientbanner.c.a<T> aVar, List<T> list, boolean z, ConvenientBanner convenientBanner) {
-        this.nGs = aVar;
-        this.nGr = aVar.getLayoutId();
+        this.nGu = aVar;
+        this.nGt = aVar.getLayoutId();
         this.aDV = list;
-        this.nGk = z;
-        this.nGt = convenientBanner;
+        this.nGm = z;
+        this.nGv = convenientBanner;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: K */
     public b<T> onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nGr, viewGroup, false);
-        if (this.nGt != null) {
-            inflate.setTag(this.nGt);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(this.nGt, viewGroup, false);
+        if (this.nGv != null) {
+            inflate.setTag(this.nGv);
         }
-        return this.nGs.dB(inflate);
+        return this.nGu.dB(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class a<T> extends RecyclerView.Adapter<b<T>> {
         if (this.aDV == null || this.aDV.size() == 0) {
             return 0;
         }
-        return this.nGk ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aDV.size();
+        return this.nGm ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aDV.size();
     }
 
     public int byd() {

@@ -16,10 +16,10 @@ import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class ShutDownValidateTipView extends FrameLayout {
     private boolean ejP;
-    private TextView jow;
-    private ImageView jox;
+    private TextView joA;
+    private TextView joB;
     private TextView joy;
-    private TextView joz;
+    private ImageView joz;
     private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes16.dex */
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.jox = (ImageView) findViewById(R.id.no_network_icon);
-        this.joy = (TextView) findViewById(R.id.no_network_guide1);
-        this.joz = (TextView) findViewById(R.id.no_network_guide2);
-        this.jow = (TextView) findViewById(R.id.no_network_showmore);
+        this.joz = (ImageView) findViewById(R.id.no_network_icon);
+        this.joA = (TextView) findViewById(R.id.no_network_guide1);
+        this.joB = (TextView) findViewById(R.id.no_network_guide2);
+        this.joy = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.jow != null) {
-            this.jow.setOnClickListener(onClickListener);
+        if (this.joy != null) {
+            this.joy.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ao.setImageResource(this.jox, R.drawable.icon_error);
+        ao.setImageResource(this.joz, R.drawable.icon_error);
         ao.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
+            this.joA.setTextColor(-10523526);
+            this.joB.setTextColor(-8682095);
             this.joy.setTextColor(-10523526);
-            this.joz.setTextColor(-8682095);
-            this.jow.setTextColor(-10523526);
             return;
         }
+        this.joA.setTextColor(-14277082);
+        this.joB.setTextColor(-5065030);
         this.joy.setTextColor(-14277082);
-        this.joz.setTextColor(-5065030);
-        this.jow.setTextColor(-14277082);
     }
 }

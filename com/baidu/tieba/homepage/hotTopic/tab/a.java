@@ -9,7 +9,7 @@ public class a {
         if (obj instanceof com.baidu.tieba.homepage.hotTopic.tab.b.b) {
             com.baidu.tieba.homepage.hotTopic.tab.b.b bVar = (com.baidu.tieba.homepage.hotTopic.tab.b.b) obj;
             ap apVar = new ap(str);
-            if (!bVar.ixb) {
+            if (!bVar.ixd) {
                 apVar.ah("obj_locate", i);
                 apVar.t("topic_id", bVar.topicId);
             }

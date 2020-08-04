@@ -41,11 +41,11 @@ public class a {
     private PbListView fsC;
     private View fuQ;
     private i hoU;
-    private e iHw;
-    private com.baidu.tieba.homepage.video.a.a iHx;
-    private com.baidu.tieba.homepage.personalize.bigday.a isb;
-    private BigdaySwipeRefreshLayout isk;
-    private NEGFeedBackView.a iwe;
+    private e iHy;
+    private com.baidu.tieba.homepage.video.a.a iHz;
+    private com.baidu.tieba.homepage.personalize.bigday.a isd;
+    private BigdaySwipeRefreshLayout ism;
+    private NEGFeedBackView.a iwg;
     private BdUniqueId mBdUniqueId;
     private FrameLayout mContentLayout;
     private TbPageContext mPageContext;
@@ -54,19 +54,19 @@ public class a {
     private int hHG = 0;
     private int frk = 0;
     private boolean mIsBackground = false;
-    private boolean iwF = true;
+    private boolean iwH = true;
     private boolean hIq = false;
-    private f.d iwG = new f.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
+    private f.d iwI = new f.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
         @Override // com.baidu.tbadk.core.view.f.d
         public void onListPullToRefresh(boolean z) {
             a.this.cmG();
         }
     };
-    private f.b iwH = new f.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
+    private f.b iwJ = new f.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
         @Override // com.baidu.tbadk.core.view.f.b
         public void onListPullRefreshFinished(View view, boolean z) {
             a.this.oZ(true);
-            if (a.this.hoU != null && !a.this.mIsBackground && a.this.iwF) {
+            if (a.this.hoU != null && !a.this.mIsBackground && a.this.iwH) {
                 a.this.hoU.a(a.this.hHG, a.this.frk, a.this.hIq, true);
             }
         }
@@ -78,8 +78,8 @@ public class a {
             com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.video.d.a.3.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.iHx.notifyDataSetChanged();
-                    if (!a.this.mIsBackground && a.this.iwF) {
+                    a.this.iHz.notifyDataSetChanged();
+                    if (!a.this.mIsBackground && a.this.iwH) {
                         a.this.hoU.a(a.this.hHG, a.this.frk, a.this.hIq, true);
                     }
                 }
@@ -118,7 +118,7 @@ public class a {
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (i == 0 && a.this.hoU != null && a.this.iwF) {
+            if (i == 0 && a.this.hoU != null && a.this.iwH) {
                 a.this.hoU.a(a.this.hHG, a.this.frk, a.this.hIq, 1);
             }
             if (this.fuW != i) {
@@ -161,7 +161,7 @@ public class a {
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, NEGFeedBackView.a aVar) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.iwe = aVar;
+        this.iwg = aVar;
         initView();
     }
 
@@ -174,11 +174,11 @@ public class a {
         this.hoU = new i(this.mPageContext, this.VT);
         this.hoU.Dl(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.hoU.setUniqueId(this.mBdUniqueId);
-        this.isk = (BigdaySwipeRefreshLayout) this.mRootView.findViewById(R.id.video_tab_refresh_layout);
-        this.isb = new com.baidu.tieba.homepage.personalize.bigday.a(this.mPageContext);
-        this.isk.setProgressView(this.isb);
+        this.ism = (BigdaySwipeRefreshLayout) this.mRootView.findViewById(R.id.video_tab_refresh_layout);
+        this.isd = new com.baidu.tieba.homepage.personalize.bigday.a(this.mPageContext);
+        this.ism.setProgressView(this.isd);
         int i = (int) (86.0f * this.mPageContext.getResources().getDisplayMetrics().density);
-        this.isk.setCustomDistances(i, i, i * 2);
+        this.ism.setCustomDistances(i, i, i * 2);
         this.fsC = new PbListView(this.mPageContext.getPageActivity());
         this.fsC.createView();
         this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
@@ -188,12 +188,12 @@ public class a {
         this.fsC.setTextColor(ao.getColor(R.color.cp_cont_d));
         this.fsC.setNoMoreTextColorId(R.color.cp_cont_e);
         this.fsC.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.iHx = new com.baidu.tieba.homepage.video.a.a(this.mPageContext, this.VT);
-        this.iHx.b(this.iwe);
-        this.iHx.setPageUniqueId(this.mBdUniqueId);
-        this.iHw = new e();
-        this.iHw.i(this.mBdUniqueId);
-        this.iHx.b(this.iHw);
+        this.iHz = new com.baidu.tieba.homepage.video.a.a(this.mPageContext, this.VT);
+        this.iHz.b(this.iwg);
+        this.iHz.setPageUniqueId(this.mBdUniqueId);
+        this.iHy = new e();
+        this.iHy.i(this.mBdUniqueId);
+        this.iHz.b(this.iHy);
         this.fuQ = this.mRootView.findViewById(R.id.video_tab_divider_shadow);
         bci();
     }
@@ -201,9 +201,9 @@ public class a {
     public void init() {
         this.VT.addOnScrollListener(this.mScrollListener);
         this.VT.setRecyclerListener(this.mRecyclerListener);
-        this.isb.a(this.iwG);
-        this.isb.a(this.iwH);
-        this.isb.setTag(this.mPageContext.getUniqueId());
+        this.isd.a(this.iwI);
+        this.isd.a(this.iwJ);
+        this.isd.setTag(this.mPageContext.getUniqueId());
         registerListener();
     }
 
@@ -307,11 +307,11 @@ public class a {
     }
 
     public void startPullRefresh() {
-        this.isk.setRefreshing(true);
+        this.ism.setRefreshing(true);
     }
 
     public void b(f.e eVar) {
-        this.isk.c(eVar);
+        this.ism.c(eVar);
     }
 
     public void cov() {
@@ -319,8 +319,8 @@ public class a {
     }
 
     public void onPause() {
-        if (this.iHx != null) {
-            this.iHx.onPause();
+        if (this.iHz != null) {
+            this.iHz.onPause();
         }
     }
 
@@ -344,7 +344,7 @@ public class a {
             if (!z2) {
                 if (z) {
                     this.hoU.cmG();
-                } else if (this.iwF) {
+                } else if (this.iwH) {
                     this.hoU.a(this.hHG, this.frk, this.hIq, true);
                 }
             }
@@ -352,11 +352,11 @@ public class a {
     }
 
     public void oZ(boolean z) {
-        this.iwF = z;
+        this.iwH = z;
     }
 
     public void cmF() {
-        if (this.hoU != null && this.iwF) {
+        if (this.hoU != null && this.iwH) {
             this.hoU.a(this.hHG, this.frk, this.hIq, true);
         }
     }
@@ -368,8 +368,8 @@ public class a {
     }
 
     public void aK(List<q> list) {
-        if (this.iHx != null) {
-            this.iHx.setData(list);
+        if (this.iHz != null) {
+            this.iHz.setData(list);
         }
         cmF();
     }
@@ -413,8 +413,8 @@ public class a {
     }
 
     public List<q> getDataList() {
-        if (this.iHx != null) {
-            return this.iHx.getDataList();
+        if (this.iHz != null) {
+            return this.iHz.getDataList();
         }
         return null;
     }
@@ -430,14 +430,14 @@ public class a {
     }
 
     public void DT() {
-        if (this.iHx != null) {
-            this.iHx.notifyDataSetChanged();
+        if (this.iHz != null) {
+            this.iHz.notifyDataSetChanged();
         }
     }
 
     public void setListPullRefreshListener(f.c cVar) {
-        if (this.isb != null) {
-            this.isb.setListPullRefreshListener(cVar);
+        if (this.isd != null) {
+            this.isd.setListPullRefreshListener(cVar);
         }
     }
 
@@ -456,11 +456,11 @@ public class a {
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
-        if (this.isb != null) {
-            this.isb.changeSkin(skinType);
+        if (this.isd != null) {
+            this.isd.changeSkin(skinType);
         }
-        if (this.iHx != null) {
-            this.iHx.notifyDataSetChanged();
+        if (this.iHz != null) {
+            this.iHz.notifyDataSetChanged();
         }
     }
 
@@ -469,11 +469,11 @@ public class a {
             this.fBv.release();
         }
         b((f.e) null);
-        if (this.isb != null) {
-            this.isb.release();
+        if (this.isd != null) {
+            this.isd.release();
         }
-        if (this.iHx != null) {
-            this.iHx.onDestroy();
+        if (this.iHz != null) {
+            this.iHz.onDestroy();
         }
         if (this.hoU != null) {
             this.hoU.destroy();
@@ -488,9 +488,9 @@ public class a {
             this.VT.removeOnScrollListener(this.mScrollListener);
             this.VT.setRecyclerListener(null);
         }
-        if (this.isb != null) {
-            this.isb.a((f.d) null);
-            this.isb.a((f.b) null);
+        if (this.isd != null) {
+            this.isd.a((f.d) null);
+            this.isd.a((f.b) null);
         }
     }
 

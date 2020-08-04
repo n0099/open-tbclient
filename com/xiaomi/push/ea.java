@@ -44,7 +44,7 @@ public class ea extends ed {
         if (a == null || a.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f233a.getPackageManager();
+        PackageManager packageManager = this.f236a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a) {
             try {

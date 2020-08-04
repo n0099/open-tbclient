@@ -14,14 +14,14 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
     private int flag;
     private String groupId;
     private String groupName;
-    private RequestRemoveMembersMessage iQf;
-    private RequestDismissGroupMessage iQg;
-    private GroupSettingActivity iQh;
+    private RequestRemoveMembersMessage iQh;
+    private RequestDismissGroupMessage iQi;
+    private GroupSettingActivity iQj;
 
     public GroupSettingModel(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.iQh = null;
-        this.iQh = groupSettingActivity;
+        this.iQj = null;
+        this.iQj = groupSettingActivity;
     }
 
     public void q(String str, String str2, int i) {
@@ -50,8 +50,8 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.iQf != null) {
-            this.iQf = null;
+        if (this.iQh != null) {
+            this.iQh = null;
         }
     }
 
@@ -87,23 +87,23 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
     }
 
     public void eJ(long j) {
-        this.iQf = new RequestRemoveMembersMessage();
-        this.iQf.setGroupId(j);
-        this.iQf.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
-        if (this.iQh != null) {
-            this.iQh.sendMessage(this.iQf);
+        this.iQh = new RequestRemoveMembersMessage();
+        this.iQh.setGroupId(j);
+        this.iQh.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        if (this.iQj != null) {
+            this.iQj.sendMessage(this.iQh);
         } else {
-            sendMessage(this.iQf);
+            sendMessage(this.iQh);
         }
     }
 
     public void eK(long j) {
-        this.iQg = new RequestDismissGroupMessage();
-        this.iQg.setGroupId(j);
-        if (this.iQh != null) {
-            this.iQh.sendMessage(this.iQg);
+        this.iQi = new RequestDismissGroupMessage();
+        this.iQi.setGroupId(j);
+        if (this.iQj != null) {
+            this.iQj.sendMessage(this.iQi);
         } else {
-            sendMessage(this.iQg);
+            sendMessage(this.iQi);
         }
     }
 

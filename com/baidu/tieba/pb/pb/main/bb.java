@@ -6,126 +6,126 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes16.dex */
 public class bb {
-    private EditText iEZ;
-    private PostWriteCallBackData kqk;
-    private com.baidu.tieba.write.c kxm = new com.baidu.tieba.write.c();
-    private com.baidu.tieba.write.c kxn;
-    private EditText kxo;
+    private EditText iFb;
+    private PostWriteCallBackData kqm;
+    private com.baidu.tieba.write.c kxo = new com.baidu.tieba.write.c();
+    private com.baidu.tieba.write.c kxp;
+    private EditText kxq;
 
     public bb() {
-        this.kxm.GV(R.color.cp_cont_a);
-        this.kxm.GW(R.color.cp_cont_h_alpha85);
-        this.kxn = new com.baidu.tieba.write.c();
-        this.kxn.GV(R.color.cp_cont_a);
-        this.kxn.GW(R.color.cp_cont_h_alpha85);
+        this.kxo.GV(R.color.cp_cont_a);
+        this.kxo.GW(R.color.cp_cont_h_alpha85);
+        this.kxp = new com.baidu.tieba.write.c();
+        this.kxp.GV(R.color.cp_cont_a);
+        this.kxp.GW(R.color.cp_cont_h_alpha85);
     }
 
     public void sZ(boolean z) {
-        if (this.kxo != null && this.kxo.getText() != null) {
-            int selectionEnd = this.kxo.getSelectionEnd();
-            SpannableStringBuilder d = this.kxm.d(this.kxo.getText());
+        if (this.kxq != null && this.kxq.getText() != null) {
+            int selectionEnd = this.kxq.getSelectionEnd();
+            SpannableStringBuilder d = this.kxo.d(this.kxq.getText());
             if (d != null) {
-                this.kxm.wj(true);
-                this.kxo.setText(d);
-                if (z && this.kxm.dtZ() >= 0) {
-                    this.kxo.requestFocus();
-                    this.kxo.setSelection(this.kxm.dtZ());
+                this.kxo.wj(true);
+                this.kxq.setText(d);
+                if (z && this.kxo.dua() >= 0) {
+                    this.kxq.requestFocus();
+                    this.kxq.setSelection(this.kxo.dua());
                 } else {
-                    this.kxo.setSelection(selectionEnd);
+                    this.kxq.setSelection(selectionEnd);
                 }
-                this.kxm.wi(this.kxm.dtZ() >= 0);
+                this.kxo.wi(this.kxo.dua() >= 0);
             }
         }
     }
 
     public void ta(boolean z) {
-        if (this.iEZ != null && this.iEZ.getText() != null) {
-            int selectionEnd = this.iEZ.getSelectionEnd();
-            SpannableStringBuilder d = this.kxn.d(this.iEZ.getText());
+        if (this.iFb != null && this.iFb.getText() != null) {
+            int selectionEnd = this.iFb.getSelectionEnd();
+            SpannableStringBuilder d = this.kxp.d(this.iFb.getText());
             if (d != null) {
-                this.kxn.wj(true);
-                this.iEZ.setText(d);
-                if (z && this.kxn.dtZ() >= 0) {
-                    this.iEZ.requestFocus();
-                    this.iEZ.setSelection(this.kxn.dtZ());
+                this.kxp.wj(true);
+                this.iFb.setText(d);
+                if (z && this.kxp.dua() >= 0) {
+                    this.iFb.requestFocus();
+                    this.iFb.setSelection(this.kxp.dua());
                 } else {
-                    this.iEZ.setSelection(selectionEnd);
+                    this.iFb.setSelection(selectionEnd);
                 }
-                this.kxn.wi(this.kxn.dtZ() >= 0);
+                this.kxp.wi(this.kxp.dua() >= 0);
             }
         }
     }
 
     public void cQM() {
-        this.kxn.Py(null);
-        this.kxn.aZ(null);
-        this.kxn.wi(false);
+        this.kxp.Py(null);
+        this.kxp.aZ(null);
+        this.kxp.wi(false);
     }
 
     public void cQN() {
-        this.kxm.Py(null);
-        this.kxm.aZ(null);
-        this.kxm.wi(false);
+        this.kxo.Py(null);
+        this.kxo.aZ(null);
+        this.kxo.wi(false);
     }
 
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.kxm.aZ(postWriteCallBackData.getSensitiveWords());
-            this.kxm.Py(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.x.isEmpty(this.kxm.dtY())) {
+            this.kxo.aZ(postWriteCallBackData.getSensitiveWords());
+            this.kxo.Py(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.x.isEmpty(this.kxo.dtZ())) {
                 sZ(true);
-                this.kqk = postWriteCallBackData;
+                this.kqm = postWriteCallBackData;
             }
         }
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.kxn.aZ(postWriteCallBackData.getSensitiveWords());
-            this.kxn.Py(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.x.isEmpty(this.kxn.dtY())) {
+            this.kxp.aZ(postWriteCallBackData.getSensitiveWords());
+            this.kxp.Py(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.x.isEmpty(this.kxp.dtZ())) {
                 ta(true);
             }
         }
     }
 
     public void e(EditText editText) {
-        this.kxo = editText;
+        this.kxq = editText;
     }
 
     public void f(EditText editText) {
-        this.iEZ = editText;
+        this.iFb = editText;
     }
 
     public void onDestroy() {
-        this.kxo = null;
-        this.iEZ = null;
+        this.kxq = null;
+        this.iFb = null;
     }
 
     public void onChangeSkinType() {
-        this.kxm.onChangeSkinType();
-        this.kxn.onChangeSkinType();
-        if (this.kxm.dua()) {
+        this.kxo.onChangeSkinType();
+        this.kxp.onChangeSkinType();
+        if (this.kxo.dub()) {
             sZ(false);
         }
-        if (this.kxn.dua()) {
+        if (this.kxp.dub()) {
             ta(false);
         }
     }
 
     public com.baidu.tieba.write.c cQO() {
-        return this.kxm;
+        return this.kxo;
     }
 
     public com.baidu.tieba.write.c cQP() {
-        return this.kxn;
+        return this.kxp;
     }
 
     public EditText cQQ() {
-        return this.iEZ;
+        return this.iFb;
     }
 
     public PostWriteCallBackData cQR() {
-        return this.kqk;
+        return this.kqm;
     }
 }

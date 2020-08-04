@@ -12,7 +12,7 @@ public class bf extends al.b {
     final /* synthetic */ be a;
 
     /* renamed from: a  reason: collision with other field name */
-    boolean f889a = false;
+    boolean f892a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(be beVar) {
@@ -24,8 +24,8 @@ public class bf extends al.b {
         try {
             ej.a a = ej.a.a(Base64.decode(dd.a(com.xiaomi.push.t.m578a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ay>) null), 10));
             if (a != null) {
-                this.a.f887a = a;
-                this.f889a = true;
+                this.a.f890a = a;
+                this.f892a = true;
                 this.a.e();
             }
         } catch (Exception e) {
@@ -40,15 +40,15 @@ public class bf extends al.b {
         List list2;
         be.a[] aVarArr;
         ej.a aVar;
-        this.a.f886a = null;
-        if (this.f889a) {
+        this.a.f889a = null;
+        if (this.f892a) {
             synchronized (this.a) {
-                list = this.a.f888a;
-                list2 = this.a.f888a;
+                list = this.a.f891a;
+                list2 = this.a.f891a;
                 aVarArr = (be.a[]) list.toArray(new be.a[list2.size()]);
             }
             for (be.a aVar2 : aVarArr) {
-                aVar = this.a.f887a;
+                aVar = this.a.f890a;
                 aVar2.a(aVar);
             }
         }

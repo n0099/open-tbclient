@@ -74,7 +74,7 @@ public class UBC {
         if (DEBUG) {
             Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + QL);
         }
-        d.dzX().g(str, str2, QL, 8);
+        d.dzY().g(str, str2, QL, 8);
     }
 
     public static final Flow beginFlow(String str) {

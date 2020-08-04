@@ -186,7 +186,7 @@ public class f {
                 }
             });
             if (as.isForumName(this.agV.getForumName())) {
-                this.emT.dkA();
+                this.emT.dkB();
                 this.emT.fz(this.agV.getForumName(), String.valueOf(this.agV.getForumId()));
             }
         }

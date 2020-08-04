@@ -21,18 +21,18 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes16.dex */
 public class d extends c {
-    private RelativeLayout hRA;
-    private TextView hRB;
-    private TextView hRC;
+    private RelativeLayout hRC;
     private TextView hRD;
+    private TextView hRE;
+    private TextView hRF;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
-        this.hRA = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
-        this.hRB = (TextView) view.findViewById(R.id.lottery_time_tv);
-        this.hRC = (TextView) view.findViewById(R.id.lottery_join_count_tv);
-        this.hRD = (TextView) view.findViewById(R.id.lottery_btn);
+        this.hRC = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
+        this.hRD = (TextView) view.findViewById(R.id.lottery_time_tv);
+        this.hRE = (TextView) view.findViewById(R.id.lottery_join_count_tv);
+        this.hRF = (TextView) view.findViewById(R.id.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.b
@@ -62,9 +62,9 @@ public class d extends c {
             com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) x.getItem(bvVar.aWv(), 0);
             if (aVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.hRB.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.aUa()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.aUb())))));
-                this.hRC.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(aVar.aUc())));
-                this.hRD.setText(R.string.lottery_btn_text);
+                this.hRD.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.aUa()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.aUb())))));
+                this.hRE.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(aVar.aUc())));
+                this.hRF.setText(R.string.lottery_btn_text);
                 this.fXb.setCommentNumEnable(false);
             }
         }
@@ -88,11 +88,11 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundColor(this.hRA, R.color.cp_bg_line_e);
-            ao.setViewTextColor(this.hRB, R.color.cp_cont_f);
-            ao.setViewTextColor(this.hRC, R.color.cp_cont_f);
-            ao.setViewTextColor(this.hRD, R.color.cp_link_tip_a);
-            ao.setBackgroundResource(this.hRD, R.drawable.bg_card_frs_lottery_btn);
+            ao.setBackgroundColor(this.hRC, R.color.cp_bg_line_e);
+            ao.setViewTextColor(this.hRD, R.color.cp_cont_f);
+            ao.setViewTextColor(this.hRE, R.color.cp_cont_f);
+            ao.setViewTextColor(this.hRF, R.color.cp_link_tip_a);
+            ao.setBackgroundResource(this.hRF, R.drawable.bg_card_frs_lottery_btn);
         }
         super.onChangeSkinType(tbPageContext, i);
     }

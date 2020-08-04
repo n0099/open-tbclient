@@ -57,7 +57,7 @@ public class XRSessionAnchor {
 
     public static boolean supportArCore(Context context) {
         try {
-            ArCoreApk.Availability ge = ArCoreApk.dKJ().ge(context);
+            ArCoreApk.Availability ge = ArCoreApk.dKK().ge(context);
             return ge != null && (ge.isSupported() || ge.isTransient());
         } catch (Exception e) {
             return true;

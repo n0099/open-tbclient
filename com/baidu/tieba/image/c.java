@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes15.dex */
 public class c {
-    private AdvertAppInfo jrW;
+    private AdvertAppInfo jrY;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -17,24 +17,24 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.jrW = advertAppInfo;
+        this.jrY = advertAppInfo;
     }
 
     public void czx() {
         Iy("click");
-        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.c(this.jrW, 2, 0));
+        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.c(this.jrY, 2, 0));
     }
 
     public void czy() {
         Iy("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jrW, 2, 0);
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jrY, 2, 0);
         c.MN("title");
         com.baidu.tieba.recapp.report.d.dcY().a(c);
     }
 
     public void YW() {
         Iy("show");
-        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.c(this.jrW, 3, 0));
+        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.c(this.jrY, 3, 0));
     }
 
     public void czz() {
@@ -45,6 +45,6 @@ public class c {
     }
 
     public void Iy(String str) {
-        com.baidu.tbadk.distribute.a.biw().a(this.jrW, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+        com.baidu.tbadk.distribute.a.biw().a(this.jrY, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

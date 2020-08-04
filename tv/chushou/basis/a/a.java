@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 /* loaded from: classes6.dex */
 public class a {
-    public static ClassLoader oqZ = b.class.getClassLoader();
+    public static ClassLoader orb = b.class.getClassLoader();
 
     @TargetApi(11)
     public static void d(Context context, String str, long j) {

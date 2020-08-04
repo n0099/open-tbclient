@@ -37,8 +37,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes16.dex */
 public class j {
-    private static com.baidu.tbadk.core.dialog.c ieR = null;
-    private static a ieS = null;
+    private static com.baidu.tbadk.core.dialog.c ieT = null;
+    private static a ieU = null;
 
     public static void a(FrsViewData frsViewData, TbPageContext tbPageContext) {
         Plugin plugin2;
@@ -146,14 +146,14 @@ public class j {
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                         j.t(TbPageContext.this);
-                        if (j.ieS == null) {
-                            a unused = j.ieS = new a();
+                        if (j.ieU == null) {
+                            a unused = j.ieU = new a();
                         }
-                        j.ieS.c(frsViewData, TbPageContext.this);
+                        j.ieU.c(frsViewData, TbPageContext.this);
                         if (PluginPackageManager.op().cy(XiaoyingUtil.PKG_NAME_VIDEO)) {
-                            PluginPackageManager.op().a(j.ieS);
+                            PluginPackageManager.op().a(j.ieU);
                         } else {
-                            PluginPackageManager.op().a(pluginConfig, j.ieS);
+                            PluginPackageManager.op().a(pluginConfig, j.ieU);
                         }
                     }
                 });
@@ -170,72 +170,72 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void t(TbPageContext tbPageContext) {
-        if (ieR == null) {
-            ieR = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
-            ieR.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.5
+        if (ieT == null) {
+            ieT = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
+            ieT.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.5
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     j.cik();
                 }
             });
-            ieR.setCancelable(true);
-            ieR.setCanceledOnTouchOutside(false);
-            ieR.setMessage(tbPageContext.getPageActivity().getString(R.string.on_downloading));
+            ieT.setCancelable(true);
+            ieT.setCanceledOnTouchOutside(false);
+            ieT.setMessage(tbPageContext.getPageActivity().getString(R.string.on_downloading));
         }
-        com.baidu.adp.lib.f.g.showDialog(ieR, tbPageContext.getPageActivity());
+        com.baidu.adp.lib.f.g.showDialog(ieT, tbPageContext.getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private FrsViewData ieV;
-        private TbPageContext ieW;
+        private FrsViewData ieX;
+        private TbPageContext ieY;
 
         private a() {
-            this.ieV = null;
-            this.ieW = null;
+            this.ieX = null;
+            this.ieY = null;
         }
 
         public void c(FrsViewData frsViewData, TbPageContext tbPageContext) {
-            this.ieV = frsViewData;
-            this.ieW = tbPageContext;
+            this.ieX = frsViewData;
+            this.ieY = tbPageContext;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && j.ieR != null) {
-                j.ieR.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && j.ieT != null) {
+                j.ieT.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (j.ieR != null) {
-                com.baidu.adp.lib.f.g.b(j.ieR, this.ieW);
+            if (j.ieT != null) {
+                com.baidu.adp.lib.f.g.b(j.ieT, this.ieY);
             }
-            this.ieW.showToast(R.string.plugin_video_installing);
+            this.ieY.showToast(R.string.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (j.ieR != null) {
-                com.baidu.adp.lib.f.g.b(j.ieR, this.ieW);
+            if (j.ieT != null) {
+                com.baidu.adp.lib.f.g.b(j.ieT, this.ieY);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.ieW != null) {
-                this.ieW.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.ieY != null) {
+                this.ieY.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.op().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (j.ieR != null) {
-                com.baidu.adp.lib.f.g.b(j.ieR, this.ieW);
+            if (j.ieT != null) {
+                com.baidu.adp.lib.f.g.b(j.ieT, this.ieY);
             }
             if (i == 0) {
-                j.b(this.ieV, this.ieW);
+                j.b(this.ieX, this.ieY);
             } else {
-                this.ieW.showToast(this.ieW.getString(R.string.install_failed) + str);
+                this.ieY.showToast(this.ieY.getString(R.string.install_failed) + str);
             }
             PluginPackageManager.op().a((com.baidu.adp.plugin.packageManager.d) null);
         }
@@ -264,8 +264,8 @@ public class j {
     }
 
     public static void cik() {
-        ieS = null;
-        ieR = null;
+        ieU = null;
+        ieT = null;
         PluginPackageManager.op().a((com.baidu.adp.plugin.packageManager.d) null);
     }
 }

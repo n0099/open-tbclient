@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 public class a extends com.baidu.adp.base.c<BaseActivity> {
     private View dWz;
     private ImageView ewZ;
-    private TextView iUX;
+    private TextView iUZ;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.iUX = null;
+        this.iUZ = null;
         this.ewZ = null;
         this.dWz = null;
         initUI();
@@ -28,7 +28,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
     }
 
     public void Hn(String str) {
-        this.iUX.setText(str);
+        this.iUZ.setText(str);
     }
 
     public void pI(boolean z) {
@@ -37,7 +37,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
 
     private void initUI() {
         this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(R.layout.address_lbs_item, (ViewGroup) null);
-        this.iUX = (TextView) this.layoutView.findViewById(R.id.text);
+        this.iUZ = (TextView) this.layoutView.findViewById(R.id.text);
         this.ewZ = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
         this.dWz = this.layoutView.findViewById(R.id.group_address_list_item_divider);
         this.layoutView.setTag(this);

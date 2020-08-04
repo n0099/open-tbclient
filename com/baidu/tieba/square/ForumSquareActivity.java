@@ -18,34 +18,34 @@ import com.baidu.tieba.square.model.ForumSquareModel;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> implements c {
-    private ForumSquareModel lFP;
-    private a lFQ;
-    private b lFR;
-    private String lFS = "";
+    private ForumSquareModel lFR;
+    private a lFS;
+    private b lFT;
+    private String lFU = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         W(getIntent());
-        this.lFP = new ForumSquareModel(this, this);
-        this.lFQ = new a(this);
-        this.lFR = new b(this, this.lFQ);
-        this.lFR.djr();
+        this.lFR = new ForumSquareModel(this, this);
+        this.lFS = new a(this);
+        this.lFT = new b(this, this.lFS);
+        this.lFT.djr();
         cgO();
     }
 
     private void cgO() {
-        this.lFQ.djl();
-        this.lFP.Nt(this.lFS);
+        this.lFS.djl();
+        this.lFR.Nt(this.lFU);
     }
 
     private void W(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.lFS = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.lFS) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.lFS = uri.getQueryParameter("tab_name");
+            this.lFU = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.lFU) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.lFU = uri.getQueryParameter("tab_name");
             }
         }
     }
@@ -53,113 +53,113 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lFQ != null) {
-            this.lFQ.changeSkinType(i);
+        if (this.lFS != null) {
+            this.lFS.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void c(String str, List<String> list, List<q> list2) {
         boolean z = true;
-        if (this.lFP != null && this.lFQ != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.lFS)) {
-                String dji = this.lFQ.dji();
+        if (this.lFR != null && this.lFS != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.lFU)) {
+                String dji = this.lFS.dji();
                 if (TextUtils.isEmpty(str) || str.equals(dji)) {
                     z = false;
                 }
             }
-            this.lFS = str;
-            this.lFQ.djm();
-            this.lFQ.b(str, list, z);
-            this.lFQ.p(list2, this.lFP.q(list2, 300));
+            this.lFU = str;
+            this.lFS.djm();
+            this.lFS.b(str, list, z);
+            this.lFS.p(list2, this.lFR.q(list2, 300));
             r(str, list2);
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void a(String str, ErrorData errorData) {
-        if (this.lFQ != null && this.lFP != null) {
-            this.lFQ.djm();
-            com.baidu.tieba.square.data.c Ns = this.lFP.Ns(str);
+        if (this.lFS != null && this.lFR != null) {
+            this.lFS.djm();
+            com.baidu.tieba.square.data.c Ns = this.lFR.Ns(str);
             if (Ns == null || (Ns.hasMore && x.isEmpty(Ns.getDataList()))) {
-                this.lFQ.bxU();
-                this.lFQ.djj();
+                this.lFS.bxU();
+                this.lFS.djj();
                 return;
             }
-            this.lFQ.eU(Ns.getDataList());
+            this.lFS.eU(Ns.getDataList());
             r(str, Ns.getDataList());
         }
     }
 
     private void r(String str, List<q> list) {
-        if (this.lFQ != null && this.lFP != null) {
+        if (this.lFS != null && this.lFR != null) {
             if (x.isEmpty(list)) {
-                this.lFQ.bxU();
+                this.lFS.bxU();
             } else if (x.getCount(list) < 10) {
-                this.lFQ.djp();
+                this.lFS.djp();
             } else {
-                this.lFQ.vc(this.lFP.Nu(str));
+                this.lFS.vc(this.lFR.Nu(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.c
     public void e(ErrorData errorData) {
-        if (this.lFQ != null) {
-            this.lFQ.djk();
+        if (this.lFS != null) {
+            this.lFS.djk();
         }
     }
 
     public void bBi() {
         String className = getClassName();
-        if (this.lFP != null && this.lFQ != null) {
-            boolean isLoading = this.lFP.isLoading();
-            boolean vc = this.lFQ.vc(this.lFP.Nu(className));
+        if (this.lFR != null && this.lFS != null) {
+            boolean isLoading = this.lFR.isLoading();
+            boolean vc = this.lFS.vc(this.lFR.Nu(className));
             if (!isLoading && vc) {
-                this.lFP.Nt(className);
+                this.lFR.Nt(className);
             }
         }
     }
 
     public void djg() {
-        if (this.lFQ != null) {
-            this.lFQ.djl();
+        if (this.lFS != null) {
+            this.lFS.djl();
         }
-        if (this.lFP != null) {
-            this.lFP.Nt(getClassName());
+        if (this.lFR != null) {
+            this.lFR.Nt(getClassName());
         }
     }
 
     public void Np(String str) {
-        Nq(this.lFS);
-        this.lFS = str;
-        if (this.lFP != null && this.lFQ != null) {
-            com.baidu.tieba.square.data.c Ns = this.lFP.Ns(str);
+        Nq(this.lFU);
+        this.lFU = str;
+        if (this.lFR != null && this.lFS != null) {
+            com.baidu.tieba.square.data.c Ns = this.lFR.Ns(str);
             if (Ns == null || (Ns.hasMore && x.isEmpty(Ns.getDataList()))) {
-                this.lFQ.djn();
+                this.lFS.djn();
                 r(str, null);
-                this.lFP.Nt(str);
-                this.lFQ.scrollToPositionWithOffset(0, 0);
+                this.lFR.Nt(str);
+                this.lFS.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.lFQ.djm();
+            this.lFS.djm();
             r(str, Ns.getDataList());
-            this.lFQ.eU(Ns.getDataList());
-            this.lFQ.scrollToPositionWithOffset(Ns.lGp, Ns.scrollOffset);
+            this.lFS.eU(Ns.getDataList());
+            this.lFS.scrollToPositionWithOffset(Ns.lGr, Ns.scrollOffset);
         }
     }
 
     public void Nq(String str) {
         com.baidu.tieba.square.data.c Ns;
         Pair<Integer, Integer> djh;
-        if (this.lFQ != null && this.lFP != null && !TextUtils.isEmpty(str) && (Ns = this.lFP.Ns(str)) != null && (djh = this.lFQ.djh()) != null) {
-            Ns.lGp = ((Integer) djh.first).intValue();
+        if (this.lFS != null && this.lFR != null && !TextUtils.isEmpty(str) && (Ns = this.lFR.Ns(str)) != null && (djh = this.lFS.djh()) != null) {
+            Ns.lGr = ((Integer) djh.first).intValue();
             Ns.scrollOffset = ((Integer) djh.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.lFS;
+        return this.lFU;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

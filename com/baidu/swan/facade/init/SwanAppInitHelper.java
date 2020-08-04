@@ -56,7 +56,7 @@ public class SwanAppInitHelper {
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dDp()) {
+        if (!c.dDq()) {
             c.initialize(application);
         }
         if (ProcessUtils.isMainProcess()) {

@@ -16,21 +16,21 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private static i iXk;
-    private static long iXn = -1;
-    private static int iXo = 0;
-    private a iXl = new a();
-    private b iXm = null;
+    private static i iXm;
+    private static long iXp = -1;
+    private static int iXq = 0;
+    private a iXn = new a();
+    private b iXo = null;
 
     public static i ctp() {
-        if (iXk == null) {
+        if (iXm == null) {
             synchronized (i.class) {
-                if (iXk == null) {
-                    iXk = new i();
+                if (iXm == null) {
+                    iXm = new i();
                 }
             }
         }
-        return iXk;
+        return iXm;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.ctp().iXl.removeMessages(1);
+                    i.ctp().iXn.removeMessages(1);
                     i.ctp().execute();
                     return;
                 default:
@@ -60,10 +60,10 @@ public class i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.iXl.sendMessageDelayed(i.this.iXl.obtainMessage(1), 30000L);
+                        i.this.iXn.sendMessageDelayed(i.this.iXn.obtainMessage(1), 30000L);
                         return;
                     }
-                    i.this.iXl.removeMessages(1);
+                    i.this.iXn.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -72,21 +72,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.iXm != null) {
-            this.iXm.cancel();
-            this.iXm = null;
+        if (this.iXo != null) {
+            this.iXo.cancel();
+            this.iXo = null;
         }
-        this.iXm = new b();
-        this.iXm.setParallel(TiebaIMConfig.getParallel());
-        this.iXm.setPriority(4);
-        this.iXm.execute(new String[0]);
+        this.iXo = new b();
+        this.iXo.setParallel(TiebaIMConfig.getParallel());
+        this.iXo.setPriority(4);
+        this.iXo.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.iXm != null) {
-            this.iXm.cancel();
-            this.iXm = null;
+        if (this.iXo != null) {
+            this.iXo.cancel();
+            this.iXo = null;
         }
     }
 
@@ -105,23 +105,23 @@ public class i {
             if (ctt == null || ctt.size() == 0) {
                 return false;
             }
-            if (i.iXn < 0) {
+            if (i.iXp < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.iXn = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.iXn > 2147483648L) {
-                        int unused2 = i.iXo = 5000;
-                    } else if (i.iXn > 1073741824) {
-                        int unused3 = i.iXo = 3000;
+                    long unused = i.iXp = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.iXp > 2147483648L) {
+                        int unused2 = i.iXq = 5000;
+                    } else if (i.iXp > 1073741824) {
+                        int unused3 = i.iXq = 3000;
                     } else {
-                        int unused4 = i.iXo = 1000;
+                        int unused4 = i.iXq = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.iXo < 1000) {
-                int unused5 = i.iXo = 1000;
+            if (i.iXq < 1000) {
+                int unused5 = i.iXq = 1000;
             }
             try {
                 h.ctm().ctn();
@@ -130,13 +130,13 @@ public class i {
                         h.ctm().cto();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.ctf().aT(imMessageCenterPojo.getGid(), i.iXo);
+                        c.ctf().aT(imMessageCenterPojo.getGid(), i.iXq);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.ctz().aT(imMessageCenterPojo.getGid(), i.iXo);
+                        m.ctz().aT(imMessageCenterPojo.getGid(), i.iXq);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.ctw().aT(imMessageCenterPojo.getGid(), i.iXo);
+                        l.ctw().aT(imMessageCenterPojo.getGid(), i.iXq);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.ctg().aT(imMessageCenterPojo.getGid(), i.iXo);
+                        d.ctg().aT(imMessageCenterPojo.getGid(), i.iXq);
                     }
                 }
             } catch (Exception e2) {

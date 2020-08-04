@@ -12,8 +12,8 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class d {
     private static final Gson gson;
-    private static final Map<String, String> otb;
-    private static final Type otc;
+    private static final Map<String, String> otd;
+    private static final Type ote;
 
     static {
         Gson gson2 = null;
@@ -22,8 +22,8 @@ public class d {
         } catch (Throwable th) {
         }
         gson = gson2;
-        otb = Collections.unmodifiableMap(new HashMap());
-        otc = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
+        otd = Collections.unmodifiableMap(new HashMap());
+        ote = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
         }.getType();
     }
 
@@ -35,7 +35,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, (Class<Object>) cls);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dZQ().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dZR().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, type);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dZQ().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dZR().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -61,7 +61,7 @@ public class d {
         try {
             return gson.toJson(obj);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dZQ().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dZR().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -69,9 +69,9 @@ public class d {
     @NonNull
     public static Map<String, String> TS(String str) {
         if (TextUtils.isEmpty(str)) {
-            return otb;
+            return otd;
         }
-        Map<String, String> map = (Map) c(str, otc);
-        return map == null ? otb : map;
+        Map<String, String> map = (Map) c(str, ote);
+        return map == null ? otd : map;
     }
 }

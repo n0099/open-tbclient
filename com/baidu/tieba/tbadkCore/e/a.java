@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void dlJ() {
+    public void dlK() {
         this.hhO.clear();
     }
 

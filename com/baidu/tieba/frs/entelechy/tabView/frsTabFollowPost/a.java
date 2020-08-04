@@ -22,11 +22,11 @@ import tbclient.FrsTabInfo;
 public class a {
     private String eKO;
     private BaseFragment hKa;
-    private View hQl;
-    private TextView hQm;
-    private FrsTabSortSwitchButton hQn;
-    private int hQo;
-    private FrsTabSortSwitchButton.a hQp = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
+    private View hQn;
+    private TextView hQo;
+    private FrsTabSortSwitchButton hQp;
+    private int hQq;
+    private FrsTabSortSwitchButton.a hQr = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean vs(int i) {
             if (com.baidu.tieba.frs.b.caw().caq() || com.baidu.tieba.frs.a.cap().caq()) {
@@ -47,21 +47,21 @@ public class a {
                     return false;
                 }
             }
-            if (a.this.hQo == i) {
+            if (a.this.hQq == i) {
                 return true;
             }
-            a.this.hQo = i;
-            if (a.this.hQo != 7) {
+            a.this.hQq = i;
+            if (a.this.hQq != 7) {
                 ab.bmW();
-                e.dmo();
+                e.dmp();
             } else {
-                e.dmn();
+                e.dmo();
             }
             if (a.this.hKa instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.hKa).chE().vW(a.this.hQn.vv(a.this.hQo));
+                ((FrsNewAreaFragment) a.this.hKa).chE().vW(a.this.hQp.vv(a.this.hQq));
                 ((FrsNewAreaFragment) a.this.hKa).chF().startPullRefresh();
             } else {
-                ((FrsCommonTabFragment) a.this.hKa).setSortType(g.wn(a.this.hQn.vv(a.this.hQo)));
+                ((FrsCommonTabFragment) a.this.hKa).setSortType(g.wn(a.this.hQp.vv(a.this.hQq)));
                 ((FrsCommonTabFragment) a.this.hKa).ceD().jH(true);
             }
             a.this.cfn();
@@ -76,42 +76,42 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void cfn() {
         ap apVar = new ap("c11437");
-        apVar.ah("obj_type", this.hQn.vv(this.hQo));
+        apVar.ah("obj_type", this.hQp.vv(this.hQq));
         apVar.dn("fid", this.eKO);
         TiebaStatic.log(apVar);
     }
 
     public a(BaseFragment baseFragment, RelativeLayout relativeLayout) {
-        this.hQo = -1;
+        this.hQq = -1;
         if (baseFragment != null && relativeLayout != null) {
             this.hKa = baseFragment;
-            this.hQl = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.hQm = (TextView) this.hQl.findViewById(R.id.sort_tab_sort_name);
-            this.hQn = (FrsTabSortSwitchButton) this.hQl.findViewById(R.id.sort_tab_switch_btn);
-            this.hQn.setOnSwitchChangeListener(this.hQp);
-            this.hQo = this.hQn.getState();
+            this.hQn = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.hQo = (TextView) this.hQn.findViewById(R.id.sort_tab_sort_name);
+            this.hQp = (FrsTabSortSwitchButton) this.hQn.findViewById(R.id.sort_tab_switch_btn);
+            this.hQp.setOnSwitchChangeListener(this.hQr);
+            this.hQq = this.hQp.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.hQn != null) {
-            this.hQn.onChangeSkinType();
+        if (this.hQp != null) {
+            this.hQp.onChangeSkinType();
         }
-        ao.setViewTextColor(this.hQm, R.color.cp_cont_b);
-        ao.setBackgroundColor(this.hQl, R.color.cp_bg_line_d);
+        ao.setViewTextColor(this.hQo, R.color.cp_cont_b);
+        ao.setBackgroundColor(this.hQn, R.color.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.hQn != null) {
-            this.hQn.setData(list);
+        if (this.hQp != null) {
+            this.hQp.setData(list);
         }
     }
 
     public void changeState(int i) {
-        if (this.hQn != null) {
-            this.hQn.changeState(g.wo(i));
-            this.hQo = this.hQn.getState();
+        if (this.hQp != null) {
+            this.hQp.changeState(g.wo(i));
+            this.hQq = this.hQp.getState();
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.ar.gesture.GestureAR;
 import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class b implements q {
-    public static final BdUniqueId hWQ = BdUniqueId.gen();
+    public static final BdUniqueId hWS = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
-    public String hWR;
-    public int hWS;
-    public boolean hWT;
+    public String hWT;
+    public int hWU;
+    public boolean hWV;
     public String id;
     public String portrait;
     public String score;
@@ -26,10 +26,10 @@ public class b implements q {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.createTime = jSONObject.optString("create_time");
-            this.hWR = jSONObject.optString("time_passed");
+            this.hWT = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.hWS = jSONObject.optInt("zan_num");
-            this.hWT = jSONObject.optInt("is_zan", 0) == 1;
+            this.hWU = jSONObject.optInt("zan_num");
+            this.hWV = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("portrait");
         }
@@ -37,6 +37,6 @@ public class b implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hWQ;
+        return hWS;
     }
 }

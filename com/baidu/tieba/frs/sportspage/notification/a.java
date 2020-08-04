@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class a {
     private TbPageContext dVN;
-    private CustomMessageListener icI = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private CustomMessageListener icK = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,6 +56,6 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.dVN = tbPageContext;
-        this.dVN.registerListener(this.icI);
+        this.dVN.registerListener(this.icK);
     }
 }

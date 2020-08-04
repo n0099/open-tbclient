@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean iQT;
+    private boolean iQV;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.iQT = false;
+        this.iQV = false;
     }
 
     public void pA(boolean z) {
-        this.iQT = z;
+        this.iQV = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,11 +34,11 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
         MsgrightView cra = aVar.cra();
-        cra.yq(this.iQK);
-        cra.pA(this.iQT);
+        cra.yq(this.iQM);
+        cra.pA(this.iQV);
         chatMessage.getCacheData().setIs_left(0);
-        cra.a(this.iQB);
-        cra.setOnItemViewLongClickListener(this.iQC);
+        cra.a(this.iQD);
+        cra.setOnItemViewLongClickListener(this.iQE);
         cra.setPosition(i);
         cra.eM(this.flq);
         cra.eL(chatMessage.getCacheData().getLastMsgTime());

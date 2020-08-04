@@ -4,7 +4,7 @@ public class a {
     private long ciw;
     private String forumName;
     private String gid;
-    private String iXv;
+    private String iXx;
     private int unReadCount;
     private int userType;
 
@@ -25,11 +25,11 @@ public class a {
     }
 
     public String ctE() {
-        return this.iXv;
+        return this.iXx;
     }
 
     public void HL(String str) {
-        this.iXv = str;
+        this.iXx = str;
     }
 
     public String getForumName() {

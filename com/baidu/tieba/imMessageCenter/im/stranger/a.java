@@ -11,14 +11,14 @@ public class a {
     /* loaded from: classes16.dex */
     public static class C0675a {
         public String fName;
-        public String hWY;
-        public String jnL;
-        public int joh;
-        public String joi;
-        public String joj;
-        public int jok;
+        public String hXa;
+        public String jnN;
+        public int joj;
+        public String jok;
         public String jol;
-        public String jom;
+        public int jom;
+        public String jon;
+        public String joo;
         public String postId;
         public String threadId;
         public int threadType;
@@ -35,9 +35,9 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0675a.joi = optJSONObject.optString("title");
-                c0675a.jnL = optJSONObject.optString("content");
-                c0675a.jol = optJSONObject.optString("quote_content");
+                c0675a.jok = optJSONObject.optString("title");
+                c0675a.jnN = optJSONObject.optString("content");
+                c0675a.jon = optJSONObject.optString("quote_content");
                 c0675a.fName = optJSONObject.optString("fname");
                 c0675a.threadId = optJSONObject.optString("thread_id");
                 c0675a.postId = optJSONObject.optString("post_id");
@@ -46,14 +46,14 @@ public class a {
                 c0675a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0675a.joj = optJSONObject2.optString("id");
-                    c0675a.jom = optJSONObject2.optString("portrait");
-                    c0675a.jok = optJSONObject2.optInt("gender");
+                    c0675a.jol = optJSONObject2.optString("id");
+                    c0675a.joo = optJSONObject2.optString("portrait");
+                    c0675a.jom = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0675a.hWY = optJSONObject3.optString("id");
-                    c0675a.joh = optJSONObject3.optInt("gender");
+                    c0675a.hXa = optJSONObject3.optString("id");
+                    c0675a.joj = optJSONObject3.optInt("gender");
                 }
             }
             return c0675a;

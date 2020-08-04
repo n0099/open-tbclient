@@ -443,7 +443,7 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     public void cdq() {
-        if (bf.checkUpIsLogin(this.hjZ) && !this.fwT.doV() && !cdt()) {
+        if (bf.checkUpIsLogin(this.hjZ) && !this.fwT.doW() && !cdt()) {
             if (this.hJF.cbu().wB(502) != null) {
                 this.hJL.aK(this.hJF.getForumId(), this.hJF.cbu().cjp().tabId);
             } else {

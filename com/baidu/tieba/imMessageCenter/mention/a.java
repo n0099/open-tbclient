@@ -22,22 +22,22 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     private TextView dKI;
     private TextView fvC;
     private HeadImageView hJe;
-    private ImageView joB;
-    private TextView joC;
-    private int joD;
+    private ImageView joD;
+    private TextView joE;
+    private int joF;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.joD = R.color.cp_cont_c;
+        this.joF = R.color.cp_cont_c;
         this.hJe = (HeadImageView) view.findViewById(R.id.photo);
         this.hJe.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.hJe.setAutoChangeStyle(true);
         this.hJe.setPlaceHolder(1);
         this.dKI = (TextView) view.findViewById(R.id.user_name);
-        this.joB = (ImageView) view.findViewById(R.id.fans_reply);
+        this.joD = (ImageView) view.findViewById(R.id.fans_reply);
         this.fvC = (TextView) view.findViewById(R.id.time);
-        this.joC = (TextView) view.findViewById(R.id.content);
+        this.joE = (TextView) view.findViewById(R.id.content);
         this.mLine = view.findViewById(R.id.line);
         this.hJe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
@@ -76,11 +76,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
             MetaData replyer = feedData.getReplyer();
             this.dKI.setText(UtilHelper.getUserName(replyer));
             if (feedData.getReplyer().isBigV()) {
-                this.joD = R.color.cp_cont_r;
+                this.joF = R.color.cp_cont_r;
             } else {
-                this.joD = R.color.cp_cont_c;
+                this.joF = R.color.cp_cont_c;
             }
-            ao.setViewTextColor(this.dKI, this.joD);
+            ao.setViewTextColor(this.dKI, this.joF);
             this.hJe.setIsRound(true);
             this.hJe.setVisibility(0);
             UtilHelper.showHeadImageViewBigV(this.hJe, replyer, 0);
@@ -92,13 +92,13 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
                 this.hJe.setImageResource(R.drawable.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.joB.setVisibility(0);
+                this.joD.setVisibility(0);
             } else {
-                this.joB.setVisibility(8);
+                this.joD.setVisibility(8);
             }
         }
         this.fvC.setText(as.getFormatTime(feedData.getTime()));
-        this.joC.setText(feedData.getContent());
+        this.joE.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
@@ -106,9 +106,9 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
         getRootView().setBackgroundDrawable(ao.lM(R.color.cp_bg_line_e));
         ao.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
         ao.setViewTextColor(this.fvC, R.color.cp_cont_d);
-        ao.setBackgroundResource(this.joB, R.drawable.icon_pb_fans);
-        ao.setViewTextColor(this.joC, R.color.cp_cont_b);
-        ao.setViewTextColor(this.dKI, this.joD);
+        ao.setBackgroundResource(this.joD, R.drawable.icon_pb_fans);
+        ao.setViewTextColor(this.joE, R.color.cp_cont_b);
+        ao.setViewTextColor(this.dKI, this.joF);
         this.hJe.invalidate();
         this.fvC.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;

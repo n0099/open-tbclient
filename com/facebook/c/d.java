@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class d {
-    private static d mYr;
-    private int mYs;
+    private static d mYt;
+    private int mYu;
     @Nullable
-    private List<c.a> mYt;
-    private final c.a mYu = new a();
+    private List<c.a> mYv;
+    private final c.a mYw = new a();
 
     private d() {
-        dFu();
+        dFv();
     }
 
     public void fy(@Nullable List<c.a> list) {
-        this.mYt = list;
-        dFu();
+        this.mYv = list;
+        dFv();
     }
 
     public c q(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.mYs];
-        int a = a(this.mYs, inputStream, bArr);
-        c o = this.mYu.o(bArr, a);
-        if (o == null || o == c.mYp) {
-            if (this.mYt != null) {
-                for (c.a aVar : this.mYt) {
+        byte[] bArr = new byte[this.mYu];
+        int a = a(this.mYu, inputStream, bArr);
+        c o = this.mYw.o(bArr, a);
+        if (o == null || o == c.mYr) {
+            if (this.mYv != null) {
+                for (c.a aVar : this.mYv) {
                     c o2 = aVar.o(bArr, a);
-                    if (o2 != null && o2 != c.mYp) {
+                    if (o2 != null && o2 != c.mYr) {
                         return o2;
                     }
                 }
             }
-            return c.mYp;
+            return c.mYr;
         }
         return o;
     }
 
-    private void dFu() {
-        this.mYs = this.mYu.getHeaderSize();
-        if (this.mYt != null) {
-            for (c.a aVar : this.mYt) {
-                this.mYs = Math.max(this.mYs, aVar.getHeaderSize());
+    private void dFv() {
+        this.mYu = this.mYw.getHeaderSize();
+        if (this.mYv != null) {
+            for (c.a aVar : this.mYv) {
+                this.mYu = Math.max(this.mYu, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dFv() {
+    public static synchronized d dFw() {
         d dVar;
         synchronized (d.class) {
-            if (mYr == null) {
-                mYr = new d();
+            if (mYt == null) {
+                mYt = new d();
             }
-            dVar = mYr;
+            dVar = mYt;
         }
         return dVar;
     }
 
     public static c r(InputStream inputStream) throws IOException {
-        return dFv().q(inputStream);
+        return dFw().q(inputStream);
     }
 
     public static c s(InputStream inputStream) {

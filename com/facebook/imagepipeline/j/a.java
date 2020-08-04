@@ -7,28 +7,28 @@ import com.facebook.imagepipeline.nativecode.NativeBlurFilter;
 import javax.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class a extends com.facebook.imagepipeline.request.a {
-    private b mQq;
-    private final int ndR;
-    private final int ndS;
+    private b mQs;
+    private final int ndT;
+    private final int ndU;
 
     public a(int i, int i2) {
         g.checkArgument(i > 0);
         g.checkArgument(i2 > 0);
-        this.ndR = i;
-        this.ndS = i2;
+        this.ndT = i;
+        this.ndU = i2;
     }
 
     @Override // com.facebook.imagepipeline.request.a
     public void ai(Bitmap bitmap) {
-        NativeBlurFilter.h(bitmap, this.ndR, this.ndS);
+        NativeBlurFilter.h(bitmap, this.ndT, this.ndU);
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
     @Nullable
-    public b dJn() {
-        if (this.mQq == null) {
-            this.mQq = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.ndR), Integer.valueOf(this.ndS)));
+    public b dJo() {
+        if (this.mQs == null) {
+            this.mQs = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.ndT), Integer.valueOf(this.ndU)));
         }
-        return this.mQq;
+        return this.mQs;
     }
 }

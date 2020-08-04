@@ -6,20 +6,20 @@ import android.os.IBinder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class z implements ServiceConnection {
-    private final /* synthetic */ w niE;
+    private final /* synthetic */ w niG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(w wVar) {
-        this.niE = wVar;
+        this.niG = wVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.niE.a(iBinder);
+        this.niG.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.niE.d();
+        this.niG.d();
     }
 }

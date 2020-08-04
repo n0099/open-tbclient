@@ -72,7 +72,7 @@ public class b {
             if (nVar.aNo()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", g.dzZ().uV(nVar.getId()));
+            jSONObject.put("idtype", g.dAa().uV(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());

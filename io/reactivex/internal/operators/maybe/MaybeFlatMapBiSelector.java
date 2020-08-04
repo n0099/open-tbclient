@@ -19,27 +19,27 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
     /* loaded from: classes7.dex */
     static final class FlatMapBiMainObserver<T, U, R> implements io.reactivex.disposables.b, m<T> {
         final h<? super T, ? extends o<? extends U>> mapper;
-        final InnerObserver<T, U, R> nTU;
+        final InnerObserver<T, U, R> nTW;
 
         FlatMapBiMainObserver(m<? super R> mVar, h<? super T, ? extends o<? extends U>> hVar, c<? super T, ? super U, ? extends R> cVar) {
-            this.nTU = new InnerObserver<>(mVar, cVar);
+            this.nTW = new InnerObserver<>(mVar, cVar);
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            DisposableHelper.dispose(this.nTU);
+            DisposableHelper.dispose(this.nTW);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.nTU.get());
+            return DisposableHelper.isDisposed(this.nTW.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.setOnce(this.nTU, bVar)) {
-                this.nTU.actual.onSubscribe(this);
+            if (DisposableHelper.setOnce(this.nTW, bVar)) {
+                this.nTW.actual.onSubscribe(this);
             }
         }
 
@@ -47,24 +47,24 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
         public void onSuccess(T t) {
             try {
                 o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                if (DisposableHelper.replace(this.nTU, null)) {
-                    this.nTU.value = t;
-                    oVar.a(this.nTU);
+                if (DisposableHelper.replace(this.nTW, null)) {
+                    this.nTW.value = t;
+                    oVar.a(this.nTW);
                 }
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.K(th);
-                this.nTU.actual.onError(th);
+                this.nTW.actual.onError(th);
             }
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
-            this.nTU.actual.onError(th);
+            this.nTW.actual.onError(th);
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            this.nTU.actual.onComplete();
+            this.nTW.actual.onComplete();
         }
 
         /* loaded from: classes7.dex */

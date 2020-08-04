@@ -25,7 +25,7 @@ public class b implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jWC;
+        return a.jWE;
     }
 
     private void c(ThreadInfo threadInfo) {

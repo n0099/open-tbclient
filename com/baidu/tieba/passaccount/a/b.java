@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes15.dex */
 public class b {
-    private static volatile b ked;
-    private a kee;
-    private AtomicBoolean kef = new AtomicBoolean(false);
-    private AtomicBoolean keg = new AtomicBoolean(false);
+    private static volatile b kef;
+    private a keg;
+    private AtomicBoolean keh = new AtomicBoolean(false);
+    private AtomicBoolean kei = new AtomicBoolean(false);
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -40,14 +40,14 @@ public class b {
     }
 
     public static b cJA() {
-        if (ked == null) {
+        if (kef == null) {
             synchronized (b.class) {
-                if (ked == null) {
-                    ked = new b();
+                if (kef == null) {
+                    kef = new b();
                 }
             }
         }
-        return ked;
+        return kef;
     }
 
     private b() {
@@ -104,34 +104,34 @@ public class b {
     }
 
     public void b(i iVar, a aVar) {
-        if (this.keg.compareAndSet(false, true)) {
-            if (this.kef.compareAndSet(false, true)) {
+        if (this.kei.compareAndSet(false, true)) {
+            if (this.keh.compareAndSet(false, true)) {
                 try {
                     a(iVar, aVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
-                    this.kef.set(false);
+                    this.keh.set(false);
                 }
             } else if (!cJD()) {
                 try {
                     a(iVar, aVar);
                 } catch (Exception e2) {
-                    this.kef.set(false);
+                    this.keh.set(false);
                 }
             }
-            this.keg.set(false);
+            this.kei.set(false);
         }
     }
 
     public void a(i.c cVar) {
-        if (this.kee != null) {
+        if (this.keg != null) {
             if (cVar == null) {
                 cVar = new i.c(false);
             }
-            this.kee.b(cVar);
+            this.keg.b(cVar);
         }
-        this.kee = null;
-        this.kef.set(false);
+        this.keg = null;
+        this.keh.set(false);
     }
 
     public void v(boolean z, String str) {
@@ -197,7 +197,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.kee = aVar;
+        this.keg = aVar;
     }
 
     public static void registerTask() {
@@ -235,16 +235,16 @@ public class b {
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
     static class C0708b implements a {
-        private i keh;
+        private i kej;
 
         public C0708b(i iVar) {
-            this.keh = iVar;
+            this.kej = iVar;
         }
 
         @Override // com.baidu.tieba.passaccount.a.b.a
         public void b(i.c cVar) {
-            if (this.keh != null && this.keh.bdY() != null) {
-                this.keh.bdY().b(cVar);
+            if (this.kej != null && this.kej.bdY() != null) {
+                this.kej.bdY().b(cVar);
             }
         }
     }

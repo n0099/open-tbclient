@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes6.dex */
 public class b extends LinearLayoutManager {
-    private static boolean otL = true;
-    private static Field otM = null;
+    private static boolean otN = true;
+    private static Field otO = null;
     private final Rect hug;
-    private final int[] otN;
-    private int otO;
-    private boolean otP;
+    private final int[] otP;
+    private int otQ;
+    private boolean otR;
     private int overScrollMode;
     private final RecyclerView view;
 
     public b(Context context, int i, boolean z) {
         super(context, i, z);
-        this.otN = new int[2];
-        this.otO = 100;
+        this.otP = new int[2];
+        this.otQ = 100;
         this.overScrollMode = 0;
         this.hug = new Rect();
         this.view = null;
     }
 
-    public static int eao() {
+    public static int eap() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int eao = eao();
+        int eap = eap();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -66,15 +66,15 @@ public class b extends LinearLayoutManager {
                 i4 = i6;
                 break;
             } else if (z5) {
-                if (!this.otP) {
+                if (!this.otR) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, eao, this.otN);
+                        a(recycler, i8, size, eap, this.otP);
                     } else {
                         Mg(i8);
                     }
                 }
-                i5 = this.otN[1] + i7;
-                i4 = i8 == 0 ? this.otN[0] : i6;
+                i5 = this.otP[1] + i7;
+                i4 = i8 == 0 ? this.otP[0] : i6;
                 if (z2 && i5 >= size2) {
                     i3 = i5;
                     break;
@@ -83,15 +83,15 @@ public class b extends LinearLayoutManager {
                 i7 = i5;
                 i6 = i4;
             } else {
-                if (!this.otP) {
+                if (!this.otR) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, eao, size2, this.otN);
+                        a(recycler, i8, eap, size2, this.otP);
                     } else {
                         Mg(i8);
                     }
                 }
-                i4 = i6 + this.otN[0];
-                i5 = i8 == 0 ? this.otN[1] : i7;
+                i4 = i6 + this.otP[0];
+                i5 = i8 == 0 ? this.otP[1] : i7;
                 if (z && i4 >= size) {
                     i3 = i5;
                     break;
@@ -126,22 +126,22 @@ public class b extends LinearLayoutManager {
     }
 
     private void p(int i, int i2, boolean z) {
-        if (this.otN[0] == 0 && this.otN[1] == 0) {
+        if (this.otP[0] == 0 && this.otP[1] == 0) {
             if (z) {
-                this.otN[0] = i;
-                this.otN[1] = this.otO;
+                this.otP[0] = i;
+                this.otP[1] = this.otQ;
                 return;
             }
-            this.otN[0] = this.otO;
-            this.otN[1] = i2;
+            this.otP[0] = this.otQ;
+            this.otP[1] = i2;
         }
     }
 
     @Override // android.support.v7.widget.LinearLayoutManager
     public void setOrientation(int i) {
-        if (this.otN != null && getOrientation() != i) {
-            this.otN[0] = 0;
-            this.otN[1] = 0;
+        if (this.otP != null && getOrientation() != i) {
+            this.otP[0] = 0;
+            this.otP[1] = 0;
         }
         super.setOrientation(i);
     }
@@ -167,21 +167,21 @@ public class b extends LinearLayoutManager {
     }
 
     private static void a(RecyclerView.LayoutParams layoutParams) {
-        if (otL) {
+        if (otN) {
             try {
-                if (otM == null) {
-                    otM = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
-                    otM.setAccessible(true);
+                if (otO == null) {
+                    otO = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
+                    otO.setAccessible(true);
                 }
-                otM.set(layoutParams, true);
+                otO.set(layoutParams, true);
             } catch (Exception e) {
-                eap();
+                eaq();
             }
         }
     }
 
-    private static void eap() {
-        otL = false;
+    private static void eaq() {
+        otN = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }
 

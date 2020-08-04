@@ -23,13 +23,13 @@ public class as extends ContentObserver {
         Context context2;
         Context context3;
         aq aqVar = this.a;
-        context = this.a.f52a;
-        aqVar.f56a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
-        num = this.a.f56a;
+        context = this.a.f55a;
+        aqVar.f59a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
+        num = this.a.f59a;
         if (num.intValue() != 0) {
-            context2 = this.a.f52a;
+            context2 = this.a.f55a;
             context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.a.f52a;
+            context3 = this.a.f55a;
             if (az.b(context3)) {
                 this.a.m86c();
             }

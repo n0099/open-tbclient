@@ -11,11 +11,11 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class RecordTabLayout extends LinearLayout {
-    private int hYV;
-    private LinearLayout mjG;
-    private View mjH;
-    private boolean mjI;
-    private a mjJ;
+    private int hYX;
+    private LinearLayout mjI;
+    private View mjJ;
+    private boolean mjK;
+    private a mjL;
 
     /* loaded from: classes17.dex */
     public interface a {
@@ -24,33 +24,33 @@ public class RecordTabLayout extends LinearLayout {
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.mjI = true;
+        this.mjK = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mjI = true;
+        this.mjK = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mjI = true;
+        this.mjK = true;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
-        this.mjG = new LinearLayout(getContext());
-        this.mjG.setOrientation(0);
-        this.mjG.setGravity(17);
-        addView(this.mjG, new ViewGroup.LayoutParams(-1, -2));
-        this.mjH = new View(getContext());
-        this.mjH.setBackgroundColor(getResources().getColor(R.color.cp_cont_a));
+        this.mjI = new LinearLayout(getContext());
+        this.mjI.setOrientation(0);
+        this.mjI.setGravity(17);
+        addView(this.mjI, new ViewGroup.LayoutParams(-1, -2));
+        this.mjJ = new View(getContext());
+        this.mjJ.setBackgroundColor(getResources().getColor(R.color.cp_cont_a));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds4));
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds18);
-        addView(this.mjH, layoutParams);
+        addView(this.mjJ, layoutParams);
     }
 
     public void bJ(final int i, String str) {
@@ -62,29 +62,29 @@ public class RecordTabLayout extends LinearLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.RecordTabLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RecordTabLayout.this.hYV != i) {
+                if (RecordTabLayout.this.hYX != i) {
                     RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.mjJ != null) {
-                        RecordTabLayout.this.mjJ.af(i, true);
+                    if (RecordTabLayout.this.mjL != null) {
+                        RecordTabLayout.this.mjL.af(i, true);
                     }
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.mjG.getChildCount() != 0) {
+        if (this.mjI.getChildCount() != 0) {
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44);
         }
-        this.mjG.addView(textView, layoutParams);
+        this.mjI.addView(textView, layoutParams);
     }
 
     public void setCurrentTab(int i, final boolean z) {
         TextView textView;
-        if (this.hYV != i) {
-            this.hYV = i;
+        if (this.hYX != i) {
+            this.hYX = i;
             final TextView textView2 = null;
             int i2 = 0;
-            while (i2 < this.mjG.getChildCount()) {
-                View childAt = this.mjG.getChildAt(i2);
+            while (i2 < this.mjI.getChildCount()) {
+                View childAt = this.mjI.getChildAt(i2);
                 if (childAt instanceof TextView) {
                     Object tag = childAt.getTag();
                     if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
@@ -100,19 +100,19 @@ public class RecordTabLayout extends LinearLayout {
                 i2++;
                 textView2 = textView;
             }
-            if (this.mjI) {
+            if (this.mjK) {
                 textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.mjH.getWidth()) / 2)) - RecordTabLayout.this.mjH.getLeft();
+                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.mjJ.getWidth()) / 2)) - RecordTabLayout.this.mjJ.getLeft();
                         if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.mjH, "translationX", RecordTabLayout.this.mjH.getTranslationX(), x);
+                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.mjJ, "translationX", RecordTabLayout.this.mjJ.getTranslationX(), x);
                             ofFloat.setDuration(500L);
                             ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                             ofFloat.start();
                             return;
                         }
-                        RecordTabLayout.this.mjH.setTranslationX(x);
+                        RecordTabLayout.this.mjJ.setTranslationX(x);
                     }
                 });
             }
@@ -120,17 +120,17 @@ public class RecordTabLayout extends LinearLayout {
     }
 
     public int getCurrentTab() {
-        return this.hYV;
+        return this.hYX;
     }
 
     public void setListener(a aVar) {
-        this.mjJ = aVar;
+        this.mjL = aVar;
     }
 
     public void setShowIndicator(boolean z) {
-        this.mjI = z;
-        if (!this.mjI) {
-            this.mjH.setVisibility(4);
+        this.mjK = z;
+        if (!this.mjK) {
+            this.mjJ.setVisibility(4);
         }
     }
 }

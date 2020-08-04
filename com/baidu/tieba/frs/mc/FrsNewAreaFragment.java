@@ -72,9 +72,9 @@ import java.util.Map;
 public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.OnRequestPermissionsResultCallback, BdListView.e, UserIconBox.b, VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, aq, ar, as, com.baidu.tieba.frs.loadmore.a, com.baidu.tieba.recapp.n, FrsCommonImageLayout.c {
     private VoiceManager hFy;
     private com.baidu.tbadk.k.c hKX;
-    private String hYB;
-    private FrsLoadMoreModel hYE;
-    private FrsNewAreaModelController ibb;
+    private String hYD;
+    private FrsLoadMoreModel hYG;
+    private FrsNewAreaModelController ibd;
     private String hFr = null;
     private String mFrom = null;
     private int mFlag = 0;
@@ -87,11 +87,11 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     public long createTime = 0;
     public long beginTime = -1;
     private boolean hFL = false;
-    protected g ibc = null;
+    protected g ibe = null;
     private int gEI = -1;
-    private int hNF = 3;
+    private int hNH = 3;
     private boolean hcA = false;
-    private boolean hYH = false;
+    private boolean hYJ = false;
     private SparseArray<com.baidu.tieba.InjectPlugin.a.a> hFZ = new SparseArray<>();
     private int cXV = 0;
     private int hGx = 0;
@@ -105,7 +105,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
             }
         }
     };
-    private Runnable hYI = new Runnable() { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.4
+    private Runnable hYK = new Runnable() { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.4
         @Override // java.lang.Runnable
         public void run() {
             if (!com.baidu.adp.lib.util.j.isNetWorkAvailable() || FrsNewAreaFragment.this.hcA) {
@@ -115,14 +115,14 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
             }
         }
     };
-    private CustomMessageListener hYJ = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.5
+    private CustomMessageListener hYL = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bv)) {
                 bv bvVar = (bv) customResponsedMessage.getData();
-                FrsNewAreaFragment.this.hYB = bvVar.getId();
-                if (!TextUtils.isEmpty(FrsNewAreaFragment.this.hYB) && bvVar.aVW() != null) {
+                FrsNewAreaFragment.this.hYD = bvVar.getId();
+                if (!TextUtils.isEmpty(FrsNewAreaFragment.this.hYD) && bvVar.aVW() != null) {
                     FrsNewAreaFragment.this.vP(bvVar.aVW().getIsLike());
                 }
             }
@@ -140,8 +140,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                     }
                     if (FrsNewAreaFragment.this.hKX != null && FrsNewAreaFragment.this.hKX.isViewAttached()) {
                         FrsNewAreaFragment.this.oq(false);
-                    } else if (FrsNewAreaFragment.this.ibc != null) {
-                        FrsNewAreaFragment.this.ibc.startPullRefresh();
+                    } else if (FrsNewAreaFragment.this.ibe != null) {
+                        FrsNewAreaFragment.this.ibe.startPullRefresh();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_EXPAND_BAR_HEADER, true));
                     }
                 }
@@ -149,18 +149,18 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         }
     };
     public final q hHd = new q() { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.7
-        private long hYM = 1;
+        private long hYO = 1;
 
         @Override // com.baidu.tieba.tbadkCore.q
         public void uG(int i) {
-            if (!FrsNewAreaFragment.this.hYH) {
+            if (!FrsNewAreaFragment.this.hYJ) {
                 switch (i) {
                     case 1:
                     case 2:
-                        FrsNewAreaFragment.this.ibc.ccH();
+                        FrsNewAreaFragment.this.ibe.ccH();
                         return;
                     case 3:
-                        FrsNewAreaFragment.this.ibc.jH(true);
+                        FrsNewAreaFragment.this.ibe.jH(true);
                         return;
                     default:
                         return;
@@ -171,56 +171,56 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         @Override // com.baidu.tieba.tbadkCore.q
         public void a(int i, boolean z, com.baidu.tieba.tbadkCore.f fVar) {
             ArrayList<com.baidu.adp.widget.ListView.q> a;
-            if (FrsNewAreaFragment.this.hYH) {
+            if (FrsNewAreaFragment.this.hYJ) {
                 if (FrsNewAreaFragment.this.chE().cgN() == null) {
-                    FrsNewAreaFragment.this.hYH = false;
+                    FrsNewAreaFragment.this.hYJ = false;
                     return;
                 } else if (FrsNewAreaFragment.this.chE().cgN().getThreadList().size() >= 10) {
-                    FrsNewAreaFragment.this.hYH = false;
+                    FrsNewAreaFragment.this.hYJ = false;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384));
                     return;
                 }
             }
             if (fVar == null) {
-                this.hYM = 1L;
+                this.hYO = 1L;
             } else if (fVar.isSuccess) {
-                this.hYM = 0L;
+                this.hYO = 0L;
             } else {
-                this.hYM = 1L;
+                this.hYO = 1L;
             }
             long currentTimeMillis = System.currentTimeMillis();
             if (i == 3) {
-                FrsNewAreaFragment.this.hYE.resetData();
+                FrsNewAreaFragment.this.hYG.resetData();
             }
-            FrsNewAreaFragment.this.ibc.jH(false);
+            FrsNewAreaFragment.this.ibe.jH(false);
             if (FrsNewAreaFragment.this.chE().cgN() != null) {
                 FrsNewAreaFragment.this.hEX = FrsNewAreaFragment.this.chE().cgN();
             }
             FrsNewAreaFragment.this.gEI = FrsNewAreaFragment.this.hEX.getPage().aVb();
             if (FrsNewAreaFragment.this.gEI == 0 && (FrsNewAreaFragment.this.hEX.getThreadListIds() == null || FrsNewAreaFragment.this.hEX.getThreadListIds().size() == 0)) {
                 if (FrsNewAreaFragment.this.hEX.getThreadList() == null || FrsNewAreaFragment.this.hEX.getThreadList().size() == 0) {
-                    FrsNewAreaFragment.this.ibc.bxU();
+                    FrsNewAreaFragment.this.ibe.bxU();
                 } else {
-                    FrsNewAreaFragment.this.ibc.bxT();
+                    FrsNewAreaFragment.this.ibe.bxT();
                 }
             } else {
-                FrsNewAreaFragment.this.ibc.bxS();
+                FrsNewAreaFragment.this.ibe.bxS();
             }
             if (i == 4) {
-                ArrayList<com.baidu.adp.widget.ListView.q> a2 = FrsNewAreaFragment.this.hYE.a(false, false, false, FrsNewAreaFragment.this.hEX.getThreadList(), (com.baidu.tieba.tbadkCore.data.f) null);
+                ArrayList<com.baidu.adp.widget.ListView.q> a2 = FrsNewAreaFragment.this.hYG.a(false, false, false, FrsNewAreaFragment.this.hEX.getThreadList(), (com.baidu.tieba.tbadkCore.data.f) null);
                 if (a2 != null) {
                     FrsNewAreaFragment.this.hEX.setThreadList(a2);
-                    FrsNewAreaFragment.this.ibc.a(a2, FrsNewAreaFragment.this.mPn, FrsNewAreaFragment.this.hEX, FrsNewAreaFragment.this.gEI);
+                    FrsNewAreaFragment.this.ibe.a(a2, FrsNewAreaFragment.this.mPn, FrsNewAreaFragment.this.hEX, FrsNewAreaFragment.this.gEI);
                     return;
                 }
                 return;
             }
             switch (i) {
                 case 1:
-                    FrsNewAreaFragment.this.ibc.ccH();
+                    FrsNewAreaFragment.this.ibe.ccH();
                     break;
                 case 2:
-                    FrsNewAreaFragment.this.ibc.ccH();
+                    FrsNewAreaFragment.this.ibe.ccH();
                     break;
                 case 3:
                     if (FrsNewAreaFragment.this.hEX.isShowRedTip()) {
@@ -230,19 +230,19 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                     break;
             }
             FrsNewAreaFragment.this.hideLoadingView();
-            if (this.hYM != 0) {
+            if (this.hYO != 0) {
                 FrsNewAreaFragment.this.c(fVar);
             } else {
                 if (FrsNewAreaFragment.this.hEX != null) {
                     FrsNewAreaFragment.this.hFr = FrsNewAreaFragment.this.hEX.getForum().getName();
                     FrsNewAreaFragment.this.forumId = FrsNewAreaFragment.this.hEX.getForum().getId();
-                    FrsNewAreaFragment.this.ibc.b(FrsNewAreaFragment.this.hEX.getForum(), FrsNewAreaFragment.this.hEX.getUserData());
+                    FrsNewAreaFragment.this.ibe.b(FrsNewAreaFragment.this.hEX.getForum(), FrsNewAreaFragment.this.hEX.getUserData());
                 }
                 if (FrsNewAreaFragment.this.hEX != null) {
                     FrsNewAreaFragment.this.hEX.addNoticeThreadToThreadList();
                 }
                 if (FrsNewAreaFragment.this.hEX == null || FrsNewAreaFragment.this.hEX.getThreadList() == null || FrsNewAreaFragment.this.hEX.getThreadList().size() != 0 || FrsNewAreaFragment.this.chE().getType() != 4) {
-                    if (FrsNewAreaFragment.this.hEX != null && (a = FrsNewAreaFragment.this.hYE.a(false, false, true, FrsNewAreaFragment.this.hEX.getThreadList(), (com.baidu.tieba.tbadkCore.data.f) null)) != null && a.size() > 0) {
+                    if (FrsNewAreaFragment.this.hEX != null && (a = FrsNewAreaFragment.this.hYG.a(false, false, true, FrsNewAreaFragment.this.hEX.getThreadList(), (com.baidu.tieba.tbadkCore.data.f) null)) != null && a.size() > 0) {
                         FrsNewAreaFragment.this.hEX.setThreadList(a);
                     }
                     FrsNewAreaFragment.this.cbP();
@@ -270,7 +270,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         }
 
         @Override // com.baidu.tieba.tbadkCore.q
-        public void b(com.baidu.tieba.tbadkCore.m mVar) {
+        public void c(com.baidu.tieba.tbadkCore.m mVar) {
         }
 
         @Override // com.baidu.tieba.tbadkCore.q
@@ -281,8 +281,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && FrsNewAreaFragment.this.ibc != null) {
-                FrsNewAreaFragment.this.ibc.startPullRefresh();
+            if (customResponsedMessage != null && FrsNewAreaFragment.this.ibe != null) {
+                FrsNewAreaFragment.this.ibe.startPullRefresh();
             }
         }
     };
@@ -291,7 +291,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             if ((i == 2 || i == 1) && !FrsNewAreaFragment.this.hFL) {
                 FrsNewAreaFragment.this.hFL = true;
-                FrsNewAreaFragment.this.ibc.ccW();
+                FrsNewAreaFragment.this.ibe.ccW();
             }
             if (i == 0) {
                 s.bRL().mH(true);
@@ -333,8 +333,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                         com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                         if (readThreadHistory != null && !readThreadHistory.NZ(bvVar.getId())) {
                             readThreadHistory.NY(bvVar.getId());
-                            if (FrsNewAreaFragment.this.ibc != null) {
-                                FrsNewAreaFragment.this.ibc.ccH();
+                            if (FrsNewAreaFragment.this.ibe != null) {
+                                FrsNewAreaFragment.this.ibe.ccH();
                             }
                         }
                         boolean z = false;
@@ -368,12 +368,12 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                         FrsNewAreaFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
                         if (FrsNewAreaFragment.this.hEX != null && FrsNewAreaFragment.this.hEX.getForum() != null) {
                             com.baidu.tieba.frs.d.b bVar = new com.baidu.tieba.frs.d.b();
-                            bVar.icK = FrsNewAreaFragment.this.hEX.needLog == 1;
-                            bVar.icM = FrsNewAreaFragment.this.hEX.getForum().getId();
-                            bVar.icL = FrsNewAreaFragment.this.ibb.chr();
-                            if (com.baidu.tieba.frs.d.d.hOE != null) {
-                                bVar.icN = com.baidu.tieba.frs.d.d.hOE.icN;
-                                bVar.icO = com.baidu.tieba.frs.d.d.hOE.icO;
+                            bVar.icM = FrsNewAreaFragment.this.hEX.needLog == 1;
+                            bVar.icO = FrsNewAreaFragment.this.hEX.getForum().getId();
+                            bVar.icN = FrsNewAreaFragment.this.ibd.chr();
+                            if (com.baidu.tieba.frs.d.d.hOG != null) {
+                                bVar.icP = com.baidu.tieba.frs.d.d.hOG.icP;
+                                bVar.icQ = com.baidu.tieba.frs.d.d.hOG.icQ;
                             }
                             com.baidu.tieba.frs.d.a.a(bvVar, 1, FrsNewAreaFragment.this.getUniqueId(), bVar, FrsNewAreaFragment.this.getTbPageTag());
                         }
@@ -396,41 +396,41 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
 
     public void am(bv bvVar) {
         if (bvVar != null) {
-            this.ibb.am(bvVar);
-            this.ibc.cbd();
+            this.ibd.am(bvVar);
+            this.ibe.cbd();
         }
     }
 
     public void e(FrsViewData frsViewData) {
         if (frsViewData != null) {
             this.hEX = frsViewData;
-            hideLoadingView(this.ibc.bPb());
-            if (this.ibc != null) {
-                this.ibc.jH(false);
-                this.ibc.a(null, this.mPn, this.hEX, this.gEI);
+            hideLoadingView(this.ibe.bPb());
+            if (this.ibe != null) {
+                this.ibe.jH(false);
+                this.ibe.a(null, this.mPn, this.hEX, this.gEI);
             }
         }
     }
 
     private void showLoadingView() {
-        this.ibc.nZ(false);
-        showLoadingView(this.ibc.bPb(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
+        this.ibe.nZ(false);
+        showLoadingView(this.ibe.bPb(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        this.ibc.nZ(true);
-        hideLoadingView(this.ibc.bPb());
+        this.ibe.nZ(true);
+        hideLoadingView(this.ibe.bPb());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.tbadkCore.f fVar) {
-        this.ibc.nZ(false);
-        this.ibc.nY(false);
+        this.ibe.nZ(false);
+        this.ibe.nY(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_EXPAND_BAR_HEADER, true));
-        this.ibc.bxU();
-        this.ibc.getListView().getData().clear();
-        this.ibc.ccH();
+        this.ibe.bxU();
+        this.ibe.getListView().getData().clear();
+        this.ibe.ccH();
         if (this.hKX == null) {
             this.hKX = new com.baidu.tbadk.k.c(getPageContext().getContext(), getNetRefreshListener());
             this.hKX.setTitle(null);
@@ -444,15 +444,15 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
             this.hKX.setSubText(null);
         }
         this.hKX.onChangeSkinType();
-        this.hKX.attachView(this.ibc.bPb(), true);
+        this.hKX.attachView(this.ibe.bPb(), true);
         registerListener(this.hJb);
     }
 
     private void bwX() {
-        this.ibc.nZ(true);
-        this.ibc.nY(true);
+        this.ibe.nZ(true);
+        this.ibe.nY(true);
         if (this.hKX != null && this.hKX.isViewAttached()) {
-            this.hKX.dettachView(this.ibc.bPb());
+            this.hKX.dettachView(this.ibe.bPb());
         }
         MessageManager.getInstance().unRegisterListener(this.hJb);
     }
@@ -466,7 +466,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
             bwX();
             showLoadingView();
         }
-        this.ibb.loadData();
+        this.ibd.loadData();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -484,24 +484,24 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         this.eHd = this.beginTime - this.hio;
         super.onCreate(bundle);
         com.baidu.tieba.s.c.dkh().A(getUniqueId());
-        this.ibb = new FrsNewAreaModelController(this);
+        this.ibd = new FrsNewAreaModelController(this);
         if (arguments != null) {
-            this.ibb.ak(arguments);
+            this.ibd.ak(arguments);
         } else if (bundle != null) {
-            this.ibb.ak(bundle);
+            this.ibd.ak(bundle);
         } else {
-            this.ibb.ak(null);
+            this.ibd.ak(null);
         }
         this.hFy = getVoiceManager();
         this.hFy.onCreate(getPageContext());
         initData(bundle);
         registerListener(this.dLt);
-        registerListener(this.hYJ);
+        registerListener(this.hYL);
         registerListener(this.hGL);
-        this.hYE = new FrsLoadMoreModel(this, null);
-        this.hYE.registerListener();
-        this.hYE.setPageType(3);
-        this.hYE.os(true);
+        this.hYG = new FrsLoadMoreModel(this, null);
+        this.hYG.registerListener();
+        this.hYG.setPageType(3);
+        this.hYG.os(true);
         this.createTime = System.currentTimeMillis() - this.beginTime;
         this.cXV = UtilHelper.getScreenHeight(getActivity());
     }
@@ -509,7 +509,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.frs_good_activity, (ViewGroup) null);
-        this.ibc = new g(this, inflate);
+        this.ibe = new g(this, inflate);
         initUI();
         return inflate;
     }
@@ -572,17 +572,17 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.ibc != null) {
-            this.ibc.onDestroy();
+        if (this.ibe != null) {
+            this.ibe.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.hJb);
         com.baidu.tieba.s.c.dkh().B(getUniqueId());
         s.bRL().mH(false);
         super.onDestroy();
-        this.ibb.cgL();
+        this.ibd.cgL();
         this.hFy = getVoiceManager();
         this.hFy.onDestory(getPageContext());
-        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.hYI);
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.hYK);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -590,7 +590,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         super.onSaveInstanceState(bundle);
         bundle.putString("name", this.hFr);
         bundle.putString("from", this.mFrom);
-        this.ibb.onSaveInstanceState(bundle);
+        this.ibd.onSaveInstanceState(bundle);
         this.hFy = getVoiceManager();
         if (this.hFy != null) {
             this.hFy.onSaveInstanceState(getPageContext().getPageActivity());
@@ -604,7 +604,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         if (i2 == -1) {
             switch (i) {
                 case RequestResponseCode.REQUEST_FRS_TO_PB /* 18003 */:
-                    this.ibc.chG().notifyDataSetChanged();
+                    this.ibe.chG().notifyDataSetChanged();
                     String stringExtra = intent.getStringExtra("tid");
                     if (stringExtra != null && (threadDataById = this.hEX.getThreadDataById(stringExtra)) != null) {
                         int intExtra = intent.getIntExtra("type", -1);
@@ -619,7 +619,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                             if (threadList != null && threadList.size() <= 0) {
                                 threadList.add(new r());
                             }
-                            this.ibc.cgH();
+                            this.ibe.cgH();
                             return;
                         } else {
                             return;
@@ -636,11 +636,11 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.hNF == 3) {
+            if (this.hNH == 3) {
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
             if (!this.hcA) {
-                com.baidu.adp.lib.f.e.lt().post(this.hYI);
+                com.baidu.adp.lib.f.e.lt().post(this.hYK);
             }
         }
         cdQ();
@@ -660,8 +660,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.ibc != null) {
-            this.ibc.ccH();
+        if (this.ibe != null) {
+            this.ibe.ccH();
         }
         this.hFy = getVoiceManager();
         this.hFy.onResume(getPageContext());
@@ -671,17 +671,17 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         if (this.mFlag != 0) {
             this.mFlag = 1;
         }
-        this.ibc.a(this.hHk);
-        this.ibc.setOnScrollListener(this.mScrollListener);
+        this.ibe.a(this.hHk);
+        this.ibe.setOnScrollListener(this.mScrollListener);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.hNF != 3 || this.ibc != null) {
-            this.hNF = i;
+        if (this.hNH != 3 || this.ibe != null) {
+            this.hNH = i;
             super.onChangeSkinType(i);
-            if (this.ibc != null) {
-                this.ibc.onChangeSkinType(i);
+            if (this.ibe != null) {
+                this.ibe.onChangeSkinType(i);
             }
             if (this.hKX != null && this.hKX.isViewAttached()) {
                 this.hKX.onChangeSkinType();
@@ -716,8 +716,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         cbU();
         try {
             if (this.hEX != null) {
-                this.ibc.cea();
-                this.ibc.bBY();
+                this.ibe.cea();
+                this.ibe.bBY();
                 this.hFr = this.hEX.getForum().getName();
                 this.forumId = this.hEX.getForum().getId();
                 TbadkCoreApplication.getInst().setDefaultBubble(this.hEX.getUserData().getBimg_url());
@@ -725,15 +725,15 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 cbO();
                 ArrayList<com.baidu.adp.widget.ListView.q> threadList = this.hEX.getThreadList();
                 if (threadList != null) {
-                    this.ibc.a(threadList, this.mPn, this.hEX, this.hEX.getPage().aVb());
+                    this.ibe.a(threadList, this.mPn, this.hEX, this.hEX.getPage().aVb());
                     cgE();
-                    this.ibc.cgH();
+                    this.ibe.cgH();
                     if (this.hEX.getIsNewUrl() == 1) {
-                        this.ibc.chG().setFromCDN(true);
+                        this.ibe.chG().setFromCDN(true);
                     } else {
-                        this.ibc.chG().setFromCDN(false);
+                        this.ibe.chG().setFromCDN(false);
                     }
-                    this.ibc.setListViewSelection(cj(chE().getType(), this.mPn));
+                    this.ibe.setListViewSelection(cj(chE().getType(), this.mPn));
                 }
             }
         } catch (Exception e) {
@@ -767,8 +767,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     }
 
     public void cez() {
-        if (this.ibc != null) {
-            this.ibc.refreshView();
+        if (this.ibe != null) {
+            this.ibe.refreshView();
         }
     }
 
@@ -784,15 +784,15 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 com.baidu.adp.widget.ListView.q next = it.next();
                 if (next instanceof bu) {
                     bv bvVar = ((bu) next).dLK;
-                    if (bvVar.getId() != null && bvVar.getId().equals(this.hYB)) {
+                    if (bvVar.getId() != null && bvVar.getId().equals(this.hYD)) {
                         c(bvVar, i);
-                        this.hYB = null;
+                        this.hYD = null;
                         break;
                     }
                 }
             }
-            this.ibc.chG().b(threadList, this.hEX);
-            this.ibc.chG().notifyDataSetChanged();
+            this.ibe.chG().b(threadList, this.hEX);
+            this.ibe.chG().notifyDataSetChanged();
         }
     }
 
@@ -846,10 +846,10 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     /* renamed from: getListView */
     public BdTypeRecyclerView bcE() {
-        if (this.ibc == null) {
+        if (this.ibe == null) {
             return null;
         }
-        return this.ibc.getListView();
+        return this.ibe.getListView();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -874,7 +874,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     public void f(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
         boolean z;
-        if (this.hEX != null && this.ibc != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
+        if (this.hEX != null && this.ibe != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
             Iterator<DownloadData> it = data.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -886,14 +886,14 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 }
             }
             if (z) {
-                this.ibc.ccH();
+                this.ibe.ccH();
             }
         }
     }
 
     private void cgE() {
         HashMap<Integer, bv> cfc;
-        if (this.ibc != null && this.ibc.chG() != null && (cfc = this.ibc.chG().cfc()) != null) {
+        if (this.ibe != null && this.ibe.chG() != null && (cfc = this.ibe.chG().cfc()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
             for (Map.Entry<Integer, bv> entry : cfc.entrySet()) {
                 bv value = entry.getValue();
@@ -927,7 +927,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     }
 
     public FrsNewAreaModelController chE() {
-        return this.ibb;
+        return this.ibd;
     }
 
     public void Gj(String str) {
@@ -947,16 +947,16 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     }
 
     public void bwE() {
-        if (!this.hYE.isLoading && !this.ibb.isLoading()) {
-            if (this.hYE.cM(this.hEX.getThreadListIds())) {
-                this.ibc.a(this.hYE.cha(), this.mPn, this.hEX, 0);
-                this.hYE.a(com.baidu.adp.lib.f.b.toLong(this.forumId, 0L), this.hEX.getThreadListIds(), this.hFr, this.mPn, this.hEX.isBrandForum);
+        if (!this.hYG.isLoading && !this.ibd.isLoading()) {
+            if (this.hYG.cM(this.hEX.getThreadListIds())) {
+                this.ibe.a(this.hYG.cha(), this.mPn, this.hEX, 0);
+                this.hYG.a(com.baidu.adp.lib.f.b.toLong(this.forumId, 0L), this.hEX.getThreadListIds(), this.hFr, this.mPn, this.hEX.isBrandForum);
             } else if (this.gEI != 0) {
-                this.ibc.a(this.hYE.cha(), this.mPn, this.hEX, 0);
+                this.ibe.a(this.hYG.cha(), this.mPn, this.hEX, 0);
                 this.mPn++;
-                this.ibb.vR(this.mPn);
-                this.hYE.loadingDone = false;
-                this.hYE.loadIndex = 0;
+                this.ibd.vR(this.mPn);
+                this.hYG.loadingDone = false;
+                this.hYG.loadIndex = 0;
             }
         }
     }
@@ -964,10 +964,10 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!com.baidu.adp.lib.util.l.isNetOk()) {
-            this.ibc.bxU();
-        } else if (!this.ibc.ccQ()) {
-            if (!this.ibb.cgP()) {
-                this.ibc.bxU();
+            this.ibe.bxU();
+        } else if (!this.ibe.ccQ()) {
+            if (!this.ibd.cgP()) {
+                this.ibe.bxU();
                 return;
             }
             bwT();
@@ -984,9 +984,9 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     public void ao(ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
         ArrayList<com.baidu.adp.widget.ListView.q> a;
         bwT();
-        if (arrayList != null && arrayList.size() != 0 && (a = this.hYE.a(false, false, false, arrayList, (com.baidu.tieba.tbadkCore.data.f) null)) != null) {
+        if (arrayList != null && arrayList.size() != 0 && (a = this.hYG.a(false, false, false, arrayList, (com.baidu.tieba.tbadkCore.data.f) null)) != null) {
             this.hEX.setThreadList(a);
-            this.ibc.a(a, this.mPn, this.hEX, 0);
+            this.ibe.a(a, this.mPn, this.hEX, 0);
         }
     }
 
@@ -1013,9 +1013,9 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     private void cB(List<String> list) {
         if (!x.isEmpty(list)) {
             ArrayList<com.baidu.adp.widget.ListView.q> threadList = this.hEX.getThreadList();
-            if (!x.isEmpty(threadList) && this.ibc.getListView() != null && this.ibc.getListView().getData() != null) {
+            if (!x.isEmpty(threadList) && this.ibe.getListView() != null && this.ibe.getListView().getData() != null) {
                 Iterator<com.baidu.adp.widget.ListView.q> it = threadList.iterator();
-                List<com.baidu.adp.widget.ListView.q> data = this.ibc.getListView().getData();
+                List<com.baidu.adp.widget.ListView.q> data = this.ibe.getListView().getData();
                 int i = 0;
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.q next = it.next();
@@ -1030,8 +1030,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                             } else {
                                 it.remove();
                                 data.remove(next);
-                                this.hYE.d(next);
-                                this.ibc.getListView().getAdapter().notifyItemRemoved(i);
+                                this.hYG.d(next);
+                                this.ibe.getListView().getAdapter().notifyItemRemoved(i);
                                 break;
                             }
                         }
@@ -1043,24 +1043,24 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
     }
 
     public FrsLoadMoreModel cgD() {
-        return this.hYE;
+        return this.hYG;
     }
 
     private void bwT() {
-        if (this.gEI == 0 && !this.hYE.cM(this.hEX.getThreadListIds())) {
+        if (this.gEI == 0 && !this.hYG.cM(this.hEX.getThreadListIds())) {
             if (this.hEX.getThreadList() == null || this.hEX.getThreadList().size() == 0) {
-                this.ibc.bxU();
+                this.ibe.bxU();
                 return;
             } else {
-                this.ibc.bxT();
+                this.ibe.bxT();
                 return;
             }
         }
-        this.ibc.bxS();
+        this.ibe.bxS();
     }
 
     public g chF() {
-        return this.ibc;
+        return this.ibe;
     }
 
     @Override // android.support.v4.app.Fragment, com.baidu.i.a.a.InterfaceC0153a
@@ -1090,8 +1090,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
 
     @Override // com.baidu.tieba.recapp.n
     public void cbT() {
-        if (this.ibb != null) {
-            this.ibb.cbT();
+        if (this.ibd != null) {
+            this.ibd.cbT();
         }
     }
 
@@ -1117,16 +1117,16 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
 
     @Override // com.baidu.tieba.frs.aq
     public void cbd() {
-        if (this.ibc != null && this.ibc.getListView() != null) {
-            this.ibc.getListView().scrollToPosition(0);
+        if (this.ibe != null && this.ibe.getListView() != null) {
+            this.ibe.getListView().scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void bxR() {
-        if (this.ibc != null) {
+        if (this.ibe != null) {
             cbd();
-            this.ibc.startPullRefresh();
+            this.ibe.startPullRefresh();
         }
     }
 
@@ -1166,7 +1166,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
             oq(true);
             return;
         }
-        this.ibc.jH(false);
+        this.ibe.jH(false);
     }
 
     @Override // com.baidu.tieba.frs.as

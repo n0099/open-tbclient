@@ -43,7 +43,7 @@ public class f implements h {
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
         this.fDm = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.fDm.setController(com.facebook.drawee.a.a.c.dDm().Rt("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").xd(true).dEd());
+        this.fDm.setController(com.facebook.drawee.a.a.c.dDn().Rt("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").xd(true).dEe());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
         this.fDn = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.a.f.1
@@ -161,9 +161,9 @@ public class f implements h {
     }
 
     public void It() {
-        Animatable dDS;
-        if (this.fDm != null && this.fDm.getController() != null && (dDS = this.fDm.getController().dDS()) != null && dDS.isRunning()) {
-            dDS.stop();
+        Animatable dDT;
+        if (this.fDm != null && this.fDm.getController() != null && (dDT = this.fDm.getController().dDT()) != null && dDT.isRunning()) {
+            dDT.stop();
         }
     }
 }

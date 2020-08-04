@@ -22,7 +22,7 @@ public class g {
                 return null;
             }
             PostData postData = fVar.cKz().get(0);
-            if (postData.dlh() != 1) {
+            if (postData.dli() != 1) {
                 return a(fVar);
             }
             return postData;
@@ -82,24 +82,24 @@ public class g {
     }
 
     public static void a(PostData postData, PbActivity.a aVar) {
-        if (postData != null && postData.dlj() != null && postData.dlj().boJ() != null && aVar != null && aVar.kkr != null && aVar.dLG != null && postData.dlj().boJ().size() != 0) {
-            String str = (String) x.getItem(aVar.kkr, aVar.index);
+        if (postData != null && postData.dlk() != null && postData.dlk().boJ() != null && aVar != null && aVar.kkt != null && aVar.dLG != null && postData.dlk().boJ().size() != 0) {
+            String str = (String) x.getItem(aVar.kkt, aVar.index);
             if (!StringUtils.isNull(str)) {
-                aVar.kkr = new ArrayList<>();
+                aVar.kkt = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = aVar.dLG;
                 aVar.dLG = new ConcurrentHashMap<>();
-                Iterator<TbRichTextData> it = postData.dlj().boJ().iterator();
+                Iterator<TbRichTextData> it = postData.dlk().boJ().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String c = c(next);
                         if (!StringUtils.isNull(c) && concurrentHashMap.get(c) != null) {
-                            aVar.kkr.add(c);
+                            aVar.kkt.add(c);
                             aVar.dLG.put(c, concurrentHashMap.get(c));
                         }
                     }
                 }
-                aVar.index = x.getPosition(aVar.kkr, str);
+                aVar.index = x.getPosition(aVar.kkt, str);
             }
         }
     }

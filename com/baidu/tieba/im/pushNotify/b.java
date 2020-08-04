@@ -19,10 +19,10 @@ import com.baidu.tieba.im.util.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    private static b jiO = null;
-    private String jiQ;
-    private ArrayList<CustomMessageListener> jiP = new ArrayList<>();
-    private c iPM = new c(CmdConfigSocket.CMD_PUSH_NOTIFY) { // from class: com.baidu.tieba.im.pushNotify.b.1
+    private static b jiQ = null;
+    private String jiS;
+    private ArrayList<CustomMessageListener> jiR = new ArrayList<>();
+    private c iPO = new c(CmdConfigSocket.CMD_PUSH_NOTIFY) { // from class: com.baidu.tieba.im.pushNotify.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -40,7 +40,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener jiR = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
+    private CustomMessageListener jiT = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,10 +57,10 @@ public class b {
     public static synchronized b cwZ() {
         b bVar;
         synchronized (b.class) {
-            if (jiO == null) {
-                jiO = new b();
+            if (jiQ == null) {
+                jiQ = new b();
             }
-            bVar = jiO;
+            bVar = jiQ;
         }
         return bVar;
     }
@@ -73,8 +73,8 @@ public class b {
     }
 
     private void cxa() {
-        MessageManager.getInstance().registerListener(this.iPM);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.jiR);
+        MessageManager.getInstance().registerListener(this.iPO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.jiT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,10 +117,10 @@ public class b {
     }
 
     public String cxb() {
-        return this.jiQ;
+        return this.jiS;
     }
 
     public void Ie(String str) {
-        this.jiQ = str;
+        this.jiS = str;
     }
 }

@@ -41,18 +41,18 @@ public class g {
     private com.baidu.tbadk.n.a.a VQ;
     private int bgColor;
     private TbPageContext dVN;
-    private ItemInfo hNO;
-    private ForumWriteData hRF;
-    private h.a lTp;
+    private ItemInfo hNQ;
+    private ForumWriteData hRH;
+    private h.a lTr;
     private String mFrom;
     private ViewGroup mParentView;
     private int mSkinType;
-    private a mub;
-    private boolean muc;
-    private h mud;
-    private String mue;
-    private String muf;
-    private h.a mug;
+    private a mud;
+    private boolean mue;
+    private h muf;
+    private String mug;
+    private String muh;
+    private h.a mui;
     private String writeCallFrom;
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup, String str) {
@@ -60,17 +60,17 @@ public class g {
     }
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i) {
-        this.muc = false;
+        this.mue = false;
         this.mSkinType = 3;
-        this.mue = "";
+        this.mug = "";
         this.mFrom = "write";
-        this.muf = "0";
-        this.mug = new h.a() { // from class: com.baidu.tieba.write.g.1
+        this.muh = "0";
+        this.mui = new h.a() { // from class: com.baidu.tieba.write.g.1
             @Override // com.baidu.tieba.write.h.a
             public void FL(int i2) {
                 if (i2 == 1) {
-                    g.this.muc = true;
-                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.mud instanceof d)) {
+                    g.this.mue = true;
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.muf instanceof d)) {
                         if (g.this.VQ == null) {
                             g.this.VQ = new com.baidu.tbadk.n.a.a("anim_switch_sendthread_maintab");
                         }
@@ -79,20 +79,20 @@ public class g {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 0));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 0));
                 } else if (i2 == 2) {
-                    if (g.this.VQ != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.mud instanceof d)) {
+                    if (g.this.VQ != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (g.this.muf instanceof d)) {
                         g.this.VQ.blI();
                     }
-                    g.this.dun();
+                    g.this.duo();
                 } else if (i2 == 4) {
-                    g.this.muc = false;
-                    if (g.this.mub.mRootView.getParent() == g.this.mParentView && g.this.mParentView != null && g.this.mub.mRootView != null && g.this.mParentView.indexOfChild(g.this.mub.mRootView) > 0) {
-                        g.this.mParentView.removeView(g.this.mub.mRootView);
+                    g.this.mue = false;
+                    if (g.this.mud.mRootView.getParent() == g.this.mParentView && g.this.mParentView != null && g.this.mud.mRootView != null && g.this.mParentView.indexOfChild(g.this.mud.mRootView) > 0) {
+                        g.this.mParentView.removeView(g.this.mud.mRootView);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 1));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 1));
                 }
-                if (g.this.lTp != null) {
-                    g.this.lTp.FL(i2);
+                if (g.this.lTr != null) {
+                    g.this.lTr.FL(i2);
                 }
             }
         };
@@ -101,19 +101,19 @@ public class g {
         this.mFrom = str;
         if (i == 2) {
             a.b bVar = new a.b(this.dVN, this);
-            this.mub = bVar;
-            this.mud = new d(tbPageContext.getPageActivity(), bVar);
+            this.mud = bVar;
+            this.muf = new d(tbPageContext.getPageActivity(), bVar);
         } else if (i == 3) {
             a.C0773a c0773a = new a.C0773a(this.dVN, this);
-            this.mub = c0773a;
-            this.mud = new f(tbPageContext.getPageActivity(), c0773a);
+            this.mud = c0773a;
+            this.muf = new f(tbPageContext.getPageActivity(), c0773a);
         } else {
             a.c cVar = new a.c(this.dVN, this);
-            this.mub = cVar;
-            this.mud = new e(tbPageContext.getPageActivity(), cVar);
+            this.mud = cVar;
+            this.muf = new e(tbPageContext.getPageActivity(), cVar);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.mud.b(this.mug);
+        this.muf.b(this.mui);
     }
 
     public String getFrom() {
@@ -124,25 +124,25 @@ public class g {
         if (str == null) {
             str = "";
         }
-        this.mue = str;
+        this.mug = str;
     }
 
     public String ciD() {
-        return this.mue;
+        return this.mug;
     }
 
     public void wk(boolean z) {
-        if (this.mub instanceof a.c) {
-            ((a.c) this.mub).wh(z);
+        if (this.mud instanceof a.c) {
+            ((a.c) this.mud).wh(z);
         }
     }
 
     public void a(ForumWriteData forumWriteData) {
-        this.hRF = forumWriteData;
+        this.hRH = forumWriteData;
     }
 
     public void b(ItemInfo itemInfo) {
-        this.hNO = itemInfo;
+        this.hNQ = itemInfo;
     }
 
     public void PA(String str) {
@@ -151,11 +151,11 @@ public class g {
         } else {
             this.writeCallFrom = str;
         }
-        this.muf = str;
+        this.muh = str;
     }
 
     public boolean isShowing() {
-        return this.muc;
+        return this.mue;
     }
 
     public void GY(int i) {
@@ -168,12 +168,12 @@ public class g {
 
     public void a(boolean z, View view, View view2) {
         if (this.mParentView != null) {
-            if (this.mub.mRootView.getParent() == null) {
-                com.baidu.tbadk.k.e.bq(this.mParentView).attachView(this.mParentView, this.mub.mRootView, z);
+            if (this.mud.mRootView.getParent() == null) {
+                com.baidu.tbadk.k.e.bq(this.mParentView).attachView(this.mParentView, this.mud.mRootView, z);
             }
-            this.mud.d(view, view2);
-            this.mud.show();
-            TiebaStatic.log(new ap("c12052").dn("obj_locate", this.muf));
+            this.muf.d(view, view2);
+            this.muf.show();
+            TiebaStatic.log(new ap("c12052").dn("obj_locate", this.muh));
             if (com.baidu.adp.lib.util.j.isMobileNet()) {
                 String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.KEY_BAIDU_SIM_CARD_WRITTING_TIP, "");
                 if (!as.isEmpty(string)) {
@@ -185,70 +185,70 @@ public class g {
     }
 
     public void GZ(int i) {
-        if (this.mub instanceof a.c) {
-            ((a.c) this.mub).mts.setIconFade(i);
+        if (this.mud instanceof a.c) {
+            ((a.c) this.mud).mtu.setIconFade(i);
         }
     }
 
     public void wl(boolean z) {
-        this.mud.eX(z);
-        if (!z && (this.mub instanceof a.c)) {
-            ((a.c) this.mub).mts.bkq();
+        this.muf.eX(z);
+        if (!z && (this.mud instanceof a.c)) {
+            ((a.c) this.mud).mtu.bkq();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.mub.onChangeSkinType(i);
+            this.mud.onChangeSkinType(i);
         }
     }
 
     public void onDestroy() {
-        if (this.mub.mRootView != null && this.mub.mRootView.getParent() == this.mParentView) {
-            this.mParentView.removeView(this.mub.mRootView);
+        if (this.mud.mRootView != null && this.mud.mRootView.getParent() == this.mParentView) {
+            this.mParentView.removeView(this.mud.mRootView);
         }
-        this.mud.onDestroy();
+        this.muf.onDestroy();
     }
 
-    public void duj() {
-        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muf).ah("obj_type", 6));
+    public void duk() {
+        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muh).ah("obj_type", 6));
         wl(false);
         UniversityEvaluationConfig universityEvaluationConfig = new UniversityEvaluationConfig(this.dVN.getPageActivity(), RequestResponseCode.REQUEST_WRITE_NEW);
-        if (this.hRF != null) {
-            universityEvaluationConfig.setWriteData(this.hRF);
+        if (this.hRH != null) {
+            universityEvaluationConfig.setWriteData(this.hRH);
         }
-        if (this.hNO != null) {
-            universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(this.hNO));
-            universityEvaluationConfig.setItemIsSchool(this.hNO.is_school.intValue() == 1);
+        if (this.hNQ != null) {
+            universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(this.hNQ));
+            universityEvaluationConfig.setItemIsSchool(this.hNQ.is_school.intValue() == 1);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2921460, universityEvaluationConfig));
-        if (this.hRF != null && this.hNO != null) {
-            TiebaStatic.log(new ap("c13722").dn("fid", this.hRF.forumId).dn("fname", this.hRF.forumName).ah("obj_param1", this.hNO.id.intValue()));
+        if (this.hRH != null && this.hNQ != null) {
+            TiebaStatic.log(new ap("c13722").dn("fid", this.hRH.forumId).dn("fname", this.hRH.forumName).ah("obj_param1", this.hNQ.id.intValue()));
         }
     }
 
     public void PB(String str) {
-        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muf).ah("obj_type", 5));
-        if (this.hRF != null && this.hRF.antiData != null) {
-            int pollLevel = this.hRF.antiData.getPollLevel();
-            if (this.hRF.forumLevel < pollLevel) {
+        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muh).ah("obj_type", 5));
+        if (this.hRH != null && this.hRH.antiData != null) {
+            int pollLevel = this.hRH.antiData.getPollLevel();
+            if (this.hRH.forumLevel < pollLevel) {
                 l.showToast(this.dVN.getPageActivity(), String.format(this.dVN.getString(R.string.vote_level_tip), Integer.valueOf(pollLevel)));
                 return;
             }
             wl(false);
             WriteVoteActivityConfig writeVoteActivityConfig = new WriteVoteActivityConfig(this.dVN.getPageActivity(), RequestResponseCode.REQUEST_SDK_WEB_VIEW);
             writeVoteActivityConfig.setExtraTitle(str);
-            writeVoteActivityConfig.setExtraData(this.hRF);
+            writeVoteActivityConfig.setExtraData(this.hRH);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeVoteActivityConfig));
             TiebaStatic.log(new ap("c13800").ah("obj_source", 1));
         }
     }
 
-    public void duk() {
-        if (this.mub instanceof a.b) {
+    public void dul() {
+        if (this.mud instanceof a.b) {
             TiebaStatic.log("c13619");
-            dun();
+            duo();
         }
         wl(false);
         if (Build.VERSION.SDK_INT < 21) {
@@ -267,7 +267,7 @@ public class g {
             aVar.b(this.dVN).aYL();
             return;
         }
-        a(this.dVN, this.muf, this.hRF);
+        a(this.dVN, this.muh, this.hRH);
     }
 
     public void a(TbPageContext tbPageContext, final String str, final ForumWriteData forumWriteData) {
@@ -300,7 +300,7 @@ public class g {
         }
     }
 
-    public void dul() {
+    public void dum() {
         String str;
         String str2;
         int i;
@@ -311,7 +311,7 @@ public class g {
         wl(false);
         PostPrefixData postPrefixData = null;
         AntiData antiData = null;
-        if (this.hRF == null) {
+        if (this.hRH == null) {
             str = "";
             str2 = "";
             i = 0;
@@ -320,15 +320,15 @@ public class g {
             str4 = null;
             str5 = "0";
         } else {
-            String str6 = this.hRF.forumId;
-            String str7 = this.hRF.forumName;
-            postPrefixData = this.hRF.prefixData;
-            antiData = this.hRF.antiData;
-            int i3 = this.hRF.forumLevel;
-            String str8 = this.hRF.avatar;
-            int i4 = this.hRF.privateThread;
-            String str9 = this.hRF.firstDir;
-            str = this.hRF.secondDir;
+            String str6 = this.hRH.forumId;
+            String str7 = this.hRH.forumName;
+            postPrefixData = this.hRH.prefixData;
+            antiData = this.hRH.antiData;
+            int i3 = this.hRH.forumLevel;
+            String str8 = this.hRH.avatar;
+            int i4 = this.hRH.privateThread;
+            String str9 = this.hRH.firstDir;
+            str = this.hRH.secondDir;
             str2 = str9;
             i = i4;
             str3 = str8;
@@ -336,7 +336,7 @@ public class g {
             str4 = str7;
             str5 = str6;
         }
-        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muf).ah("obj_type", 3));
+        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muh).ah("obj_type", 3));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.dVN.getPageActivity(), 0, str5, str4, null, null, 0, antiData, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);
@@ -345,25 +345,25 @@ public class g {
         writeActivityConfig.setAlbumThread(0);
         writeActivityConfig.setPrivateThread(i);
         writeActivityConfig.setForumDir(str2, str);
-        writeActivityConfig.setProfessionZone(this.hRF != null ? this.hRF.defaultZone : -1);
-        writeActivityConfig.setFrsTabInfo(this.hRF != null ? this.hRF.frsTabInfo : null);
-        if (!StringUtils.isNull(this.mue)) {
-            writeActivityConfig.setTitle(this.mue, true);
+        writeActivityConfig.setProfessionZone(this.hRH != null ? this.hRH.defaultZone : -1);
+        writeActivityConfig.setFrsTabInfo(this.hRH != null ? this.hRH.frsTabInfo : null);
+        if (!StringUtils.isNull(this.mug)) {
+            writeActivityConfig.setTitle(this.mug, true);
         }
         if (!a(this.dVN.getPageActivity(), writeActivityConfig)) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
         }
     }
 
-    public void dum() {
+    public void dun() {
         wl(false);
-        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muf).ah("obj_type", 2));
-        if (this.hRF == null) {
-            this.hRF = new ForumWriteData("0", null, null, null);
+        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muh).ah("obj_type", 2));
+        if (this.hRH == null) {
+            this.hRH = new ForumWriteData("0", null, null, null);
         }
-        this.hRF.mFrom = this.mFrom;
-        this.hRF.writeCallFrom = this.writeCallFrom;
-        j.b(this.dVN, "", this.hRF);
+        this.hRH.mFrom = this.mFrom;
+        this.hRH.writeCallFrom = this.writeCallFrom;
+        j.b(this.dVN, "", this.hRH);
     }
 
     public void PC(String str) {
@@ -377,7 +377,7 @@ public class g {
         wl(false);
         PostPrefixData postPrefixData = null;
         AntiData antiData = null;
-        if (this.hRF == null) {
+        if (this.hRH == null) {
             str2 = "";
             str3 = "";
             i = 0;
@@ -386,15 +386,15 @@ public class g {
             str5 = null;
             str6 = "0";
         } else {
-            String str7 = this.hRF.forumId;
-            String str8 = this.hRF.forumName;
-            postPrefixData = this.hRF.prefixData;
-            antiData = this.hRF.antiData;
-            int i3 = this.hRF.forumLevel;
-            String str9 = this.hRF.avatar;
-            int i4 = this.hRF.privateThread;
-            String str10 = this.hRF.firstDir;
-            str2 = this.hRF.secondDir;
+            String str7 = this.hRH.forumId;
+            String str8 = this.hRH.forumName;
+            postPrefixData = this.hRH.prefixData;
+            antiData = this.hRH.antiData;
+            int i3 = this.hRH.forumLevel;
+            String str9 = this.hRH.avatar;
+            int i4 = this.hRH.privateThread;
+            String str10 = this.hRH.firstDir;
+            str2 = this.hRH.secondDir;
             str3 = str10;
             i = i4;
             str4 = str9;
@@ -402,7 +402,7 @@ public class g {
             str5 = str8;
             str6 = str7;
         }
-        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muf).ah("obj_type", 1));
+        TiebaStatic.log(new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED).dn("obj_locate", this.muh).ah("obj_type", 1));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.dVN.getPageActivity(), 9, str6, str5, null, null, 0, antiData, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);
@@ -413,8 +413,8 @@ public class g {
         writeActivityConfig.setForumAvatar(str4);
         writeActivityConfig.setPrivateThread(i);
         writeActivityConfig.setForumDir(str3, str2);
-        writeActivityConfig.setProfessionZone(this.hRF != null ? this.hRF.defaultZone : -1);
-        writeActivityConfig.setFrsTabInfo(this.hRF != null ? this.hRF.frsTabInfo : null);
+        writeActivityConfig.setProfessionZone(this.hRH != null ? this.hRH.defaultZone : -1);
+        writeActivityConfig.setFrsTabInfo(this.hRH != null ? this.hRH.frsTabInfo : null);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
     }
 
@@ -432,20 +432,20 @@ public class g {
     }
 
     public void bnY() {
-        if (this.mub != null) {
-            this.mub.dtW();
+        if (this.mud != null) {
+            this.mud.dtX();
         }
     }
 
     public void a(h.a aVar) {
-        this.lTp = aVar;
+        this.lTr = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dun() {
+    public void duo() {
         boolean z = com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("home_publish_ala_has_showed", false);
-        if (this.mub instanceof a.b) {
-            ((a.b) this.mub).wg(z ? false : true);
+        if (this.mud instanceof a.b) {
+            ((a.b) this.mud).wg(z ? false : true);
         }
         com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("home_publish_ala_has_showed", true);
     }

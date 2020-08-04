@@ -19,15 +19,15 @@ public class a extends BaseAdapter {
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.jmV.a(view, (BlackListItemData) tag);
+                a.this.jmX.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity jmV;
+    private IMBlackListActivity jmX;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.jmV = iMBlackListActivity;
+        this.jmX = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -78,13 +78,13 @@ public class a extends BaseAdapter {
 
     private C0673a cyf() {
         C0673a c0673a = new C0673a();
-        c0673a.rootView = LayoutInflater.from(this.jmV.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-        c0673a.jmX = (HeadImageView) c0673a.rootView.findViewById(R.id.header_view);
-        c0673a.jmX.setIsRound(true);
+        c0673a.rootView = LayoutInflater.from(this.jmX.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+        c0673a.jmZ = (HeadImageView) c0673a.rootView.findViewById(R.id.header_view);
+        c0673a.jmZ.setIsRound(true);
         c0673a.gFm = (TextView) c0673a.rootView.findViewById(R.id.user_name);
-        c0673a.jmY = (Button) c0673a.rootView.findViewById(R.id.remove_button);
+        c0673a.jna = (Button) c0673a.rootView.findViewById(R.id.remove_button);
         c0673a.rootView.setTag(c0673a);
-        c0673a.jmY.setOnClickListener(this.elT);
+        c0673a.jna.setOnClickListener(this.elT);
         return c0673a;
     }
 
@@ -97,15 +97,15 @@ public class a extends BaseAdapter {
         }
         a(c0673a, blackListItemData.Lc());
         c0673a.gFm.setText(blackListItemData.bgJ());
-        c0673a.jmY.setTag(blackListItemData);
-        this.jmV.getLayoutMode().onModeChanged(c0673a.rootView);
+        c0673a.jna.setTag(blackListItemData);
+        this.jmX.getLayoutMode().onModeChanged(c0673a.rootView);
         return c0673a;
     }
 
     private void a(C0673a c0673a, String str) {
         if (str != null) {
-            c0673a.jmX.setTag(str);
-            c0673a.jmX.startLoad(str, 12, false);
+            c0673a.jmZ.setTag(str);
+            c0673a.jmZ.startLoad(str, 12, false);
         }
     }
 
@@ -114,8 +114,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes16.dex */
     public class C0673a {
         public TextView gFm;
-        public HeadImageView jmX;
-        public Button jmY;
+        public HeadImageView jmZ;
+        public Button jna;
         public View rootView;
 
         private C0673a() {

@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class g {
     private BaseFragmentActivity hjZ;
-    private d kEL;
+    private d kEN;
     private int mSkinType = 3;
 
     public g(BaseFragmentActivity baseFragmentActivity) {
@@ -24,32 +24,32 @@ public class g {
 
     private void c(com.baidu.tieba.pb.data.f fVar, String str) {
         if (fVar != null) {
-            if (this.kEL == null) {
-                this.kEL = new d(LayoutInflater.from(this.hjZ.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.kEN == null) {
+                this.kEN = new d(LayoutInflater.from(this.hjZ.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.kEL.a(fVar, str);
+            this.kEN.a(fVar, str);
         }
     }
 
     public View cSE() {
-        if (this.kEL == null) {
+        if (this.kEN == null) {
             return null;
         }
-        return this.kEL.mRootView;
+        return this.kEN.mRootView;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.kEL != null) {
-                this.kEL.bgV();
+            if (this.kEN != null) {
+                this.kEN.bgV();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.kEL != null) {
-            bdTypeListView.removeHeaderView(this.kEL.mRootView);
+        if (this.kEN != null) {
+            bdTypeListView.removeHeaderView(this.kEN.mRootView);
         }
     }
 }

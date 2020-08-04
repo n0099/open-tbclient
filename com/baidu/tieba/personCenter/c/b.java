@@ -7,14 +7,14 @@ import org.json.JSONObject;
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int kOS = 0;
+    private int kOU = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
     public int bla() {
-        return this.kOS;
+        return this.kOU;
     }
 
     public void Lt(String str) {
@@ -25,7 +25,7 @@ public class b {
                 this.errorMsg = jSONObject.optString("error_msg", "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.kOS = optJSONObject.optInt("msg_count");
+                    this.kOU = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

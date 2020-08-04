@@ -13,48 +13,48 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class i implements o {
-    CreateGroupStepActivity iUZ;
-    ImageView iVA;
-    TextView iVB;
-    private com.baidu.adp.widget.ImageView.a iVC = null;
-    private a iVD = null;
-    private int iVd;
-    HeadImageView iVz;
+    HeadImageView iVB;
+    ImageView iVC;
+    TextView iVD;
+    private com.baidu.adp.widget.ImageView.a iVE = null;
+    private a iVF = null;
+    CreateGroupStepActivity iVb;
+    private int iVf;
     private int mIndex;
     private int mStep;
     View mView;
 
     public i(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.iUZ = null;
+        this.iVb = null;
         this.mView = null;
-        this.iVz = null;
-        this.iVA = null;
         this.iVB = null;
-        this.iUZ = createGroupStepActivity;
+        this.iVC = null;
+        this.iVD = null;
+        this.iVb = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_step3_view, (ViewGroup) null);
-        this.iVA = (ImageView) this.mView.findViewById(R.id.step3_img_bg);
-        this.iVz = (HeadImageView) this.mView.findViewById(R.id.step3_img_scr);
-        this.iVB = (TextView) this.mView.findViewById(R.id.create_group3);
+        this.iVC = (ImageView) this.mView.findViewById(R.id.step3_img_bg);
+        this.iVB = (HeadImageView) this.mView.findViewById(R.id.step3_img_scr);
+        this.iVD = (TextView) this.mView.findViewById(R.id.create_group3);
         this.mIndex = i;
         this.mStep = i2;
-        this.iVd = i3;
+        this.iVf = i3;
     }
 
     public void csc() {
-        if (this.iVD != null) {
-            this.iVD.cancel();
+        if (this.iVF != null) {
+            this.iVF.cancel();
         }
-        this.iVC = null;
-        this.iVD = new a();
-        this.iVD.execute(new Object[0]);
+        this.iVE = null;
+        this.iVF = new a();
+        this.iVF.execute(new Object[0]);
     }
 
     public ImageView csd() {
-        return this.iVA;
+        return this.iVC;
     }
 
     public TextView cse() {
-        return this.iVB;
+        return this.iVD;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -64,14 +64,14 @@ public class i implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void crM() {
-        this.iVA.setBackgroundDrawable(null);
+        this.iVC.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void crN() {
-        this.iUZ.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iUZ.getLayoutMode().onModeChanged(this.mView);
-        this.iVz.refresh();
+        this.iVb.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.iVb.getLayoutMode().onModeChanged(this.mView);
+        this.iVB.refresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,24 +111,24 @@ public class i implements o {
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
             if (bitmap != null) {
-                i.this.iVz.setVisibility(0);
-                i.this.iVC = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
-                i.this.iVC.drawImageTo(i.this.iVz);
+                i.this.iVB.setVisibility(0);
+                i.this.iVE = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
+                i.this.iVE.drawImageTo(i.this.iVB);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.iUZ.getPageContext().getString(R.string.group_create_step_photo), Integer.valueOf(this.mStep));
+        return String.format(this.iVb.getPageContext().getString(R.string.group_create_step_photo), Integer.valueOf(this.mStep));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String crP() {
-        if (this.mIndex != this.iVd) {
-            return this.iUZ.getPageContext().getString(R.string.next_step);
+        if (this.mIndex != this.iVf) {
+            return this.iVb.getPageContext().getString(R.string.next_step);
         }
-        return this.iUZ.getPageContext().getString(R.string.group_create_step_done_tip);
+        return this.iVb.getPageContext().getString(R.string.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o

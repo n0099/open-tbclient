@@ -15,7 +15,7 @@ public class a {
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
-    private aa hUM = new aa() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
+    private aa hUO = new aa() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
         @Override // com.baidu.tieba.card.aa
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             super.a(view, bVar);
@@ -34,16 +34,16 @@ public class a {
 
     private void DS() {
         b bVar = new b(this.mPageContext, this.mForumId, this.mForumName);
-        bVar.d(this.hUM);
+        bVar.d(this.hUO);
         this.aWf.add(bVar);
         c cVar = new c(this.mPageContext, this.mForumId);
-        cVar.d(this.hUM);
+        cVar.d(this.hUO);
         this.aWf.add(cVar);
         this.aWf.add(new h(this.mPageContext, this.mForumId));
         this.aWf.add(new f(this.mPageContext, this.mForumId));
         this.aWf.add(new i(this.mPageContext, com.baidu.tieba.e.h.hdA, this.mPageContext.getUniqueId(), this.mForumId));
         e eVar = new e(this.mPageContext, this.mForumId);
-        eVar.d(this.hUM);
+        eVar.d(this.hUO);
         this.aWf.add(eVar);
         this.aWf.add(new d(this.mPageContext, com.baidu.tieba.e.c.hdo, this.mPageContext.getUniqueId(), this.mForumId));
         this.aWf.add(new g(this.mPageContext, com.baidu.tieba.e.f.hdw, this.mPageContext.getUniqueId(), this.mForumId));

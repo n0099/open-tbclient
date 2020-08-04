@@ -35,13 +35,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c lks;
+    private static c lku;
     private String cNM;
-    private long lku;
+    private long lkw;
     private static final String TAG = c.class.getSimpleName() + " TestActivity";
     private static final String DOWNLOAD_DIR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-    private String lkt = null;
-    private com.baidu.adp.framework.listener.a kBg = new com.baidu.adp.framework.listener.a(1003365, CmdConfigSocket.WEBVIEW_CACHE_INFO) { // from class: com.baidu.tieba.quickWebView.c.1
+    private String lkv = null;
+    private com.baidu.adp.framework.listener.a kBi = new com.baidu.adp.framework.listener.a(1003365, CmdConfigSocket.WEBVIEW_CACHE_INFO) { // from class: com.baidu.tieba.quickWebView.c.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -75,21 +75,21 @@ public class c {
     };
 
     public static c dbA() {
-        if (lks == null) {
+        if (lku == null) {
             synchronized (c.class) {
-                if (lks == null) {
-                    lks = new c();
+                if (lku == null) {
+                    lku = new c();
                 }
             }
         }
-        return lks;
+        return lku;
     }
 
     private c() {
     }
 
     public String dbB() {
-        return this.lkt;
+        return this.lkv;
     }
 
     public String getCacheDir() {
@@ -97,8 +97,8 @@ public class c {
     }
 
     public void init() {
-        this.lku = System.currentTimeMillis();
-        MessageManager.getInstance().registerListener(this.kBg);
+        this.lkw = System.currentTimeMillis();
+        MessageManager.getInstance().registerListener(this.kBi);
         a aVar = new a();
         aVar.setPriority(4);
         aVar.execute(new Void[0]);
@@ -107,9 +107,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        String lkw;
-        HashMap<String, com.baidu.tieba.quickWebView.data.a> lkx;
+        String lkA;
         String lky;
+        HashMap<String, com.baidu.tieba.quickWebView.data.a> lkz;
 
         private b() {
         }
@@ -154,8 +154,8 @@ public class c {
         }
         b bVar = new b();
         File file2 = new File(file, str);
-        bVar.lkw = file2.getAbsolutePath();
-        bVar.lky = str;
+        bVar.lky = file2.getAbsolutePath();
+        bVar.lkA = str;
         File file3 = new File(file2, "router.json");
         if (file3.exists()) {
             try {
@@ -168,7 +168,7 @@ public class c {
                 th = th;
             }
             try {
-                bVar.lkx = n(fileInputStream);
+                bVar.lkz = n(fileInputStream);
                 n.close((InputStream) fileInputStream);
             } catch (FileNotFoundException e2) {
                 e = e2;
@@ -241,8 +241,8 @@ public class c {
                                 }
                                 int optInt = jSONObject2.has("offline") ? jSONObject2.optInt("offline") : 0;
                                 com.baidu.tieba.quickWebView.data.a aVar = new com.baidu.tieba.quickWebView.data.a();
-                                aVar.lkB = arrayList;
-                                aVar.lkC = optInt == 1;
+                                aVar.lkD = arrayList;
+                                aVar.lkE = optInt == 1;
                                 hashMap.put(next, aVar);
                             }
                             n.close(reader);
@@ -335,8 +335,8 @@ public class c {
         /* renamed from: j */
         public b doInBackground(Void... voidArr) {
             b dbC = c.this.dbC();
-            if (dbC != null && !TextUtils.isEmpty(dbC.lkw) && dbC.lkx != null && dbC.lkx.size() != 0) {
-                c.Mj(dbC.lky);
+            if (dbC != null && !TextUtils.isEmpty(dbC.lky) && dbC.lkz != null && dbC.lkz.size() != 0) {
+                c.Mj(dbC.lkA);
                 return dbC;
             }
             return null;
@@ -348,16 +348,16 @@ public class c {
         /* renamed from: a */
         public void onPostExecute(b bVar) {
             String str;
-            if (bVar != null && !StringUtils.isNull(bVar.lky)) {
-                c.this.cNM = bVar.lkw;
-                d.dbF().H(bVar.lkx);
-                str = bVar.lky;
+            if (bVar != null && !StringUtils.isNull(bVar.lkA)) {
+                c.this.cNM = bVar.lky;
+                d.dbF().H(bVar.lkz);
+                str = bVar.lkA;
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, 0, "readCache", 0, "", "version", str);
             } else {
                 str = "0.0.0.0";
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "read error", new Object[0]);
             }
-            c.this.lkt = str;
+            c.this.lkv = str;
             MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg(str));
         }
     }

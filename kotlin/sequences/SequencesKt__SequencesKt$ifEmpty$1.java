@@ -6,7 +6,7 @@ import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 import kotlin.l;
-@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt__SequencesKt$ifEmpty$1", dUb = {67, 69}, f = "Sequences.kt", m = "invokeSuspend")
+@kotlin.coroutines.jvm.internal.c(c = "kotlin/sequences/SequencesKt__SequencesKt$ifEmpty$1", dUc = {67, 69}, f = "Sequences.kt", m = "invokeSuspend")
 @kotlin.h
 /* loaded from: classes7.dex */
 final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda implements m<d<? super T>, kotlin.coroutines.a<? super l>, Object> {
@@ -35,13 +35,13 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.a.m
     public final Object invoke(Object obj, kotlin.coroutines.a<? super l> aVar) {
-        return ((SequencesKt__SequencesKt$ifEmpty$1) create(obj, aVar)).invokeSuspend(l.nXN);
+        return ((SequencesKt__SequencesKt$ifEmpty$1) create(obj, aVar)).invokeSuspend(l.nXP);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=5] */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        Object dUa = kotlin.coroutines.intrinsics.a.dUa();
+        Object dUb = kotlin.coroutines.intrinsics.a.dUb();
         switch (this.label) {
             case 0:
                 if (obj instanceof Result.Failure) {
@@ -52,14 +52,14 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
                 if (it.hasNext()) {
                     this.L$0 = it;
                     this.label = 1;
-                    if (dVar.a(it, (kotlin.coroutines.a<? super l>) this) == dUa) {
-                        return dUa;
+                    if (dVar.a(it, (kotlin.coroutines.a<? super l>) this) == dUb) {
+                        return dUb;
                     }
                 } else {
                     this.L$0 = it;
                     this.label = 2;
-                    if (dVar.a((c) this.$defaultValue.invoke(), (kotlin.coroutines.a<? super l>) this) == dUa) {
-                        return dUa;
+                    if (dVar.a((c) this.$defaultValue.invoke(), (kotlin.coroutines.a<? super l>) this) == dUb) {
+                        return dUb;
                     }
                 }
                 break;
@@ -78,6 +78,6 @@ final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda i
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
-        return l.nXN;
+        return l.nXP;
     }
 }

@@ -12,11 +12,11 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class a {
     private BdTypeRecyclerView VT;
-    private f ivA;
-    private c ivB;
-    private d ivC;
-    private e ivD;
-    private LinkedList<com.baidu.adp.widget.ListView.a> ivz = new LinkedList<>();
+    private LinkedList<com.baidu.adp.widget.ListView.a> ivB = new LinkedList<>();
+    private f ivC;
+    private c ivD;
+    private d ivE;
+    private e ivF;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -26,19 +26,19 @@ public class a {
     }
 
     private void DS() {
-        this.ivA = new f(this.mPageContext, k.haj);
-        this.ivB = new c(this.mPageContext, l.dRS);
-        this.ivC = new d(this.mPageContext, k.har);
-        this.ivD = new e(this.mPageContext, k.hap);
-        this.ivA.a(this.VT);
-        this.ivB.a(this.VT);
+        this.ivC = new f(this.mPageContext, k.haj);
+        this.ivD = new c(this.mPageContext, l.dRS);
+        this.ivE = new d(this.mPageContext, k.har);
+        this.ivF = new e(this.mPageContext, k.hap);
         this.ivC.a(this.VT);
         this.ivD.a(this.VT);
-        this.ivz.add(this.ivA);
-        this.ivz.add(this.ivB);
-        this.ivz.add(this.ivC);
-        this.ivz.add(this.ivD);
-        this.VT.addAdapters(this.ivz);
+        this.ivE.a(this.VT);
+        this.ivF.a(this.VT);
+        this.ivB.add(this.ivC);
+        this.ivB.add(this.ivD);
+        this.ivB.add(this.ivE);
+        this.ivB.add(this.ivF);
+        this.VT.addAdapters(this.ivB);
     }
 
     public void notifyDataSetChanged() {
@@ -48,17 +48,17 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.ivA != null) {
-            this.ivA.setPageUniqueId(bdUniqueId);
-        }
-        if (this.ivB != null) {
-            this.ivB.setPageUniqueId(bdUniqueId);
-        }
         if (this.ivC != null) {
             this.ivC.setPageUniqueId(bdUniqueId);
         }
         if (this.ivD != null) {
             this.ivD.setPageUniqueId(bdUniqueId);
+        }
+        if (this.ivE != null) {
+            this.ivE.setPageUniqueId(bdUniqueId);
+        }
+        if (this.ivF != null) {
+            this.ivF.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -74,29 +74,29 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.ivD != null) {
-            this.ivD.setEventCallback(aVar);
+        if (this.ivF != null) {
+            this.ivF.setEventCallback(aVar);
         }
     }
 
     public void xw(int i) {
-        if (this.ivA != null) {
-            this.ivA.xw(i);
-        }
-        if (this.ivB != null) {
-            this.ivB.xw(i);
-        }
         if (this.ivC != null) {
             this.ivC.xw(i);
         }
         if (this.ivD != null) {
             this.ivD.xw(i);
         }
+        if (this.ivE != null) {
+            this.ivE.xw(i);
+        }
+        if (this.ivF != null) {
+            this.ivF.xw(i);
+        }
     }
 
     public void onPause() {
-        if (this.ivB != null) {
-            this.ivB.onPause();
+        if (this.ivD != null) {
+            this.ivD.onPause();
         }
     }
 

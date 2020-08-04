@@ -81,7 +81,7 @@ public class hg {
         try {
             hc.a a2 = hc.a(exc);
             m331a.a(a2.a.a());
-            m331a.c(a2.f424a);
+            m331a.c(a2.f427a);
             m331a.b(str);
             he.m329a().a(m331a);
         } catch (NullPointerException e) {
@@ -93,7 +93,7 @@ public class hg {
             hc.a b = hc.b(exc);
             fi m331a = he.m329a().m331a();
             m331a.a(b.a.a());
-            m331a.c(b.f424a);
+            m331a.c(b.f427a);
             m331a.b(str);
             he.m329a().a(m331a);
         } catch (NullPointerException e) {
@@ -118,7 +118,7 @@ public class hg {
             hc.a d = hc.d(exc);
             fi m331a = he.m329a().m331a();
             m331a.a(d.a.a());
-            m331a.c(d.f424a);
+            m331a.c(d.f427a);
             m331a.b(str);
             he.m329a().a(m331a);
         } catch (NullPointerException e) {

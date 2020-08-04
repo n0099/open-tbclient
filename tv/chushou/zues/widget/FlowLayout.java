@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import tv.chushou.zues.b;
 /* loaded from: classes6.dex */
 public class FlowLayout extends ViewGroup {
-    private int otu;
-    private int otv;
+    private int otw;
+    private int otx;
 
     public FlowLayout(Context context) {
         super(context);
@@ -19,8 +19,8 @@ public class FlowLayout extends ViewGroup {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.FlowLayout);
         try {
-            this.otv = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_horizontal_spacing, 5);
-            this.otu = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_vertical_spacing, 5);
+            this.otx = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_horizontal_spacing, 5);
+            this.otw = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_vertical_spacing, 5);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -48,12 +48,12 @@ public class FlowLayout extends ViewGroup {
                 i3 = childAt.getMeasuredHeight();
                 int max = Math.max(i3, i7);
                 if (i8 + measuredWidth + paddingRight > resolveSize) {
-                    int i9 = paddingLeft + measuredWidth + this.otv;
-                    i4 = max + this.otu + paddingTop;
+                    int i9 = paddingLeft + measuredWidth + this.otx;
+                    i4 = max + this.otw + paddingTop;
                     i5 = i9;
                 } else {
                     i4 = paddingTop;
-                    i5 = this.otv + measuredWidth + i8;
+                    i5 = this.otx + measuredWidth + i8;
                     i3 = max;
                 }
             } else {
@@ -85,12 +85,12 @@ public class FlowLayout extends ViewGroup {
                 int measuredHeight = childAt.getMeasuredHeight();
                 i7 = Math.max(measuredHeight, i7);
                 if (i6 + measuredWidth + paddingRight > i5) {
-                    paddingTop = i7 + this.otu + paddingTop;
+                    paddingTop = i7 + this.otw + paddingTop;
                     i6 = paddingLeft;
                     i7 = measuredHeight;
                 }
                 childAt.layout(i6, paddingTop, i6 + measuredWidth, measuredHeight + paddingTop);
-                i6 += this.otv + measuredWidth;
+                i6 += this.otx + measuredWidth;
             }
         }
     }

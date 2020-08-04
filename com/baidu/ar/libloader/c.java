@@ -5,8 +5,9 @@ import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
 import java.util.HashMap;
 import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-class c implements a {
+public class c implements a {
     private boolean rQ = false;
     private Map<String, a.c> rR = new HashMap();
 

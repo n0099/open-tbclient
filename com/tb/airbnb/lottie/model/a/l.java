@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes5.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nPi;
-    private final m<PointF, PointF> nPj;
-    private final g nPk;
-    private final b nPl;
-    private final d nPm;
-    @Nullable
+    private final e nPk;
+    private final m<PointF, PointF> nPl;
+    private final g nPm;
     private final b nPn;
+    private final d nPo;
     @Nullable
-    private final b nPo;
+    private final b nPp;
+    @Nullable
+    private final b nPq;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nPi = eVar;
-        this.nPj = mVar;
-        this.nPk = gVar;
-        this.nPl = bVar;
-        this.nPm = dVar;
-        this.nPn = bVar2;
-        this.nPo = bVar3;
+        this.nPk = eVar;
+        this.nPl = mVar;
+        this.nPm = gVar;
+        this.nPn = bVar;
+        this.nPo = dVar;
+        this.nPp = bVar2;
+        this.nPq = bVar3;
     }
 
-    public e dRe() {
-        return this.nPi;
-    }
-
-    public m<PointF, PointF> dRf() {
-        return this.nPj;
-    }
-
-    public g dRg() {
+    public e dRf() {
         return this.nPk;
     }
 
-    public b dRh() {
+    public m<PointF, PointF> dRg() {
         return this.nPl;
     }
 
-    public d dRi() {
+    public g dRh() {
         return this.nPm;
     }
 
-    @Nullable
-    public b dRj() {
+    public b dRi() {
         return this.nPn;
+    }
+
+    public d dRj() {
+        return this.nPo;
     }
 
     @Nullable
     public b dRk() {
-        return this.nPo;
+        return this.nPp;
     }
 
-    public o dRl() {
+    @Nullable
+    public b dRl() {
+        return this.nPq;
+    }
+
+    public o dRm() {
         return new o(this);
     }
 

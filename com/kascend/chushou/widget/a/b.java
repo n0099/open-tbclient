@@ -12,11 +12,11 @@ public class b {
     private String a;
     private String b;
     private long g;
-    private a nFZ;
+    private a nGb;
     private volatile boolean c = false;
-    private d<ParserRet> nFY = new com.kascend.chushou.widget.a.a();
+    private d<ParserRet> nGa = new com.kascend.chushou.widget.a.a();
     private boolean f = false;
-    private final tv.chushou.zues.c nGa = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
+    private final tv.chushou.zues.c nGc = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
@@ -39,25 +39,25 @@ public class b {
 
     public void a(String str) {
         this.a = str;
-        if (this.nFY != null) {
-            this.nFY.b();
+        if (this.nGa != null) {
+            this.nGa.b();
         }
     }
 
     public void a(a aVar) {
-        this.nFZ = aVar;
+        this.nGb = aVar;
     }
 
     public void a(boolean z) {
         if (z) {
-            this.nFY = new c();
+            this.nGa = new c();
         } else {
-            this.nFY = new com.kascend.chushou.widget.a.a();
+            this.nGa = new com.kascend.chushou.widget.a.a();
         }
     }
 
     public void b(boolean z) {
-        this.nGa.removeMessages(1);
+        this.nGc.removeMessages(1);
         this.c = true;
         if (z) {
             this.b = null;
@@ -69,8 +69,8 @@ public class b {
     }
 
     public void b() {
-        if (this.nFY != null) {
-            this.nFY.c();
+        if (this.nGa != null) {
+            this.nGa.c();
         }
         d();
     }
@@ -81,14 +81,14 @@ public class b {
 
     public void d() {
         this.c = false;
-        this.nGa.removeMessages(1);
+        this.nGc.removeMessages(1);
         if (!this.f || System.currentTimeMillis() - this.g >= 20000) {
             if (this.f) {
                 com.kascend.chushou.toolkit.a.a.l("type", Constants.VIA_REPORT_TYPE_WPA_STATE, "value", this.a);
             }
             this.g = System.currentTimeMillis();
             this.f = true;
-            com.kascend.chushou.c.c.dMk().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
+            com.kascend.chushou.c.c.dMl().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -100,23 +100,23 @@ public class b {
                     ParserRet D = e.D(jSONObject, b.this.b);
                     if (D.mRc == 0 && D.mData != null) {
                         b.this.b = D.mBreakpoint;
-                        if (b.this.nFZ != null) {
-                            b.this.nFZ.b(D);
+                        if (b.this.nGb != null) {
+                            b.this.nGb.b(D);
                         }
                         long longValue = ((Long) D.mData1).longValue();
                         if (longValue == -1) {
-                            if (b.this.nFY != null) {
-                                j = b.this.nFY.E(D);
+                            if (b.this.nGa != null) {
+                                j = b.this.nGa.E(D);
                             } else {
                                 j = 1000;
                             }
-                            b.this.nGa.B(1, j);
+                            b.this.nGc.B(1, j);
                             return;
                         }
-                        if (b.this.nFY != null) {
-                            b.this.nFY.b();
+                        if (b.this.nGa != null) {
+                            b.this.nGa.b();
                         }
-                        b.this.nGa.B(1, longValue);
+                        b.this.nGc.B(1, longValue);
                         return;
                     }
                     a(-1, "");
@@ -126,12 +126,12 @@ public class b {
                 public void a(int i, String str) {
                     long j;
                     b.this.f = false;
-                    if (b.this.nFY != null) {
-                        j = b.this.nFY.a();
+                    if (b.this.nGa != null) {
+                        j = b.this.nGa.a();
                     } else {
                         j = 1000;
                     }
-                    b.this.nGa.B(1, j);
+                    b.this.nGc.B(1, j);
                 }
             }, this.a, this.b);
         }

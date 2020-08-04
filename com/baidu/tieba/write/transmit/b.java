@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int kai = 3;
+    private static int kak = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,31 +61,31 @@ public class b extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class a {
         public TextView ekx;
-        public BarImageView kak;
+        public BarImageView kam;
         public int mSkinType = 3;
-        public View myd;
+        public View myf;
 
         public a(View view) {
             if (view != null) {
                 this.ekx = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.kak = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.myd = view.findViewById(R.id.divider_line);
+                this.kam = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.myf = view.findViewById(R.id.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.ekx.setText(transmitForumData.forumName);
-                this.kak.startLoad(transmitForumData.avatar, 10, false);
+                this.kam.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void bci() {
-            if (b.kai != this.mSkinType) {
+            if (b.kak != this.mSkinType) {
                 ao.setViewTextColor(this.ekx, R.color.cp_cont_b);
-                ao.setBackgroundColor(this.myd, R.color.cp_bg_line_c);
+                ao.setBackgroundColor(this.myf, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.kai;
+            this.mSkinType = b.kak;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (kai != i) {
+        if (kak != i) {
             notifyDataSetChanged();
         }
-        kai = i;
+        kak = i;
     }
 }

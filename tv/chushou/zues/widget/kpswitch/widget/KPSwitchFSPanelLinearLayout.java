@@ -9,7 +9,7 @@ import tv.chushou.zues.widget.kpswitch.b;
 import tv.chushou.zues.widget.kpswitch.b.e;
 /* loaded from: classes6.dex */
 public class KPSwitchFSPanelLinearLayout extends LinearLayout implements b {
-    private a owi;
+    private a owk;
 
     public KPSwitchFSPanelLinearLayout(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class KPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     }
 
     private void init() {
-        this.owi = new a(this);
+        this.owk = new a(this);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
@@ -38,6 +38,6 @@ public class KPSwitchFSPanelLinearLayout extends LinearLayout implements b {
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void xD(boolean z) {
-        this.owi.xD(z);
+        this.owk.xD(z);
     }
 }

@@ -21,7 +21,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private BdUniqueId eEU;
     private com.baidu.tieba.card.data.k gWR;
     private aa<bw> hly;
-    private u iIu;
+    private u iIw;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,11 +34,11 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 int i;
                 com.baidu.tieba.card.data.k kVar = i.this.gWR;
                 if (kVar != null && kVar.dLK != null && !StringUtils.isNull(kVar.dLK.getTid())) {
-                    if (i.this.iIu.getHeaderImg() != null && view.getId() == i.this.iIu.getHeaderImg().getId()) {
+                    if (i.this.iIw.getHeaderImg() != null && view.getId() == i.this.iIw.getHeaderImg().getId()) {
                         i = 1;
-                    } else if (i.this.iIu.bRr() != null && view.getId() == i.this.iIu.bRr().getId()) {
+                    } else if (i.this.iIw.bRr() != null && view.getId() == i.this.iIw.bRr().getId()) {
                         i = 1;
-                    } else if (i.this.iIu.gYh != null && view.getId() == i.this.iIu.gYh.getId()) {
+                    } else if (i.this.iIw.gYh != null && view.getId() == i.this.iIw.gYh.getId()) {
                         i = 3;
                     } else {
                         i = 2;
@@ -66,17 +66,17 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<u> b(ViewGroup viewGroup) {
-        this.iIu = new u(this.mPageContext);
-        this.iIu.p(this.eEU);
-        this.iIu.mD(false);
-        this.iIu.currentPageType = 0;
-        if (this.iIu.fXb != null) {
-            this.iIu.fXb.ekb = 0;
+        this.iIw = new u(this.mPageContext);
+        this.iIw.p(this.eEU);
+        this.iIw.mD(false);
+        this.iIw.currentPageType = 0;
+        if (this.iIw.fXb != null) {
+            this.iIw.fXb.ekb = 0;
         }
-        if (this.iIu.gYh != null) {
-            this.iIu.gYh.gYV = 0;
+        if (this.iIw.gYh != null) {
+            this.iIw.gYh.gYV = 0;
         }
-        return new com.baidu.tieba.card.a.a<>(this.iIu);
+        return new com.baidu.tieba.card.a.a<>(this.iIw);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

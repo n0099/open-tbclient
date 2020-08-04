@@ -3,7 +3,7 @@ package io.reactivex.internal.functions;
 import io.reactivex.c.d;
 /* loaded from: classes7.dex */
 public final class a {
-    static final d<Object, Object> nSu = new C0904a();
+    static final d<Object, Object> nSw = new C0904a();
 
     public static <T> T k(T t, String str) {
         if (t == null) {

@@ -6,9 +6,9 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class d {
-    public static final b nYI = new b(null);
-    private static final d nYG = kotlin.internal.b.nYp.dUc();
-    public static final a nYH = a.nYJ;
+    public static final b nYK = new b(null);
+    private static final d nYI = kotlin.internal.b.nYr.dUd();
+    public static final a nYJ = a.nYL;
 
     public abstract int Lu(int i);
 
@@ -118,68 +118,68 @@ public abstract class d {
 
         @Override // kotlin.random.d
         public int Lu(int i) {
-            return d.nYG.Lu(i);
+            return d.nYI.Lu(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.nYG.nextInt();
+            return d.nYI.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.nYG.nextInt(i);
+            return d.nYI.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int dV(int i, int i2) {
-            return d.nYG.dV(i, i2);
+            return d.nYI.dV(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.nYG.nextLong();
+            return d.nYI.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.nYG.nextBoolean();
+            return d.nYI.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.nYG.nextDouble();
+            return d.nYI.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.nYG.nextFloat();
+            return d.nYI.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] ay(byte[] bArr) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.nYG.ay(bArr);
+            return d.nYI.ay(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] w(byte[] bArr, int i, int i2) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.nYG.w(bArr, i, i2);
+            return d.nYI.w(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes7.dex */
     public static final class a extends d {
-        public static final a nYJ = new a();
+        public static final a nYL = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
         public int Lu(int i) {
-            return d.nYI.Lu(i);
+            return d.nYK.Lu(i);
         }
     }
 }

@@ -15,19 +15,19 @@ import tbclient.SimpleForum;
 public class b implements com.baidu.tieba.c.c {
     private c.a hjh;
     private int mPrivateThread;
-    private com.baidu.tieba.write.transmit.model.a mtv;
-    private List<SimpleForum> mtw;
-    private boolean mtx;
+    private com.baidu.tieba.write.transmit.model.a mtx;
+    private List<SimpleForum> mty;
+    private boolean mtz;
     private ArrayList<TransmitForumData> fkE = new ArrayList<>();
-    private a.InterfaceC0782a mty = new a.InterfaceC0782a() { // from class: com.baidu.tieba.write.b.1
+    private a.InterfaceC0782a mtA = new a.InterfaceC0782a() { // from class: com.baidu.tieba.write.b.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0782a
         public void onError() {
-            b.this.dtX();
+            b.this.dtY();
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0782a
         public void t(List<SimpleForum> list, int i) {
-            b.this.mtw = list;
+            b.this.mty = list;
             b.this.mPrivateThread = i;
             b.this.bST();
         }
@@ -35,16 +35,16 @@ public class b implements com.baidu.tieba.c.c {
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.mtv = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.mtv.a(this.mty);
-        this.mtv.setRequestId(gen);
+        this.mtx = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.mtx.a(this.mtA);
+        this.mtx.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bST() {
         this.fkE.clear();
-        if (x.getCount(this.mtw) > 0) {
-            for (SimpleForum simpleForum : this.mtw) {
+        if (x.getCount(this.mty) > 0) {
+            for (SimpleForum simpleForum : this.mty) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -63,22 +63,22 @@ public class b implements com.baidu.tieba.c.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dtX() {
-        if (!this.mtx) {
+    public void dtY() {
+        if (!this.mtz) {
             if (this.hjh != null) {
                 this.hjh.a(null, false, 2, 0);
             }
-            this.mtx = true;
+            this.mtz = true;
         }
     }
 
     @Override // com.baidu.tieba.c.c
     public void bSM() {
-        if (this.hjh != null && this.mtv != null) {
-            this.mtx = false;
-            this.mtv.setThreadTitle(null);
-            this.mtv.setThreadContent(null);
-            this.mtv.loadData();
+        if (this.hjh != null && this.mtx != null) {
+            this.mtz = false;
+            this.mtx.setThreadTitle(null);
+            this.mtx.setThreadContent(null);
+            this.mtx.loadData();
         }
     }
 

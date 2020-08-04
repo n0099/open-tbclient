@@ -8,15 +8,15 @@ import java.util.Map;
 import master.flame.danmaku.danmaku.model.android.a;
 /* loaded from: classes6.dex */
 public class h extends b {
-    private static final Map<Float, Float> oeu = new HashMap();
+    private static final Map<Float, Float> oew = new HashMap();
 
     protected Float b(master.flame.danmaku.danmaku.model.d dVar, Paint paint) {
         Float valueOf = Float.valueOf(paint.getTextSize());
-        Float f = oeu.get(valueOf);
+        Float f = oew.get(valueOf);
         if (f == null) {
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
             Float valueOf2 = Float.valueOf(fontMetrics.leading + (fontMetrics.descent - fontMetrics.ascent));
-            oeu.put(valueOf, valueOf2);
+            oew.put(valueOf, valueOf2);
             return valueOf2;
         }
         return f;
@@ -27,24 +27,24 @@ public class h extends b {
         String[] strArr;
         float f = 0.0f;
         Float valueOf = Float.valueOf(0.0f);
-        if (dVar.obK == null) {
+        if (dVar.obM == null) {
             if (dVar.text != null) {
                 f = textPaint.measureText(dVar.text.toString());
                 valueOf = b(dVar, textPaint);
             }
-            dVar.obO = f;
-            dVar.obP = valueOf.floatValue();
+            dVar.obQ = f;
+            dVar.obR = valueOf.floatValue();
             return;
         }
         Float b = b(dVar, textPaint);
         float f2 = 0.0f;
-        for (String str : dVar.obK) {
+        for (String str : dVar.obM) {
             if (str.length() > 0) {
                 f2 = Math.max(textPaint.measureText(str), f2);
             }
         }
-        dVar.obO = f2;
-        dVar.obP = dVar.obK.length * b.floatValue();
+        dVar.obQ = f2;
+        dVar.obR = dVar.obM.length * b.floatValue();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,15 +87,15 @@ public class h extends b {
         c0923a.ya(z);
         TextPaint d = c0923a.d(dVar, z);
         b(dVar, canvas, f, f2);
-        if (dVar.obK != null) {
-            String[] strArr = dVar.obK;
+        if (dVar.obM != null) {
+            String[] strArr = dVar.obM;
             if (strArr.length == 1) {
                 if (c0923a.p(dVar)) {
                     c0923a.a(dVar, d, true);
                     float ascent = f3 - d.ascent();
-                    if (c0923a.odm) {
-                        f7 = f4 + c0923a.ode;
-                        ascent += c0923a.odf;
+                    if (c0923a.odo) {
+                        f7 = f4 + c0923a.odg;
+                        ascent += c0923a.odh;
                     } else {
                         f7 = f4;
                     }
@@ -104,7 +104,7 @@ public class h extends b {
                 c0923a.a(dVar, d, false);
                 a(dVar, strArr[0], canvas, f4, f3 - d.ascent(), d, z);
             } else {
-                float length = (dVar.obP - (dVar.padding * 2)) / strArr.length;
+                float length = (dVar.obR - (dVar.padding * 2)) / strArr.length;
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -115,9 +115,9 @@ public class h extends b {
                         if (c0923a.p(dVar)) {
                             c0923a.a(dVar, d, true);
                             float ascent2 = ((i2 * length) + f3) - d.ascent();
-                            if (c0923a.odm) {
-                                f6 = f4 + c0923a.ode;
-                                ascent2 += c0923a.odf;
+                            if (c0923a.odo) {
+                                f6 = f4 + c0923a.odg;
+                                ascent2 += c0923a.odh;
                             } else {
                                 f6 = f4;
                             }
@@ -133,9 +133,9 @@ public class h extends b {
             if (c0923a.p(dVar)) {
                 c0923a.a(dVar, d, true);
                 float ascent3 = f3 - d.ascent();
-                if (c0923a.odm) {
-                    f5 = f4 + c0923a.ode;
-                    ascent3 += c0923a.odf;
+                if (c0923a.odo) {
+                    f5 = f4 + c0923a.odg;
+                    ascent3 += c0923a.odh;
                 } else {
                     f5 = f4;
                 }
@@ -146,11 +146,11 @@ public class h extends b {
         }
         if (dVar.underlineColor != 0) {
             Paint r = c0923a.r(dVar);
-            float f10 = (dVar.obP + f2) - c0923a.odd;
-            canvas.drawLine(f, f10, f + dVar.obO, f10, r);
+            float f10 = (dVar.obR + f2) - c0923a.odf;
+            canvas.drawLine(f, f10, f + dVar.obQ, f10, r);
         }
         if (dVar.borderColor != 0) {
-            canvas.drawRect(f, f2, f + dVar.obO, f2 + dVar.obP, c0923a.q(dVar));
+            canvas.drawRect(f, f2, f + dVar.obQ, f2 + dVar.obR, c0923a.q(dVar));
         }
     }
 }

@@ -4,8 +4,8 @@ import com.facebook.common.internal.g;
 /* loaded from: classes3.dex */
 public class d {
     public final int height;
-    public final float naA;
-    public final float naz;
+    public final float naB;
+    public final float naC;
     public final int width;
 
     public d(int i, int i2) {
@@ -21,8 +21,8 @@ public class d {
         g.checkArgument(i2 > 0);
         this.width = i;
         this.height = i2;
-        this.naz = f;
-        this.naA = f2;
+        this.naB = f;
+        this.naC = f2;
     }
 
     public int hashCode() {

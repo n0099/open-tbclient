@@ -33,10 +33,10 @@ public class a {
             }
         }
     };
-    private TopicDetailView iEz;
+    private TopicDetailView iEB;
 
     public a(TopicDetailView topicDetailView) {
-        this.iEz = topicDetailView;
+        this.iEB = topicDetailView;
     }
 
     public void m(BdUniqueId bdUniqueId) {
@@ -91,7 +91,7 @@ public class a {
             bvVar.a(build);
             bvVar.cp(new Date().getTime());
             if (k.aa(bvVar)) {
-                this.iEz.aB(bvVar);
+                this.iEB.aB(bvVar);
             }
         }
     }

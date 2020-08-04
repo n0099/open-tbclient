@@ -36,8 +36,8 @@ public class a extends j<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.liveca
         super.a(i, view, viewGroup, (ViewGroup) gVar, (com.baidu.tieba.tbadkCore.g) bVar);
         if (gVar != null) {
             int topThreadSize = this.hEX != null ? this.hEX.getTopThreadSize() : 0;
-            if (gVar.lKR != null && gVar.lKR.get(0) != null) {
-                gVar.lKR.get(0).dPI = (i + 1) - topThreadSize;
+            if (gVar.lKT != null && gVar.lKT.get(0) != null) {
+                gVar.lKT.get(0).dPI = (i + 1) - topThreadSize;
             }
             bVar.fWX.setForumName(this.mForumName);
             bVar.fWX.a(gVar);

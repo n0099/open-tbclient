@@ -337,7 +337,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new g();
-                    this.mFrsInsertLiveData.lKS = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.lKU = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i4 = 0; i4 < dataRes.ala_live_insert.ala_live_list.size(); i4++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i4) != null) {
@@ -347,7 +347,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             arrayList.add(bvVar);
                         }
                     }
-                    this.mFrsInsertLiveData.lKR = arrayList;
+                    this.mFrsInsertLiveData.lKT = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new h();
@@ -360,7 +360,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             arrayList2.add(bvVar2);
                         }
                     }
-                    this.mFrsStageLiveData.lKU = arrayList2;
+                    this.mFrsStageLiveData.lKW = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -453,7 +453,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             if (serviceArea.area_smart_app != null) {
                                 aa aaVar = new aa();
                                 aaVar.c(serviceArea.area_smart_app);
-                                zVar.lMh = aaVar;
+                                zVar.lMj = aaVar;
                             }
                             if (this.forum != null) {
                                 zVar.forumName = this.forum.getName();
@@ -467,7 +467,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         }
                         i7 = i;
                     }
-                    this.serviceAreaData.lMg = arrayList3.size();
+                    this.serviceAreaData.lMi = arrayList3.size();
                     this.serviceAreaData.dataList = arrayList3;
                 }
                 this.itemInfo = dataRes.item_info;

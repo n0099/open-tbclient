@@ -115,12 +115,12 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
     private boolean gWx;
     private TbImageView gYD;
     private LinearLayout gYc;
-    public TextView hQP;
-    public LinearLayout hQQ;
-    private i hQR;
-    public boolean hQS;
-    public int hQT;
-    private View.OnClickListener hQU;
+    public TextView hQR;
+    public LinearLayout hQS;
+    private i hQT;
+    public boolean hQU;
+    public int hQV;
+    private View.OnClickListener hQW;
     protected String mForumName;
     private View mMaskView;
     private int mSkinType;
@@ -246,7 +246,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
                 a.this.stopPlay();
             }
         };
-        this.hQU = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.a.9
+        this.hQW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.a.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.aeA != null && !StringUtils.isNull(a.this.aeA.aWp())) {
@@ -302,7 +302,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
         this.fbk = view.findViewById(R.id.divider_line);
         this.fWZ = (RelativeLayout) view.findViewById(R.id.layout_root);
         this.gYD = (TbImageView) view.findViewById(R.id.frs_normal_item_star_view);
-        this.hQQ = (LinearLayout) view.findViewById(R.id.video_card_content_layout);
+        this.hQS = (LinearLayout) view.findViewById(R.id.video_card_content_layout);
         this.fWZ.setOnClickListener(this);
         this.gWt = (HeadPendantClickableView) this.fWZ.findViewById(R.id.card_home_page_video_user_pendant_header);
         if (this.gWt.getHeadView() != null) {
@@ -317,9 +317,9 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             this.gWt.getPendantView().setIsRound(true);
             this.gWt.getPendantView().setDrawBorder(false);
         }
-        this.hQP = (TextView) view.findViewById(R.id.thread_info_bar_name);
-        this.hQP.setVisibility(8);
-        this.hQP.setOnClickListener(this.hQU);
+        this.hQR = (TextView) view.findViewById(R.id.thread_info_bar_name);
+        this.hQR.setVisibility(8);
+        this.hQR.setOnClickListener(this.hQW);
         this.eRv = new m((ViewGroup) view.findViewById(R.id.auto_video_loading_container));
         this.eRv.setLoadingAnimationListener(this.gWE);
         this.mTextTitle = (TextView) view.findViewById(R.id.text_title);
@@ -397,8 +397,8 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
         this.eRq = (TextView) view.findViewById(R.id.text_video_duration);
         this.eRx = (TextView) view.findViewById(R.id.text_video_play_count);
         this.gYc = (LinearLayout) view.findViewById(R.id.duration_container);
-        this.hQR = new i(tbPageContext, this.fWZ);
-        this.hQR.setUniqueId(getTag());
+        this.hQT = new i(tbPageContext, this.fWZ);
+        this.hQT.setUniqueId(getTag());
         this.gWs = (ThreadGodReplyLayout) view.findViewById(R.id.card_god_reply_layout);
         this.gWs.setOnClickListener(this);
         this.mMaskView = view.findViewById(R.id.thread_multi_del_mask_view);
@@ -433,7 +433,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z = false;
-        if (view == this.fWZ || view == this.fXb.getCommentNumView() || view == this.hQQ) {
+        if (view == this.fWZ || view == this.fXb.getCommentNumView() || view == this.hQS) {
             bV(this.fWZ);
         } else if (view == this.eRp) {
             if (this.aeA != null && this.aeA.aWD() != null) {
@@ -468,7 +468,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
     private void bRu() {
         if (this.aeA != null) {
             String str = "frs";
-            if (this.hQT == 501) {
+            if (this.hQV == 501) {
                 str = "frs_tab";
             }
             ArrayList arrayList = new ArrayList();
@@ -512,7 +512,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
         videoCardViewInfo.cardViewHeight = getVideoContainer().getHeight();
         videoSerializeVideoThreadInfo.mVideoCardViewInfo = videoCardViewInfo;
         String str = "frs";
-        if (this.hQT == 501) {
+        if (this.hQV == 501) {
             str = "frs_tab";
         }
         VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.dVN.getPageActivity(), str, this.aeA.getTid(), com.baidu.tieba.card.m.aVX(), "", videoSerializeVideoThreadInfo);
@@ -553,10 +553,10 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
                 str = this.aeA.dUt.id;
                 str2 = valueOf;
             }
-            if (this.aeA.aWI() > 0 && com.baidu.tieba.tbadkCore.util.e.dmp()) {
+            if (this.aeA.aWI() > 0 && com.baidu.tieba.tbadkCore.util.e.dmq()) {
                 PbActivityConfig createHistoryCfg = new PbActivityConfig(this.dVN.getPageActivity()).createHistoryCfg(this.aeA.getTid(), String.valueOf(this.aeA.aWI()), false, true, "frs_page");
                 String str3 = "frs";
-                if (this.hQT == 501) {
+                if (this.hQV == 501) {
                     str3 = "frs_tab";
                 } else if (this.aeA.aXu()) {
                     str3 = ConstantData.VideoLocationType.FRS_5FLOOR;
@@ -575,7 +575,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.dVN.getPageActivity()).createFromThreadCfg(this.aeA, this.mForumName, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             String str4 = "frs";
-            if (this.hQT == 501) {
+            if (this.hQV == 501) {
                 str4 = "frs_tab";
             } else if (this.aeA.aXu()) {
                 str4 = ConstantData.VideoLocationType.FRS_5FLOOR;
@@ -692,7 +692,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             if (bvVar == null) {
                 this.gYD.setVisibility(8);
             } else if (!StringUtils.isNull(bvVar.dUj)) {
-                if (this.hQR != null && this.hQR.cja() && (this.gYD.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                if (this.hQT != null && this.hQT.cja() && (this.gYD.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gYD.getLayoutParams();
                     layoutParams.rightMargin = l.getDimens(this.dVN.getContext(), R.dimen.tbds106);
                     this.gYD.setLayoutParams(layoutParams);
@@ -748,7 +748,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
         }
         this.mTextTitle.setOnTouchListener(new com.baidu.tieba.view.i(aWV));
         this.mTextTitle.setText(aWV);
-        this.hQR.ax(this.aeA);
+        this.hQT.ax(this.aeA);
         X(this.aeA);
         this.fXa.setData(this.aeA);
         if (this.fXa.getHeaderImg() != null) {
@@ -858,7 +858,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
                 this.gWt.getHeadView().setPlaceHolder(1);
             }
             this.eRr.setPlaceHolder(3);
-            this.hQR.onChangeSkinType();
+            this.hQT.onChangeSkinType();
         }
     }
 
@@ -894,7 +894,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
         if (!this.gWx && this.aeA != null && this.aeA.aWD() != null && this.YH != null) {
             this.YH.stopPlayback();
             if (ag.bnb()) {
-                if (this.hQS || com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_FRS, 0) == 1) {
+                if (this.hQU || com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_FRS, 0) == 1) {
                     v(true, 2);
                     if (StringUtils.isNull(this.mVideoUrl)) {
                         TiebaStatic.log(new ap("c12619").dn("obj_locate", "frs").dn("tid", this.aeA.getId()));
@@ -915,7 +915,7 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
     public void bRt() {
         if (this.aeA != null && this.aeA.aWD() != null) {
             String str = this.aeA.aXu() ? ConstantData.VideoLocationType.FRS_5FLOOR : "frs";
-            if (this.hQT == 501) {
+            if (this.hQV == 501) {
                 str = "frs_tab";
             }
             o oVar = new o();
@@ -924,11 +924,11 @@ public class a extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             oVar.eKO = this.aeA.getFid() + "";
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
             oVar.mSource = this.aeA.mRecomSource;
-            oVar.lcL = this.aeA.mRecomAbTag;
-            oVar.lcH = this.aeA.mRecomAbTag;
-            oVar.lcI = this.aeA.mRecomWeight;
-            oVar.lcJ = "";
-            oVar.lcM = this.aeA.aWD().video_md5;
+            oVar.lcN = this.aeA.mRecomAbTag;
+            oVar.lcJ = this.aeA.mRecomAbTag;
+            oVar.lcK = this.aeA.mRecomWeight;
+            oVar.lcL = "";
+            oVar.lcO = this.aeA.aWD().video_md5;
             h.a(this.aeA.aWD().video_md5, "", "1", oVar, this.YH.getPcdnState());
         }
     }

@@ -289,8 +289,8 @@ public class ShareItem {
                 forwardInfo.originalBaijiahaoData = bvVar.dUi.oriUgcInfo;
                 forwardInfo.originalTid = bvVar.dUi.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.dlj() != null) {
-                        str = postData.dlj().toString();
+                    if (postData != null && postData.dlk() != null) {
+                        str = postData.dlk().toString();
                     } else if (bvVar.getAbstract() != null) {
                         str = bvVar.aVM().toString();
                     }

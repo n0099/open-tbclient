@@ -9,11 +9,11 @@ import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes17.dex */
 public class a implements c {
-    private ExcContent kEd;
-    private SpannableString kEe;
+    private ExcContent kEf;
+    private SpannableString kEg;
 
     public a(ExcContent excContent) {
-        this.kEd = excContent;
+        this.kEf = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -23,16 +23,16 @@ public class a implements c {
 
     @Override // com.baidu.tieba.pb.b.a.c
     public CharSequence cSz() {
-        return b(this.kEd);
+        return b(this.kEf);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
         int zx;
         a.C0508a zS;
-        if (this.kEe == null && (zx = TbFaceManager.bkj().zx((str = excContent.text))) != 0) {
+        if (this.kEg == null && (zx = TbFaceManager.bkj().zx((str = excContent.text))) != 0) {
             String str2 = "#(" + TbFaceManager.bkj().zz(str) + ")";
-            this.kEe = new SpannableString(str2 + " ");
+            this.kEg = new SpannableString(str2 + " ");
             com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), zx);
             if (TbFaceManager.bkj().zS(str) != null) {
                 int width = (int) (zS.getWidth() * 0.6d);
@@ -40,9 +40,9 @@ public class a implements c {
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.kEe.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
+            this.kEg.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
         }
-        return this.kEe;
+        return this.kEg;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c

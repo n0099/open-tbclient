@@ -25,10 +25,10 @@ public class ConcernUnreadTipView extends RelativeLayout {
     private int ds94;
     public ImageView gwo;
     private TextView huu;
-    private LinearLayout iBJ;
-    private TextView iBK;
-    private ImageView iBL;
-    private int iBM;
+    private LinearLayout iBL;
+    private TextView iBM;
+    private ImageView iBN;
+    private int iBO;
     private TextView mTitle;
 
     public ConcernUnreadTipView(Context context) {
@@ -48,14 +48,14 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     private void init(Context context) {
         this.ds94 = l.getDimens(getContext(), R.dimen.tbds94);
-        this.iBM = 0 - l.getDimens(getContext(), R.dimen.tbds18);
+        this.iBO = 0 - l.getDimens(getContext(), R.dimen.tbds18);
         LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(R.id.concern_unread_tip_title);
         this.gwo = (ImageView) findViewById(R.id.concern_unread_tip_close);
-        this.iBJ = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
+        this.iBL = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
         this.huu = (TextView) findViewById(R.id.concern_unread_tip_info);
-        this.iBK = (TextView) findViewById(R.id.concern_unread_tip_show);
-        this.iBL = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
+        this.iBM = (TextView) findViewById(R.id.concern_unread_tip_show);
+        this.iBN = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
         setPadding(0, 0, 0, l.getDimens(context, R.dimen.tbds44));
         onChangeSkinType();
     }
@@ -75,29 +75,29 @@ public class ConcernUnreadTipView extends RelativeLayout {
                 setVisibility(8);
                 return;
             }
-            if (eVar.iAX > 0) {
-                com.baidu.tbadk.core.sharedPref.b.aZP().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.iAX);
+            if (eVar.iAZ > 0) {
+                com.baidu.tbadk.core.sharedPref.b.aZP().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.iAZ);
             }
-            if (this.huu != null && !StringUtils.isNull(eVar.iAY)) {
-                this.huu.setText(eVar.iAY);
+            if (this.huu != null && !StringUtils.isNull(eVar.iBa)) {
+                this.huu.setText(eVar.iBa);
             }
-            if (this.iBJ != null && eVar.iAW != null) {
-                this.iBJ.removeAllViews();
-                List<String> list = eVar.iAW;
+            if (this.iBL != null && eVar.iAY != null) {
+                this.iBL.removeAllViews();
+                List<String> list = eVar.iAY;
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
                     if (!StringUtils.isNull(str)) {
                         FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.concern_unread_tip_head_group, null);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ds94, this.ds94);
                         if (i > 0) {
-                            layoutParams.leftMargin = this.iBM;
+                            layoutParams.leftMargin = this.iBO;
                         }
                         frameLayout.setLayoutParams(layoutParams);
                         HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.inner_img);
                         headImageView.setIsRound(true);
                         headImageView.setDrawBorder(false);
                         ao.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                        this.iBJ.addView(frameLayout);
+                        this.iBL.addView(frameLayout);
                         headImageView.setPageId(this.agB);
                         headImageView.startLoad(str, 12, false);
                     }
@@ -111,7 +111,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
         ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
         ao.setImageResource(this.gwo, R.drawable.icon_home_card_delete);
         ao.setViewTextColor(this.huu, R.color.cp_cont_b);
-        ao.setViewTextColor(this.iBK, R.color.cp_cont_d);
-        SvgManager.baR().a(this.iBL, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        ao.setViewTextColor(this.iBM, R.color.cp_cont_d);
+        SvgManager.baR().a(this.iBN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

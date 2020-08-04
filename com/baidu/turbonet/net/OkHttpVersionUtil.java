@@ -4,18 +4,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
 /* loaded from: classes10.dex */
 public class OkHttpVersionUtil {
-    public static boolean dyU() throws RuntimeException {
-        String dyV = dyV();
-        if (dyV.isEmpty()) {
+    public static boolean dyV() throws RuntimeException {
+        String dyW = dyW();
+        if (dyW.isEmpty()) {
             throw new NoSuchElementException();
         }
-        String[] split = dyV.split("/");
+        String[] split = dyW.split("/");
         if (split.length != 2) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dyV));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dyW));
         }
         String[] split2 = split[1].split("\\.");
         if (split2.length != 3) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dyV));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dyW));
         }
         try {
             if (Integer.parseInt(split2[0]) == 3) {
@@ -25,12 +25,12 @@ public class OkHttpVersionUtil {
             }
             return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dyV));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dyW));
         }
     }
 
-    private static String dyV() {
-        if (dyW()) {
+    private static String dyW() {
+        if (dyX()) {
             try {
                 return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
             } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class OkHttpVersionUtil {
         return "";
     }
 
-    private static boolean dyW() {
+    private static boolean dyX() {
         try {
             Class.forName("okhttp3.OkHttpClient");
             return true;

@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.ArrayList;
 /* loaded from: classes15.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
-    private com.baidu.tieba.hottopic.view.d iJC;
-    public LikeModel iJp;
+    private com.baidu.tieba.hottopic.view.d iJE;
+    public LikeModel iJr;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
     private String eeI = "";
     private CustomMessageListener ePR = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.1
@@ -32,7 +32,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (eH != null) {
                         eH.followNum++;
                         eH.setIsLiked(true);
-                        l cpN = RelateTopicForumActivity.this.iJC.cpN();
+                        l cpN = RelateTopicForumActivity.this.iJE.cpN();
                         if (cpN != null) {
                             cpN.b(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.eeI);
                             cpN.notifyDataSetChanged();
@@ -53,7 +53,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (eH != null) {
                         eH.followNum--;
                         eH.setIsLiked(false);
-                        l cpN = RelateTopicForumActivity.this.iJC.cpN();
+                        l cpN = RelateTopicForumActivity.this.iJE.cpN();
                         if (cpN != null) {
                             cpN.b(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.eeI);
                             cpN.notifyDataSetChanged();
@@ -66,10 +66,10 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     private com.baidu.adp.base.d hiv = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.3
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
-            if (AntiHelper.bB(RelateTopicForumActivity.this.iJp.getErrorCode(), RelateTopicForumActivity.this.iJp.getErrorString())) {
-                AntiHelper.aW(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.iJp.getErrorString());
-            } else if (!StringUtils.isNull(RelateTopicForumActivity.this.iJp.getErrorString())) {
-                com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.iJp.getErrorString());
+            if (AntiHelper.bB(RelateTopicForumActivity.this.iJr.getErrorCode(), RelateTopicForumActivity.this.iJr.getErrorString())) {
+                AntiHelper.aW(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.iJr.getErrorString());
+            } else if (!StringUtils.isNull(RelateTopicForumActivity.this.iJr.getErrorString())) {
+                com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.iJr.getErrorString());
             }
         }
     };
@@ -79,22 +79,22 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.iJp = new LikeModel(getPageContext());
-        this.iJp.setLoadDataCallBack(this.hiv);
+        this.iJr = new LikeModel(getPageContext());
+        this.iJr.setLoadDataCallBack(this.hiv);
         registerListener();
         initUI();
         TiebaStatic.log("c10335a");
     }
 
     private void initUI() {
-        this.iJC = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
+        this.iJE = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
         coX();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iJC.onChangeSkinType(i);
+        this.iJE.onChangeSkinType(i);
     }
 
     private void initData(Bundle bundle) {
@@ -125,11 +125,11 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     }
 
     private void coX() {
-        if (this.iJC != null) {
+        if (this.iJE != null) {
             if (this.dataList.isEmpty()) {
-                this.iJC.bxU();
+                this.iJE.bxU();
             } else {
-                this.iJC.bxT();
+                this.iJE.bxT();
             }
         }
     }

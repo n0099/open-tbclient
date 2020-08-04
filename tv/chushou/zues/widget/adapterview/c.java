@@ -3,5 +3,5 @@ package tv.chushou.zues.widget.adapterview;
 public interface c {
     void Md(int i);
 
-    boolean eam();
+    boolean ean();
 }

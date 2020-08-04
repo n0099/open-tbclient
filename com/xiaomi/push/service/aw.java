@@ -11,13 +11,13 @@ public class aw {
     private static aw a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f871a = 0;
+    private int f874a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f872a;
+    private Context f875a;
 
     private aw(Context context) {
-        this.f872a = context.getApplicationContext();
+        this.f875a = context.getApplicationContext();
     }
 
     public static aw a(Context context) {
@@ -29,18 +29,18 @@ public class aw {
 
     @SuppressLint({"NewApi"})
     public int a() {
-        if (this.f871a != 0) {
-            return this.f871a;
+        if (this.f874a != 0) {
+            return this.f874a;
         }
         if (Build.VERSION.SDK_INT >= 17) {
             try {
-                this.f871a = Settings.Global.getInt(this.f872a.getContentResolver(), "device_provisioned", 0);
+                this.f874a = Settings.Global.getInt(this.f875a.getContentResolver(), "device_provisioned", 0);
             } catch (Exception e) {
             }
-            return this.f871a;
+            return this.f874a;
         }
-        this.f871a = Settings.Secure.getInt(this.f872a.getContentResolver(), "device_provisioned", 0);
-        return this.f871a;
+        this.f874a = Settings.Secure.getInt(this.f875a.getContentResolver(), "device_provisioned", 0);
+        return this.f874a;
     }
 
     @SuppressLint({"NewApi"})
@@ -51,6 +51,6 @@ public class aw {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m548a() {
-        return com.xiaomi.push.ab.f93a.contains("xmsf") || com.xiaomi.push.ab.f93a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f93a.contains("miui");
+        return com.xiaomi.push.ab.f96a.contains("xmsf") || com.xiaomi.push.ab.f96a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f96a.contains("miui");
     }
 }

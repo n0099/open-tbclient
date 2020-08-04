@@ -6,13 +6,13 @@ import org.a.c;
 public abstract class a<T> {
     public abstract void a(c<? super T>[] cVarArr);
 
-    public abstract int dTc();
+    public abstract int dTd();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b(c<?>[] cVarArr) {
-        int dTc = dTc();
-        if (cVarArr.length != dTc) {
-            IllegalArgumentException illegalArgumentException = new IllegalArgumentException("parallelism = " + dTc + ", subscribers = " + cVarArr.length);
+        int dTd = dTd();
+        if (cVarArr.length != dTd) {
+            IllegalArgumentException illegalArgumentException = new IllegalArgumentException("parallelism = " + dTd + ", subscribers = " + cVarArr.length);
             for (c<?> cVar : cVarArr) {
                 EmptySubscription.error(illegalArgumentException, cVar);
             }

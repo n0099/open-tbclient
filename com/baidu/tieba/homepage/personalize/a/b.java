@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
     private BdUniqueId eEU;
-    private com.baidu.tieba.card.j izh;
+    private com.baidu.tieba.card.j izj;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
@@ -20,17 +20,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.iAU);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.iAW);
         this.mPageContext = tbPageContext;
-        this.izh = new com.baidu.tieba.card.j(this.mPageContext);
-        this.izh.x("c10714", "c10739", "c10712", "c10738");
-        this.izh.setFrom("home");
+        this.izj = new com.baidu.tieba.card.j(this.mPageContext);
+        this.izj.x("c10714", "c10739", "c10712", "c10738");
+        this.izj.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.eEU = bdUniqueId;
-        if (this.izh != null) {
-            this.izh.m(this.eEU);
+        if (this.izj != null) {
+            this.izj.m(this.eEU);
         }
     }
 
@@ -49,17 +49,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
-        if (this.izh == null) {
-            this.izh = new com.baidu.tieba.card.j(this.mPageContext);
-            this.izh.m(this.eEU);
-            this.izh.x("c10714", "c10739", "c10712", "c10738");
+        if (this.izj == null) {
+            this.izj = new com.baidu.tieba.card.j(this.mPageContext);
+            this.izj.m(this.eEU);
+            this.izj.x("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.izh);
+        return new com.baidu.tieba.card.a.a(this.izj);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.izh != null) {
-            this.izh.onChangeSkinType(this.mPageContext, i);
+        if (this.izj != null) {
+            this.izj.onChangeSkinType(this.mPageContext, i);
         }
     }
 }

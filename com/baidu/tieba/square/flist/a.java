@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.e;
 /* loaded from: classes17.dex */
 public class a extends BaseAdapter {
-    private e lGs;
-    private int lGt = 0;
-    C0749a lGu;
+    private e lGu;
+    private int lGv = 0;
+    C0749a lGw;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
     public class C0749a {
-        ImageView lGv;
-        TextView lGw;
+        ImageView lGx;
+        TextView lGy;
 
         C0749a() {
         }
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lGs == null || this.lGs.lIG == null) {
+        if (this.lGu == null || this.lGu.lII == null) {
             return 0;
         }
-        return this.lGs.lIG.size();
+        return this.lGu.lII.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.lGs == null || this.lGs.lIG == null) {
+        if (this.lGu == null || this.lGu.lII == null) {
             return null;
         }
-        return this.lGs.lIG.get(i);
+        return this.lGu.lII.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,53 +58,53 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = djA();
         }
-        if (this.lGs != null) {
-            e eVar = this.lGs.lIG.get(i);
-            this.lGu = (C0749a) view.getTag();
+        if (this.lGu != null) {
+            e eVar = this.lGu.lII.get(i);
+            this.lGw = (C0749a) view.getTag();
             if (eVar != null) {
-                a(this.lGu, eVar, view, i);
+                a(this.lGw, eVar, view, i);
             }
         }
         return view;
     }
 
     public void Fd(int i) {
-        this.lGt = i;
+        this.lGv = i;
         notifyDataSetChanged();
     }
 
     public void a(e eVar) {
-        this.lGs = eVar;
+        this.lGu = eVar;
     }
 
     public e djz() {
-        return this.lGs;
+        return this.lGu;
     }
 
     private View djA() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.lGu = new C0749a();
-        this.lGu.lGv = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.lGu.lGw = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.lGu);
+        this.lGw = new C0749a();
+        this.lGw.lGx = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.lGw.lGy = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.lGw);
         return inflate;
     }
 
     private void a(C0749a c0749a, e eVar, View view, int i) {
         if (c0749a != null && eVar != null) {
-            c0749a.lGw.setText("");
+            c0749a.lGy.setText("");
             if (i == 0) {
-                c0749a.lGw.setText(this.mActivity.getString(R.string.all) + eVar.lGA);
+                c0749a.lGy.setText(this.mActivity.getString(R.string.all) + eVar.lGC);
             } else {
-                c0749a.lGw.setText(eVar.lGA);
+                c0749a.lGy.setText(eVar.lGC);
             }
-            if (i != this.lGt) {
-                c0749a.lGv.setVisibility(4);
-                ao.setViewTextColor(c0749a.lGw, R.color.common_color_10200, 1);
+            if (i != this.lGv) {
+                c0749a.lGx.setVisibility(4);
+                ao.setViewTextColor(c0749a.lGy, R.color.common_color_10200, 1);
                 return;
             }
-            c0749a.lGv.setVisibility(0);
-            ao.setViewTextColor(c0749a.lGw, R.color.common_color_10013, 1);
+            c0749a.lGx.setVisibility(0);
+            ao.setViewTextColor(c0749a.lGy, R.color.common_color_10013, 1);
         }
     }
 }

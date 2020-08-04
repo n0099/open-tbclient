@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean jVi = true;
+    private boolean jVk = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -251,11 +251,11 @@ public class a implements f {
     }
 
     public boolean cHt() {
-        return this.jVi;
+        return this.jVk;
     }
 
     public void rB(boolean z) {
-        this.jVi = z;
+        this.jVk = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d

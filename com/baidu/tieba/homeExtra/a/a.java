@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a extends com.baidu.tieba.homepage.a.a.a {
-    private com.baidu.tieba.lego.c.a irw;
+    private com.baidu.tieba.lego.c.a iry;
 
     public void a(com.baidu.tieba.lego.c.a aVar) {
-        this.irw = aVar;
+        this.iry = aVar;
         update();
         clo();
     }
 
     private void update() {
-        if (this.irw != null && this.irw.hasData()) {
-            List<ICardInfo> cCp = this.irw.cCp();
+        if (this.iry != null && this.iry.hasData()) {
+            List<ICardInfo> cCp = this.iry.cCp();
             this.mThreadList = new ArrayList();
             this.mThreadList.addAll(cCp);
-            this.mHasMore = this.irw.hasMore();
-            this.pn = this.irw.getPn();
+            this.mHasMore = this.iry.hasMore();
+            this.pn = this.iry.getPn();
         }
     }
 

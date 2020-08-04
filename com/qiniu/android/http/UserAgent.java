@@ -9,23 +9,23 @@ import java.util.Locale;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public final class UserAgent {
-    private static UserAgent nMc = new UserAgent();
-    public final String id = dQk();
+    private static UserAgent nMe = new UserAgent();
+    public final String id = dQl();
     public final String ua = Sr(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent dQj() {
-        return nMc;
+    public static UserAgent dQk() {
+        return nMe;
     }
 
-    private static String dQk() {
+    private static String dQl() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
     static String Sr(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", OQ(), dQl(), str);
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", OQ(), dQm(), str);
     }
 
     private static String OQ() {
@@ -40,7 +40,7 @@ public final class UserAgent {
         }
     }
 
-    private static String dQl() {
+    private static String dQm() {
         try {
             String trim = Build.MODEL.trim();
             String ga = ga(Build.MANUFACTURER.trim(), trim);

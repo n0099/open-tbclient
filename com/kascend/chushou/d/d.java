@@ -12,7 +12,7 @@ import kotlin.text.l;
 @kotlin.h
 /* loaded from: classes6.dex */
 public final class d {
-    public static final d nnD = new d();
+    public static final d nnF = new d();
 
     private d() {
     }
@@ -25,7 +25,7 @@ public final class d {
             return null;
         }
         if (str == null) {
-            q.dUg();
+            q.dUh();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -55,10 +55,10 @@ public final class d {
         q.m(cVar, "sp");
         int length = cVar.length();
         ImageRequestBuilder xr = ImageRequestBuilder.ab(i.RK(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).xr(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).IL(com.kascend.chushou.view.a.a(null)).dEN(), tv.chushou.basis.d.b.dZE());
-        com.facebook.drawee.controller.a dDZ = com.facebook.drawee.a.a.c.dDm().bc(xr.dKr()).dEd();
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).IL(com.kascend.chushou.view.a.a(null)).dEO(), tv.chushou.basis.d.b.dZF());
+        com.facebook.drawee.controller.a dEa = com.facebook.drawee.a.a.c.dDn().bc(xr.dKs()).dEe();
         q.l((Object) a, "draweeHolder");
-        a.setController(dDZ);
+        a.setController(dEa);
         cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
@@ -67,7 +67,7 @@ public final class d {
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.eaj();
+        tv.chushou.zues.utils.h.eak();
         System.gc();
     }
 }

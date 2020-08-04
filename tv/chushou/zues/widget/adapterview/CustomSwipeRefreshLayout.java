@@ -5,11 +5,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 /* loaded from: classes6.dex */
 public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
-    private a otw;
+    private a oty;
 
     /* loaded from: classes6.dex */
     public interface a {
-        boolean eal();
+        boolean eam();
     }
 
     public CustomSwipeRefreshLayout(Context context) {
@@ -21,11 +21,11 @@ public class CustomSwipeRefreshLayout extends SwipeRefreshLayout {
     }
 
     public void setCanChildScrollUpCallback(a aVar) {
-        this.otw = aVar;
+        this.oty = aVar;
     }
 
     @Override // android.support.v4.widget.SwipeRefreshLayout
     public boolean canChildScrollUp() {
-        return this.otw != null ? this.otw.eal() : super.canChildScrollUp();
+        return this.oty != null ? this.oty.eam() : super.canChildScrollUp();
     }
 }

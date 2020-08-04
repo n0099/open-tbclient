@@ -13,19 +13,19 @@ import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes16.dex */
 public class f extends AbsThreadDataSupport {
-    public static final BdUniqueId iAZ = BdUniqueId.gen();
-    private List<AlaLiveInfo> iBa = new ArrayList();
+    public static final BdUniqueId iBb = BdUniqueId.gen();
+    private List<AlaLiveInfo> iBc = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.iBa.clear();
+        this.iBc.clear();
         if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !x.isEmpty(userFollowLive.user_follow_live)) {
-            this.iBa.addAll(userFollowLive.user_follow_live);
+            this.iBc.addAll(userFollowLive.user_follow_live);
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iAZ;
+        return iBb;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -39,7 +39,7 @@ public class f extends AbsThreadDataSupport {
     }
 
     public List<AlaLiveInfo> cnB() {
-        return this.iBa;
+        return this.iBc;
     }
 
     public ap cnC() {

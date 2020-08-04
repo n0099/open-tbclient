@@ -25,8 +25,8 @@ import tbclient.SubBottomMenu;
 /* loaded from: classes16.dex */
 public class BottomMenuView extends LinearLayout {
     private View fbk;
-    private a hMR;
-    private LinearLayout hMS;
+    private a hMT;
+    private LinearLayout hMU;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
 
@@ -51,7 +51,7 @@ public class BottomMenuView extends LinearLayout {
     }
 
     public void setOnMenuItemClickListener(a aVar) {
-        this.hMR = aVar;
+        this.hMT = aVar;
     }
 
     public void a(List<BottomMenu> list, TbPageContext<?> tbPageContext) {
@@ -62,10 +62,10 @@ public class BottomMenuView extends LinearLayout {
             this.fbk.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds16)));
             this.fbk.setBackgroundResource(R.drawable.bottom_view_shadow);
             addView(this.fbk);
-            this.hMS = new LinearLayout(getContext());
-            this.hMS.setOrientation(0);
-            this.hMS.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            addView(this.hMS);
+            this.hMU = new LinearLayout(getContext());
+            this.hMU.setOrientation(0);
+            this.hMU.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            addView(this.hMU);
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 MenuItemView menuItemView = new MenuItemView(tbPageContext);
@@ -73,18 +73,18 @@ public class BottomMenuView extends LinearLayout {
                 layoutParams.weight = 1.0f;
                 menuItemView.setLayoutParams(layoutParams);
                 menuItemView.setMenuData(list.get(i));
-                menuItemView.setOnMenuItemClickListener(this.hMR);
-                this.hMS.addView(menuItemView);
+                menuItemView.setOnMenuItemClickListener(this.hMT);
+                this.hMU.addView(menuItemView);
             }
         }
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (i != this.mSkinType && this.hMS != null) {
+        if (i != this.mSkinType && this.hMU != null) {
             this.mSkinType = i;
-            int childCount = this.hMS.getChildCount();
+            int childCount = this.hMU.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.hMS.getChildAt(i2);
+                View childAt = this.hMU.getChildAt(i2);
                 if (childAt != null) {
                     if (childAt instanceof MenuItemView) {
                         ((MenuItemView) childAt).onChangeSkinType(tbPageContext, i);
@@ -101,55 +101,55 @@ public class BottomMenuView extends LinearLayout {
 
     /* loaded from: classes16.dex */
     public static class MenuItemView extends LinearLayout implements View.OnClickListener {
-        private static final int hMT = R.drawable.icon_card_morelist_n;
-        private a hMR;
-        private int hMU;
-        private ImageView hMV;
-        private TextView hMW;
-        private BottomMenu hMX;
-        private boolean hMY;
-        private b hMZ;
+        private static final int hMV = R.drawable.icon_card_morelist_n;
+        private a hMT;
+        private int hMW;
+        private ImageView hMX;
+        private TextView hMY;
+        private BottomMenu hMZ;
+        private boolean hNa;
+        private b hNb;
         private TbPageContext<?> mPageContext;
 
         public MenuItemView(TbPageContext<?> tbPageContext) {
             super(tbPageContext.getPageActivity());
-            this.hMU = hMT;
+            this.hMW = hMV;
             setGravity(17);
             setOnClickListener(this);
             LayoutInflater.from(getContext()).inflate(R.layout.bottom_menu_item, this);
             this.mPageContext = tbPageContext;
-            this.hMV = (ImageView) findViewById(R.id.item_image);
-            this.hMW = (TextView) findViewById(R.id.item_text);
+            this.hMX = (ImageView) findViewById(R.id.item_image);
+            this.hMY = (TextView) findViewById(R.id.item_text);
         }
 
         public void setOnMenuItemClickListener(a aVar) {
-            this.hMR = aVar;
+            this.hMT = aVar;
         }
 
         public void setMenuData(BottomMenu bottomMenu) {
             if (bottomMenu != null) {
-                this.hMX = bottomMenu;
-                this.hMY = x.getCount(bottomMenu.submenu) > 0;
-                this.hMW.setText(bottomMenu.name);
+                this.hMZ = bottomMenu;
+                this.hNa = x.getCount(bottomMenu.submenu) > 0;
+                this.hMY.setText(bottomMenu.name);
                 onChangeSkinType(this.mPageContext, 0);
             }
         }
 
         public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-            setMenuIcon(this.hMU);
-            ao.setViewTextColor(this.hMW, R.color.cp_cont_b);
+            setMenuIcon(this.hMW);
+            ao.setViewTextColor(this.hMY, R.color.cp_cont_b);
             ao.setBackgroundResource(this, R.drawable.addresslist_item_bg);
         }
 
         private void setMenuIcon(int i) {
-            this.hMU = i;
-            if (this.hMY) {
-                this.hMV.setVisibility(0);
-                this.hMV.setImageResource(i);
-                ao.setImageResource(this.hMV, i);
+            this.hMW = i;
+            if (this.hNa) {
+                this.hMX.setVisibility(0);
+                this.hMX.setImageResource(i);
+                ao.setImageResource(this.hMX, i);
                 return;
             }
-            this.hMV.setVisibility(8);
+            this.hMX.setVisibility(8);
         }
 
         public e getPageContext() {
@@ -158,40 +158,40 @@ public class BottomMenuView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.hMY) {
-                getSubMenuGenerator().a(this, this.hMX.submenu);
+            if (this.hNa) {
+                getSubMenuGenerator().a(this, this.hMZ.submenu);
             }
-            if (this.hMR != null) {
-                this.hMR.a(this, this.hMX);
+            if (this.hMT != null) {
+                this.hMT.a(this, this.hMZ);
             }
         }
 
         private b getSubMenuGenerator() {
-            if (this.hMZ == null) {
-                this.hMZ = new b();
-                this.hMZ.setOnMenuItemClickListener(this.hMR);
+            if (this.hNb == null) {
+                this.hNb = new b();
+                this.hNb.setOnMenuItemClickListener(this.hMT);
             }
-            return this.hMZ;
+            return this.hNb;
         }
     }
 
     /* loaded from: classes16.dex */
     public static class b implements View.OnClickListener {
-        private a hMR;
-        private RelativeLayout hNa;
+        private a hMT;
+        private RelativeLayout hNc;
         private final int[] mLocation = new int[2];
         private PopupWindow mPopupWindow;
 
         public void setOnMenuItemClickListener(a aVar) {
-            this.hMR = aVar;
+            this.hMT = aVar;
         }
 
         public void a(MenuItemView menuItemView, List<SubBottomMenu> list) {
             if (menuItemView != null && !x.isEmpty(list)) {
                 Activity pageActivity = menuItemView.getPageContext().getPageActivity();
-                this.hNa = new RelativeLayout(pageActivity);
-                this.hNa.setBackgroundColor(ao.getColor(R.color.cp_mask_b_alpha66));
-                this.hNa.setOnClickListener(this);
+                this.hNc = new RelativeLayout(pageActivity);
+                this.hNc.setBackgroundColor(ao.getColor(R.color.cp_mask_b_alpha66));
+                this.hNc.setOnClickListener(this);
                 LinearLayout linearLayout = new LinearLayout(pageActivity);
                 linearLayout.setOrientation(1);
                 int size = list.size();
@@ -203,13 +203,13 @@ public class BottomMenuView extends LinearLayout {
                     linearLayout.addView(subMenuItemView);
                     i++;
                 }
-                this.hNa.addView(linearLayout);
+                this.hNc.addView(linearLayout);
                 menuItemView.getLocationInWindow(this.mLocation);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
                 layoutParams.width = menuItemView.getWidth();
                 layoutParams.addRule(12);
                 layoutParams.leftMargin = this.mLocation[0];
-                this.mPopupWindow = new PopupWindow(this.hNa, -1, this.mLocation[1]);
+                this.mPopupWindow = new PopupWindow(this.hNc, -1, this.mLocation[1]);
                 this.mPopupWindow.setOutsideTouchable(true);
                 this.mPopupWindow.setFocusable(true);
                 this.mPopupWindow.setClippingEnabled(false);
@@ -224,10 +224,10 @@ public class BottomMenuView extends LinearLayout {
             if (view instanceof SubMenuItemView) {
                 g.dismissPopupWindow(this.mPopupWindow);
                 SubMenuItemView subMenuItemView = (SubMenuItemView) view;
-                if (this.hMR != null) {
-                    this.hMR.a(subMenuItemView, subMenuItemView.getSubMenuData());
+                if (this.hMT != null) {
+                    this.hMT.a(subMenuItemView, subMenuItemView.getSubMenuData());
                 }
-            } else if (view == this.hNa) {
+            } else if (view == this.hNc) {
                 g.dismissPopupWindow(this.mPopupWindow);
             }
         }
@@ -236,7 +236,7 @@ public class BottomMenuView extends LinearLayout {
     /* loaded from: classes16.dex */
     public static class SubMenuItemView extends LinearLayout {
         private View dty;
-        private SubBottomMenu hNb;
+        private SubBottomMenu hNd;
         private TextView mTitleView;
 
         public SubMenuItemView(Context context) {
@@ -249,7 +249,7 @@ public class BottomMenuView extends LinearLayout {
 
         public void setSubMenuData(SubBottomMenu subBottomMenu, int i, boolean z) {
             if (subBottomMenu != null) {
-                this.hNb = subBottomMenu;
+                this.hNd = subBottomMenu;
                 this.mTitleView.setText(subBottomMenu.name);
                 ao.setViewTextColor(this.mTitleView, R.color.cp_cont_f);
                 ao.setBackgroundResource(this, i == 0 ? R.drawable.bottom_menu_item_bg_corner_selector : R.drawable.bottom_menu_item_bg_selector);
@@ -263,7 +263,7 @@ public class BottomMenuView extends LinearLayout {
         }
 
         public SubBottomMenu getSubMenuData() {
-            return this.hNb;
+            return this.hNd;
         }
     }
 }

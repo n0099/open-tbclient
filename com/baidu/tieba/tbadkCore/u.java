@@ -21,8 +21,8 @@ public class u {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> lLV = new ArrayList();
-    private int lLU = 0;
+    private List<FeedForumData> lLX = new ArrayList();
+    private int lLW = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -66,7 +66,7 @@ public class u {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.lLU = jSONObject.optInt("is_black", 0);
+                this.lLW = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -110,7 +110,7 @@ public class u {
                     feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.lLV.add(feedForumData);
+                    this.lLX.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,8 +154,8 @@ public class u {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> dkt() {
-        return this.lLV;
+    public List<FeedForumData> dku() {
+        return this.lLX;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -166,7 +166,7 @@ public class u {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String dkC() {
+    public String dkD() {
         return this.blockUrl;
     }
 

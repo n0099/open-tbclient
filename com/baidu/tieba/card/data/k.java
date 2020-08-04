@@ -176,7 +176,7 @@ public class k extends c {
                 ED.setPosition(this.position);
                 if (aTN() != null) {
                     bv aTN = aTN();
-                    ED.ah("obj_name", aTN.aXO() != null && (aTN.aXO().dlj() != null || aTN.aXO().boR() != null) ? 1 : 0);
+                    ED.ah("obj_name", aTN.aXO() != null && (aTN.aXO().dlk() != null || aTN.aXO().boR() != null) ? 1 : 0);
                     if (aTN.aWl() != null) {
                         ED.ah(TiebaInitialize.Params.AB_TYPE, aTN.aWl().hadConcerned() ? 1 : 0);
                     }
@@ -205,10 +205,10 @@ public class k extends c {
                 ED3.dn("ab_tag", bRY()).dn(TiebaInitialize.Params.AB_ACTION, "show");
                 if (aTN() != null) {
                     bv aTN2 = aTN();
-                    boolean z = (aTN2.aXO() == null || (aTN2.aXO().dlj() == null && aTN2.aXO().boR() == null)) ? false : true;
+                    boolean z = (aTN2.aXO() == null || (aTN2.aXO().dlk() == null && aTN2.aXO().boR() == null)) ? false : true;
                     ED3.ah("obj_name", z ? 1 : 0);
-                    if (z && aTN2.aXO().dlj() != null && aTN2.aXO().dlj().boJ() != null && aTN2.aXO().dlj().boJ().size() > 0) {
-                        ED3.ah(TiebaInitialize.Params.OBJ_TO, aTN2.aXO().lNH ? 2 : 1);
+                    if (z && aTN2.aXO().dlk() != null && aTN2.aXO().dlk().boJ() != null && aTN2.aXO().dlk().boJ().size() > 0) {
+                        ED3.ah(TiebaInitialize.Params.OBJ_TO, aTN2.aXO().lNJ ? 2 : 1);
                     }
                     if (aTN2.aWl() != null) {
                         ED3.ah(TiebaInitialize.Params.AB_TYPE, aTN2.aWl().hadConcerned() ? 1 : 0);
@@ -268,10 +268,10 @@ public class k extends c {
             ED.dn("ab_tag", bRY()).dn(TiebaInitialize.Params.AB_ACTION, "show");
             if (aTN() != null) {
                 bv aTN = aTN();
-                boolean z = (aTN.aXO() == null || (aTN.aXO().dlj() == null && aTN.aXO().boR() == null)) ? false : true;
+                boolean z = (aTN.aXO() == null || (aTN.aXO().dlk() == null && aTN.aXO().boR() == null)) ? false : true;
                 ED.ah("obj_name", z ? 1 : 0);
-                if (z && aTN.aXO().dlj() != null && aTN.aXO().dlj().boJ() != null && aTN.aXO().dlj().boJ().size() > 0) {
-                    ED.ah(TiebaInitialize.Params.OBJ_TO, aTN.aXO().lNH ? 2 : 1);
+                if (z && aTN.aXO().dlk() != null && aTN.aXO().dlk().boJ() != null && aTN.aXO().dlk().boJ().size() > 0) {
+                    ED.ah(TiebaInitialize.Params.OBJ_TO, aTN.aXO().lNJ ? 2 : 1);
                 }
             }
         }

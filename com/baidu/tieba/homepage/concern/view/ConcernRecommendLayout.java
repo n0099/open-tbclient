@@ -35,14 +35,14 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
     private RecyclerView hqM;
     private n hqR;
     private CustomMessageListener hqT;
-    private q itG;
+    private q itI;
     private final Context mContext;
     private int mSkinType;
     private int mTitleColorId;
     private TextView mTitleView;
 
     public void setOnItemCoverListener(f<MetaData> fVar) {
-        this.itG.setOnItemCoverListener(fVar);
+        this.itI.setOnItemCoverListener(fVar);
     }
 
     public ConcernRecommendLayout(Context context) {
@@ -79,8 +79,8 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitleView = (TextView) findViewById(R.id.title);
         this.hqM = (RecyclerView) findViewById(R.id.thread_card_list);
-        this.itG = new q(this.mContext);
-        this.hqM.setAdapter(this.itG);
+        this.itI = new q(this.mContext);
+        this.hqM.setAdapter(this.itI);
         this.hqM.setClipChildren(false);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
             this.hqR = new n(new l());
@@ -104,7 +104,7 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             ao.setViewTextColor(this.mTitleView, this.mTitleColorId);
-            this.itG.onChangeSkinType(i);
+            this.itI.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -126,9 +126,9 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
             this.mTitleView.setTypeface(Typeface.DEFAULT);
             this.mTitleColorId = R.color.cp_cont_b;
         }
-        this.itG.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.itG.setData(bnVar.aVy());
-        this.itG.notifyDataSetChanged();
+        this.itI.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.itI.setData(bnVar.aVy());
+        this.itI.notifyDataSetChanged();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -139,14 +139,14 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.hqT.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.hqT);
-        this.itG.setPageUniqueId(bdUniqueId);
+        this.itI.setPageUniqueId(bdUniqueId);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.itG.setPageContext(tbPageContext);
+        this.itI.setPageContext(tbPageContext);
     }
 
     public void setHasBorder(boolean z) {
-        this.itG.setHasBorder(z);
+        this.itI.setHasBorder(z);
     }
 }

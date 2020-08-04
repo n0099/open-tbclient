@@ -13,13 +13,13 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int nUL;
+    final int nUN;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int dTc() {
-        return this.nUL;
+    public int dTd() {
+        return this.nUN;
     }
 
     @Override // io.reactivex.parallel.a

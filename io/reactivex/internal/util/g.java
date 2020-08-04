@@ -4,7 +4,7 @@ public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] nWs;
+    T[] nWu;
     int size;
 
     public g() {
@@ -16,12 +16,12 @@ public final class g<T> {
         int Lo = h.Lo(i);
         this.mask = Lo - 1;
         this.maxSize = (int) (Lo * f);
-        this.nWs = (T[]) new Object[Lo];
+        this.nWu = (T[]) new Object[Lo];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.nWs;
+        T[] tArr = this.nWu;
         int i = this.mask;
         int Ln = Ln(t.hashCode()) & i;
         T t3 = tArr[Ln];
@@ -48,7 +48,7 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.nWs;
+        T[] tArr = this.nWu;
         int i = this.mask;
         int Ln = Ln(t.hashCode()) & i;
         T t3 = tArr[Ln];
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.nWs;
+        T[] tArr = this.nWu;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -121,7 +121,7 @@ public final class g<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.nWs = tArr2;
+                this.nWu = tArr2;
                 return;
             }
         }
@@ -132,8 +132,8 @@ public final class g<T> {
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] dTr() {
-        return this.nWs;
+    public Object[] dTs() {
+        return this.nWu;
     }
 
     public int size() {

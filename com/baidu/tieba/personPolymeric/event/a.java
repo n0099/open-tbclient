@@ -23,7 +23,7 @@ import com.baidu.tieba.view.f;
 /* loaded from: classes18.dex */
 public class a implements f {
     protected TbPageContext mPageContext;
-    protected int kWX = 1;
+    protected int kWZ = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -36,9 +36,9 @@ public class a implements f {
         if (aVar != null) {
             UserData userData = null;
             if (aVar.hrx != null && (userData = (UserData) aVar.hrx.getSerializable(UserData.TYPE_USER)) != null) {
-                this.kWX = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+                this.kWZ = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.kWX == 1;
+                this.isHost = this.kWZ == 1;
             }
             switch (aVar.hrw) {
                 case 2:
@@ -58,7 +58,7 @@ public class a implements f {
                         if (aVar instanceof com.baidu.tieba.personCenter.d.a) {
                             TiebaStatic.log(new ap("c11586"));
                         } else {
-                            TiebaStatic.log(new ap("c11597").ah("obj_locate", 2).ah("obj_type", this.kWX).ah("obj_source", this.userType));
+                            TiebaStatic.log(new ap("c11597").ah("obj_locate", 2).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
                         return;
@@ -67,21 +67,21 @@ public class a implements f {
                 case 5:
                     com.baidu.tieba.p.a.ddy().g(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 3).ah("obj_type", this.kWX).ah("obj_source", this.userType));
+                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 3).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 1).ah("obj_type", this.kWX).ah("obj_source", this.userType));
+                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 1).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 4).ah("obj_type", this.kWX).ah("obj_source", this.userType));
+                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 4).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

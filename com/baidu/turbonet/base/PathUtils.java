@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes19.dex */
 public abstract class PathUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final AtomicBoolean mGu;
-    private static AsyncTask<Void, Void, String[]> mGv;
-    private static Context mGw;
+    private static final AtomicBoolean mGw;
+    private static AsyncTask<Void, Void, String[]> mGx;
+    private static Context mGy;
     private static String sDataDirectorySuffix;
 
     static {
         $assertionsDisabled = !PathUtils.class.desiredAssertionStatus();
-        mGu = new AtomicBoolean();
+        mGw = new AtomicBoolean();
     }
 
     private PathUtils() {
@@ -28,45 +28,45 @@ public abstract class PathUtils {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes19.dex */
     public static class a {
-        private static final String[] mGx = PathUtils.dye();
+        private static final String[] mGz = PathUtils.dyf();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String[] dye() {
+    public static String[] dyf() {
         try {
-            if (mGv.cancel(false)) {
+            if (mGx.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
                 try {
-                    return dyf();
+                    return dyg();
                 } finally {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                 }
             }
-            return mGv.get();
+            return mGx.get();
         } catch (InterruptedException | ExecutionException e) {
             return null;
         }
     }
 
-    private static String[] dyf() {
+    private static String[] dyg() {
         String[] strArr = new String[4];
-        strArr[0] = mGw.getDir(sDataDirectorySuffix, 0).getPath();
-        strArr[1] = mGw.getDir("textures", 0).getPath();
-        strArr[2] = mGw.getDatabasePath("foo").getParent();
-        if (mGw.getCacheDir() != null) {
-            strArr[3] = mGw.getCacheDir().getPath();
+        strArr[0] = mGy.getDir(sDataDirectorySuffix, 0).getPath();
+        strArr[1] = mGy.getDir("textures", 0).getPath();
+        strArr[2] = mGy.getDatabasePath("foo").getParent();
+        if (mGy.getCacheDir() != null) {
+            strArr[3] = mGy.getCacheDir().getPath();
         }
         return strArr;
     }
 
     private static String HA(int i) {
-        return a.mGx[i];
+        return a.mGz[i];
     }
 
     @CalledByNative
     public static String getDataDirectory(Context context) {
-        if ($assertionsDisabled || mGv != null) {
+        if ($assertionsDisabled || mGx != null) {
             return HA(0);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
@@ -74,7 +74,7 @@ public abstract class PathUtils {
 
     @CalledByNative
     public static String getDatabaseDirectory(Context context) {
-        if ($assertionsDisabled || mGv != null) {
+        if ($assertionsDisabled || mGx != null) {
             return HA(2);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
@@ -82,7 +82,7 @@ public abstract class PathUtils {
 
     @CalledByNative
     public static String getCacheDirectory(Context context) {
-        if ($assertionsDisabled || mGv != null) {
+        if ($assertionsDisabled || mGx != null) {
             return HA(3);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
@@ -90,7 +90,7 @@ public abstract class PathUtils {
 
     @CalledByNative
     public static String getThumbnailCacheDirectory(Context context) {
-        if ($assertionsDisabled || mGv != null) {
+        if ($assertionsDisabled || mGx != null) {
             return HA(1);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");

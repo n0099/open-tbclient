@@ -17,10 +17,10 @@ public class h {
     private List<e> aWf;
     private TbPageContext<MsglistActivity<?>> dVN;
     private BdTypeListView frv;
-    private MsgLeftViewItemAdapter iRo;
-    private MsgRightViewItemAdapter iRp;
-    private MsgMidViewItemAdapter iRq;
-    private CustomMessageListener iRr;
+    private MsgLeftViewItemAdapter iRq;
+    private MsgRightViewItemAdapter iRr;
+    private MsgMidViewItemAdapter iRs;
+    private CustomMessageListener iRt;
     private List<ChatMessage> mData;
 
     public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
@@ -30,14 +30,14 @@ public class h {
     public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
         this.aWf = new ArrayList();
-        this.iRr = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
+        this.iRt = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.iQH != null && aVar.context != null) {
-                        h.this.aWf.addAll(aVar.iQH);
+                    if (aVar.iQJ != null && aVar.context != null) {
+                        h.this.aWf.addAll(aVar.iQJ);
                         h.this.frv.addAdapters(new ArrayList(h.this.aWf));
                     }
                 }
@@ -46,42 +46,42 @@ public class h {
         this.dVN = tbPageContext;
         this.frv = bdTypeListView;
         DS();
-        this.iRo.yq(i);
-        this.iRp.yq(i);
+        this.iRq.yq(i);
+        this.iRr.yq(i);
     }
 
     private void DS() {
-        this.iRo = new MsgLeftViewItemAdapter(this.dVN, ChatMessage.TYPE_MSG_LEFT);
-        this.iRo.py(true);
-        this.iRo.px(true);
-        this.iRp = new MsgRightViewItemAdapter(this.dVN, ChatMessage.TYPE_MSG_RIGHT);
-        this.iRp.py(true);
-        this.iRp.px(true);
-        this.iRq = new MsgMidViewItemAdapter(this.dVN, ChatMessage.TYPE_MSG_MID);
-        this.aWf.add(this.iRo);
-        this.aWf.add(this.iRp);
+        this.iRq = new MsgLeftViewItemAdapter(this.dVN, ChatMessage.TYPE_MSG_LEFT);
+        this.iRq.py(true);
+        this.iRq.px(true);
+        this.iRr = new MsgRightViewItemAdapter(this.dVN, ChatMessage.TYPE_MSG_RIGHT);
+        this.iRr.py(true);
+        this.iRr.px(true);
+        this.iRs = new MsgMidViewItemAdapter(this.dVN, ChatMessage.TYPE_MSG_MID);
         this.aWf.add(this.iRq);
+        this.aWf.add(this.iRr);
+        this.aWf.add(this.iRs);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.iQH = new ArrayList();
+        aVar.iQJ = new ArrayList();
         aVar.context = this.dVN;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.iRr.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.dVN.registerListener(this.iRr);
+        this.iRt.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.dVN.registerListener(this.iRt);
     }
 
     public void pz(boolean z) {
-        if (this.iRo != null) {
-            this.iRo.pz(z);
+        if (this.iRq != null) {
+            this.iRq.pz(z);
         }
     }
 
     public void pA(boolean z) {
-        if (this.iRp != null) {
-            this.iRp.pA(z);
+        if (this.iRr != null) {
+            this.iRr.pA(z);
         }
     }
 
@@ -142,9 +142,9 @@ public class h {
     }
 
     public void onDestory() {
-        if (this.iRr != null) {
-            MessageManager.getInstance().unRegisterListener(this.iRr);
-            this.iRr = null;
+        if (this.iRt != null) {
+            MessageManager.getInstance().unRegisterListener(this.iRt);
+            this.iRt = null;
         }
     }
 }

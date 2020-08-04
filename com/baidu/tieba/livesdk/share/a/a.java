@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     private ArrayList<TransmitForumData> fkE = new ArrayList<>();
-    private final CustomMessageListener jFk = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.livesdk.share.a.a.1
+    private final CustomMessageListener jFm = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.livesdk.share.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -29,7 +29,7 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.jFk);
+        MessageManager.getInstance().registerListener(this.jFm);
     }
 
     public void cDf() {
@@ -52,6 +52,6 @@ public class a {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.jFk);
+        MessageManager.getInstance().unRegisterListener(this.jFm);
     }
 }

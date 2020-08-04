@@ -18,10 +18,10 @@ import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.m, T> implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private boolean iaV;
-    private ResponsedMessage iaW;
-    private Message iaX;
-    private MvcNetMessage iaY;
+    private boolean iaX;
+    private ResponsedMessage iaY;
+    private Message iaZ;
+    private MvcNetMessage iba;
 
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
         super(tbPageContext, frsRequestData);
@@ -72,37 +72,37 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public boolean loadData() {
-        this.iaV = super.loadData();
-        return this.iaV;
+        this.iaX = super.loadData();
+        return this.iaX;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.iaW = mvcHttpResponsedMessage;
-        this.iaX = mvcHttpMessage;
-        this.iaY = mvcNetMessage;
+        this.iaY = mvcHttpResponsedMessage;
+        this.iaZ = mvcHttpMessage;
+        this.iba = mvcNetMessage;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.iaW = mvcSocketResponsedMessage;
-        this.iaX = mvcSocketMessage;
-        this.iaY = mvcNetMessage;
+        this.iaY = mvcSocketResponsedMessage;
+        this.iaZ = mvcSocketMessage;
+        this.iba = mvcNetMessage;
     }
 
     public boolean chA() {
-        return this.iaV;
-    }
-
-    public ResponsedMessage chB() {
-        return this.iaW;
-    }
-
-    public Message chC() {
         return this.iaX;
     }
 
-    public MvcNetMessage chD() {
+    public ResponsedMessage chB() {
         return this.iaY;
+    }
+
+    public Message chC() {
+        return this.iaZ;
+    }
+
+    public MvcNetMessage chD() {
+        return this.iba;
     }
 }

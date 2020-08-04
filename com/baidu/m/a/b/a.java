@@ -8,21 +8,21 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends d {
     public a(Context context) {
         super(context);
-        this.mNV = "";
-        this.mNT = false;
-        this.mOw = false;
+        this.mNX = "";
+        this.mNV = false;
+        this.mOy = false;
         this.mStatusCode = -200;
     }
 
-    public com.baidu.m.a.a.c dBh() {
+    public com.baidu.m.a.a.c dBi() {
         final Object obj = new Object();
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.m.a.b.a.1
             @Override // com.b.a.a.b
             public void aU(String str, boolean z) {
-                a.this.mNV = str;
-                a.this.mNT = z;
-                a.this.mOw = true;
+                a.this.mNX = str;
+                a.this.mNV = z;
+                a.this.mOy = true;
                 a.this.mStatusCode = 0;
                 atomicBoolean.set(true);
                 synchronized (obj) {
@@ -51,7 +51,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.m.a.a.c
-    public com.baidu.m.a.a.c dBg() {
-        return dBh();
+    public com.baidu.m.a.a.c dBh() {
+        return dBi();
     }
 }

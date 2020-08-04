@@ -14,10 +14,10 @@ import com.baidu.tieba.square.flist.ForumListModel;
 public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
     private TbPageContext<ForumListActivity> dVN;
     private boolean isFirst;
-    private boolean lGD;
-    private ForumListModel.RequestParams lGY;
-    private a lHw;
-    private b lHx;
+    private boolean lGF;
+    private ForumListModel.RequestParams lHa;
+    private a lHy;
+    private b lHz;
 
     /* loaded from: classes17.dex */
     public interface a {
@@ -27,42 +27,42 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
     public ForumListDetailModel(TbPageContext<ForumListActivity> tbPageContext, ForumListModel.RequestParams requestParams) {
         super(tbPageContext);
         this.isFirst = true;
-        this.lGD = false;
+        this.lGF = false;
         this.dVN = tbPageContext;
-        this.lGY = requestParams;
+        this.lHa = requestParams;
     }
 
     public void a(ForumListModel.RequestParams requestParams) {
-        this.lGY = requestParams;
+        this.lHa = requestParams;
     }
 
     public void a(a aVar) {
-        this.lHw = aVar;
+        this.lHy = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        this.lHx = new b();
-        this.lHx.execute(new Void[0]);
+        this.lHz = new b();
+        this.lHz.execute(new Void[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lHx == null) {
+        if (this.lHz == null) {
             return false;
         }
-        this.lHx.cancel();
+        this.lHz.cancel();
         return true;
     }
 
     /* loaded from: classes17.dex */
     private class b extends BdAsyncTask<Void, Void, ForumListModel> {
-        ForumListModel lHy;
+        ForumListModel lHA;
 
         private b() {
-            this.lHy = new ForumListModel(ForumListDetailModel.this.dVN);
+            this.lHA = new ForumListModel(ForumListDetailModel.this.dVN);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,8 +71,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         /* renamed from: l */
         public void onProgressUpdate(Void... voidArr) {
             super.onProgressUpdate(voidArr);
-            if (this.lHy != null) {
-                ForumListDetailModel.this.lHw.a(true, this.lHy.getErrorCode(), this.lHy, this.lHy.getErrorString(), ForumListDetailModel.this.lGD);
+            if (this.lHA != null) {
+                ForumListDetailModel.this.lHy.a(true, this.lHA.getErrorCode(), this.lHA, this.lHA.getErrorString(), ForumListDetailModel.this.lGF);
             }
         }
 
@@ -84,17 +84,17 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             try {
                 if (ForumListDetailModel.this.isFirst) {
                     l<String> xj = com.baidu.tbadk.core.c.a.aYG().xj("tb.my_posts");
-                    String str = xj != null ? xj.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ForumListDetailModel.this.lGY.menu_name + "_list") : null;
+                    String str = xj != null ? xj.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ForumListDetailModel.this.lHa.menu_name + "_list") : null;
                     if (str != null) {
-                        this.lHy = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
-                        if (this.lHy != null) {
+                        this.lHA = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
+                        if (this.lHA != null) {
                             publishProgress(new Void[0]);
                         }
-                        ForumListDetailModel.this.lGD = true;
+                        ForumListDetailModel.this.lGF = true;
                     }
                 }
                 ForumListDetailModel.this.isFirst = false;
-                return ForumListModel.new_fetch(ForumListDetailModel.this.lGY);
+                return ForumListModel.new_fetch(ForumListDetailModel.this.lHa);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -107,9 +107,9 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         /* renamed from: a */
         public void onPostExecute(ForumListModel forumListModel) {
             if (forumListModel != null && forumListModel.isOk()) {
-                ForumListDetailModel.this.lHw.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), ForumListDetailModel.this.lGD);
+                ForumListDetailModel.this.lHy.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), ForumListDetailModel.this.lGF);
             } else {
-                ForumListDetailModel.this.lHw.a(false, 0, forumListModel, ForumListDetailModel.this.dVN.getString(R.string.neterror), ForumListDetailModel.this.lGD);
+                ForumListDetailModel.this.lHy.a(false, 0, forumListModel, ForumListDetailModel.this.dVN.getString(R.string.neterror), ForumListDetailModel.this.lGF);
             }
         }
     }

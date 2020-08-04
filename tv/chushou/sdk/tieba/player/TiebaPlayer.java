@@ -176,7 +176,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
             }
             this.state = 2;
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dZQ().e(TAG, "open", e);
+            tv.chushou.a.a.c.a.dZR().e(TAG, "open", e);
             onError(-111, 0, null);
         }
     }
@@ -191,7 +191,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
             this.state = 4;
             b bVar = this.listener;
             if (bVar != null) {
-                bVar.dMV();
+                bVar.dMW();
             }
         }
     }
@@ -206,7 +206,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
             this.state = 5;
             b bVar = this.listener;
             if (bVar != null) {
-                bVar.dMW();
+                bVar.dMX();
             }
         }
     }
@@ -222,7 +222,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
             this.isPrepared = false;
             b bVar = this.listener;
             if (bVar != null) {
-                bVar.dMX();
+                bVar.dMY();
             }
         }
     }
@@ -324,7 +324,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
 
     @Override // tv.chushou.common.player.a
     public void release() {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "release");
+        tv.chushou.a.a.c.a.dZR().d(TAG, "release");
         CyberPlayer cyberPlayer = this.player;
         if (cyberPlayer != null) {
             cyberPlayer.setOnPreparedListener(null);
@@ -363,7 +363,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
     public void onBufferingUpdate(int i) {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onBufferingUpdate:" + i);
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onBufferingUpdate:" + i);
         b bVar = this.listener;
         if (bVar != null) {
             bVar.Kx(i);
@@ -372,7 +372,7 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onPrepared");
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onPrepared");
         this.state = 3;
         this.isPrepared = true;
         if (this.seekPosWhenPrepared > 0) {
@@ -384,24 +384,24 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
         }
         b bVar = this.listener;
         if (bVar != null) {
-            bVar.dMS();
+            bVar.dMT();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onCompletion");
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onCompletion");
         this.state = 7;
         this.seekPosWhenPrepared = -1L;
         b bVar = this.listener;
         if (bVar != null) {
-            bVar.dMQ();
+            bVar.dMR();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i, int i2, Object obj) {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onError, what:" + i + ", extra:" + i2 + ", obj:" + obj);
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onError, what:" + i + ", extra:" + i2 + ", obj:" + obj);
         this.state = -1;
         b bVar = this.listener;
         if (bVar != null) {
@@ -413,26 +413,26 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i, int i2, Object obj) {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onInfo, what:" + i + ", extra:" + i2 + ", obj:" + obj);
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onInfo, what:" + i + ", extra:" + i2 + ", obj:" + obj);
         switch (i) {
             case 701:
                 b bVar = this.listener;
                 if (bVar != null) {
-                    bVar.dMT();
+                    bVar.dMU();
                     return true;
                 }
                 return true;
             case CyberPlayerManager.MEDIA_INFO_BUFFERING_END /* 702 */:
                 b bVar2 = this.listener;
                 if (bVar2 != null) {
-                    bVar2.dMU();
+                    bVar2.dMV();
                     return true;
                 }
                 return true;
             case CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL /* 904 */:
                 b bVar3 = this.listener;
                 if (bVar3 != null) {
-                    bVar3.dMR();
+                    bVar3.dMS();
                     return true;
                 }
                 return true;
@@ -443,16 +443,16 @@ public final class TiebaPlayer implements CyberPlayerManager.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
     public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onVideoSizeChanged");
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onVideoSizeChanged");
         b bVar = this.listener;
         if (bVar != null) {
-            bVar.dMP();
+            bVar.dMQ();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoFlowListener
     public void onRecordFlow(HashMap<String, String> hashMap) {
-        tv.chushou.a.a.c.a.dZQ().d(TAG, "onRecordFlow");
+        tv.chushou.a.a.c.a.dZR().d(TAG, "onRecordFlow");
     }
 
     private final void resetState() {

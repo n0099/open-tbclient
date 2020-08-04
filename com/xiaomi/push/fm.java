@@ -13,66 +13,66 @@ import java.util.zip.Adler32;
 public class fm {
 
     /* renamed from: a  reason: collision with other field name */
-    private fq f345a;
+    private fq f348a;
 
     /* renamed from: a  reason: collision with other field name */
-    private InputStream f346a;
+    private InputStream f349a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f349a;
+    private volatile boolean f352a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f350a;
+    private byte[] f353a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ByteBuffer f347a = ByteBuffer.allocate(2048);
+    private ByteBuffer f350a = ByteBuffer.allocate(2048);
     private ByteBuffer b = ByteBuffer.allocate(4);
 
     /* renamed from: a  reason: collision with other field name */
-    private Adler32 f348a = new Adler32();
+    private Adler32 f351a = new Adler32();
     private fo a = new fo();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fm(InputStream inputStream, fq fqVar) {
-        this.f346a = new BufferedInputStream(inputStream);
-        this.f345a = fqVar;
+        this.f349a = new BufferedInputStream(inputStream);
+        this.f348a = fqVar;
     }
 
     private ByteBuffer a() {
-        this.f347a.clear();
-        a(this.f347a, 8);
-        short s = this.f347a.getShort(0);
-        short s2 = this.f347a.getShort(2);
+        this.f350a.clear();
+        a(this.f350a, 8);
+        short s = this.f350a.getShort(0);
+        short s2 = this.f350a.getShort(2);
         if (s == -15618 && s2 == 5) {
-            int i = this.f347a.getInt(4);
-            int position = this.f347a.position();
+            int i = this.f350a.getInt(4);
+            int position = this.f350a.position();
             if (i > 32768) {
                 throw new IOException("Blob size too large");
             }
-            if (i + 4 > this.f347a.remaining()) {
+            if (i + 4 > this.f350a.remaining()) {
                 ByteBuffer allocate = ByteBuffer.allocate(i + 2048);
-                allocate.put(this.f347a.array(), 0, this.f347a.arrayOffset() + this.f347a.position());
-                this.f347a = allocate;
-            } else if (this.f347a.capacity() > 4096 && i < 2048) {
+                allocate.put(this.f350a.array(), 0, this.f350a.arrayOffset() + this.f350a.position());
+                this.f350a = allocate;
+            } else if (this.f350a.capacity() > 4096 && i < 2048) {
                 ByteBuffer allocate2 = ByteBuffer.allocate(2048);
-                allocate2.put(this.f347a.array(), 0, this.f347a.arrayOffset() + this.f347a.position());
-                this.f347a = allocate2;
+                allocate2.put(this.f350a.array(), 0, this.f350a.arrayOffset() + this.f350a.position());
+                this.f350a = allocate2;
             }
-            a(this.f347a, i);
+            a(this.f350a, i);
             this.b.clear();
             a(this.b, 4);
             this.b.position(0);
             int i2 = this.b.getInt();
-            this.f348a.reset();
-            this.f348a.update(this.f347a.array(), 0, this.f347a.position());
-            if (i2 != ((int) this.f348a.getValue())) {
-                com.xiaomi.channel.commonutils.logger.b.m49a("CRC = " + ((int) this.f348a.getValue()) + " and " + i2);
+            this.f351a.reset();
+            this.f351a.update(this.f350a.array(), 0, this.f350a.position());
+            if (i2 != ((int) this.f351a.getValue())) {
+                com.xiaomi.channel.commonutils.logger.b.m49a("CRC = " + ((int) this.f351a.getValue()) + " and " + i2);
                 throw new IOException("Corrupted Blob bad CRC");
             }
-            if (this.f350a != null) {
-                com.xiaomi.push.service.ay.a(this.f350a, this.f347a.array(), true, position, i);
+            if (this.f353a != null) {
+                com.xiaomi.push.service.ay.a(this.f353a, this.f350a.array(), true, position, i);
             }
-            return this.f347a;
+            return this.f350a;
         }
         throw new IOException("Malformed Input");
     }
@@ -80,7 +80,7 @@ public class fm {
     private void a(ByteBuffer byteBuffer, int i) {
         int position = byteBuffer.position();
         do {
-            int read = this.f346a.read(byteBuffer.array(), position, i);
+            int read = this.f349a.read(byteBuffer.array(), position, i);
             if (read == -1) {
                 throw new EOFException();
             }
@@ -92,12 +92,12 @@ public class fm {
 
     private void c() {
         boolean z = false;
-        this.f349a = false;
+        this.f352a = false;
         fl m283a = m283a();
         if ("CONN".equals(m283a.m275a())) {
             ek.f a = ek.f.a(m283a.m279a());
             if (a.a()) {
-                this.f345a.a(a.a());
+                this.f348a.a(a.a());
                 z = true;
             }
             if (a.c()) {
@@ -105,7 +105,7 @@ public class fm {
                 fl flVar = new fl();
                 flVar.a("SYNC", "CONF");
                 flVar.a(a2.a(), (String) null);
-                this.f345a.a(flVar);
+                this.f348a.a(flVar);
             }
             com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] CONN: host = " + a.b());
         }
@@ -113,21 +113,21 @@ public class fm {
             com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] Invalid CONN");
             throw new IOException("Invalid Connection");
         }
-        this.f350a = this.f345a.a();
-        while (!this.f349a) {
+        this.f353a = this.f348a.a();
+        while (!this.f352a) {
             fl m283a2 = m283a();
-            this.f345a.c();
+            this.f348a.c();
             switch (m283a2.m277a()) {
                 case 1:
-                    this.f345a.a(m283a2);
+                    this.f348a.a(m283a2);
                     break;
                 case 2:
                     if (!"SECMSG".equals(m283a2.m275a()) || ((m283a2.a() != 2 && m283a2.a() != 3) || !TextUtils.isEmpty(m283a2.m281b()))) {
-                        this.f345a.a(m283a2);
+                        this.f348a.a(m283a2);
                         break;
                     } else {
                         try {
-                            this.f345a.b(this.a.a(m283a2.m280a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m283a2.a()).toString(), m283a2.g()).h), this.f345a));
+                            this.f348a.b(this.a.a(m283a2.m280a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m283a2.a()).toString(), m283a2.g()).h), this.f348a));
                             break;
                         } catch (Exception e) {
                             com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] Parse packet from Blob chid=" + m283a2.a() + "; Id=" + m283a2.e() + " failure:" + e.getMessage());
@@ -136,7 +136,7 @@ public class fm {
                     }
                 case 3:
                     try {
-                        this.f345a.b(this.a.a(m283a2.m279a(), this.f345a));
+                        this.f348a.b(this.a.a(m283a2.m279a(), this.f348a));
                         break;
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] Parse packet from Blob chid=" + m283a2.a() + "; Id=" + m283a2.e() + " failure:" + e2.getMessage());
@@ -166,10 +166,10 @@ public class fm {
                 i = position;
                 iOException = e;
                 if (i == 0) {
-                    i = this.f347a.position();
+                    i = this.f350a.position();
                 }
                 StringBuilder append = new StringBuilder().append("[Slim] read Blob [");
-                byte[] array = this.f347a.array();
+                byte[] array = this.f350a.array();
                 if (i > 128) {
                     i = 128;
                 }
@@ -188,7 +188,7 @@ public class fm {
         try {
             c();
         } catch (IOException e) {
-            if (!this.f349a) {
+            if (!this.f352a) {
                 throw e;
             }
         }
@@ -196,6 +196,6 @@ public class fm {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.f349a = true;
+        this.f352a = true;
     }
 }

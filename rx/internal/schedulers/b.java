@@ -8,11 +8,11 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class b extends rx.g implements h {
-    static final int nVi;
-    static final c onM;
-    static final C0942b onN;
-    final ThreadFactory nVk;
-    final AtomicReference<C0942b> nVl = new AtomicReference<>(onN);
+    static final int nVk;
+    static final c onO;
+    static final C0942b onP;
+    final ThreadFactory nVm;
+    final AtomicReference<C0942b> nVn = new AtomicReference<>(onP);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,10 +20,10 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        nVi = intValue;
-        onM = new c(RxThreadFactory.NONE);
-        onM.unsubscribe();
-        onN = new C0942b(null, 0);
+        nVk = intValue;
+        onO = new c(RxThreadFactory.NONE);
+        onO.unsubscribe();
+        onP = new C0942b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,49 +31,49 @@ public final class b extends rx.g implements h {
     /* loaded from: classes6.dex */
     public static final class C0942b {
         long n;
-        final int nVq;
-        final c[] onT;
+        final int nVs;
+        final c[] onV;
 
         C0942b(ThreadFactory threadFactory, int i) {
-            this.nVq = i;
-            this.onT = new c[i];
+            this.nVs = i;
+            this.onV = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.onT[i2] = new c(threadFactory);
+                this.onV[i2] = new c(threadFactory);
             }
         }
 
-        public c dYk() {
-            int i = this.nVq;
+        public c dYl() {
+            int i = this.nVs;
             if (i == 0) {
-                return b.onM;
+                return b.onO;
             }
-            c[] cVarArr = this.onT;
+            c[] cVarArr = this.onV;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.onT) {
+            for (c cVar : this.onV) {
                 cVar.unsubscribe();
             }
         }
     }
 
     public b(ThreadFactory threadFactory) {
-        this.nVk = threadFactory;
+        this.nVm = threadFactory;
         start();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.nVl.get().dYk());
+        return new a(this.nVn.get().dYl());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0942b c0942b = new C0942b(this.nVk, nVi);
-        if (!this.nVl.compareAndSet(onN, c0942b)) {
+        C0942b c0942b = new C0942b(this.nVm, nVk);
+        if (!this.nVn.compareAndSet(onP, c0942b)) {
             c0942b.shutdown();
         }
     }
@@ -82,61 +82,61 @@ public final class b extends rx.g implements h {
     public void shutdown() {
         C0942b c0942b;
         do {
-            c0942b = this.nVl.get();
-            if (c0942b == onN) {
+            c0942b = this.nVn.get();
+            if (c0942b == onP) {
                 return;
             }
-        } while (!this.nVl.compareAndSet(c0942b, onN));
+        } while (!this.nVn.compareAndSet(c0942b, onP));
         c0942b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {
-        return this.nVl.get().dYk().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.nVn.get().dYl().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes6.dex */
     static final class a extends g.a {
-        private final rx.internal.util.i onO = new rx.internal.util.i();
-        private final rx.subscriptions.b onP = new rx.subscriptions.b();
-        private final rx.internal.util.i onQ = new rx.internal.util.i(this.onO, this.onP);
-        private final c onR;
+        private final rx.internal.util.i onQ = new rx.internal.util.i();
+        private final rx.subscriptions.b onR = new rx.subscriptions.b();
+        private final rx.internal.util.i onS = new rx.internal.util.i(this.onQ, this.onR);
+        private final c onT;
 
         a(c cVar) {
-            this.onR = cVar;
+            this.onT = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.onQ.unsubscribe();
+            this.onS.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.onQ.isUnsubscribed();
+            return this.onS.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.dZo() : this.onR.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.dZp() : this.onT.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.onO);
+            }, 0L, (TimeUnit) null, this.onQ);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.dZo() : this.onR.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.dZp() : this.onT.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.onP);
+            }, j, timeUnit, this.onR);
         }
     }
 

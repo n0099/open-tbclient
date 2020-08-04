@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.kEi) || "1".equals(eVar.kEi)) {
+            if (StringUtils.isNull(eVar.kEk) || "1".equals(eVar.kEk)) {
                 c0714a.YF.setVisibility(8);
             } else {
                 c0714a.YF.setVisibility(0);

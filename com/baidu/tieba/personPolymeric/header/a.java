@@ -27,8 +27,8 @@ import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes18.dex */
 public class a {
     private View dtF;
-    private TbImageView kWY;
-    private int kWZ;
+    private TbImageView kXa;
+    private int kXb;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -45,7 +45,7 @@ public class a {
                         i = -1;
                     }
                     if (i == -1 || userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.kWY.getContext())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.kXa.getContext())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -55,10 +55,10 @@ public class a {
                         } else if (bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.kWY.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.kXa.getContext(), i, i2)));
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.kWY.getContext(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.kXa.getContext(), i, i2)));
                 }
             }
         }
@@ -69,9 +69,9 @@ public class a {
 
     public a(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
         this.mPageContext = tbPageContext;
-        this.kWY = tbImageView;
+        this.kXa = tbImageView;
         this.mIsHost = z;
-        this.kWY.setDefaultBgResource(R.drawable.bg_pic_mine);
+        this.kXa.setDefaultBgResource(R.drawable.bg_pic_mine);
         this.dtF = view;
         this.dtF.setOnClickListener(this.mClickListener);
     }
@@ -88,7 +88,7 @@ public class a {
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                         super.onLoaded((AnonymousClass1) aVar, str, i);
                         if (aVar != null) {
-                            aVar.drawImageTo(a.this.kWY);
+                            aVar.drawImageTo(a.this.kXa);
                         }
                     }
 
@@ -109,33 +109,33 @@ public class a {
     }
 
     public void CY(int i) {
-        this.kWZ = i;
-        ViewGroup.LayoutParams layoutParams = this.kWY.getLayoutParams();
+        this.kXb = i;
+        ViewGroup.LayoutParams layoutParams = this.kXa.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.kWZ;
-            this.kWY.setLayoutParams(layoutParams);
+            layoutParams.height = this.kXb;
+            this.kXa.setLayoutParams(layoutParams);
         }
     }
 
     public void t(double d) {
-        int i = (int) (this.kWZ + (PullRefreshFrameLayout.eiu * d));
-        ViewGroup.LayoutParams layoutParams = this.kWY.getLayoutParams();
+        int i = (int) (this.kXb + (PullRefreshFrameLayout.eiu * d));
+        ViewGroup.LayoutParams layoutParams = this.kXa.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.kWY.setLayoutParams(layoutParams);
+            this.kXa.setLayoutParams(layoutParams);
         }
     }
 
     public void CZ(int i) {
-        ViewGroup.LayoutParams layoutParams = this.kWY.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.kXa.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.kWY.setLayoutParams(layoutParams);
+            this.kXa.setLayoutParams(layoutParams);
         }
     }
 
     public int ccm() {
-        ViewGroup.LayoutParams layoutParams = this.kWY.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.kXa.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }

@@ -5,16 +5,16 @@ import com.baidu.tbadk.core.data.bv;
 import tbclient.ThreadInfo;
 /* loaded from: classes16.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId iEt = BdUniqueId.gen();
+    public static final BdUniqueId iEv = BdUniqueId.gen();
     public bv dLK;
-    public boolean iEu;
-    public String iEv;
+    public boolean iEw;
+    public String iEx;
     public int index;
     public long topicId;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iEt;
+        return iEv;
     }
 
     public void c(ThreadInfo threadInfo) {

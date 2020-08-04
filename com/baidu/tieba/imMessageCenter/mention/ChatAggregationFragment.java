@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes16.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter joT;
-    private e joW;
+    private ViewEventCenter joV;
+    private e joY;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.joW != null) {
-                    ChatAggregationFragment.this.joW.qD(true);
+                if (ChatAggregationFragment.this.joY != null) {
+                    ChatAggregationFragment.this.joY.qD(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.joW != null) {
-                    ChatAggregationFragment.this.joW.ciA();
-                    ChatAggregationFragment.this.joW.ab(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.joY != null) {
+                    ChatAggregationFragment.this.joY.ciA();
+                    ChatAggregationFragment.this.joY.ab(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener joU = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener joW = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.joW != null) {
-                    ChatAggregationFragment.this.joW.onNewIntent(intent);
+                if (ChatAggregationFragment.this.joY != null) {
+                    ChatAggregationFragment.this.joY.onNewIntent(intent);
                 }
             }
         }
@@ -52,26 +52,26 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.joW = new e(this);
+        this.joY = new e(this);
         if (bundle != null) {
-            this.joW.ar(bundle);
+            this.joY.ar(bundle);
         } else {
-            this.joW.ar(null);
+            this.joY.ar(null);
         }
-        View bAi = this.joW.bAi();
-        this.joW.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        View bAi = this.joY.bAi();
+        this.joY.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         bld().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
-        registerListener(this.joU);
+        registerListener(this.joW);
         return bAi;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && aa(getActivity().getIntent())) {
-            this.joW.onNewIntent(getActivity().getIntent());
+            this.joY.onNewIntent(getActivity().getIntent());
         } else {
-            this.joW.ciA();
+            this.joY.ciA();
         }
         super.onViewCreated(view, bundle);
     }
@@ -91,16 +91,16 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     public ViewEventCenter bld() {
-        if (this.joT == null) {
-            this.joT = new ViewEventCenter();
+        if (this.joV == null) {
+            this.joV = new ViewEventCenter();
         }
-        return this.joT;
+        return this.joV;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.joW != null) {
-            this.joW.b(getPageContext(), i);
+        if (this.joY != null) {
+            this.joY.b(getPageContext(), i);
         }
     }
 
@@ -141,30 +141,30 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.joU);
-        if (this.joW != null) {
-            this.joW.cgL();
+        MessageManager.getInstance().unRegisterListener(this.joW);
+        if (this.joY != null) {
+            this.joY.cgL();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.joW != null) {
-            this.joW.qA(z);
+        if (this.joY != null) {
+            this.joY.qA(z);
         }
     }
 
     public void IH() {
-        if (this.joW != null) {
-            this.joW.IH();
+        if (this.joY != null) {
+            this.joY.IH();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.joW != null) {
-            this.joW.cyN();
+        if (this.joY != null) {
+            this.joY.cyN();
         }
     }
 }

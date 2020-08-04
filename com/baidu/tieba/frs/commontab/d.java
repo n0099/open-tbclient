@@ -16,11 +16,11 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes16.dex */
 public class d implements j {
-    public int hNY;
-    public String hNZ;
-    public String hOa;
-    public boolean hOb;
-    public SportScheduleInfo hOc;
+    public int hOa;
+    public String hOb;
+    public String hOc;
+    public boolean hOd;
+    public SportScheduleInfo hOe;
     public boolean hasMore;
     public ItemInfo itemInfo;
     public HashMap<String, MetaData> userMap = new HashMap<>();
@@ -55,13 +55,13 @@ public class d implements j {
                 }
             }
             com.baidu.tbadk.a.a.a.aG(this.threadList);
-            this.hNY = dataRes.new_thread_num.intValue();
+            this.hOa = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.hNZ = dataRes.sport_head_info.head_url;
-                this.hOa = dataRes.sport_head_info.jump_url;
-                this.hOb = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.hOb = dataRes.sport_head_info.head_url;
+                this.hOc = dataRes.sport_head_info.jump_url;
+                this.hOd = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.hOc = dataRes.sport_schedule_info;
+            this.hOe = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

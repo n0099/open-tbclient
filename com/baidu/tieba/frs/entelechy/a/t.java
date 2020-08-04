@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.ax;
 /* loaded from: classes16.dex */
 public class t extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implements com.baidu.adp.widget.ListView.z, com.baidu.tieba.a.f, com.baidu.tieba.card.y, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
     private String afx;
-    private int hOD;
+    private int hOF;
 
     public t(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.hOD = 3;
+        this.hOF = 3;
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId2;
     }
@@ -59,7 +59,7 @@ public class t extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
         if ((qVar instanceof bu) && (view.getTag() instanceof com.baidu.card.ak)) {
             bv bvVar = ((bu) qVar).dLK;
             bvVar.objType = 1;
-            ax.a((AbsThreadDataSupport) bvVar, view.getContext(), this.hOD, false);
+            ax.a((AbsThreadDataSupport) bvVar, view.getContext(), this.hOF, false);
             ((com.baidu.card.ak) view.getTag()).sg().b(new a.C0096a(1));
         }
     }
@@ -75,7 +75,7 @@ public class t extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
 
     @Override // com.baidu.tieba.card.y
     public void rn(int i) {
-        this.hOD = i;
+        this.hOF = i;
     }
 
     @Override // com.baidu.tieba.card.z
@@ -84,6 +84,6 @@ public class t extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return hOE;
+        return hOG;
     }
 }

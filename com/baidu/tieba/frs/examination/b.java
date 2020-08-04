@@ -39,11 +39,11 @@ public class b extends a {
     private static final int egT = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
     private RankStarView egI;
     private TextView gYQ;
-    private TbImageView hRM;
-    private TextView hRN;
-    private EditText hRO;
+    private TbImageView hRO;
     private TextView hRP;
-    private Editable hRQ;
+    private EditText hRQ;
+    private TextView hRR;
+    private Editable hRS;
     private View mDivider;
 
     public b(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
@@ -54,37 +54,37 @@ public class b extends a {
     protected void initUI() {
         this.mRoot = LayoutInflater.from(this.hjZ).inflate(R.layout.activity_other_evaluation, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.hRM = (TbImageView) this.mRoot.findViewById(R.id.item_icon);
+        this.hRO = (TbImageView) this.mRoot.findViewById(R.id.item_icon);
         this.gYQ = (TextView) this.mRoot.findViewById(R.id.item_title);
-        this.hRN = (TextView) this.mRoot.findViewById(R.id.item_tag);
+        this.hRP = (TextView) this.mRoot.findViewById(R.id.item_tag);
         this.mDivider = this.mRoot.findViewById(R.id.divider);
         this.egI = (RankStarView) this.mRoot.findViewById(R.id.item_star);
-        this.hRO = (EditText) this.mRoot.findViewById(R.id.other_comment);
-        this.hRP = (TextView) this.mRoot.findViewById(R.id.word_counter);
-        this.hRM.setPlaceHolder(2);
-        this.hRM.setConrers(15);
-        this.hRM.setRadius(l.getDimens(this.hjZ, R.dimen.tbds10));
+        this.hRQ = (EditText) this.mRoot.findViewById(R.id.other_comment);
+        this.hRR = (TextView) this.mRoot.findViewById(R.id.word_counter);
+        this.hRO.setPlaceHolder(2);
+        this.hRO.setConrers(15);
+        this.hRO.setRadius(l.getDimens(this.hjZ, R.dimen.tbds10));
         this.egI.setStarSpacing(l.getDimens(this.hjZ, R.dimen.tbds24));
         this.egI.setClickable(true);
-        this.hRO.setLineSpacing(l.getDimens(this.hjZ, R.dimen.tbds16), 1.0f);
-        if (this.hRH != null) {
-            setTag(this.hRH.getTags());
-            this.gYQ.setText(this.hRH.getName());
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hRM.getLayoutParams();
-            if (this.hRH.getIconSize() == 1.0d) {
+        this.hRQ.setLineSpacing(l.getDimens(this.hjZ, R.dimen.tbds16), 1.0f);
+        if (this.hRJ != null) {
+            setTag(this.hRJ.getTags());
+            this.gYQ.setText(this.hRJ.getName());
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hRO.getLayoutParams();
+            if (this.hRJ.getIconSize() == 1.0d) {
                 layoutParams.width = egN;
                 layoutParams.height = egO;
-            } else if (this.hRH.getIconSize() == 0.67d) {
+            } else if (this.hRJ.getIconSize() == 0.67d) {
                 layoutParams.width = egP;
                 layoutParams.height = egQ;
             } else {
                 layoutParams.width = egR;
                 layoutParams.height = egS;
             }
-            this.hRM.setLayoutParams(layoutParams);
-            this.hRM.startLoad(this.hRH.icon_url, 10, false);
-            if (this.hRH.getScore() != null && this.hRH.getScore().isCommented == 1) {
-                this.egI.setStarCount(this.hRH.getScore().getCommentStar());
+            this.hRO.setLayoutParams(layoutParams);
+            this.hRO.startLoad(this.hRJ.icon_url, 10, false);
+            if (this.hRJ.getScore() != null && this.hRJ.getScore().isCommented == 1) {
+                this.egI.setStarCount(this.hRJ.getScore().getCommentStar());
             }
         }
         this.mRoot.findViewById(R.id.scroll_view).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.b.1
@@ -97,11 +97,11 @@ public class b extends a {
                 return false;
             }
         });
-        this.hRI.a(new c.a() { // from class: com.baidu.tieba.frs.examination.b.2
+        this.hRK.a(new c.a() { // from class: com.baidu.tieba.frs.examination.b.2
             @Override // com.baidu.tieba.frs.examination.c.a
             public void a(InputMethodManager inputMethodManager) {
                 if (inputMethodManager != null) {
-                    b.this.hjZ.HidenSoftKeyPad(inputMethodManager, b.this.hRO);
+                    b.this.hjZ.HidenSoftKeyPad(inputMethodManager, b.this.hRQ);
                 }
             }
         });
@@ -110,8 +110,8 @@ public class b extends a {
     @Override // com.baidu.tieba.frs.examination.a
     protected void cfu() {
         this.hHY.setOnClickListener(this);
-        this.hRG.setOnClickListener(this);
-        this.hRO.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.b.3
+        this.hRI.setOnClickListener(this);
+        this.hRQ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.b.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -122,12 +122,12 @@ public class b extends a {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                b.this.hRQ = editable;
-                if (b.this.hRQ.length() > 500) {
-                    b.this.hRP.setText(String.format(b.this.hjZ.getResources().getString(R.string.frs_item_word_conter), Integer.valueOf(500 - b.this.hRQ.length())));
-                    b.this.hRP.setVisibility(0);
+                b.this.hRS = editable;
+                if (b.this.hRS.length() > 500) {
+                    b.this.hRR.setText(String.format(b.this.hjZ.getResources().getString(R.string.frs_item_word_conter), Integer.valueOf(500 - b.this.hRS.length())));
+                    b.this.hRR.setVisibility(0);
                 } else {
-                    b.this.hRP.setVisibility(8);
+                    b.this.hRR.setVisibility(8);
                 }
                 b.this.cfy();
             }
@@ -136,23 +136,23 @@ public class b extends a {
 
     @Override // com.baidu.tieba.frs.examination.a
     public void bjJ() {
-        if (this.hRF != null) {
+        if (this.hRH != null) {
             WriteData writeData = new WriteData();
             writeData.setOtherGrade(this.egI.getStarCount());
-            writeData.setOtherComment(this.hRO.getText().toString());
-            w.c(String.valueOf(this.hRF.forumId), writeData);
+            writeData.setOtherComment(this.hRQ.getText().toString());
+            w.c(String.valueOf(this.hRH.forumId), writeData);
         }
     }
 
     @Override // com.baidu.tieba.frs.examination.a
     public void cfw() {
-        if (this.hRF != null) {
-            w.f(String.valueOf(this.hRF.forumId), new w.a() { // from class: com.baidu.tieba.frs.examination.b.4
+        if (this.hRH != null) {
+            w.f(String.valueOf(this.hRH.forumId), new w.a() { // from class: com.baidu.tieba.frs.examination.b.4
                 @Override // com.baidu.tieba.tbadkCore.w.a
                 public void a(WriteData writeData) {
                     if (writeData != null) {
                         b.this.egI.setStarCount(writeData.getOtherGrade());
-                        b.this.hRO.setText(writeData.getOtherComment());
+                        b.this.hRQ.setText(writeData.getOtherComment());
                     }
                 }
             });
@@ -163,23 +163,23 @@ public class b extends a {
     public void onClick(View view) {
         if (view == this.hHY) {
             cfv();
-        } else if (view == this.hRG) {
-            if (TextUtils.isEmpty(this.hRQ) || this.hRQ.length() < 20) {
+        } else if (view == this.hRI) {
+            if (TextUtils.isEmpty(this.hRS) || this.hRS.length() < 20) {
                 l.showToast(this.hjZ, R.string.other_comment_size_short_tip);
-            } else if (this.hRQ.length() > 500) {
+            } else if (this.hRS.length() > 500) {
                 l.showToast(this.hjZ, R.string.other_comment_size_long_tip);
             } else {
-                this.hRI.a(this.hRQ.toString(), cfz(), this.hRF);
+                this.hRK.a(this.hRS.toString(), cfz(), this.hRH);
             }
         }
     }
 
     private void setTag(List<String> list) {
         if (list == null || list.isEmpty()) {
-            this.hRN.setVisibility(8);
+            this.hRP.setVisibility(8);
             return;
         }
-        this.hRN.setVisibility(0);
+        this.hRP.setVisibility(0);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         for (int i = 0; i < list.size(); i++) {
             spannableStringBuilder.append((CharSequence) list.get(i));
@@ -189,15 +189,15 @@ public class b extends a {
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
             }
         }
-        this.hRN.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+        this.hRP.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cfy() {
-        if (!TextUtils.isEmpty(this.hRQ) && this.hRQ.length() >= 20 && this.hRQ.length() <= 500) {
-            this.hRG.setAlpha(1.0f);
+        if (!TextUtils.isEmpty(this.hRS) && this.hRS.length() >= 20 && this.hRS.length() <= 500) {
+            this.hRI.setAlpha(1.0f);
         } else {
-            this.hRG.setAlpha(0.5f);
+            this.hRI.setAlpha(0.5f);
         }
     }
 
@@ -212,14 +212,14 @@ public class b extends a {
         super.onChangeSkinType();
         ao.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
         ao.setViewTextColor(this.gYQ, R.color.cp_cont_b);
-        ao.setViewTextColor(this.hRN, R.color.cp_cont_d);
+        ao.setViewTextColor(this.hRP, R.color.cp_cont_d);
         this.egI.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        ao.setViewTextColor(this.hRO, R.color.cp_cont_b);
-        this.hRO.setHintTextColor(ao.getColor(R.color.cp_cont_d));
-        ao.setViewTextColor(this.hRP, R.color.cp_cont_h);
-        if (this.hRM != null) {
-            this.hRM.setPlaceHolder(2);
-            this.hRM.invalidate();
+        ao.setViewTextColor(this.hRQ, R.color.cp_cont_b);
+        this.hRQ.setHintTextColor(ao.getColor(R.color.cp_cont_d));
+        ao.setViewTextColor(this.hRR, R.color.cp_cont_h);
+        if (this.hRO != null) {
+            this.hRO.setPlaceHolder(2);
+            this.hRO.invalidate();
         }
     }
 }

@@ -23,10 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static f lmE = new f();
+    private static f lmG = new f();
     private static DownloadData ezG = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private a lmF = null;
+    private a lmH = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler ezI = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.f.1
@@ -48,7 +48,7 @@ public class f {
     }
 
     public static f dci() {
-        return lmE;
+        return lmG;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -113,8 +113,8 @@ public class f {
         if (ezG == null && !mTaskList.isEmpty()) {
             ezG = mTaskList.get(0);
             if (ezG != null) {
-                this.lmF = new a();
-                this.lmF.execute(ezG);
+                this.lmH = new a();
+                this.lmH.execute(ezG);
             }
         }
     }
@@ -126,10 +126,10 @@ public class f {
     public void cancelDownLoadByUrl(String str, boolean z) {
         if (ezG != null && ezG.getUrl().equals(str)) {
             if (z) {
-                this.lmF.cancelImmediately();
+                this.lmH.cancelImmediately();
                 return;
             } else {
-                this.lmF.cancel(true);
+                this.lmH.cancel(true);
                 return;
             }
         }

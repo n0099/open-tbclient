@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class i implements aj<Float> {
-    public static final i nQk = new i();
+    public static final i nQm = new i();
 
     private i() {
     }

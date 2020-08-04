@@ -18,25 +18,25 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class g {
     private double cqh;
-    private Matrix nKB;
-    private com.opensource.svgaplayer.b.c nKL;
-    private b nKM;
+    private Matrix nKD;
+    private com.opensource.svgaplayer.b.c nKN;
+    private b nKO;
     private List<SVGAVideoShapeEntity> shapes;
 
-    public final double dPO() {
+    public final double dPP() {
         return this.cqh;
     }
 
-    public final com.opensource.svgaplayer.b.c dPP() {
-        return this.nKL;
+    public final com.opensource.svgaplayer.b.c dPQ() {
+        return this.nKN;
     }
 
-    public final Matrix dPC() {
-        return this.nKB;
+    public final Matrix dPD() {
+        return this.nKD;
     }
 
-    public final b dPQ() {
-        return this.nKM;
+    public final b dPR() {
+        return this.nKO;
     }
 
     public final void fF(List<SVGAVideoShapeEntity> list) {
@@ -50,22 +50,22 @@ public final class g {
 
     public g(JSONObject jSONObject) {
         q.m(jSONObject, "obj");
-        this.nKL = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.nKB = new Matrix();
-        this.shapes = o.dTO();
+        this.nKN = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.nKD = new Matrix();
+        this.shapes = o.dTP();
         this.cqh = jSONObject.optDouble("alpha", 0.0d);
         JSONObject optJSONObject = jSONObject.optJSONObject("layout");
         if (optJSONObject != null) {
-            this.nKL = new com.opensource.svgaplayer.b.c(optJSONObject.optDouble(Config.EVENT_HEAT_X, 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
+            this.nKN = new com.opensource.svgaplayer.b.c(optJSONObject.optDouble(Config.EVENT_HEAT_X, 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
         if (optJSONObject2 != null) {
-            this.nKB.setValues(new float[]{(float) optJSONObject2.optDouble(Config.APP_VERSION_CODE, 1.0d), (float) optJSONObject2.optDouble("c", 0.0d), (float) optJSONObject2.optDouble("tx", 0.0d), (float) optJSONObject2.optDouble("b", 0.0d), (float) optJSONObject2.optDouble("d", 1.0d), (float) optJSONObject2.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d), (float) 0.0d, (float) 0.0d, (float) 1.0d});
+            this.nKD.setValues(new float[]{(float) optJSONObject2.optDouble(Config.APP_VERSION_CODE, 1.0d), (float) optJSONObject2.optDouble("c", 0.0d), (float) optJSONObject2.optDouble("tx", 0.0d), (float) optJSONObject2.optDouble("b", 0.0d), (float) optJSONObject2.optDouble("d", 1.0d), (float) optJSONObject2.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d), (float) 0.0d, (float) 0.0d, (float) 1.0d});
         }
         String optString = jSONObject.optString("clipPath");
         if (optString != null) {
             if (optString.length() > 0) {
-                this.nKM = new b(optString);
+                this.nKO = new b(optString);
             }
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
@@ -87,9 +87,9 @@ public final class g {
         Float f;
         Float f2;
         q.m(frameEntity, "obj");
-        this.nKL = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.nKB = new Matrix();
-        this.shapes = o.dTO();
+        this.nKN = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.nKD = new Matrix();
+        this.shapes = o.dTP();
         this.cqh = frameEntity.alpha != null ? f.floatValue() : 0.0f;
         Layout layout = frameEntity.layout;
         if (layout != null) {
@@ -98,7 +98,7 @@ public final class g {
             Float f4 = layout.y;
             double floatValue2 = f4 != null ? f4.floatValue() : 0.0f;
             Float f5 = layout.width;
-            this.nKL = new com.opensource.svgaplayer.b.c(floatValue, floatValue2, f5 != null ? f5.floatValue() : 0.0f, layout.height != null ? f2.floatValue() : 0.0f);
+            this.nKN = new com.opensource.svgaplayer.b.c(floatValue, floatValue2, f5 != null ? f5.floatValue() : 0.0f, layout.height != null ? f2.floatValue() : 0.0f);
         }
         Transform transform = frameEntity.transform;
         if (transform != null) {
@@ -124,13 +124,13 @@ public final class g {
             fArr[6] = 0.0f;
             fArr[7] = 0.0f;
             fArr[8] = 1.0f;
-            this.nKB.setValues(fArr);
+            this.nKD.setValues(fArr);
         }
         String str = frameEntity.clipPath;
         if (str != null) {
             str = str.length() > 0 ? str : null;
             if (str != null) {
-                this.nKM = new b(str);
+                this.nKO = new b(str);
             }
         }
         List<ShapeEntity> list = frameEntity.shapes;

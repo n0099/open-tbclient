@@ -11,8 +11,8 @@ import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes16.dex */
 public class b extends j {
     private final CustomMessageListener hBG;
-    public final com.baidu.adp.base.d hZZ;
-    public final com.baidu.adp.base.d iaa;
+    public final com.baidu.adp.base.d iab;
+    public final com.baidu.adp.base.d iac;
 
     public b(FrsFragment frsFragment) {
         super(frsFragment);
@@ -25,7 +25,7 @@ public class b extends j {
                 }
             }
         };
-        this.hZZ = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.2
+        this.iab = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.2
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
                 if (obj instanceof Boolean) {
@@ -33,7 +33,7 @@ public class b extends j {
                 }
             }
         };
-        this.iaa = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.3
+        this.iac = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.3
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
                 boolean z = false;
@@ -41,7 +41,7 @@ public class b extends j {
                     z = ((Boolean) obj).booleanValue();
                 }
                 if (!z) {
-                    b.this.iac.refresh();
+                    b.this.iae.refresh();
                 }
             }
         };
@@ -51,7 +51,7 @@ public class b extends j {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(u uVar) {
         if (uVar != null) {
-            FrsViewData cbZ = this.iac.cbZ();
+            FrsViewData cbZ = this.iae.cbZ();
             if (this.hFS != null && this.hFT != null && this.hFz != null && cbZ != null && cbZ.getForum() != null && uVar.getFid() != null) {
                 boolean z = uVar.isLike() == 1;
                 if (uVar.getFid().equals(cbZ.getForum().getId())) {
@@ -64,19 +64,19 @@ public class b extends j {
                     }
                     if (z) {
                         this.hFT.a(cbZ, false);
-                        TbadkCoreApplication.getInst().addLikeForum(this.iac.getForumName());
+                        TbadkCoreApplication.getInst().addLikeForum(this.iae.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.e.dki().aS(this.iac.getForumName(), false);
+                    com.baidu.tieba.tbadkCore.e.dki().aS(this.iae.getForumName(), false);
                     cbZ.getForum().setLike(0);
                     this.hFT.ciW();
-                    TbadkCoreApplication.getInst().delLikeForum(this.iac.getForumName());
+                    TbadkCoreApplication.getInst().delLikeForum(this.iae.getForumName());
                     return;
                 }
                 if (uVar.isLike() == 1) {
                     cbZ.deleteLikeFeedForum(uVar.getFid());
                     this.hFT.i(cbZ);
-                    this.ibn.a(cbZ, this.hFS.chr());
+                    this.ibp.a(cbZ, this.hFS.chr());
                 }
                 if (cbZ.getForum().getBannerListData() != null) {
                     cbZ.getForum().getBannerListData().setFeedForumLiked(uVar.getFid(), uVar.isLike());

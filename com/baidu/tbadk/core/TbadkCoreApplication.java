@@ -800,7 +800,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         com.baidu.b.a.a.sN().setAppName("tieba");
         AppConfig.init(false, false, false, false);
         if (isMainProcess(false)) {
-            z.dAk();
+            z.dAl();
             ad.a(new ac<Object>() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.19
                 @Override // com.baidu.tbadk.util.ac
                 public Object doInBackground() {
@@ -869,14 +869,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     private void initJpusbSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.t.b.dnR().initSdk(this);
+            com.baidu.tieba.t.b.dnS().initSdk(this);
         }
     }
 
     private void initStatSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.t.c.dnU().autoTrace(this);
-            com.baidu.tieba.t.c.dnU().setAppChannel(this, getFrom(), true);
+            com.baidu.tieba.t.c.dnV().autoTrace(this);
+            com.baidu.tieba.t.c.dnV().setAppChannel(this, getFrom(), true);
         }
     }
 
@@ -1280,9 +1280,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         TbConfig.initBigImageWidth(getContext());
         TbConfig.initFriendPhotoConfig(getContext());
         if (IS_SUPPORT_EXCEPTION_HANDLER) {
-            com.baidu.tieba.t.d.dnV();
+            com.baidu.tieba.t.d.dnW();
         }
-        com.baidu.tieba.video.g.dpz();
+        com.baidu.tieba.video.g.dpA();
         boolean isMainProcess = isMainProcess(false);
         long currentTimeMillis = System.currentTimeMillis();
         TiebaStatic.init(getContext(), isMainProcess);
@@ -2886,7 +2886,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
         com.baidu.tbadk.coreExtra.messageCenter.b.bfl().ih(true);
         NotificationHelper.cancelAllNotification(this);
-        com.baidu.tieba.tbadkCore.util.a.dmd();
+        com.baidu.tieba.tbadkCore.util.a.dme();
     }
 
     public void onUserChanged(Intent intent2) {

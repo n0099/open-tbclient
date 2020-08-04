@@ -6,5 +6,5 @@ public class a {
     public Integer class_id;
     public String class_name;
     public List<d> forum_info;
-    public int kcK;
+    public int kcM;
 }

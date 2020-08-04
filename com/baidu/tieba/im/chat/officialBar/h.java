@@ -17,25 +17,25 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes20.dex */
 public class h extends BaseAdapter {
-    private d.c iSo;
-    private boolean iSp;
-    private BdTypeListView iUk;
+    private d.c iSq;
+    private boolean iSr;
+    private BdTypeListView iUm;
     private TbPageContext<BaseActivity> pageContext;
     private List<com.baidu.tieba.im.message.chat.b> mList = null;
-    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> iUj = null;
+    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> iUl = null;
 
     public h(TbPageContext<BaseActivity> tbPageContext, BdTypeListView bdTypeListView, d.c cVar) {
         this.pageContext = tbPageContext;
-        this.iSo = cVar;
-        this.iUk = bdTypeListView;
+        this.iSq = cVar;
+        this.iUm = bdTypeListView;
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, e.a<b> aVar) {
         b cra = aVar.cra();
         a.C0667a cwt = bVar.cwt();
         cwt.createTime = bVar.getCreateTime();
-        cra.a(this.pageContext.getPageActivity().getBaseContext(), cwt, bVar.cwu(), this.iUj == null ? null : this.iUj.get(cwt.jhm), bVar.cwv(), bVar.cws(), i);
-        ap apVar = new ap(this.iSp ? "c13865" : "c13863");
+        cra.a(this.pageContext.getPageActivity().getBaseContext(), cwt, bVar.cwu(), this.iUl == null ? null : this.iUl.get(cwt.jho), bVar.cwv(), bVar.cws(), i);
+        ap apVar = new ap(this.iSr ? "c13865" : "c13863");
         if (com.baidu.tbadk.getUserInfo.b.bkd().bkf() != null) {
             apVar.dn("uid", com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId());
         }
@@ -76,8 +76,8 @@ public class h extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            b bVar = new b(this.pageContext, this.iSp);
-            bVar.a(this.iSo);
+            b bVar = new b(this.pageContext, this.iSr);
+            bVar.a(this.iSq);
             view2 = bVar.getConvertView();
             aVar = new a(bVar.getConvertView(), bVar);
             view2.setTag(aVar);
@@ -98,12 +98,12 @@ public class h extends BaseAdapter {
 
     @RequiresApi(api = 16)
     public void b(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        if (this.iUj == null) {
-            this.iUj = new LongSparseArray<>();
+        if (this.iUl == null) {
+            this.iUl = new LongSparseArray<>();
         }
-        this.iUj.clear();
+        this.iUl.clear();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            this.iUj.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            this.iUl.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
         }
         notifyDataSetChanged();
     }
@@ -116,6 +116,6 @@ public class h extends BaseAdapter {
     }
 
     public void pH(boolean z) {
-        this.iSp = z;
+        this.iSr = z;
     }
 }

@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes4.dex */
 public class i {
-    private final com.facebook.common.internal.j<Boolean> naW;
+    private final com.facebook.common.internal.j<Boolean> naY;
     private final boolean nbA;
-    private final boolean nbB;
-    private final int nbC;
-    private final int nbD;
-    private boolean nbE;
-    private final boolean nbF;
-    private final c nbG;
-    private final boolean nbw;
-    private final b.a nbx;
+    private final com.facebook.common.g.b nbB;
+    private final boolean nbC;
+    private final boolean nbD;
+    private final int nbE;
+    private final int nbF;
+    private boolean nbG;
+    private final boolean nbH;
+    private final c nbI;
     private final boolean nby;
-    private final com.facebook.common.g.b nbz;
+    private final b.a nbz;
 
     /* loaded from: classes4.dex */
     public interface c {
@@ -26,8 +26,6 @@ public class i {
     }
 
     private i(a aVar) {
-        this.nbw = aVar.nbw;
-        this.nbx = aVar.nbx;
         this.nby = aVar.nby;
         this.nbz = aVar.nbz;
         this.nbA = aVar.nbA;
@@ -36,83 +34,85 @@ public class i {
         this.nbD = aVar.nbD;
         this.nbE = aVar.nbE;
         this.nbF = aVar.nbF;
-        if (aVar.nbG == null) {
-            this.nbG = new b();
+        this.nbG = aVar.nbG;
+        this.nbH = aVar.nbH;
+        if (aVar.nbI == null) {
+            this.nbI = new b();
         } else {
-            this.nbG = aVar.nbG;
+            this.nbI = aVar.nbI;
         }
-        this.naW = aVar.naW;
-    }
-
-    public boolean dHb() {
-        return this.nbA;
+        this.naY = aVar.naY;
     }
 
     public boolean dHc() {
-        return this.nbw;
+        return this.nbC;
     }
 
     public boolean dHd() {
         return this.nby;
     }
 
-    public b.a dHe() {
-        return this.nbx;
+    public boolean dHe() {
+        return this.nbA;
     }
 
-    public com.facebook.common.g.b dHf() {
+    public b.a dHf() {
         return this.nbz;
     }
 
-    public boolean dHg() {
+    public com.facebook.common.g.b dHg() {
         return this.nbB;
     }
 
-    public int dHh() {
-        return this.nbC;
-    }
-
-    public int dHi() {
+    public boolean dHh() {
         return this.nbD;
     }
 
-    public boolean dHj() {
-        return this.nbF;
-    }
-
-    public c dHk() {
-        return this.nbG;
-    }
-
-    public boolean dHl() {
+    public int dHi() {
         return this.nbE;
     }
 
-    public com.facebook.common.internal.j<Boolean> dHm() {
-        return this.naW;
+    public int dHj() {
+        return this.nbF;
+    }
+
+    public boolean dHk() {
+        return this.nbH;
+    }
+
+    public c dHl() {
+        return this.nbI;
+    }
+
+    public boolean dHm() {
+        return this.nbG;
+    }
+
+    public com.facebook.common.internal.j<Boolean> dHn() {
+        return this.naY;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> naW;
-        private c nbG;
-        private final h.a nbH;
-        private b.a nbx;
-        private com.facebook.common.g.b nbz;
-        private boolean nbw = false;
+        public com.facebook.common.internal.j<Boolean> naY;
+        private com.facebook.common.g.b nbB;
+        private c nbI;
+        private final h.a nbJ;
+        private b.a nbz;
         private boolean nby = false;
         private boolean nbA = false;
-        private boolean nbB = false;
-        private int nbC = 0;
-        private int nbD = 0;
-        public boolean nbE = false;
-        private boolean nbF = false;
+        private boolean nbC = false;
+        private boolean nbD = false;
+        private int nbE = 0;
+        private int nbF = 0;
+        public boolean nbG = false;
+        private boolean nbH = false;
 
         public a(h.a aVar) {
-            this.nbH = aVar;
+            this.nbJ = aVar;
         }
 
-        public i dHn() {
+        public i dHo() {
             return new i(this);
         }
     }

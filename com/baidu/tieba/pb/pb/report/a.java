@@ -36,24 +36,24 @@ public class a implements com.baidu.tieba.ueg.a {
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.kBM.showFailToast(errorString);
+                a.this.kBO.showFailToast(errorString);
             }
         }
     };
-    private b kBL = new b();
-    private c kBM = new c();
+    private b kBN = new b();
+    private c kBO = new c();
     private Context mContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.kBM.toastTime = 1000L;
+        this.kBO.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void x(BdUniqueId bdUniqueId) {
         this.agB = bdUniqueId;
-        this.kBL.setTag(bdUniqueId);
+        this.kBN.setTag(bdUniqueId);
         this.eaN.setTag(bdUniqueId);
         this.eaN.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.eaN);
@@ -61,13 +61,13 @@ public class a implements com.baidu.tieba.ueg.a {
 
     public void Lc(String str) {
         showLoadingDialog();
-        this.kBL.Lc(str);
+        this.kBN.Lc(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void Ld(String str) {
         showLoadingDialog();
-        this.kBL.Ld(str);
+        this.kBN.Ld(str);
     }
 
     private void showLoadingDialog() {

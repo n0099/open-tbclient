@@ -12,12 +12,12 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String nQA = "";
+    private String nQC = "";
     private String from = "";
     private String wm = "";
-    private String nQB = "";
-    private String nQC = "";
     private String nQD = "";
+    private String nQE = "";
+    private String nQF = "";
     private HashMap<String, String> extra = new HashMap<>();
 
     private String SF(String str) {
@@ -47,7 +47,7 @@ public class b implements Cloneable {
     }
 
     public String xN(boolean z) {
-        return z ? SF(this.nQC) : this.nQC;
+        return z ? SF(this.nQE) : this.nQE;
     }
 
     public String xO(boolean z) {
@@ -59,7 +59,7 @@ public class b implements Cloneable {
     }
 
     public String xP(boolean z) {
-        return z ? SF(this.nQB) : this.nQB;
+        return z ? SF(this.nQD) : this.nQD;
     }
 
     public String xQ(boolean z) {
@@ -87,10 +87,10 @@ public class b implements Cloneable {
     }
 
     public String xS(boolean z) {
-        return z ? SF(this.nQA) : this.nQA;
+        return z ? SF(this.nQC) : this.nQC;
     }
 
-    public boolean dSi() {
+    public boolean dSj() {
         return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.wm)) ? false : true;
     }
 

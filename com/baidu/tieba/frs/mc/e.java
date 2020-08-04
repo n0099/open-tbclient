@@ -25,8 +25,8 @@ import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class e {
     private l hHT;
-    private bv iaQ;
-    private CustomMessageListener iaR = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.3
+    private bv iaS;
+    private CustomMessageListener iaT = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -48,7 +48,7 @@ public class e {
             e.this.hHT.cbw().ccU().notifyDataSetChanged();
         }
     };
-    private CustomMessageListener hYX = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.7
+    private CustomMessageListener hYZ = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,11 +68,11 @@ public class e {
     public e(l lVar, BdUniqueId bdUniqueId) {
         this.hHT = lVar;
         this.hoJ.setTag(bdUniqueId);
-        this.hYX.setTag(bdUniqueId);
-        this.iaR.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.iaR);
+        this.hYZ.setTag(bdUniqueId);
+        this.iaT.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.iaT);
         MessageManager.getInstance().registerListener(this.hoJ);
-        MessageManager.getInstance().registerListener(this.hYX);
+        MessageManager.getInstance().registerListener(this.hYZ);
         this.hoK.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.hoK);
     }
@@ -120,12 +120,12 @@ public class e {
     }
 
     private void chy() {
-        if (this.iaQ != null && this.iaQ.dUF) {
+        if (this.iaS != null && this.iaS.dUF) {
             TbPageTag tbPageTag = null;
             if (this.hHT != null && this.hHT.cbw() != null) {
                 tbPageTag = com.baidu.tbadk.pageInfo.c.eb(this.hHT.cbw().getContext());
             }
-            com.baidu.tieba.frs.d.a.a(this.iaQ, tbPageTag);
+            com.baidu.tieba.frs.d.a.a(this.iaS, tbPageTag);
         }
     }
 
@@ -275,7 +275,7 @@ public class e {
             if (item instanceof bu) {
                 bv bvVar = ((bu) item).dLK;
                 if (bvVar.getTid() != null && bvVar.getTid().equals(str)) {
-                    this.iaQ = bvVar;
+                    this.iaS = bvVar;
                     i = i2;
                 }
             }

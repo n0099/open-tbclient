@@ -9,7 +9,7 @@ public final class ax {
         if (eVar == null) {
             return false;
         }
-        switch (eVar.dIn()) {
+        switch (eVar.dIo()) {
             case 90:
             case 270:
                 return a(eVar.getHeight(), eVar.getWidth(), dVar);

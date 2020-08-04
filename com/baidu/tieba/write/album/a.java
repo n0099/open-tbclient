@@ -11,30 +11,30 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     private String bjk;
     private String bjl;
     private TbPageContext huq;
-    private e muJ;
-    private String[] muK;
-    private ImageListFragment muL;
-    private AlbumImageBrowseFragment muM;
+    private e muL;
+    private String[] muM;
+    private ImageListFragment muN;
+    private AlbumImageBrowseFragment muO;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
         this.bjk = "tag_image";
         this.bjl = "tag_b_image";
         this.huq = tbPageContext;
-        this.muJ = eVar;
+        this.muL = eVar;
     }
 
     public void II() {
         this.aQH = new Fragment[2];
-        this.muK = new String[2];
-        this.muL = new ImageListFragment();
-        this.muL.a(this.muJ);
-        this.aQH[0] = this.muL;
-        this.muK[0] = this.bjk;
-        this.muM = new AlbumImageBrowseFragment();
-        this.muM.a(this.muJ);
-        this.aQH[1] = this.muM;
-        this.muK[1] = this.bjl;
+        this.muM = new String[2];
+        this.muN = new ImageListFragment();
+        this.muN.a(this.muL);
+        this.aQH[0] = this.muN;
+        this.muM[0] = this.bjk;
+        this.muO = new AlbumImageBrowseFragment();
+        this.muO.a(this.muL);
+        this.aQH[1] = this.muO;
+        this.muM[1] = this.bjl;
     }
 
     public Fragment Ha(int i) {
@@ -48,11 +48,11 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.muK[i];
+        return this.muM[i];
     }
 
     public void a(NavigationBar navigationBar) {
-        this.muL.a(navigationBar);
+        this.muN.a(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
@@ -70,99 +70,99 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView duw() {
-        if (this.muL == null) {
+    public TbCameraView dux() {
+        if (this.muN == null) {
             return null;
         }
-        return this.muL.duw();
+        return this.muN.dux();
     }
 
     public void stopCamera() {
-        TbCameraView duw = duw();
-        if (duw != null) {
-            duw.stopCamera();
-            duw.setVisibility(4);
+        TbCameraView dux = dux();
+        if (dux != null) {
+            dux.stopCamera();
+            dux.setVisibility(4);
         }
     }
 
     public void Rd() {
-        TbCameraView duw = duw();
-        if (duw != null) {
-            duw.setVisibility(0);
-            duw.wq(false);
+        TbCameraView dux = dux();
+        if (dux != null) {
+            dux.setVisibility(0);
+            dux.wq(false);
         }
-        if (this.muL != null && this.muL.duH() != null) {
-            this.muL.duH().Jg();
+        if (this.muN != null && this.muN.duI() != null) {
+            this.muN.duI().Jg();
         }
     }
 
-    public void dux() {
-        if (this.muL != null) {
-            this.muL.Je();
+    public void duy() {
+        if (this.muN != null) {
+            this.muN.Je();
         }
     }
 
     public View IJ() {
-        if (this.muL == null) {
+        if (this.muN == null) {
             return null;
         }
-        return this.muL.Jb();
+        return this.muN.Jb();
     }
 
     public View IK() {
-        if (this.muL == null) {
+        if (this.muN == null) {
             return null;
         }
-        return this.muL.Jf();
+        return this.muN.Jf();
     }
 
     public View IL() {
-        if (this.muM == null) {
+        if (this.muO == null) {
             return null;
         }
-        return this.muM.Jb();
+        return this.muO.Jb();
     }
 
     public View IM() {
-        if (this.muM == null) {
+        if (this.muO == null) {
             return null;
         }
-        return this.muM.Jc();
+        return this.muO.Jc();
     }
 
     public View IN() {
-        if (this.muM == null) {
+        if (this.muO == null) {
             return null;
         }
-        return this.muM.IN();
+        return this.muO.IN();
     }
 
     public View IO() {
-        if (this.muL == null) {
+        if (this.muN == null) {
             return null;
         }
-        return this.muL.IN();
+        return this.muN.IN();
     }
 
     public void onDestroy() {
     }
 
-    public ImageListFragment duy() {
-        return this.muL;
+    public ImageListFragment duz() {
+        return this.muN;
     }
 
     public void cp(boolean z) {
-        if (this.muM != null) {
-            this.muM.cp(z);
+        if (this.muO != null) {
+            this.muO.cp(z);
         }
-        if (this.muL != null) {
-            this.muL.cp(z);
+        if (this.muN != null) {
+            this.muN.cp(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.muL != null) {
-            this.muL.a(jVar);
+        if (this.muN != null) {
+            this.muN.a(jVar);
         }
     }
 }

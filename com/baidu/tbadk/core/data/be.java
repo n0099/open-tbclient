@@ -38,9 +38,9 @@ public class be {
 
     public void a(com.baidu.tieba.play.o oVar) {
         if (oVar != null) {
-            oVar.lcH = this.recomWeight;
+            oVar.lcJ = this.recomWeight;
             oVar.mSource = this.recomSource;
-            oVar.lcL = this.dQw;
+            oVar.lcN = this.dQw;
             oVar.mExtra = this.recomExtra;
         }
     }

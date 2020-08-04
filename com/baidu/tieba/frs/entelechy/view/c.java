@@ -86,8 +86,8 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
     private HeadPendantClickableView gWt;
     public TbImageView gYB;
     private TbImageView gYD;
-    private i hQR;
-    private String hRb;
+    private i hQT;
+    private String hRd;
     private String mForumName;
     private View mMaskView;
     protected TbPageContext<?> mPageContext;
@@ -191,8 +191,8 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             this.fXN.ekZ.setNeedAddReplyIcon(true);
         }
         this.bjP = (RelativeLayout) view.findViewById(R.id.card_home_page_normal_thread_root);
-        this.hQR = new i(this.mPageContext, this.bjP);
-        this.hQR.setUniqueId(getTag());
+        this.hQT = new i(this.mPageContext, this.bjP);
+        this.hQT.setUniqueId(getTag());
         this.gWs = (ThreadGodReplyLayout) view.findViewById(R.id.card_frs_god_reply_layout);
         this.gWs.setOnClickListener(this.gWX);
         this.gYB = (TbImageView) view.findViewById(R.id.frs_normal_item_theme_card);
@@ -251,7 +251,7 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             if (this.ajq != null) {
                 this.ajq.onChangeSkinType();
             }
-            this.hQR.onChangeSkinType();
+            this.hQT.onChangeSkinType();
             if (this.fXN != null && this.fXN.getVisibility() == 0) {
                 this.fXN.onChangeSkinType();
             }
@@ -289,7 +289,7 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             m.a(this.gWs.getGodReplyContent(), this.aeA.getId(), R.color.cp_cont_f, R.color.cp_cont_d);
         }
         b(bvVar);
-        this.hQR.ax(this.aeA);
+        this.hQT.ax(this.aeA);
         X(bvVar);
         this.fXa.setData(this.aeA);
         this.gWs.setFromCDN(this.aib);
@@ -402,7 +402,7 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
             if (this.gYB == null || bvVar == null) {
                 this.gYD.setVisibility(8);
             } else if (!StringUtils.isNull(bvVar.dUj) && this.gYB.getVisibility() != 0) {
-                if (this.hQR != null && this.hQR.cja() && (this.gYD.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                if (this.hQT != null && this.hQT.cja() && (this.gYD.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gYD.getLayoutParams();
                     layoutParams.rightMargin = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds106);
                     this.gYD.setLayoutParams(layoutParams);
@@ -600,8 +600,8 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
     }
 
     private boolean aq(bv bvVar) {
-        if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.hRb)) {
-            bvVar.de(this.mUrl, this.hRb);
+        if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.hRd)) {
+            bvVar.de(this.mUrl, this.hRd);
         }
         SpannableStringBuilder y = bvVar.y(false, true);
         if (y == null || StringUtils.isNull(y.toString())) {
@@ -617,8 +617,8 @@ public class c extends com.baidu.tieba.card.b<bv> implements com.baidu.tieba.a.e
 
     private void ar(bv bvVar) {
         if (bvVar != null && pM(2) == 1) {
-            if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.hRb)) {
-                bvVar.de(this.mUrl, this.hRb);
+            if (!StringUtils.isNull(this.mUrl) && !StringUtils.isNull(this.hRd)) {
+                bvVar.de(this.mUrl, this.hRd);
             }
             SpannableString aXg = bvVar.aXg();
             if (aXg != null && !as.isEmpty(aXg.toString())) {

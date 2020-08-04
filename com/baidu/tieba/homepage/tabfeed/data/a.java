@@ -21,20 +21,20 @@ import tbclient.ThreadInfo;
 /* loaded from: classes16.dex */
 public class a {
     private ArrayList<bv> hos;
-    private k iDs;
-    private ah iDt;
-    private bi iDu;
-    private bn iDv;
-    private b iDw;
-    private SpecialColumnListData iDx;
+    private k iDu;
+    private ah iDv;
+    private bi iDw;
+    private bn iDx;
+    private b iDy;
+    private SpecialColumnListData iDz;
     private boolean hasMore = true;
-    private int iDr = 1;
+    private int iDt = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             Page page = dataRes.page_info;
             if (page != null) {
-                this.iDr = page.current_page.intValue();
+                this.iDt = page.current_page.intValue();
                 this.hasMore = page.has_more.intValue() == 1;
             }
             this.hos = new ArrayList<>(x.getCount(dataRes.thread_list));
@@ -46,46 +46,46 @@ public class a {
             }
             List<BannerImage> list = dataRes.banner_image;
             if (!x.isEmpty(list)) {
-                this.iDs = new k();
-                this.iDs.parserProtobuf(list);
+                this.iDu = new k();
+                this.iDu.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
             if (x.getCount(list2) >= 4) {
-                this.iDt = new ah();
-                this.iDt.parserProtobuf(list2);
+                this.iDv = new ah();
+                this.iDv.parserProtobuf(list2);
             }
             RecommendForumList recommendForumList = dataRes.recommend_forum;
             if (recommendForumList != null && x.getCount(recommendForumList.forum_list) >= 5) {
-                this.iDu = new bi();
-                this.iDu.aL(recommendForumList.forum_list);
-                this.iDu.className = recommendForumList.class_name;
-                this.iDu.floorPosition = recommendForumList.floor_position.intValue();
-                this.iDu.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-                this.iDu.dQB = R.color.cp_cont_c;
+                this.iDw = new bi();
+                this.iDw.aL(recommendForumList.forum_list);
+                this.iDw.className = recommendForumList.class_name;
+                this.iDw.floorPosition = recommendForumList.floor_position.intValue();
+                this.iDw.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+                this.iDw.dQB = R.color.cp_cont_c;
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
             if (recommendUserList != null && x.getCount(recommendUserList.user_list) >= 4) {
-                this.iDv = new bn();
-                this.iDv.aM(recommendUserList.user_list);
-                this.iDv.floorPosition = recommendUserList.floor_position.intValue();
-                this.iDv.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-                this.iDv.dQB = R.color.cp_cont_c;
+                this.iDx = new bn();
+                this.iDx.aM(recommendUserList.user_list);
+                this.iDx.floorPosition = recommendUserList.floor_position.intValue();
+                this.iDx.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+                this.iDx.dQB = R.color.cp_cont_c;
             }
             HotTopic hotTopic = dataRes.hot_topic;
             if (hotTopic != null && x.getCount(hotTopic.topic_list) >= 4) {
-                this.iDw = new b();
-                this.iDw.a(hotTopic);
+                this.iDy = new b();
+                this.iDy.a(hotTopic);
             }
             SpecialColumnList specialColumnList = dataRes.special_column;
             if (specialColumnList != null && x.getCount(specialColumnList.item_list) >= 3) {
-                this.iDx = new SpecialColumnListData();
-                this.iDx.a(specialColumnList);
+                this.iDz = new SpecialColumnListData();
+                this.iDz.a(specialColumnList);
             }
         }
     }
 
     public int cnS() {
-        return this.iDr;
+        return this.iDt;
     }
 
     public boolean hasMore() {
@@ -97,26 +97,26 @@ public class a {
     }
 
     public bi cnT() {
-        return this.iDu;
-    }
-
-    public bn cnU() {
-        return this.iDv;
-    }
-
-    public k cnV() {
-        return this.iDs;
-    }
-
-    public ah cnW() {
-        return this.iDt;
-    }
-
-    public b cnX() {
         return this.iDw;
     }
 
-    public SpecialColumnListData cnY() {
+    public bn cnU() {
         return this.iDx;
+    }
+
+    public k cnV() {
+        return this.iDu;
+    }
+
+    public ah cnW() {
+        return this.iDv;
+    }
+
+    public b cnX() {
+        return this.iDy;
+    }
+
+    public SpecialColumnListData cnY() {
+        return this.iDz;
     }
 }

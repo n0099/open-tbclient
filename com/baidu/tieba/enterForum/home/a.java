@@ -848,7 +848,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 bd.baV().b(this.feq.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
                 return true;
             case 15:
-                if (this.fwT.doU() || !(bkJ instanceof com.baidu.tieba.enterForum.data.f)) {
+                if (this.fwT.doV() || !(bkJ instanceof com.baidu.tieba.enterForum.data.f)) {
                     return true;
                 }
                 bd.baV().b(this.feq.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/editinfo?fid=" + ((com.baidu.tieba.enterForum.data.f) bkJ).getId() + "&nomenu=1"});

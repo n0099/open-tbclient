@@ -7,7 +7,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class e implements d {
-    public static final e nYh = new e();
+    public static final e nYj = new e();
 
     private e() {
     }

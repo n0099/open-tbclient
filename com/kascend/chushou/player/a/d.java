@@ -10,10 +10,10 @@ import tv.chushou.zues.widget.sweetalert.b;
 /* loaded from: classes6.dex */
 public class d extends a {
     private String f;
-    private RoomInfo noF;
+    private RoomInfo noH;
 
     public void a(RoomInfo roomInfo, String str) {
-        this.noF = roomInfo;
+        this.noH = roomInfo;
         this.f = str;
     }
 
@@ -58,10 +58,10 @@ public class d extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.d.2
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.eaI();
-                com.kascend.chushou.c.c.dMk().c(d.this.nny, null, d.this.noF.mRoomID, d.this.a(i) + "");
+                bVar.eaJ();
+                com.kascend.chushou.c.c.dMl().c(d.this.nnA, null, d.this.noH.mRoomID, d.this.a(i) + "");
             }
-        }).Ub(this.c.getString(a.i.alert_dialog_cancel)).Ud(this.c.getString(a.i.alert_dialog_ok)).B(this.c.getString(a.i.alert_dialog_report_room, this.noF.mName));
+        }).Ub(this.c.getString(a.i.alert_dialog_cancel)).Ud(this.c.getString(a.i.alert_dialog_ok)).B(this.c.getString(a.i.alert_dialog_report_room, this.noH.mName));
         B.getWindow().setLayout(tv.chushou.zues.utils.a.gE(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         B.show();
     }

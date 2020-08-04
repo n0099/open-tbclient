@@ -34,11 +34,11 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
         MsgleftView cra = aVar.cra();
-        cra.yq(this.iQK);
+        cra.yq(this.iQM);
         cra.pz(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cra.a(this.iQB);
-        cra.setOnItemViewLongClickListener(this.iQC);
+        cra.a(this.iQD);
+        cra.setOnItemViewLongClickListener(this.iQE);
         cra.setPosition(i);
         cra.eM(this.flq);
         cra.eL(chatMessage.getCacheData().getLastMsgTime());

@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class b extends BaseAdapter {
     private List<EmotionImageData> hrK;
-    private a kyJ;
-    private EmotionView.a kyK;
+    private a kyL;
+    private EmotionView.a kyM;
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -48,14 +48,14 @@ public class b extends BaseAdapter {
         if (view == null) {
             C0720b c0720b2 = new C0720b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
-            c0720b2.kac = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0720b2.kac.bXl();
-            c0720b2.kac.setController(this.kyK);
-            c0720b2.kac.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0720b2.kae = (EmotionView) view.findViewById(R.id.emotion_view);
+            c0720b2.kae.bXl();
+            c0720b2.kae.setController(this.kyM);
+            c0720b2.kae.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.kyJ != null && (view2 instanceof EmotionView)) {
-                        b.this.kyJ.d(((EmotionView) view2).getData());
+                    if (b.this.kyL != null && (view2 instanceof EmotionView)) {
+                        b.this.kyL.d(((EmotionView) view2).getData());
                     }
                 }
             });
@@ -65,23 +65,23 @@ public class b extends BaseAdapter {
             c0720b = (C0720b) view.getTag();
         }
         if (this.hrK != null && i >= 0 && i < this.hrK.size()) {
-            c0720b.kac.a(this.hrK.get(i));
+            c0720b.kae.a(this.hrK.get(i));
         }
         return view;
     }
 
     public void a(a aVar) {
-        this.kyJ = aVar;
+        this.kyL = aVar;
     }
 
     public void a(EmotionView.a aVar) {
-        this.kyK = aVar;
+        this.kyM = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     static class C0720b {
-        EmotionView kac;
+        EmotionView kae;
 
         C0720b() {
         }

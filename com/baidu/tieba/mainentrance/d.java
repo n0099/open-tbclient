@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class d extends BaseAdapter {
     private ArrayList<String> dWx;
     private final String hFr;
-    private boolean jGb = true;
+    private boolean jGd = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
@@ -28,7 +28,7 @@ public class d extends BaseAdapter {
     }
 
     public void ra(boolean z) {
-        this.jGb = z;
+        this.jGd = z;
     }
 
     @Override // android.widget.Adapter
@@ -69,7 +69,7 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.jGb) {
+            if (this.jGd) {
                 aVar.ekx.setText(str.concat(this.hFr));
             } else {
                 aVar.ekx.setText(str);

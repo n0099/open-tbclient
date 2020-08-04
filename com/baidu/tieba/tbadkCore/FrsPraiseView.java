@@ -21,10 +21,10 @@ public class FrsPraiseView extends LinearLayout {
     private TextView dKA;
     private View dpe;
     private boolean elX;
-    private TextView lLp;
-    private TextView lLq;
-    private PraiseData lLr;
-    private boolean lLs;
+    private TextView lLr;
+    private TextView lLs;
+    private PraiseData lLt;
+    private boolean lLu;
     private Context mContext;
     private String mPostId;
     private String mThreadId;
@@ -32,13 +32,13 @@ public class FrsPraiseView extends LinearLayout {
     public FrsPraiseView(Context context) {
         super(context, null);
         this.elX = false;
-        this.lLs = false;
+        this.lLu = false;
     }
 
     public FrsPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.elX = false;
-        this.lLs = false;
+        this.lLu = false;
         setOrientation(0);
         this.mContext = context;
         initView();
@@ -47,31 +47,31 @@ public class FrsPraiseView extends LinearLayout {
     private void initView() {
         this.dpe = View.inflate(this.mContext, R.layout.frs_item_praise, this);
         this.dKA = (TextView) this.dpe.findViewById(R.id.frs_go_praise_list_num);
-        this.lLp = (TextView) this.dpe.findViewById(R.id.frs_praise_user_name_text1);
-        this.lLq = (TextView) this.dpe.findViewById(R.id.frs_praise_user_name_text2);
+        this.lLr = (TextView) this.dpe.findViewById(R.id.frs_praise_user_name_text1);
+        this.lLs = (TextView) this.dpe.findViewById(R.id.frs_praise_user_name_text2);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str = "";
-                if (FrsPraiseView.this.lLr != null) {
-                    str = FrsPraiseView.this.lLr.getTitle();
+                if (FrsPraiseView.this.lLt != null) {
+                    str = FrsPraiseView.this.lLt.getTitle();
                 }
                 com.baidu.tbadk.util.s.b(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.elX));
             }
         });
-        this.lLq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
+        this.lLs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.lLr.getUser().get(1);
+                MetaData metaData = FrsPraiseView.this.lLt.getUser().get(1);
                 if (metaData != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.f.b.toLong(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
             }
         });
-        this.lLp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
+        this.lLr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.lLr.getUser().get(0);
+                MetaData metaData = FrsPraiseView.this.lLt.getUser().get(0);
                 if (metaData != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.f.b.toLong(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
@@ -83,7 +83,7 @@ public class FrsPraiseView extends LinearLayout {
         if (praiseData != null) {
             this.mThreadId = str;
             this.mPostId = str2;
-            this.lLr = praiseData;
+            this.lLt = praiseData;
             vg(z);
         }
     }
@@ -93,29 +93,29 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     public void setIsFromPbVideo(boolean z) {
-        this.lLs = z;
+        this.lLu = z;
     }
 
     private void vg(boolean z) {
-        long num = this.lLr.getNum();
-        this.lLq.setVisibility(8);
-        this.lLp.setVisibility(8);
+        long num = this.lLt.getNum();
+        this.lLs.setVisibility(8);
+        this.lLr.setVisibility(8);
         if (num > 0) {
-            ArrayList<MetaData> user = this.lLr.getUser();
+            ArrayList<MetaData> user = this.lLt.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.lLp.setVisibility(0);
-                        this.lLp.setText(NB(user.get(0).getName_show()));
+                        this.lLr.setVisibility(0);
+                        this.lLr.setText(NB(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.lLp.setVisibility(0);
-                        this.lLp.setText(NB(user.get(0).getName_show()));
+                        this.lLr.setVisibility(0);
+                        this.lLr.setText(NB(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
-                        this.lLq.setVisibility(0);
-                        this.lLq.setText("、" + NB(user.get(1).getName_show()));
+                        this.lLs.setVisibility(0);
+                        this.lLs.setText("、" + NB(user.get(1).getName_show()));
                     }
                 }
             }
@@ -138,22 +138,22 @@ public class FrsPraiseView extends LinearLayout {
 
     public void onChangeSkin(int i) {
         if (this.elX) {
-            if (this.lLs) {
+            if (this.lLu) {
                 ao.setBackgroundResource(this.dpe, R.drawable.praise_video_selector);
                 ao.setViewTextColor(this.dKA, R.color.cp_cont_c, 1);
-                ao.setViewTextColor(this.lLp, R.color.cp_link_tip_c, 1);
-                ao.setViewTextColor(this.lLq, R.color.cp_link_tip_c, 1);
+                ao.setViewTextColor(this.lLr, R.color.cp_link_tip_c, 1);
+                ao.setViewTextColor(this.lLs, R.color.cp_link_tip_c, 1);
                 return;
             }
             ao.setBackgroundResource(this.dpe, R.drawable.praise_head_selector);
             ao.setViewTextColor(this.dKA, R.color.cp_cont_d, 1);
-            ao.setViewTextColor(this.lLp, R.color.cp_link_tip_c, 1);
-            ao.setViewTextColor(this.lLq, R.color.cp_link_tip_c, 1);
+            ao.setViewTextColor(this.lLr, R.color.cp_link_tip_c, 1);
+            ao.setViewTextColor(this.lLs, R.color.cp_link_tip_c, 1);
             return;
         }
         ao.setBackgroundResource(this.dpe, R.drawable.praise_view_btn_color);
         ao.setViewTextColor(this.dKA, R.color.cp_cont_d, 1);
-        ao.setViewTextColor(this.lLp, R.color.cp_cont_c, 1);
-        ao.setViewTextColor(this.lLq, R.color.cp_cont_c, 1);
+        ao.setViewTextColor(this.lLr, R.color.cp_cont_c, 1);
+        ao.setViewTextColor(this.lLs, R.color.cp_cont_c, 1);
     }
 }

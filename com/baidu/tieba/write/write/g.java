@@ -20,13 +20,13 @@ import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
     private TbPageContext<WriteActivity> dVN;
-    private WriteImageGridView mDp;
-    public f mDq;
+    private WriteImageGridView mDr;
+    public f mDs;
     private WriteImagesInfo mWriteImagesInfo;
     private com.baidu.tbadk.img.b eBm = new com.baidu.tbadk.img.b();
     private String mFrom = "write";
     private String mForumId = "";
-    private f.a mDr = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a mDt = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
         public void Hl(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
@@ -34,13 +34,13 @@ public class g {
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.kh().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.mDq.a(g.this.mWriteImagesInfo);
-                g.this.mDq.notifyDataSetChanged();
+                g.this.mDs.a(g.this.mWriteImagesInfo);
+                g.this.mDs.notifyDataSetChanged();
                 if (x.isEmpty(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.dVN.getOrignalPage() != 0) {
                     ((WriteActivity) g.this.dVN.getOrignalPage()).dhM();
                 }
                 if (g.this.dVN.getPageActivity() instanceof WriteActivity) {
-                    ((WriteActivity) g.this.dVN.getPageActivity()).dwS();
+                    ((WriteActivity) g.this.dVN.getPageActivity()).dwT();
                 }
             }
         }
@@ -55,18 +55,18 @@ public class g {
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void dwZ() {
+        public void dxa() {
             if (g.this.mWriteImagesInfo != null) {
                 AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(g.this.dVN.getPageActivity(), g.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", g.this.mForumId);
                 albumFloatActivityConfig.getIntent().putExtra("from", g.this.mFrom);
                 albumFloatActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
                 if (g.this.dVN.getPageActivity() instanceof WriteActivity) {
-                    albumFloatActivityConfig.setCanSelectVideo(((WriteActivity) g.this.dVN.getPageActivity()).duE());
+                    albumFloatActivityConfig.setCanSelectVideo(((WriteActivity) g.this.dVN.getPageActivity()).duF());
                     AntiData antiData = new AntiData();
                     antiData.voice_message = ((WriteActivity) g.this.dVN.getPageActivity()).eBU;
-                    antiData.setIfVoice(((WriteActivity) g.this.dVN.getPageActivity()).mCi);
-                    albumFloatActivityConfig.setExtraData(antiData, ((WriteActivity) g.this.dVN.getPageActivity()).mPrefixData, ((WriteActivity) g.this.dVN.getPageActivity()).lCz.getFirstDir(), ((WriteActivity) g.this.dVN.getPageActivity()).lCz.getSecondDir());
+                    antiData.setIfVoice(((WriteActivity) g.this.dVN.getPageActivity()).mCk);
+                    albumFloatActivityConfig.setExtraData(antiData, ((WriteActivity) g.this.dVN.getPageActivity()).mPrefixData, ((WriteActivity) g.this.dVN.getPageActivity()).lCB.getFirstDir(), ((WriteActivity) g.this.dVN.getPageActivity()).lCB.getSecondDir());
                 }
                 albumFloatActivityConfig.setFromWrite(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumFloatActivityConfig));
@@ -76,21 +76,21 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.dVN = tbPageContext;
-        this.mDp = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
-        this.mDq = new f(view.getContext(), this.eBm, null, this.mDr);
-        this.mDp.setAdapter((ListAdapter) this.mDq);
+        this.mDr = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
+        this.mDs = new f(view.getContext(), this.eBm, null, this.mDt);
+        this.mDr.setAdapter((ListAdapter) this.mDs);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.mDq.a(this.mWriteImagesInfo);
-        this.mDq.notifyDataSetChanged();
+        this.mDs.a(this.mWriteImagesInfo);
+        this.mDs.notifyDataSetChanged();
     }
 
-    public GridView dxa() {
-        return this.mDp;
+    public GridView dxb() {
+        return this.mDr;
     }
 
     public void destroy() {
@@ -98,6 +98,6 @@ public class g {
     }
 
     public void wp(boolean z) {
-        this.mDq.wp(z);
+        this.mDs.wp(z);
     }
 }

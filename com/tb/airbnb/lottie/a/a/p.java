@@ -9,18 +9,18 @@ import java.util.List;
 public class p implements l, a.InterfaceC0874a {
     private boolean Cd;
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    private final com.tb.airbnb.lottie.a.b.a<?, Path> nOD;
+    private final com.tb.airbnb.lottie.a.b.a<?, Path> nOF;
     @Nullable
-    private r nOh;
+    private r nOj;
     private final String name;
     private final Path path = new Path();
 
     public p(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = fVar;
-        this.nOD = kVar.dRJ().dRc();
-        aVar.a(this.nOD);
-        this.nOD.b(this);
+        this.nOF = kVar.dRK().dRd();
+        aVar.a(this.nOF);
+        this.nOF.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0874a
@@ -40,9 +40,9 @@ public class p implements l, a.InterfaceC0874a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dQS() == ShapeTrimPath.Type.Simultaneously) {
-                    this.nOh = (r) bVar;
-                    this.nOh.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dQT() == ShapeTrimPath.Type.Simultaneously) {
+                    this.nOj = (r) bVar;
+                    this.nOj.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -57,9 +57,9 @@ public class p implements l, a.InterfaceC0874a {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.nOD.getValue());
+        this.path.set(this.nOF.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.tb.airbnb.lottie.d.f.a(this.path, this.nOh);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.nOj);
         this.Cd = true;
         return this.path;
     }

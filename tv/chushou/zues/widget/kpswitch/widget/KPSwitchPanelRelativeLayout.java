@@ -7,7 +7,7 @@ import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
 /* loaded from: classes6.dex */
 public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b owj;
+    private tv.chushou.zues.widget.kpswitch.a.b owl;
 
     public KPSwitchPanelRelativeLayout(Context context) {
         super(context);
@@ -25,30 +25,30 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
     }
 
     private void init(AttributeSet attributeSet) {
-        this.owj = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.owl = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.owj.ep(i)) {
+        if (!this.owl.ep(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] Z = this.owj.Z(i, i2);
+        int[] Z = this.owl.Z(i, i2);
         super.onMeasure(Z[0], Z[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean eaB() {
-        return this.owj.eaB();
+    public boolean eaC() {
+        return this.owl.eaC();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.owj.isVisible();
+        return this.owl.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
@@ -58,29 +58,29 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public void RH() {
-        this.owj.RH();
+        this.owl.RH();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.owj.setIgnoreRecommendHeight(z);
+        this.owl.setIgnoreRecommendHeight(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void Mm(int i) {
-        this.owj.Mn(i);
+        this.owl.Mn(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void xD(boolean z) {
-        this.owj.yt(z);
+        this.owl.yt(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean eaC() {
-        return this.owj.eaC();
+    public boolean eaD() {
+        return this.owl.eaD();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.owj.setPanelEnabled(z);
+        this.owl.setPanelEnabled(z);
     }
 }

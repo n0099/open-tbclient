@@ -15,9 +15,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.frs.game.strategy.data.b> {
     private ImageView gYN;
-    private TbImageView hUd;
-    private TextView hUe;
-    private TextView hUf;
+    private TbImageView hUf;
+    private TextView hUg;
+    private TextView hUh;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -30,21 +30,21 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.frs.game.strategy.
     }
 
     private void initView() {
-        this.hUd = (TbImageView) this.mRootView.findViewById(R.id.frs_game_left_image);
-        this.hUd.setDefaultErrorResource(R.drawable.icon_morenpic);
-        this.hUd.setDefaultResource(R.drawable.icon_morenpic);
+        this.hUf = (TbImageView) this.mRootView.findViewById(R.id.frs_game_left_image);
+        this.hUf.setDefaultErrorResource(R.drawable.icon_morenpic);
+        this.hUf.setDefaultResource(R.drawable.icon_morenpic);
         this.gYN = (ImageView) this.mRootView.findViewById(R.id.frs_game_video_icon);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_title);
-        this.hUe = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_scan_info);
-        this.hUf = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_info_source);
+        this.hUg = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_scan_info);
+        this.hUh = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_info_source);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
-        ao.setViewTextColor(this.hUe, R.color.cp_cont_d);
-        ao.setViewTextColor(this.hUf, R.color.cp_cont_a);
+        ao.setViewTextColor(this.hUg, R.color.cp_cont_d);
+        ao.setViewTextColor(this.hUh, R.color.cp_cont_a);
         ao.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
     }
 
@@ -68,7 +68,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.frs.game.strategy.
             String numberUniformFormat = as.numberUniformFormat(aTN.aWd());
             String formatTimeShort = as.getFormatTimeShort(aTN.aVU());
             if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-                this.hUe.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+                this.hUg.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
             }
             String str = null;
             if (aTN.getThreadType() == 40) {
@@ -82,13 +82,13 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.frs.game.strategy.
                     str = aTN.aWu().get(0).getOriginalUrl();
                 }
             }
-            this.hUd.startLoad(str, 10, false);
+            this.hUf.startLoad(str, 10, false);
             if (!StringUtils.isNull(aTN.aWa())) {
-                this.hUf.setText(aTN.aWa());
-                this.hUf.setVisibility(0);
+                this.hUh.setText(aTN.aWa());
+                this.hUh.setVisibility(0);
                 return;
             }
-            this.hUf.setVisibility(8);
+            this.hUh.setVisibility(8);
         }
     }
 
@@ -98,11 +98,11 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.frs.game.strategy.
 
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        public d hUg;
+        public d hUi;
 
         public a(d dVar) {
             super(dVar.getView());
-            this.hUg = dVar;
+            this.hUi = dVar;
         }
     }
 }

@@ -47,14 +47,14 @@ public class QRCodeStatic {
                 }
                 o data = customMessage.getData();
                 if (data.type == 0) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.K(data.lOi);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.K(data.lOk);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.Mg(data.lOj);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.Mg(data.lOl);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.lOk = "qr_none";
+                    data.lOm = "qr_none";
                 } else {
-                    data.lOk = str;
+                    data.lOm = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

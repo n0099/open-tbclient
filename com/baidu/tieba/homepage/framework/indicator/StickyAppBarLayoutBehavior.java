@@ -15,29 +15,29 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     AppBarLayout.OnOffsetChangedListener WQ;
     private boolean WR;
     private boolean WS;
-    private StickyAppBarLayout.a ivp;
-    private NestedScrollHeader ivr;
-    private HomeTabBarView ivs;
-    private float ivt;
+    private StickyAppBarLayout.a ivr;
+    private NestedScrollHeader ivt;
+    private HomeTabBarView ivu;
+    private float ivv;
 
     public void setOnHeaderStickyListener(StickyAppBarLayout.a aVar) {
-        this.ivp = aVar;
+        this.ivr = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void al(float f) {
-        if (this.ivs != null) {
-            this.ivs.ak(f);
+        if (this.ivu != null) {
+            this.ivu.ak(f);
         }
-        if (this.ivr != null) {
-            this.ivr.ak(1.0f - f);
+        if (this.ivt != null) {
+            this.ivt.ak(1.0f - f);
         }
     }
 
     public StickyAppBarLayoutBehavior() {
         this.WR = false;
         this.WS = false;
-        this.ivt = -1.0f;
+        this.ivv = -1.0f;
         this.WQ = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
@@ -47,18 +47,18 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                 if (abs >= totalScrollRange) {
                     if (!StickyAppBarLayoutBehavior.this.WR) {
                         StickyAppBarLayoutBehavior.this.WR = true;
-                        if (StickyAppBarLayoutBehavior.this.ivp != null) {
-                            StickyAppBarLayoutBehavior.this.ivp.oY(StickyAppBarLayoutBehavior.this.WR);
+                        if (StickyAppBarLayoutBehavior.this.ivr != null) {
+                            StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
                         }
                     }
                 } else if (StickyAppBarLayoutBehavior.this.WR) {
                     StickyAppBarLayoutBehavior.this.WR = false;
-                    if (StickyAppBarLayoutBehavior.this.ivp != null) {
-                        StickyAppBarLayoutBehavior.this.ivp.oY(StickyAppBarLayoutBehavior.this.WR);
+                    if (StickyAppBarLayoutBehavior.this.ivr != null) {
+                        StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
                     }
                 }
-                if (StickyAppBarLayoutBehavior.this.ivt != abs) {
-                    StickyAppBarLayoutBehavior.this.ivt = abs;
+                if (StickyAppBarLayoutBehavior.this.ivv != abs) {
+                    StickyAppBarLayoutBehavior.this.ivv = abs;
                     if (totalScrollRange > 0.0f) {
                         if (abs != 0.0f) {
                             if (abs >= totalScrollRange) {
@@ -79,7 +79,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         super(context, attributeSet);
         this.WR = false;
         this.WS = false;
-        this.ivt = -1.0f;
+        this.ivv = -1.0f;
         this.WQ = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
@@ -89,18 +89,18 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                 if (abs >= totalScrollRange) {
                     if (!StickyAppBarLayoutBehavior.this.WR) {
                         StickyAppBarLayoutBehavior.this.WR = true;
-                        if (StickyAppBarLayoutBehavior.this.ivp != null) {
-                            StickyAppBarLayoutBehavior.this.ivp.oY(StickyAppBarLayoutBehavior.this.WR);
+                        if (StickyAppBarLayoutBehavior.this.ivr != null) {
+                            StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
                         }
                     }
                 } else if (StickyAppBarLayoutBehavior.this.WR) {
                     StickyAppBarLayoutBehavior.this.WR = false;
-                    if (StickyAppBarLayoutBehavior.this.ivp != null) {
-                        StickyAppBarLayoutBehavior.this.ivp.oY(StickyAppBarLayoutBehavior.this.WR);
+                    if (StickyAppBarLayoutBehavior.this.ivr != null) {
+                        StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
                     }
                 }
-                if (StickyAppBarLayoutBehavior.this.ivt != abs) {
-                    StickyAppBarLayoutBehavior.this.ivt = abs;
+                if (StickyAppBarLayoutBehavior.this.ivv != abs) {
+                    StickyAppBarLayoutBehavior.this.ivv = abs;
                     if (totalScrollRange > 0.0f) {
                         if (abs != 0.0f) {
                             if (abs >= totalScrollRange) {
@@ -143,7 +143,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     }
 
     public NestedScrollHeader cmm() {
-        return this.ivr;
+        return this.ivt;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
@@ -171,11 +171,11 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
             this.WP = appBarLayout;
             View findViewById = this.WP.findViewById(R.id.home_nested_header);
             if (findViewById instanceof NestedScrollHeader) {
-                this.ivr = (NestedScrollHeader) findViewById;
+                this.ivt = (NestedScrollHeader) findViewById;
             }
             View findViewById2 = this.WP.findViewById(R.id.home_tab_bar_view);
             if (findViewById2 instanceof HomeTabBarView) {
-                this.ivs = (HomeTabBarView) findViewById2;
+                this.ivu = (HomeTabBarView) findViewById2;
             }
             cmn();
         }

@@ -51,8 +51,8 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaLiveSdkStatic {
     private static CustomMessageListener hGV;
-    private static CustomMessageListener jEt;
-    private static CustomMessageListener jEu;
+    private static CustomMessageListener jEv;
+    private static CustomMessageListener jEw;
 
     static {
         cCH();
@@ -67,7 +67,7 @@ public class AlaLiveSdkStatic {
         cCG();
         cCE();
         cCF();
-        jEt = new CustomMessageListener(2921406) { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.7
+        jEv = new CustomMessageListener(2921406) { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -92,7 +92,7 @@ public class AlaLiveSdkStatic {
                 }
             }
         };
-        jEu = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.9
+        jEw = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -125,7 +125,7 @@ public class AlaLiveSdkStatic {
         e.lt().post(new Runnable() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.6
             @Override // java.lang.Runnable
             public void run() {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.jEt);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.jEv);
             }
         });
     }
@@ -146,7 +146,7 @@ public class AlaLiveSdkStatic {
         e.lt().post(new Runnable() { // from class: com.baidu.tieba.livesdk.AlaLiveSdkStatic.10
             @Override // java.lang.Runnable
             public void run() {
-                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.jEu);
+                MessageManager.getInstance().registerListener(AlaLiveSdkStatic.jEw);
             }
         });
     }

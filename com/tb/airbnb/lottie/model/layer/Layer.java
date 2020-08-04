@@ -24,15 +24,15 @@ public class Layer {
     private final int Fy;
     private final int Fz;
     private final com.tb.airbnb.lottie.d composition;
-    private final l nPL;
-    private final LayerType nPW;
+    private final l nPN;
+    private final LayerType nPY;
     @Nullable
-    private final j nPX;
+    private final j nPZ;
     @Nullable
-    private final k nPY;
+    private final k nQa;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nPZ;
-    private final MatteType nQa;
+    private final com.tb.airbnb.lottie.model.a.b nQb;
+    private final MatteType nQc;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
     /* loaded from: classes5.dex */
@@ -59,11 +59,11 @@ public class Layer {
         this.composition = dVar;
         this.Fp = str;
         this.Fq = j;
-        this.nPW = layerType;
+        this.nPY = layerType;
         this.Fs = j2;
         this.Ft = str2;
         this.CW = list2;
-        this.nPL = lVar;
+        this.nPN = lVar;
         this.Fu = i;
         this.Fv = i2;
         this.Fw = i3;
@@ -71,11 +71,11 @@ public class Layer {
         this.Aq = f2;
         this.Fy = i4;
         this.Fz = i5;
-        this.nPX = jVar;
-        this.nPY = kVar;
+        this.nPZ = jVar;
+        this.nQa = kVar;
         this.FD = list3;
-        this.nQa = matteType;
-        this.nPZ = bVar;
+        this.nQc = matteType;
+        this.nQb = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,13 +128,13 @@ public class Layer {
         return this.CW;
     }
 
-    public LayerType dRN() {
-        return this.nPW;
+    public LayerType dRO() {
+        return this.nPY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType dRO() {
-        return this.nQa;
+    public MatteType dRP() {
+        return this.nQc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -148,8 +148,8 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l dRH() {
-        return this.nPL;
+    public l dRI() {
+        return this.nPN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -169,20 +169,20 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j dRP() {
-        return this.nPX;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public k dRQ() {
-        return this.nPY;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public com.tb.airbnb.lottie.model.a.b dRR() {
+    public j dRQ() {
         return this.nPZ;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public k dRR() {
+        return this.nQa;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public com.tb.airbnb.lottie.model.a.b dRS() {
+        return this.nQb;
     }
 
     public String toString() {

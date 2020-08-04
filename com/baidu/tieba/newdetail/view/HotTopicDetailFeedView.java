@@ -29,9 +29,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
     private RecyclerView.OnScrollListener gPJ;
     private BdTypeRecyclerView hKL;
     private i hoU;
-    private RecyclerView.OnScrollListener jVY;
-    private l jWE;
-    private a jWF;
+    private l jWG;
+    private a jWH;
+    private RecyclerView.OnScrollListener jWa;
     private h mRefreshView;
     private TbPageContext<HotTopicDetailActivity> pageContext;
     public int sortType;
@@ -47,8 +47,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
                 if (i2 == 0 && HotTopicDetailFeedView.this.hoU != null) {
                     HotTopicDetailFeedView.this.hoU.a(HotTopicDetailFeedView.this.hKL.getFirstVisiblePosition(), HotTopicDetailFeedView.this.hKL.getLastVisiblePosition(), this.hoZ, true);
                 }
-                if (HotTopicDetailFeedView.this.jVY != null) {
-                    HotTopicDetailFeedView.this.jVY.onScrollStateChanged(recyclerView, i2);
+                if (HotTopicDetailFeedView.this.jWa != null) {
+                    HotTopicDetailFeedView.this.jWa.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
@@ -56,8 +56,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
             public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
                 super.onScrolled(recyclerView, i2, i3);
                 this.hoZ = i3 <= 0;
-                if (HotTopicDetailFeedView.this.jVY != null) {
-                    HotTopicDetailFeedView.this.jVY.onScrolled(recyclerView, i2, i3);
+                if (HotTopicDetailFeedView.this.jWa != null) {
+                    HotTopicDetailFeedView.this.jWa.onScrolled(recyclerView, i2, i3);
                 }
             }
         };
@@ -75,8 +75,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
                 if (i2 == 0 && HotTopicDetailFeedView.this.hoU != null) {
                     HotTopicDetailFeedView.this.hoU.a(HotTopicDetailFeedView.this.hKL.getFirstVisiblePosition(), HotTopicDetailFeedView.this.hKL.getLastVisiblePosition(), this.hoZ, true);
                 }
-                if (HotTopicDetailFeedView.this.jVY != null) {
-                    HotTopicDetailFeedView.this.jVY.onScrollStateChanged(recyclerView, i2);
+                if (HotTopicDetailFeedView.this.jWa != null) {
+                    HotTopicDetailFeedView.this.jWa.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
@@ -84,8 +84,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
             public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
                 super.onScrolled(recyclerView, i2, i3);
                 this.hoZ = i3 <= 0;
-                if (HotTopicDetailFeedView.this.jVY != null) {
-                    HotTopicDetailFeedView.this.jVY.onScrolled(recyclerView, i2, i3);
+                if (HotTopicDetailFeedView.this.jWa != null) {
+                    HotTopicDetailFeedView.this.jWa.onScrolled(recyclerView, i2, i3);
                 }
             }
         };
@@ -103,8 +103,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
                 if (i2 == 0 && HotTopicDetailFeedView.this.hoU != null) {
                     HotTopicDetailFeedView.this.hoU.a(HotTopicDetailFeedView.this.hKL.getFirstVisiblePosition(), HotTopicDetailFeedView.this.hKL.getLastVisiblePosition(), this.hoZ, true);
                 }
-                if (HotTopicDetailFeedView.this.jVY != null) {
-                    HotTopicDetailFeedView.this.jVY.onScrollStateChanged(recyclerView, i2);
+                if (HotTopicDetailFeedView.this.jWa != null) {
+                    HotTopicDetailFeedView.this.jWa.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
@@ -112,8 +112,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
             public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
                 super.onScrolled(recyclerView, i2, i3);
                 this.hoZ = i3 <= 0;
-                if (HotTopicDetailFeedView.this.jVY != null) {
-                    HotTopicDetailFeedView.this.jVY.onScrolled(recyclerView, i2, i3);
+                if (HotTopicDetailFeedView.this.jWa != null) {
+                    HotTopicDetailFeedView.this.jWa.onScrolled(recyclerView, i2, i3);
                 }
             }
         };
@@ -122,7 +122,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
 
     public HotTopicDetailFeedView Bf(int i) {
         this.sortType = i;
-        this.jWE.rE(i == 0);
+        this.jWG.rE(i == 0);
         return this;
     }
 
@@ -147,7 +147,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
                     ((HotTopicDetailActivity) HotTopicDetailFeedView.this.pageContext.getOrignalPage()).onScrollToBottom();
                 }
             });
-            this.jWE = new l(this.pageContext, this.pageContext.getUniqueId(), this.hKL);
+            this.jWG = new l(this.pageContext, this.pageContext.getUniqueId(), this.hKL);
             addView(this.hKL);
             ((FrameLayout.LayoutParams) this.hKL.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
             if (this.hoU == null) {
@@ -232,8 +232,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
             this.fsC.setTextColor(ao.getColor(R.color.cp_cont_d));
             this.fsC.changeSkin(i);
         }
-        if (this.jWE != null) {
-            this.jWE.notifyDataSetChanged();
+        if (this.jWG != null) {
+            this.jWG.notifyDataSetChanged();
         }
         ao.setBackgroundColor(this, R.color.cp_bg_line_d);
     }
@@ -248,7 +248,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         if (this.hoU != null) {
             this.hoU.destroy();
         }
-        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.jWF);
+        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.jWH);
     }
 
     public void resume() {
@@ -294,25 +294,25 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void setData(@NonNull List<q> list) {
-        this.jWE.setData(list);
+        this.jWG.setData(list);
         if (this.hoU != null) {
             this.hoU.a(this.hKL.getFirstVisiblePosition(), this.hKL.getLastVisiblePosition(), false, true);
         }
     }
 
     public void setScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.jVY = onScrollListener;
+        this.jWa = onScrollListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public class a implements Runnable {
-        int iNA;
-        final /* synthetic */ HotTopicDetailFeedView jWG;
+        int iNC;
+        final /* synthetic */ HotTopicDetailFeedView jWI;
 
         @Override // java.lang.Runnable
         public void run() {
-            this.jWG.hKL.smoothScrollBy(Math.abs(this.iNA), 1);
+            this.jWI.hKL.smoothScrollBy(Math.abs(this.iNC), 1);
         }
     }
 }

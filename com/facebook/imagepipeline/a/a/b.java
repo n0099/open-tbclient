@@ -26,13 +26,13 @@ import okhttp3.ResponseBody;
 /* loaded from: classes5.dex */
 public class b extends c<a> {
     private Context mContext;
-    private volatile Call.Factory mYY;
-    private volatile Executor mYZ;
+    private volatile Call.Factory mZa;
+    private volatile Executor mZb;
 
     /* loaded from: classes5.dex */
     public static class a extends t {
-        public long mZf;
-        public long mZg;
+        public long mZh;
+        public long mZi;
         public long responseTime;
 
         public a(k<e> kVar, ak akVar) {
@@ -45,8 +45,8 @@ public class b extends c<a> {
     }
 
     public b(Call.Factory factory, Executor executor) {
-        this.mYY = factory;
-        this.mYZ = executor;
+        this.mZa = factory;
+        this.mZb = executor;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,23 +59,23 @@ public class b extends c<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.af
     public void a(a aVar, af.a aVar2) {
-        aVar.mZf = SystemClock.elapsedRealtime();
+        aVar.mZh = SystemClock.elapsedRealtime();
         Uri uri = aVar.getUri();
-        dFF();
+        dFG();
         try {
             Request.Builder builder = new Request.Builder().cacheControl(new CacheControl.Builder().noStore().build()).url(uri.toString()).get();
-            com.facebook.imagepipeline.common.a dIs = aVar.dJB().dJo().dIs();
-            if (dIs != null) {
-                builder.addHeader(Headers.RANGE, dIs.dGe());
+            com.facebook.imagepipeline.common.a dIt = aVar.dJC().dJp().dIt();
+            if (dIt != null) {
+                builder.addHeader(Headers.RANGE, dIt.dGf());
             }
-            Map<String, String> dJF = aVar.dJF();
-            if (dJF == null) {
+            Map<String, String> dJG = aVar.dJG();
+            if (dJG == null) {
                 builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
             } else {
-                if (!dJF.containsKey("User-Agent")) {
+                if (!dJG.containsKey("User-Agent")) {
                     builder.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
                 }
-                for (Map.Entry<String, String> entry : dJF.entrySet()) {
+                for (Map.Entry<String, String> entry : dJG.entrySet()) {
                     builder.addHeader(entry.getKey(), entry.getValue());
                 }
             }
@@ -89,7 +89,7 @@ public class b extends c<a> {
     @Override // com.facebook.imagepipeline.producers.c, com.facebook.imagepipeline.producers.af
     /* renamed from: a */
     public void b(a aVar, int i) {
-        aVar.mZg = SystemClock.elapsedRealtime();
+        aVar.mZi = SystemClock.elapsedRealtime();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,20 +97,20 @@ public class b extends c<a> {
     /* renamed from: b */
     public Map<String, String> a(a aVar, int i) {
         HashMap hashMap = new HashMap(4);
-        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.mZf));
-        hashMap.put("fetch_time", Long.toString(aVar.mZg - aVar.responseTime));
-        hashMap.put("total_time", Long.toString(aVar.mZg - aVar.mZf));
+        hashMap.put("queue_time", Long.toString(aVar.responseTime - aVar.mZh));
+        hashMap.put("fetch_time", Long.toString(aVar.mZi - aVar.responseTime));
+        hashMap.put("total_time", Long.toString(aVar.mZi - aVar.mZh));
         hashMap.put("image_size", Integer.toString(i));
         return hashMap;
     }
 
     protected void a(final a aVar, final af.a aVar2, Request request) {
-        final Call newCall = this.mYY.newCall(request);
-        aVar.dJB().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
+        final Call newCall = this.mZa.newCall(request);
+        aVar.dJC().a(new com.facebook.imagepipeline.producers.e() { // from class: com.facebook.imagepipeline.a.a.b.1
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dFG() {
+            public void dFH() {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                    b.this.mYZ.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
+                    b.this.mZb.execute(new Runnable() { // from class: com.facebook.imagepipeline.a.a.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             newCall.cancel();
@@ -155,19 +155,19 @@ public class b extends c<a> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Call call, Exception exc, af.a aVar) {
         if (call.isCanceled()) {
-            aVar.dCt();
+            aVar.dCu();
         } else {
             aVar.F(exc);
         }
     }
 
-    private void dFF() {
-        if (this.mYZ == null) {
+    private void dFG() {
+        if (this.mZb == null) {
             synchronized (this) {
-                if (this.mYZ == null) {
+                if (this.mZb == null) {
                     OkHttpClient okHttpClient = HttpManager.newHttpManager(this.mContext).getOkHttpClient();
-                    this.mYY = okHttpClient;
-                    this.mYZ = okHttpClient.dispatcher().executorService();
+                    this.mZa = okHttpClient;
+                    this.mZb = okHttpClient.dispatcher().executorService();
                 }
             }
         }

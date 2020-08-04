@@ -134,7 +134,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         private void aOG() {
             this.dCV = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dCV.getHierarchy().b(p.b.mVy);
+            this.dCV.getHierarchy().b(p.b.mVA);
             addView(this.dCV, layoutParams);
         }
 
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.mVy;
+                p.b bVar = p.b.mVA;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,16 +191,16 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.mVx;
+                        p.b bVar2 = p.b.mVz;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.mVy;
+                        p.b bVar3 = p.b.mVA;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.mVs;
+                        p.b bVar4 = p.b.mVu;
                         break;
                 }
-                this.dCV.getHierarchy().b(p.b.mVy);
+                this.dCV.getHierarchy().b(p.b.mVA);
                 a(str, this.dCV);
             }
         }
@@ -217,7 +217,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             if (measuredWidth > 0 && measuredHeight > 0) {
                 ab.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dDm().c(simpleDraweeView.getController()).bc(ab.dKr()).dEd());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dDn().c(simpleDraweeView.getController()).bc(ab.dKs()).dEe());
         }
 
         public Uri getUri(String str) {

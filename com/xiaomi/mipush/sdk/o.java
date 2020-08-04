@@ -10,11 +10,11 @@ final class o extends ai.a {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ il f80a;
+    final /* synthetic */ il f83a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(il ilVar, Context context) {
-        this.f80a = ilVar;
+        this.f83a = ilVar;
         this.a = context;
     }
 
@@ -26,9 +26,9 @@ final class o extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f80a != null) {
-            this.f80a.a(com.xiaomi.push.service.an.a());
-            aq.a(this.a.getApplicationContext()).a((aq) this.f80a, hm.Notification, true, (hz) null, true);
+        if (this.f83a != null) {
+            this.f83a.a(com.xiaomi.push.service.an.a());
+            aq.a(this.a.getApplicationContext()).a((aq) this.f83a, hm.Notification, true, (hz) null, true);
         }
     }
 }

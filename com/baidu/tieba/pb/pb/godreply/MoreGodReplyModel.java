@@ -15,25 +15,25 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
     private boolean isLoading;
-    private PbModel kjI;
-    private int kjJ;
-    private int kjK;
-    private ai.a kjL;
-    private final ai.a kjM;
+    private PbModel kjK;
+    private int kjL;
+    private int kjM;
+    private ai.a kjN;
+    private final ai.a kjO;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.kjJ = -1;
-        this.kjK = -1;
-        this.kjM = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.kjL = -1;
+        this.kjM = -1;
+        this.kjO = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.ai.a
             public void bd(List<PostData> list) {
                 r cKL;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kjI != null && MoreGodReplyModel.this.kjI.getPbData() != null && (cKL = MoreGodReplyModel.this.kjI.getPbData().cKL()) != null) {
-                    List<PostData> list2 = cKL.kiU;
+                if (MoreGodReplyModel.this.kjK != null && MoreGodReplyModel.this.kjK.getPbData() != null && (cKL = MoreGodReplyModel.this.kjK.getPbData().cKL()) != null) {
+                    List<PostData> list2 = cKL.kiW;
                     int size = list2.size();
                     if (!x.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -42,29 +42,29 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.kjI.a(MoreGodReplyModel.this.kjI.getPbData(), size);
+                    MoreGodReplyModel.this.kjK.a(MoreGodReplyModel.this.kjK.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.kjJ > 0) {
-                    MoreGodReplyModel.this.kjK = MoreGodReplyModel.this.kjJ;
+                if (MoreGodReplyModel.this.kjL > 0) {
+                    MoreGodReplyModel.this.kjM = MoreGodReplyModel.this.kjL;
                 }
-                if (MoreGodReplyModel.this.kjL != null) {
-                    MoreGodReplyModel.this.kjL.bd(list);
+                if (MoreGodReplyModel.this.kjN != null) {
+                    MoreGodReplyModel.this.kjN.bd(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.ai.a
             public void m(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kjL != null) {
-                    MoreGodReplyModel.this.kjL.m(i, str, str2);
+                if (MoreGodReplyModel.this.kjN != null) {
+                    MoreGodReplyModel.this.kjN.m(i, str, str2);
                 }
             }
         };
         if (pbModel != null) {
-            this.kjI = pbModel;
+            this.kjK = pbModel;
             ai cOp = pbModel.cOp();
             if (cOp != null) {
-                cOp.b(this.kjM);
+                cOp.b(this.kjO);
             }
         }
     }
@@ -88,23 +88,23 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
 
     public boolean cLO() {
         r cKL;
-        f pbData = this.kjI.getPbData();
+        f pbData = this.kjK.getPbData();
         if (pbData == null || (cKL = pbData.cKL()) == null) {
             return false;
         }
-        if (this.kjK < 0) {
-            this.kjK = cKL.getCount();
+        if (this.kjM < 0) {
+            this.kjM = cKL.getCount();
         }
-        List<Long> list = cKL.kiV;
+        List<Long> list = cKL.kiX;
         int size = list.size();
-        int i = this.kjK;
-        if (size <= i || cKL.kiU.size() >= 100) {
+        int i = this.kjM;
+        if (size <= i || cKL.kiW.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.kjJ = min;
+        this.kjL = min;
         this.isLoading = true;
-        this.kjI.cOp().et(list.subList(i, min));
+        this.kjK.cOp().et(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -114,24 +114,24 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public PbModel cLP() {
-        return this.kjI;
+        return this.kjK;
     }
 
     public List<q> cLQ() {
         f pbData;
-        if (this.kjI == null || (pbData = this.kjI.getPbData()) == null || pbData.cKL() == null || x.isEmpty(pbData.cKL().kiU)) {
+        if (this.kjK == null || (pbData = this.kjK.getPbData()) == null || pbData.cKL() == null || x.isEmpty(pbData.cKL().kiW)) {
             return null;
         }
         r cKL = pbData.cKL();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = cKL.kiU;
+        List<PostData> list = cKL.kiW;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.lNK = i < size + (-1);
+                postData.lNM = i < size + (-1);
             }
             i++;
         }
@@ -150,19 +150,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(ai.a aVar) {
-        this.kjL = aVar;
+        this.kjN = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean aqL() {
         f pbData;
         r cKL;
-        if (this.kjI == null || (pbData = this.kjI.getPbData()) == null || (cKL = pbData.cKL()) == null) {
+        if (this.kjK == null || (pbData = this.kjK.getPbData()) == null || (cKL = pbData.cKL()) == null) {
             return false;
         }
-        if (this.kjK < 0) {
-            this.kjK = cKL.getCount();
+        if (this.kjM < 0) {
+            this.kjM = cKL.getCount();
         }
-        return cKL.kiV.size() > this.kjK && cKL.kiU.size() < 100;
+        return cKL.kiX.size() > this.kjM && cKL.kiW.size() < 100;
     }
 }

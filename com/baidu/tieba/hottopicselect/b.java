@@ -66,14 +66,14 @@ public class b extends BaseAdapter {
                 view = this.mInflater.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
                 a aVar2 = new a();
                 aVar2.dpg = (TextView) view.findViewById(R.id.name);
-                aVar2.iOM = view.findViewById(R.id.divider_line_top);
-                aVar2.iON = view.findViewById(R.id.divider_line_bottom);
+                aVar2.iOO = view.findViewById(R.id.divider_line_top);
+                aVar2.iOP = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.iOM.setVisibility(i == 0 ? 0 : 8);
+            aVar.iOO.setVisibility(i == 0 ? 0 : 8);
             aVar.dpg.setText(as.highLightText(com.baidu.tbadk.plugins.b.Aj(as.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.hDo, R.color.cp_link_tip_a));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -85,8 +85,8 @@ public class b extends BaseAdapter {
     public class a {
         int aho;
         TextView dpg;
-        View iOM;
-        View iON;
+        View iOO;
+        View iOP;
 
         private a() {
             this.aho = 3;
@@ -96,8 +96,8 @@ public class b extends BaseAdapter {
     private void a(a aVar, View view, int i) {
         if (aVar != null && aVar.aho != i) {
             ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ao.setBackgroundColor(aVar.iON, R.color.cp_bg_line_c);
-            ao.setBackgroundColor(aVar.iOM, R.color.cp_bg_line_c);
+            ao.setBackgroundColor(aVar.iOP, R.color.cp_bg_line_c);
+            ao.setBackgroundColor(aVar.iOO, R.color.cp_bg_line_c);
             ao.setViewTextColor(aVar.dpg, R.color.cp_cont_b, 1);
             aVar.aho = i;
         }

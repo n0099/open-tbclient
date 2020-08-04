@@ -15,30 +15,30 @@ import java.util.Iterator;
 public class c {
     private int bgColor;
     private String dwi;
-    private int ije;
-    private ArrayList<String> mtA;
-    private int mtB;
-    private int mtC;
-    private int mtD = -1;
-    private boolean mtE = false;
-    private boolean mtF = false;
+    private int ijg;
+    private ArrayList<String> mtC;
+    private int mtD;
+    private int mtE;
+    private int mtF = -1;
+    private boolean mtG = false;
+    private boolean mtH = false;
 
     public SpannableStringBuilder d(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || x.isEmpty(this.mtA)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || x.isEmpty(this.mtC)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.mtD >= 0;
-        this.mtD = -1;
-        Iterator<String> it = this.mtA.iterator();
+        boolean z = this.mtF >= 0;
+        this.mtF = -1;
+        Iterator<String> it = this.mtC.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.mtD >= 0 || z) {
+        if (this.mtF >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class c {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.ije != 0 || this.bgColor != 0) {
+        if (this.ijg != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.mtD == -1) {
-                    this.mtD = indexOf + length;
-                } else if (indexOf + length < this.mtD) {
-                    this.mtD = indexOf + length;
+                if (this.mtF == -1) {
+                    this.mtF = indexOf + length;
+                } else if (indexOf + length < this.mtF) {
+                    this.mtF = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.ije != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.ije), indexOf, indexOf + length, 33);
+                if (this.ijg != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.ijg), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        if (this.mtB != 0) {
-            this.ije = ao.getColor(this.mtB);
+        if (this.mtD != 0) {
+            this.ijg = ao.getColor(this.mtD);
         }
-        if (this.mtC != 0) {
-            this.bgColor = ao.getColor(this.mtC);
+        if (this.mtE != 0) {
+            this.bgColor = ao.getColor(this.mtE);
         }
     }
 
     public void aZ(ArrayList<String> arrayList) {
-        this.mtA = arrayList;
+        this.mtC = arrayList;
     }
 
-    public ArrayList<String> dtY() {
-        return this.mtA;
+    public ArrayList<String> dtZ() {
+        return this.mtC;
     }
 
     public void GV(int i) {
-        this.mtB = i;
-        this.ije = ao.getColor(this.mtB);
+        this.mtD = i;
+        this.ijg = ao.getColor(this.mtD);
     }
 
     public void GW(int i) {
-        this.mtC = i;
-        this.bgColor = ao.getColor(this.mtC);
+        this.mtE = i;
+        this.bgColor = ao.getColor(this.mtE);
     }
 
-    public int dtZ() {
-        return this.mtD;
+    public int dua() {
+        return this.mtF;
     }
 
     public void wi(boolean z) {
-        this.mtE = z;
-    }
-
-    public boolean dua() {
-        return this.mtE;
-    }
-
-    public void wj(boolean z) {
-        this.mtF = z;
+        this.mtG = z;
     }
 
     public boolean dub() {
-        return this.mtF;
+        return this.mtG;
+    }
+
+    public void wj(boolean z) {
+        this.mtH = z;
+    }
+
+    public boolean duc() {
+        return this.mtH;
     }
 
     public void Py(String str) {
         this.dwi = str;
     }
 
-    public String duc() {
+    public String dud() {
         return this.dwi;
     }
 }

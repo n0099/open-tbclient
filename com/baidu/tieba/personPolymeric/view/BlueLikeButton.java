@@ -18,23 +18,23 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
     private boolean isBJH;
-    private boolean kJq;
+    private boolean kJs;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.kJq = false;
+        this.kJs = false;
         this.isBJH = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kJq = false;
+        this.kJs = false;
         this.isBJH = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kJq = false;
+        this.kJs = false;
         this.isBJH = false;
     }
 
@@ -43,7 +43,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void aM(boolean z) {
-        this.kJq = z;
+        this.kJs = z;
         if (z) {
             if (this.isBJH) {
                 setText(R.string.followed);
@@ -94,7 +94,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
                 apVar.dn("obj_source", TbadkCoreApplication.getInst().getTaskId());
                 TiebaStatic.log(apVar);
             }
-            if (!this.kJq) {
+            if (!this.kJs) {
                 Context context = getContext();
                 if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.m.a)) {
                     String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");

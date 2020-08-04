@@ -31,22 +31,22 @@ import org.json.JSONObject;
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
     protected void cBc() {
-        jyP.put(17, jyP.size() + 1);
-        jyP.put(26, jyP.size() + 1);
-        jyP.put(27, jyP.size() + 1);
-        jyP.put(31, jyP.size() + 1);
-        jyP.put(32, jyP.size() + 1);
-        jyP.put(33, jyP.size() + 1);
-        jyP.put(34, jyP.size() + 1);
-        jyP.put(99, jyP.size() + 1);
-        jyQ.put(17, BdUniqueId.gen());
-        jyQ.put(26, BdUniqueId.gen());
-        jyQ.put(27, BdUniqueId.gen());
-        jyQ.put(31, BdUniqueId.gen());
-        jyQ.put(32, BdUniqueId.gen());
-        jyQ.put(33, BdUniqueId.gen());
-        jyQ.put(34, BdUniqueId.gen());
-        jyQ.put(99, BdUniqueId.gen());
+        jyR.put(17, jyR.size() + 1);
+        jyR.put(26, jyR.size() + 1);
+        jyR.put(27, jyR.size() + 1);
+        jyR.put(31, jyR.size() + 1);
+        jyR.put(32, jyR.size() + 1);
+        jyR.put(33, jyR.size() + 1);
+        jyR.put(34, jyR.size() + 1);
+        jyR.put(99, jyR.size() + 1);
+        jyS.put(17, BdUniqueId.gen());
+        jyS.put(26, BdUniqueId.gen());
+        jyS.put(27, BdUniqueId.gen());
+        jyS.put(31, BdUniqueId.gen());
+        jyS.put(32, BdUniqueId.gen());
+        jyS.put(33, BdUniqueId.gen());
+        jyS.put(34, BdUniqueId.gen());
+        jyS.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

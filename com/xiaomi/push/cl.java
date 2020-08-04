@@ -4,16 +4,16 @@ public class cl {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f168a;
+    public long f171a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f169a;
+    public String f172a;
 
     public cl() {
     }
 
     public cl(cj cjVar) {
-        this.f168a = cjVar.f165a;
+        this.f171a = cjVar.f168a;
         this.a = cjVar.a;
     }
 }

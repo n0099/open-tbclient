@@ -8,11 +8,11 @@ public abstract class h {
     protected View dZn;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a mub;
-    protected a mug;
+    protected com.baidu.tieba.write.a mud;
+    protected a mui;
     protected int mState = 4;
-    protected Rect mul = new Rect();
-    protected Rect mum = new Rect();
+    protected Rect mun = new Rect();
+    protected Rect muo = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,38 +21,38 @@ public abstract class h {
 
     public abstract void akZ();
 
-    public abstract void dug();
-
     public abstract void duh();
+
+    public abstract void dui();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.mub = aVar;
+        this.mud = aVar;
     }
 
     public void b(a aVar) {
-        this.mug = aVar;
+        this.mui = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
         this.dZn = view2;
         if (this.dZn != null) {
-            this.dZn.getGlobalVisibleRect(this.mul);
+            this.dZn.getGlobalVisibleRect(this.mun);
         }
     }
 
     public void show() {
-        dug();
+        duh();
     }
 
     public void eX(boolean z) {
         if (z) {
             akZ();
         } else {
-            duh();
+            dui();
         }
     }
 }

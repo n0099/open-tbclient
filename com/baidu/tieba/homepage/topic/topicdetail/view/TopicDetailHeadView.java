@@ -21,10 +21,10 @@ public class TopicDetailHeadView extends RelativeLayout {
     private TbImageView fvx;
     private TbImageView hlZ;
     private TextView hmc;
-    private LinearLayout iEK;
-    private View iEL;
-    public TopicPkView iEM;
-    private TopicTimelineView iEN;
+    private LinearLayout iEM;
+    private View iEN;
+    public TopicPkView iEO;
+    private TopicTimelineView iEP;
     private int mSkinType;
 
     public TopicDetailHeadView(Context context) {
@@ -50,11 +50,11 @@ public class TopicDetailHeadView extends RelativeLayout {
         this.fvx = (TbImageView) findViewById(R.id.topic_detail_head_bg);
         this.fvx.setDrawingCacheEnabled(true);
         this.hmc = (TextView) findViewById(R.id.topic_detail_head_des);
-        this.iEK = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
+        this.iEM = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
         this.hlZ = (TbImageView) findViewById(R.id.topic_detail_head_img);
-        this.iEL = findViewById(R.id.topic_detail_head_img_placeholder);
-        this.iEM = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
-        this.iEN = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
+        this.iEN = findViewById(R.id.topic_detail_head_img_placeholder);
+        this.iEO = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
+        this.iEP = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
         ViewGroup.LayoutParams layoutParams = this.hlZ.getLayoutParams();
         layoutParams.height = ((l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88)) * 9) / 16;
         this.hlZ.setLayoutParams(layoutParams);
@@ -74,33 +74,33 @@ public class TopicDetailHeadView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        if (bVar.iEn == null && StringUtils.isNull(bVar.iEl)) {
+        if (bVar.iEp == null && StringUtils.isNull(bVar.iEn)) {
             ((LinearLayout.LayoutParams) this.hmc.getLayoutParams()).bottomMargin = l.getDimens(getContext(), R.dimen.tbds130);
         }
         this.hmc.setText(bVar.dQK);
-        if (StringUtils.isNull(bVar.iEl)) {
-            this.iEK.setVisibility(8);
+        if (StringUtils.isNull(bVar.iEn)) {
+            this.iEM.setVisibility(8);
             this.fvx.setDefaultBgResource(R.drawable.topic_detail_default_bg);
         } else {
-            this.iEK.setVisibility(0);
-            this.hlZ.startLoad(bVar.iEl, 10, false);
+            this.iEM.setVisibility(0);
+            this.hlZ.startLoad(bVar.iEn, 10, false);
             this.fvx.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
         }
-        if (bVar.iEn == null) {
-            this.iEL.setVisibility(8);
-            this.iEM.setVisibility(8);
-        } else {
-            this.iEL.setVisibility(0);
-            this.iEM.setVisibility(0);
-            this.iEM.setData(bVar.iEn);
-        }
-        if (bVar.iEo == null || x.isEmpty(bVar.iEo.iEx)) {
+        if (bVar.iEp == null) {
             this.iEN.setVisibility(8);
+            this.iEO.setVisibility(8);
         } else {
             this.iEN.setVisibility(0);
-            this.iEN.setData(bVar.iEo);
+            this.iEO.setVisibility(0);
+            this.iEO.setData(bVar.iEp);
         }
-        this.fvx.startLoad(bVar.iEm, 10, false);
+        if (bVar.iEq == null || x.isEmpty(bVar.iEq.iEz)) {
+            this.iEP.setVisibility(8);
+        } else {
+            this.iEP.setVisibility(0);
+            this.iEP.setData(bVar.iEq);
+        }
+        this.fvx.startLoad(bVar.iEo, 10, false);
     }
 
     public void onChangeSkinType() {
@@ -110,8 +110,8 @@ public class TopicDetailHeadView extends RelativeLayout {
             this.fvx.setIsNight(this.mSkinType == 1);
             ao.setViewTextColor(this.hmc, R.color.cp_cont_a);
             this.hlZ.setIsNight(this.mSkinType == 1);
-            this.iEM.onChangeSkinType();
-            this.iEN.onChangeSkinType();
+            this.iEO.onChangeSkinType();
+            this.iEP.onChangeSkinType();
         }
     }
 }

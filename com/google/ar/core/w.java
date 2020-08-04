@@ -25,23 +25,23 @@ public class w {
     private Context b;
     private volatile int c;
     private Context f;
-    private BroadcastReceiver niA;
-    private final ServiceConnection niB;
-    private final AtomicReference<l> niC;
-    private com.google.a.b.a.a.a.a niz;
+    private com.google.a.b.a.a.a.a niB;
+    private BroadcastReceiver niC;
+    private final ServiceConnection niD;
+    private final AtomicReference<l> niE;
 
     w() {
     }
 
     public synchronized void a(Context context) {
         this.b = context;
-        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.niB, 1)) {
+        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.niD, 1)) {
             this.c = al.b;
         } else {
             this.c = al.a;
             this.b = null;
             Log.w("ARCore-InstallService", "bindService returned false.");
-            context.unbindService(this.niB);
+            context.unbindService(this.niD);
         }
     }
 
@@ -50,13 +50,13 @@ public class w {
         switch (this.c - 1) {
             case 1:
             case 2:
-                this.b.unbindService(this.niB);
+                this.b.unbindService(this.niD);
                 this.b = null;
                 this.c = al.a;
                 break;
         }
-        if (this.niA != null) {
-            this.f.unregisterReceiver(this.niA);
+        if (this.niC != null) {
+            this.f.unregisterReceiver(this.niC);
         }
     }
 
@@ -71,15 +71,15 @@ public class w {
 
     public void a(Activity activity, y yVar) {
         l lVar = new l(activity, yVar);
-        l andSet = this.niC.getAndSet(lVar);
+        l andSet = this.niE.getAndSet(lVar);
         if (andSet != null) {
             andSet.a();
         }
         lVar.start();
-        if (this.niA == null) {
-            this.niA = new ac(this, yVar);
+        if (this.niC == null) {
+            this.niC = new ac(this, yVar);
             this.f = activity;
-            this.f.registerReceiver(this.niA, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
+            this.f.registerReceiver(this.niC, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
         }
         try {
             a(new aj(this, activity, yVar));
@@ -94,8 +94,8 @@ public class w {
         this();
         this.a = new ArrayDeque();
         this.c = al.a;
-        this.niB = new z(this);
-        this.niC = new AtomicReference<>();
+        this.niD = new z(this);
+        this.niE = new AtomicReference<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -132,7 +132,7 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        l andSet = this.niC.getAndSet(null);
+        l andSet = this.niE.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -142,7 +142,7 @@ public class w {
     public synchronized void a(IBinder iBinder) {
         com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.niz = a;
+        this.niB = a;
         this.c = al.c;
         for (Runnable runnable : this.a) {
             runnable.run();
@@ -153,7 +153,7 @@ public class w {
     public synchronized void d() {
         Log.i("ARCore-InstallService", "Install service disconnected");
         this.c = al.a;
-        this.niz = null;
+        this.niB = null;
         c();
     }
 

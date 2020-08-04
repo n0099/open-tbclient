@@ -404,7 +404,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     private void a(a aVar) {
         if (aVar != null) {
             this.ePN = aVar.getView();
-            aVar.iNG.setVisibility(8);
+            aVar.iNI.setVisibility(8);
             aVar.ePZ.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
             aVar.ePY.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             ao.setImageResource(aVar.ePY, R.drawable.icon_pic_more);
@@ -426,8 +426,8 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     private void a(View view, com.baidu.tbadk.widget.horizonalScrollListView.a aVar) {
         if (view != null && view.getTag() != null && aVar != null) {
             a aVar2 = (a) view.getTag();
-            aVar2.iNG.setClickable(true);
-            aVar2.iNG.setOnClickListener(this.ePS);
+            aVar2.iNI.setClickable(true);
+            aVar2.iNI.setOnClickListener(this.ePS);
             view.setClickable(true);
             view.setOnClickListener(this.ePT);
         }
@@ -444,11 +444,11 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             aVar2.ePY.startLoad(aVar.forumAvatar, 10, false);
             aVar2.ePZ.setText(aP(aVar.forumName, 8));
             aVar2.ePZ.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
-            aVar2.iNG.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
-            aVar2.iNG.setTag(R.id.tag_forum_name, aVar.forumName);
+            aVar2.iNI.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
+            aVar2.iNI.setTag(R.id.tag_forum_name, aVar.forumName);
             aVar2.getView().setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
             aVar2.getView().setTag(R.id.tag_forum_name, aVar.forumName);
-            d(aVar2.iNG, aVar.isLiked);
+            d(aVar2.iNI, aVar.isLiked);
             a(view, aVar);
         }
     }
@@ -496,8 +496,8 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     @SuppressLint({"ResourceAsColor"})
     private void a(a aVar, int i) {
         if (aVar != null && aVar.getView() != null) {
-            if (aVar.iNG.getTag(R.id.forum_follow) != null && (aVar.iNG.getTag(R.id.forum_follow) instanceof Boolean)) {
-                d(aVar.iNG, ((Boolean) aVar.iNG.getTag(R.id.forum_follow)).booleanValue());
+            if (aVar.iNI.getTag(R.id.forum_follow) != null && (aVar.iNI.getTag(R.id.forum_follow) instanceof Boolean)) {
+                d(aVar.iNI, ((Boolean) aVar.iNI.getTag(R.id.forum_follow)).booleanValue());
             }
             ao.setViewTextColor(aVar.ePZ, R.color.cp_cont_b, 1);
         }
@@ -509,7 +509,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next.getView() != null && next.ePZ.getTag(R.id.tag_forum_id) != null) {
-                TextView textView = next.iNG;
+                TextView textView = next.iNI;
                 if (((Long) next.ePZ.getTag(R.id.tag_forum_id)).longValue() == j) {
                     d(textView, z);
                     return;
@@ -536,17 +536,17 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     public static class a extends ad.a {
         public BarImageView ePY;
         public TextView ePZ;
-        public TextView iNG;
+        public TextView iNI;
 
         public a(View view) {
             super(view);
             this.ePY = null;
             this.ePZ = null;
-            this.iNG = null;
+            this.iNI = null;
             this.ePY = (BarImageView) view.findViewById(R.id.forum_avatar);
             this.ePY.setGifIconSupport(false);
             this.ePZ = (TextView) view.findViewById(R.id.m_forum_name_textview);
-            this.iNG = (TextView) view.findViewById(R.id.forum_add_love);
+            this.iNI = (TextView) view.findViewById(R.id.forum_add_love);
         }
     }
 }

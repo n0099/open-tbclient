@@ -14,18 +14,18 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class a implements View.OnClickListener {
     private PopupWindow hjq;
-    private boolean ieY;
+    private boolean ifa;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int ieX = R.string.attention_post_update_tip;
+    private int ieZ = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable ieZ = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable ifb = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds64);
-                View h = a.this.h(pageActivity, a.this.ieX);
+                View h = a.this.h(pageActivity, a.this.ieZ);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds32);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.ieY = z;
+        this.ifa = z;
     }
 
     public void ck(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.ieY) {
-                this.ieX = R.string.attention_post_update_tip;
+            if (this.ifa) {
+                this.ieZ = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
                 int i = com.baidu.tbadk.core.sharedPref.b.aZP().getInt(str, 0);
                 if (i >= 3) {
-                    this.ieY = false;
+                    this.ifa = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.aZP().putInt(str, i + 1);
-                this.ieY = false;
-                this.mHandler.postDelayed(this.ieZ, 500L);
+                this.ifa = false;
+                this.mHandler.postDelayed(this.ifb, 500L);
             }
         }
     }

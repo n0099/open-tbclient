@@ -10,12 +10,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleZipArray<T, R> extends w<R> {
-    final aa<? extends T>[] nUP;
+    final aa<? extends T>[] nUR;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        aa<? extends T>[] aaVarArr = this.nUP;
+        aa<? extends T>[] aaVarArr = this.nUR;
         int length = aaVarArr.length;
         if (length == 1) {
             aaVarArr[0].a(new a.C0907a(yVar, new a()));

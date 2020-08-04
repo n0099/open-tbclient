@@ -8,11 +8,11 @@ public class au implements ar {
     private static volatile au a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ar f116a;
+    private ar f119a;
 
     private au(Context context) {
-        this.f116a = at.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m49a("create id manager is: " + this.f116a);
+        this.f119a = at.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m49a("create id manager is: " + this.f119a);
     }
 
     public static au a(Context context) {
@@ -32,7 +32,7 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f116a.a());
+        return a(this.f119a.a());
     }
 
     public void a(Map<String, String> map) {
@@ -60,22 +60,22 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f116a.m132a();
+        return this.f119a.m132a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
     public String mo130b() {
-        return a(this.f116a.mo130b());
+        return a(this.f119a.mo130b());
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f116a.c());
+        return a(this.f119a.c());
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f116a.d());
+        return a(this.f119a.d());
     }
 }

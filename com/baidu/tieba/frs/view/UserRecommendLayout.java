@@ -19,15 +19,15 @@ public class UserRecommendLayout extends LinearLayout {
     private int gVi;
     private int gVj;
     private final ViewGroup.OnHierarchyChangeListener gVk;
-    private View.OnClickListener hPZ;
-    private View.OnClickListener hQa;
+    private View.OnClickListener hQb;
+    private View.OnClickListener hQc;
     private TbPageContext pageContext;
 
     public UserRecommendLayout(Context context) {
         super(context);
         this.gVi = 0;
-        this.hPZ = null;
-        this.hQa = null;
+        this.hQb = null;
+        this.hQc = null;
         this.gVh = null;
         this.gVk = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -51,8 +51,8 @@ public class UserRecommendLayout extends LinearLayout {
     public UserRecommendLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.gVi = 0;
-        this.hPZ = null;
-        this.hQa = null;
+        this.hQb = null;
+        this.hQc = null;
         this.gVh = null;
         this.gVk = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -164,9 +164,9 @@ public class UserRecommendLayout extends LinearLayout {
         cVar.wX("7");
         userRecommendItemView.getLikeBtn().setTag(cVar);
         cVar.a(metaData);
-        userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.hPZ);
+        userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.hQb);
         userRecommendItemView.getHeaderView().setData(metaData);
-        userRecommendItemView.getHeaderView().setAfterClickListener(this.hQa);
+        userRecommendItemView.getHeaderView().setAfterClickListener(this.hQc);
         userRecommendItemView.setIsGod(metaData.isGod());
         userRecommendItemView.onChangeSkinType(skinType);
     }
@@ -184,10 +184,10 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public void setAfterLikeBtnClickListener(View.OnClickListener onClickListener) {
-        this.hPZ = onClickListener;
+        this.hQb = onClickListener;
     }
 
     public void setAfterHeaderLickListener(View.OnClickListener onClickListener) {
-        this.hQa = onClickListener;
+        this.hQc = onClickListener;
     }
 }

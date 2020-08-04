@@ -5,18 +5,18 @@ import java.io.OutputStream;
 /* loaded from: classes19.dex */
 public class RequestBodyOutputStream extends OutputStream {
     private String mBoundary;
-    private final PipedOutputStreamAndroid25 mJY;
+    private final PipedOutputStreamAndroid25 mKa;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        this.mJY.write(i);
-        this.mJY.flush();
+        this.mKa.write(i);
+        this.mKa.flush();
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        this.mJY.write(bArr, i, i2);
-        this.mJY.flush();
+        this.mKa.write(bArr, i, i2);
+        this.mKa.flush();
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -25,6 +25,6 @@ public class RequestBodyOutputStream extends OutputStream {
             String str = "\r\n--" + this.mBoundary + "--\r\n";
             write(str.getBytes(), 0, str.getBytes().length);
         }
-        this.mJY.close();
+        this.mKa.close();
     }
 }

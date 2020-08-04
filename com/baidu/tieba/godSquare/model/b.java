@@ -25,23 +25,23 @@ import tbclient.GetHotGod.DataRes;
 import tbclient.User;
 /* loaded from: classes18.dex */
 public class b {
-    private a iqp;
-    private boolean iqq;
-    private LongSparseArray<MetaData> iqs;
+    private a iqr;
+    private boolean iqs;
+    private LongSparseArray<MetaData> iqu;
     private BaseActivity mActivity;
     private int pn = 0;
     public List<q> hBA = new ArrayList();
-    public int iqr = 1;
+    public int iqt = 1;
     private com.baidu.adp.framework.listener.a hAY = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (b.this.iqp != null) {
+            if (b.this.iqr != null) {
                 if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                     GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                    b.this.iqp.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.iqq, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                    b.this.iqr.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.iqs, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
                 } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                     GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                    b.this.iqp.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.iqq, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                    b.this.iqr.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.iqs, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
                 }
             }
         }
@@ -50,7 +50,7 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.iqp != null) {
+            if (b.this.iqr != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
                     b.this.xd(1);
                     return;
@@ -59,7 +59,7 @@ public class b {
                 if (godSquareCacheResponsedMsg.getResult() == null || x.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
                     b.this.xd(1);
                 } else {
-                    b.this.iqp.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.iqq, true, godSquareCacheResponsedMsg.getErrorString());
+                    b.this.iqr.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.iqs, true, godSquareCacheResponsedMsg.getErrorString());
                 }
             }
         }
@@ -71,14 +71,14 @@ public class b {
     }
 
     public b(a aVar, BaseActivity baseActivity) {
-        this.iqp = aVar;
+        this.iqr = aVar;
         this.mActivity = baseActivity;
         registerListener();
     }
 
     public void update() {
-        this.iqr = 1;
-        this.iqq = true;
+        this.iqt = 1;
+        this.iqs = true;
         if (j.isNetworkAvailableForImmediately()) {
             xd(1);
         } else {
@@ -87,7 +87,7 @@ public class b {
     }
 
     public void bwE() {
-        this.iqq = false;
+        this.iqs = false;
         xd(this.pn + 1);
     }
 
@@ -127,9 +127,9 @@ public class b {
         cY(dataRes.user_list);
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
-        if (!x.isEmpty(dataRes.recommend_uid_list) && this.iqq) {
+        if (!x.isEmpty(dataRes.recommend_uid_list) && this.iqs) {
             for (Long l : dataRes.recommend_uid_list) {
-                if (l != null && (metaData2 = this.iqs.get(l.longValue())) != null) {
+                if (l != null && (metaData2 = this.iqu.get(l.longValue())) != null) {
                     h hVar = new h();
                     hVar.dSF = metaData2;
                     hVar.type = 1;
@@ -146,16 +146,16 @@ public class b {
         }
         if (!x.isEmpty(dataRes.hot_uid_list)) {
             for (Long l2 : dataRes.hot_uid_list) {
-                if (l2 != null && (metaData = this.iqs.get(l2.longValue())) != null) {
+                if (l2 != null && (metaData = this.iqu.get(l2.longValue())) != null) {
                     h hVar2 = new h();
                     hVar2.dSF = metaData;
                     hVar2.type = 0;
-                    hVar2.rank = this.iqr;
+                    hVar2.rank = this.iqt;
                     arrayList3.add(hVar2);
-                    this.iqr++;
+                    this.iqt++;
                 }
             }
-            if (this.mActivity != null && !x.isEmpty(arrayList3) && this.iqq) {
+            if (this.mActivity != null && !x.isEmpty(arrayList3) && this.iqs) {
                 e eVar2 = new e();
                 eVar2.title = this.mActivity.getResources().getString(R.string.hot_god);
                 if (x.isEmpty(arrayList2)) {
@@ -171,18 +171,18 @@ public class b {
     }
 
     private void cY(List<User> list) {
-        if (this.iqs == null) {
-            this.iqs = new LongSparseArray<>();
+        if (this.iqu == null) {
+            this.iqu = new LongSparseArray<>();
         }
         for (User user : list) {
             h hVar = new h();
             hVar.dSF = new MetaData();
             hVar.dSF.parserProtobuf(user);
-            this.iqs.put(user.id.longValue(), hVar.dSF);
+            this.iqu.put(user.id.longValue(), hVar.dSF);
         }
     }
 
     public boolean eB(long j) {
-        return (this.iqs == null || this.iqs.get(j) == null) ? false : true;
+        return (this.iqu == null || this.iqu.get(j) == null) ? false : true;
     }
 }

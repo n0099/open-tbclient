@@ -15,23 +15,23 @@ import java.util.List;
 public class f implements a {
     private TbPageContext dVN;
     private BdTypeListView frv;
-    private e hMj;
-    private boolean hMk;
+    private e hMl;
+    private boolean hMm;
     private List<q> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
-    private int hMl = -1;
+    private int hMn = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.hMk = false;
+        this.hMm = false;
         this.dVN = tbPageContext;
         this.frv = bdTypeListView;
-        this.hMk = z;
+        this.hMm = z;
         DS();
     }
 
     private void DS() {
-        this.hMj = new e(this.dVN, this, this.hMk);
-        this.aWf.add(this.hMj);
+        this.hMl = new e(this.dVN, this, this.hMm);
+        this.aWf.add(this.hMl);
         this.frv.addAdapters(this.aWf);
     }
 
@@ -42,7 +42,7 @@ public class f implements a {
             }
             this.mDatas.addAll(list);
             this.frv.setData(this.mDatas);
-            if (z && list.size() > 0 && this.hMk && j.isWifiNet()) {
+            if (z && list.size() > 0 && this.hMm && j.isWifiNet()) {
                 ceo();
                 list.get(0).autoPlay = true;
             }
@@ -60,8 +60,8 @@ public class f implements a {
                     break;
                 }
                 q next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).hMq != null && str.equals(((g) next).hMq.userId)) {
-                    ((g) next).hMq.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).hMs != null && str.equals(((g) next).hMs.userId)) {
+                    ((g) next).hMs.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -79,32 +79,32 @@ public class f implements a {
     }
 
     public void onDestroy() {
-        this.hMj.onDestroy();
+        this.hMl.onDestroy();
     }
 
     public boolean pT() {
-        return this.hMj.pT();
+        return this.hMl.pT();
     }
 
     public void pR() {
-        this.hMj.pR();
+        this.hMl.pR();
     }
 
     public void pS() {
-        this.hMj.pS();
+        this.hMl.pS();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.hMj.onConfigurationChanged(configuration);
+        this.hMl.onConfigurationChanged(configuration);
     }
 
     public boolean vj(int i) {
-        return this.hMj.vj(i);
+        return this.hMl.vj(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void vi(int i) {
-        this.hMl = i;
+        this.hMn = i;
         if (!x.isEmpty(this.mDatas) && this.frv != null) {
             for (q qVar : this.mDatas) {
                 if (qVar instanceof g) {
@@ -112,24 +112,24 @@ public class f implements a {
                 }
             }
             if (j.isWifiNet()) {
-                if (this.hMl < this.mDatas.size() - 1) {
+                if (this.hMn < this.mDatas.size() - 1) {
                     List<q> list = this.mDatas;
-                    int i2 = this.hMl + 1;
-                    this.hMl = i2;
+                    int i2 = this.hMn + 1;
+                    this.hMn = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.hMl)).autoPlay = true;
+                        ((g) this.mDatas.get(this.hMn)).autoPlay = true;
                         this.frv.smoothScrollToPositionFromTop(this.frv.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.hMl == this.mDatas.size() - 1 && (this.mDatas.get(this.hMl) instanceof g)) {
-                    ((g) this.mDatas.get(this.hMl)).autoPlay = false;
+                } else if (this.hMn == this.mDatas.size() - 1 && (this.mDatas.get(this.hMn) instanceof g)) {
+                    ((g) this.mDatas.get(this.hMn)).autoPlay = false;
                 }
             }
         }
     }
 
     public int cem() {
-        return this.hMl;
+        return this.hMn;
     }
 
     public void cen() {
@@ -148,7 +148,7 @@ public class f implements a {
 
     private void ceo() {
         cen();
-        this.hMl = 0;
+        this.hMn = 0;
         pR();
     }
 }

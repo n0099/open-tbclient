@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String jFm;
+    public String jFo;
     public int mErrorCode;
     public String mErrorMsg;
 
@@ -22,7 +22,7 @@ public class a {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
-                this.jFm = optJSONObject2.optString("usermsg");
+                this.jFo = optJSONObject2.optString("usermsg");
             }
         }
     }

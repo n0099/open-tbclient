@@ -21,58 +21,58 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.sdk.login.message.GetLoginTbsResponsedMessage;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a lvH;
+    private static volatile a lvJ;
     private c aPn;
-    private int lvI;
-    private com.baidu.tieba.sdk.b.a lvJ;
-    private CustomMessageTask.CustomRunnable<Object> lvK = new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sdk.login.a.1
+    private int lvK;
+    private com.baidu.tieba.sdk.b.a lvL;
+    private CustomMessageTask.CustomRunnable<Object> lvM = new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sdk.login.a.1
         @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             a.this.cCX();
             return null;
         }
     };
-    private final HttpMessageListener lvL = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.sdk.login.a.2
+    private final HttpMessageListener lvN = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.sdk.login.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetLoginTbsResponsedMessage)) {
                 if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
-                    if (a.this.lvI < 3) {
+                    if (a.this.lvK < 3) {
                         a.b(a.this);
-                        a.this.a(a.this.lvJ.cCW());
+                        a.this.a(a.this.lvL.cCW());
                         return;
                     }
                     return;
                 }
-                a.this.lvI = 0;
+                a.this.lvK = 0;
             }
         }
     };
 
     static /* synthetic */ int b(a aVar) {
-        int i = aVar.lvI;
-        aVar.lvI = i + 1;
+        int i = aVar.lvK;
+        aVar.lvK = i + 1;
         return i;
     }
 
     public static a deh() {
-        if (lvH == null) {
+        if (lvJ == null) {
             synchronized (a.class) {
-                if (lvH == null) {
-                    lvH = new a();
+                if (lvJ == null) {
+                    lvJ = new a();
                 }
             }
         }
-        return lvH;
+        return lvJ;
     }
 
     private a() {
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.sdk.login.a.a(0));
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN, this.lvK);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN, this.lvM);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(this.lvL);
+        MessageManager.getInstance().registerListener(this.lvN);
         registerTask();
     }
 
@@ -87,17 +87,17 @@ public class a {
     }
 
     public void cCX() {
-        if (this.lvJ != null) {
-            this.lvJ.cCX();
+        if (this.lvL != null) {
+            this.lvL.cCX();
         }
     }
 
     public void b(com.baidu.tieba.sdk.b.a aVar) {
-        this.lvJ = aVar;
+        this.lvL = aVar;
     }
 
     public void dei() {
-        if (this.lvJ != null) {
+        if (this.lvL != null) {
             del();
             if (this.aPn == null) {
                 this.aPn = new c();
@@ -120,32 +120,32 @@ public class a {
     }
 
     public void HK() {
-        if (this.lvJ != null) {
+        if (this.lvL != null) {
             del();
         }
     }
 
     public boolean dej() {
-        if (this.lvJ == null) {
+        if (this.lvL == null) {
             return false;
         }
         boolean del = del();
         if (!del) {
-            this.lvJ.cCX();
+            this.lvL.cCX();
             return del;
         }
         return del;
     }
 
     public com.baidu.tieba.sdk.c.a dek() {
-        if (this.lvJ != null) {
-            return this.lvJ.cCW();
+        if (this.lvL != null) {
+            return this.lvL.cCW();
         }
         return null;
     }
 
     private boolean del() {
-        com.baidu.tieba.sdk.c.a cCW = this.lvJ.cCW();
+        com.baidu.tieba.sdk.c.a cCW = this.lvL.cCW();
         if (cCW != null && cCW.isValid()) {
             dem();
             if (AccountHelper.getOnSyncAccountCallback() != null) {
@@ -164,7 +164,7 @@ public class a {
 
     private void dem() {
         boolean z = true;
-        com.baidu.tieba.sdk.c.a cCW = this.lvJ.cCW();
+        com.baidu.tieba.sdk.c.a cCW = this.lvL.cCW();
         if (cCW != null) {
             String string = com.baidu.live.c.vf().getString("ala_account_user_id", "");
             String string2 = com.baidu.live.c.vf().getString("ala_account_user_bduss", "");
@@ -197,7 +197,7 @@ public class a {
                     return;
                 }
             }
-            this.lvI = 0;
+            this.lvK = 0;
             den();
             C0743a c0743a2 = new C0743a();
             c0743a2.MW(cCW.bduss);
@@ -239,8 +239,8 @@ public class a {
     /* loaded from: classes4.dex */
     public static class C0743a {
         private String BDUSS;
-        private int lvN;
-        private AccountData lvO;
+        private int lvP;
+        private AccountData lvQ;
         private String nickName;
         private String portrait;
         private int sex;
@@ -249,14 +249,14 @@ public class a {
         private String userName;
 
         public C0743a() {
-            this.lvO = new AccountData();
+            this.lvQ = new AccountData();
         }
 
         public C0743a(AccountData accountData) {
             if (accountData == null) {
-                this.lvO = new AccountData();
+                this.lvQ = new AccountData();
             } else {
-                this.lvO = accountData;
+                this.lvQ = accountData;
             }
         }
 
@@ -296,20 +296,20 @@ public class a {
         }
 
         public C0743a Ej(int i) {
-            this.lvN = i;
+            this.lvP = i;
             return this;
         }
 
         public AccountData dep() {
-            this.lvO.setBDUSS(this.BDUSS);
-            this.lvO.setAccount(this.userName);
-            this.lvO.setDisplayName(this.nickName);
-            this.lvO.setID(this.userId);
-            this.lvO.setPortrait(this.portrait);
-            this.lvO.setTbs(this.tbs);
-            this.lvO.setSex(this.sex);
-            this.lvO.setIsActive(this.lvN);
-            return this.lvO;
+            this.lvQ.setBDUSS(this.BDUSS);
+            this.lvQ.setAccount(this.userName);
+            this.lvQ.setDisplayName(this.nickName);
+            this.lvQ.setID(this.userId);
+            this.lvQ.setPortrait(this.portrait);
+            this.lvQ.setTbs(this.tbs);
+            this.lvQ.setSex(this.sex);
+            this.lvQ.setIsActive(this.lvP);
+            return this.lvQ;
         }
     }
 }

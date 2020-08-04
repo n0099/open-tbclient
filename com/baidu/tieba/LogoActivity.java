@@ -602,14 +602,14 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             if (this.eZz == null) {
                 this.eZz = new com.baidu.tieba.w.d(this);
             }
-            if (this.eZz.dtv()) {
+            if (this.eZz.dtw()) {
                 this.eZA = this.eZz.z(0.8125d);
                 this.mRootView.addView(this.eZA);
                 this.eZz.a(this.eZI);
                 this.eZz.start();
                 return;
             }
-            this.eZz.dtz();
+            this.eZz.dtA();
         }
         bqS();
     }

@@ -11,7 +11,7 @@ public final class FlowableRepeat<T> extends a<T, T> {
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RepeatSubscriber(cVar, this.count != Long.MAX_VALUE ? this.count - 1 : Long.MAX_VALUE, subscriptionArbiter, this.nSE).subscribeNext();
+        new RepeatSubscriber(cVar, this.count != Long.MAX_VALUE ? this.count - 1 : Long.MAX_VALUE, subscriptionArbiter, this.nSG).subscribeNext();
     }
 
     /* loaded from: classes7.dex */

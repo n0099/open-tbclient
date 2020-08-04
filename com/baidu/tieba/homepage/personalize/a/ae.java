@@ -61,18 +61,18 @@ public class ae extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         private View dJu;
         private ImageView dJv;
         private String fcs;
-        private TbImageView izL;
+        private TbImageView izN;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44);
             getView().setPadding(dimens, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds21), dimens, 0);
-            this.izL = (TbImageView) getView().findViewById(R.id.quiz_entrance_img);
-            this.izL.setAutoChangeStyle(true);
-            this.izL.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
-            this.izL.setConrers(15);
-            this.izL.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.izL.setPlaceHolder(2);
+            this.izN = (TbImageView) getView().findViewById(R.id.quiz_entrance_img);
+            this.izN.setAutoChangeStyle(true);
+            this.izN.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
+            this.izN.setConrers(15);
+            this.izN.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.izN.setPlaceHolder(2);
             this.dJu = getView().findViewById(R.id.close_layout);
             this.dJv = (ImageView) getView().findViewById(R.id.close);
             this.dJu.setOnClickListener(this);
@@ -83,9 +83,9 @@ public class ae extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
 
         private void cr(int i, int i2) {
             int i3;
-            if (this.izL != null) {
+            if (this.izN != null) {
                 Context context = TbadkCoreApplication.getInst().getContext();
-                ViewGroup.LayoutParams layoutParams = this.izL.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.izN.getLayoutParams();
                 if (context != null && layoutParams != null) {
                     int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
                     if (i > 0 && i2 > 0) {
@@ -95,7 +95,7 @@ public class ae extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
                     }
                     layoutParams.width = -1;
                     layoutParams.height = i3;
-                    this.izL.setLayoutParams(layoutParams);
+                    this.izN.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -114,9 +114,9 @@ public class ae extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         @Override // com.baidu.tieba.card.b
         public void a(com.baidu.tieba.homepage.personalize.data.h hVar) {
             if (hVar != null) {
-                cr(hVar.aiy, hVar.iBb);
-                this.izL.setPlaceHolder(2);
-                this.izL.startLoad(hVar.imgUrl, 10, false);
+                cr(hVar.aiy, hVar.iBd);
+                this.izN.setPlaceHolder(2);
+                this.izN.startLoad(hVar.imgUrl, 10, false);
                 this.fcs = hVar.aye;
             }
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());

@@ -7,15 +7,15 @@ public interface b extends tv.chushou.basis.d.a {
 
     String aef();
 
-    String dOo();
-
     String dOp();
 
-    Map<String, String> dOq();
+    String dOq();
 
-    String dOr();
+    Map<String, String> dOr();
 
-    Map<String, String> dOs();
+    String dOs();
+
+    Map<String, String> dOt();
 
     String getAppKey();
 

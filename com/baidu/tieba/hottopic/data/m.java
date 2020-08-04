@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes15.dex */
 public class m implements q {
-    public static final BdUniqueId iKQ = BdUniqueId.gen();
+    public static final BdUniqueId iKS = BdUniqueId.gen();
     public String dOZ;
     public long fid;
     public String fname;
-    public String iJI;
-    private boolean iKR = false;
-    public long iKS;
+    public String iJK;
+    private boolean iKT = false;
+    public long iKU;
     public long postId;
     public long replyNum;
     public String summary;
@@ -19,10 +19,10 @@ public class m implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iKQ;
+        return iKS;
     }
 
     public boolean cpr() {
-        return this.iKR;
+        return this.iKT;
     }
 }

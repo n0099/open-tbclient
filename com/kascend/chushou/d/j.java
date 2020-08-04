@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class j {
-    private static j nnH = null;
-    private final LruCache<String, VideoPlayInfo> nnG = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j nnJ = null;
+    private final LruCache<String, VideoPlayInfo> nnI = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -29,39 +29,39 @@ public class j {
         }
     };
 
-    public static j dMu() {
-        if (nnH == null) {
+    public static j dMv() {
+        if (nnJ == null) {
             synchronized (j.class) {
-                if (nnH == null) {
-                    nnH = new j();
+                if (nnJ == null) {
+                    nnJ = new j();
                 }
             }
         }
-        return nnH;
+        return nnJ;
     }
 
     private j() {
     }
 
     public VideoPlayInfo K(String str, long j) {
-        return a(this.nnG, str, j);
+        return a(this.nnI, str, j);
     }
 
     public void a(String str) {
-        this.nnG.remove(str);
+        this.nnI.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.nnG, str, list);
+        a(this.nnI, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (L(str, 600000L) == null) {
-            com.kascend.chushou.player.c.a.dNi().a(str, str2, new a.InterfaceC0829a() { // from class: com.kascend.chushou.d.j.3
+            com.kascend.chushou.player.c.a.dNj().a(str, str2, new a.InterfaceC0829a() { // from class: com.kascend.chushou.d.j.3
                 @Override // com.kascend.chushou.player.c.a.InterfaceC0829a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dMu().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dMv().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

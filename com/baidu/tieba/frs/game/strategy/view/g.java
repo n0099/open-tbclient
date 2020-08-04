@@ -12,12 +12,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class g {
     private ValueAnimator hKy;
-    private TextView hUm;
+    private TextView hUo;
     private Context mContext;
     private Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.g.3
         @Override // java.lang.Runnable
         public void run() {
-            if (g.this.hUm != null && g.this.hUm.getParent() != null && g.this.hKy != null) {
+            if (g.this.hUo != null && g.this.hUo.getParent() != null && g.this.hKy != null) {
                 g.this.hKy.start();
             }
         }
@@ -30,20 +30,20 @@ public class g {
     }
 
     private void cfN() {
-        this.hUm = new TextView(this.mContext);
-        this.hUm.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-        ao.setBackgroundResource(this.hUm, R.color.cp_link_tip_a);
-        ao.setViewTextColor(this.hUm, R.color.cp_cont_a);
-        this.hUm.setGravity(17);
-        this.hUm.setVisibility(0);
+        this.hUo = new TextView(this.mContext);
+        this.hUo.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+        ao.setBackgroundResource(this.hUo, R.color.cp_link_tip_a);
+        ao.setViewTextColor(this.hUo, R.color.cp_cont_a);
+        this.hUo.setGravity(17);
+        this.hUo.setVisibility(0);
         this.hKy = new ValueAnimator();
         this.hKy.setFloatValues(1.0f, 0.0f);
         this.hKy.setDuration(400L);
         this.hKy.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (g.this.hUm != null && valueAnimator != null) {
-                    g.this.hUm.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (g.this.hUo != null && valueAnimator != null) {
+                    g.this.hUo.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
@@ -54,7 +54,7 @@ public class g {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (g.this.hUm != null) {
+                if (g.this.hUo != null) {
                     g.this.cdN();
                 }
             }
@@ -76,22 +76,22 @@ public class g {
         if (this.hKy != null) {
             this.hKy.cancel();
         }
-        if (this.hUm != null) {
-            ViewParent parent = this.hUm.getParent();
+        if (this.hUo != null) {
+            ViewParent parent = this.hUo.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.hUm);
+                ((ViewGroup) parent).removeView(this.hUo);
             }
-            this.hUm.setVisibility(8);
-            this.hUm = null;
+            this.hUo.setVisibility(8);
+            this.hUo = null;
         }
     }
 
     public boolean isShowing() {
-        return this.hUm != null && this.hUm.getVisibility() == 0;
+        return this.hUo != null && this.hUo.getVisibility() == 0;
     }
 
     public TextView cfO() {
-        return this.hUm;
+        return this.hUo;
     }
 
     public void cfP() {

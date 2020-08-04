@@ -16,12 +16,12 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class WeiboSsoSdk {
-    private static WeiboSsoSdk nQt;
-    private static b nQu;
-    private volatile ReentrantLock nQs = new ReentrantLock(true);
-    private boolean nQv = true;
-    private a nQw;
-    private int nQx;
+    private static WeiboSsoSdk nQv;
+    private static b nQw;
+    private volatile ReentrantLock nQu = new ReentrantLock(true);
+    private boolean nQx = true;
+    private a nQy;
+    private int nQz;
 
     private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
@@ -30,17 +30,17 @@ public class WeiboSsoSdk {
     }
 
     private WeiboSsoSdk() throws Exception {
-        if (nQu == null || !nQu.dSi()) {
+        if (nQw == null || !nQw.dSj()) {
             throw new Exception("config error");
         }
-        this.nQx = 0;
+        this.nQz = 0;
         new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.1
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
                     try {
                         Thread.sleep(86400000L);
-                        WeiboSsoSdk.dSf().bN((WeiboSsoSdk.this.nQw == null || TextUtils.isEmpty(WeiboSsoSdk.this.nQw.uh())) ? WeiboSsoSdk.this.dSh() : WeiboSsoSdk.this.nQw.uh(), 2);
+                        WeiboSsoSdk.dSg().bN((WeiboSsoSdk.this.nQy == null || TextUtils.isEmpty(WeiboSsoSdk.this.nQy.uh())) ? WeiboSsoSdk.this.dSi() : WeiboSsoSdk.this.nQy.uh(), 2);
                     } catch (Exception e) {
                     }
                 }
@@ -51,8 +51,8 @@ public class WeiboSsoSdk {
             public void run() {
                 try {
                     Thread.sleep(60000L);
-                    if (WeiboSsoSdk.this.nQv) {
-                        WeiboSsoSdk.this.bN((WeiboSsoSdk.this.nQw == null || TextUtils.isEmpty(WeiboSsoSdk.this.nQw.uh())) ? WeiboSsoSdk.this.dSh() : WeiboSsoSdk.this.nQw.uh(), 2);
+                    if (WeiboSsoSdk.this.nQx) {
+                        WeiboSsoSdk.this.bN((WeiboSsoSdk.this.nQy == null || TextUtils.isEmpty(WeiboSsoSdk.this.nQy.uh())) ? WeiboSsoSdk.this.dSi() : WeiboSsoSdk.this.nQy.uh(), 2);
                     }
                 } catch (Exception e) {
                 }
@@ -64,9 +64,9 @@ public class WeiboSsoSdk {
         boolean z = false;
         synchronized (WeiboSsoSdk.class) {
             if (bVar != null) {
-                if (bVar.dSi() && nQu == null) {
-                    nQu = (b) bVar.clone();
-                    com.weibo.ssosdk.a.init(nQu.getApplicationContext());
+                if (bVar.dSj() && nQw == null) {
+                    nQw = (b) bVar.clone();
+                    com.weibo.ssosdk.a.init(nQw.getApplicationContext());
                     z = true;
                 }
             }
@@ -74,13 +74,13 @@ public class WeiboSsoSdk {
         return z;
     }
 
-    public static synchronized WeiboSsoSdk dSf() throws Exception {
+    public static synchronized WeiboSsoSdk dSg() throws Exception {
         WeiboSsoSdk weiboSsoSdk;
         synchronized (WeiboSsoSdk.class) {
-            if (nQt == null) {
-                nQt = new WeiboSsoSdk();
+            if (nQv == null) {
+                nQv = new WeiboSsoSdk();
             }
-            weiboSsoSdk = nQt;
+            weiboSsoSdk = nQv;
         }
         return weiboSsoSdk;
     }
@@ -88,7 +88,7 @@ public class WeiboSsoSdk {
     /* loaded from: classes5.dex */
     public static final class a {
         private String mAid;
-        private String nQz;
+        private String nQB;
 
         public String uh() {
             return this.mAid;
@@ -104,7 +104,7 @@ public class WeiboSsoSdk {
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
                 }
                 aVar.mAid = jSONObject2.optString("aid", "");
-                aVar.nQz = jSONObject2.optString("sub", "");
+                aVar.nQB = jSONObject2.optString("sub", "");
                 return aVar;
             } catch (Exception e) {
                 throw e;
@@ -148,21 +148,21 @@ public class WeiboSsoSdk {
     /* JADX INFO: Access modifiers changed from: private */
     public void bN(String str, int i) throws Exception {
         String str2;
-        if (!TextUtils.isEmpty(nQu.xR(false))) {
-            if (!this.nQs.tryLock()) {
-                this.nQs.lock();
-                this.nQs.unlock();
+        if (!TextUtils.isEmpty(nQw.xR(false))) {
+            if (!this.nQu.tryLock()) {
+                this.nQu.lock();
+                this.nQu.unlock();
                 return;
             }
-            this.nQv = false;
-            String mfp = com.weibo.ssosdk.a.getMfp(nQu.getApplicationContext());
+            this.nQx = false;
+            String mfp = com.weibo.ssosdk.a.getMfp(nQw.getApplicationContext());
             try {
                 str2 = URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 str2 = "";
             }
-            String SC = SC(riseWind(nQu.xR(true), nQu.getApplicationContext().getPackageName(), str2, mfp, nQu.xQ(true), nQu.xP(true), nQu.xO(true), nQu.xN(true), nQu.xS(true), nQu.xM(true), i, this.nQx));
-            this.nQx++;
+            String SC = SC(riseWind(nQw.xR(true), nQw.getApplicationContext().getPackageName(), str2, mfp, nQw.xQ(true), nQw.xP(true), nQw.xO(true), nQw.xN(true), nQw.xS(true), nQw.xM(true), i, this.nQz));
+            this.nQz++;
             if (SC != null) {
                 try {
                     a SE = a.SE(SC);
@@ -170,22 +170,22 @@ public class WeiboSsoSdk {
                         SD(SE.uh());
                     }
                     if (i == 1) {
-                        this.nQw = SE;
+                        this.nQy = SE;
                     }
-                    this.nQs.unlock();
+                    this.nQu.unlock();
                     return;
                 } catch (Exception e2) {
-                    this.nQs.unlock();
+                    this.nQu.unlock();
                     throw e2;
                 }
             }
-            this.nQs.unlock();
+            this.nQu.unlock();
             throw new Exception("network error.");
         }
     }
 
-    public a dSg() throws Exception {
-        if (this.nQw == null) {
+    public a dSh() throws Exception {
+        if (this.nQy == null) {
             Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -198,16 +198,16 @@ public class WeiboSsoSdk {
             thread.start();
             thread.join();
         }
-        if (this.nQw == null) {
+        if (this.nQy == null) {
             throw new Exception("visitor login failed");
         }
-        return this.nQw;
+        return this.nQy;
     }
 
     public String uh() throws Exception {
-        String dSh = dSh();
-        if (TextUtils.isEmpty(dSh)) {
-            if (this.nQw == null || TextUtils.isEmpty(this.nQw.uh())) {
+        String dSi = dSi();
+        if (TextUtils.isEmpty(dSi)) {
+            if (this.nQy == null || TextUtils.isEmpty(this.nQy.uh())) {
                 Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -220,17 +220,17 @@ public class WeiboSsoSdk {
                 thread.start();
                 thread.join();
             }
-            if (this.nQw == null) {
+            if (this.nQy == null) {
                 throw new Exception("visitor login failed");
             }
-            return this.nQw.uh();
+            return this.nQy.uh();
         }
-        return dSh;
+        return dSi;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public String dSh() {
+    public String dSi() {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2 = null;
@@ -276,7 +276,7 @@ public class WeiboSsoSdk {
     }
 
     private File Li(int i) {
-        return new File(nQu.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
+        return new File(nQw.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [406=4] */

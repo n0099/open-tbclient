@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes17.dex */
 final class b {
-    private static final Pattern liO = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point liP;
-    private Point liQ;
+    private static final Pattern liQ = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
     private Point liR;
+    private Point liS;
+    private Point liT;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.liP = a.fk(this.mContext);
+        this.liR = a.fk(this.mContext);
         Point point = new Point();
-        point.x = this.liP.x;
-        point.y = this.liP.y;
+        point.x = this.liR.x;
+        point.y = this.liR.y;
         int fj = a.fj(this.mContext);
         if (fj == 0) {
-            point.x = this.liP.y;
-            point.y = this.liP.x;
+            point.x = this.liR.y;
+            point.y = this.liR.x;
         }
-        this.liR = a(parameters, point);
+        this.liT = a(parameters, point);
         if (fj == 0) {
-            this.liQ = new Point(this.liR.y, this.liR.x);
+            this.liS = new Point(this.liT.y, this.liT.x);
         } else {
-            this.liQ = this.liR;
+            this.liS = this.liT;
         }
     }
 
@@ -49,12 +49,12 @@ final class b {
     }
 
     public Point dbj() {
-        return this.liQ;
+        return this.liS;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.liR.x, this.liR.y);
+        parameters.setPreviewSize(this.liT.x, this.liT.y);
         d(parameters);
         camera.setDisplayOrientation(dbk());
         camera.setParameters(parameters);
@@ -147,7 +147,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = liO.split(charSequence);
+        String[] split = liQ.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

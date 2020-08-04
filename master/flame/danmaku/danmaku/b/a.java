@@ -22,7 +22,7 @@ public interface a {
 
     void clear();
 
-    void dWy();
+    void dWz();
 
     void release();
 
@@ -35,105 +35,105 @@ public interface a {
         public long beginTime;
         public long endTime;
         public long fJu;
-        public boolean oeH;
-        public int oeI;
-        public int oeJ;
-        public d oeK;
+        public boolean oeJ;
+        public int oeK;
         public int oeL;
-        public int oeM;
+        public d oeM;
         public int oeN;
         public int oeO;
         public int oeP;
         public int oeQ;
         public int oeR;
-        public long oeS;
-        public boolean oeT;
+        public int oeS;
+        public int oeT;
         public long oeU;
-        public long oeV;
-        private boolean oeX;
-        public f oaK = new f();
-        private l oeW = new master.flame.danmaku.danmaku.model.android.d(4);
+        public boolean oeV;
+        public long oeW;
+        public long oeX;
+        private boolean oeZ;
+        public f oaM = new f();
+        private l oeY = new master.flame.danmaku.danmaku.model.android.d(4);
 
         public int LB(int i) {
-            this.oeQ += i;
-            return this.oeQ;
+            this.oeS += i;
+            return this.oeS;
         }
 
         public int ed(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.oeL += i2;
-                    return this.oeL;
+                    this.oeN += i2;
+                    return this.oeN;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.oeO += i2;
-                    return this.oeO;
+                    this.oeQ += i2;
+                    return this.oeQ;
                 case 5:
-                    this.oeN += i2;
-                    return this.oeN;
-                case 6:
-                    this.oeM += i2;
-                    return this.oeM;
-                case 7:
                     this.oeP += i2;
                     return this.oeP;
+                case 6:
+                    this.oeO += i2;
+                    return this.oeO;
+                case 7:
+                    this.oeR += i2;
+                    return this.oeR;
             }
         }
 
         public void reset() {
-            this.oeR = this.oeQ;
+            this.oeT = this.oeS;
+            this.oeS = 0;
+            this.oeR = 0;
             this.oeQ = 0;
             this.oeP = 0;
             this.oeO = 0;
             this.oeN = 0;
-            this.oeM = 0;
-            this.oeL = 0;
-            this.oeS = 0L;
+            this.oeU = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
             this.fJu = 0L;
-            this.oeT = false;
+            this.oeV = false;
             synchronized (this) {
-                this.oeW.clear();
+                this.oeY.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.oeR = bVar.oeR;
-                this.oeL = bVar.oeL;
-                this.oeM = bVar.oeM;
+                this.oeT = bVar.oeT;
                 this.oeN = bVar.oeN;
                 this.oeO = bVar.oeO;
                 this.oeP = bVar.oeP;
                 this.oeQ = bVar.oeQ;
+                this.oeR = bVar.oeR;
                 this.oeS = bVar.oeS;
+                this.oeU = bVar.oeU;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.oeT = bVar.oeT;
-                this.fJu = bVar.fJu;
-                this.oeU = bVar.oeU;
                 this.oeV = bVar.oeV;
+                this.fJu = bVar.fJu;
+                this.oeW = bVar.oeW;
+                this.oeX = bVar.oeX;
             }
         }
 
         public void v(d dVar) {
-            if (!this.oeX) {
-                this.oeW.k(dVar);
+            if (!this.oeZ) {
+                this.oeY.k(dVar);
             }
         }
 
-        public l dWz() {
+        public l dWA() {
             l lVar;
-            this.oeX = true;
+            this.oeZ = true;
             synchronized (this) {
-                lVar = this.oeW;
-                this.oeW = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.oeY;
+                this.oeY = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.oeX = false;
+            this.oeZ = false;
             return lVar;
         }
     }

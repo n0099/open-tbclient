@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes18.dex */
 public class b {
-    public List<a> lgY = new ArrayList();
+    public List<a> lha = new ArrayList();
     public au hAv = new au();
 
     /* loaded from: classes18.dex */
@@ -16,7 +16,7 @@ public class b {
         public String content;
         public String fname;
         public int is_floor;
-        public int lgZ;
+        public int lhb;
         public String name;
         public String name_show;
         public long pid;
@@ -27,7 +27,7 @@ public class b {
     }
 
     public boolean cxe() {
-        return (this.lgY == null || this.lgY.size() == 0) ? false : true;
+        return (this.lha == null || this.lha.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
@@ -40,7 +40,7 @@ public class b {
                 this.hAv.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.lgY.clear();
+                    this.lha.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -65,11 +65,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.lgZ = optInt2;
+                                aVar.lhb = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.lgY.add(aVar);
+                                this.lha.add(aVar);
                             }
                         }
                     }

@@ -11,8 +11,8 @@ import com.baidu.tieba.play.k;
 public class j {
     private SensorManager bic;
     private Sensor bif;
-    private g lcb;
-    private k lcc;
+    private g lcd;
+    private k lce;
     private Activity mActivity;
     private boolean bih = false;
     private boolean bii = false;
@@ -66,7 +66,7 @@ public class j {
             }
         }
     };
-    private k.a lcd = new k.a() { // from class: com.baidu.tieba.play.j.2
+    private k.a lcf = new k.a() { // from class: com.baidu.tieba.play.j.2
         @Override // com.baidu.tieba.play.k.a
         public void onChange(boolean z) {
             j.this.bik = z;
@@ -90,29 +90,29 @@ public class j {
             this.mActivity = activity;
             this.bic = (SensorManager) activity.getSystemService("sensor");
             this.bif = this.bic.getDefaultSensor(1);
-            this.lcb = new g(this.mHandler);
+            this.lcd = new g(this.mHandler);
             if (!this.mActivity.getClass().getName().contains("SwanAppActivity")) {
                 this.mActivity.setRequestedOrientation(1);
             }
-            this.lcc = new k(this.mActivity, this.mHandler);
-            this.lcc.a(this.lcd);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.lcc);
+            this.lce = new k(this.mActivity, this.mHandler);
+            this.lce.a(this.lcf);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.lce);
         }
     }
 
     public void start() {
         if (this.bic != null) {
-            this.bic.registerListener(this.lcb, this.bif, 2);
+            this.bic.registerListener(this.lcd, this.bif, 2);
         }
     }
 
     public void stop() {
         if (this.bic != null) {
-            this.bic.unregisterListener(this.lcb);
+            this.bic.unregisterListener(this.lcd);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.lcc);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.lce);
         }
     }
 

@@ -57,9 +57,9 @@ public class a extends com.baidu.tieba.frs.j<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         ao.setBackgroundResource(bVar.rootView, R.drawable.frs_group_item_bg);
-        ao.setBackgroundColor(bVar.iOM, R.color.cp_bg_line_c);
-        ao.setViewTextColor(bVar.iZH, R.color.cp_cont_b, 1);
-        bVar.iZH.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        ao.setBackgroundColor(bVar.iOO, R.color.cp_bg_line_c);
+        ao.setViewTextColor(bVar.iZJ, R.color.cp_cont_b, 1);
+        bVar.iZJ.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
         ao.setBackgroundResource(bVar.dWz, R.color.cp_bg_line_c);
         return view;
     }

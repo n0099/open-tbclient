@@ -16,7 +16,7 @@ public class i extends PopupWindow {
     private LinearLayout ewV;
     private int mCurrentIndex;
     private int maxHeight;
-    private a muq;
+    private a mus;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -67,7 +67,7 @@ public class i extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.muq));
+        view.setOnClickListener(new b(this.count, this.mus));
         this.ewV.addView(view);
         this.count++;
     }
@@ -85,23 +85,23 @@ public class i extends PopupWindow {
     }
 
     public void a(a aVar) {
-        this.muq = aVar;
+        this.mus = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a mur;
+        private a mut;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.mur = aVar;
+            this.mut = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.mur != null) {
-                this.mur.EV(this.position);
+            if (this.mut != null) {
+                this.mut.EV(this.position);
             }
         }
     }

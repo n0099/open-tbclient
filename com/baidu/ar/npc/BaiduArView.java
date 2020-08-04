@@ -363,8 +363,8 @@ public class BaiduArView extends GLSurfaceView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (this.E) {
-            switch (ae.a[this.f.ordinal()]) {
-                case 1:
+            switch (this.f) {
+                case EStatSingleFingerCandidate:
                     if (motionEvent.getActionMasked() == 0) {
                         Log.d(b, "touchinv Action Down when EStatSingleFingerCandidate");
                         this.h = motionEvent.getPointerId(motionEvent.getActionIndex());
@@ -444,7 +444,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 2:
+                case EStatTwoFingersCandidate:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -484,7 +484,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 3:
+                case EStatScroll:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -511,7 +511,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 4:
+                case EStatTwoFingersScroll:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -540,7 +540,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 5:
+                case EStatPinchAndUnpinch:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = i.EStatUnknown;
                         break;
@@ -575,7 +575,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 6:
+                case EStatLongPresss:
                     if (2 == motionEvent.getActionMasked()) {
                         if (getDistance(this.i, this.j, motionEvent.getX(), motionEvent.getY()) > 80.0d) {
                             this.f = i.EScrollAfterLongPress;
@@ -595,7 +595,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 7:
+                case EScrollAfterLongPress:
                     if (2 == motionEvent.getActionMasked()) {
                         if (!this.x && !this.B) {
                             ArBridge.getInstance().a(j.EScrollAfterLongPress.ordinal(), this.h, motionEvent.getX(), motionEvent.getY(), getFirstVelX(motionEvent), getFirstVelY(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, motionEvent.getEventTime());
@@ -612,9 +612,9 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 8:
-                case 9:
-                case 10:
+                case EStatPinch:
+                case EStatUnPinch:
+                case EStatUnknown:
                     if (1 == motionEvent.getActionMasked()) {
                         clearStatus();
                         break;

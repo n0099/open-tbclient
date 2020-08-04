@@ -20,46 +20,46 @@ public class cb {
     private static volatile cb a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f149a;
+    private Context f152a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ca f150a;
+    private ca f153a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final HashMap<String, bz> f152a = new HashMap<>();
+    private final HashMap<String, bz> f155a = new HashMap<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private ThreadPoolExecutor f153a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private ThreadPoolExecutor f156a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<a> f151a = new ArrayList<>();
+    private final ArrayList<a> f154a = new ArrayList<>();
 
     /* loaded from: classes9.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with other field name */
-        private a f155a;
+        private a f158a;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f156a;
+        private String f159a;
 
         /* renamed from: a  reason: collision with other field name */
-        private WeakReference<Context> f157a;
+        private WeakReference<Context> f160a;
         protected String b;
 
         /* renamed from: a  reason: collision with other field name */
-        protected bz f154a = null;
+        protected bz f157a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        private Random f158a = new Random();
+        private Random f161a = new Random();
         private int a = 0;
 
         public a(String str) {
-            this.f156a = str;
+            this.f159a = str;
         }
 
         public SQLiteDatabase a() {
-            return this.f154a.getWritableDatabase();
+            return this.f157a.getWritableDatabase();
         }
 
         /* renamed from: a  reason: collision with other method in class */
@@ -69,13 +69,13 @@ public class cb {
 
         /* renamed from: a  reason: collision with other method in class */
         public String m194a() {
-            return this.f156a;
+            return this.f159a;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(Context context) {
-            if (this.f155a != null) {
-                this.f155a.a(context, m193a());
+            if (this.f158a != null) {
+                this.f158a.a(context, m193a());
             }
             b(context);
         }
@@ -87,18 +87,18 @@ public class cb {
         }
 
         void a(bz bzVar, Context context) {
-            this.f154a = bzVar;
-            this.b = this.f154a.a();
-            this.f157a = new WeakReference<>(context);
+            this.f157a = bzVar;
+            this.b = this.f157a.a();
+            this.f160a = new WeakReference<>(context);
         }
 
         public void a(a aVar) {
-            this.f155a = aVar;
+            this.f158a = aVar;
         }
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m195a() {
-            return this.f154a == null || TextUtils.isEmpty(this.b) || this.f157a == null;
+            return this.f157a == null || TextUtils.isEmpty(this.b) || this.f160a == null;
         }
 
         public void b(Context context) {
@@ -107,10 +107,10 @@ public class cb {
         @Override // java.lang.Runnable
         public final void run() {
             Context context;
-            if (this.f157a == null || (context = this.f157a.get()) == null || context.getFilesDir() == null || this.f154a == null || TextUtils.isEmpty(this.f156a)) {
+            if (this.f160a == null || (context = this.f160a.get()) == null || context.getFilesDir() == null || this.f157a == null || TextUtils.isEmpty(this.f159a)) {
                 return;
             }
-            File file = new File(this.f156a);
+            File file = new File(this.f159a);
             v.a(context, new File(file.getParentFile(), be.b(file.getAbsolutePath())), new cd(this, context));
         }
     }
@@ -120,13 +120,13 @@ public class cb {
         private int a;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f159a;
+        private String f162a;
 
         /* renamed from: a  reason: collision with other field name */
-        private List<String> f160a;
+        private List<String> f163a;
 
         /* renamed from: a  reason: collision with other field name */
-        private String[] f161a;
+        private String[] f164a;
         private List<T> b;
         private String c;
         private String d;
@@ -135,9 +135,9 @@ public class cb {
         public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i) {
             super(str);
             this.b = new ArrayList();
-            this.f160a = list;
-            this.f159a = str2;
-            this.f161a = strArr;
+            this.f163a = list;
+            this.f162a = str2;
+            this.f164a = strArr;
             this.c = str3;
             this.d = str4;
             this.e = str5;
@@ -146,7 +146,7 @@ public class cb {
 
         @Override // com.xiaomi.push.cb.a
         public SQLiteDatabase a() {
-            return this.f154a.getReadableDatabase();
+            return this.f157a.getReadableDatabase();
         }
 
         public abstract T a(Context context, Cursor cursor);
@@ -155,13 +155,13 @@ public class cb {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             String[] strArr;
             this.b.clear();
-            if (this.f160a == null || this.f160a.size() <= 0) {
+            if (this.f163a == null || this.f163a.size() <= 0) {
                 strArr = null;
             } else {
-                strArr = new String[this.f160a.size()];
-                this.f160a.toArray(strArr);
+                strArr = new String[this.f163a.size()];
+                this.f163a.toArray(strArr);
             }
-            Cursor query = sQLiteDatabase.query(this.b, strArr, this.f159a, this.f161a, this.c, this.d, this.e, this.a <= 0 ? null : String.valueOf(this.a));
+            Cursor query = sQLiteDatabase.query(this.b, strArr, this.f162a, this.f164a, this.c, this.d, this.e, this.a <= 0 ? null : String.valueOf(this.a));
             if (query != null && query.moveToFirst()) {
                 do {
                     T a = a(context, query);
@@ -216,17 +216,17 @@ public class cb {
         private String a;
 
         /* renamed from: a  reason: collision with other field name */
-        protected String[] f162a;
+        protected String[] f165a;
 
         public d(String str, String str2, String[] strArr) {
             super(str);
             this.a = str2;
-            this.f162a = strArr;
+            this.f165a = strArr;
         }
 
         @Override // com.xiaomi.push.cb.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete(this.b, this.a, this.f162a);
+            sQLiteDatabase.delete(this.b, this.a, this.f165a);
         }
     }
 
@@ -246,16 +246,16 @@ public class cb {
     }
 
     private cb(Context context) {
-        this.f149a = context;
+        this.f152a = context;
     }
 
     private bz a(String str) {
-        bz bzVar = this.f152a.get(str);
+        bz bzVar = this.f155a.get(str);
         if (bzVar == null) {
-            synchronized (this.f152a) {
+            synchronized (this.f155a) {
                 if (bzVar == null) {
-                    bzVar = this.f150a.a(this.f149a, str);
-                    this.f152a.put(str, bzVar);
+                    bzVar = this.f153a.a(this.f152a, str);
+                    this.f155a.put(str, bzVar);
                 }
             }
         }
@@ -274,7 +274,7 @@ public class cb {
     }
 
     private void a() {
-        ai.a(this.f149a).b(new cc(this), com.xiaomi.push.service.ak.a(this.f149a).a(hr.StatDataProcessFrequency.a(), 5));
+        ai.a(this.f152a).b(new cc(this), com.xiaomi.push.service.ak.a(this.f152a).a(hr.StatDataProcessFrequency.a(), 5));
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -287,47 +287,47 @@ public class cb {
         if (aVar == null) {
             return;
         }
-        if (this.f150a == null) {
+        if (this.f153a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
         String m194a = aVar.m194a();
-        synchronized (this.f152a) {
-            bzVar = this.f152a.get(m194a);
+        synchronized (this.f155a) {
+            bzVar = this.f155a.get(m194a);
             if (bzVar == null) {
-                bzVar = this.f150a.a(this.f149a, m194a);
-                this.f152a.put(m194a, bzVar);
+                bzVar = this.f153a.a(this.f152a, m194a);
+                this.f155a.put(m194a, bzVar);
             }
         }
-        if (this.f153a.isShutdown()) {
+        if (this.f156a.isShutdown()) {
             return;
         }
-        aVar.a(bzVar, this.f149a);
-        synchronized (this.f151a) {
-            this.f151a.add(aVar);
+        aVar.a(bzVar, this.f152a);
+        synchronized (this.f154a) {
+            this.f154a.add(aVar);
             a();
         }
     }
 
     public void a(Runnable runnable) {
-        if (this.f153a.isShutdown()) {
+        if (this.f156a.isShutdown()) {
             return;
         }
-        this.f153a.execute(runnable);
+        this.f156a.execute(runnable);
     }
 
     public void a(ArrayList<a> arrayList) {
-        if (this.f150a == null) {
+        if (this.f153a == null) {
             throw new IllegalStateException("should exec setDbHelperFactory method first!");
         }
         HashMap hashMap = new HashMap();
-        if (this.f153a.isShutdown()) {
+        if (this.f156a.isShutdown()) {
             return;
         }
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
             if (next.m195a()) {
-                next.a(a(next.m194a()), this.f149a);
+                next.a(a(next.m194a()), this.f152a);
             }
             ArrayList arrayList2 = (ArrayList) hashMap.get(next.m194a());
             if (arrayList2 == null) {
@@ -340,8 +340,8 @@ public class cb {
             ArrayList arrayList3 = (ArrayList) hashMap.get(str);
             if (arrayList3 != null && arrayList3.size() > 0) {
                 c cVar = new c(str, arrayList3);
-                cVar.a(((a) arrayList3.get(0)).f154a, this.f149a);
-                this.f153a.execute(cVar);
+                cVar.a(((a) arrayList3.get(0)).f157a, this.f152a);
+                this.f156a.execute(cVar);
             }
         }
     }
@@ -351,21 +351,21 @@ public class cb {
         if (aVar == null) {
             return;
         }
-        if (this.f150a == null) {
+        if (this.f153a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
         String m194a = aVar.m194a();
-        synchronized (this.f152a) {
-            bzVar = this.f152a.get(m194a);
+        synchronized (this.f155a) {
+            bzVar = this.f155a.get(m194a);
             if (bzVar == null) {
-                bzVar = this.f150a.a(this.f149a, m194a);
-                this.f152a.put(m194a, bzVar);
+                bzVar = this.f153a.a(this.f152a, m194a);
+                this.f155a.put(m194a, bzVar);
             }
         }
-        if (this.f153a.isShutdown()) {
+        if (this.f156a.isShutdown()) {
             return;
         }
-        aVar.a(bzVar, this.f149a);
+        aVar.a(bzVar, this.f152a);
         a((Runnable) aVar);
     }
 }

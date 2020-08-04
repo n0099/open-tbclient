@@ -7,8 +7,8 @@ import com.baidu.tieba.R;
 public class d extends a<e, CustomDialogData> {
     public d(TbPageContext tbPageContext, CustomDialogData customDialogData) {
         super(tbPageContext, new e(tbPageContext), customDialogData);
-        if (this.kjc instanceof e) {
-            ((e) this.kjc).a(this);
+        if (this.kje instanceof e) {
+            ((e) this.kje).a(this);
         }
     }
 

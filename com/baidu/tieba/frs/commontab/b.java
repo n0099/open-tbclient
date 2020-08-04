@@ -39,16 +39,16 @@ import tbclient.ItemInfo;
 public class b {
     private BdTypeRecyclerView VT;
     private PbListView fsC;
-    private a hNJ;
-    private d hNK;
-    private RelativeLayout hNL;
-    private com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a hNM;
-    private aj hNN;
-    private ItemInfo hNO;
-    private FrsCommonTabFragment hNp;
+    private a hNL;
+    private d hNM;
+    private RelativeLayout hNN;
+    private com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a hNO;
+    private aj hNP;
+    private ItemInfo hNQ;
+    private FrsCommonTabFragment hNr;
     private boolean hasMore;
     private i hoU;
-    private View.OnClickListener hNP = new View.OnClickListener() { // from class: com.baidu.tieba.frs.commontab.b.1
+    private View.OnClickListener hNR = new View.OnClickListener() { // from class: com.baidu.tieba.frs.commontab.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.fLV.onScrollToBottom();
@@ -60,7 +60,7 @@ public class b {
             if (b.this.VT != null) {
                 b.this.VT.stopScroll();
             }
-            if (b.this.fsC != null && b.this.hNp != null) {
+            if (b.this.fsC != null && b.this.hNr != null) {
                 if (j.isNetWorkAvailable()) {
                     b.this.VT.setNextPage(b.this.fsC);
                     b.this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -68,10 +68,10 @@ public class b {
                     if (b.this.hasMore) {
                         b.this.fsC.showLoading();
                         b.this.fsC.setOnClickListener(null);
-                        b.this.hNp.bQi();
+                        b.this.hNr.bQi();
                         return;
                     }
-                    b.this.fsC.setText(b.this.hNp.getResources().getString(R.string.list_has_no_more));
+                    b.this.fsC.setText(b.this.hNr.getResources().getString(R.string.list_has_no_more));
                     b.this.fsC.endLoadData();
                     b.this.fsC.setOnClickListener(null);
                     return;
@@ -106,9 +106,9 @@ public class b {
 
     public b(FrsCommonTabFragment frsCommonTabFragment, View view, FrsViewData frsViewData) {
         if (frsCommonTabFragment != null && view != null) {
-            this.hNp = frsCommonTabFragment;
+            this.hNr = frsCommonTabFragment;
             this.VT = (BdTypeRecyclerView) view.findViewById(R.id.frs_common_tab_recycler_view);
-            this.VT.setLayoutManager(new LinearLayoutManager(this.hNp.getContext()));
+            this.VT.setLayoutManager(new LinearLayoutManager(this.hNr.getContext()));
             this.VT.setFadingEdgeLength(0);
             this.VT.setOverScrollMode(2);
             this.VT.setOnSrollToBottomListener(this.fLV);
@@ -135,63 +135,63 @@ public class b {
                     }
                 }
             });
-            this.fsC = new PbListView(this.hNp.getPageContext().getPageActivity());
+            this.fsC = new PbListView(this.hNr.getPageContext().getPageActivity());
             this.fsC.getView();
             this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-            this.fsC.setHeight(l.getDimens(this.hNp.getActivity(), R.dimen.tbds182));
+            this.fsC.setHeight(l.getDimens(this.hNr.getActivity(), R.dimen.tbds182));
             this.fsC.setLineGone();
             this.fsC.setTextSize(R.dimen.tbfontsize33);
             this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
             this.fsC.setNoMoreTextColorId(R.color.cp_cont_e);
             this.fsC.bbZ();
-            this.hNJ = new a(this.hNp, this.VT, frsViewData);
+            this.hNL = new a(this.hNr, this.VT, frsViewData);
             jH(false);
             if (this.hoU == null) {
-                this.hoU = new i(this.hNp.getPageContext(), this.VT);
+                this.hoU = new i(this.hNr.getPageContext(), this.VT);
             }
             this.hoU.Dm(1);
-            this.hoU.setUniqueId(this.hNp.getUniqueId());
+            this.hoU.setUniqueId(this.hNr.getUniqueId());
             if (ceE()) {
-                this.hNL = new RelativeLayout(this.hNp.getContext());
-                this.hNL.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                this.hNM = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.hNp, this.hNL);
-                this.VT.addHeaderView(this.hNL, 0);
-                this.hNM.setData(ceF());
+                this.hNN = new RelativeLayout(this.hNr.getContext());
+                this.hNN.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                this.hNO = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.hNr, this.hNN);
+                this.VT.addHeaderView(this.hNN, 0);
+                this.hNO.setData(ceF());
             }
-            if (this.hNp.tabType == 16) {
-                this.hNN = new aj(this.hNp);
-                this.VT.addHeaderView(this.hNN.getView(), 0);
-                this.hNN.setData(this.hNO);
+            if (this.hNr.tabType == 16) {
+                this.hNP = new aj(this.hNr);
+                this.VT.addHeaderView(this.hNP.getView(), 0);
+                this.hNP.setData(this.hNQ);
             }
         }
     }
 
     private boolean ceE() {
-        return this.hNp != null && (this.hNp.isGeneralTab == 1 || this.hNp.tabType == 16);
+        return this.hNr != null && (this.hNr.isGeneralTab == 1 || this.hNr.tabType == 16);
     }
 
     public void jH(boolean z) {
-        if (this.hNp != null) {
+        if (this.hNr != null) {
             u uVar = new u();
-            uVar.tabId = this.hNp.tabId;
+            uVar.tabId = this.hNr.tabId;
             uVar.eZg = z;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.hNJ != null) {
-            this.hNJ.notifyDataSetChanged();
+        if (this.hNL != null) {
+            this.hNL.notifyDataSetChanged();
         }
         if (this.fsC != null) {
             this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
             this.fsC.changeSkin(i);
         }
-        if (this.hNM != null) {
-            this.hNM.onChangeSkinType();
+        if (this.hNO != null) {
+            this.hNO.onChangeSkinType();
         }
-        if (this.hNN != null) {
-            this.hNN.onChangeSkinType();
+        if (this.hNP != null) {
+            this.hNP.onChangeSkinType();
         }
     }
 
@@ -204,7 +204,7 @@ public class b {
                 dVar.threadList.add(rVar);
                 dVar.hasMore = false;
             }
-            this.hNK = dVar;
+            this.hNM = dVar;
             this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.VT.setNextPage(this.fsC);
             if (this.hasMore) {
@@ -213,29 +213,29 @@ public class b {
                     this.fsC.showEndLoadData();
                 } else {
                     this.fsC.showEndLoadData();
-                    this.fsC.setOnClickListener(this.hNP);
-                    this.fsC.setText(this.hNp.getResources().getString(R.string.list_click_load_more));
+                    this.fsC.setOnClickListener(this.hNR);
+                    this.fsC.setText(this.hNr.getResources().getString(R.string.list_click_load_more));
                 }
             } else {
-                this.fsC.setText(this.hNp.getResources().getString(R.string.list_has_no_more));
+                this.fsC.setText(this.hNr.getResources().getString(R.string.list_has_no_more));
                 this.fsC.setOnClickListener(null);
                 this.fsC.endLoadData();
             }
-            this.hNJ.setData(dVar.threadList);
-            this.hNJ.notifyDataSetChanged();
+            this.hNL.setData(dVar.threadList);
+            this.hNL.notifyDataSetChanged();
             if (this.hoU != null) {
                 this.hoU.a(this.VT.getFirstVisiblePosition(), this.VT.getLastVisiblePosition(), false, true);
             }
-            if (ceE() && this.hNM != null) {
-                this.hNM.changeState(this.hNp.getSortType());
-                this.hNM.setFid(this.hNp.forumId);
+            if (ceE() && this.hNO != null) {
+                this.hNO.changeState(this.hNr.getSortType());
+                this.hNO.setFid(this.hNr.forumId);
             }
-            this.hNO = dVar.itemInfo;
-            if (this.hNp.getFragmentActivity() instanceof am) {
-                ((am) this.hNp.getFragmentActivity()).a(this.hNO);
+            this.hNQ = dVar.itemInfo;
+            if (this.hNr.getFragmentActivity() instanceof am) {
+                ((am) this.hNr.getFragmentActivity()).a(this.hNQ);
             }
-            if (this.hNp.tabType == 16 && this.hNN != null) {
-                this.hNN.setData(this.hNO);
+            if (this.hNr.tabType == 16 && this.hNP != null) {
+                this.hNP.setData(this.hNQ);
             }
         }
     }
@@ -263,8 +263,8 @@ public class b {
         if (this.hoU != null) {
             this.hoU.destroy();
         }
-        if (this.hNJ != null) {
-            this.hNJ.onDestory();
+        if (this.hNL != null) {
+            this.hNL.onDestory();
         }
     }
 
@@ -288,15 +288,15 @@ public class b {
 
     public void cea() {
         u uVar = new u();
-        uVar.tabId = this.hNp.tabId;
+        uVar.tabId = this.hNr.tabId;
         uVar.eZg = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 
     public void FW(String str) {
         bv bvVar;
-        if (!StringUtils.isNull(str) && this.hNK != null && !x.isEmpty(this.hNK.threadList)) {
-            Iterator<q> it = this.hNK.threadList.iterator();
+        if (!StringUtils.isNull(str) && this.hNM != null && !x.isEmpty(this.hNM.threadList)) {
+            Iterator<q> it = this.hNM.threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     bvVar = null;
@@ -309,12 +309,12 @@ public class b {
                 }
             }
             if (bvVar != null) {
-                this.hNK.threadList.remove(bvVar);
-                if (x.isEmpty(this.hNK.threadList)) {
-                    this.hNK.threadList.add(new r());
+                this.hNM.threadList.remove(bvVar);
+                if (x.isEmpty(this.hNM.threadList)) {
+                    this.hNM.threadList.add(new r());
                 }
-                this.hNJ.setData(this.hNK.threadList);
-                this.hNJ.notifyDataSetChanged();
+                this.hNL.setData(this.hNM.threadList);
+                this.hNL.notifyDataSetChanged();
             }
         }
     }
@@ -324,12 +324,12 @@ public class b {
     }
 
     public void refreshView() {
-        this.hNJ.notifyDataSetChanged();
+        this.hNL.notifyDataSetChanged();
     }
 
     public void of(boolean z) {
-        if (this.hNJ != null) {
-            this.hNJ.of(z);
+        if (this.hNL != null) {
+            this.hNL.of(z);
         }
     }
 

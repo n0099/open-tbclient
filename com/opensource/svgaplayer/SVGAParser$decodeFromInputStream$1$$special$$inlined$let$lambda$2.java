@@ -22,7 +22,7 @@ final class SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2 ex
     @Override // kotlin.jvm.a.a
     public /* bridge */ /* synthetic */ l invoke() {
         invoke2();
-        return l.nXN;
+        return l.nXP;
     }
 
     @Override // kotlin.jvm.a.a

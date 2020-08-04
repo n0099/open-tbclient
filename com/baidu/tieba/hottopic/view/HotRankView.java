@@ -25,7 +25,7 @@ public class HotRankView extends FrameLayout {
     private g fBv;
     private BdTypeListView frv;
     private View huZ;
-    private com.baidu.tieba.hottopic.adapter.b iMe;
+    private com.baidu.tieba.hottopic.adapter.b iMg;
     private com.baidu.tbadk.core.view.g mPullView;
     private TbPageContext<?> pageContext;
     private h refreshView;
@@ -33,7 +33,7 @@ public class HotRankView extends FrameLayout {
     public HotRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.frv = null;
-        this.iMe = null;
+        this.iMg = null;
         this.mPullView = null;
         init(context);
     }
@@ -41,7 +41,7 @@ public class HotRankView extends FrameLayout {
     public HotRankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.frv = null;
-        this.iMe = null;
+        this.iMg = null;
         this.mPullView = null;
         init(context);
     }
@@ -49,7 +49,7 @@ public class HotRankView extends FrameLayout {
     public HotRankView(Context context) {
         super(context);
         this.frv = null;
-        this.iMe = null;
+        this.iMg = null;
         this.mPullView = null;
         init(context);
     }
@@ -90,7 +90,7 @@ public class HotRankView extends FrameLayout {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_ON_SCROLL));
             }
         });
-        this.iMe = new com.baidu.tieba.hottopic.adapter.b((HotRanklistActivity) this.pageContext.getOrignalPage(), this.frv);
+        this.iMg = new com.baidu.tieba.hottopic.adapter.b((HotRanklistActivity) this.pageContext.getOrignalPage(), this.frv);
         addView(this.frv);
     }
 
@@ -101,12 +101,12 @@ public class HotRankView extends FrameLayout {
     }
 
     public void b(com.baidu.tieba.hottopic.data.j jVar, String str) {
-        if (this.iMe != null) {
+        if (this.iMg != null) {
             if (jVar == null) {
                 jVar = new com.baidu.tieba.hottopic.data.j();
             }
             this.frv.setVisibility(0);
-            this.iMe.a(jVar, str);
+            this.iMg.a(jVar, str);
         }
     }
 

@@ -28,15 +28,15 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.aa
         public void a(View view, h hVar) {
-            PersonCenterMoreActivity.this.kOn = hVar;
-            if (PersonCenterMoreActivity.this.kOn != null && !PersonCenterMoreActivity.this.bIW()) {
-                PersonCenterMoreActivity.this.Lq(PersonCenterMoreActivity.this.kOn.aye);
+            PersonCenterMoreActivity.this.kOp = hVar;
+            if (PersonCenterMoreActivity.this.kOp != null && !PersonCenterMoreActivity.this.bIW()) {
+                PersonCenterMoreActivity.this.Lq(PersonCenterMoreActivity.this.kOp.aye);
             }
         }
     };
-    private b kOl;
-    private Bundle kOm;
-    private h kOn;
+    private b kOn;
+    private Bundle kOo;
+    private h kOp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -44,11 +44,11 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.kOm = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.kOo = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.kOl = new b(getPageContext(), this.kOm, this.fWN);
-        this.kOl.initView();
+        this.kOn = new b(getPageContext(), this.kOo, this.fWN);
+        this.kOn.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -63,7 +63,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            Lq(this.kOn.aye);
+            Lq(this.kOp.aye);
         }
     }
 
@@ -100,8 +100,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kOl != null) {
-            this.kOl.onChangeSkinType();
+        if (this.kOn != null) {
+            this.kOn.onChangeSkinType();
         }
     }
 }

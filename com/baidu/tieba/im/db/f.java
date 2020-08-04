@@ -261,7 +261,7 @@ public class f extends SQLiteOpenHelper {
                 Iterator<String> it = W.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.iWT) || next.startsWith(l.iWT))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.iWV) || next.startsWith(l.iWV))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e) {
@@ -364,12 +364,12 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    g.iXi.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    g.iXk.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
                     k.ctv();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    g.iXi.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    g.iXk.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();
@@ -502,7 +502,7 @@ public class f extends SQLiteOpenHelper {
                 Iterator<String> it = W.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.iWT) || next.startsWith(l.iWT))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.iWV) || next.startsWith(l.iWV))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_count LONG default -1;");
                         } catch (Exception e) {

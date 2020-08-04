@@ -39,11 +39,11 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     private com.baidu.tbadk.core.data.c eeD;
     private CustomMessageListener eeQ;
     private e eez;
-    private a kBF;
-    private a kBG;
     private a kBH;
     private a kBI;
-    private f klg;
+    private a kBJ;
+    private a kBK;
+    private f kli;
     private AgreeData mAgreeData;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
@@ -91,7 +91,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     if (ThreadAgreeAndShareLayout.this.mAgreeData != null && agreeData != null && ThreadAgreeAndShareLayout.this.eez != null && !ThreadAgreeAndShareLayout.this.mAgreeData.isInPost && ThreadAgreeAndShareLayout.this.eez.uniqueId != ThreadAgreeAndShareLayout.this.eez.uniqueId) {
                         String str = agreeData.nid;
                         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                            if (ThreadAgreeAndShareLayout.this.klg != null && ThreadAgreeAndShareLayout.this.klg.cKx() != null && ThreadAgreeAndShareLayout.this.klg.cKx().getBaijiahaoData() != null && TextUtils.equals(str, ThreadAgreeAndShareLayout.this.klg.cKx().getBaijiahaoData().oriUgcNid)) {
+                            if (ThreadAgreeAndShareLayout.this.kli != null && ThreadAgreeAndShareLayout.this.kli.cKx() != null && ThreadAgreeAndShareLayout.this.kli.cKx().getBaijiahaoData() != null && TextUtils.equals(str, ThreadAgreeAndShareLayout.this.kli.cKx().getBaijiahaoData().oriUgcNid)) {
                                 ThreadAgreeAndShareLayout.this.a(agreeData);
                                 return;
                             }
@@ -138,22 +138,22 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
 
     private void initView() {
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
-        this.kBF = Ck(0);
-        this.kBG = Ck(dimenPixelSize);
-        this.kBH = Ck(dimenPixelSize);
+        this.kBH = Ck(0);
         this.kBI = Ck(dimenPixelSize);
-        this.kBH.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.kBI.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.kBH.setText(R.string.share_weixin_friend);
-        this.kBI.setText(R.string.share_weixin_timeline);
-        this.kBF.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.kBF.addAnimatorListener(this);
-        this.kBG.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.kBG.addAnimatorListener(this);
-        this.kBF.cRC().setOnClickListener(this.mOnClickListener);
-        this.kBG.cRC().setOnClickListener(this.mOnClickListener);
+        this.kBJ = Ck(dimenPixelSize);
+        this.kBK = Ck(dimenPixelSize);
+        this.kBJ.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.kBK.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.kBJ.setText(R.string.share_weixin_friend);
+        this.kBK.setText(R.string.share_weixin_timeline);
+        this.kBH.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.kBH.addAnimatorListener(this);
+        this.kBI.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.kBI.addAnimatorListener(this);
         this.kBH.cRC().setOnClickListener(this.mOnClickListener);
         this.kBI.cRC().setOnClickListener(this.mOnClickListener);
+        this.kBJ.cRC().setOnClickListener(this.mOnClickListener);
+        this.kBK.cRC().setOnClickListener(this.mOnClickListener);
         bgV();
     }
 
@@ -163,7 +163,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             return;
         }
         setVisibility(0);
-        this.klg = fVar;
+        this.kli = fVar;
         this.mAgreeData = agreeData;
         this.mAgreeData.isInThread = true;
         cRB();
@@ -174,9 +174,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         int i = 0;
         int i2 = 1;
         if (this.mAgreeData != null && bf.checkUpIsLogin(getContext())) {
-            if (view == this.kBF.cRC() || view == this.kBG.cRC()) {
-                if (view == this.kBF.cRC()) {
-                    this.kBF.playAnimation();
+            if (view == this.kBH.cRC() || view == this.kBI.cRC()) {
+                if (view == this.kBH.cRC()) {
+                    this.kBH.playAnimation();
                     if (this.eeD != null) {
                         this.eeD.type = 1;
                         this.eeD.dNB = 4;
@@ -213,8 +213,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     }
                     i2 = 0;
                     Cj(i2);
-                } else if (view == this.kBG.cRC()) {
-                    this.kBG.playAnimation();
+                } else if (view == this.kBI.cRC()) {
+                    this.kBI.playAnimation();
                     if (this.eeD != null) {
                         this.eeD.type = 2;
                         this.eeD.dNB = 4;
@@ -257,8 +257,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                 }
                 this.eez.agreeData = this.mAgreeData;
                 if (this.mAgreeData.isInThread) {
-                    if (this.klg != null && this.klg.cKx() != null && this.klg.cKx().getBaijiahaoData() != null) {
-                        this.mAgreeData.nid = this.klg.cKx().getBaijiahaoData().oriUgcNid;
+                    if (this.kli != null && this.kli.cKx() != null && this.kli.cKx().getBaijiahaoData() != null) {
+                        this.mAgreeData.nid = this.kli.cKx().getBaijiahaoData().oriUgcNid;
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.eez));
                     dispatchMutiProcessAgree(this.mAgreeData, AgreeEvent.IS_THREAD);
@@ -268,12 +268,12 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                 }
                 setStatisticData(this.eeD);
                 bbL();
-            } else if (view == this.kBH.cRC()) {
-                if (this.klg != null) {
-                    com.baidu.tieba.pb.pb.main.d.a.a(this.mContext, this.klg.cKx(), 3);
+            } else if (view == this.kBJ.cRC()) {
+                if (this.kli != null) {
+                    com.baidu.tieba.pb.pb.main.d.a.a(this.mContext, this.kli.cKx(), 3);
                 }
-            } else if (view == this.kBI.cRC() && this.klg != null) {
-                com.baidu.tieba.pb.pb.main.d.a.a(this.mContext, this.klg.cKx(), 2);
+            } else if (view == this.kBK.cRC() && this.kli != null) {
+                com.baidu.tieba.pb.pb.main.d.a.a(this.mContext, this.kli.cKx(), 2);
             }
         }
     }
@@ -300,8 +300,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             if (!TextUtils.isEmpty(this.mAgreeData.postId)) {
                 httpMessage.addParam("post_id", this.mAgreeData.postId);
             }
-            if (this.klg != null && this.klg.cKx() != null && this.klg.cKx().getBaijiahaoData() != null) {
-                BaijiahaoData baijiahaoData = this.klg.cKx().getBaijiahaoData();
+            if (this.kli != null && this.kli.cKx() != null && this.kli.cKx().getBaijiahaoData() != null) {
+                BaijiahaoData baijiahaoData = this.kli.cKx().getBaijiahaoData();
                 httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
                 httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
                 httpMessage.addParam("ori_ugc_vid", baijiahaoData.oriUgcVid);
@@ -318,10 +318,10 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         if (this.mAgreeData == null) {
             return;
         }
-        TBLottieAnimationView tBLottieAnimationView = this.kBF.kBK;
-        TBLottieAnimationView tBLottieAnimationView2 = this.kBG.kBK;
-        TextView textView = this.kBF.textView;
-        TextView textView2 = this.kBG.textView;
+        TBLottieAnimationView tBLottieAnimationView = this.kBH.kBM;
+        TBLottieAnimationView tBLottieAnimationView2 = this.kBI.kBM;
+        TextView textView = this.kBH.textView;
+        TextView textView2 = this.kBI.textView;
         tBLottieAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
         tBLottieAnimationView2.setMinAndMaxProgress(0.0f, 1.0f);
         textView.setText(as.numFormatOverWanNa(this.mAgreeData.agreeNum));
@@ -355,12 +355,12 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
 
     public void cRB() {
         if (this.mAgreeData != null) {
-            TBLottieAnimationView cRC = this.kBF.cRC();
+            TBLottieAnimationView cRC = this.kBH.cRC();
             ao.a(cRC, R.raw.lottie_agree);
-            TBLottieAnimationView cRC2 = this.kBG.cRC();
+            TBLottieAnimationView cRC2 = this.kBI.cRC();
             ao.a(cRC2, R.raw.lottie_disagree);
-            TextView textView = this.kBF.getTextView();
-            TextView textView2 = this.kBG.getTextView();
+            TextView textView = this.kBH.getTextView();
+            TextView textView2 = this.kBI.getTextView();
             textView.setText(as.numFormatOverWanNa(this.mAgreeData.agreeNum));
             textView2.setText(as.numFormatOverWanNa(this.mAgreeData.disAgreeNum));
             if (this.mAgreeData.hasAgree) {
@@ -394,8 +394,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                 cRC.setAlpha(1.0f);
                 cRC2.setAlpha(1.0f);
             }
-            if (this.klg != null && this.klg.cKx() != null) {
-                setVisibility(this.klg.cKx().aUV() ? 8 : 0);
+            if (this.kli != null && this.kli.cKx() != null) {
+                setVisibility(this.kli.cKx().aUV() ? 8 : 0);
             }
         }
     }
@@ -411,7 +411,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         int i3;
         String str6 = null;
         if (this.eeD != null) {
-            if (this.klg == null || this.klg.cKx() == null) {
+            if (this.kli == null || this.kli.cKx() == null) {
                 str = null;
                 str2 = null;
                 i = 0;
@@ -420,7 +420,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                 i2 = 1;
                 str5 = null;
             } else {
-                bv cKx = this.klg.cKx();
+                bv cKx = this.kli.cKx();
                 if (cKx.aUT()) {
                     i3 = 2;
                 } else if (cKx.aUU()) {
@@ -465,14 +465,14 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     }
 
     public void bgV() {
-        this.kBH.Cl(R.color.cp_cont_j);
-        this.kBI.Cl(R.color.cp_cont_j);
-        this.kBH.setImageResource(R.drawable.icon_weixin_112);
-        this.kBI.setImageResource(R.drawable.icon_pengyouqun_112);
-        this.kBF.cRD();
-        this.kBG.cRD();
+        this.kBJ.Cl(R.color.cp_cont_j);
+        this.kBK.Cl(R.color.cp_cont_j);
+        this.kBJ.setImageResource(R.drawable.icon_weixin_112);
+        this.kBK.setImageResource(R.drawable.icon_pengyouqun_112);
         this.kBH.cRD();
         this.kBI.cRD();
+        this.kBJ.cRD();
+        this.kBK.cRD();
         cRB();
     }
 
@@ -528,7 +528,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     /* loaded from: classes16.dex */
     public static class a {
         private View XQ;
-        private TBLottieAnimationView kBK;
+        private TBLottieAnimationView kBM;
         private TextView textView;
         private View view;
 
@@ -537,7 +537,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             this.view = inflate;
             this.XQ = inflate.findViewById(R.id.item_bg);
             this.textView = (TextView) inflate.findViewById(R.id.item_text);
-            this.kBK = (TBLottieAnimationView) inflate.findViewById(R.id.item_icon);
+            this.kBM = (TBLottieAnimationView) inflate.findViewById(R.id.item_icon);
         }
 
         public View getView() {
@@ -545,7 +545,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
 
         public TBLottieAnimationView cRC() {
-            return this.kBK;
+            return this.kBM;
         }
 
         public TextView getTextView() {
@@ -553,11 +553,11 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
 
         public void playAnimation() {
-            this.kBK.playAnimation();
+            this.kBM.playAnimation();
         }
 
         public void setImageResource(int i) {
-            ao.setImageResource(this.kBK, i);
+            ao.setImageResource(this.kBM, i);
         }
 
         public void setText(int i) {
@@ -569,11 +569,11 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
 
         public void setScaleType(ImageView.ScaleType scaleType) {
-            this.kBK.setScaleType(scaleType);
+            this.kBM.setScaleType(scaleType);
         }
 
         public void addAnimatorListener(Animator.AnimatorListener animatorListener) {
-            this.kBK.addAnimatorListener(animatorListener);
+            this.kBM.addAnimatorListener(animatorListener);
         }
 
         public void cRD() {

@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes17.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private GroupActivityData jce;
-    RequestCreateGroupActivityMessage jcf;
+    private GroupActivityData jcg;
+    RequestCreateGroupActivityMessage jch;
     private BaseActivity mActivity;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.jce = new GroupActivityData();
+        this.jcg = new GroupActivityData();
         this.mActivity = baseActivity;
     }
 
     public GroupActivityData cuO() {
-        return this.jce;
+        return this.jcg;
     }
 
     public void qc(boolean z) {
-        if (this.jce != null) {
-            this.jcf = new RequestCreateGroupActivityMessage();
-            this.jcf.setCommitType(z ? 1 : 0);
+        if (this.jcg != null) {
+            this.jch = new RequestCreateGroupActivityMessage();
+            this.jch.setCommitType(z ? 1 : 0);
             if (z) {
-                this.jcf.setActivityId(this.jce.getActivityId());
+                this.jch.setActivityId(this.jcg.getActivityId());
             }
-            this.jcf.setgActivityArea(this.jce.getgActivityArea());
-            this.jcf.setgActivityContent(this.jce.getgActivityContent());
-            this.jcf.setgActivityTime(this.jce.getgActivityTime());
-            this.jcf.setgActivityTitle(this.jce.getgActivityTitle());
-            this.jcf.setGroupId(this.jce.getGroupId());
-            this.mActivity.sendMessage(this.jcf);
+            this.jch.setgActivityArea(this.jcg.getgActivityArea());
+            this.jch.setgActivityContent(this.jcg.getgActivityContent());
+            this.jch.setgActivityTime(this.jcg.getgActivityTime());
+            this.jch.setgActivityTitle(this.jcg.getgActivityTitle());
+            this.jch.setGroupId(this.jcg.getGroupId());
+            this.mActivity.sendMessage(this.jch);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.jcf != null) {
+        if (this.jch != null) {
         }
     }
 

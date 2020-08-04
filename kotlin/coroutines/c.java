@@ -10,7 +10,7 @@ public interface c {
     @h
     /* loaded from: classes7.dex */
     public interface b extends c {
-        InterfaceC0913c<?> dTY();
+        InterfaceC0913c<?> dTZ();
 
         @Override // kotlin.coroutines.c
         <E extends b> E get(InterfaceC0913c<E> interfaceC0913c);

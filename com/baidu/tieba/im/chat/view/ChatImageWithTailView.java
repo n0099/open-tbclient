@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
     private TbImageView eiW;
-    private ChatClipImageItemView iUU;
-    private LinearLayout iUV;
-    private TextView iUW;
+    private ChatClipImageItemView iUW;
+    private LinearLayout iUX;
+    private TextView iUY;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -26,30 +26,30 @@ public class ChatImageWithTailView extends LinearLayout {
 
     public void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.chat_image_with_tail_item, this);
-        this.iUU = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
-        this.iUU.setContentDescription(getContext().getString(R.string.editor_image));
-        this.iUU.setDefaultResource(R.drawable.pic_image_h_not);
-        this.iUV = (LinearLayout) findViewById(R.id.small_tail);
+        this.iUW = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
+        this.iUW.setContentDescription(getContext().getString(R.string.editor_image));
+        this.iUW.setDefaultResource(R.drawable.pic_image_h_not);
+        this.iUX = (LinearLayout) findViewById(R.id.small_tail);
         this.eiW = (TbImageView) findViewById(R.id.tail_icon);
         this.eiW.setDefaultResource(R.drawable.tb_launcher_icon);
         this.eiW.setAutoChangeStyle(false);
-        this.iUW = (TextView) findViewById(R.id.tail_game_from);
+        this.iUY = (TextView) findViewById(R.id.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.iUU;
+        return this.iUW;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.iUU = chatClipImageItemView;
+        this.iUW = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.iUV;
+        return this.iUX;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.iUV = linearLayout;
+        this.iUX = linearLayout;
     }
 
     public TbImageView getIcon() {
@@ -61,11 +61,11 @@ public class ChatImageWithTailView extends LinearLayout {
     }
 
     public TextView getFromSource() {
-        return this.iUW;
+        return this.iUY;
     }
 
     public void setFromSource(TextView textView) {
-        this.iUW = textView;
+        this.iUY = textView;
     }
 
     public void setIsSupportNight(boolean z) {

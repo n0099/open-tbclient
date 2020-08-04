@@ -13,19 +13,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private static j iXq;
+    private static j iXs;
 
     public static synchronized j ctq() {
         j jVar;
         synchronized (j.class) {
-            if (iXq == null) {
+            if (iXs == null) {
                 synchronized (j.class) {
-                    if (iXq == null) {
-                        iXq = new j();
+                    if (iXs == null) {
+                        iXs = new j();
                     }
                 }
             }
-            jVar = iXq;
+            jVar = iXs;
         }
         return jVar;
     }

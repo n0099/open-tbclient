@@ -177,7 +177,7 @@ public class SwanAppAbTestStatic {
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
             com.baidu.tieba.aiapps.apps.i.a.buq();
-            if (ProcessUtils.isMainProcess() && !c.dDp()) {
+            if (ProcessUtils.isMainProcess() && !c.dDq()) {
                 c.initialize(AppRuntime.getAppContext());
             }
             com.baidu.tieba.aiapps.apps.a.a.btC().init(TbadkCoreApplication.getInst());

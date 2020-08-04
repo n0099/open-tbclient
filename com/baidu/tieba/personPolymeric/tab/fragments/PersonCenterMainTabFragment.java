@@ -15,10 +15,10 @@ import tbclient.User;
 /* loaded from: classes18.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
-    private com.baidu.tieba.personPolymeric.tab.view.a kYg;
-    private User kYi;
-    private b kYp;
-    private com.baidu.tieba.personPolymeric.c.a kYq;
+    private com.baidu.tieba.personPolymeric.tab.view.a kYi;
+    private User kYk;
+    private b kYr;
+    private com.baidu.tieba.personPolymeric.c.a kYs;
     private long mUserId;
 
     public static PersonCenterMainTabFragment l(long j, boolean z) {
@@ -40,9 +40,9 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.kYg = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.kYp = new b(getPageContext(), this.isHost);
-        this.kYg.addHeaderView(this.kYp.getView());
+        this.kYi = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.kYr = new b(getPageContext(), this.isHost);
+        this.kYi.addHeaderView(this.kYr.getView());
         return inflate;
     }
 
@@ -60,10 +60,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.kYg != null && isAdded()) {
+        if (aVar != null && this.kYi != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.kYq = aVar;
+            this.kYs = aVar;
         }
     }
 
@@ -83,24 +83,24 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void cbd() {
-        if (this.kYg != null && isAdded()) {
-            this.kYg.cbd();
+        if (this.kYi != null && isAdded()) {
+            this.kYi.cbd();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.kYi = user;
+        this.kYk = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kYg != null) {
-            this.kYg.onChangeSkinType(i);
+        if (this.kYi != null) {
+            this.kYi.onChangeSkinType(i);
         }
-        if (this.kYp != null) {
-            this.kYp.onChangeSkinType(i);
+        if (this.kYr != null) {
+            this.kYr.onChangeSkinType(i);
         }
     }
 
@@ -114,21 +114,21 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.kYg != null && this.kYp != null && this.kYq != null) {
-            f(this.kYq);
-            this.kYq = null;
+        if (this.kYi != null && this.kYr != null && this.kYs != null) {
+            f(this.kYs);
+            this.kYs = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.kYg != null && this.kYp != null && aVar != null) {
+        if (this.kYi != null && this.kYr != null && aVar != null) {
             List<q> eI = com.baidu.tieba.personPolymeric.tab.b.a.eI(aVar.getNewestThreadList());
             if (!x.isEmpty(eI)) {
-                this.kYg.Db(R.string.person_center_tab_main_footer_text);
+                this.kYi.Db(R.string.person_center_tab_main_footer_text);
             }
-            this.kYg.eJ(eI);
-            this.kYp.b(aVar);
-            this.kYp.ao(x.isEmpty(eI), isHost());
+            this.kYi.eJ(eI);
+            this.kYr.b(aVar);
+            this.kYr.ao(x.isEmpty(eI), isHost());
         }
     }
 }

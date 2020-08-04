@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public final class a implements b {
-    private static final a osm = new a();
-    private volatile boolean mMC = false;
-    private volatile boolean osn = false;
+    private static final a oso = new a();
+    private volatile boolean mME = false;
+    private volatile boolean osp = false;
 
-    public static b dZQ() {
-        return osm;
+    public static b dZR() {
+        return oso;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dZR() {
-        return this.mMC;
+    public boolean dZS() {
+        return this.mME;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void showLog(boolean z) {
-        this.mMC = z;
+        this.mME = z;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void yp(boolean z) {
-        this.osn = z;
+        this.osp = z;
     }
 
-    public String dZS() {
+    public String dZT() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.mMC) {
+        if (this.mME) {
             Log.v(TJ(str), TK(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.mMC) {
+        if (this.mME) {
             Log.d(TJ(str), TK(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.mMC) {
+        if (this.mME) {
             Log.i(TJ(str), TK(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.mMC) {
+        if (this.mME) {
             Log.w(TJ(str), TK(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.mMC) {
+        if (this.mME) {
             Log.e(TJ(str), TK(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.mMC) {
+        if (this.mME) {
             Log.e(TJ(str), TK(str2), th);
         }
     }
 
     private String TJ(String str) {
-        return TextUtils.isEmpty(str) ? dZS() : str;
+        return TextUtils.isEmpty(str) ? dZT() : str;
     }
 
     private String TK(String str) {
-        if (this.osn) {
+        if (this.osp) {
             return str + a(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

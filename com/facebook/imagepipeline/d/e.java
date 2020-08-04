@@ -5,7 +5,7 @@ import java.util.concurrent.Executor;
 public interface e {
     Executor dGA();
 
-    Executor dGw();
+    Executor dGB();
 
     Executor dGx();
 

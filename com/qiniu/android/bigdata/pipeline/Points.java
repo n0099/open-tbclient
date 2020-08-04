@@ -8,7 +8,7 @@ public final class Points {
 
     /* loaded from: classes6.dex */
     private static class LazyHolder {
-        private static final FastDatePrinter nKU = new FastDatePrinter("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Calendar.getInstance().getTimeZone(), Locale.getDefault());
+        private static final FastDatePrinter nKW = new FastDatePrinter("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Calendar.getInstance().getTimeZone(), Locale.getDefault());
 
         private LazyHolder() {
         }

@@ -85,12 +85,12 @@ public class b {
 
     public static void a(com.baidu.tieba.tbadkCore.data.n nVar) {
         b bVar;
-        if (nVar != null && nVar.dkV() != null && (bVar = nVar.dkV().advertAppContext) != null && !bVar.Xw && !wJ(bVar.extensionInfo)) {
+        if (nVar != null && nVar.dkW() != null && (bVar = nVar.dkW().advertAppContext) != null && !bVar.Xw && !wJ(bVar.extensionInfo)) {
             nVar.dNi = bVar.dMB;
             nVar.dNj = bVar.dMC;
             nVar.forumId = bVar.fid;
             int i = 3;
-            if (nVar != null && nVar.dkW() != null && nVar.dkW().forFree()) {
+            if (nVar != null && nVar.dkX() != null && nVar.dkX().forFree()) {
                 i = 103;
             }
             com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(nVar, i);

@@ -117,8 +117,8 @@ public abstract class c extends AbsThreadDataSupport implements ag {
             }
             dn.ah("is_vertical", bSa().intValue());
         }
-        if (aTN.aXO() != null && aTN.aXO().dlj() != null && aTN.aXO().dlj().boJ() != null && aTN.aXO().dlj().boJ().size() > 0) {
-            dn.ah(TiebaInitialize.Params.OBJ_TO, aTN.aXO().lNH ? 2 : 1);
+        if (aTN.aXO() != null && aTN.aXO().dlk() != null && aTN.aXO().dlk().boJ() != null && aTN.aXO().dlk().boJ().size() > 0) {
+            dn.ah(TiebaInitialize.Params.OBJ_TO, aTN.aXO().lNJ ? 2 : 1);
         }
         return dn;
     }

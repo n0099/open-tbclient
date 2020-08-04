@@ -14,33 +14,33 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes17.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object mgS = new Object();
-    private static long mgT = BdKVCache.MILLS_1Hour;
+    public static final Object mgU = new Object();
+    private static long mgV = BdKVCache.MILLS_1Hour;
     private ImageView ewZ;
     private Context mContext;
     private View mRootView;
-    private TextView mgR;
-    private SimpleDateFormat mgU;
-    private SimpleDateFormat mgV;
-    private boolean mgW;
+    private TextView mgT;
+    private SimpleDateFormat mgW;
+    private SimpleDateFormat mgX;
+    private boolean mgY;
     private TextView textView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.mgW = false;
+        this.mgY = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mgW = false;
+        this.mgY = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mgW = false;
+        this.mgY = false;
         init(context);
     }
 
@@ -50,17 +50,17 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.ewZ = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
         this.ewZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.textView = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
-        this.mgR = (TextView) this.mRootView.findViewById(R.id.no_video_title);
+        this.mgT = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.mgV = new SimpleDateFormat("mm:ss");
-        this.mgU = new SimpleDateFormat("HH:mm:ss");
+        this.mgX = new SimpleDateFormat("mm:ss");
+        this.mgW = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.mgV.setTimeZone(timeZone);
-        this.mgU.setTimeZone(timeZone);
+        this.mgX.setTimeZone(timeZone);
+        this.mgW.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.mgW) {
+        if (!this.mgY) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.ewZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -79,13 +79,13 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     public void vR(boolean z) {
-        this.mgW = true;
+        this.mgY = true;
         if (z) {
             this.ewZ.setScaleType(ImageView.ScaleType.CENTER);
             this.ewZ.setImageBitmap(null);
             this.ewZ.setImageResource(0);
             this.ewZ.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
-            this.mgR.setVisibility(0);
+            this.mgT.setVisibility(0);
             return;
         }
         this.ewZ.setScaleType(ImageView.ScaleType.CENTER);
@@ -93,14 +93,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.ewZ.setImageBitmap(null);
         this.ewZ.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
         this.textView.setText("");
-        this.mgR.setVisibility(8);
+        this.mgT.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.mgW = false;
-        this.mgR.setVisibility(8);
+        this.mgY = false;
+        this.mgT.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.drf()) {
+        if (dVar != null && dVar.drg()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
@@ -108,6 +108,6 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     private String fL(long j) {
-        return j > mgT ? this.mgU.format(Long.valueOf(j)) : this.mgV.format(Long.valueOf(j));
+        return j > mgV ? this.mgW.format(Long.valueOf(j)) : this.mgX.format(Long.valueOf(j));
     }
 }

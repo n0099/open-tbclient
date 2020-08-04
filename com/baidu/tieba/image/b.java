@@ -20,35 +20,35 @@ import com.baidu.tieba.R;
 public class b {
     private DragImageView.d exr;
     private TbImageView hoq;
-    private TBSpecificationBtn jax;
-    private RelativeLayout jsf;
-    public LinearLayout jsg;
-    public TextView jsh;
-    public TextView jsi;
+    private TBSpecificationBtn jaz;
+    private RelativeLayout jsh;
+    public LinearLayout jsi;
     public TextView jsj;
     public TextView jsk;
-    public boolean jsl = false;
-    private UrlDragImageView jsm;
+    public TextView jsl;
+    public TextView jsm;
+    public boolean jsn = false;
+    private UrlDragImageView jso;
     private Context mContext;
 
     public b(ViewGroup viewGroup) {
-        this.jsf = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
-        this.hoq = (TbImageView) this.jsf.findViewById(R.id.big_image_ad_image);
-        this.jax = (TBSpecificationBtn) this.jsf.findViewById(R.id.big_image_ad_button);
+        this.jsh = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.big_image_ad, (ViewGroup) null);
+        this.hoq = (TbImageView) this.jsh.findViewById(R.id.big_image_ad_image);
+        this.jaz = (TBSpecificationBtn) this.jsh.findViewById(R.id.big_image_ad_button);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         cVar.aT(R.color.cp_link_tip_a, R.color.cp_cont_a);
-        this.jax.setConfig(cVar);
-        this.jsg = (LinearLayout) this.jsf.findViewById(R.id.big_image_ad_source_container);
-        this.jsk = (TextView) this.jsf.findViewById(R.id.big_image_ad_source);
-        this.jsh = (TextView) this.jsf.findViewById(R.id.big_image_ad_title);
-        this.jsi = (TextView) this.jsf.findViewById(R.id.big_image_ad_brand);
-        this.jsj = (TextView) this.jsf.findViewById(R.id.big_image_ad_tag);
+        this.jaz.setConfig(cVar);
+        this.jsi = (LinearLayout) this.jsh.findViewById(R.id.big_image_ad_source_container);
+        this.jsm = (TextView) this.jsh.findViewById(R.id.big_image_ad_source);
+        this.jsj = (TextView) this.jsh.findViewById(R.id.big_image_ad_title);
+        this.jsk = (TextView) this.jsh.findViewById(R.id.big_image_ad_brand);
+        this.jsl = (TextView) this.jsh.findViewById(R.id.big_image_ad_tag);
         this.mContext = viewGroup.getContext();
         czq();
     }
 
     public View getView() {
-        return this.jsf;
+        return this.jsh;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
@@ -57,19 +57,19 @@ public class b {
 
     public void czq() {
         this.hoq.setVisibility(4);
-        this.jsm = new UrlDragImageView(this.mContext);
-        this.jsm.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.jsm.setIsCanDrag(true);
-        this.jsm.setCanScale(false);
-        this.jsm.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
+        this.jso = new UrlDragImageView(this.mContext);
+        this.jso.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.jso.setIsCanDrag(true);
+        this.jso.setCanScale(false);
+        this.jso.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.1
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void onDragStart() {
                 if (b.this.exr != null) {
                     b.this.exr.onDragStart();
                 }
-                b.this.o(b.this.jsh, 8);
-                b.this.o(b.this.jsi, 8);
                 b.this.o(b.this.jsj, 8);
+                b.this.o(b.this.jsk, 8);
+                b.this.o(b.this.jsl, 8);
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
@@ -81,16 +81,16 @@ public class b {
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void bnk() {
-                b.this.o(b.this.jsh, 0);
-                b.this.o(b.this.jsi, 0);
                 b.this.o(b.this.jsj, 0);
+                b.this.o(b.this.jsk, 0);
+                b.this.o(b.this.jsl, 0);
             }
         });
-        this.jsf.addView(this.jsm, 0);
+        this.jsh.addView(this.jso, 0);
     }
 
     public UrlDragImageView czr() {
-        return this.jsm;
+        return this.jso;
     }
 
     public TbImageView czs() {
@@ -98,22 +98,22 @@ public class b {
     }
 
     public TBSpecificationBtn czt() {
-        return this.jax;
+        return this.jaz;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void czu() {
-        this.jax.setText(this.mContext.getResources().getString(R.string.pause_load));
+        this.jaz.setText(this.mContext.getResources().getString(R.string.pause_load));
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void Iw(String str) {
-        this.jax.setText(str);
+        this.jaz.setText(str);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void czv() {
-        this.jax.setText(this.mContext.getResources().getString(R.string.setup_text));
+        this.jaz.setText(this.mContext.getResources().getString(R.string.setup_text));
     }
 
     public void czw() {
@@ -134,45 +134,45 @@ public class b {
     }
 
     public void D(final View.OnClickListener onClickListener) {
-        if (this.jax != null) {
-            this.jax.setOnClickListener(onClickListener);
+        if (this.jaz != null) {
+            this.jaz.setOnClickListener(onClickListener);
         }
         if (this.hoq != null) {
             this.hoq.setOnClickListener(onClickListener);
         }
-        if (this.jsh != null) {
-            this.jsh.setOnClickListener(onClickListener);
+        if (this.jsj != null) {
+            this.jsj.setOnClickListener(onClickListener);
         }
-        if (this.jsi != null) {
-            this.jsi.setOnClickListener(onClickListener);
+        if (this.jsk != null) {
+            this.jsk.setOnClickListener(onClickListener);
         }
-        this.jsm.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
-            private float jso = 0.0f;
-            private float jsp = 0.0f;
+        this.jso.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.2
             private float jsq = 0.0f;
+            private float jsr = 0.0f;
+            private float jss = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        b.this.jsl = false;
-                        this.jso = motionEvent.getX();
-                        this.jsp = motionEvent.getY();
-                        this.jsq = 0.0f;
+                        b.this.jsn = false;
+                        this.jsq = motionEvent.getX();
+                        this.jsr = motionEvent.getY();
+                        this.jss = 0.0f;
                         break;
                     case 1:
-                        b.this.jsl = 10.0f < this.jsq;
-                        if (!b.this.jsl) {
+                        b.this.jsn = 10.0f < this.jss;
+                        if (!b.this.jsn) {
                             onClickListener.onClick(b.this.hoq);
                             break;
                         }
                         break;
                     case 2:
-                        float x = motionEvent.getX() - this.jso;
-                        float y = motionEvent.getY() - this.jsp;
-                        this.jsq = (float) (Math.sqrt((x * x) + (y * y)) + this.jsq);
-                        this.jso = motionEvent.getX();
-                        this.jsp = motionEvent.getY();
+                        float x = motionEvent.getX() - this.jsq;
+                        float y = motionEvent.getY() - this.jsr;
+                        this.jss = (float) (Math.sqrt((x * x) + (y * y)) + this.jss);
+                        this.jsq = motionEvent.getX();
+                        this.jsr = motionEvent.getY();
                         break;
                 }
                 return false;

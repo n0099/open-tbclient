@@ -19,10 +19,10 @@ import tbclient.SubBottomMenu;
 /* loaded from: classes16.dex */
 public class a implements BottomMenuView.a {
     private ForumData eCv;
-    private ImageView hNc;
-    private BottomMenuView hNd;
-    private List<BottomMenu> hNe;
-    private int hNf;
+    private ImageView hNe;
+    private BottomMenuView hNf;
+    private List<BottomMenu> hNg;
+    private int hNh;
     private int mMarginBottom;
     private int mMarginRight;
     private TbPageContext<?> mPageContext;
@@ -31,29 +31,29 @@ public class a implements BottomMenuView.a {
     public a(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.hNc = (ImageView) view.findViewById(R.id.normal_write_icon);
-        this.hNd = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
-        this.hNd.setOnMenuItemClickListener(this);
+        this.hNe = (ImageView) view.findViewById(R.id.normal_write_icon);
+        this.hNf = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
+        this.hNf.setOnMenuItemClickListener(this);
         this.mMarginBottom = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds160);
         this.mMarginRight = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds44);
-        this.hNf = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds4);
+        this.hNh = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds4);
     }
 
     public void a(List<BottomMenu> list, ForumData forumData) {
-        this.hNe = list;
+        this.hNg = list;
         this.eCv = forumData;
         boolean z = x.getCount(list) > 0;
         od(z);
         if (z) {
-            this.hNd.setVisibility(0);
-            this.hNd.a(list, this.mPageContext);
+            this.hNf.setVisibility(0);
+            this.hNf.a(list, this.mPageContext);
             return;
         }
-        this.hNd.setVisibility(8);
+        this.hNf.setVisibility(8);
     }
 
     private void od(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hNc.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hNe.getLayoutParams();
         if (z) {
             layoutParams.addRule(11);
             layoutParams.addRule(12);
@@ -65,17 +65,17 @@ public class a implements BottomMenuView.a {
         layoutParams.addRule(11, 0);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = this.hNf;
+        layoutParams.bottomMargin = this.hNh;
         layoutParams.rightMargin = 0;
     }
 
     public void oe(boolean z) {
-        this.hNd.setVisibility(z ? 0 : 8);
+        this.hNf.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.hNd.getVisibility() == 0) {
-            this.hNd.onChangeSkinType(tbPageContext, i);
+        if (this.hNf.getVisibility() == 0) {
+            this.hNf.onChangeSkinType(tbPageContext, i);
         }
     }
 

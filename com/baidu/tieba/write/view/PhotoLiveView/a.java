@@ -27,14 +27,14 @@ import java.util.LinkedList;
 public class a extends BaseAdapter {
     private GridView crz;
     private Context mContext;
-    private BaseActivity myW;
+    private BaseActivity myY;
     private b eBm = new b();
     private EditorTools ezO = null;
     private int eBp = 13;
-    private int mzO = 6;
-    private boolean mzP = false;
+    private int mzQ = 6;
+    private boolean mzR = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0785a mzQ = new InterfaceC0785a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+    private InterfaceC0785a mzS = new InterfaceC0785a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
         @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0785a
         public void Hl(int i) {
             if (a.this.chosedFiles != null) {
@@ -56,9 +56,9 @@ public class a extends BaseAdapter {
                         a.this.ezO.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                     }
                 }
-                a.this.dvG();
-                ((WriteActivity) a.this.myW).q(a.this.chosedFiles);
-                a.this.dvD();
+                a.this.dvH();
+                ((WriteActivity) a.this.myY).q(a.this.chosedFiles);
+                a.this.dvE();
                 a.this.notifyDataSetChanged();
                 a.this.crz.invalidateViews();
             }
@@ -71,17 +71,17 @@ public class a extends BaseAdapter {
         void Hl(int i);
     }
 
-    public void dvD() {
+    public void dvE() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            dvE();
-        } else if (this.chosedFiles.size() < this.mzO) {
+            dvF();
+        } else if (this.chosedFiles.size() < this.mzQ) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                dvE();
+                dvF();
             }
         }
     }
 
-    private void dvE() {
+    private void dvF() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + R.drawable.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -92,14 +92,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean dvF() {
+    public boolean dvG() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void dvG() {
+    public void dvH() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -110,10 +110,10 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
-        this.myW = null;
+        this.myY = null;
         this.crz = null;
-        this.myW = baseActivity;
-        this.mContext = this.myW.getActivity();
+        this.myY = baseActivity;
+        this.mContext = this.myY.getActivity();
         this.crz = gridView;
     }
 
@@ -156,7 +156,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        dvD();
+        dvE();
         notifyDataSetInvalidated();
     }
 
@@ -211,12 +211,12 @@ public class a extends BaseAdapter {
                 boolean z2;
                 int indexOfChild = viewGroup.indexOfChild(view2);
                 if (indexOfChild >= 0) {
-                    if (z && (a.this.myW instanceof WriteActivity)) {
+                    if (z && (a.this.myY instanceof WriteActivity)) {
                         if (a.this.chosedFiles != null && a.this.chosedFiles.size() > 0) {
                             a.this.chosedFiles.remove(a.this.chosedFiles.size() - 1);
                         }
-                        ((WriteActivity) a.this.myW).q(a.this.chosedFiles);
-                        ((WriteActivity) a.this.myW).e((com.baidu.tbadk.editortools.a) null);
+                        ((WriteActivity) a.this.myY).q(a.this.chosedFiles);
+                        ((WriteActivity) a.this.myY).e((com.baidu.tbadk.editortools.a) null);
                         return;
                     }
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) a.this.getItem(indexOfChild);
@@ -229,10 +229,10 @@ public class a extends BaseAdapter {
                     if (!z2) {
                         l.showLongToast(a.this.mContext, R.string.editor_mutiiamge_image_error);
                     } else if (a.this.ezO != null) {
-                        if (a.this.dvF()) {
-                            a.this.dvG();
+                        if (a.this.dvG()) {
+                            a.this.dvH();
                         }
-                        ((WriteActivity) a.this.myW).q(a.this.chosedFiles);
+                        ((WriteActivity) a.this.myY).q(a.this.chosedFiles);
                         a.this.ezO.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
                     }
                 }
@@ -241,8 +241,8 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.mzQ != null) {
-                    a.this.mzQ.Hl(i);
+                if (a.this.mzS != null) {
+                    a.this.mzS.Hl(i);
                 }
             }
         });
@@ -250,6 +250,6 @@ public class a extends BaseAdapter {
     }
 
     public void Hk(int i) {
-        this.mzO = i;
+        this.mzQ = i;
     }
 }

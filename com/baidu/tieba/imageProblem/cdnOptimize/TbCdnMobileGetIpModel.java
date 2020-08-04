@@ -30,7 +30,7 @@ public class TbCdnMobileGetIpModel {
     private static Object lock = new Object();
     private static long mobileLastTachometerTime = 0;
     private BdUniqueId unique_id = BdUniqueId.gen();
-    private HttpMessageListener jur = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
+    private HttpMessageListener jut = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -74,13 +74,13 @@ public class TbCdnMobileGetIpModel {
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.jur);
-        MessageManager.getInstance().registerListener(this.jur);
+        MessageManager.getInstance().unRegisterListener(this.jut);
+        MessageManager.getInstance().registerListener(this.jut);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1002601);
-        MessageManager.getInstance().unRegisterListener(this.jur);
+        MessageManager.getInstance().unRegisterListener(this.jut);
     }
 
     public void startGetMobileIpList() {
@@ -116,11 +116,11 @@ public class TbCdnMobileGetIpModel {
     /* loaded from: classes13.dex */
     public class TBCdnMobileTachometerAsyncTask extends BdAsyncTask<Object, Integer, ArrayList<String>> {
         ArrayList<TBCdnIpData> ipList;
-        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData jut;
+        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData juv;
 
         public TBCdnMobileTachometerAsyncTask(TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData) {
-            this.jut = null;
-            this.jut = tBCdnMobileListData;
+            this.juv = null;
+            this.juv = tBCdnMobileListData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class TbCdnMobileGetIpModel {
         public ArrayList<String> doInBackground(Object... objArr) {
             String str;
             String str2;
-            if (this.jut == null || (str = this.jut.juy) == null || str.length() <= 0 || (str2 = this.jut.juz) == null || str2.length() <= 0) {
+            if (this.juv == null || (str = this.juv.juA) == null || str.length() <= 0 || (str2 = this.juv.juB) == null || str2.length() <= 0) {
                 return null;
             }
             try {
@@ -139,7 +139,7 @@ public class TbCdnMobileGetIpModel {
                     if (host.length() > 0) {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Iterator<String> it = this.jut.mobileIpList.iterator();
+                            Iterator<String> it = this.juv.mobileIpList.iterator();
                             while (it.hasNext()) {
                                 String next = it.next();
                                 long currentTimeMillis2 = System.currentTimeMillis();

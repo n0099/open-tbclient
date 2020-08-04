@@ -12,17 +12,17 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c extends CharacterStyle implements UpdateAppearance {
     private int[] colors = {-17920, -6748254};
-    public int mWy = 90;
-    private int mWz = 8;
-    private Shader mWA = null;
+    public int mWA = 90;
+    private int mWB = 8;
+    private Shader mWC = null;
     private Matrix matrix = new Matrix();
-    private float mWB = 0.0f;
+    private float mWD = 0.0f;
 
     /* loaded from: classes6.dex */
     public static class a {
         private int[] mColors;
-        private int mWy;
-        private int mWz;
+        private int mWA;
+        private int mWB;
 
         public a bb(ArrayList<String> arrayList) {
             if (arrayList != null && arrayList.size() > 0) {
@@ -44,7 +44,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
         }
 
         public a IO(int i) {
-            this.mWz = i;
+            this.mWB = i;
             return this;
         }
 
@@ -55,36 +55,36 @@ public class c extends CharacterStyle implements UpdateAppearance {
             return str.replace("#", "#FF");
         }
 
-        public c dEY() {
+        public c dEZ() {
             c cVar = new c();
             if (this.mColors != null) {
                 cVar.colors = this.mColors;
             }
-            if (this.mWy != 0) {
-                cVar.mWy = this.mWy;
+            if (this.mWA != 0) {
+                cVar.mWA = this.mWA;
             }
-            if (this.mWz != 0) {
-                cVar.mWz = this.mWz;
+            if (this.mWB != 0) {
+                cVar.mWB = this.mWB;
             }
             return cVar;
         }
     }
 
     public void aL(float f) {
-        this.mWB = f;
+        this.mWD = f;
     }
 
     @Override // android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         textPaint.setStyle(Paint.Style.FILL);
-        float textSize = textPaint.getTextSize() * this.mWz;
-        if (this.mWA == null) {
-            this.mWA = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
+        float textSize = textPaint.getTextSize() * this.mWB;
+        if (this.mWC == null) {
+            this.mWC = new LinearGradient(0.0f, 0.0f, 0.0f, textSize, this.colors, (float[]) null, Shader.TileMode.MIRROR);
         }
         this.matrix.reset();
-        this.matrix.setRotate(this.mWy);
-        this.matrix.postTranslate(this.mWB * textSize, 0.0f);
-        this.mWA.setLocalMatrix(this.matrix);
-        textPaint.setShader(this.mWA);
+        this.matrix.setRotate(this.mWA);
+        this.matrix.postTranslate(this.mWD * textSize, 0.0f);
+        this.mWC.setLocalMatrix(this.matrix);
+        textPaint.setShader(this.mWC);
     }
 }

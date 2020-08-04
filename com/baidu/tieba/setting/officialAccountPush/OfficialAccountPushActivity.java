@@ -23,8 +23,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes20.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView idL = null;
-    private a lAv = null;
+    private BdListView idN = null;
+    private a lAx = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -46,14 +46,14 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             dgS();
         } else if (x.isEmpty(this.list)) {
             cgS();
-        } else if (this.lAv == null) {
-            this.lAv = new a(getPageContext());
-            this.lAv.setData(this.list);
-            this.idL.setAdapter((ListAdapter) this.lAv);
-            this.lAv.setSwitchStateChangeListener(this);
+        } else if (this.lAx == null) {
+            this.lAx = new a(getPageContext());
+            this.lAx.setData(this.list);
+            this.idN.setAdapter((ListAdapter) this.lAx);
+            this.lAx.setSwitchStateChangeListener(this);
         } else {
-            this.lAv.setData(this.list);
-            this.lAv.notifyDataSetChanged();
+            this.lAx.setData(this.list);
+            this.lAx.notifyDataSetChanged();
         }
     }
 
@@ -62,7 +62,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
-        this.idL = (BdListView) findViewById(R.id.list);
+        this.idN = (BdListView) findViewById(R.id.list);
         this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.mF(R.string.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
@@ -85,14 +85,14 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     public void cgS() {
-        this.idL.setVisibility(8);
+        this.idN.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mF(R.string.no_data_text));
         ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
     public void dgS() {
-        this.idL.setVisibility(8);
+        this.idN.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mF(R.string.refresh_view_title_text));
         ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
@@ -122,9 +122,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void e(boolean z, long j) {
-        if (this.list != null && this.lAv != null) {
+        if (this.list != null && this.lAx != null) {
             if (!j.isNetWorkAvailable()) {
-                this.lAv.notifyDataSetChanged();
+                this.lAx.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
@@ -136,7 +136,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
                     }
                 }
             }
-            this.lAv.notifyDataSetChanged();
+            this.lAx.notifyDataSetChanged();
         }
     }
 

@@ -13,16 +13,16 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.card.y;
 /* loaded from: classes16.dex */
 public class b implements CustomMessageTask.CustomRunnable<bv>, y {
-    private int hOD = 3;
-    private com.baidu.tieba.frs.d.b hZF;
-    private int hZG;
+    private int hOF = 3;
+    private com.baidu.tieba.frs.d.b hZH;
+    private int hZI;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
     public b(com.baidu.tieba.frs.d.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.hZF = null;
+        this.hZH = null;
         this.mTbPageTag = null;
-        this.hZF = bVar;
+        this.hZH = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
@@ -34,20 +34,20 @@ public class b implements CustomMessageTask.CustomRunnable<bv>, y {
             bv data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 as(data);
-                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data, 1);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hZF, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZH, data, 1);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hZH, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 as(data);
-                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data, 2);
-                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hZF, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZH, data, 2);
+                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hZH, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 as(data);
-                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data, 4);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hZF, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZH, data, 4);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hZH, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 at(data);
-                com.baidu.tieba.frs.d.c.chQ().a(this.hZF, data);
-                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hZF, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.chQ().a(this.hZH, data);
+                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hZH, this.mTbPageTag);
             }
         }
         return null;
@@ -69,9 +69,9 @@ public class b implements CustomMessageTask.CustomRunnable<bv>, y {
             apVar.t("star_id", j);
             apVar.dn("extra", bvVar.mRecomExtra);
             apVar.dn("source_from", bvVar.mRecomSource);
-            if (this.hZG == 14) {
+            if (this.hZI == 14) {
                 apVar.ah("obj_locate", 1);
-            } else if (this.hZG == 13) {
+            } else if (this.hZI == 13) {
                 apVar.ah("obj_locate", 2);
             }
             TiebaStatic.log(apVar);
@@ -94,9 +94,9 @@ public class b implements CustomMessageTask.CustomRunnable<bv>, y {
             apVar.t("star_id", j);
             apVar.dn("extra", bvVar.mRecomExtra);
             apVar.dn("source_from", bvVar.mRecomSource);
-            if (this.hZG == 14) {
+            if (this.hZI == 14) {
                 apVar.ah("obj_locate", 1);
-            } else if (this.hZG == 13) {
+            } else if (this.hZI == 13) {
                 apVar.ah("obj_locate", 2);
             }
             s.bRL().e(apVar);
@@ -109,10 +109,10 @@ public class b implements CustomMessageTask.CustomRunnable<bv>, y {
 
     @Override // com.baidu.tieba.card.y
     public void rn(int i) {
-        this.hOD = i;
+        this.hOF = i;
     }
 
     public void vS(int i) {
-        this.hZG = i;
+        this.hZI = i;
     }
 }

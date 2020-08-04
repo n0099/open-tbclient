@@ -26,9 +26,9 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, com.baidu.tieba.pb.pb.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) bVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        bVar.mTextView.setText(lVar.kix);
-        if (lVar.kiw != 0) {
-            com.baidu.tbadk.core.util.ao.setImageResource(bVar.mImageView, lVar.kiw);
+        bVar.mTextView.setText(lVar.kiz);
+        if (lVar.kiy != 0) {
+            com.baidu.tbadk.core.util.ao.setImageResource(bVar.mImageView, lVar.kiy);
         } else {
             com.baidu.tbadk.core.util.ao.setImageResource(bVar.mImageView, R.drawable.new_pic_emotion_06);
         }
@@ -36,13 +36,13 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
         if (lVar.fsQ != 0 && view.getLayoutParams() != null) {
             view.getLayoutParams().height = lVar.fsQ;
         }
-        if (lVar.kiy != 0) {
+        if (lVar.kiA != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) bVar.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.kiy, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.kiA, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (lVar.kiz != 0) {
+        if (lVar.kiB != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) bVar.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.kiz);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.kiB);
         }
         return view;
     }

@@ -18,7 +18,7 @@ public class a {
     private NoNetworkView fqQ;
     private BdTypeListView frv;
     private PbListView fsC;
-    private com.baidu.tieba.godSquare.a.a iqf;
+    private com.baidu.tieba.godSquare.a.a iqh;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
     private g mPullView;
@@ -44,8 +44,8 @@ public class a {
             this.frv.setOnSrollToBottomListener((BdListView.e) this.mActivity);
         }
         this.frv.setPullRefresh(this.mPullView);
-        this.iqf = new com.baidu.tieba.godSquare.a.a(this.mActivity.getPageContext(), this.frv);
-        this.frv.addAdapters(this.iqf.bxf());
+        this.iqh = new com.baidu.tieba.godSquare.a.a(this.mActivity.getPageContext(), this.frv);
+        this.frv.addAdapters(this.iqh.bxf());
         this.frv.setNextPage(this.fsC);
     }
 
@@ -80,7 +80,7 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.iqf.notifyDataSetChanged();
+        this.iqh.notifyDataSetChanged();
     }
 
     public void ckS() {

@@ -24,30 +24,30 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.c.g;
 /* loaded from: classes16.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> {
-    private ImageView ilC;
-    private View kQw;
-    private TextView kQx;
-    private LinearLayout kQy;
-    private com.baidu.tieba.personCenter.c.g kQz;
+    private ImageView ilE;
+    private LinearLayout kQA;
+    private com.baidu.tieba.personCenter.c.g kQB;
+    private View kQy;
+    private TextView kQz;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.kQw = view.findViewById(R.id.create_center_container);
-        this.kQx = (TextView) view.findViewById(R.id.text_create_center);
-        this.ilC = (ImageView) view.findViewById(R.id.img_arrow);
-        this.ilC.setOnClickListener(this);
-        this.kQy = (LinearLayout) view.findViewById(R.id.func_entrance);
+        this.kQy = view.findViewById(R.id.create_center_container);
+        this.kQz = (TextView) view.findViewById(R.id.text_create_center);
+        this.ilE = (ImageView) view.findViewById(R.id.img_arrow);
+        this.ilE.setOnClickListener(this);
+        this.kQA = (LinearLayout) view.findViewById(R.id.func_entrance);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.kQx, R.color.cp_cont_b);
-        SvgManager.baR().a(this.ilC, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        for (int i2 = 0; i2 < this.kQy.getChildCount(); i2++) {
-            ao.setViewTextColor((TextView) this.kQy.getChildAt(i2).findViewById(R.id.create_center_item_text), R.color.cp_cont_b);
+        ao.setViewTextColor(this.kQz, R.color.cp_cont_b);
+        SvgManager.baR().a(this.ilE, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        for (int i2 = 0; i2 < this.kQA.getChildCount(); i2++) {
+            ao.setViewTextColor((TextView) this.kQA.getChildAt(i2).findViewById(R.id.create_center_item_text), R.color.cp_cont_b);
         }
-        com.baidu.tbadk.core.util.e.a.bbq().mj(1).ml(l.getDimens(this.mContext, R.dimen.tbds21)).mq(R.color.cp_bg_line_d).mm(R.color.cp_shadow_a_alpha33).mk(4369).mn(l.getDimens(this.mContext, R.dimen.tbds16)).mo(0).mp(l.getDimens(this.mContext, R.dimen.tbds5)).aX(this.kQw);
+        com.baidu.tbadk.core.util.e.a.bbq().mj(1).ml(l.getDimens(this.mContext, R.dimen.tbds21)).mq(R.color.cp_bg_line_d).mm(R.color.cp_shadow_a_alpha33).mk(4369).mn(l.getDimens(this.mContext, R.dimen.tbds16)).mo(0).mp(l.getDimens(this.mContext, R.dimen.tbds5)).aX(this.kQy);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -59,15 +59,15 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personCenter.c.g gVar) {
         if (gVar != null && !x.isEmpty(gVar.dAT)) {
-            if (gVar != this.kQz) {
-                this.kQy.removeAllViews();
+            if (gVar != this.kQB) {
+                this.kQA.removeAllViews();
                 int equipmentWidth = (l.getEquipmentWidth(this.mContext) - (l.getDimens(this.mContext, R.dimen.tbds44) * 2)) / gVar.dAT.size();
                 for (g.a aVar : gVar.dAT) {
                     if (aVar != null) {
-                        this.kQy.addView(a(this.mContext, aVar), new LinearLayout.LayoutParams(equipmentWidth, -2));
+                        this.kQA.addView(a(this.mContext, aVar), new LinearLayout.LayoutParams(equipmentWidth, -2));
                     }
                 }
-                this.kQz = gVar;
+                this.kQB = gVar;
             }
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
@@ -75,7 +75,7 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.ilC.getId()) {
+        if (view.getId() == this.ilE.getId()) {
             bx(R.string.create_center, TbConfig.URL_CREATE_CENTER);
             TiebaStatic.log("c13842");
         }
@@ -91,7 +91,7 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         tbImageView.setId(R.id.create_center_item_img);
-        tbImageView.setImageResource(aVar.kPp);
+        tbImageView.setImageResource(aVar.kPr);
         int dimens = l.getDimens(context, R.dimen.tbds126);
         linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(dimens, dimens));
         TextView textView = new TextView(context);
@@ -113,10 +113,10 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(g.a aVar) {
-        if (aVar != null && this.kQz != null && this.kQz.mUserData != null) {
+        if (aVar != null && this.kQB != null && this.kQB.mUserData != null) {
             if (aVar.type == 1) {
                 TiebaStatic.log(new ap("c12523").ah("obj_locate", 8));
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mTbPageContext.getPageActivity(), this.kQz.mUserData.getUserId(), this.kQz.mUserData.getSex(), this.kQz.mUserData.getPortrait())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mTbPageContext.getPageActivity(), this.kQB.mUserData.getUserId(), this.kQB.mUserData.getSex(), this.kQB.mUserData.getPortrait())));
                 TiebaStatic.log("c13843");
             } else if (aVar.type == 2) {
                 bx(R.string.god_authentication, TbConfig.URL_GOD_AUTH);

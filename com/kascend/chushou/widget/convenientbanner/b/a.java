@@ -9,48 +9,48 @@ import com.kascend.chushou.widget.convenientbanner.d.c;
 import com.kascend.chushou.widget.convenientbanner.view.CBLoopViewPager;
 /* loaded from: classes6.dex */
 public class a {
-    private c nGn;
-    private CBLoopViewPager nGu;
-    private int nGw;
+    private c nGp;
+    private CBLoopViewPager nGw;
+    private int nGy;
     private int huB = 0;
-    private int nGv = 0;
-    private PagerSnapHelper nGx = new PagerSnapHelper();
+    private int nGx = 0;
+    private PagerSnapHelper nGz = new PagerSnapHelper();
 
     public void a(final CBLoopViewPager cBLoopViewPager) {
         if (cBLoopViewPager != null) {
-            this.nGu = cBLoopViewPager;
+            this.nGw = cBLoopViewPager;
             cBLoopViewPager.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.kascend.chushou.widget.convenientbanner.b.a.1
                 @Override // android.support.v7.widget.RecyclerView.OnScrollListener
                 public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                     super.onScrollStateChanged(recyclerView, i);
                     int currentItem = a.this.getCurrentItem();
                     int byd = ((com.kascend.chushou.widget.convenientbanner.a.a) cBLoopViewPager.getAdapter()).byd();
-                    if (i == 0 && a.this.nGn != null) {
-                        a.this.nGn.onScrollStateChanged(recyclerView, i);
-                        a.this.nGn.onPageSelected(currentItem % byd);
+                    if (i == 0 && a.this.nGp != null) {
+                        a.this.nGp.onScrollStateChanged(recyclerView, i);
+                        a.this.nGp.onPageSelected(currentItem % byd);
                     }
                 }
 
                 @Override // android.support.v7.widget.RecyclerView.OnScrollListener
                 public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                     super.onScrolled(recyclerView, i, i2);
-                    if (a.this.nGn != null) {
-                        a.this.nGn.onScrolled(recyclerView, i, i2);
+                    if (a.this.nGp != null) {
+                        a.this.nGp.onScrolled(recyclerView, i, i2);
                     }
-                    a.this.dOF();
+                    a.this.dOG();
                 }
             });
             tJ();
-            this.nGx.attachToRecyclerView(cBLoopViewPager);
+            this.nGz.attachToRecyclerView(cBLoopViewPager);
         }
     }
 
     private void tJ() {
-        this.nGu.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kascend.chushou.widget.convenientbanner.b.a.2
+        this.nGw.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kascend.chushou.widget.convenientbanner.b.a.2
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                a.this.nGu.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                a.this.scrollToPosition(a.this.nGw);
+                a.this.nGw.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                a.this.scrollToPosition(a.this.nGy);
             }
         });
     }
@@ -60,9 +60,9 @@ public class a {
     }
 
     public void setCurrentItem(int i, boolean z) {
-        if (this.nGu != null) {
+        if (this.nGw != null) {
             if (z) {
-                this.nGu.smoothScrollToPosition(i);
+                this.nGw.smoothScrollToPosition(i);
             } else {
                 scrollToPosition(i);
             }
@@ -70,42 +70,42 @@ public class a {
     }
 
     public void scrollToPosition(int i) {
-        if (this.nGu != null) {
-            ((LinearLayoutManager) this.nGu.getLayoutManager()).scrollToPositionWithOffset(i, this.huB + this.nGv);
-            this.nGu.post(new Runnable() { // from class: com.kascend.chushou.widget.convenientbanner.b.a.3
+        if (this.nGw != null) {
+            ((LinearLayoutManager) this.nGw.getLayoutManager()).scrollToPositionWithOffset(i, this.huB + this.nGx);
+            this.nGw.post(new Runnable() { // from class: com.kascend.chushou.widget.convenientbanner.b.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.dOF();
+                    a.this.dOG();
                 }
             });
         }
     }
 
     public void KQ(int i) {
-        this.nGw = i;
+        this.nGy = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dOF() {
+    public void dOG() {
     }
 
     public int getCurrentItem() {
-        View findSnapView = this.nGx.findSnapView(this.nGu.getLayoutManager());
+        View findSnapView = this.nGz.findSnapView(this.nGw.getLayoutManager());
         if (findSnapView != null) {
-            return this.nGu.getLayoutManager().getPosition(findSnapView);
+            return this.nGw.getLayoutManager().getPosition(findSnapView);
         }
         return 0;
     }
 
-    public int dOG() {
-        return getCurrentItem() % ((com.kascend.chushou.widget.convenientbanner.a.a) this.nGu.getAdapter()).byd();
+    public int dOH() {
+        return getCurrentItem() % ((com.kascend.chushou.widget.convenientbanner.a.a) this.nGw.getAdapter()).byd();
     }
 
-    public int dOH() {
-        return this.nGw;
+    public int dOI() {
+        return this.nGy;
     }
 
     public void a(c cVar) {
-        this.nGn = cVar;
+        this.nGp = cVar;
     }
 }

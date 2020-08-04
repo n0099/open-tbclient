@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     protected NoDataView eGk;
     protected NavigationBar ffK;
-    protected NoNetworkView lvS;
-    private RelativeLayout lvT;
+    protected NoNetworkView lvU;
+    private RelativeLayout lvV;
     private RelativeLayout rootView;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,7 +33,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             }
         });
         if (der()) {
-            this.lvS = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
+            this.lvU = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
         }
     }
 
@@ -42,9 +42,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         if (der()) {
         }
-        this.lvT = new RelativeLayout(getPageContext().getContext());
-        this.lvT.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.rootView.addView(this.lvT, 0, layoutParams);
+        this.lvV = new RelativeLayout(getPageContext().getContext());
+        this.lvV.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.rootView.addView(this.lvV, 0, layoutParams);
     }
 
     protected boolean der() {
@@ -59,9 +59,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         } else {
             layoutParams.addRule(3, R.id.no_network_viewstub);
         }
-        this.lvT = new RelativeLayout(getPageContext().getContext());
-        this.lvT.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.rootView.addView(this.lvT, layoutParams);
+        this.lvV = new RelativeLayout(getPageContext().getContext());
+        this.lvV.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.rootView.addView(this.lvV, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,8 +69,8 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.ffK.onChangeSkinType(getPageContext(), i);
-        if (this.lvS != null) {
-            this.lvS.onChangeSkinType(getPageContext(), i);
+        if (this.lvU != null) {
+            this.lvU.onChangeSkinType(getPageContext(), i);
         }
         if (this.eGk != null) {
             this.eGk.onChangeSkinType(getPageContext(), i);

@@ -41,16 +41,16 @@ public class a extends com.baidu.tbadk.b.a {
     /* loaded from: classes20.dex */
     private class C0737a extends BdAsyncTask<Object, Integer, h> {
         private String dIp;
-        private HashMap<String, String> jxK;
-        private d jxL;
+        private HashMap<String, String> jxM;
+        private d jxN;
         private volatile z mNetwork = null;
         private String postUrl;
 
         public C0737a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
             this.dIp = str;
             this.postUrl = str2;
-            this.jxK = hashMap;
-            this.jxL = dVar;
+            this.jxM = hashMap;
+            this.jxN = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new z(this.postUrl);
-                Set<String> keySet = this.jxK.keySet();
+                Set<String> keySet = this.jxM.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.addPostData(str, this.jxK.get(str));
+                            this.mNetwork.addPostData(str, this.jxM.get(str));
                         }
                     }
                 }
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.jxL != null) {
-                this.jxL.callback(hVar);
+            if (this.jxN != null) {
+                this.jxN.callback(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.jxL != null) {
-                this.jxL.callback(null);
+            if (this.jxN != null) {
+                this.jxN.callback(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.jxL != null) {
-                this.jxL.callback(null);
+            if (this.jxN != null) {
+                this.jxN.callback(null);
             }
         }
     }

@@ -7,8 +7,8 @@ public class i {
     private long dOJ = 0;
     private String dOK = "";
     private String imgUrl = "";
-    private int kil = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String kim = "";
+    private int kin = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String kio = "";
     private String aDm = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -16,8 +16,8 @@ public class i {
             this.dOJ = forumHeadlineImgInfo.img_user_id.longValue();
             this.dOK = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.kil = forumHeadlineImgInfo.rank_num.intValue();
-            this.kim = forumHeadlineImgInfo.rank_up_info;
+            this.kin = forumHeadlineImgInfo.rank_num.intValue();
+            this.kio = forumHeadlineImgInfo.rank_up_info;
             this.aDm = forumHeadlineImgInfo.rank_url;
         }
     }

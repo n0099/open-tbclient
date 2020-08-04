@@ -20,44 +20,44 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class b {
     private TextView dKI;
     private NoNetworkView fsB;
-    private RecommendDetailActivity jjb;
-    private HeadImageView jjc;
-    private TextView jjd;
-    private TextView jje;
-    private LinearLayout jjf;
-    private SettingTextSwitchView jjg;
-    private View jjh;
+    private RecommendDetailActivity jjd;
+    private HeadImageView jje;
+    private TextView jjf;
+    private TextView jjg;
+    private LinearLayout jjh;
+    private SettingTextSwitchView jji;
+    private View jjj;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public b(RecommendDetailActivity recommendDetailActivity) {
-        this.jjb = recommendDetailActivity;
+        this.jjd = recommendDetailActivity;
         initView();
     }
 
     private void initView() {
-        if (this.jjb != null) {
-            this.jjb.setContentView(R.layout.recommend_detail_activity);
-            this.mRootView = this.jjb.findViewById(R.id.root_view);
-            this.mNavigationBar = (NavigationBar) this.jjb.findViewById(R.id.view_navigation_bar);
+        if (this.jjd != null) {
+            this.jjd.setContentView(R.layout.recommend_detail_activity);
+            this.mRootView = this.jjd.findViewById(R.id.root_view);
+            this.mNavigationBar = (NavigationBar) this.jjd.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            If(this.jjb.getResources().getString(R.string.recommend_detail_activity_title));
-            this.fsB = (NoNetworkView) this.jjb.findViewById(R.id.view_no_network);
-            this.mContentView = (LinearLayout) this.jjb.findViewById(R.id.content_view);
-            this.jjc = (HeadImageView) this.jjb.findViewById(R.id.user_image);
-            this.jjc.setIsRound(true);
-            this.dKI = (TextView) this.jjb.findViewById(R.id.user_name);
-            this.jjd = (TextView) this.jjb.findViewById(R.id.user_type);
-            this.jje = (TextView) this.jjb.findViewById(R.id.intro_content);
-            this.jjg = (SettingTextSwitchView) this.jjb.findViewById(R.id.switch_view);
-            this.jjg.setSwitchStateChangeListener(this.jjb);
-            this.jjg.setVisibility(8);
+            If(this.jjd.getResources().getString(R.string.recommend_detail_activity_title));
+            this.fsB = (NoNetworkView) this.jjd.findViewById(R.id.view_no_network);
+            this.mContentView = (LinearLayout) this.jjd.findViewById(R.id.content_view);
+            this.jje = (HeadImageView) this.jjd.findViewById(R.id.user_image);
+            this.jje.setIsRound(true);
+            this.dKI = (TextView) this.jjd.findViewById(R.id.user_name);
+            this.jjf = (TextView) this.jjd.findViewById(R.id.user_type);
+            this.jjg = (TextView) this.jjd.findViewById(R.id.intro_content);
+            this.jji = (SettingTextSwitchView) this.jjd.findViewById(R.id.switch_view);
+            this.jji.setSwitchStateChangeListener(this.jjd);
+            this.jji.setVisibility(8);
             this.mContentView.setVisibility(8);
-            this.jjf = (LinearLayout) this.jjb.findViewById(R.id.switch_ll);
-            this.jjh = this.jjb.findViewById(R.id.divider_1);
+            this.jjh = (LinearLayout) this.jjd.findViewById(R.id.switch_ll);
+            this.jjj = this.jjd.findViewById(R.id.divider_1);
         }
     }
 
@@ -68,11 +68,11 @@ public class b {
     }
 
     public void b(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (userInfoBigVip != null && this.jjb != null) {
-            this.jjc.startLoad(userInfoBigVip.portraith, 12, false);
+        if (userInfoBigVip != null && this.jjd != null) {
+            this.jje.startLoad(userInfoBigVip.portraith, 12, false);
             this.dKI.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-            this.jjd.setText(userInfoBigVip.user_type);
-            this.jje.setText(userInfoBigVip.user_detail);
+            this.jjf.setText(userInfoBigVip.user_type);
+            this.jjg.setText(userInfoBigVip.user_detail);
             if (z) {
                 if (userInfoBigVip.message_accept.intValue() == 1) {
                     setSwitch(true);
@@ -86,37 +86,37 @@ public class b {
             } else {
                 setSwitch(false);
             }
-            this.jjg.setVisibility(0);
+            this.jji.setVisibility(0);
         }
     }
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.jjg.getSwitchView().turnOnNoCallback();
+            this.jji.getSwitchView().turnOnNoCallback();
         } else {
-            this.jjg.getSwitchView().turnOffNoCallback();
+            this.jji.getSwitchView().turnOffNoCallback();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jjb != null && this.jjb.getPageContext() != null && this.jjb.getPageContext().getLayoutMode() != null) {
+        if (this.jjd != null && this.jjd.getPageContext() != null && this.jjd.getPageContext().getLayoutMode() != null) {
             if (this.mNavigationBar != null) {
-                this.mNavigationBar.onChangeSkinType(this.jjb.getPageContext(), i);
+                this.mNavigationBar.onChangeSkinType(this.jjd.getPageContext(), i);
             }
             if (this.fsB != null) {
-                this.fsB.onChangeSkinType(this.jjb.getPageContext(), i);
+                this.fsB.onChangeSkinType(this.jjd.getPageContext(), i);
             }
             if (this.mNoDataView != null) {
-                this.mNoDataView.onChangeSkinType(this.jjb.getPageContext(), i);
+                this.mNoDataView.onChangeSkinType(this.jjd.getPageContext(), i);
             }
-            if (this.jjg != null) {
-                this.jjg.nI(i);
+            if (this.jji != null) {
+                this.jji.nI(i);
             }
-            if (this.jjh != null) {
-                ao.setBackgroundColor(this.jjh, R.color.cp_bg_line_e);
+            if (this.jjj != null) {
+                ao.setBackgroundColor(this.jjj, R.color.cp_bg_line_e);
             }
-            this.jjb.getPageContext().getLayoutMode().setNightMode(i == 1);
-            this.jjb.getPageContext().getLayoutMode().onModeChanged(this.mRootView);
+            this.jjd.getPageContext().getLayoutMode().setNightMode(i == 1);
+            this.jjd.getPageContext().getLayoutMode().onModeChanged(this.mRootView);
         }
     }
 
@@ -129,23 +129,23 @@ public class b {
 
     public void yK(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.jjb.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.d.mF(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.jjd.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.d.mF(i), null);
         }
         this.mNoDataView.setTextOption(NoDataViewFactory.d.mF(i));
-        this.mNoDataView.onChangeSkinType(this.jjb.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.jjd.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mContentView.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
     public void cxg() {
-        if (this.jjf != null) {
-            this.jjf.setVisibility(0);
+        if (this.jjh != null) {
+            this.jjh.setVisibility(0);
         }
     }
 
     public void cxh() {
-        if (this.jjf != null) {
-            this.jjf.setVisibility(8);
+        if (this.jjh != null) {
+            this.jjh.setVisibility(8);
         }
     }
 }

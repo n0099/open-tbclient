@@ -32,26 +32,26 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
     private LikeModel emT;
     private TBSpecificationBtn hrs;
     private ac hru;
-    private TextView ijC;
-    private TextView ijD;
+    private TextView ijE;
+    private TextView ijF;
     private boolean isLoading;
-    private String lKr;
-    private String lKs;
-    private com.baidu.tieba.square.data.b lKt;
+    private String lKt;
+    private String lKu;
+    private com.baidu.tieba.square.data.b lKv;
     private View mRootView;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.isLoading = false;
-        this.lKr = TbadkCoreApplication.getInst().getString(R.string.forum_member_num);
-        this.lKs = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
+        this.lKt = TbadkCoreApplication.getInst().getString(R.string.forum_member_num);
+        this.lKu = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
         View view = getView();
         this.mRootView = view;
         this.agO = (BarImageView) view.findViewById(R.id.bar_image);
         this.agQ = (TextView) view.findViewById(R.id.bar_name);
         this.agR = (TextView) view.findViewById(R.id.desc);
-        this.ijC = (TextView) view.findViewById(R.id.member_text);
-        this.ijD = (TextView) view.findViewById(R.id.post_text);
+        this.ijE = (TextView) view.findViewById(R.id.member_text);
+        this.ijF = (TextView) view.findViewById(R.id.post_text);
         this.hrs = (TBSpecificationBtn) view.findViewById(R.id.forum_like_button);
     }
 
@@ -59,7 +59,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.square.data.b bVar) {
         if (bVar != null) {
-            this.lKt = bVar;
+            this.lKv = bVar;
             this.agO.setShowOval(true);
             this.agO.setShowOuterBorder(false);
             this.agO.setShowInnerBorder(true);
@@ -71,10 +71,10 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
                 forumName = "";
             }
             this.agQ.setText(forumName);
-            this.ijC.setText(this.lKr + " " + as.numberUniformFormatExtra(bVar.getMemberCount()));
-            this.ijD.setText(this.lKs + " " + as.numberUniformFormatExtra(bVar.djv()));
+            this.ijE.setText(this.lKt + " " + as.numberUniformFormatExtra(bVar.getMemberCount()));
+            this.ijF.setText(this.lKu + " " + as.numberUniformFormatExtra(bVar.djv()));
             Nx(bVar.aTO());
-            ne(this.lKt.isLike());
+            ne(this.lKv.isLike());
             this.mRootView.setOnClickListener(this);
             this.hrs.setOnClickListener(this);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -116,12 +116,12 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
             this.hrs.setConfig(cVar2);
             this.hrs.setText(TbadkCoreApplication.getInst().getString(R.string.forum_isLiked));
         }
-        this.lKt.setLike(z);
+        this.lKv.setLike(z);
     }
 
     private void bXg() {
-        if (this.lKt != null) {
-            String forumName = this.lKt.getForumName();
+        if (this.lKv != null) {
+            String forumName = this.lKv.getForumName();
             if (as.isForumName(forumName)) {
                 this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mTbPageContext.getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
             }
@@ -132,7 +132,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
-            } else if (this.lKt != null && !StringUtils.isNull(this.lKt.getForumName()) && this.lKt.getForumId() > 0 && bf.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
+            } else if (this.lKv != null && !StringUtils.isNull(this.lKv.getForumName()) && this.lKv.getForumId() > 0 && bf.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
                 if (this.emT == null) {
                     this.emT = new LikeModel(this.mTbPageContext);
                     this.emT.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.view.c.1
@@ -151,10 +151,10 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
                         }
                     });
                 }
-                if (as.isForumName(this.lKt.getForumName())) {
+                if (as.isForumName(this.lKv.getForumName())) {
                     this.isLoading = true;
-                    this.emT.dkA();
-                    this.emT.fz(this.lKt.getForumName(), String.valueOf(this.lKt.getForumId()));
+                    this.emT.dkB();
+                    this.emT.fz(this.lKv.getForumName(), String.valueOf(this.lKv.getForumId()));
                 }
             }
         }
@@ -164,7 +164,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
-            } else if (this.lKt != null && !StringUtils.isNull(this.lKt.getForumName()) && this.lKt.getForumId() > 0 && bf.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
+            } else if (this.lKv != null && !StringUtils.isNull(this.lKv.getForumName()) && this.lKv.getForumId() > 0 && bf.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
                 if (this.hru == null) {
                     this.hru = new ac();
                     this.hru.a(new ac.a() { // from class: com.baidu.tieba.square.view.c.2
@@ -181,7 +181,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
                     });
                 }
                 this.isLoading = true;
-                this.hru.J(this.lKt.getForumName(), this.lKt.getForumId());
+                this.hru.J(this.lKv.getForumName(), this.lKv.getForumId());
             }
         }
     }
@@ -189,8 +189,8 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ao.setViewTextColor(this.agQ, R.color.cp_cont_b);
-        ao.setViewTextColor(this.ijC, R.color.cp_cont_d);
-        ao.setViewTextColor(this.ijD, R.color.cp_cont_d);
+        ao.setViewTextColor(this.ijE, R.color.cp_cont_d);
+        ao.setViewTextColor(this.ijF, R.color.cp_cont_d);
         ao.setViewTextColor(this.agR, R.color.cp_cont_d);
         ao.setBackgroundColor(getView(), R.color.cp_bg_line_e);
     }
@@ -203,11 +203,11 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ap apVar;
-        if (this.lKt != null) {
+        if (this.lKv != null) {
             if (this.mRootView == view) {
                 bXg();
                 if (this.gUp != null) {
-                    this.gUp.a(view, this.lKt);
+                    this.gUp.a(view, this.lKv);
                 }
             } else if (this.hrs == view) {
                 if (this.mTbPageContext.getPageActivity() instanceof ForumSquareActivity) {
@@ -220,11 +220,11 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
                         apVar.ah("obj_locate", 3);
                     }
                     apVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                    apVar.t("fid", this.lKt.forumId);
-                    apVar.ah(TiebaInitialize.Params.OBJ_TO, this.lKt.isLike() ? 2 : 1);
+                    apVar.t("fid", this.lKv.forumId);
+                    apVar.ah(TiebaInitialize.Params.OBJ_TO, this.lKv.isLike() ? 2 : 1);
                     TiebaStatic.log(apVar);
                 }
-                if (this.lKt.isLike()) {
+                if (this.lKv.isLike()) {
                     bXi();
                 } else {
                     bXh();

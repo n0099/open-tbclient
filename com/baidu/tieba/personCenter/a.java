@@ -1,18 +1,18 @@
 package com.baidu.tieba.personCenter;
 /* loaded from: classes16.dex */
 public class a {
-    private static a kOC = new a();
+    private static a kOE = new a();
     private long creatTime = 0;
     private long eHn = 0;
     private long beginTime = 0;
-    private long kOD = 0;
-    private long kOE = 0;
+    private long kOF = 0;
+    private long kOG = 0;
 
     private a() {
     }
 
     public static a cVz() {
-        return kOC;
+        return kOE;
     }
 
     public long getCreateTime() {
@@ -40,18 +40,18 @@ public class a {
     }
 
     public long getRefreshTime() {
-        return this.kOD;
+        return this.kOF;
     }
 
     public void setRefreshTime(long j) {
-        this.kOD = j;
+        this.kOF = j;
     }
 
     public long cVB() {
-        return this.kOE;
+        return this.kOG;
     }
 
     public void fx(long j) {
-        this.kOE = j;
+        this.kOG = j;
     }
 }

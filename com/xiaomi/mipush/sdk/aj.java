@@ -47,8 +47,8 @@ public class aj {
             }
         }
         ib ibVar = new ib();
-        ibVar.f528a = 5L;
-        ibVar.f529a = "fakeid";
+        ibVar.f531a = 5L;
+        ibVar.f532a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a));
         iiVar.a(hmVar);
@@ -70,7 +70,7 @@ public class aj {
         } else {
             m419a = iiVar.m419a();
         }
-        ix a = a(iiVar.a(), iiVar.f608b);
+        ix a = a(iiVar.a(), iiVar.f611b);
         if (a != null) {
             iw.a(a, m419a);
         }

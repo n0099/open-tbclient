@@ -177,7 +177,7 @@ public class o extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.k, a
         }
         com.baidu.card.z aK = akVar.aK(true);
         aK.a(this.far);
-        akVar.a(kVar.aTY(), this.irx);
+        akVar.a(kVar.aTY(), this.irz);
         aK.D(kVar.aTP());
         akVar.b((ak<com.baidu.tieba.card.data.k>) kVar);
         akVar.b(this.adN);

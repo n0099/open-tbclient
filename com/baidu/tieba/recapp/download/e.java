@@ -29,23 +29,23 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class e {
     private final int MAX = 5;
-    private a lmA = null;
-    private HashMap<String, g> lmC = new HashMap<>();
-    private static e lmz = null;
+    private a lmC = null;
+    private HashMap<String, g> lmE = new HashMap<>();
+    private static e lmB = null;
     private static DownloadData ezC = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private static HashMap<String, Integer> lmB = new HashMap<>();
+    private static HashMap<String, Integer> lmD = new HashMap<>();
 
     private e() {
     }
 
     public static e dcg() {
         synchronized (e.class) {
-            if (lmz == null) {
-                lmz = new e();
+            if (lmB == null) {
+                lmB = new e();
             }
         }
-        return lmz;
+        return lmB;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String[] strArr, boolean z, boolean z2, boolean z3, String str4, DownloadStaticsData downloadStaticsData, String str5) {
@@ -86,9 +86,9 @@ public class e {
         if (ezC == null && !mTaskList.isEmpty()) {
             ezC = mTaskList.get(0);
             if (ezC != null) {
-                this.lmA = new a();
-                this.lmA.setPriority(3);
-                this.lmA.execute(ezC);
+                this.lmC = new a();
+                this.lmC.setPriority(3);
+                this.lmC.execute(ezC);
             }
         }
     }
@@ -232,7 +232,7 @@ public class e {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            e.this.lmA = null;
+            e.this.lmC = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     e.this.b(downloadData);
@@ -248,7 +248,7 @@ public class e {
                         if (downloadData.isNeedNotify()) {
                             String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
                             g gVar = new g(downloadData, 0);
-                            e.this.lmC.put(downloadData.getUrl(), gVar);
+                            e.this.lmE.put(downloadData.getUrl(), gVar);
                             NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), e.this.zr(downloadData.getAction()), false, gVar.dcj(), false);
                         }
                     } else {
@@ -271,7 +271,7 @@ public class e {
         if (downloadData != null && downloadData.isNeedNotify()) {
             int dt = dt(downloadData.getId(), downloadData.getName());
             String str = dt + "%";
-            g gVar = this.lmC.get(downloadData.getUrl());
+            g gVar = this.lmE.get(downloadData.getUrl());
             g gVar2 = gVar == null ? new g(downloadData, dt) : gVar;
             int status = getStatus(downloadData);
             if (status == 1) {
@@ -289,7 +289,7 @@ public class e {
 
     public void i(DownloadData downloadData) {
         if (downloadData != null) {
-            g gVar = this.lmC.get(downloadData.getUrl());
+            g gVar = this.lmE.get(downloadData.getUrl());
             g gVar2 = gVar == null ? new g(downloadData, dt(downloadData.getId(), downloadData.getName())) : gVar;
             gVar2.dck();
             NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, dt(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), zr(downloadData.getAction()), false, gVar2.dcj(), false);
@@ -298,7 +298,7 @@ public class e {
 
     public void j(DownloadData downloadData) {
         if (downloadData != null) {
-            g gVar = this.lmC.get(downloadData.getUrl());
+            g gVar = this.lmE.get(downloadData.getUrl());
             int dt = dt(downloadData.getId(), downloadData.getName());
             if (gVar == null) {
                 gVar = new g(downloadData, dt);
@@ -310,7 +310,7 @@ public class e {
     public void k(DownloadData downloadData) {
         if (downloadData != null) {
             j(downloadData);
-            g gVar = this.lmC.get(downloadData.getUrl());
+            g gVar = this.lmE.get(downloadData.getUrl());
             if (gVar != null) {
                 NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, dt(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), zr(downloadData.getAction()), false, gVar.dcj(), false);
             }
@@ -398,7 +398,7 @@ public class e {
                 int dt = dt(downloadData.getId(), downloadData.getName());
                 String str3 = dt + "%";
                 if (downloadData != null && dt >= 0) {
-                    g gVar = this.lmC.get(downloadData.getUrl());
+                    g gVar = this.lmE.get(downloadData.getUrl());
                     g gVar2 = gVar == null ? new g(downloadData, dt) : gVar;
                     gVar2.dcl();
                     NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), zr(downloadData.getAction()), false, gVar2.dcj(), false);
@@ -471,11 +471,11 @@ public class e {
     }
 
     public static Integer Mr(String str) {
-        if (lmB.containsKey(str)) {
-            return lmB.get(str);
+        if (lmD.containsKey(str)) {
+            return lmD.get(str);
         }
         Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-        lmB.put(str, valueOf);
+        lmD.put(str, valueOf);
         return valueOf;
     }
 }

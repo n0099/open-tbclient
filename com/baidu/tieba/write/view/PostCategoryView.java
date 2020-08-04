@@ -23,52 +23,52 @@ import java.util.List;
 public class PostCategoryView extends TextView {
     private MorePopupWindow dJC;
     private LinearLayout hsG;
-    private View idD;
-    private TabMenuPopView idP;
-    private LinearLayout mAa;
-    private Drawable mAb;
-    private Drawable mAc;
+    private View idF;
+    private TabMenuPopView idR;
+    private boolean mAb;
+    private LinearLayout mAc;
+    private Drawable mAd;
+    private Drawable mAe;
     private Context mContext;
-    private boolean mzZ;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.mzZ = false;
-        this.mAb = ao.getDrawable(R.drawable.icon_title_down);
-        this.mAb.setBounds(0, 0, this.mAb.getIntrinsicWidth(), this.mAb.getIntrinsicHeight());
-        this.mAc = ao.getDrawable(R.drawable.icon_title_up);
-        this.mAc.setBounds(0, 0, this.mAc.getIntrinsicWidth(), this.mAb.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.mAb, null);
+        this.mAb = false;
+        this.mAd = ao.getDrawable(R.drawable.icon_title_down);
+        this.mAd.setBounds(0, 0, this.mAd.getIntrinsicWidth(), this.mAd.getIntrinsicHeight());
+        this.mAe = ao.getDrawable(R.drawable.icon_title_up);
+        this.mAe.setBounds(0, 0, this.mAe.getIntrinsicWidth(), this.mAd.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.mAd, null);
         setPadding(0, 0, l.getDimens(getContext(), R.dimen.ds50), 0);
         this.hsG = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.mAa = (LinearLayout) this.hsG.findViewById(R.id.pop_category_layout);
-        this.idP = (TabMenuPopView) this.mAa.findViewById(R.id.pop_category_view);
-        this.idD = this.hsG.findViewById(R.id.pop_category_grav);
-        this.idD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
+        this.mAc = (LinearLayout) this.hsG.findViewById(R.id.pop_category_layout);
+        this.idR = (TabMenuPopView) this.mAc.findViewById(R.id.pop_category_view);
+        this.idF = this.hsG.findViewById(R.id.pop_category_grav);
+        this.idF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.dvJ();
+                PostCategoryView.this.dvK();
             }
         });
     }
 
     public void setCategoryContainerData(List<bd> list, bd bdVar) {
-        this.idP.setData(list, bdVar);
+        this.idR.setData(list, bdVar);
     }
 
     public void setCategoryContainerData(List<ad> list, ad adVar, int i) {
-        this.idP.setData(list, adVar, i);
+        this.idR.setData(list, adVar, i);
     }
 
     public void setCategoryContainerClickCallback(TabMenuPopView.a aVar) {
-        this.idP.setOnItemClickCallBack(aVar);
+        this.idR.setOnItemClickCallBack(aVar);
     }
 
-    public void dvI() {
-        if (this.mzZ) {
-            setCompoundDrawables(null, null, this.mAb, null);
-            this.mzZ = false;
+    public void dvJ() {
+        if (this.mAb) {
+            setCompoundDrawables(null, null, this.mAd, null);
+            this.mAb = false;
         } else {
             a(this);
             if (this.dJC != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.dJC.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.dJC.setHeight(-1);
                 this.dJC.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.mAc, null);
-                this.mzZ = true;
+                setCompoundDrawables(null, null, this.mAe, null);
+                this.mAb = true;
             }
         }
         invalidate();
@@ -101,7 +101,7 @@ public class PostCategoryView extends TextView {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.dvI();
+                        postCategoryView.dvJ();
                     }
                 }
             });
@@ -111,15 +111,15 @@ public class PostCategoryView extends TextView {
     public void bci() {
         ao.setBackgroundColor(this, R.color.cp_bg_line_d);
         ao.setViewTextColor(this, R.color.cp_cont_b, 1);
-        if (this.mAa != null) {
-            ao.setBackgroundColor(this.mAa, R.color.cp_bg_line_d);
+        if (this.mAc != null) {
+            ao.setBackgroundColor(this.mAc, R.color.cp_bg_line_d);
         }
-        if (this.idP != null) {
-            this.idP.bci();
+        if (this.idR != null) {
+            this.idR.bci();
         }
     }
 
-    public void dvJ() {
+    public void dvK() {
         if (this.dJC != null) {
             this.dJC.dismiss();
         }

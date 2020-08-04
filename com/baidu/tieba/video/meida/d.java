@@ -2,14 +2,14 @@ package com.baidu.tieba.video.meida;
 /* loaded from: classes17.dex */
 public abstract class d {
     int channelCount;
-    String mhA;
+    String mhC;
     int sampleRate;
 
     public abstract void OZ(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.mhA = str;
+        this.mhC = str;
     }
 
     public void setSampleRate(int i) {

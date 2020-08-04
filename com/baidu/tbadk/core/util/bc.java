@@ -8,6 +8,10 @@ public class bc {
         return currentTimeMillis > j && currentTimeMillis < j2;
     }
 
+    public static boolean b(Date date, Date date2) {
+        return date.getYear() == date2.getYear() && date.getMonth() == date2.getMonth() && date.getDay() == date2.getDay();
+    }
+
     public static boolean cK(long j) {
         return new Date(j).getYear() == new Date(System.currentTimeMillis()).getYear();
     }

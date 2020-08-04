@@ -13,11 +13,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private e lQA;
-    private final long lQw;
-    private final String lQx;
-    private final int lQy;
-    private final int lQz;
+    private final int lQA;
+    private final int lQB;
+    private e lQC;
+    private final long lQy;
+    private final String lQz;
     protected final String mFileName;
 
     public abstract void cancel();
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.lQz = i2;
-        this.lQw = j;
-        this.lQx = str2;
-        this.lQy = i;
+        this.lQB = i2;
+        this.lQy = j;
+        this.lQz = str2;
+        this.lQA = i;
     }
 
     public void a(e eVar) {
-        this.lQA = eVar;
+        this.lQC = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void notifyProgress(int i) {
-        if (this.lQA != null) {
-            this.lQA.ax(i / 100.0f);
+        if (this.lQC != null) {
+            this.lQC.ax(i / 100.0f);
         }
     }
 
@@ -58,10 +58,10 @@ public abstract class a {
         } else {
             z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             zVar.addPostData("chunk_no", String.valueOf(i));
-            zVar.addPostData("chunk_sum", String.valueOf(this.lQz));
+            zVar.addPostData("chunk_sum", String.valueOf(this.lQB));
             zVar.addPostData("chunk_size", String.valueOf(b.length));
-            zVar.addPostData("video_size", String.valueOf(this.lQw));
-            zVar.addPostData("video_md5", this.lQx);
+            zVar.addPostData("video_size", String.valueOf(this.lQy));
+            zVar.addPostData("video_md5", this.lQz);
             zVar.addPostData("video_len", String.valueOf(j));
             zVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             zVar.addPostData("video_chunk", b);
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.lQz) {
-            i2 = (int) (this.lQw - ((i - 1) * this.lQy));
+        if (i == this.lQB) {
+            i2 = (int) (this.lQy - ((i - 1) * this.lQA));
         } else {
-            i2 = this.lQy;
+            i2 = this.lQA;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.lQy);
+                randomAccessFile.seek((i - 1) * this.lQA);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

@@ -52,7 +52,7 @@ public class g extends com.baidu.tieba.frs.j<h, i> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
             iVar.a(hVar.cul(), hVar.cuh(), hVar.cui(), hVar.cuj());
-            iVar.jax.setTag(Integer.valueOf(i));
+            iVar.jaz.setTag(Integer.valueOf(i));
         }
         return view;
     }

@@ -11,7 +11,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabRequest;
 /* loaded from: classes16.dex */
 public class HotTopicTabModel extends BdBaseModel {
     private com.baidu.adp.framework.listener.a dFJ;
-    private b iwN;
+    private b iwP;
     private boolean mIsLoading;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,12 +25,12 @@ public class HotTopicTabModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 HotTopicTabModel.this.mIsLoading = false;
-                if (HotTopicTabModel.this.iwN != null && (responsedMessage instanceof com.baidu.tieba.homepage.hotTopic.tab.net.a) && HotTopicTabModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                if (HotTopicTabModel.this.iwP != null && (responsedMessage instanceof com.baidu.tieba.homepage.hotTopic.tab.net.a) && HotTopicTabModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
-                        HotTopicTabModel.this.iwN.n(-1, null);
+                        HotTopicTabModel.this.iwP.n(-1, null);
                         return;
                     }
-                    HotTopicTabModel.this.iwN.n(responsedMessage.getError(), ((com.baidu.tieba.homepage.hotTopic.tab.net.a) responsedMessage).getDataList());
+                    HotTopicTabModel.this.iwP.n(responsedMessage.getError(), ((com.baidu.tieba.homepage.hotTopic.tab.net.a) responsedMessage).getDataList());
                 }
             }
         };
@@ -38,7 +38,7 @@ public class HotTopicTabModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setPresenter(b bVar) {
-        this.iwN = bVar;
+        this.iwP = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

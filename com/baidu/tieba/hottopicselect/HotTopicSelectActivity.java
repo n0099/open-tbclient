@@ -39,26 +39,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class HotTopicSelectActivity extends SuspendedActivity implements com.baidu.tbadk.suspended.a, HotTopicSelectModel.a {
-    private TextView hWm;
-    private HotTopicSelectModel iOP;
-    private View iOR;
-    private BdListView iOS;
-    private ExpandableListView iOT;
-    private e iOU;
-    private b iOV;
-    private ViewGroup iOW;
-    private EditText iOX;
-    private ImageView iOY;
-    private TextView iOZ;
-    private Intent iPa;
+    private TextView hWo;
+    private HotTopicSelectModel iOR;
+    private View iOT;
+    private BdListView iOU;
+    private ExpandableListView iOV;
+    private e iOW;
+    private b iOX;
+    private ViewGroup iOY;
+    private EditText iOZ;
+    private ImageView iPa;
+    private TextView iPb;
+    private Intent iPc;
     private NoDataView mNoDataView;
-    private final List<d> iOQ = new ArrayList();
+    private final List<d> iOS = new ArrayList();
     final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == HotTopicSelectActivity.this.iOY) {
+            if (view == HotTopicSelectActivity.this.iPa) {
                 HotTopicSelectActivity.this.cpT();
-            } else if (view == HotTopicSelectActivity.this.hWm) {
+            } else if (view == HotTopicSelectActivity.this.hWo) {
                 HotTopicSelectActivity.this.GY("");
             }
         }
@@ -66,7 +66,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     final AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d dVar = (d) x.getItem(HotTopicSelectActivity.this.iOV.getList(), i);
+            d dVar = (d) x.getItem(HotTopicSelectActivity.this.iOX.getList(), i);
             if (dVar != null) {
                 String topicName = dVar.getTopicName();
                 HotTopicSelectActivity.this.GY(topicName);
@@ -74,24 +74,24 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             }
         }
     };
-    final ExpandableListView.OnGroupClickListener iPb = new ExpandableListView.OnGroupClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.3
+    final ExpandableListView.OnGroupClickListener iPd = new ExpandableListView.OnGroupClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.3
         @Override // android.widget.ExpandableListView.OnGroupClickListener
         public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long j) {
-            if (HotTopicSelectActivity.this.iOT != null) {
-                HotTopicSelectActivity.this.iOT.expandGroup(i);
+            if (HotTopicSelectActivity.this.iOV != null) {
+                HotTopicSelectActivity.this.iOV.expandGroup(i);
                 return true;
             }
             return true;
         }
     };
-    final ExpandableListView.OnChildClickListener iPc = new ExpandableListView.OnChildClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.4
+    final ExpandableListView.OnChildClickListener iPe = new ExpandableListView.OnChildClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.4
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i2, long j) {
             d child;
-            if (HotTopicSelectActivity.this.iOU != null && (child = HotTopicSelectActivity.this.iOU.getChild(i, i2)) != null) {
+            if (HotTopicSelectActivity.this.iOW != null && (child = HotTopicSelectActivity.this.iOW.getChild(i, i2)) != null) {
                 String topicName = child.getTopicName();
                 HotTopicSelectActivity.this.GY(topicName);
-                c group = HotTopicSelectActivity.this.iOU.getGroup(i);
+                c group = HotTopicSelectActivity.this.iOW.getGroup(i);
                 if (group != null) {
                     HotTopicSelectActivity.this.aQ(topicName, group.getType() == 0 ? 1 : 2);
                     return false;
@@ -106,13 +106,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iOP = new HotTopicSelectModel(getPageContext(), this);
-        this.iOP.W(getIntent());
-        this.iOP.cqd();
+        this.iOR = new HotTopicSelectModel(getPageContext(), this);
+        this.iOR.W(getIntent());
+        this.iOR.cqd();
         initUI();
         getWindow().setSoftInputMode(1);
         showLoadingView();
-        this.iOP.cpZ();
+        this.iOR.cpZ();
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -127,10 +127,10 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     public boolean blX() {
         ListView listView;
         View childAt;
-        if (this.iOS.getVisibility() == 0) {
-            listView = this.iOS;
+        if (this.iOU.getVisibility() == 0) {
+            listView = this.iOU;
         } else {
-            listView = this.iOT;
+            listView = this.iOV;
         }
         return listView != null && listView.getFirstVisiblePosition() == 0 && (childAt = listView.getChildAt(0)) != null && childAt.getTop() == 0;
     }
@@ -146,7 +146,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     @Override // com.baidu.tbadk.suspended.a
     public Intent blZ() {
-        return this.iPa;
+        return this.iPc;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -155,32 +155,32 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingView() {
-        this.iOR.setVisibility(8);
-        showLoadingView(this.iOW, true, getResources().getDimensionPixelSize(R.dimen.ds320));
+        this.iOT.setVisibility(8);
+        showLoadingView(this.iOY, true, getResources().getDimensionPixelSize(R.dimen.ds320));
     }
 
     private void initUI() {
-        this.iOW = (ViewGroup) findViewById(R.id.frame_main_view);
-        this.hWm = (TextView) findViewById(R.id.btn_confirm);
-        this.iOZ = (TextView) findViewById(R.id.topic_text);
-        this.iOY = (ImageView) findViewById(R.id.clear_right_img);
-        this.iOR = findViewById(R.id.home_search_list);
-        this.iOS = (BdListView) findViewById(R.id.home_lv_search_suggest);
+        this.iOY = (ViewGroup) findViewById(R.id.frame_main_view);
+        this.hWo = (TextView) findViewById(R.id.btn_confirm);
+        this.iPb = (TextView) findViewById(R.id.topic_text);
+        this.iPa = (ImageView) findViewById(R.id.clear_right_img);
+        this.iOT = findViewById(R.id.home_search_list);
+        this.iOU = (BdListView) findViewById(R.id.home_lv_search_suggest);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds420)), null, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.iOW.addView(this.mNoDataView, layoutParams);
+        this.iOY.addView(this.mNoDataView, layoutParams);
         this.mNoDataView.setVisibility(8);
-        this.iOV = new b(getPageContext());
-        this.iOS.setAdapter((ListAdapter) this.iOV);
-        this.iOT = (ExpandableListView) findViewById(R.id.home_no_search_listview);
-        this.iOU = new e(getPageContext());
-        this.iOT.setAdapter(this.iOU);
-        this.iOS.setOnItemClickListener(this.mOnItemClickListener);
-        this.iOT.setOnGroupClickListener(this.iPb);
-        this.iOT.setOnChildClickListener(this.iPc);
-        this.hWm.setOnClickListener(this.mOnClickListener);
-        this.iOY.setOnClickListener(this.mOnClickListener);
+        this.iOX = new b(getPageContext());
+        this.iOU.setAdapter((ListAdapter) this.iOX);
+        this.iOV = (ExpandableListView) findViewById(R.id.home_no_search_listview);
+        this.iOW = new e(getPageContext());
+        this.iOV.setAdapter(this.iOW);
+        this.iOU.setOnItemClickListener(this.mOnItemClickListener);
+        this.iOV.setOnGroupClickListener(this.iPd);
+        this.iOV.setOnChildClickListener(this.iPe);
+        this.hWo.setOnClickListener(this.mOnClickListener);
+        this.iPa.setOnClickListener(this.mOnClickListener);
         mu(false);
         cpV();
     }
@@ -195,27 +195,27 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     /* JADX INFO: Access modifiers changed from: private */
     public String cal() {
-        String cal = this.iOP != null ? this.iOP.cal() : "";
+        String cal = this.iOR != null ? this.iOR.cal() : "";
         return cal != null ? cal : "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cpT() {
-        this.iOP.Hd("");
-        this.iOX.setText("");
+        this.iOR.Hd("");
+        this.iOZ.setText("");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cpU() {
-        this.iOT.setVisibility(0);
-        this.iOS.setVisibility(8);
-        this.iOV.clearList();
-        if (this.iOU != null && !x.isEmpty(this.iOU.getList())) {
-            this.iOR.setVisibility(0);
+        this.iOV.setVisibility(0);
+        this.iOU.setVisibility(8);
+        this.iOX.clearList();
+        if (this.iOW != null && !x.isEmpty(this.iOW.getList())) {
+            this.iOT.setVisibility(0);
             return;
         }
         showLoadingView();
-        this.iOP.getCacheData();
+        this.iOR.getCacheData();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
@@ -225,9 +225,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     private void cpV() {
-        this.iOX = (EditText) findViewById(R.id.search_root);
-        this.iOX.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
-        this.iOX.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
+        this.iOZ = (EditText) findViewById(R.id.search_root);
+        this.iOZ.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
+        this.iOZ.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
@@ -235,7 +235,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
                 }
             }
         });
-        this.iOX.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.6
+        this.iOZ.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6) {
@@ -248,7 +248,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
                 return false;
             }
         });
-        this.iOX.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.7
+        this.iOZ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.7
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -264,42 +264,42 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
                     HotTopicSelectActivity.this.cpU();
                 } else {
                     HotTopicSelectActivity.this.mNoDataView.setVisibility(8);
-                    HotTopicSelectActivity.this.iOR.setVisibility(8);
+                    HotTopicSelectActivity.this.iOT.setVisibility(8);
                     HotTopicSelectActivity.this.showLoadingView();
-                    HotTopicSelectActivity.this.iOP.Hc(obj);
+                    HotTopicSelectActivity.this.iOR.Hc(obj);
                 }
                 HotTopicSelectActivity.this.mu(!StringUtils.isNull(editable.toString()));
                 HotTopicSelectActivity.this.cpW();
             }
         });
-        this.iOX.requestFocus();
+        this.iOZ.requestFocus();
     }
 
     public void mu(boolean z) {
-        this.iOY.setVisibility(z ? 0 : 8);
+        this.iPa.setVisibility(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cpW() {
-        if (this.iOX != null && this.iOZ != null) {
-            if (TextUtils.isEmpty(this.iOX.getText())) {
-                ao.setViewTextColor(this.iOZ, R.color.cp_cont_d, 1);
+        if (this.iOZ != null && this.iPb != null) {
+            if (TextUtils.isEmpty(this.iOZ.getText())) {
+                ao.setViewTextColor(this.iPb, R.color.cp_cont_d, 1);
             } else {
-                ao.setViewTextColor(this.iOZ, R.color.cp_cont_b, 1);
+                ao.setViewTextColor(this.iPb, R.color.cp_cont_b, 1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void GY(String str) {
-        if (this.iOX != null && this.iOX.hasFocus()) {
-            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.iOX);
+        if (this.iOZ != null && this.iOZ.hasFocus()) {
+            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.iOZ);
         }
         if (TextUtils.isEmpty(str)) {
             setResult(0, new Intent());
         } else {
-            this.iPa = new Intent();
-            this.iPa.putExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING, str + HotSelectActivityConfig.HOT_TOPIC_SING);
+            this.iPc = new Intent();
+            this.iPc.putExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING, str + HotSelectActivityConfig.HOT_TOPIC_SING);
         }
         finish();
     }
@@ -312,8 +312,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void Ha(String str) {
-        hideLoadingView(this.iOW);
-        this.iOR.setVisibility(8);
+        hideLoadingView(this.iOY);
+        this.iOT.setVisibility(8);
         if (!j.isNetWorkAvailable()) {
             this.mNoDataView.setTextOption(NoDataViewFactory.d.mF(R.string.neterror));
             this.mNoDataView.setVisibility(0);
@@ -329,54 +329,54 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             if (TextUtils.isEmpty(cVar.cpX())) {
                 cVar.setTitle(getString(z ? R.string.group_topic_default : R.string.group_topic_hot));
             }
-            this.iOU.b(cVar);
+            this.iOW.b(cVar);
         }
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void a(c cVar, c cVar2) {
-        this.iOR.setVisibility(0);
         this.iOT.setVisibility(0);
-        this.iOS.setVisibility(8);
-        hideLoadingView(this.iOW);
-        this.iOU.clearList();
+        this.iOV.setVisibility(0);
+        this.iOU.setVisibility(8);
+        hideLoadingView(this.iOY);
+        this.iOW.clearList();
         a(cVar, true);
         a(cVar2, false);
-        this.iOU.notifyDataSetChanged();
-        int count = this.iOT.getCount();
+        this.iOW.notifyDataSetChanged();
+        int count = this.iOV.getCount();
         for (int i = 0; i < count; i++) {
-            this.iOT.expandGroup(i);
+            this.iOV.expandGroup(i);
         }
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void Hb(String str) {
-        this.iOR.setVisibility(0);
-        this.iOT.setVisibility(8);
-        this.iOS.setVisibility(0);
-        hideLoadingView(this.iOW);
+        this.iOT.setVisibility(0);
+        this.iOV.setVisibility(8);
+        this.iOU.setVisibility(0);
+        hideLoadingView(this.iOY);
         String cal = cal();
         d GZ = GZ(cal);
-        this.iOQ.clear();
-        this.iOQ.add(GZ);
-        this.iOV.k(cal, this.iOQ);
+        this.iOS.clear();
+        this.iOS.add(GZ);
+        this.iOX.k(cal, this.iOS);
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void a(c cVar) {
-        this.iOR.setVisibility(0);
-        this.iOT.setVisibility(8);
-        this.iOS.setVisibility(0);
-        hideLoadingView(this.iOW);
-        this.iOQ.clear();
+        this.iOT.setVisibility(0);
+        this.iOV.setVisibility(8);
+        this.iOU.setVisibility(0);
+        hideLoadingView(this.iOY);
+        this.iOS.clear();
         String cal = cal();
-        this.iOQ.add(GZ(cal));
+        this.iOS.add(GZ(cal));
         if (cVar == null || cVar.getList() == null) {
-            this.iOV.k(cal, this.iOQ);
+            this.iOX.k(cal, this.iOS);
             return;
         }
-        this.iOQ.addAll(cVar.getList());
-        this.iOV.k(cal, this.iOQ);
+        this.iOS.addAll(cVar.getList());
+        this.iOX.k(cal, this.iOS);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -397,18 +397,18 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.iOV != null) {
-            this.iOV.notifyDataSetChanged();
-        }
-        if (this.iOU != null) {
-            this.iOU.notifyDataSetChanged();
-        }
         if (this.iOX != null) {
-            this.iOX.setHintTextColor(ao.getColor(R.color.cp_cont_d));
+            this.iOX.notifyDataSetChanged();
         }
-        ao.setViewTextColor(this.hWm, R.color.cp_link_tip_a, 1);
-        ao.setViewTextColor(this.iOX, R.color.cp_cont_b, 2);
-        ao.setImageResource(this.iOY, R.drawable.del_search_btn);
+        if (this.iOW != null) {
+            this.iOW.notifyDataSetChanged();
+        }
+        if (this.iOZ != null) {
+            this.iOZ.setHintTextColor(ao.getColor(R.color.cp_cont_d));
+        }
+        ao.setViewTextColor(this.hWo, R.color.cp_link_tip_a, 1);
+        ao.setViewTextColor(this.iOZ, R.color.cp_cont_b, 2);
+        ao.setImageResource(this.iPa, R.drawable.del_search_btn);
         cpW();
         if (this.mSkinType == 2) {
             StatusBarUtil.from(getPageContext().getPageActivity()).setTransparentStatusbar(true).setLightStatusBar(true).process();
@@ -418,9 +418,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.iOP.onDestroy();
+        this.iOR.onDestroy();
         this.mNoDataView.bbU();
-        hideLoadingView(this.iOW);
+        hideLoadingView(this.iOY);
         super.onDestroy();
     }
 }

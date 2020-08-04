@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.hotTopic.tab.b.f, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iwX);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iwZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,11 +54,11 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
         private TextView dJr;
-        private int iwT;
+        private int iwV;
 
         a(TextView textView) {
             super(textView);
-            this.iwT = 3;
+            this.iwV = 3;
             this.dJr = textView;
         }
 
@@ -69,9 +69,9 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
 
         void onChangeSkinType(int i) {
-            if (this.iwT != i) {
+            if (this.iwV != i) {
                 ao.setViewTextColor(this.dJr, R.color.cp_cont_b);
-                this.iwT = i;
+                this.iwV = i;
             }
         }
     }

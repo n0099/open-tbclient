@@ -4,18 +4,18 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes17.dex */
 public class a {
-    private static a iqK;
-    private boolean iqJ = false;
+    private static a iqM;
+    private boolean iqL = false;
 
     public static a cld() {
-        if (iqK == null) {
+        if (iqM == null) {
             synchronized (a.class) {
-                if (iqK == null) {
-                    iqK = new a();
+                if (iqM == null) {
+                    iqM = new a();
                 }
             }
         }
-        return iqK;
+        return iqM;
     }
 
     private a() {
@@ -23,15 +23,15 @@ public class a {
     }
 
     private void initConfig() {
-        this.iqJ = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, false);
+        this.iqL = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, false);
     }
 
     public boolean cle() {
-        return this.iqJ;
+        return this.iqL;
     }
 
     public void oS(boolean z) {
-        this.iqJ = z;
+        this.iqL = z;
         TbadkSettings.getInst().saveBoolean(SharedPrefConfig.HAS_SHOWED_DEL_GA_TIP, z);
     }
 }

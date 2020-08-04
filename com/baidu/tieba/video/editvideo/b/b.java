@@ -9,15 +9,15 @@ public class b {
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
-    private String mcd;
-    private a mdQ;
-    private String mdR;
-    private f mdS;
-    private d mdT;
-    private e mdU;
-    private volatile boolean mdV;
-    private volatile boolean mdW;
+    private String mcf;
+    private a mdS;
+    private String mdT;
+    private f mdU;
+    private d mdV;
+    private e mdW;
     private volatile boolean mdX;
+    private volatile boolean mdY;
+    private volatile boolean mdZ;
 
     /* loaded from: classes17.dex */
     public interface a {
@@ -30,78 +30,78 @@ public class b {
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.mdR = str;
-        this.mcd = str2;
+        this.mdT = str;
+        this.mcf = str2;
         this.mFilterName = str3;
     }
 
-    public void dqe() {
+    public void dqf() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.mdV = false;
-            this.mdW = false;
             this.mdX = false;
+            this.mdY = false;
+            this.mdZ = false;
             try {
-                File file = new File(new File(this.mcd).getParent());
+                File file = new File(new File(this.mcf).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.mdQ != null) {
-                    this.mdQ.bH(222, com.baidu.tieba.k.a.s(e));
+                if (this.mdS != null) {
+                    this.mdS.bH(222, com.baidu.tieba.k.a.s(e));
                 }
             }
             try {
-                this.mdU = new e(this.mcd);
-                this.mdS = new f(this.mContext, this.mdR, this.mFilterName, this.mdU, this.mdQ) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.mdW = new e(this.mcf);
+                this.mdU = new f(this.mContext, this.mdT, this.mFilterName, this.mdW, this.mdS) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.mdV = true;
-                        b.this.dqg();
+                        b.this.mdX = true;
+                        b.this.dqh();
                     }
                 };
-                this.mdS.start();
-                this.mdT = new d(this.mContext, this.mdR, this.mdU, this.mdQ) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.mdU.start();
+                this.mdV = new d(this.mContext, this.mdT, this.mdW, this.mdS) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.mdW = true;
-                        b.this.dqg();
+                        b.this.mdY = true;
+                        b.this.dqh();
                     }
                 };
-                this.mdT.start();
+                this.mdV.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void dqf() {
-        if (this.mdS != null) {
-            this.mdS.interrupt();
-            this.mdS = null;
+    public void dqg() {
+        if (this.mdU != null) {
+            this.mdU.interrupt();
+            this.mdU = null;
         }
-        if (this.mdT != null) {
-            this.mdT.interrupt();
-            this.mdT = null;
+        if (this.mdV != null) {
+            this.mdV.interrupt();
+            this.mdV = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dqg() {
-        if (this.mdV && this.mdW && !this.mdX) {
-            this.mdU.stop();
-            this.mdX = true;
-            dqh();
+    public void dqh() {
+        if (this.mdX && this.mdY && !this.mdZ) {
+            this.mdW.stop();
+            this.mdZ = true;
+            dqi();
         }
     }
 
-    private void dqh() {
-        if (this.mdQ != null) {
-            File file = new File(this.mcd);
+    private void dqi() {
+        if (this.mdS != null) {
+            File file = new File(this.mcf);
             if (file.exists() && file.length() > 0) {
-                this.mdQ.OJ(this.mcd);
+                this.mdS.OJ(this.mcf);
             } else {
-                this.mdQ.bH(223, "Err empty outputFile");
+                this.mdS.bH(223, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.mdQ = aVar;
+        this.mdS = aVar;
     }
 }

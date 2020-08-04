@@ -24,7 +24,7 @@ import tbclient.AlaLiveInfo;
 public class HomePageAlaRecommendLayout extends LinearLayout {
     private CustomMessageListener eaY;
     private BdRecyclerView gPs;
-    private com.baidu.tieba.homepage.personalize.a.a iBN;
+    private com.baidu.tieba.homepage.personalize.a.a iBP;
     private Context mContext;
     private List<AlaLiveInfo> mData;
     private int mSkinType;
@@ -61,8 +61,8 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.gPs = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
-        this.iBN = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
-        this.gPs.setAdapter(this.iBN);
+        this.iBP = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
+        this.gPs.setAdapter(this.iBP);
         this.gPs.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
         this.gPs.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(this.mContext, R.dimen.tbds20);
@@ -86,8 +86,8 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.iBN.setData(this.mData);
-        this.iBN.notifyDataSetChanged();
+        this.iBP.setData(this.mData);
+        this.iBP.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {

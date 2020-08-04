@@ -11,34 +11,34 @@ import java.util.List;
 public class e {
     private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
     private BdTypeListView frv;
-    private j iIh;
-    private h iIi;
-    private k iIj;
-    private f iIk;
-    private g iIl;
-    private a iIm;
-    private i iIn;
+    private j iIj;
+    private h iIk;
+    private k iIl;
+    private f iIm;
+    private g iIn;
+    private a iIo;
+    private i iIp;
 
     public e(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         a(hotTopicActivity, bdTypeListView);
     }
 
     private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.iIk = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
-        this.iIh = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.iKQ);
-        this.iIi = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.iKy);
-        this.iIj = new k(hotTopicActivity, n.iKT);
+        this.iIm = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
+        this.iIj = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.iKS);
+        this.iIk = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.iKA);
+        this.iIl = new k(hotTopicActivity, n.iKV);
         TbPageContext pageContext = hotTopicActivity.getPageContext();
-        this.iIl = new g(pageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.iIm = new a(pageContext, com.baidu.tieba.card.data.l.dRS);
-        this.iIn = new i(pageContext, com.baidu.tieba.card.data.k.dRW);
-        this.aWf.add(this.iIh);
-        this.aWf.add(this.iIi);
+        this.iIn = new g(pageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.iIo = new a(pageContext, com.baidu.tieba.card.data.l.dRS);
+        this.iIp = new i(pageContext, com.baidu.tieba.card.data.k.dRW);
         this.aWf.add(this.iIj);
         this.aWf.add(this.iIk);
         this.aWf.add(this.iIl);
         this.aWf.add(this.iIm);
         this.aWf.add(this.iIn);
+        this.aWf.add(this.iIo);
+        this.aWf.add(this.iIp);
         this.frv = bdTypeListView;
         this.frv.addAdapters(this.aWf);
     }
@@ -56,8 +56,8 @@ public class e {
     }
 
     public void setFromCDN(boolean z) {
-        if (this.iIl != null) {
-            this.iIl.setFromCDN(z);
+        if (this.iIn != null) {
+            this.iIn.setFromCDN(z);
         }
     }
 

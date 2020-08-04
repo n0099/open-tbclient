@@ -49,23 +49,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes15.dex */
 public class a {
-    private static a luH;
-    public final com.baidu.tieba.v.b luJ;
-    public int luK;
-    public int luL;
+    private static a luJ;
+    public final com.baidu.tieba.v.b luL;
     public int luM;
     public int luN;
     public int luO;
-    public boolean luP;
-    private List<d> lfs = new LinkedList();
-    private d luI = null;
-    public boolean luQ = false;
+    public int luP;
+    public int luQ;
+    public boolean luR;
+    private List<d> lfu = new LinkedList();
+    private d luK = null;
+    public boolean luS = false;
     public Handler mHandler = new Handler() { // from class: com.baidu.tieba.screenlocknotify.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
         }
     };
-    private CustomMessageListener iTN = new CustomMessageListener(0) { // from class: com.baidu.tieba.screenlocknotify.a.2
+    private CustomMessageListener iTP = new CustomMessageListener(0) { // from class: com.baidu.tieba.screenlocknotify.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -94,7 +94,7 @@ public class a {
             }
         }
     };
-    private CustomMessageListener luR = new CustomMessageListener(CmdConfigCustom.CMD_SCREEN_DIALOG) { // from class: com.baidu.tieba.screenlocknotify.a.5
+    private CustomMessageListener luT = new CustomMessageListener(CmdConfigCustom.CMD_SCREEN_DIALOG) { // from class: com.baidu.tieba.screenlocknotify.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -102,7 +102,7 @@ public class a {
                 int hours = new Date(System.currentTimeMillis()).getHours();
                 if ((hours < 0 || hours > 7) && hours < 23) {
                     RemindRecommendMessage remindRecommendMessage = (RemindRecommendMessage) customResponsedMessage;
-                    if (a.this.luJ.dpo()) {
+                    if (a.this.luL.dpp()) {
                         a.this.b(remindRecommendMessage);
                     } else {
                         a.this.a(remindRecommendMessage);
@@ -119,31 +119,31 @@ public class a {
     private final Context appContext = TbadkApplication.getInst().getApp();
 
     public static a ddK() {
-        if (luH == null) {
-            luH = new a();
+        if (luJ == null) {
+            luJ = new a();
         }
-        return luH;
+        return luJ;
     }
 
     public void release() {
-        this.lfs.clear();
-        this.luI = null;
+        this.lfu.clear();
+        this.luK = null;
     }
 
     private a() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.iTN);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.iTP);
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
         MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_GROUP_CMD, this.mCustomMessageListener);
         MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD, this.mCustomMessageListener);
         MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(this.luR);
-        this.luK = 0;
-        this.luL = 0;
+        MessageManager.getInstance().registerListener(this.luT);
         this.luM = 0;
         this.luN = 0;
         this.luO = 0;
-        this.luP = true;
-        this.luJ = new com.baidu.tieba.v.b();
+        this.luP = 0;
+        this.luQ = 0;
+        this.luR = true;
+        this.luL = new com.baidu.tieba.v.b();
     }
 
     public static boolean ddL() {
@@ -165,7 +165,7 @@ public class a {
             dVar.url = remindRecommendMessage.url;
             dVar.lastTime = System.currentTimeMillis();
             dVar.isAcceptNotify = true;
-            dVar.kWe = true;
+            dVar.kWg = true;
             dVar.followStatus = 1;
             dVar.taskId = 0L;
             if (remindRecommendMessage.isLocal) {
@@ -251,12 +251,12 @@ public class a {
 
     public List<d> ddM() {
         LinkedList linkedList = new LinkedList();
-        linkedList.addAll(this.lfs);
+        linkedList.addAll(this.lfu);
         return linkedList;
     }
 
     public d ddN() {
-        return this.luI;
+        return this.luK;
     }
 
     protected List<ChatMessage> processServerMsg(ResponsedMessage<?> responsedMessage) {
@@ -293,7 +293,7 @@ public class a {
                                         return;
                                     }
                                 } else {
-                                    this.luI = b;
+                                    this.luK = b;
                                 }
                                 z = true;
                             }
@@ -326,7 +326,7 @@ public class a {
         if (UtilHelper.getTodayZeroTime() < TbSingleton.getInstance().getLastResumeTime()) {
             return false;
         }
-        if (!this.luJ.dpo()) {
+        if (!this.luL.dpp()) {
             Activity currentActivity = com.baidu.adp.base.a.jC().currentActivity();
             if (currentActivity != null && currentActivity.getClass() != null && currentActivity.getClass().getName().equals(ScreenLockActivity.class.getName())) {
                 currentActivity.finish();
@@ -355,8 +355,8 @@ public class a {
     }
 
     public void c(d dVar) {
-        if (this.lfs != null) {
-            this.lfs.add(dVar);
+        if (this.lfu != null) {
+            this.lfu.add(dVar);
         }
     }
 
@@ -385,10 +385,10 @@ public class a {
         dVar.customGroupType = i;
         dVar.userName = chatMessage.getUserInfo().getUserName();
         dVar.nameShow = chatMessage.getUserInfo().getName_show();
-        dVar.luZ = chatMessage.getRecordId();
+        dVar.lvb = chatMessage.getRecordId();
         dVar.msgId = chatMessage.getMsgId();
         dVar.isAcceptNotify = true;
-        dVar.kWe = true;
+        dVar.kWg = true;
         dVar.followStatus = 1;
         dVar.taskId = chatMessage.getStatTaskId();
         if (dVar.customGroupType == 1) {
@@ -411,12 +411,12 @@ public class a {
             if (be2 != null) {
                 dVar.unreadCount = be2.getUnread_count();
                 dVar.lastTime = be2.getLast_content_time();
-                dVar.kWe = be2.getIsFriend() == 1;
+                dVar.kWg = be2.getIsFriend() == 1;
                 dVar.followStatus = be2.getFollowStatus();
             }
             dVar.groupName = chatMessage.getUserInfo().getUserName();
             dVar.content = e.bk(chatMessage.getMsgType(), chatMessage.getContent());
-            if (dVar.kWe) {
+            if (dVar.kWg) {
                 if (!com.baidu.tbadk.coreExtra.messageCenter.d.bfO().bfW()) {
                     dVar.isAcceptNotify = false;
                 } else {
@@ -438,7 +438,7 @@ public class a {
             if (be3 != null) {
                 dVar.unreadCount = be3.getUnread_count();
                 dVar.lastTime = be3.getLast_content_time();
-                dVar.kWe = be3.getIsFriend() == 1;
+                dVar.kWg = be3.getIsFriend() == 1;
                 dVar.followStatus = be3.getFollowStatus();
             }
             dVar.groupName = chatMessage.getUserInfo().getUserName();
@@ -470,7 +470,7 @@ public class a {
 
     public void d(d dVar) {
         if (dVar != null) {
-            this.lfs.remove(dVar);
+            this.lfu.remove(dVar);
         }
     }
 
@@ -497,8 +497,8 @@ public class a {
     public void ddP() {
         d dVar;
         if (ddO()) {
-            if ((this.lfs != null && this.lfs.size() != 0) || this.luI != null) {
-                if (!this.luJ.dpo() || this.luM == 1) {
+            if ((this.lfu != null && this.lfu.size() != 0) || this.luK != null) {
+                if (!this.luL.dpp() || this.luO == 1) {
                     Activity currentActivity = com.baidu.adp.base.a.jC().currentActivity();
                     if (currentActivity != null && currentActivity.getClass() != null && currentActivity.getClass().getName().equals("com.baidu.tieba.pushdialog.PushDialogActivity")) {
                         currentActivity.finish();
@@ -507,10 +507,10 @@ public class a {
                     this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.screenlocknotify.a.6
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.luJ.dpm();
+                            a.this.luL.dpn();
                         }
                     }, 1000L);
-                    if (this.lfs != null && this.lfs.size() > 0 && (dVar = this.lfs.get(0)) != null) {
+                    if (this.lfu != null && this.lfu.size() > 0 && (dVar = this.lfu.get(0)) != null) {
                         TiebaStatic.logPagePV(new ap("c11702").t("msg_id", dVar.msgId / 100).t("task_id", dVar.taskId));
                     }
                 }

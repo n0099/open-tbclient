@@ -3,10 +3,10 @@ package com.baidu.tieba.p;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class b {
-    public SparseArray<a> luu;
+    public SparseArray<a> luw;
 
     public b(SparseArray<a> sparseArray) {
-        this.luu = sparseArray;
+        this.luw = sparseArray;
     }
 
     /* loaded from: classes.dex */

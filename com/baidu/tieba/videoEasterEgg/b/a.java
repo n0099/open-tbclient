@@ -5,11 +5,11 @@ public interface a {
 
     void cYL();
 
-    void dsN();
-
     void dsO();
 
     void dsP();
+
+    void dsQ();
 
     void onClose();
 

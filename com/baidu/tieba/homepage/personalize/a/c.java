@@ -18,7 +18,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public BdUniqueId eEU;
     private NEGFeedBackView.a far;
     com.baidu.tieba.card.aa<com.baidu.tieba.card.data.j> hly;
-    private com.baidu.tieba.card.k izi;
+    private com.baidu.tieba.card.k izk;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,15 +30,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
                 int i = 0;
-                if (c.this.izi.fiQ != view) {
-                    if (view == c.this.izi.fXb.getCommentContainer()) {
+                if (c.this.izk.fiQ != view) {
+                    if (view == c.this.izk.fXb.getCommentContainer()) {
                         c.this.b(jVar);
                         i = 5;
-                    } else if (view == c.this.izi.gUl.getCommentContainer()) {
+                    } else if (view == c.this.izk.gUl.getCommentContainer()) {
                         c.this.b(jVar);
-                    } else if (c.this.izi.bRq() != null && view.getId() == c.this.izi.bRq().getId()) {
+                    } else if (c.this.izk.bRq() != null && view.getId() == c.this.izk.bRq().getId()) {
                         i = 2;
-                    } else if (c.this.izi.bRr() != null && view.getId() == c.this.izi.bRr().getId()) {
+                    } else if (c.this.izk.bRr() != null && view.getId() == c.this.izk.bRr().getId()) {
                         i = 2;
                     }
                 } else {
@@ -74,12 +74,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bG */
     public a b(ViewGroup viewGroup) {
-        this.izi = new com.baidu.tieba.card.k(this.mPageContext, this.eEU);
-        this.izi.ta(2);
+        this.izk = new com.baidu.tieba.card.k(this.mPageContext, this.eEU);
+        this.izk.ta(2);
         if (this.eEU != null) {
-            this.izi.p(this.eEU);
+            this.izk.p(this.eEU);
         }
-        return new a(this.izi);
+        return new a(this.izk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,13 +87,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, a aVar) {
         jVar.tj(jVar.position + 1);
-        if (aVar.izk instanceof com.baidu.tieba.a.e) {
-            aVar.izk.setPage(this.afx);
+        if (aVar.izm instanceof com.baidu.tieba.a.e) {
+            aVar.izm.setPage(this.afx);
         }
-        aVar.izk.tf(i + 1);
-        aVar.izk.a(jVar);
-        aVar.izk.c(this.hly);
-        aVar.izk.b(this.far);
+        aVar.izm.tf(i + 1);
+        aVar.izm.a(jVar);
+        aVar.izm.c(this.hly);
+        aVar.izm.b(this.far);
         String str = "";
         if (jVar != null && jVar.aTN() != null) {
             int i2 = jVar.aTN().aWF().live_type;
@@ -142,11 +142,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        public com.baidu.tieba.card.k izk;
+        public com.baidu.tieba.card.k izm;
 
         public a(com.baidu.tieba.card.k kVar) {
             super(kVar.getView());
-            this.izk = kVar;
+            this.izm = kVar;
         }
     }
 

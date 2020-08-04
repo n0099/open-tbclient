@@ -15,109 +15,109 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* loaded from: classes15.dex */
 public class e {
     private TbPageContext<HotTopicActivity> dVN;
-    private ImageView iNP;
-    private LinearLayout iNQ;
-    private TextView iNR;
-    private View iNS;
-    private AnimationDrawable iNT;
-    private Animation iNU;
-    private Animation iNV;
+    private ImageView iNR;
+    private LinearLayout iNS;
+    private TextView iNT;
+    private View iNU;
+    private AnimationDrawable iNV;
     private Animation iNW;
     private Animation iNX;
-    private boolean iNY = false;
-    private boolean iNZ = false;
+    private Animation iNY;
+    private Animation iNZ;
+    private boolean iOa = false;
+    private boolean iOb = false;
     private int index = -1;
 
     public e(TbPageContext<HotTopicActivity> tbPageContext, View view) {
         this.dVN = tbPageContext;
-        this.iNP = (ImageView) view.findViewById(R.id.gif_image);
-        this.iNQ = (LinearLayout) view.findViewById(R.id.gif_group);
-        this.iNR = (TextView) view.findViewById(R.id.git_desc);
-        this.iNS = view.findViewById(R.id.gif_clikc_view);
+        this.iNR = (ImageView) view.findViewById(R.id.gif_image);
+        this.iNS = (LinearLayout) view.findViewById(R.id.gif_group);
+        this.iNT = (TextView) view.findViewById(R.id.git_desc);
+        this.iNU = view.findViewById(R.id.gif_clikc_view);
     }
 
     public void a(int i, boolean z, final long j, int i2) {
-        if (!this.iNY) {
-            this.iNQ.setVisibility(i);
+        if (!this.iOa) {
+            this.iNS.setVisibility(i);
             if (i != 8) {
-                this.iNR.setText(as.numFormatOverWan(j));
-                this.iNZ = z;
-                if (this.iNZ) {
+                this.iNT.setText(as.numFormatOverWan(j));
+                this.iOb = z;
+                if (this.iOb) {
                     if (i2 == 1) {
-                        this.iNR.setVisibility(0);
-                        ao.setImageResource(this.iNP, R.drawable.bless_gif);
+                        this.iNT.setVisibility(0);
+                        ao.setImageResource(this.iNR, R.drawable.bless_gif);
                     } else {
-                        this.iNR.setVisibility(8);
-                        ao.setImageResource(this.iNP, R.drawable.pic_float_zhufu);
+                        this.iNT.setVisibility(8);
+                        ao.setImageResource(this.iNR, R.drawable.pic_float_zhufu);
                     }
-                    ((LinearLayout.LayoutParams) this.iNR.getLayoutParams()).setMargins(this.dVN.getResources().getDimensionPixelSize(R.dimen.bless_magin_left), 0, 0, this.dVN.getResources().getDimensionPixelSize(R.dimen.bless_magin_bottom));
-                    ao.setViewTextColor(this.iNR, R.color.topic_bless_text, 1);
-                    ao.setBackgroundResource(this.iNR, R.drawable.pic_float_zhufu_num_b);
+                    ((LinearLayout.LayoutParams) this.iNT.getLayoutParams()).setMargins(this.dVN.getResources().getDimensionPixelSize(R.dimen.bless_magin_left), 0, 0, this.dVN.getResources().getDimensionPixelSize(R.dimen.bless_magin_bottom));
+                    ao.setViewTextColor(this.iNT, R.color.topic_bless_text, 1);
+                    ao.setBackgroundResource(this.iNT, R.drawable.pic_float_zhufu_num_b);
                 } else {
                     if (i2 == 1) {
-                        this.iNR.setVisibility(0);
-                        ao.setImageResource(this.iNP, R.drawable.candle_gif);
+                        this.iNT.setVisibility(0);
+                        ao.setImageResource(this.iNR, R.drawable.candle_gif);
                     } else {
-                        this.iNR.setVisibility(8);
-                        ao.setImageResource(this.iNP, R.drawable.pic_float_qifu);
+                        this.iNT.setVisibility(8);
+                        ao.setImageResource(this.iNR, R.drawable.pic_float_qifu);
                     }
-                    ((LinearLayout.LayoutParams) this.iNR.getLayoutParams()).setMargins(this.dVN.getResources().getDimensionPixelSize(R.dimen.candle_magin_left), 0, 0, this.dVN.getResources().getDimensionPixelSize(R.dimen.candle_magin_bottom));
-                    ao.setViewTextColor(this.iNR, R.color.topic_candle_text, 1);
-                    ao.setBackgroundResource(this.iNR, R.drawable.pic_float_qifu_num_b);
+                    ((LinearLayout.LayoutParams) this.iNT.getLayoutParams()).setMargins(this.dVN.getResources().getDimensionPixelSize(R.dimen.candle_magin_left), 0, 0, this.dVN.getResources().getDimensionPixelSize(R.dimen.candle_magin_bottom));
+                    ao.setViewTextColor(this.iNT, R.color.topic_candle_text, 1);
+                    ao.setBackgroundResource(this.iNT, R.drawable.pic_float_qifu_num_b);
                 }
                 if (i2 == 1) {
-                    this.iNQ.clearAnimation();
-                    this.iNT = (AnimationDrawable) this.iNP.getDrawable();
-                    this.iNT.start();
+                    this.iNS.clearAnimation();
+                    this.iNV = (AnimationDrawable) this.iNR.getDrawable();
+                    this.iNV.start();
                 } else {
-                    this.iNS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.1
+                    this.iNU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (e.this.iNQ.getAnimation() == e.this.iNU) {
-                                e.this.iNQ.clearAnimation();
+                            if (e.this.iNS.getAnimation() == e.this.iNW) {
+                                e.this.iNS.clearAnimation();
                                 return;
                             }
-                            e.this.iNR.setVisibility(0);
-                            e.this.iNR.setText(as.numFormatOverWan(j + 1));
-                            if (e.this.iNZ) {
-                                ao.setImageResource(e.this.iNP, R.drawable.bless_gif);
+                            e.this.iNT.setVisibility(0);
+                            e.this.iNT.setText(as.numFormatOverWan(j + 1));
+                            if (e.this.iOb) {
+                                ao.setImageResource(e.this.iNR, R.drawable.bless_gif);
                             } else {
-                                ao.setImageResource(e.this.iNP, R.drawable.candle_gif);
+                                ao.setImageResource(e.this.iNR, R.drawable.candle_gif);
                             }
-                            e.this.iNT = (AnimationDrawable) e.this.iNP.getDrawable();
-                            e.this.iNT.start();
-                            e.this.iNQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.1.1
+                            e.this.iNV = (AnimationDrawable) e.this.iNR.getDrawable();
+                            e.this.iNV.start();
+                            e.this.iNS.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (e.this.index > 1 && e.this.iNQ.getAnimation() != e.this.iNW) {
-                                        e.this.iNQ.startAnimation(e.this.iNW);
+                                    if (e.this.index > 1 && e.this.iNS.getAnimation() != e.this.iNY) {
+                                        e.this.iNS.startAnimation(e.this.iNY);
                                     }
                                 }
                             }, 2000L);
                             ((HotTopicActivity) e.this.dVN.getOrignalPage()).coN();
                         }
                     });
-                    this.iNQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
+                    this.iNS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (e.this.iNQ.getAnimation() == e.this.iNU) {
-                                e.this.iNQ.clearAnimation();
+                            if (e.this.iNS.getAnimation() == e.this.iNW) {
+                                e.this.iNS.clearAnimation();
                                 return;
                             }
-                            e.this.iNR.setVisibility(0);
-                            e.this.iNR.setText(as.numFormatOverWan(j + 1));
-                            if (e.this.iNZ) {
-                                ao.setImageResource(e.this.iNP, R.drawable.bless_gif);
+                            e.this.iNT.setVisibility(0);
+                            e.this.iNT.setText(as.numFormatOverWan(j + 1));
+                            if (e.this.iOb) {
+                                ao.setImageResource(e.this.iNR, R.drawable.bless_gif);
                             } else {
-                                ao.setImageResource(e.this.iNP, R.drawable.candle_gif);
+                                ao.setImageResource(e.this.iNR, R.drawable.candle_gif);
                             }
-                            e.this.iNT = (AnimationDrawable) e.this.iNP.getDrawable();
-                            e.this.iNT.start();
-                            e.this.iNQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.2.1
+                            e.this.iNV = (AnimationDrawable) e.this.iNR.getDrawable();
+                            e.this.iNV.start();
+                            e.this.iNS.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.2.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (e.this.index > 1 && e.this.iNQ.getAnimation() != e.this.iNW) {
-                                        e.this.iNQ.startAnimation(e.this.iNW);
+                                    if (e.this.index > 1 && e.this.iNS.getAnimation() != e.this.iNY) {
+                                        e.this.iNS.startAnimation(e.this.iNY);
                                     }
                                 }
                             }, 2000L);
@@ -125,55 +125,55 @@ public class e {
                         }
                     });
                 }
-                this.iNY = true;
-                this.iNU = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_rotate);
-                this.iNV = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_rotate_out);
-                this.iNW = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_alpha);
-                this.iNX = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_alpha_visible);
+                this.iOa = true;
+                this.iNW = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_rotate);
+                this.iNX = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_rotate_out);
+                this.iNY = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_alpha);
+                this.iNZ = AnimationUtils.loadAnimation(this.dVN.getPageActivity(), R.anim.gifview_alpha_visible);
             }
         }
     }
 
     public void yf(int i) {
-        if (this.iNY) {
+        if (this.iOa) {
             this.index = i;
-            if (this.iNP.getDrawable() instanceof AnimationDrawable) {
+            if (this.iNR.getDrawable() instanceof AnimationDrawable) {
                 if (this.index <= 1) {
-                    if (this.iNQ.getAnimation() != this.iNX) {
-                        this.iNQ.startAnimation(this.iNX);
-                        this.iNT.start();
+                    if (this.iNS.getAnimation() != this.iNZ) {
+                        this.iNS.startAnimation(this.iNZ);
+                        this.iNV.start();
                     }
-                } else if (this.iNQ.getAnimation() != this.iNW) {
-                    this.iNQ.startAnimation(this.iNW);
-                    this.iNT.stop();
+                } else if (this.iNS.getAnimation() != this.iNY) {
+                    this.iNS.startAnimation(this.iNY);
+                    this.iNV.stop();
                 }
             } else if (this.index >= 2) {
-                if (this.iNQ.getAnimation() != this.iNU) {
-                    this.iNQ.startAnimation(this.iNU);
+                if (this.iNS.getAnimation() != this.iNW) {
+                    this.iNS.startAnimation(this.iNW);
                 }
-            } else if (this.iNQ.getAnimation() == this.iNU) {
-                this.iNQ.startAnimation(this.iNV);
+            } else if (this.iNS.getAnimation() == this.iNW) {
+                this.iNS.startAnimation(this.iNX);
             }
         }
     }
 
     public void clearAnimation() {
-        this.iNP.clearAnimation();
-        this.iNQ.clearAnimation();
-        if (this.iNU != null) {
-            this.iNU.cancel();
-        }
-        if (this.iNV != null) {
-            this.iNV.cancel();
-        }
+        this.iNR.clearAnimation();
+        this.iNS.clearAnimation();
         if (this.iNW != null) {
             this.iNW.cancel();
         }
         if (this.iNX != null) {
             this.iNX.cancel();
         }
-        if (this.iNT != null) {
-            this.iNT.stop();
+        if (this.iNY != null) {
+            this.iNY.cancel();
+        }
+        if (this.iNZ != null) {
+            this.iNZ.cancel();
+        }
+        if (this.iNV != null) {
+            this.iNV.stop();
         }
     }
 }

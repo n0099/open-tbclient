@@ -38,7 +38,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HotUserRankImageOverlayView.this.hpo != null) {
-                    HotUserRankImageOverlayView.this.hpo.dtM();
+                    HotUserRankImageOverlayView.this.hpo.dtN();
                 }
             }
         };
@@ -54,7 +54,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HotUserRankImageOverlayView.this.hpo != null) {
-                    HotUserRankImageOverlayView.this.hpo.dtM();
+                    HotUserRankImageOverlayView.this.hpo.dtN();
                 }
             }
         };
@@ -70,7 +70,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HotUserRankImageOverlayView.this.hpo != null) {
-                    HotUserRankImageOverlayView.this.hpo.dtM();
+                    HotUserRankImageOverlayView.this.hpo.dtN();
                 }
             }
         };

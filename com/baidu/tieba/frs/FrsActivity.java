@@ -122,7 +122,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
     private void caG() {
         if (this.hED != null && this.hEw != null && this.hEw.cgu() != null && this.hEw.cgu().getForum() != null) {
             ForumData forum = this.hEw.cgu().getForum();
-            this.hED.dtI();
+            this.hED.dtJ();
             this.hED.f(this.hEw.cgu().getUserData());
             this.hED.Ps(forum.getName());
             this.hED.J(forum.getMember_num(), forum.getThread_num());

@@ -6,8 +6,8 @@ import rx.internal.operators.t;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes6.dex */
 public final class u<T, R> implements h.a<R> {
-    final h.a<T> onp;
-    final d.b<? extends R, ? super T> onv;
+    final h.a<T> onr;
+    final d.b<? extends R, ? super T> onx;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -16,10 +16,10 @@ public final class u<T, R> implements h.a<R> {
         t.a aVar = new t.a(iVar);
         iVar.add(aVar);
         try {
-            rx.j<? super T> call = rx.c.c.c(this.onv).call(aVar);
+            rx.j<? super T> call = rx.c.c.c(this.onx).call(aVar);
             rx.i c = c(call);
             call.onStart();
-            this.onp.call(c);
+            this.onr.call(c);
         } catch (Throwable th) {
             rx.exceptions.a.a(th, iVar);
         }

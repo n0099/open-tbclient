@@ -14,7 +14,7 @@ public class PraiseModel extends BdBaseModel {
     private static final String ffD = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
     private static TbHttpMessageTask task = new TbHttpMessageTask(1001600, ffD);
     private final HttpMessageListener ffE;
-    private a lMe;
+    private a lMg;
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.lMe = null;
+        this.lMg = null;
         this.ffE = new HttpMessageListener(1001600) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,22 +38,22 @@ public class PraiseModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.lMe != null) {
-                            PraiseModel.this.lMe.onLoadFailed(statusCode, null);
+                        if (PraiseModel.this.lMg != null) {
+                            PraiseModel.this.lMg.onLoadFailed(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.lMe.Br(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.lMe != null) {
-                        PraiseModel.this.lMe.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.lMg.Br(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.lMg != null) {
+                        PraiseModel.this.lMg.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.lMe = aVar;
+        this.lMg = aVar;
     }
 
     public void registerListener() {

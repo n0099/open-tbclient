@@ -15,20 +15,20 @@ import com.baidu.tieba.tbadvert.view.CountDownTextView;
 /* loaded from: classes20.dex */
 public class a {
     private FrameLayout agl;
-    private ImageView lRB;
-    private InterfaceC0759a lRC;
+    private ImageView lRD;
+    private InterfaceC0759a lRE;
     private Context mContext;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
     public interface InterfaceC0759a {
-        void dmH();
-
         void dmI();
+
+        void dmJ();
     }
 
     public a(Context context, InterfaceC0759a interfaceC0759a) {
-        this.lRC = interfaceC0759a;
+        this.lRE = interfaceC0759a;
         this.mContext = context;
         this.agl = new FrameLayout(context);
     }
@@ -41,28 +41,28 @@ public class a {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             k((com.baidu.adp.widget.ImageView.a) obj);
         }
-        dmO();
+        dmP();
         FI(i);
     }
 
     private void k(com.baidu.adp.widget.ImageView.a aVar) {
-        this.lRB = new ImageView(this.mContext);
-        this.lRB.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.lRD = new ImageView(this.mContext);
+        this.lRD.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.lRB.setImageBitmap(aVar.getRawBitmap());
+            this.lRD.setImageBitmap(aVar.getRawBitmap());
         }
-        this.lRB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.lRD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.lRC != null) {
-                    a.this.lRC.dmH();
+                if (a.this.lRE != null) {
+                    a.this.lRE.dmI();
                 }
             }
         });
-        this.agl.addView(this.lRB);
+        this.agl.addView(this.lRD);
     }
 
-    private void dmO() {
+    private void dmP() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -104,16 +104,16 @@ public class a {
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.lRC != null) {
-                    a.this.lRC.dmI();
+                if (a.this.lRE != null) {
+                    a.this.lRE.dmJ();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void bB(View view) {
-                if (a.this.lRC != null) {
-                    a.this.lRC.dmI();
+                if (a.this.lRE != null) {
+                    a.this.lRE.dmJ();
                 }
             }
         });

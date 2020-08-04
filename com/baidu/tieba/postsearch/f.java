@@ -13,16 +13,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes18.dex */
 public class f {
-    private PostSearchActivity lgS;
-    private PostSearchListFragment lhE;
-    private PostSearchListFragment lhF;
+    private PostSearchActivity lgU;
     private PostSearchListFragment lhG;
+    private PostSearchListFragment lhH;
+    private PostSearchListFragment lhI;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
     private FragmentTabHost mTabHost;
 
     public f(PostSearchActivity postSearchActivity, View view) {
-        this.lgS = postSearchActivity;
+        this.lgU = postSearchActivity;
         this.mRootView = view;
     }
 
@@ -78,8 +78,8 @@ public class f {
         View inflate = ((ViewStub) this.mRootView.findViewById(R.id.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.mTabHost = (FragmentTabHost) inflate.findViewById(R.id.post_search_tab_host);
-        this.mTabHost.setup(this.lgS.getSupportFragmentManager());
-        this.mTabHost.setTabWidgetViewHeight((int) this.lgS.getResources().getDimension(R.dimen.ds80));
+        this.mTabHost.setup(this.lgU.getSupportFragmentManager());
+        this.mTabHost.setTabWidgetViewHeight((int) this.lgU.getResources().getDimension(R.dimen.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
         daI();
         this.mTabHost.initViewPager(3);
@@ -100,32 +100,32 @@ public class f {
 
     private void daI() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.lhE = new PostSearchListFragment(1);
-        bVar.mContentFragment = this.lhE;
+        this.lhG = new PostSearchListFragment(1);
+        bVar.mContentFragment = this.lhG;
         bVar.dYX = Dz(R.string.searching_time_tab);
         bVar.mType = 1;
         this.mTabHost.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.lhF = new PostSearchListFragment(2);
-        bVar2.mContentFragment = this.lhF;
+        this.lhH = new PostSearchListFragment(2);
+        bVar2.mContentFragment = this.lhH;
         bVar2.dYX = Dz(R.string.searching_relative_tab);
         bVar2.mType = 2;
         this.mTabHost.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.lhG = new PostSearchListFragment(3);
-        bVar3.mContentFragment = this.lhG;
+        this.lhI = new PostSearchListFragment(3);
+        bVar3.mContentFragment = this.lhI;
         bVar3.dYX = Dz(R.string.searching_only_thread_tab);
         bVar3.mType = 3;
         this.mTabHost.a(bVar3);
     }
 
     private FragmentTabIndicator Dz(int i) {
-        int equipmentWidth = (l.getEquipmentWidth(this.lgS.getPageContext().getContext()) - (this.lgS.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.lgS.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        int equipmentWidth = (l.getEquipmentWidth(this.lgU.getPageContext().getContext()) - (this.lgU.getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.lgU.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.lgS.getResources().getDimensionPixelSize(R.dimen.ds32));
+        fragmentTabIndicator.setTextSize(0, this.lgU.getResources().getDimensionPixelSize(R.dimen.ds32));
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.lgS.getResources().getDimensionPixelSize(R.dimen.ds4));
+        fragmentTabIndicator.setContentTvTopMargin(this.lgU.getResources().getDimensionPixelSize(R.dimen.ds4));
         fragmentTabIndicator.setWidth(equipmentWidth);
         return fragmentTabIndicator;
     }
@@ -133,19 +133,19 @@ public class f {
     private PostSearchListFragment DA(int i) {
         switch (i) {
             case 1:
-                return this.lhE;
-            case 2:
-                return this.lhF;
-            case 3:
                 return this.lhG;
+            case 2:
+                return this.lhH;
+            case 3:
+                return this.lhI;
             default:
                 return null;
         }
     }
 
     private void daJ() {
-        this.lhE.daA();
-        this.lhF.daA();
         this.lhG.daA();
+        this.lhH.daA();
+        this.lhI.daA();
     }
 }

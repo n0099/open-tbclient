@@ -2,7 +2,7 @@ package kotlin;
 @h
 /* loaded from: classes7.dex */
 public final class l {
-    public static final l nXN = new l();
+    public static final l nXP = new l();
 
     private l() {
     }

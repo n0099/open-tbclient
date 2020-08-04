@@ -17,17 +17,17 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes15.dex */
 public class h {
-    private LinkedList<f> jsS;
-    private String jsU;
-    private String jsV;
+    private LinkedList<f> jsU;
+    private String jsW;
+    private String jsX;
     private String fid = null;
-    private int jsR = 0;
-    private AdvertAppInfo jsT = null;
-    private LinkedList<AlaInfoData> jsW = new LinkedList<>();
+    private int jsT = 0;
+    private AdvertAppInfo jsV = null;
+    private LinkedList<AlaInfoData> jsY = new LinkedList<>();
 
     public h() {
-        this.jsS = null;
-        this.jsS = new LinkedList<>();
+        this.jsU = null;
+        this.jsU = new LinkedList<>();
     }
 
     public void aI(String str, boolean z) {
@@ -39,23 +39,23 @@ public class h {
     }
 
     public LinkedList<f> czM() {
-        return this.jsS;
-    }
-
-    public LinkedList<AlaInfoData> czN() {
-        return this.jsW;
-    }
-
-    public int getImageNum() {
-        return this.jsR;
-    }
-
-    public String aXT() {
         return this.jsU;
     }
 
+    public LinkedList<AlaInfoData> czN() {
+        return this.jsY;
+    }
+
+    public int getImageNum() {
+        return this.jsT;
+    }
+
+    public String aXT() {
+        return this.jsW;
+    }
+
     public String aXU() {
-        return this.jsV;
+        return this.jsX;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -64,10 +64,10 @@ public class h {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
-                    this.jsU = optJSONObject.optString("frist_class");
-                    this.jsV = optJSONObject.optString("second_class");
+                    this.jsW = optJSONObject.optString("frist_class");
+                    this.jsX = optJSONObject.optString("second_class");
                 }
-                this.jsR = jSONObject.optInt("pic_amount", 0);
+                this.jsT = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -75,8 +75,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.jsR) {
-                                this.jsS.addLast(fVar);
+                            if (index >= 1 && index <= this.jsT) {
+                                this.jsU.addLast(fVar);
                             }
                         }
                     } else {
@@ -84,8 +84,8 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.jsR) {
-                                this.jsS.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.jsT) {
+                                this.jsU.addFirst(fVar2);
                             }
                         }
                     }
@@ -105,14 +105,14 @@ public class h {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     AlaInfoData alaInfoData = new AlaInfoData();
                     alaInfoData.parserJson(optJSONArray.optJSONObject(i));
-                    this.jsW.addLast(alaInfoData);
+                    this.jsY.addLast(alaInfoData);
                 }
                 return;
             }
             for (int length = optJSONArray.length() - 1; length >= 0; length--) {
                 AlaInfoData alaInfoData2 = new AlaInfoData();
                 alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-                this.jsW.addFirst(alaInfoData2);
+                this.jsY.addFirst(alaInfoData2);
             }
         }
     }
@@ -160,10 +160,10 @@ public class h {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.jsT = new AdvertAppInfo();
-            this.jsT.a(build);
-            this.jsT.adPosition = "c0111";
-            this.jsT.dNk = this.fid;
+            this.jsV = new AdvertAppInfo();
+            this.jsV.a(build);
+            this.jsV.adPosition = "c0111";
+            this.jsV.dNk = this.fid;
         }
     }
 
@@ -197,6 +197,6 @@ public class h {
     }
 
     public AdvertAppInfo czO() {
-        return this.jsT;
+        return this.jsV;
     }
 }

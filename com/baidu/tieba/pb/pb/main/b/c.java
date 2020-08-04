@@ -21,7 +21,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class c {
-    public a kAo = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a kAq = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
         public void a(f fVar, bv bvVar, PostData postData, View view) {
             String shareImageUrl;

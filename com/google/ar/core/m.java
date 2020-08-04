@@ -4,15 +4,15 @@ import com.google.ar.core.ArCoreApk;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 class m implements ArCoreApk.a {
-    final /* synthetic */ AtomicReference nis;
+    final /* synthetic */ AtomicReference niu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(AtomicReference atomicReference) {
-        this.nis = atomicReference;
+        this.niu = atomicReference;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        this.nis.set(availability);
+        this.niu.set(availability);
     }
 }

@@ -28,11 +28,11 @@ public class ah extends com.baidu.tieba.frs.j<com.baidu.tieba.tbadkCore.o, ai> {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         ai aiVar = new ai(inflate);
         ao.setViewTextColor(aiVar.fiS, R.color.cp_cont_b);
-        ao.setViewTextColor(aiVar.hQf, R.color.cp_cont_h);
-        ao.setImageResource(aiVar.hQe, R.drawable.icon_news_list_prompt);
-        ao.setImageResource(aiVar.hQg, R.drawable.icon_index_category_arrow_r);
-        ao.setBackgroundColor(aiVar.hQh, R.color.cp_bg_line_c);
-        ao.setBackgroundColor(aiVar.hQi, R.color.cp_bg_line_c);
+        ao.setViewTextColor(aiVar.hQh, R.color.cp_cont_h);
+        ao.setImageResource(aiVar.hQg, R.drawable.icon_news_list_prompt);
+        ao.setImageResource(aiVar.hQi, R.drawable.icon_index_category_arrow_r);
+        ao.setBackgroundColor(aiVar.hQj, R.color.cp_bg_line_c);
+        ao.setBackgroundColor(aiVar.hQk, R.color.cp_bg_line_c);
         ao.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
         return aiVar;
     }
@@ -56,9 +56,9 @@ public class ah extends com.baidu.tieba.frs.j<com.baidu.tieba.tbadkCore.o, ai> {
         });
         aiVar.fiS.setText(oVar != null ? oVar.text : "");
         if (ex(com.baidu.tbadk.core.sharedPref.b.aZP().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
-            aiVar.hQe.setVisibility(0);
+            aiVar.hQg.setVisibility(0);
         } else {
-            aiVar.hQe.setVisibility(8);
+            aiVar.hQg.setVisibility(8);
         }
         return aiVar.getView();
     }

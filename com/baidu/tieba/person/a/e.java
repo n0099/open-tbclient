@@ -11,42 +11,42 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class e {
     private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
-    private HTypeListView kNB;
-    private c kNC;
-    private b kND;
-    private a kNE;
+    private HTypeListView kND;
+    private c kNE;
+    private b kNF;
+    private a kNG;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.kNB = hTypeListView;
+        this.kND = hTypeListView;
         DS();
     }
 
     private void DS() {
-        this.kNC = new c(this.mTbPageContext, m.agB);
-        this.kND = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.kNM);
-        this.kNE = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.kNr);
-        this.aWf.add(this.kNC);
-        this.aWf.add(this.kND);
+        this.kNE = new c(this.mTbPageContext, m.agB);
+        this.kNF = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.kNO);
+        this.kNG = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.kNt);
         this.aWf.add(this.kNE);
-        this.kNB.addAdapters(this.aWf);
+        this.aWf.add(this.kNF);
+        this.aWf.add(this.kNG);
+        this.kND.addAdapters(this.aWf);
     }
 
     public void setDatas(List<q> list) {
-        if (this.kNB != null) {
-            this.kNB.setData(list);
+        if (this.kND != null) {
+            this.kND.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.kNB != null && (this.kNB.getAdapter() instanceof ad)) {
-            ((ad) this.kNB.getAdapter()).notifyDataSetChanged();
+        if (this.kND != null && (this.kND.getAdapter() instanceof ad)) {
+            ((ad) this.kND.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.kNC.E(onClickListener);
-        this.kND.E(onClickListener);
+        this.kNE.E(onClickListener);
+        this.kNF.E(onClickListener);
     }
 }

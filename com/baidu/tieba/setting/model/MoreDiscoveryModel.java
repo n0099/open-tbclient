@@ -27,8 +27,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static final int GET_DATA_FROM_DB = 2;
     public static final int GET_DATA_FROM_NET = 1;
     private b hli;
-    private NicknameInfo kWA;
-    private a lwO;
+    private NicknameInfo kWC;
+    private a lwQ;
     private final Context mContext;
     private String mId;
     private boolean mIsLoading;
@@ -40,7 +40,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mUIHandler = null;
         this.hli = null;
         this.mIsLoading = false;
-        this.lwO = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
+        this.lwQ = new a(1002700, CmdConfigSocket.CMD_PROFILE) { // from class: com.baidu.tieba.setting.model.MoreDiscoveryModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
@@ -69,11 +69,11 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.mContext = moreActivity.getPageContext().getContext();
         this.mUIHandler = new Handler(Looper.getMainLooper());
         this.hli = new b("profileStat");
-        registerListener(this.lwO);
+        registerListener(this.lwQ);
     }
 
     public NicknameInfo getNicknameInfo() {
-        return this.kWA;
+        return this.kWC;
     }
 
     public UserData getUser() {
@@ -159,7 +159,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileSocketResponseMessage.GetUser());
-                this.kWA = profileSocketResponseMessage.getNicknameInfo();
+                this.kWC = profileSocketResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -172,7 +172,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(profileHttpResponseMessage.GetUser());
-                this.kWA = profileHttpResponseMessage.getNicknameInfo();
+                this.kWC = profileHttpResponseMessage.getNicknameInfo();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -215,7 +215,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             try {
                 this.mUser = new UserData();
                 this.mUser.parserProtobuf(dataRes.user);
-                this.kWA = dataRes.nickname_info;
+                this.kWC = dataRes.nickname_info;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

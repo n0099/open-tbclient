@@ -7,8 +7,8 @@ import android.os.SystemClock;
 /* loaded from: classes9.dex */
 public class b extends g implements Runnable {
     private int mInterval;
-    private boolean mUx;
-    float mUy;
+    float mUA;
+    private boolean mUB;
     private boolean mUz;
 
     public b(Drawable drawable, int i) {
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.mUy = 0.0f;
-        this.mUz = false;
+        this.mUA = 0.0f;
+        this.mUB = false;
         this.mInterval = i;
-        this.mUx = z;
+        this.mUz = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.mUy;
-        if (!this.mUx) {
-            f = 360.0f - this.mUy;
+        float f = this.mUA;
+        if (!this.mUz) {
+            f = 360.0f - this.mUA;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        dEh();
+        dEi();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.mUz = false;
-        this.mUy += dEi();
+        this.mUB = false;
+        this.mUA += dEj();
         invalidateSelf();
     }
 
-    private void dEh() {
-        if (!this.mUz) {
-            this.mUz = true;
+    private void dEi() {
+        if (!this.mUB) {
+            this.mUB = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int dEi() {
+    private int dEj() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

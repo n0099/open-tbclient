@@ -6,13 +6,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class a<T> implements f<T> {
-    static final int nUZ = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object nVf = new Object();
-    int nVa;
-    final int nVb;
-    AtomicReferenceArray<Object> nVc;
+    static final int nVb = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object nVh = new Object();
+    int nVc;
     final int nVd;
     AtomicReferenceArray<Object> nVe;
+    final int nVf;
+    AtomicReferenceArray<Object> nVg;
     long producerLookAhead;
     final AtomicLong producerIndex = new AtomicLong();
     final AtomicLong consumerIndex = new AtomicLong();
@@ -21,11 +21,11 @@ public final class a<T> implements f<T> {
         int Lo = h.Lo(Math.max(8, i));
         int i2 = Lo - 1;
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(Lo + 1);
-        this.nVc = atomicReferenceArray;
-        this.nVb = i2;
-        Ll(Lo);
         this.nVe = atomicReferenceArray;
         this.nVd = i2;
+        Ll(Lo);
+        this.nVg = atomicReferenceArray;
+        this.nVf = i2;
         this.producerLookAhead = i2 - 1;
         soProducerIndex(0L);
     }
@@ -35,21 +35,21 @@ public final class a<T> implements f<T> {
         if (t == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<Object> atomicReferenceArray = this.nVc;
-        long dTi = dTi();
-        int i = this.nVb;
-        int C = C(dTi, i);
-        if (dTi < this.producerLookAhead) {
-            return a(atomicReferenceArray, t, dTi, C);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.nVe;
+        long dTj = dTj();
+        int i = this.nVd;
+        int C = C(dTj, i);
+        if (dTj < this.producerLookAhead) {
+            return a(atomicReferenceArray, t, dTj, C);
         }
-        int i2 = this.nVa;
-        if (b(atomicReferenceArray, C(i2 + dTi, i)) == null) {
-            this.producerLookAhead = (i2 + dTi) - 1;
-            return a(atomicReferenceArray, t, dTi, C);
-        } else if (b(atomicReferenceArray, C(1 + dTi, i)) == null) {
-            return a(atomicReferenceArray, t, dTi, C);
+        int i2 = this.nVc;
+        if (b(atomicReferenceArray, C(i2 + dTj, i)) == null) {
+            this.producerLookAhead = (i2 + dTj) - 1;
+            return a(atomicReferenceArray, t, dTj, C);
+        } else if (b(atomicReferenceArray, C(1 + dTj, i)) == null) {
+            return a(atomicReferenceArray, t, dTj, C);
         } else {
-            a(atomicReferenceArray, dTi, C, t, i);
+            a(atomicReferenceArray, dTj, C, t, i);
             return true;
         }
     }
@@ -62,11 +62,11 @@ public final class a<T> implements f<T> {
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.nVc = atomicReferenceArray2;
+        this.nVe = atomicReferenceArray2;
         this.producerLookAhead = (j + j2) - 1;
         a(atomicReferenceArray2, i, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, i, nVf);
+        a(atomicReferenceArray, i, nVh);
         soProducerIndex(j + 1);
     }
 
@@ -83,25 +83,25 @@ public final class a<T> implements f<T> {
 
     @Override // io.reactivex.internal.a.f, io.reactivex.internal.a.g
     public T poll() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.nVe;
-        long dTj = dTj();
-        int i = this.nVd;
-        int C = C(dTj, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.nVg;
+        long dTk = dTk();
+        int i = this.nVf;
+        int C = C(dTk, i);
         T t = (T) b(atomicReferenceArray, C);
-        boolean z = t == nVf;
+        boolean z = t == nVh;
         if (t != null && !z) {
             a(atomicReferenceArray, C, (Object) null);
-            soConsumerIndex(1 + dTj);
+            soConsumerIndex(1 + dTk);
             return t;
         } else if (z) {
-            return a(a(atomicReferenceArray, i + 1), dTj, i);
+            return a(a(atomicReferenceArray, i + 1), dTk, i);
         } else {
             return null;
         }
     }
 
     private T a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.nVe = atomicReferenceArray;
+        this.nVg = atomicReferenceArray;
         int C = C(j, i);
         T t = (T) b(atomicReferenceArray, C);
         if (t != null) {
@@ -112,18 +112,18 @@ public final class a<T> implements f<T> {
     }
 
     public T peek() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.nVe;
-        long dTj = dTj();
-        int i = this.nVd;
-        T t = (T) b(atomicReferenceArray, C(dTj, i));
-        if (t == nVf) {
-            return b(a(atomicReferenceArray, i + 1), dTj, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.nVg;
+        long dTk = dTk();
+        int i = this.nVf;
+        T t = (T) b(atomicReferenceArray, C(dTk, i));
+        if (t == nVh) {
+            return b(a(atomicReferenceArray, i + 1), dTk, i);
         }
         return t;
     }
 
     private T b(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.nVe = atomicReferenceArray;
+        this.nVg = atomicReferenceArray;
         return (T) b(atomicReferenceArray, C(j, i));
     }
 
@@ -137,39 +137,39 @@ public final class a<T> implements f<T> {
     }
 
     public int size() {
-        long dTh = dTh();
+        long dTi = dTi();
         while (true) {
-            long dTg = dTg();
-            long dTh2 = dTh();
-            if (dTh == dTh2) {
-                return (int) (dTg - dTh2);
+            long dTh = dTh();
+            long dTi2 = dTi();
+            if (dTi == dTi2) {
+                return (int) (dTh - dTi2);
             }
-            dTh = dTh2;
+            dTi = dTi2;
         }
     }
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return dTg() == dTh();
+        return dTh() == dTi();
     }
 
     private void Ll(int i) {
-        this.nVa = Math.min(i / 4, nUZ);
-    }
-
-    private long dTg() {
-        return this.producerIndex.get();
+        this.nVc = Math.min(i / 4, nVb);
     }
 
     private long dTh() {
-        return this.consumerIndex.get();
-    }
-
-    private long dTi() {
         return this.producerIndex.get();
     }
 
+    private long dTi() {
+        return this.consumerIndex.get();
+    }
+
     private long dTj() {
+        return this.producerIndex.get();
+    }
+
+    private long dTk() {
         return this.consumerIndex.get();
     }
 
@@ -198,24 +198,24 @@ public final class a<T> implements f<T> {
     }
 
     public boolean offer(T t, T t2) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.nVc;
-        long dTg = dTg();
-        int i = this.nVb;
-        if (b(atomicReferenceArray, C(dTg + 2, i)) == null) {
-            int C = C(dTg, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.nVe;
+        long dTh = dTh();
+        int i = this.nVd;
+        if (b(atomicReferenceArray, C(dTh + 2, i)) == null) {
+            int C = C(dTh, i);
             a(atomicReferenceArray, C + 1, t2);
             a(atomicReferenceArray, C, t);
-            soProducerIndex(dTg + 2);
+            soProducerIndex(dTh + 2);
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.nVc = atomicReferenceArray2;
-        int C2 = C(dTg, i);
+        this.nVe = atomicReferenceArray2;
+        int C2 = C(dTh, i);
         a(atomicReferenceArray2, C2 + 1, t2);
         a(atomicReferenceArray2, C2, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, C2, nVf);
-        soProducerIndex(dTg + 2);
+        a(atomicReferenceArray, C2, nVh);
+        soProducerIndex(dTh + 2);
         return true;
     }
 }

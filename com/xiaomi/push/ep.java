@@ -4,7 +4,7 @@ public class ep {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f302a;
+    private String f305a;
     private String b;
     private String c;
     private String d;
@@ -15,7 +15,7 @@ public class ep {
 
     /* renamed from: a  reason: collision with other method in class */
     public String m261a() {
-        return this.f302a;
+        return this.f305a;
     }
 
     public void a(int i) {
@@ -23,7 +23,7 @@ public class ep {
     }
 
     public void a(String str) {
-        this.f302a = str;
+        this.f305a = str;
     }
 
     public String b() {
