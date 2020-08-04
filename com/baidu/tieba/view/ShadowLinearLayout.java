@@ -20,13 +20,13 @@ public class ShadowLinearLayout extends LinearLayout {
     private Path mPath;
     private float mRadius;
     private int mWidth;
-    private float moJ;
-    private float mrB;
-    private float mrC;
-    private RectF mrD;
-    private RectF mrE;
+    private float moL;
+    private float mrD;
+    private float mrE;
     private RectF mrF;
     private RectF mrG;
+    private RectF mrH;
+    private RectF mrI;
 
     public ShadowLinearLayout(Context context) {
         this(context, null);
@@ -48,9 +48,9 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setDither(true);
         this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.moJ = l.getDimens(context, R.dimen.ds25);
-        this.cDf = this.moJ;
-        this.bke = this.moJ;
+        this.moL = l.getDimens(context, R.dimen.ds25);
+        this.cDf = this.moL;
+        this.bke = this.moL;
         this.mPath = new Path();
         setLayerType(1, this.mPaint);
         onChangeSkinType();
@@ -62,8 +62,8 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mWidth = getMeasuredWidth();
         this.mHeight = getMeasuredHeight();
         if (this.mWidth > 0 && this.mHeight > 0) {
-            this.mrB = this.mWidth - this.moJ;
-            this.mrC = this.mHeight - this.moJ;
+            this.mrD = this.mWidth - this.moL;
+            this.mrE = this.mHeight - this.moL;
         }
     }
 
@@ -71,25 +71,25 @@ public class ShadowLinearLayout extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         if (this.mWidth > 0 && this.mHeight > 0) {
             this.mPath.moveTo(this.cDf, this.bke + this.mRadius);
-            if (this.mrD == null) {
-                this.mrD = new RectF(this.cDf, this.bke, this.cDf + (this.mRadius * 2.0f), this.bke + (this.mRadius * 2.0f));
-            }
-            this.mPath.arcTo(this.mrD, 180.0f, 90.0f, false);
-            this.mPath.lineTo(this.mrB - this.mRadius, this.bke);
-            if (this.mrE == null) {
-                this.mrE = new RectF(this.mrB - (this.mRadius * 2.0f), this.bke, this.mrB, this.bke + (this.mRadius * 2.0f));
-            }
-            this.mPath.arcTo(this.mrE, 270.0f, 90.0f, false);
-            this.mPath.lineTo(this.mrB, this.mrC - this.mRadius);
             if (this.mrF == null) {
-                this.mrF = new RectF(this.mrB - (this.mRadius * 2.0f), this.mrC - (this.mRadius * 2.0f), this.mrB, this.mrC);
+                this.mrF = new RectF(this.cDf, this.bke, this.cDf + (this.mRadius * 2.0f), this.bke + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.mrF, 0.0f, 90.0f, false);
-            this.mPath.lineTo(this.cDf + this.mRadius, this.mrC);
+            this.mPath.arcTo(this.mrF, 180.0f, 90.0f, false);
+            this.mPath.lineTo(this.mrD - this.mRadius, this.bke);
             if (this.mrG == null) {
-                this.mrG = new RectF(this.cDf, this.mrC - (this.mRadius * 2.0f), this.cDf + (this.mRadius * 2.0f), this.mrC);
+                this.mrG = new RectF(this.mrD - (this.mRadius * 2.0f), this.bke, this.mrD, this.bke + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.mrG, 90.0f, 90.0f, false);
+            this.mPath.arcTo(this.mrG, 270.0f, 90.0f, false);
+            this.mPath.lineTo(this.mrD, this.mrE - this.mRadius);
+            if (this.mrH == null) {
+                this.mrH = new RectF(this.mrD - (this.mRadius * 2.0f), this.mrE - (this.mRadius * 2.0f), this.mrD, this.mrE);
+            }
+            this.mPath.arcTo(this.mrH, 0.0f, 90.0f, false);
+            this.mPath.lineTo(this.cDf + this.mRadius, this.mrE);
+            if (this.mrI == null) {
+                this.mrI = new RectF(this.cDf, this.mrE - (this.mRadius * 2.0f), this.cDf + (this.mRadius * 2.0f), this.mrE);
+            }
+            this.mPath.arcTo(this.mrI, 90.0f, 90.0f, false);
             this.mPath.lineTo(this.cDf, this.bke + this.mRadius);
             canvas.drawPath(this.mPath, this.mPaint);
             super.dispatchDraw(canvas);

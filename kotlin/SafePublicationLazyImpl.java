@@ -8,28 +8,28 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes7.dex */
 final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> nXL = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> nXN = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f946final;
+    private final Object f949final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         q.m(aVar, "initializer");
         this.initializer = aVar;
-        this._value = k.nXM;
-        this.f946final = k.nXM;
+        this._value = k.nXO;
+        this.f949final = k.nXO;
     }
 
     @Override // kotlin.d
     public T getValue() {
         T t = (T) this._value;
-        if (t == k.nXM) {
+        if (t == k.nXO) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (nXL.compareAndSet(this, k.nXM, invoke)) {
+                if (nXN.compareAndSet(this, k.nXO, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -40,7 +40,7 @@ final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != k.nXM;
+        return this._value != k.nXO;
     }
 
     public String toString() {

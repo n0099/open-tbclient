@@ -61,7 +61,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.bdZ().showToast(R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.dtt();
+                                aVar.dtu();
                                 if (b.this.a(aVar.bdZ(), 11001)) {
                                     aVar.bjI();
                                     return;

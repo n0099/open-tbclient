@@ -35,16 +35,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private com.baidu.adp.lib.d.b<ImageView> eRG;
     private com.baidu.adp.lib.d.b<GifView> eRH;
     private int gEw;
-    private int kUR;
-    private int kUS;
+    private int kUT;
+    private int kUU;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.aib = true;
-        this.kUR = 0;
-        this.kUS = 0;
+        this.kUT = 0;
+        this.kUU = 0;
         this.gEw = 0;
         this.eRG = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -215,8 +215,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         eVar.setPageUniqueId(this.eEU);
         eVar.bg(1024);
         eVar.bg(32768);
-        if (this.kUR > 0) {
-            eVar.bf(this.kUR);
+        if (this.kUT > 0) {
+            eVar.bf(this.kUT);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -244,7 +244,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         sf.setSourceForPb(4);
         ak akVar = new ak(sf);
         akVar.setPageId(this.eEU);
-        akVar.bt(this.kUS);
+        akVar.bt(this.kUU);
         a(new z() { // from class: com.baidu.tieba.personPolymeric.a.a.c.4
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -288,7 +288,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void CV(int i) {
-        this.kUR = i;
+        this.kUT = i;
     }
 
     private void cnr() {
@@ -304,6 +304,6 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void CU(int i) {
-        this.kUS = i;
+        this.kUU = i;
     }
 }

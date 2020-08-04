@@ -11,23 +11,23 @@ public class e implements j, l, a.InterfaceC0874a {
     private boolean Cd;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     @Nullable
-    private r nOh;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nOj;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nOk;
-    private final com.tb.airbnb.lottie.model.content.a nOl;
+    private r nOj;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nOl;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> nOm;
+    private final com.tb.airbnb.lottie.model.content.a nOn;
     private final String name;
     private final Path path = new Path();
 
     public e(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = fVar;
-        this.nOj = aVar2.dRm().dRc();
-        this.nOk = aVar2.dRf().dRc();
-        this.nOl = aVar2;
-        aVar.a(this.nOj);
-        aVar.a(this.nOk);
-        this.nOj.b(this);
-        this.nOk.b(this);
+        this.nOl = aVar2.dRn().dRd();
+        this.nOm = aVar2.dRg().dRd();
+        this.nOn = aVar2;
+        aVar.a(this.nOl);
+        aVar.a(this.nOm);
+        this.nOl.b(this);
+        this.nOm.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0874a
@@ -47,9 +47,9 @@ public class e implements j, l, a.InterfaceC0874a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).dQS() == ShapeTrimPath.Type.Simultaneously) {
-                    this.nOh = (r) bVar;
-                    this.nOh.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dQT() == ShapeTrimPath.Type.Simultaneously) {
+                    this.nOj = (r) bVar;
+                    this.nOj.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -69,13 +69,13 @@ public class e implements j, l, a.InterfaceC0874a {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.nOj.getValue();
+        PointF value = this.nOl.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.nOl.isReversed()) {
+        if (this.nOn.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,10 +88,10 @@ public class e implements j, l, a.InterfaceC0874a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.nOk.getValue();
+        PointF value2 = this.nOm.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.nOh);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.nOj);
         this.Cd = true;
         return this.path;
     }
@@ -104,9 +104,9 @@ public class e implements j, l, a.InterfaceC0874a {
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.Bg) {
-            this.nOj.a(cVar);
+            this.nOl.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Bh) {
-            this.nOk.a(cVar);
+            this.nOm.a(cVar);
         }
     }
 }

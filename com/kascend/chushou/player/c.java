@@ -1,33 +1,33 @@
 package com.kascend.chushou.player;
 /* loaded from: classes6.dex */
 public class c {
-    private static c npL = null;
-    private tv.chushou.common.player.a nnL;
-    private tv.chushou.common.player.a npK;
+    private static c npN = null;
+    private tv.chushou.common.player.a nnN;
+    private tv.chushou.common.player.a npM;
 
     public c() {
-        this.npK = null;
-        this.nnL = null;
-        this.npK = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
-        this.nnL = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dZG().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
-    }
-
-    public tv.chushou.common.player.a dNg() {
-        return this.npK;
+        this.npM = null;
+        this.nnN = null;
+        this.npM = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dZH().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
+        this.nnN = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.dZH().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
     }
 
     public tv.chushou.common.player.a dNh() {
-        return this.nnL;
+        return this.npM;
+    }
+
+    public tv.chushou.common.player.a dNi() {
+        return this.nnN;
     }
 
     public void c() {
-        if (this.npK != null) {
-            this.npK.release();
-            this.npK = null;
+        if (this.npM != null) {
+            this.npM.release();
+            this.npM = null;
         }
-        if (this.nnL != null) {
-            this.nnL.release();
-            this.nnL = null;
+        if (this.nnN != null) {
+            this.nnN.release();
+            this.nnN = null;
         }
     }
 }

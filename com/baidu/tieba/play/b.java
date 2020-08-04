@@ -5,7 +5,7 @@ public class b implements Runnable {
     private int hHG;
     private boolean hIq;
     private i hoU;
-    private boolean jAj = false;
+    private boolean jAl = false;
 
     public b(i iVar) {
         this.hoU = iVar;
@@ -24,13 +24,13 @@ public class b implements Runnable {
     }
 
     public void qX(boolean z) {
-        this.jAj = z;
+        this.jAl = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         if (this.hoU != null) {
-            if (!this.jAj) {
+            if (!this.jAl) {
                 this.hoU.a(this.hHG, this.frk, this.hIq, 2);
             } else {
                 this.hoU.a(this.hHG, this.frk, this.hIq, 1);

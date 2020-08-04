@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.message.GameLaunchMessage;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class be {
-    private static be kxq = null;
+    private static be kxs = null;
 
     public static be cQS() {
-        if (kxq == null) {
+        if (kxs == null) {
             synchronized (be.class) {
-                if (kxq == null) {
-                    kxq = new be();
+                if (kxs == null) {
+                    kxs = new be();
                 }
             }
         }
-        return kxq;
+        return kxs;
     }
 
     public void f(TbPageContext tbPageContext, String str) {

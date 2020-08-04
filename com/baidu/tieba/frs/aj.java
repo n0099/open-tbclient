@@ -20,7 +20,7 @@ public class aj {
             this.hKb = new FrsTopItemInfoView(baseFragment.getContext());
             this.hKb.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             onChangeSkinType();
-            if ((this.hKa instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.hKa).hNC) != null && frsViewData.getForum() != null) {
+            if ((this.hKa instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.hKa).hNE) != null && frsViewData.getForum() != null) {
                 ForumData forum = frsViewData.getForum();
                 this.hKb.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
             }

@@ -20,15 +20,15 @@ import com.baidu.tieba.setting.more.AboutActivity;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes20.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
-    private a lwL;
-    private final boolean lwM;
+    private a lwN;
+    private final boolean lwO;
     private Context mContext;
 
     public AboutModel(BaseActivity baseActivity, d dVar) {
         super(baseActivity.getPageContext());
         this.mContext = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = dVar;
-        this.lwM = false;
+        this.lwO = false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -38,19 +38,19 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lwL != null) {
-            this.lwL.cancel();
+        if (this.lwN != null) {
+            this.lwN.cancel();
             return false;
         }
         return false;
     }
 
     public void deL() {
-        if (this.lwL == null) {
-            this.lwL = new a();
+        if (this.lwN == null) {
+            this.lwN = new a();
         }
-        this.lwL.setPriority(3);
-        this.lwL.execute(new String[0]);
+        this.lwN.setPriority(3);
+        this.lwN.execute(new String[0]);
     }
 
     /* loaded from: classes20.dex */
@@ -87,7 +87,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 } else {
                     this.byq.addPostData("_msg_status", "1");
                 }
-                if (AboutModel.this.lwM) {
+                if (AboutModel.this.lwO) {
                     this.byq.addPostData("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
@@ -129,7 +129,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AboutModel.this.lwL = null;
+            AboutModel.this.lwN = null;
             if (this.byq != null) {
                 this.byq.cancelNetConnect();
             }
@@ -145,7 +145,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             if (dVar != null && dVar.getAdAdSense() != null) {
                 TbadkCoreApplication.getInst().setAdAdSense(dVar.getAdAdSense());
             }
-            AboutModel.this.lwL = null;
+            AboutModel.this.lwN = null;
             AboutModel.this.mLoadDataCallBack.callback(dVar);
         }
     }

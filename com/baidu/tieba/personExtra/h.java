@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes18.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener kUc;
+    private View.OnLongClickListener kUe;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -49,7 +49,7 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.kUc = onLongClickListener;
+        this.kUe = onLongClickListener;
     }
 
     private SmartApp CS(int i) {
@@ -78,7 +78,7 @@ public class h extends RecyclerView.Adapter<a> {
         if (aVar != null && (CS = CS(i)) != null) {
             aVar.b(CS);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.kUc);
+            aVar.setOnLongClickListener(this.kUe);
             aVar.onChangeSkinType();
         }
     }
@@ -90,26 +90,26 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes18.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView jrM;
-        private SmartApp kUd;
+        private HeadImageView jrO;
+        private SmartApp kUf;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.jrM = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.jrM.setIsRound(true);
-            this.jrM.setPlaceHolder(1);
+            this.jrO = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.jrO.setIsRound(true);
+            this.jrO.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void b(SmartApp smartApp) {
-            this.kUd = smartApp;
+            this.kUf = smartApp;
             this.mRootView.setTag(smartApp);
             if (!as.isEmpty(smartApp.avatar)) {
-                this.jrM.setPlaceHolder(1);
-                this.jrM.startLoad(smartApp.avatar, 10, false, false);
+                this.jrO.setPlaceHolder(1);
+                this.jrO.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!as.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

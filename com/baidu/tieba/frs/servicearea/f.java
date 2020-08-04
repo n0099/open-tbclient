@@ -65,14 +65,14 @@ public class f implements b {
     public void setData(y yVar) {
         if (yVar != null && !x.isEmpty(yVar.dataList)) {
             this.mRootView.removeAllViews();
-            if (yVar.lMg == 2) {
+            if (yVar.lMi == 2) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
                 this.mRootView.addView(eO(this.mContext), layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds104);
                 this.mRootView.addView(eO(this.mContext), layoutParams2);
-            } else if (yVar.lMg == 3) {
+            } else if (yVar.lMi == 3) {
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) / 3;
                 for (int i = 0; i < 3; i++) {
                     this.mRootView.addView(eO(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
@@ -88,8 +88,8 @@ public class f implements b {
                     this.mRootView.getChildAt(i2).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.f.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (zVar != null && zVar.lMh != null) {
-                                TiebaStatic.log(new ap("c13274").t("uid", TbadkCoreApplication.getCurrentAccountId()).dn("fid", zVar.forumId).dn("obj_source", "frs_card").dn("obj_id", zVar.lMh.id).dn("obj_name", zVar.lMh.name).ah("obj_param1", zVar.lMh.dGy.intValue()));
+                            if (zVar != null && zVar.lMj != null) {
+                                TiebaStatic.log(new ap("c13274").t("uid", TbadkCoreApplication.getCurrentAccountId()).dn("fid", zVar.forumId).dn("obj_source", "frs_card").dn("obj_id", zVar.lMj.id).dn("obj_name", zVar.lMj.name).ah("obj_param1", zVar.lMj.dGy.intValue()));
                             }
                             e.a(view.getContext(), zVar, findViewById);
                             e.c(zVar);

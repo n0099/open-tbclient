@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private InterfaceC0748a lGe = null;
-    private int lGf = 0;
+    private InterfaceC0748a lGg = null;
+    private int lGh = 0;
     private Context mContext;
     private List<String> mDataList;
 
@@ -45,16 +45,16 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.lGi.setText(str);
-        if (this.lGf == i) {
-            bVar.lGj.setVisibility(0);
-            ao.setBackgroundColor(bVar.lGj, R.color.cp_link_tip_e);
+        bVar.lGk.setText(str);
+        if (this.lGh == i) {
+            bVar.lGl.setVisibility(0);
+            ao.setBackgroundColor(bVar.lGl, R.color.cp_link_tip_e);
             ao.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
-            ao.setViewTextColor(bVar.lGi, R.color.cp_cont_b);
+            ao.setViewTextColor(bVar.lGk, R.color.cp_cont_b);
         } else {
-            bVar.lGj.setVisibility(8);
+            bVar.lGl.setVisibility(8);
             ao.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
-            ao.setViewTextColor(bVar.lGi, R.color.cp_cont_j);
+            ao.setViewTextColor(bVar.lGk, R.color.cp_cont_j);
         }
         if ("推荐".equals(dju())) {
             ap apVar = new ap("c13641");
@@ -66,8 +66,8 @@ public class a extends RecyclerView.Adapter<b> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.Fb(i);
-                if (a.this.lGe != null) {
-                    a.this.lGe.a(bVar.itemView, i, str);
+                if (a.this.lGg != null) {
+                    a.this.lGg.a(bVar.itemView, i, str);
                 }
                 ap apVar2 = new ap("c13649");
                 apVar2.dn("resource_id", str);
@@ -85,22 +85,22 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void b(InterfaceC0748a interfaceC0748a) {
-        this.lGe = interfaceC0748a;
+        this.lGg = interfaceC0748a;
     }
 
     public void p(int i, List<String> list) {
-        this.lGf = i;
+        this.lGh = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
     public void Fb(int i) {
-        this.lGf = i;
+        this.lGh = i;
         notifyDataSetChanged();
     }
 
     public String dju() {
-        return Fc(this.lGf);
+        return Fc(this.lGh);
     }
 
     public String Fc(int i) {
@@ -109,13 +109,13 @@ public class a extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes16.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView lGi;
-        private View lGj;
+        private TextView lGk;
+        private View lGl;
 
         public b(@NonNull View view) {
             super(view);
-            this.lGi = (TextView) view.findViewById(R.id.tv_class_name);
-            this.lGj = view.findViewById(R.id.tv_line);
+            this.lGk = (TextView) view.findViewById(R.id.tv_class_name);
+            this.lGl = view.findViewById(R.id.tv_line);
         }
     }
 }

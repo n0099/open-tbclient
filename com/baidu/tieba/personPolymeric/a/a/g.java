@@ -36,16 +36,16 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
     private int gEw;
     private com.baidu.adp.lib.d.b<ConstrainImageLayout> hLg;
     private com.baidu.adp.lib.d.b<TbImageView> hLh;
-    private int kUR;
-    private int kUS;
+    private int kUT;
+    private int kUU;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.aib = true;
-        this.kUR = 0;
-        this.kUS = 0;
+        this.kUT = 0;
+        this.kUU = 0;
         this.gEw = 0;
         this.hLg = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -145,8 +145,8 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
         eVar.setPageUniqueId(this.eEU);
         eVar.bg(1024);
         eVar.bg(32768);
-        if (this.kUR > 0) {
-            eVar.bf(this.kUR);
+        if (this.kUT > 0) {
+            eVar.bf(this.kUT);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -198,7 +198,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
         sf.setSourceForPb(4);
         ak akVar = new ak(sf);
         akVar.setPageId(this.eEU);
-        akVar.bt(this.kUS);
+        akVar.bt(this.kUU);
         a(new z() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, com.baidu.adp.widget.ListView.q qVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -242,11 +242,11 @@ public class g extends com.baidu.adp.widget.ListView.a<k, ak<k>> implements com.
     }
 
     public void CV(int i) {
-        this.kUR = i;
+        this.kUT = i;
     }
 
     public void CU(int i) {
-        this.kUS = i;
+        this.kUU = i;
     }
 
     private void cnr() {

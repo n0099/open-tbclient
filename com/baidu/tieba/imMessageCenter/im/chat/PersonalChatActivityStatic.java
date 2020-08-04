@@ -62,13 +62,13 @@ import com.baidu.tieba.imMessageCenter.mention.reply.ReplyMeActivity;
 import java.util.LinkedList;
 /* loaded from: classes16.dex */
 public class PersonalChatActivityStatic {
-    private static e jma;
-    private static CustomMessageListener jmb = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
+    private static e jmc;
+    private static CustomMessageListener jmd = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                e unused = PersonalChatActivityStatic.jma = null;
+                e unused = PersonalChatActivityStatic.jmc = null;
             }
         }
     };
@@ -96,7 +96,7 @@ public class PersonalChatActivityStatic {
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         bVb();
-        MessageManager.getInstance().registerListener(jmb);
+        MessageManager.getInstance().registerListener(jmd);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<PersonalChatActivityConfig> run(final CustomMessage<PersonalChatActivityConfig> customMessage) {
@@ -173,10 +173,10 @@ public class PersonalChatActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.iQH != null && aVar.context != null) {
+                    if (aVar.iQJ != null && aVar.context != null) {
                         MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_REPLY_CARD);
                         msgReplyCardViewItemAdapter.py(true);
-                        aVar.iQH.add(msgReplyCardViewItemAdapter);
+                        aVar.iQJ.add(msgReplyCardViewItemAdapter);
                     }
                 }
             }
@@ -208,11 +208,11 @@ public class PersonalChatActivityStatic {
     }
 
     public static e cxV() {
-        return jma;
+        return jmc;
     }
 
     public static void a(e eVar) {
-        jma = eVar;
+        jmc = eVar;
     }
 
     private static void bVb() {

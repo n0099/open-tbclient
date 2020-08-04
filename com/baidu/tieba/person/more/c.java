@@ -14,8 +14,8 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class c {
     private BdTypeListView frv;
-    private aa<h> hUP;
-    private a kOt;
+    private aa<h> hUR;
+    private a kOv;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -26,7 +26,7 @@ public class c {
     public void aj(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
         this.frv = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.kOt = new a(this.mPageContext, this.frv, this.hUP);
+        this.kOv = new a(this.mPageContext, this.frv, this.hUR);
         bmb();
     }
 
@@ -47,12 +47,12 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.kOt.notifyDataSetChanged();
+        this.kOv.notifyDataSetChanged();
         ao.setBackgroundColor(this.frv, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(aa<h> aaVar) {
-        this.hUP = aaVar;
+        this.hUR = aaVar;
     }
 }

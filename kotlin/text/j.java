@@ -8,27 +8,27 @@ import java.util.regex.Matcher;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class j implements i {
-    private final g nZF;
-    private final Matcher nZG;
-    private final CharSequence nZx;
+    private final g nZH;
+    private final Matcher nZI;
+    private final CharSequence nZz;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.m(matcher, "matcher");
         kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
-        this.nZG = matcher;
-        this.nZx = charSequence;
-        this.nZF = new a();
+        this.nZI = matcher;
+        this.nZz = charSequence;
+        this.nZH = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dUD() {
-        return this.nZG;
+    public final MatchResult dUE() {
+        return this.nZI;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h dUB() {
+    public kotlin.b.h dUC() {
         kotlin.b.h a2;
-        a2 = k.a(dUD());
+        a2 = k.a(dUE());
         return a2;
     }
 
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dUD().groupCount() + 1;
+            return j.this.dUE().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -68,9 +68,9 @@ public final class j implements i {
 
         public f Lw(int i) {
             kotlin.b.h a;
-            a = k.a(j.this.dUD(), i);
-            if (a.dUs().intValue() >= 0) {
-                String group = j.this.dUD().group(i);
+            a = k.a(j.this.dUE(), i);
+            if (a.dUt().intValue() >= 0) {
+                String group = j.this.dUE().group(i);
                 kotlin.jvm.internal.q.l((Object) group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -79,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dUC() {
+    public i dUD() {
         i a2;
-        int end = (dUD().end() == dUD().start() ? 1 : 0) + dUD().end();
-        if (end <= this.nZx.length()) {
-            Matcher matcher = this.nZG.pattern().matcher(this.nZx);
+        int end = (dUE().end() == dUE().start() ? 1 : 0) + dUE().end();
+        if (end <= this.nZz.length()) {
+            Matcher matcher = this.nZI.pattern().matcher(this.nZz);
             kotlin.jvm.internal.q.l((Object) matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.nZx);
+            a2 = k.a(matcher, end, this.nZz);
             return a2;
         }
         return null;

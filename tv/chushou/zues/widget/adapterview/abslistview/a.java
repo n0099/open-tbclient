@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int nGr;
+    protected final int nGt;
 
     public abstract void a(C0955a c0955a, T t);
 
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.nGr = i;
+        this.nGt = i;
     }
 
     @Override // android.widget.Adapter
@@ -62,25 +62,25 @@ public abstract class a<T> extends BaseAdapter {
     }
 
     protected int KN(int i) {
-        return this.nGr;
+        return this.nGt;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0955a {
-        private final SparseArray<View> nGB = new SparseArray<>();
-        public View oty;
+        private final SparseArray<View> nGD = new SparseArray<>();
+        public View otA;
 
         public C0955a(View view) {
-            this.oty = view;
+            this.otA = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
         public View oK(int i) {
-            View view = this.nGB.get(i);
+            View view = this.nGD.get(i);
             if (view == null) {
-                View findViewById = this.oty.findViewById(i);
-                this.nGB.put(i, findViewById);
+                View findViewById = this.otA.findViewById(i);
+                this.nGD.put(i, findViewById);
                 return findViewById;
             }
             return view;

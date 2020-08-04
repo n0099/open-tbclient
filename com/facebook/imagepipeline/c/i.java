@@ -14,12 +14,12 @@ public class i implements com.facebook.common.internal.j<q> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dFQ */
+    /* renamed from: dFR */
     public q get() {
-        return new q(dFR(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return new q(dFS(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    private int dFR() {
+    private int dFS() {
         int min = Math.min(this.cRE.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         if (min < 33554432) {
             return 4194304;

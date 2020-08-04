@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes3.dex */
 public class b {
-    private static final b nal = dGg().dGo();
-    public final int nam;
-    public final boolean nan;
-    public final boolean nao;
+    private static final b nan = dGh().dGp();
+    public final int nao;
     public final boolean nap;
     public final boolean naq;
-    public final Bitmap.Config nar;
+    public final boolean nar;
+    public final boolean nas;
+    public final Bitmap.Config nat;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b nas;
+    public final com.facebook.imagepipeline.decoder.b nau;
 
     public b(c cVar) {
-        this.nam = cVar.dGh();
-        this.nan = cVar.dGi();
-        this.nao = cVar.dGj();
-        this.nap = cVar.dGk();
-        this.naq = cVar.dGm();
-        this.nar = cVar.dGn();
-        this.nas = cVar.dGl();
+        this.nao = cVar.dGi();
+        this.nap = cVar.dGj();
+        this.naq = cVar.dGk();
+        this.nar = cVar.dGl();
+        this.nas = cVar.dGn();
+        this.nat = cVar.dGo();
+        this.nau = cVar.dGm();
     }
 
-    public static b dGf() {
-        return nal;
+    public static b dGg() {
+        return nan;
     }
 
-    public static c dGg() {
+    public static c dGh() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.nan == bVar.nan && this.nao == bVar.nao && this.nap == bVar.nap && this.naq == bVar.naq && this.nar == bVar.nar && this.nas == bVar.nas;
+        return this.nap == bVar.nap && this.naq == bVar.naq && this.nar == bVar.nar && this.nas == bVar.nas && this.nat == bVar.nat && this.nau == bVar.nau;
     }
 
     public int hashCode() {
-        return (((((((this.nap ? 1 : 0) + (((this.nao ? 1 : 0) + (((this.nan ? 1 : 0) + (this.nam * 31)) * 31)) * 31)) * 31) + (this.naq ? 1 : 0)) * 31) + this.nar.ordinal()) * 31) + (this.nas != null ? this.nas.hashCode() : 0);
+        return (((((((this.nar ? 1 : 0) + (((this.naq ? 1 : 0) + (((this.nap ? 1 : 0) + (this.nao * 31)) * 31)) * 31)) * 31) + (this.nas ? 1 : 0)) * 31) + this.nat.ordinal()) * 31) + (this.nau != null ? this.nau.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.nam), Boolean.valueOf(this.nan), Boolean.valueOf(this.nao), Boolean.valueOf(this.nap), Boolean.valueOf(this.naq), this.nar.name(), this.nas);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.nao), Boolean.valueOf(this.nap), Boolean.valueOf(this.naq), Boolean.valueOf(this.nar), Boolean.valueOf(this.nas), this.nat.name(), this.nau);
     }
 }

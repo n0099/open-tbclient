@@ -10,9 +10,9 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
     private BdTypeListView frv;
-    private d iqg;
-    private c iqh;
-    private b iqi;
+    private d iqi;
+    private c iqj;
+    private b iqk;
 
     public List<com.baidu.adp.widget.ListView.a> bxf() {
         return this.aWf;
@@ -20,12 +20,12 @@ public class a {
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.frv = bdTypeListView;
-        this.iqg = new d(tbPageContext);
-        this.iqh = new c(tbPageContext);
-        this.iqi = new b(tbPageContext);
-        this.aWf.add(this.iqg);
-        this.aWf.add(this.iqh);
+        this.iqi = new d(tbPageContext);
+        this.iqj = new c(tbPageContext);
+        this.iqk = new b(tbPageContext);
         this.aWf.add(this.iqi);
+        this.aWf.add(this.iqj);
+        this.aWf.add(this.iqk);
     }
 
     public void notifyDataSetChanged() {

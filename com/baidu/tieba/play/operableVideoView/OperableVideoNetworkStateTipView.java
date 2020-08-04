@@ -18,9 +18,9 @@ import com.baidu.tieba.video.g;
 /* loaded from: classes.dex */
 public class OperableVideoNetworkStateTipView extends LinearLayout implements View.OnClickListener {
     private String ajJ;
-    private TBSpecificationBtn leT;
-    private TBSpecificationBtn leU;
-    protected View.OnClickListener leV;
+    private TBSpecificationBtn leV;
+    private TBSpecificationBtn leW;
+    protected View.OnClickListener leX;
 
     public OperableVideoNetworkStateTipView(Context context) {
         super(context);
@@ -43,27 +43,27 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
 
     private void init() {
         inflate(getContext(), getLayoutR(), this);
-        this.leT = (TBSpecificationBtn) findViewById(R.id.play);
-        this.leU = (TBSpecificationBtn) findViewById(R.id.free_flow);
+        this.leV = (TBSpecificationBtn) findViewById(R.id.play);
+        this.leW = (TBSpecificationBtn) findViewById(R.id.free_flow);
         com.baidu.tbadk.core.view.commonBtn.d dVar = new com.baidu.tbadk.core.view.commonBtn.d();
         dVar.bcS();
         dVar.k(R.drawable.ic_icon_pure_video_play12_svg, 0, true);
         dVar.mR(l.getDimens(getContext(), R.dimen.tbds32));
-        this.leT.setText(getResources().getString(R.string.video_flow_play));
-        this.leT.setTextSize(R.dimen.tbds36);
-        this.leT.setConfig(dVar);
+        this.leV.setText(getResources().getString(R.string.video_flow_play));
+        this.leV.setTextSize(R.dimen.tbds36);
+        this.leV.setConfig(dVar);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.leU.setText(getResources().getString(R.string.video_open_free_data));
-        this.leU.setTextSize(R.dimen.tbds36);
-        this.leU.setConfig(bVar);
-        this.leT.setOnClickListener(this);
-        this.leU.setOnClickListener(this);
+        this.leW.setText(getResources().getString(R.string.video_open_free_data));
+        this.leW.setTextSize(R.dimen.tbds36);
+        this.leW.setConfig(bVar);
+        this.leV.setOnClickListener(this);
+        this.leW.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     public void setVideoLength(long j) {
         if (j > 0) {
-            this.leT.setText(String.format(getResources().getString(R.string.video_data), as.getFormatSize(j)));
+            this.leV.setText(String.format(getResources().getString(R.string.video_data), as.getFormatSize(j)));
         }
     }
 
@@ -75,7 +75,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     }
 
     public boolean cUv() {
-        return (hasAgreeToPlay() || g.dpz().dpA() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.isMobileNet()) ? false : true;
+        return (hasAgreeToPlay() || g.dpA().dpB() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.isMobileNet()) ? false : true;
     }
 
     public void setHasAgreeToPlay(boolean z) {
@@ -87,11 +87,11 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.leV = onClickListener;
+        this.leX = onClickListener;
     }
 
     public void an(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.leU.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.leW.getLayoutParams();
         if (z && !z2) {
             setOrientation(1);
             layoutParams.leftMargin = 0;
@@ -101,7 +101,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
             layoutParams.topMargin = 0;
         }
-        this.leU.setLayoutParams(layoutParams);
+        this.leW.setLayoutParams(layoutParams);
     }
 
     public void onClick(View view) {
@@ -110,8 +110,8 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
                 com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             } else if (view.getId() == R.id.play) {
                 setHasAgreeToPlay(true);
-                if (this.leV != null) {
-                    this.leV.onClick(view);
+                if (this.leX != null) {
+                    this.leX.onClick(view);
                 }
                 TiebaStatic.log(new ap("c13257").ah("obj_locate", 2).dn("tid", this.ajJ));
             }

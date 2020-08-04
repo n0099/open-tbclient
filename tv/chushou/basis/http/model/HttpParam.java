@@ -23,10 +23,10 @@ public class HttpParam {
         }
     };
     private final Map<String, String> c;
-    private final RequestTag orE;
+    private final RequestTag orG;
 
     public HttpParam(RequestTag requestTag) {
-        this.orE = requestTag == null ? RequestTag.normal() : requestTag;
+        this.orG = requestTag == null ? RequestTag.normal() : requestTag;
         this.c = new TreeMap(a);
     }
 
@@ -45,34 +45,34 @@ public class HttpParam {
     }
 
     public void a() {
-        Map<String, String> dOs;
-        if (this.orE.signType == 2) {
+        Map<String, String> dOt;
+        if (this.orG.signType == 2) {
             return;
         }
-        b bVar = (b) tv.chushou.basis.d.b.dZG().S(b.class);
+        b bVar = (b) tv.chushou.basis.d.b.dZH().S(b.class);
         if (bVar != null) {
             b("_appkey", bVar.getAppKey());
-            b("_xappkey", bVar.dOo());
+            b("_xappkey", bVar.dOp());
             b("_appSource", bVar.aef());
             b("_appVersion", bVar.getSdkVersion());
             String token = bVar.getToken();
             if (!TextUtils.isEmpty(token)) {
                 b("token", token);
             }
-            b("_cssdkVersion", bVar.dOr());
+            b("_cssdkVersion", bVar.dOs());
         }
-        d dVar = (d) tv.chushou.basis.d.b.dZG().S(d.class);
+        d dVar = (d) tv.chushou.basis.d.b.dZH().S(d.class);
         if (dVar != null) {
             b("_identifier", dVar.getIdentifier());
             b("_imei", dVar.axd());
-            b("device_cs", dVar.dZw());
-            b("device_ds", dVar.dZx());
-            for (Map.Entry<String, String> entry : dVar.dZy().entrySet()) {
+            b("device_cs", dVar.dZx());
+            b("device_ds", dVar.dZy());
+            for (Map.Entry<String, String> entry : dVar.dZz().entrySet()) {
                 b(entry.getKey(), entry.getValue());
             }
         }
-        if (bVar != null && (dOs = bVar.dOs()) != null) {
-            for (Map.Entry<String, String> entry2 : dOs.entrySet()) {
+        if (bVar != null && (dOt = bVar.dOt()) != null) {
+            for (Map.Entry<String, String> entry2 : dOt.entrySet()) {
                 b(entry2.getKey(), entry2.getValue());
             }
         }
@@ -87,15 +87,15 @@ public class HttpParam {
     }
 
     public void b() {
-        if (this.orE.signType == 2) {
+        if (this.orG.signType == 2) {
             return;
         }
-        c cVar = (c) tv.chushou.basis.d.b.dZG().S(c.class);
+        c cVar = (c) tv.chushou.basis.d.b.dZH().S(c.class);
         if (cVar == null) {
             this.c.put("_t", String.valueOf(System.currentTimeMillis()));
             return;
         }
-        this.c.put("_t", cVar.dOu());
+        this.c.put("_t", cVar.dOv());
     }
 
     public void b(String str, Object obj) {
@@ -110,23 +110,23 @@ public class HttpParam {
     }
 
     public void c() {
-        if (this.orE.signType == 2) {
+        if (this.orG.signType == 2) {
             return;
         }
-        String str = this.orE.signKey;
-        String str2 = this.orE.signSecret;
+        String str = this.orG.signKey;
+        String str2 = this.orG.signSecret;
         String str3 = TextUtils.isEmpty(str) ? "_sign" : str;
-        b bVar = (b) tv.chushou.basis.d.b.dZG().S(b.class);
-        String dOp = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.dOp();
+        b bVar = (b) tv.chushou.basis.d.b.dZH().S(b.class);
+        String dOq = (!TextUtils.isEmpty(str2) || bVar == null) ? str2 : bVar.dOq();
         this.c.remove(str3);
-        e eVar = (e) tv.chushou.basis.d.b.dZG().S(e.class);
+        e eVar = (e) tv.chushou.basis.d.b.dZH().S(e.class);
         if (bVar == null || eVar == null) {
             return;
         }
-        this.c.put(str3, eVar.fY(dOp, e()));
+        this.c.put(str3, eVar.fY(dOq, e()));
     }
 
-    public Set<Map.Entry<String, String>> dZD() {
+    public Set<Map.Entry<String, String>> dZE() {
         return this.c.entrySet();
     }
 

@@ -4,10 +4,10 @@ import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class b<INFO> implements c<INFO> {
-    private static final c<Object> mUa = new b();
+    private static final c<Object> mUc = new b();
 
-    public static <INFO> c<INFO> dEe() {
-        return (c<INFO>) mUa;
+    public static <INFO> c<INFO> dEf() {
+        return (c<INFO>) mUc;
     }
 
     @Override // com.facebook.drawee.controller.c

@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.bd;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes17.dex */
 public class b implements c {
-    private SpannableString kEf;
+    private SpannableString kEh;
     private TbPageContext<?> pageContext;
     private String url;
 
     public b(TbPageContext<?> tbPageContext, ExcContent excContent) {
         if (excContent != null && excContent.type.longValue() == 1 && !StringUtils.isNull(excContent.text)) {
             this.pageContext = tbPageContext;
-            this.kEf = new SpannableString(excContent.text);
-            this.kEf.setSpan(new a(), 0, excContent.text.length(), 17);
+            this.kEh = new SpannableString(excContent.text);
+            this.kEh.setSpan(new a(), 0, excContent.text.length(), 17);
             this.url = excContent.link;
         }
     }
@@ -30,7 +30,7 @@ public class b implements c {
 
     @Override // com.baidu.tieba.pb.b.a.c
     public CharSequence cSz() {
-        return this.kEf;
+        return this.kEh;
     }
 
     /* loaded from: classes17.dex */

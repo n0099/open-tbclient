@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes16.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String kfH;
-        private String kfI;
-        private InterfaceC0713b kfJ;
+        private String kfJ;
+        private String kfK;
+        private InterfaceC0713b kfL;
 
         public a(String str, String str2, InterfaceC0713b interfaceC0713b) {
-            this.kfH = str;
-            this.kfI = str2;
-            this.kfJ = interfaceC0713b;
+            this.kfJ = str;
+            this.kfK = str2;
+            this.kfL = interfaceC0713b;
             setPriority(3);
         }
 
@@ -42,8 +42,8 @@ public class b {
         /* renamed from: L */
         public ForbidTplData doInBackground(String... strArr) {
             z zVar = new z(b.BAWU_LIST_REASON);
-            zVar.addPostData("forum_id", this.kfH);
-            zVar.addPostData("user_id", this.kfI);
+            zVar.addPostData("forum_id", this.kfJ);
+            zVar.addPostData("user_id", this.kfK);
             String postNetData = zVar.postNetData();
             if (zVar.bav().baX().isRequestSuccess()) {
                 try {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.kfJ != null) {
+            if (this.kfL != null) {
                 if (forbidTplData.error.errno == 0 && as.isEmpty(forbidTplData.error.errMsg)) {
-                    this.kfJ.a(forbidTplData);
+                    this.kfL.a(forbidTplData);
                 } else {
-                    this.kfJ.b(forbidTplData);
+                    this.kfL.b(forbidTplData);
                 }
             }
         }

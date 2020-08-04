@@ -3,13 +3,13 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 /* loaded from: classes20.dex */
 public class c {
-    public static c iSF = new c();
-    private com.baidu.adp.lib.d.b<MultiImageTextTopView> iSs;
-    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> iSt;
-    private com.baidu.adp.lib.d.b<SingleImageTextView> iSu;
+    public static c iSH = new c();
+    private com.baidu.adp.lib.d.b<MultiImageTextTopView> iSu;
+    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> iSv;
+    private com.baidu.adp.lib.d.b<SingleImageTextView> iSw;
 
     private void eT(final Context context) {
-        this.iSs = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
+        this.iSu = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: crj */
@@ -47,7 +47,7 @@ public class c {
     }
 
     private void eU(final Context context) {
-        this.iSt = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
+        this.iSv = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: crk */
@@ -85,7 +85,7 @@ public class c {
     }
 
     private void eV(final Context context) {
-        this.iSu = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
+        this.iSw = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: crl */
@@ -122,23 +122,23 @@ public class c {
     }
 
     public com.baidu.adp.lib.d.b<MultiImageTextTopView> eW(Context context) {
-        if (this.iSs == null) {
+        if (this.iSu == null) {
             eT(context);
         }
-        return this.iSs;
+        return this.iSu;
     }
 
     public com.baidu.adp.lib.d.b<MultiImageTextBottomView> eX(Context context) {
-        if (this.iSt == null) {
+        if (this.iSv == null) {
             eU(context);
         }
-        return this.iSt;
+        return this.iSv;
     }
 
     public com.baidu.adp.lib.d.b<SingleImageTextView> eY(Context context) {
-        if (this.iSu == null) {
+        if (this.iSw == null) {
             eV(context);
         }
-        return this.iSu;
+        return this.iSw;
     }
 }

@@ -103,8 +103,8 @@ public class g extends com.baidu.tieba.frs.j<bv, a> {
     @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) bvVar, (bv) aVar);
-        aVar.hOW.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.hOW.a(bvVar);
+        aVar.hOY.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.hOY.a(bvVar);
         if (bvVar != null) {
             bvVar.aXx();
         }
@@ -114,11 +114,11 @@ public class g extends com.baidu.tieba.frs.j<bv, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        com.baidu.tieba.frs.entelechy.view.d hOW;
+        com.baidu.tieba.frs.entelechy.view.d hOY;
 
         public a(com.baidu.tieba.frs.entelechy.view.d dVar) {
             super(dVar.getView());
-            this.hOW = dVar;
+            this.hOY = dVar;
         }
     }
 }

@@ -32,8 +32,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes18.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
-    public static String lBn = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
-    public static String lBo = "temp_video_thumb.png";
+    public static String lBp = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
+    public static String lBq = "temp_video_thumb.png";
     Context context;
     String extLiveInfo;
     BdUniqueId pageId;
@@ -235,7 +235,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             a.draw(canvas);
         }
         if (z) {
-            String saveFileAsPNG = n.saveFileAsPNG(lBn, lBo, createBitmap, 100);
+            String saveFileAsPNG = n.saveFileAsPNG(lBp, lBq, createBitmap, 100);
             if (!StringUtils.isNull(saveFileAsPNG)) {
                 shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
             }

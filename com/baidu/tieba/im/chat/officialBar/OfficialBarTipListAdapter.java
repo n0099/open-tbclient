@@ -30,17 +30,17 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.iRR.setVisibility(8);
-        aVar.iRT.setVisibility(0);
-        aVar.iRT.setShowOval(true);
-        aVar.iRT.setAutoChangeStyle(true);
-        aVar.iRT.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
-        aVar.iRT.setStrokeColorResId(R.color.cp_border_a);
-        aVar.iRT.setTag(null);
-        aVar.iRT.setPlaceHolder(1);
+        aVar.iRT.setVisibility(8);
+        aVar.iRV.setVisibility(0);
+        aVar.iRV.setShowOval(true);
+        aVar.iRV.setAutoChangeStyle(true);
+        aVar.iRV.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
+        aVar.iRV.setStrokeColorResId(R.color.cp_border_a);
+        aVar.iRV.setTag(null);
+        aVar.iRV.setPlaceHolder(1);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.iRT.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.iRT.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.iRV.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.iRV.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -56,14 +56,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.iRU.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.iRW.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
     }
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void f(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.iRX.setVisibility(8);
-        ao.setViewTextColor(aVar.iRU, R.color.cp_cont_b, 1);
-        ao.setViewTextColor(aVar.iRV, R.color.cp_cont_d, 1);
-        ao.setViewTextColor(aVar.iRW, R.color.cp_cont_d, 1);
+        aVar.iRZ.setVisibility(8);
+        ao.setViewTextColor(aVar.iRW, R.color.cp_cont_b, 1);
+        ao.setViewTextColor(aVar.iRX, R.color.cp_cont_d, 1);
+        ao.setViewTextColor(aVar.iRY, R.color.cp_cont_d, 1);
     }
 }

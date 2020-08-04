@@ -13,18 +13,18 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     private String forumId;
-    private i iUu;
-    private OfficialBarFeedMsglistView iUv;
-    private byte iUw;
-    private i.a iUx = new i.a() { // from class: com.baidu.tieba.im.chat.officialBar.SingleForumBroadcastFeedActivity.1
+    private i iUw;
+    private OfficialBarFeedMsglistView iUx;
+    private byte iUy;
+    private i.a iUz = new i.a() { // from class: com.baidu.tieba.im.chat.officialBar.SingleForumBroadcastFeedActivity.1
         @Override // com.baidu.tieba.im.chat.officialBar.i.a
         public void dr(List<com.baidu.tieba.im.message.chat.b> list) {
-            SingleForumBroadcastFeedActivity.this.iUv.r(list, null);
+            SingleForumBroadcastFeedActivity.this.iUx.r(list, null);
         }
 
         @Override // com.baidu.tieba.im.chat.officialBar.i.a
         public void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-            SingleForumBroadcastFeedActivity.this.iUv.a(longSparseArray);
+            SingleForumBroadcastFeedActivity.this.iUx.a(longSparseArray);
         }
     };
 
@@ -32,14 +32,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iUu = new i(getPageContext());
-        this.iUu.a(this.iUx);
-        this.iUv = new OfficialBarFeedMsglistView(this, true);
+        this.iUw = new i(getPageContext());
+        this.iUw.a(this.iUz);
+        this.iUx = new OfficialBarFeedMsglistView(this, true);
         if (getIntent() != null) {
             this.forumId = getIntent().getStringExtra("key_uid");
-            this.iUw = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
-            this.iUu.GD(this.forumId);
-            this.iUv.E(this.forumId, System.currentTimeMillis());
+            this.iUy = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
+            this.iUw.GD(this.forumId);
+            this.iUx.E(this.forumId, System.currentTimeMillis());
         }
     }
 
@@ -47,7 +47,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iUv.onChangeSkinType(i);
+        this.iUx.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,7 +60,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             apVar.dn("uid", com.baidu.tbadk.getUserInfo.b.bkd().bkf().getUserId());
         }
         apVar.dn("fid", this.forumId);
-        apVar.ah("obj_source", this.iUw);
+        apVar.ah("obj_source", this.iUy);
         TiebaStatic.log(apVar);
     }
 }

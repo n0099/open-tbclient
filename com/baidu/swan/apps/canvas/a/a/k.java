@@ -121,7 +121,7 @@ public class k extends a {
         if (this.mLoadStatus == 0 && bVar.bTy != null && bVar.bTy.getContext() != null && !TextUtils.isEmpty(this.bTN)) {
             this.mLoadStatus = 1;
             Context context = bVar.bTy.getContext();
-            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dDo().e(ImageRequestBuilder.ab(Uri.parse(this.bTN)).dKr(), context);
+            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dDp().e(ImageRequestBuilder.ab(Uri.parse(this.bTN)).dKs(), context);
             e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.canvas.a.a.k.1
                 @Override // com.facebook.imagepipeline.e.b
                 public void h(@Nullable Bitmap bitmap) {
@@ -143,7 +143,7 @@ public class k extends a {
                     }
                     k.this.mLoadStatus = 3;
                 }
-            }, com.facebook.common.b.i.dCu());
+            }, com.facebook.common.b.i.dCv());
         }
     }
 

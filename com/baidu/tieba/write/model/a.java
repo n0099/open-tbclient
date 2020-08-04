@@ -13,45 +13,45 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class a {
     private String dOE;
     private BdUniqueId mBdUniqueId;
-    private InterfaceC0780a mwI;
-    private com.baidu.tieba.write.a.a mwJ;
-    private HttpMessageListener mwK = new HttpMessageListener(1003324) { // from class: com.baidu.tieba.write.model.a.1
+    private InterfaceC0780a mwK;
+    private com.baidu.tieba.write.a.a mwL;
+    private HttpMessageListener mwM = new HttpMessageListener(1003324) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
-                e.lt().removeCallbacks(a.this.mmt);
-                if (a.this.mwI != null) {
+                e.lt().removeCallbacks(a.this.mmv);
+                if (a.this.mwK != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.mwf = false;
+                        aVar.mwh = false;
                         aVar.linkUrl = a.this.dOE;
-                        aVar.mwg = 1;
-                        a.this.mwJ = aVar;
+                        aVar.mwi = 1;
+                        a.this.mwL = aVar;
                     } else {
-                        a.this.mwJ = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.mwJ.mwf) {
-                            a.this.mwJ.linkUrl = a.this.dOE;
-                            a.this.mwJ.mwg = 1;
+                        a.this.mwL = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.mwL.mwh) {
+                            a.this.mwL.linkUrl = a.this.dOE;
+                            a.this.mwL.mwi = 1;
                         }
                     }
-                    a.this.mwI.a(a.this.mwJ);
+                    a.this.mwK.a(a.this.mwL);
                 }
             }
         }
     };
-    private Runnable mmt = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
+    private Runnable mmv = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.duQ();
+            a.this.duR();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.mwf = false;
+            aVar.mwh = false;
             aVar.linkUrl = a.this.dOE;
-            aVar.mwg = 1;
-            a.this.mwJ = aVar;
-            if (a.this.mwI != null) {
-                a.this.mwI.a(a.this.mwJ);
+            aVar.mwi = 1;
+            a.this.mwL = aVar;
+            if (a.this.mwK != null) {
+                a.this.mwK.a(a.this.mwL);
             }
         }
     };
@@ -64,8 +64,8 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.mwK.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.mwK);
+        this.mwM.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.mwM);
     }
 
     public void PG(String str) {
@@ -78,25 +78,25 @@ public class a {
         tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.d.e(5000));
         tbHttpMessageTask.setRetry(3);
         MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
-        e.lt().removeCallbacks(this.mmt);
-        e.lt().postDelayed(this.mmt, 15000L);
+        e.lt().removeCallbacks(this.mmv);
+        e.lt().postDelayed(this.mmv, 15000L);
     }
 
-    public void duQ() {
+    public void duR() {
         MessageManager.getInstance().removeMessage(1003324, this.mBdUniqueId);
-        e.lt().removeCallbacks(this.mmt);
+        e.lt().removeCallbacks(this.mmv);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.mwK);
-        e.lt().removeCallbacks(this.mmt);
+        MessageManager.getInstance().unRegisterListener(this.mwM);
+        e.lt().removeCallbacks(this.mmv);
     }
 
     public void a(InterfaceC0780a interfaceC0780a) {
-        this.mwI = interfaceC0780a;
+        this.mwK = interfaceC0780a;
     }
 
-    public com.baidu.tieba.write.a.a duR() {
-        return this.mwJ;
+    public com.baidu.tieba.write.a.a duS() {
+        return this.mwL;
     }
 }

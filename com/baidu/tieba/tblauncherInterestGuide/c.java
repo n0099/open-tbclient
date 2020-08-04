@@ -63,8 +63,8 @@ public class c extends BaseAdapter {
             aVar.bjM = (ImageView) view.findViewById(R.id.select_icon);
             aVar.bjN = (RelativeLayout) view.findViewById(R.id.lay_select);
             aVar.textView = (TextView) view.findViewById(R.id.tv_fname);
-            aVar.lUq = (FrameLayout) view.findViewById(R.id.pic_layout);
-            aVar.lUq.setOnClickListener(this.ehM);
+            aVar.lUs = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.lUs.setOnClickListener(this.ehM);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -72,13 +72,13 @@ public class c extends BaseAdapter {
         aVar.hso.setTag(null);
         aVar.bjN.setTag(null);
         aVar.textView.setText("");
-        aVar.lUq.setTag(null);
+        aVar.lUs.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
             d(aVar.bjM, card.getIs_like() == 1);
             aVar.bjN.setTag(card);
-            aVar.lUq.setTag(card);
+            aVar.lUs.setTag(card);
             aVar.hso.setTag(card.getIcon_url());
             aVar.hso.startLoad(card.getIcon_url(), 21, false);
             aVar.textView.setText(card.getFname());
@@ -99,7 +99,7 @@ public class c extends BaseAdapter {
         ImageView bjM;
         RelativeLayout bjN;
         TbImageView hso;
-        FrameLayout lUq;
+        FrameLayout lUs;
         TextView textView;
 
         private a() {

@@ -69,7 +69,7 @@ public interface a {
     };
 
     /* renamed from: com  reason: collision with root package name */
-    public static final b<Integer> f969com = new b<Integer>(0) { // from class: com.baidu.swan.apps.u.c.a.a.28
+    public static final b<Integer> f972com = new b<Integer>(0) { // from class: com.baidu.swan.apps.u.c.a.a.28
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.u.c.a.b

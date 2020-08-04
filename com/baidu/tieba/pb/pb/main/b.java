@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 public class b extends Thread {
     private final String ajJ;
     private final String dZs;
-    private final String kkf;
+    private final String kkh;
 
     public b(String str, String str2, String str3) {
         this.ajJ = str;
-        this.kkf = str2;
+        this.kkh = str2;
         this.dZs = str3;
     }
 
@@ -19,7 +19,7 @@ public class b extends Thread {
         super.run();
         com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + Config.CLIENT_CALL_ADDRESS);
         zVar.addPostData("tid", this.ajJ);
-        zVar.addPostData("phonenum", this.kkf);
+        zVar.addPostData("phonenum", this.kkh);
         zVar.addPostData("optype", this.dZs);
         zVar.postNetData();
     }

@@ -11,12 +11,12 @@ public class a extends ReplacementSpan {
     private final Drawable mDrawable;
     private int mHeight;
     private int mWidth;
-    private final int ngq;
-    private final Paint.FontMetricsInt ngr = new Paint.FontMetricsInt();
+    private final int ngs;
+    private final Paint.FontMetricsInt ngt = new Paint.FontMetricsInt();
 
     public a(Drawable drawable, int i) {
         this.mDrawable = drawable;
-        this.ngq = i;
+        this.ngs = i;
         hh();
     }
 
@@ -45,8 +45,8 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        paint.getFontMetricsInt(this.ngr);
-        int a = a(this.ngr) + i4;
+        paint.getFontMetricsInt(this.ngt);
+        int a = a(this.ngt) + i4;
         canvas.translate(f, a);
         this.mDrawable.draw(canvas);
         canvas.translate(-f, -a);
@@ -59,7 +59,7 @@ public class a extends ReplacementSpan {
     }
 
     private int a(Paint.FontMetricsInt fontMetricsInt) {
-        switch (this.ngq) {
+        switch (this.ngs) {
             case 0:
                 return fontMetricsInt.descent - this.mHeight;
             case 1:

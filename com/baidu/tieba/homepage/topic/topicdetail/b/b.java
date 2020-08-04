@@ -7,10 +7,10 @@ import tbclient.NewHottopic.TopicDetail;
 public class b {
     public long dQJ;
     public String dQK;
-    public String iEl;
-    public String iEm;
-    public com.baidu.tieba.homepage.topic.topictab.b.b iEn;
-    public f iEo;
+    public String iEn;
+    public String iEo;
+    public com.baidu.tieba.homepage.topic.topictab.b.b iEp;
+    public f iEq;
     public long topicId;
 
     public void a(TopicDetail topicDetail) {
@@ -18,24 +18,24 @@ public class b {
             this.topicId = topicDetail.topic_id.longValue();
             this.dQK = topicDetail.topic_desc;
             this.dQJ = topicDetail.discuss_num.longValue();
-            this.iEl = topicDetail.topic_image;
-            this.iEm = topicDetail.bg_image;
+            this.iEn = topicDetail.topic_image;
+            this.iEo = topicDetail.bg_image;
         }
     }
 
     public void a(PkModule pkModule) {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.iEn = new com.baidu.tieba.homepage.topic.topictab.b.b();
-            this.iEn.topicId = this.topicId;
-            this.iEn.from = 2;
-            this.iEn.b(pkModule);
+            this.iEp = new com.baidu.tieba.homepage.topic.topictab.b.b();
+            this.iEp.topicId = this.topicId;
+            this.iEp.from = 2;
+            this.iEp.b(pkModule);
         }
     }
 
     public void a(TimeLine timeLine) {
         if (timeLine != null) {
-            this.iEo = new f();
-            this.iEo.a(this.topicId, timeLine);
+            this.iEq = new f();
+            this.iEq.a(this.topicId, timeLine);
         }
     }
 }

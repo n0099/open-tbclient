@@ -7,22 +7,22 @@ import com.baidu.tieba.frs.aggregation.g;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 /* loaded from: classes16.dex */
 public class d {
-    private com.baidu.tieba.play.c hLQ;
-    private h iif;
-    private com.baidu.tieba.frs.aggregation.g iig;
-    private ValueAnimator iih;
+    private com.baidu.tieba.play.c hLS;
+    private h iih;
+    private com.baidu.tieba.frs.aggregation.g iii;
+    private ValueAnimator iij;
     private View rootView;
 
     public void a(h hVar) {
-        this.iif = hVar;
+        this.iih = hVar;
     }
 
     public com.baidu.tieba.frs.aggregation.g cjM() {
-        if (this.iig == null) {
-            this.iig = new com.baidu.tieba.frs.aggregation.g();
+        if (this.iii == null) {
+            this.iii = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.iig, this.iif.cjT());
-        return this.iig;
+        a(this.iii, this.iih.cjT());
+        return this.iii;
     }
 
     private void a(com.baidu.tieba.frs.aggregation.g gVar, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
@@ -37,16 +37,16 @@ public class d {
                 bVar.portrait = videoSerializeVideoThreadInfo.getAuthor().portrait;
                 bVar.hasFocus = videoSerializeVideoThreadInfo.getAuthor().hasFocus;
                 if (videoSerializeVideoThreadInfo.getAuthor().baijiahaoData != null) {
-                    bVar.hMA = new g.b.a();
-                    bVar.hMA.name = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.name;
-                    bVar.hMA.auth_id = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_id;
-                    bVar.hMA.auth_desc = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_desc;
-                    bVar.hMA.avatar = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar;
-                    bVar.hMA.avatar_h = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar_h;
-                    bVar.hMA.brief = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.brief;
+                    bVar.hMC = new g.b.a();
+                    bVar.hMC.name = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.name;
+                    bVar.hMC.auth_id = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_id;
+                    bVar.hMC.auth_desc = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_desc;
+                    bVar.hMC.avatar = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar;
+                    bVar.hMC.avatar_h = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar_h;
+                    bVar.hMC.brief = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.brief;
                 }
             }
-            gVar.hMq = bVar;
+            gVar.hMs = bVar;
             g.c cVar = new g.c();
             if (videoSerializeVideoThreadInfo.getThreadVideoInfo() != null) {
                 cVar.thumbnailWidth = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailWidth;
@@ -61,7 +61,7 @@ public class d {
                 cVar.originVideoUrl = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoUrl;
                 gVar.playCount = videoSerializeVideoThreadInfo.playCount;
             }
-            gVar.hMr = cVar;
+            gVar.hMt = cVar;
             if (videoSerializeVideoThreadInfo.getBaijiahaoData() != null) {
                 BaijiahaoData baijiahaoData = new BaijiahaoData();
                 baijiahaoData.oriUgcNid = videoSerializeVideoThreadInfo.getBaijiahaoData().oriUgcNid;
@@ -77,7 +77,7 @@ public class d {
             gVar.createTime = videoSerializeVideoThreadInfo.createTime;
             gVar.postNum = videoSerializeVideoThreadInfo.postNum;
             gVar.agreeNum = videoSerializeVideoThreadInfo.agreeNum;
-            gVar.hMn = videoSerializeVideoThreadInfo.disAgreeNum;
+            gVar.hMp = videoSerializeVideoThreadInfo.disAgreeNum;
             gVar.agreeType = videoSerializeVideoThreadInfo.agreeType;
             gVar.hasAgree = videoSerializeVideoThreadInfo.hasAgree;
             if (gVar.aYc() != null && videoSerializeVideoThreadInfo.mAgreeData != null) {
@@ -98,16 +98,16 @@ public class d {
     }
 
     public void ceg() {
-        if (this.hLQ != null) {
-            this.hLQ.destroy();
-            this.hLQ = null;
+        if (this.hLS != null) {
+            this.hLS.destroy();
+            this.hLS = null;
         }
     }
 
     public void onDestroy() {
-        if (this.iih != null) {
-            this.iih.cancel();
-            this.iih = null;
+        if (this.iij != null) {
+            this.iij.cancel();
+            this.iij = null;
         }
         if (this.rootView != null) {
             this.rootView.clearAnimation();

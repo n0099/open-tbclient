@@ -16,44 +16,44 @@ import javax.annotation.Nullable;
 public class a implements com.facebook.drawee.d.c {
     private final Resources mResources;
     @Nullable
-    private RoundingParams mVD;
-    private final d mVE;
-    private final f mVF;
-    private final Drawable mVC = new ColorDrawable(0);
-    private final g mVG = new g(this.mVC);
+    private RoundingParams mVF;
+    private final d mVG;
+    private final f mVH;
+    private final Drawable mVE = new ColorDrawable(0);
+    private final g mVI = new g(this.mVE);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.mVD = bVar.dEw();
-        int size = (bVar.dEL() != null ? bVar.dEL().size() : 1) + (bVar.dEM() != null ? 1 : 0);
+        this.mVF = bVar.dEx();
+        int size = (bVar.dEM() != null ? bVar.dEM().size() : 1) + (bVar.dEN() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), null);
-        drawableArr[1] = a(bVar.dEA(), bVar.dEB());
-        drawableArr[2] = a(this.mVG, bVar.dEI(), bVar.dEJ(), bVar.dEK());
-        drawableArr[3] = a(bVar.dEG(), bVar.dEH());
-        drawableArr[4] = a(bVar.dEC(), bVar.dED());
-        drawableArr[5] = a(bVar.dEE(), bVar.dEF());
+        drawableArr[1] = a(bVar.dEB(), bVar.dEC());
+        drawableArr[2] = a(this.mVI, bVar.dEJ(), bVar.dEK(), bVar.dEL());
+        drawableArr[3] = a(bVar.dEH(), bVar.dEI());
+        drawableArr[4] = a(bVar.dED(), bVar.dEE());
+        drawableArr[5] = a(bVar.dEF(), bVar.dEG());
         if (size > 0) {
-            if (bVar.dEL() != null) {
-                for (Drawable drawable : bVar.dEL()) {
+            if (bVar.dEM() != null) {
+                for (Drawable drawable : bVar.dEM()) {
                     drawableArr[i + 6] = a(drawable, null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.dEM() != null) {
-                drawableArr[i + 6] = a(bVar.dEM(), null);
+            if (bVar.dEN() != null) {
+                drawableArr[i + 6] = a(bVar.dEN(), null);
             }
         }
-        this.mVF = new f(drawableArr);
-        this.mVF.ID(bVar.dEx());
-        this.mVE = new d(e.a(this.mVF, this.mVD));
-        this.mVE.xh(bVar.dEy());
-        this.mVE.mutate();
-        dEu();
+        this.mVH = new f(drawableArr);
+        this.mVH.ID(bVar.dEy());
+        this.mVG = new d(e.a(this.mVH, this.mVF));
+        this.mVG.xh(bVar.dEz());
+        this.mVG.mutate();
+        dEv();
     }
 
     @Nullable
@@ -64,25 +64,25 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable p.b bVar) {
-        return e.f(e.a(drawable, this.mVD, this.mResources), bVar);
-    }
-
-    private void dEt() {
-        this.mVG.setDrawable(this.mVC);
+        return e.f(e.a(drawable, this.mVF, this.mResources), bVar);
     }
 
     private void dEu() {
-        if (this.mVF != null) {
-            this.mVF.dEj();
-            this.mVF.dEl();
-            dEv();
-            IE(1);
-            this.mVF.dEm();
-            this.mVF.dEk();
-        }
+        this.mVI.setDrawable(this.mVE);
     }
 
     private void dEv() {
+        if (this.mVH != null) {
+            this.mVH.dEk();
+            this.mVH.dEm();
+            dEw();
+            IE(1);
+            this.mVH.dEn();
+            this.mVH.dEl();
+        }
+    }
+
+    private void dEw() {
         IF(1);
         IF(2);
         IF(3);
@@ -92,18 +92,18 @@ public class a implements com.facebook.drawee.d.c {
 
     private void IE(int i) {
         if (i >= 0) {
-            this.mVF.IE(i);
+            this.mVH.IE(i);
         }
     }
 
     private void IF(int i) {
         if (i >= 0) {
-            this.mVF.IF(i);
+            this.mVH.IF(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.mVF.getDrawable(3);
+        Drawable drawable = this.mVH.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
@@ -122,73 +122,73 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.mVE;
+        return this.mVG;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        dEt();
         dEu();
+        dEv();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a = e.a(drawable, this.mVD, this.mResources);
+        Drawable a = e.a(drawable, this.mVF, this.mResources);
         a.mutate();
-        this.mVG.setDrawable(a);
-        this.mVF.dEj();
-        dEv();
+        this.mVI.setDrawable(a);
+        this.mVH.dEk();
+        dEw();
         IE(2);
         setProgress(f);
         if (z) {
-            this.mVF.dEm();
+            this.mVH.dEn();
         }
-        this.mVF.dEk();
+        this.mVH.dEl();
     }
 
     @Override // com.facebook.drawee.d.c
     public void c(float f, boolean z) {
-        if (this.mVF.getDrawable(3) != null) {
-            this.mVF.dEj();
+        if (this.mVH.getDrawable(3) != null) {
+            this.mVH.dEk();
             setProgress(f);
             if (z) {
-                this.mVF.dEm();
+                this.mVH.dEn();
             }
-            this.mVF.dEk();
+            this.mVH.dEl();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void C(Throwable th) {
-        this.mVF.dEj();
-        dEv();
-        if (this.mVF.getDrawable(5) != null) {
+        this.mVH.dEk();
+        dEw();
+        if (this.mVH.getDrawable(5) != null) {
             IE(5);
         } else {
             IE(1);
         }
-        this.mVF.dEk();
+        this.mVH.dEl();
     }
 
     @Override // com.facebook.drawee.d.c
     public void D(Throwable th) {
-        this.mVF.dEj();
-        dEv();
-        if (this.mVF.getDrawable(4) != null) {
+        this.mVH.dEk();
+        dEw();
+        if (this.mVH.getDrawable(4) != null) {
             IE(4);
         } else {
             IE(1);
         }
-        this.mVF.dEk();
+        this.mVH.dEl();
     }
 
     @Override // com.facebook.drawee.d.c
     public void j(@Nullable Drawable drawable) {
-        this.mVE.j(drawable);
+        this.mVG.j(drawable);
     }
 
     private com.facebook.drawee.drawable.c IG(int i) {
-        com.facebook.drawee.drawable.c IA = this.mVF.IA(i);
+        com.facebook.drawee.drawable.c IA = this.mVH.IA(i);
         if (IA.getDrawable() instanceof h) {
             IA = (h) IA.getDrawable();
         }
@@ -200,15 +200,15 @@ public class a implements com.facebook.drawee.d.c {
 
     private void b(int i, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.mVF.a(i, null);
+            this.mVH.a(i, null);
             return;
         }
-        IG(i).setDrawable(e.a(drawable, this.mVD, this.mResources));
+        IG(i).setDrawable(e.a(drawable, this.mVF, this.mResources));
     }
 
     private o IH(int i) {
         com.facebook.drawee.drawable.c IG = IG(i);
-        return IG instanceof o ? (o) IG : e.a(IG, p.b.mVs);
+        return IG instanceof o ? (o) IG : e.a(IG, p.b.mVu);
     }
 
     public void b(p.b bVar) {
@@ -253,15 +253,15 @@ public class a implements com.facebook.drawee.d.c {
     }
 
     public void a(@Nullable RoundingParams roundingParams) {
-        this.mVD = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.mVE, this.mVD);
-        for (int i = 0; i < this.mVF.dEg(); i++) {
-            e.a(IG(i), this.mVD, this.mResources);
+        this.mVF = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.mVG, this.mVF);
+        for (int i = 0; i < this.mVH.dEh(); i++) {
+            e.a(IG(i), this.mVF, this.mResources);
         }
     }
 
     @Nullable
-    public RoundingParams dEw() {
-        return this.mVD;
+    public RoundingParams dEx() {
+        return this.mVF;
     }
 }

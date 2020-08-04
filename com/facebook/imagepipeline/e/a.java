@@ -10,18 +10,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes4.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.h.c naM;
-    private final ap ncp;
+    private final com.facebook.imagepipeline.h.c naO;
+    private final ap ncr;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
-        this.ncp = apVar;
-        this.naM = cVar;
-        this.naM.a(apVar.dJo(), this.ncp.dDT(), this.ncp.getId(), this.ncp.dJr());
-        ajVar.c(dHY(), apVar);
+        this.ncr = apVar;
+        this.naO = cVar;
+        this.naO.a(apVar.dJp(), this.ncr.dDU(), this.ncr.getId(), this.ncr.dJs());
+        ajVar.c(dHZ(), apVar);
     }
 
-    private k<T> dHY() {
+    private k<T> dHZ() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(@Nullable T t, int i) {
@@ -34,8 +34,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void dHZ() {
-                a.this.dHZ();
+            protected void dIa() {
+                a.this.dIa();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -49,19 +49,19 @@ public abstract class a<T> extends AbstractDataSource<T> {
     public void g(@Nullable T t, int i) {
         boolean JH = com.facebook.imagepipeline.producers.b.JH(i);
         if (super.b(t, JH) && JH) {
-            this.naM.a(this.ncp.dJo(), this.ncp.getId(), this.ncp.dJr());
+            this.naO.a(this.ncr.dJp(), this.ncr.getId(), this.ncr.dJs());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E(Throwable th) {
         if (super.y(th)) {
-            this.naM.a(this.ncp.dJo(), this.ncp.getId(), th, this.ncp.dJr());
+            this.naO.a(this.ncr.dJp(), this.ncr.getId(), th, this.ncr.dJs());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dHZ() {
+    public synchronized void dIa() {
         g.checkState(isClosed());
     }
 
@@ -71,8 +71,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             return false;
         }
         if (!super.isFinished()) {
-            this.naM.Rw(this.ncp.getId());
-            this.ncp.cancel();
+            this.naO.Rw(this.ncr.getId());
+            this.ncr.cancel();
         }
         return true;
     }

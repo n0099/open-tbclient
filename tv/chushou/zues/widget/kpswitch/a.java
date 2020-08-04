@@ -5,9 +5,9 @@ public interface a {
 
     void RH();
 
-    boolean eaB();
-
     boolean eaC();
+
+    boolean eaD();
 
     boolean isVisible();
 }

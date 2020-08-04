@@ -6,8 +6,8 @@ public class d {
     private String dQI;
     private String dQK;
     private String dQL;
-    private Long iPe;
-    private Long iPf;
+    private Long iPg;
+    private Long iPh;
     private Integer tag;
 
     public String getTopicName() {
@@ -24,11 +24,11 @@ public class d {
 
     public void a(TopicList topicList) {
         if (topicList != null) {
-            this.iPe = topicList.topic_id;
+            this.iPg = topicList.topic_id;
             this.dQI = topicList.topic_name;
             this.dQL = topicList.topic_pic;
             this.dQK = topicList.topic_desc;
-            this.iPf = topicList.discuss_num;
+            this.iPh = topicList.discuss_num;
             this.tag = topicList.tag;
         }
     }

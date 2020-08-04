@@ -12,8 +12,8 @@ import java.util.List;
 public class ImageOverlayView extends ViewGroup {
     private int hpk;
     private int hpn;
-    private a iNB;
-    private List<l> iNC;
+    private a iND;
+    private List<l> iNE;
     private int mImageHeight;
     private int mImageWidth;
 
@@ -50,13 +50,13 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     public void setImageClickListener(a aVar) {
-        this.iNB = aVar;
+        this.iND = aVar;
     }
 
     public void setData(List<l> list) {
         HeadImageView headImageView;
         if (!x.isEmpty(list)) {
-            this.iNC = list;
+            this.iNE = list;
             for (int i = 0; i < this.hpk && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
                 if (i >= list.size()) {
                     headImageView.setVisibility(8);

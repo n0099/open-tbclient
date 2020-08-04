@@ -5,9 +5,9 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 /* loaded from: classes10.dex */
 final class c extends b {
-    private static Class nlI;
-    private final Object nlJ = dLE();
-    private final Field nlK = dLF();
+    private static Class nlK;
+    private final Object nlL = dLF();
+    private final Field nlM = dLG();
 
     @Override // com.google.gson.internal.b.b
     public void b(AccessibleObject accessibleObject) {
@@ -21,9 +21,9 @@ final class c extends b {
     }
 
     boolean c(AccessibleObject accessibleObject) {
-        if (this.nlJ != null && this.nlK != null) {
+        if (this.nlL != null && this.nlM != null) {
             try {
-                nlI.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.nlJ, accessibleObject, Long.valueOf(((Long) nlI.getMethod("objectFieldOffset", Field.class).invoke(this.nlJ, this.nlK)).longValue()), true);
+                nlK.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.nlL, accessibleObject, Long.valueOf(((Long) nlK.getMethod("objectFieldOffset", Field.class).invoke(this.nlL, this.nlM)).longValue()), true);
                 return true;
             } catch (Exception e) {
             }
@@ -31,10 +31,10 @@ final class c extends b {
         return false;
     }
 
-    private static Object dLE() {
+    private static Object dLF() {
         try {
-            nlI = Class.forName("sun.misc.Unsafe");
-            Field declaredField = nlI.getDeclaredField("theUnsafe");
+            nlK = Class.forName("sun.misc.Unsafe");
+            Field declaredField = nlK.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
         } catch (Exception e) {
@@ -42,7 +42,7 @@ final class c extends b {
         }
     }
 
-    private static Field dLF() {
+    private static Field dLG() {
         try {
             return AccessibleObject.class.getDeclaredField("override");
         } catch (NoSuchFieldException e) {

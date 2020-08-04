@@ -27,8 +27,8 @@ public class b extends g {
     /* loaded from: classes6.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b ojP = rx.a.a.a.dXK().dXL();
-        private volatile boolean ojQ;
+        private final rx.a.a.b ojR = rx.a.a.a.dXL().dXM();
+        private volatile boolean ojS;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,27 +36,27 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.ojQ = true;
+            this.ojS = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.ojQ;
+            return this.ojS;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.ojQ) {
-                return e.dZo();
+            if (this.ojS) {
+                return e.dZp();
             }
-            RunnableC0928b runnableC0928b = new RunnableC0928b(this.ojP.d(aVar), this.handler);
+            RunnableC0928b runnableC0928b = new RunnableC0928b(this.ojR.d(aVar), this.handler);
             Message obtain = Message.obtain(this.handler, runnableC0928b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.ojQ) {
+            if (this.ojS) {
                 this.handler.removeCallbacks(runnableC0928b);
-                return e.dZo();
+                return e.dZp();
             }
             return runnableC0928b;
         }
@@ -73,7 +73,7 @@ public class b extends g {
     public static final class RunnableC0928b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean ojQ;
+        private volatile boolean ojS;
 
         RunnableC0928b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
@@ -91,7 +91,7 @@ public class b extends g {
                 } else {
                     illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                 }
-                f.dYK().dYL().G(illegalStateException);
+                f.dYL().dYM().G(illegalStateException);
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
             }
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.ojQ = true;
+            this.ojS = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.ojQ;
+            return this.ojS;
         }
     }
 }

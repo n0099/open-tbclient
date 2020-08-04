@@ -16,8 +16,8 @@ import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessag
 public class HomePageTabFeedNetModel extends BdBaseModel {
     private boolean eZg;
     private int hoB;
-    private c iDB;
-    private a iDC;
+    private c iDD;
+    private a iDE;
     private boolean isLoading;
     private com.baidu.adp.framework.listener.a netMessageListener;
     private String tabCode;
@@ -28,8 +28,8 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
         if (aVar != null) {
             this.hoB = aVar.cnS();
         }
-        if (this.iDB != null) {
-            this.iDB.a(this.iDC.a(this.eZg, aVar));
+        if (this.iDD != null) {
+            this.iDD.a(this.iDE.a(this.eZg, aVar));
         }
     }
 
@@ -54,9 +54,9 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(HomePageTabFeedNetModel.this.mErrorCode);
                     errorData.setError_msg(HomePageTabFeedNetModel.this.mErrorString);
-                    if (HomePageTabFeedNetModel.this.iDB != null) {
+                    if (HomePageTabFeedNetModel.this.iDD != null) {
                         if (HomePageTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
-                            HomePageTabFeedNetModel.this.iDB.a(errorData);
+                            HomePageTabFeedNetModel.this.iDD.a(errorData);
                         } else {
                             HomePageTabFeedNetModel.this.a(aVar);
                         }
@@ -66,8 +66,8 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
         };
         com.baidu.tieba.tbadkCore.a.a.a(309655, TabFeedListSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.iDC = new a();
-        this.iDB = cVar;
+        this.iDE = new a();
+        this.iDD = cVar;
     }
 
     public void m(BdUniqueId bdUniqueId) {
@@ -137,9 +137,9 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     }
 
     public boolean hasData() {
-        if (this.iDC == null) {
+        if (this.iDE == null) {
             return false;
         }
-        return this.iDC.hasData();
+        return this.iDE.hasData();
     }
 }

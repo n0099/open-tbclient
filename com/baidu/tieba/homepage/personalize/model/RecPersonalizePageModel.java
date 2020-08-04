@@ -24,7 +24,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     private com.baidu.adp.framework.listener.a dFJ;
     private boolean dWK;
     private int dWL;
-    private a iBr;
+    private a iBt;
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
             public void onMessage(final ResponsedMessage<?> responsedMessage) {
                 boolean z;
                 final boolean z2;
-                if (responsedMessage != null && RecPersonalizePageModel.this.iBr != null) {
+                if (responsedMessage != null && RecPersonalizePageModel.this.iBt != null) {
                     if (responsedMessage.getOrginalMessage() != null) {
                         Object extra = responsedMessage.getOrginalMessage().getExtra();
                         if (extra instanceof RecPersonalizeRequest) {
@@ -61,7 +61,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                                 if (TbSingleton.getInstance().needUploadMoreLog()) {
                                     com.baidu.tbadk.core.d.a.a("homePage", -1L, responsedMessage.getCmd(), "rec_personalized_error", responsedMessage.getError(), responsedMessage.getErrorString(), new Object[0]);
                                 }
-                                RecPersonalizePageModel.this.iBr.ao(responsedMessage.getError(), responsedMessage.getErrorString());
+                                RecPersonalizePageModel.this.iBt.ao(responsedMessage.getError(), responsedMessage.getErrorString());
                             } else {
                                 DataRes dataRes = null;
                                 if (responsedMessage instanceof RecPersonalizeSocketResponse) {
@@ -69,7 +69,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                                     dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                                 }
-                                RecPersonalizePageModel.this.iBr.a(dataRes, z2, z);
+                                RecPersonalizePageModel.this.iBt.a(dataRes, z2, z);
                             }
                             if (!(responsedMessage instanceof RecPersonalizeSocketResponse)) {
                                 Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.1.1
@@ -110,7 +110,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void a(a aVar) {
-        this.iBr = aVar;
+        this.iBt = aVar;
     }
 
     public void e(int i, int i2, int i3, int i4, int i5) {

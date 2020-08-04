@@ -19,10 +19,10 @@ public class b extends FrameLayout implements View.OnClickListener {
     private View b;
     private View c;
     private int e;
-    private CommonH5Item nAc;
-    private H5Positon nAd;
-    private com.kascend.chushou.widget.cswebview.d nAf;
-    private com.kascend.chushou.player.ui.h5.c.b nAz;
+    private com.kascend.chushou.player.ui.h5.c.b nAB;
+    private CommonH5Item nAe;
+    private H5Positon nAf;
+    private com.kascend.chushou.widget.cswebview.d nAh;
 
     public b(@NonNull Context context) {
         super(context);
@@ -33,8 +33,8 @@ public class b extends FrameLayout implements View.OnClickListener {
     public void a(int i, H5Positon h5Positon, com.kascend.chushou.player.ui.h5.c.b bVar) {
         int i2;
         this.e = i;
-        this.nAd = h5Positon;
-        this.nAz = bVar;
+        this.nAf = h5Positon;
+        this.nAB = bVar;
         if (this.b == null) {
             b();
         }
@@ -49,7 +49,7 @@ public class b extends FrameLayout implements View.OnClickListener {
             i2 = 0;
         }
         setBackgroundColor(i2);
-        this.nAc.a(bVar);
+        this.nAe.a(bVar);
     }
 
     private void b() {
@@ -59,13 +59,13 @@ public class b extends FrameLayout implements View.OnClickListener {
         }
         this.b = LayoutInflater.from(this.a).inflate(i, (ViewGroup) this, false);
         this.c = this.b.findViewById(a.f.view_redpacketlist_close);
-        if (this.nAz.i == 0) {
+        if (this.nAB.i == 0) {
             this.c.setVisibility(4);
         } else {
             this.c.setOnClickListener(this);
         }
-        this.nAc = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
-        this.nAc.setListener(new e() { // from class: com.kascend.chushou.player.ui.h5.b.1
+        this.nAe = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
+        this.nAe.setListener(new e() { // from class: com.kascend.chushou.player.ui.h5.b.1
             @Override // com.kascend.chushou.widget.cswebview.e, com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 b.this.a();
@@ -86,13 +86,13 @@ public class b extends FrameLayout implements View.OnClickListener {
         int i2 = gE.y - statusBarHeight;
         View findViewById = this.b.findViewById(a.f.empty_view);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.nAd.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.nAf.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams2.height = i3;
         findViewById.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.nAc.getLayoutParams();
-        layoutParams3.width = (int) (i * ((this.nAd.mWidth * 1.0d) / 100.0d));
-        layoutParams3.height = (int) (((this.nAd.mHeight * 1.0d) / 100.0d) * i2);
-        this.nAc.setLayoutParams(layoutParams3);
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.nAe.getLayoutParams();
+        layoutParams3.width = (int) (i * ((this.nAf.mWidth * 1.0d) / 100.0d));
+        layoutParams3.height = (int) (((this.nAf.mHeight * 1.0d) / 100.0d) * i2);
+        this.nAe.setLayoutParams(layoutParams3);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams4.topMargin = (int) (i3 * 0.2d);
         this.c.setLayoutParams(layoutParams4);
@@ -100,9 +100,9 @@ public class b extends FrameLayout implements View.OnClickListener {
 
     private void d() {
         Point gE = tv.chushou.zues.utils.a.gE(this.a);
-        int i = (int) (((this.nAd.mHeight * 1.0d) / 100.0d) * gE.y);
-        int i2 = (int) (((this.nAd.mAspectRadio * 1.0d) / 100.0d) * i);
-        if (this.nAz.i == 0) {
+        int i = (int) (((this.nAf.mHeight * 1.0d) / 100.0d) * gE.y);
+        int i2 = (int) (((this.nAf.mAspectRadio * 1.0d) / 100.0d) * i);
+        if (this.nAB.i == 0) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = i2;
             layoutParams.height = i;
@@ -123,13 +123,13 @@ public class b extends FrameLayout implements View.OnClickListener {
     }
 
     public void a() {
-        if (this.nAf != null) {
-            this.nAf.a(this);
+        if (this.nAh != null) {
+            this.nAh.a(this);
         }
     }
 
     public void setCloseH5Listener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.nAf = dVar;
+        this.nAh = dVar;
     }
 
     @Override // android.view.View.OnClickListener

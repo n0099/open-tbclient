@@ -38,37 +38,37 @@ import tbclient.ItemTable;
 /* loaded from: classes16.dex */
 public class FrsTopItemInfoView extends LinearLayout {
     private RankStarView egI;
-    private ItemInfo hNO;
-    private ForumWriteData hRF;
-    private HeadImageView ilA;
-    private TextView ilB;
-    private ImageView ilC;
-    private double ilD;
-    private double ilE;
-    private View.OnClickListener ilO;
-    private View.OnClickListener ilP;
-    private TextView ilr;
-    private View ils;
+    private ItemInfo hNQ;
+    private ForumWriteData hRH;
+    private TextView ilA;
+    private RoundRelativeLayout ilB;
+    private HeadImageView ilC;
+    private TextView ilD;
+    private ImageView ilE;
+    private double ilF;
+    private double ilG;
+    private View.OnClickListener ilQ;
+    private View.OnClickListener ilR;
     private TextView ilt;
-    private ImageView ilu;
+    private View ilu;
     private TextView ilv;
-    private TextView ilw;
-    private ItemTableView ilx;
+    private ImageView ilw;
+    private TextView ilx;
     private TextView ily;
-    private RoundRelativeLayout ilz;
+    private ItemTableView ilz;
     private View mBottomLine;
     private Context mContext;
-    private static final String ilF = TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_point);
-    private static final String ilG = TbadkCoreApplication.getInst().getString(R.string.frs_last_seven_days);
-    private static final int ilH = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
+    private static final String ilH = TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_point);
+    private static final String ilI = TbadkCoreApplication.getInst().getString(R.string.frs_last_seven_days);
+    private static final int ilJ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
     private static final int eTZ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12);
-    private static final int ilI = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds14);
-    private static final int ilJ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    private static final int ilK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
-    private static final int ilL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
-    private static final int ilM = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30);
+    private static final int ilK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds14);
+    private static final int ilL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    private static final int ilM = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
+    private static final int ilN = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
+    private static final int ilO = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30);
     private static final int gYY = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
-    private static final int ilN = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds124);
+    private static final int ilP = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds124);
 
     public FrsTopItemInfoView(Context context) {
         this(context, null);
@@ -80,21 +80,21 @@ public class FrsTopItemInfoView extends LinearLayout {
 
     public FrsTopItemInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ilO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.1
+        this.ilQ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (bf.checkUpIsLogin(FrsTopItemInfoView.this.mContext)) {
                     UniversityEvaluationConfig universityEvaluationConfig = new UniversityEvaluationConfig(FrsTopItemInfoView.this.mContext, RequestResponseCode.REQUEST_WRITE_NEW);
-                    universityEvaluationConfig.setWriteData(FrsTopItemInfoView.this.hRF);
-                    if (FrsTopItemInfoView.this.hNO != null) {
-                        universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(FrsTopItemInfoView.this.hNO));
-                        universityEvaluationConfig.setItemIsSchool(FrsTopItemInfoView.this.hNO.is_school.intValue() == 1);
+                    universityEvaluationConfig.setWriteData(FrsTopItemInfoView.this.hRH);
+                    if (FrsTopItemInfoView.this.hNQ != null) {
+                        universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(FrsTopItemInfoView.this.hNQ));
+                        universityEvaluationConfig.setItemIsSchool(FrsTopItemInfoView.this.hNQ.is_school.intValue() == 1);
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921460, universityEvaluationConfig));
                 }
             }
         };
-        this.ilP = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.2
+        this.ilR = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FrsTopItemInfoView.this.mContext instanceof FrsActivity) {
@@ -117,42 +117,42 @@ public class FrsTopItemInfoView extends LinearLayout {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.frs_top_item_info_view, this);
         setOrientation(1);
-        this.ilr = (TextView) findViewById(R.id.item_title_name);
-        this.ils = findViewById(R.id.item_split);
-        this.ilt = (TextView) findViewById(R.id.item_title_value);
-        this.ilu = (ImageView) findViewById(R.id.icon_question);
-        this.ilu.setOnClickListener(this.ilP);
-        this.ilv = (TextView) findViewById(R.id.big_score);
-        this.ilw = (TextView) findViewById(R.id.people_num);
-        this.ilx = (ItemTableView) findViewById(R.id.item_table);
-        this.ily = (TextView) findViewById(R.id.time_score);
-        this.ilz = (RoundRelativeLayout) findViewById(R.id.evaluate_container);
-        this.ilA = (HeadImageView) findViewById(R.id.user_head);
-        this.ilB = (TextView) findViewById(R.id.click_tip);
+        this.ilt = (TextView) findViewById(R.id.item_title_name);
+        this.ilu = findViewById(R.id.item_split);
+        this.ilv = (TextView) findViewById(R.id.item_title_value);
+        this.ilw = (ImageView) findViewById(R.id.icon_question);
+        this.ilw.setOnClickListener(this.ilR);
+        this.ilx = (TextView) findViewById(R.id.big_score);
+        this.ily = (TextView) findViewById(R.id.people_num);
+        this.ilz = (ItemTableView) findViewById(R.id.item_table);
+        this.ilA = (TextView) findViewById(R.id.time_score);
+        this.ilB = (RoundRelativeLayout) findViewById(R.id.evaluate_container);
+        this.ilC = (HeadImageView) findViewById(R.id.user_head);
+        this.ilD = (TextView) findViewById(R.id.click_tip);
         this.egI = (RankStarView) findViewById(R.id.star_view);
-        this.ilC = (ImageView) findViewById(R.id.right_arrow);
+        this.ilE = (ImageView) findViewById(R.id.right_arrow);
         this.mBottomLine = findViewById(R.id.bottom_line);
-        this.ilr.setText(R.string.frs_evaluate_item_title);
-        this.ilB.setText(R.string.frs_evaluate_click_tip);
-        this.ilv.setTextSize(0, gYY);
-        this.ilv.setText(R.string.frs_evaluate_exception);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ilv.getLayoutParams();
-        layoutParams.topMargin = ilL;
+        this.ilt.setText(R.string.frs_evaluate_item_title);
+        this.ilD.setText(R.string.frs_evaluate_click_tip);
+        this.ilx.setTextSize(0, gYY);
+        this.ilx.setText(R.string.frs_evaluate_exception);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ilx.getLayoutParams();
+        layoutParams.topMargin = ilN;
         layoutParams.height = gYY;
-        this.ilv.setLayoutParams(layoutParams);
+        this.ilx.setLayoutParams(layoutParams);
         if (com.baidu.tbadk.core.util.g.isXiaoMi()) {
-            this.ilv.setPadding(0, -ilH, 0, 0);
+            this.ilx.setPadding(0, -ilJ, 0, 0);
         }
-        this.ilz.setRoundLayoutRadius(new float[]{ilM, ilM, ilM, ilM, ilM, ilM, ilM, ilM});
-        this.ilA.setPlaceHolder(1);
-        this.egI.setStarSpacing(ilK);
-        this.ilz.setOnClickListener(this.ilO);
+        this.ilB.setRoundLayoutRadius(new float[]{ilO, ilO, ilO, ilO, ilO, ilO, ilO, ilO});
+        this.ilC.setPlaceHolder(1);
+        this.egI.setStarSpacing(ilM);
+        this.ilB.setOnClickListener(this.ilQ);
     }
 
     public void setData(ItemInfo itemInfo) {
-        this.hNO = itemInfo;
+        this.hNQ = itemInfo;
         if (itemInfo != null && itemInfo.score != null) {
-            this.ilt.setText(itemInfo.name);
+            this.ilv.setText(itemInfo.name);
             ItemTable itemTable = itemInfo.score;
             int intValue = itemTable.total_point_num.intValue();
             List<ItemPoint> list = itemTable.item_point;
@@ -160,58 +160,58 @@ public class FrsTopItemInfoView extends LinearLayout {
                 for (ItemPoint itemPoint : list) {
                     if (itemPoint != null) {
                         if (SchemeCollecter.CLASSIFY_ALL.equals(itemPoint.time_intval)) {
-                            this.ilD = itemPoint.point.doubleValue();
+                            this.ilF = itemPoint.point.doubleValue();
                         } else if ("days".equals(itemPoint.time_intval)) {
-                            this.ilE = itemPoint.point.doubleValue();
+                            this.ilG = itemPoint.point.doubleValue();
                         }
                     }
                 }
             }
             String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
             if (currentPortrait != null) {
-                this.ilA.startLoad(currentPortrait, 12, false);
+                this.ilC.startLoad(currentPortrait, 12, false);
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ilv.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ilw.getLayoutParams();
-            if (this.ilD <= 0.0d || this.ilD > 10.0d) {
-                this.ilv.setText(R.string.frs_evaluate_exception);
-                this.ilv.setTextSize(0, gYY);
-                layoutParams.topMargin = ilL;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ilx.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ily.getLayoutParams();
+            if (this.ilF <= 0.0d || this.ilF > 10.0d) {
+                this.ilx.setText(R.string.frs_evaluate_exception);
+                this.ilx.setTextSize(0, gYY);
+                layoutParams.topMargin = ilN;
                 layoutParams.height = gYY;
-                this.ilv.setLayoutParams(layoutParams);
-                layoutParams2.topMargin = ilJ;
+                this.ilx.setLayoutParams(layoutParams);
+                layoutParams2.topMargin = ilL;
                 layoutParams2.addRule(5, R.id.big_score);
-                this.ilw.setGravity(17);
-                this.ilw.setLayoutParams(layoutParams2);
-                this.ilw.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{"0"}));
+                this.ily.setGravity(17);
+                this.ily.setLayoutParams(layoutParams2);
+                this.ily.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{"0"}));
                 this.egI.setStarCount(0);
-                this.ily.setVisibility(8);
-                this.ilx.clear();
+                this.ilA.setVisibility(8);
+                this.ilz.clear();
                 return;
             }
-            this.ilv.setText(this.ilD + "");
-            this.ilv.setTextSize(0, ilN);
+            this.ilx.setText(this.ilF + "");
+            this.ilx.setTextSize(0, ilP);
             layoutParams.topMargin = eTZ;
-            layoutParams.height = ilN;
-            this.ilv.setLayoutParams(layoutParams);
-            layoutParams2.topMargin = ilI;
+            layoutParams.height = ilP;
+            this.ilx.setLayoutParams(layoutParams);
+            layoutParams2.topMargin = ilK;
             layoutParams2.addRule(5, R.id.big_score);
-            this.ilw.setGravity(17);
-            this.ilw.setLayoutParams(layoutParams2);
-            this.ilw.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{as.cG(intValue)}));
+            this.ily.setGravity(17);
+            this.ily.setLayoutParams(layoutParams2);
+            this.ily.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{as.cG(intValue)}));
             if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
                 this.egI.setStarCount(itemTable.comment_star.intValue());
             }
-            this.ily.setVisibility(0);
-            this.ily.setText(s(this.ilE), TextView.BufferType.SPANNABLE);
-            this.ilx.setData(itemTable.item_plot, intValue);
+            this.ilA.setVisibility(0);
+            this.ilA.setText(s(this.ilG), TextView.BufferType.SPANNABLE);
+            this.ilz.setData(itemTable.item_plot, intValue);
         }
     }
 
     private SpannableStringBuilder s(double d) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(ilG);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(ilI);
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.cp_cont_b)), 0, spannableStringBuilder.length(), 33);
-        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(d + ilF);
+        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(d + ilH);
         spannableStringBuilder2.setSpan(new ForegroundColorSpan(ao.getColor(R.color.cp_cont_b)), 0, spannableStringBuilder2.length(), 33);
         spannableStringBuilder2.setSpan(new StyleSpan(1), 0, spannableStringBuilder2.length(), 33);
         spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
@@ -220,22 +220,22 @@ public class FrsTopItemInfoView extends LinearLayout {
 
     public void onChangeSkinType() {
         ao.setBackgroundColor(this, R.color.cp_bg_line_d);
-        ao.setViewTextColor(this.ilr, R.color.cp_cont_b, 1);
-        ao.setBackgroundColor(this.ils, R.color.cp_cont_d);
         ao.setViewTextColor(this.ilt, R.color.cp_cont_b, 1);
+        ao.setBackgroundColor(this.ilu, R.color.cp_cont_d);
         ao.setViewTextColor(this.ilv, R.color.cp_cont_b, 1);
-        ao.setViewTextColor(this.ilw, R.color.cp_cont_b, 1);
-        this.ilx.onChangeSkinType();
-        this.ily.setText(s(this.ilE));
-        ao.setBackgroundColor(this.ilz, R.color.cp_bg_line_g);
-        ao.setViewTextColor(this.ilB, R.color.cp_cont_j, 1);
+        ao.setViewTextColor(this.ilx, R.color.cp_cont_b, 1);
+        ao.setViewTextColor(this.ily, R.color.cp_cont_b, 1);
+        this.ilz.onChangeSkinType();
+        this.ilA.setText(s(this.ilG));
+        ao.setBackgroundColor(this.ilB, R.color.cp_bg_line_g);
+        ao.setViewTextColor(this.ilD, R.color.cp_cont_j, 1);
         this.egI.bcT();
-        SvgManager.baR().a(this.ilC, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.baR().a(this.ilE, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
         ao.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_b);
-        SvgManager.baR().a(this.ilu, R.drawable.ic_icon_pure_use_unknown_n_svg, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.baR().a(this.ilw, R.drawable.ic_icon_pure_use_unknown_n_svg, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setForumWriteData(ForumWriteData forumWriteData) {
-        this.hRF = forumWriteData;
+        this.hRH = forumWriteData;
     }
 }

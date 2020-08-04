@@ -8,11 +8,11 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
     private BdTypeListView frv;
-    private a kOR;
+    private a kOT;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.frv = bdTypeListView;
-        this.kOR = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.kOT = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void setData(List<q> list) {
@@ -20,18 +20,18 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        this.kOR.onChangeSkinType();
+        this.kOT.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.kOR.onChangeSkinType();
+        this.kOT.onChangeSkinType();
     }
 
     public void cVC() {
-        this.kOR.cVC();
+        this.kOT.cVC();
     }
 
     public void cVD() {
-        this.kOR.cVD();
+        this.kOT.cVD();
     }
 }

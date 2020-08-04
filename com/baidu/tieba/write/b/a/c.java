@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String mwY;
-    private boolean mrR;
-    private boolean mwZ;
+    private static String mxa;
+    private boolean mrT;
+    private boolean mxb;
 
     public c(boolean z, boolean z2) {
-        this.mrR = true;
-        this.mwZ = false;
-        this.mrR = z;
-        this.mwZ = z2;
+        this.mrT = true;
+        this.mxb = false;
+        this.mrT = z;
+        this.mxb = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.mwZ || !PI(str2);
+        return this.mxb || !PI(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.mrR && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.mrT && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,15 +52,15 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return mwY;
+        return mxa;
     }
 
     public static void bI(String str) {
-        mwY = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        mxa = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void duV() {
-        mwY = "";
+    public static void duW() {
+        mxa = "";
     }
 
     public static boolean PI(String str) {

@@ -17,16 +17,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MercatorModel {
     private final a.InterfaceC0021a fBG;
-    private boolean lPX;
+    private boolean lPZ;
 
     private MercatorModel() {
-        this.lPX = false;
+        this.lPZ = false;
         this.fBG = new a.InterfaceC0021a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
             @Override // com.baidu.adp.lib.c.a.InterfaceC0021a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.lPX) {
-                    MercatorModel.this.lPX = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.lPZ) {
+                    MercatorModel.this.lPZ = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.lPX = false;
+                    MercatorModel.this.lPZ = false;
                 }
             }
         };
@@ -57,14 +57,14 @@ public class MercatorModel {
         com.baidu.adp.lib.c.a.kG().a(true, this.fBG);
     }
 
-    public static MercatorModel dme() {
-        return a.lQe;
+    public static MercatorModel dmf() {
+        return a.lQg;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final MercatorModel lQe = new MercatorModel();
+        private static final MercatorModel lQg = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,41 +98,41 @@ public class MercatorModel {
 
     /* loaded from: classes.dex */
     public static class MercatorData extends OrmObject {
-        String lPZ;
-        String lQa;
         String lQb;
-        int lQc;
-        long lQd;
+        String lQc;
+        String lQd;
+        int lQe;
+        long lQf;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.lPZ = str;
-            this.lQa = str2;
-            this.lQb = str3;
-            this.lQc = i;
-            this.lQd = j;
-        }
-
-        public String dmf() {
-            return this.lPZ;
+            this.lQb = str;
+            this.lQc = str2;
+            this.lQd = str3;
+            this.lQe = i;
+            this.lQf = j;
         }
 
         public String dmg() {
-            return this.lQa;
-        }
-
-        public String dmh() {
             return this.lQb;
         }
 
-        public int dmi() {
+        public String dmh() {
             return this.lQc;
         }
 
-        public long dmj() {
+        public String dmi() {
             return this.lQd;
+        }
+
+        public int dmj() {
+            return this.lQe;
+        }
+
+        public long dmk() {
+            return this.lQf;
         }
     }
 }

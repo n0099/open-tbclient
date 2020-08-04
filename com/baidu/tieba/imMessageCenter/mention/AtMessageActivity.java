@@ -21,17 +21,17 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.c, com.baidu.tbadk.mvc.c.a {
-    private d joR;
-    private AtMeModelController joS;
-    private ViewEventCenter joT;
-    private CustomMessageListener joU = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
+    private d joT;
+    private AtMeModelController joU;
+    private ViewEventCenter joV;
+    private CustomMessageListener joW = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (AtMessageActivity.this.joS != null) {
-                    AtMessageActivity.this.joS.bSv();
+                if (AtMessageActivity.this.joU != null) {
+                    AtMessageActivity.this.joU.bSv();
                 }
             }
         }
@@ -41,27 +41,27 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.joS = new AtMeModelController(this);
-        registerListener(this.joU);
-        this.joS.setUniqueId(getUniqueId());
-        this.joR = new d(this);
+        this.joU = new AtMeModelController(this);
+        registerListener(this.joW);
+        this.joU.setUniqueId(getUniqueId());
+        this.joT = new d(this);
         if (bundle != null) {
-            this.joS.ak(bundle);
+            this.joU.ak(bundle);
         } else {
-            this.joS.ak(null);
+            this.joU.ak(null);
         }
-        this.joR.bAi();
+        this.joT.bAi();
         bld().addEventDelegate(this);
-        this.joS.bSv();
+        this.joU.bSv();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.joS.cgM();
+        this.joU.cgM();
     }
 
     public void cer() {
-        this.joS.bSw();
+        this.joU.bSw();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
@@ -87,7 +87,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         } else if (bVar.bkI() == 9489) {
             com.baidu.tbadk.mvc.b.a bkJ3 = bVar.bkJ();
             if (bkJ3 instanceof FeedData) {
-                this.joR.b((FeedData) bkJ3);
+                this.joT.b((FeedData) bkJ3);
                 return true;
             }
         }
@@ -154,26 +154,26 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     }
 
     public ViewEventCenter bld() {
-        if (this.joT == null) {
-            this.joT = new ViewEventCenter();
+        if (this.joV == null) {
+            this.joV = new ViewEventCenter();
         }
-        return this.joT;
+        return this.joV;
     }
 
     public void cyK() {
-        this.joR.cyK();
+        this.joT.cyK();
     }
 
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
-        this.joR.c(bVar);
+        this.joT.c(bVar);
     }
 
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
-        this.joR.a(aVar);
+        this.joT.a(aVar);
     }
 
     public void cyL() {
-        this.joR.cyL();
+        this.joT.cyL();
     }
 
     public void a(ErrorData errorData) {
@@ -186,6 +186,6 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.joR.onChangeSkinType(getPageContext(), i);
+        this.joT.onChangeSkinType(getPageContext(), i);
     }
 }

@@ -16,9 +16,9 @@ import java.util.List;
 import tbclient.T;
 /* loaded from: classes16.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> iZo = new ArrayList();
-    private a kzi;
-    private final HttpMessageListener kzj;
+    private static List<String> iZq = new ArrayList();
+    private a kzk;
+    private final HttpMessageListener kzl;
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -29,25 +29,25 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.kzj = new HttpMessageListener(1003370) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.kzl = new HttpMessageListener(1003370) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.kzi != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.kzk != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
                     if (!x.isEmpty(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.kzi.bd(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.iZo.clear();
-                        GetSugMatchWordsModel.iZo.addAll(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.this.kzk.bd(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.iZq.clear();
+                        GetSugMatchWordsModel.iZq.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.kzi.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.kzk.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
         registerTask();
-        this.kzj.setSelfListener(true);
-        registerListener(this.kzj);
+        this.kzl.setSelfListener(true);
+        registerListener(this.kzl);
     }
 
     private void registerTask() {
@@ -57,10 +57,10 @@ public class GetSugMatchWordsModel extends BdBaseModel {
     }
 
     public void b(a aVar) {
-        this.kzi = aVar;
-        if (this.kzi != null) {
-            if (!x.isEmpty(iZo)) {
-                this.kzi.bd(iZo);
+        this.kzk = aVar;
+        if (this.kzk != null) {
+            if (!x.isEmpty(iZq)) {
+                this.kzk.bd(iZq);
             } else {
                 sendMessage(new HttpMessage(1003370));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.kzj);
+        MessageManager.getInstance().unRegisterListener(this.kzl);
         MessageManager.getInstance().unRegisterTask(1003370);
         return true;
     }

@@ -6,19 +6,19 @@ import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes17.dex */
 public class b {
-    private static b ngv;
+    private static b ngx;
     private AudioRecord mAudioRecord;
-    private boolean ngw;
-    private static final int[] ngt = {1, 0, 5, 7, 6};
+    private boolean ngy;
+    private static final int[] ngv = {1, 0, 5, 7, 6};
     public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int ngu = 24;
+    public static int ngw = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * ngu;
+        int i = SAMPLES_PER_FRAME * ngw;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : ngt) {
+        for (int i2 : ngv) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.ngw) {
-            this.ngw = true;
+        if (!this.ngy) {
+            this.ngy = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +49,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (ngv != null && !ngv.MZ()) {
-                ngv.release();
+            if (ngx != null && !ngx.MZ()) {
+                ngx.release();
             }
             this.mAudioRecord.startRecording();
-            ngv = this;
+            ngx = this;
         }
     }
 
@@ -64,10 +64,10 @@ public class b {
     }
 
     public boolean MZ() {
-        return this.ngw;
+        return this.ngy;
     }
 
-    public AudioRecord dKu() {
+    public AudioRecord dKv() {
         return this.mAudioRecord;
     }
 }

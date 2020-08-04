@@ -124,10 +124,10 @@ public class TiebaIMActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.iQH != null && aVar.context != null) {
+                    if (aVar.iQJ != null && aVar.context != null) {
                         MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
                         msgMultiImageTextViewItemAdapter.px(true);
-                        aVar.iQH.add(msgMultiImageTextViewItemAdapter);
+                        aVar.iQJ.add(msgMultiImageTextViewItemAdapter);
                     }
                 }
             }
@@ -234,14 +234,14 @@ public class TiebaIMActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.iQH != null && aVar.context != null) {
+                    if (aVar.iQJ != null && aVar.context != null) {
                         MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(aVar.context, ChatMessage.TYPE_MSG_PHOTOLIVE);
                         msgPhotoLiveItemAdapter.py(true);
-                        aVar.iQH.add(msgPhotoLiveItemAdapter);
+                        aVar.iQJ.add(msgPhotoLiveItemAdapter);
                         MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
                         msgActivityViewItemAdapter.py(true);
                         msgActivityViewItemAdapter.px(true);
-                        aVar.iQH.add(msgActivityViewItemAdapter);
+                        aVar.iQJ.add(msgActivityViewItemAdapter);
                     }
                 }
             }

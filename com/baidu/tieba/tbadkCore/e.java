@@ -18,7 +18,7 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class e {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static e lKO;
+    private static e lKQ;
     private com.baidu.adp.lib.cache.l<byte[]> hAW;
     private m responseData = null;
 
@@ -28,14 +28,14 @@ public class e {
     }
 
     public static e dki() {
-        if (lKO == null) {
+        if (lKQ == null) {
             synchronized (e.class) {
-                if (lKO == null) {
-                    lKO = new e();
+                if (lKQ == null) {
+                    lKQ = new e();
                 }
             }
         }
-        return lKO;
+        return lKQ;
     }
 
     public long dkj() {

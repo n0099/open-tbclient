@@ -63,23 +63,23 @@ public class MiPushClient4Hybrid {
         b.a aVar;
         String b = inVar.b();
         if (inVar.a() == 0 && (aVar = dataMap.get(b)) != null) {
-            aVar.a(inVar.f672e, inVar.f673f);
+            aVar.a(inVar.f675e, inVar.f676f);
             b.m89a(context).a(b, aVar);
         }
-        if (TextUtils.isEmpty(inVar.f672e)) {
+        if (TextUtils.isEmpty(inVar.f675e)) {
             arrayList = null;
         } else {
             arrayList = new ArrayList();
-            arrayList.add(inVar.f672e);
+            arrayList.add(inVar.f675e);
         }
-        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f321a, arrayList, inVar.f662a, inVar.f671d, null);
+        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f324a, arrayList, inVar.f665a, inVar.f674d, null);
         if (sCallback != null) {
             sCallback.onReceiveRegisterResult(b, generateCommandMessage);
         }
     }
 
     public static void onReceiveUnregisterResult(Context context, it itVar) {
-        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_UNREGISTER.f321a, null, itVar.f738a, itVar.f746d, null);
+        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_UNREGISTER.f324a, null, itVar.f741a, itVar.f749d, null);
         String a = itVar.a();
         if (sCallback != null) {
             sCallback.onReceiveUnregisterResult(a, generateCommandMessage);
@@ -92,7 +92,7 @@ public class MiPushClient4Hybrid {
             b.a a = b.m89a(context).a(str);
             if (a != null) {
                 arrayList.add(a.c);
-                MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f321a, arrayList, 0L, null, null);
+                MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f324a, arrayList, 0L, null, null);
                 if (sCallback != null) {
                     sCallback.onReceiveRegisterResult(str, generateCommandMessage);
                 }
@@ -100,7 +100,7 @@ public class MiPushClient4Hybrid {
             if (shouldPullNotification(context, str)) {
                 il ilVar = new il();
                 ilVar.b(str2);
-                ilVar.c(hw.PullOfflineMessage.f478a);
+                ilVar.c(hw.PullOfflineMessage.f481a);
                 ilVar.a(com.xiaomi.push.service.an.a());
                 ilVar.a(false);
                 aq.a(context).a(ilVar, hm.Notification, false, true, null, false, str, str2);
@@ -144,7 +144,7 @@ public class MiPushClient4Hybrid {
             imVar.c(a3);
         }
         il ilVar2 = new il();
-        ilVar2.c(hw.HybridRegister.f478a);
+        ilVar2.c(hw.HybridRegister.f481a);
         ilVar2.b(b.m89a(context).m90a());
         ilVar2.d(context.getPackageName());
         ilVar2.a(iw.a(imVar));
@@ -207,11 +207,11 @@ public class MiPushClient4Hybrid {
         is isVar = new is();
         isVar.a(com.xiaomi.push.service.an.a());
         isVar.d(str);
-        isVar.b(a.f69a);
+        isVar.b(a.f72a);
         isVar.c(a.c);
         isVar.e(a.b);
         il ilVar = new il();
-        ilVar.c(hw.HybridUnregister.f478a);
+        ilVar.c(hw.HybridUnregister.f481a);
         ilVar.b(b.m89a(context).m90a());
         ilVar.d(context.getPackageName());
         ilVar.a(iw.a(isVar));

@@ -16,11 +16,11 @@ public class v {
     private int dAR;
     private JSONObject dAS;
     private List<k> dAT = new ArrayList();
-    private JSONObject mMr;
-    private JSONObject mMs;
     private JSONObject mMt;
-    private String mMu;
-    private String mMv;
+    private JSONObject mMu;
+    private JSONObject mMv;
+    private String mMw;
+    private String mMx;
     private int mThreshold;
 
     public v(String str, JSONObject jSONObject) {
@@ -44,39 +44,39 @@ public class v {
         this.dAT = list;
     }
 
-    public String dAf() {
-        return this.mMu;
-    }
-
     public String dAg() {
-        return this.mMv;
+        return this.mMw;
     }
 
-    public JSONObject dAh() {
-        return this.mMt;
+    public String dAh() {
+        return this.mMx;
     }
 
     public JSONObject dAi() {
-        return this.mMr;
+        return this.mMv;
+    }
+
+    public JSONObject dAj() {
+        return this.mMt;
     }
 
     private void dV(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("threshold") > 0) {
-                    this.mMr.put("threshold", jSONObject.optString("threshold"));
+                    this.mMt.put("threshold", jSONObject.optString("threshold"));
                 }
                 if (jSONObject.optInt("timeup") > 0) {
-                    this.mMr.put("timeup", jSONObject.optString("timeup"));
+                    this.mMt.put("timeup", jSONObject.optString("timeup"));
                 }
                 if (jSONObject.optString("step") != null) {
-                    this.mMr.put("step", jSONObject.optString("step"));
+                    this.mMt.put("step", jSONObject.optString("step"));
                 }
                 if (jSONObject.optString("replace") != null) {
-                    this.mMr.put("replace", jSONObject.optString("replace"));
+                    this.mMt.put("replace", jSONObject.optString("replace"));
                 }
                 if (jSONObject.optJSONObject("del") != null) {
-                    this.mMr.put("del", jSONObject.optJSONObject("del"));
+                    this.mMt.put("del", jSONObject.optJSONObject("del"));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -92,19 +92,19 @@ public class v {
                 return false;
             }
             JSONObject jSONObject = this.dAS;
-            this.mMs = jSONObject.optJSONObject("set");
+            this.mMu = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
             this.dAR = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.mMv = jSONObject.optString("step");
-            this.mMu = jSONObject.optString("replace");
-            this.mMt = jSONObject.optJSONObject("del");
-            if (this.mMs != null) {
-                this.mMr = new JSONObject();
+            this.mMx = jSONObject.optString("step");
+            this.mMw = jSONObject.optString("replace");
+            this.mMv = jSONObject.optJSONObject("del");
+            if (this.mMu != null) {
+                this.mMt = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
-                Iterator<String> keys = this.mMs.keys();
+                Iterator<String> keys = this.mMu.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject3 = this.mMs.getJSONObject(next);
+                    JSONObject jSONObject3 = this.mMu.getJSONObject(next);
                     if (jSONObject3 != null) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("data");
                         String string = jSONObject3.getString("version");
@@ -157,7 +157,7 @@ public class v {
                         }
                     }
                 }
-                this.mMr.put("set", jSONObject2);
+                this.mMt.put("set", jSONObject2);
                 dV(jSONObject);
             }
             return true;

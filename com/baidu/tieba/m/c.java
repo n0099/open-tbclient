@@ -26,10 +26,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout jSO;
-    private TextView jSP;
-    private Runnable jSQ;
-    private Runnable jSR;
+    private RelativeLayout jSQ;
+    private TextView jSR;
+    private Runnable jSS;
+    private Runnable jST;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -53,73 +53,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.jSQ == null) {
-                this.jSQ = new Runnable() { // from class: com.baidu.tieba.m.c.1
+            if (this.jSS == null) {
+                this.jSS = new Runnable() { // from class: com.baidu.tieba.m.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.jSO != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.jSO);
+                        if (c.this.jSQ != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.jSQ);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.jSR == null) {
-                this.jSR = new Runnable() { // from class: com.baidu.tieba.m.c.2
+            if (this.jST == null) {
+                this.jST = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.JT(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.jSR);
-            this.mHandler.postAtFrontOfQueue(this.jSR);
+            this.mHandler.removeCallbacks(this.jST);
+            this.mHandler.postAtFrontOfQueue(this.jST);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.jSQ, 20000L);
+            this.mHandler.postDelayed(this.jSS, 20000L);
         }
     }
 
     public void hide() {
-        if (this.jSO != null && this.jSP != null) {
-            this.mHandler.removeCallbacks(this.jSQ);
-            this.mHandler.post(this.jSQ);
+        if (this.jSQ != null && this.jSR != null) {
+            this.mHandler.removeCallbacks(this.jSS);
+            this.mHandler.post(this.jSS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.jSQ);
-            this.mHandler.removeCallbacks(this.jSR);
-            this.jSR = null;
-            this.jSQ = null;
+            this.mHandler.removeCallbacks(this.jSS);
+            this.mHandler.removeCallbacks(this.jST);
+            this.jST = null;
+            this.jSS = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.jSP != null) {
-            this.jSP = null;
+        if (this.jSR != null) {
+            this.jSR = null;
         }
-        if (this.jSO != null) {
-            this.jSO = null;
+        if (this.jSQ != null) {
+            this.jSQ = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void JT(String str) {
-        if (this.jSP == null) {
-            this.jSP = new b(this.mContext);
-            this.jSP.setTextSize(1, 18.0f);
+        if (this.jSR == null) {
+            this.jSR = new b(this.mContext);
+            this.jSR.setTextSize(1, 18.0f);
         }
-        this.jSP.setText(str);
-        this.jSO = new RelativeLayout(this.mContext);
-        this.jSO.setBackgroundResource(R.drawable.pic_splash_logo);
+        this.jSR.setText(str);
+        this.jSQ = new RelativeLayout(this.mContext);
+        this.jSQ.setBackgroundResource(R.drawable.pic_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.jSO.addView(this.jSP, layoutParams);
+        this.jSQ.addView(this.jSR, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -129,7 +129,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.jSO, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.jSQ, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -190,8 +190,8 @@ public class c {
     /* loaded from: classes.dex */
     public class b extends TextView {
         private LinearGradient biK;
-        private Matrix jST;
-        private int jSU;
+        private Matrix jSV;
+        private int jSW;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -199,20 +199,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.jSU = 0;
+            this.jSW = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.jST != null) {
-                this.jSU += this.mViewWidth / 10;
-                if (this.jSU > this.mViewWidth * 2) {
-                    this.jSU = -this.mViewWidth;
+            if (this.mAnimating && this.jSV != null) {
+                this.jSW += this.mViewWidth / 10;
+                if (this.jSW > this.mViewWidth * 2) {
+                    this.jSW = -this.mViewWidth;
                 }
-                this.jST.setTranslate(this.jSU, 0.0f);
-                this.biK.setLocalMatrix(this.jST);
+                this.jSV.setTranslate(this.jSW, 0.0f);
+                this.biK.setLocalMatrix(this.jSV);
                 postInvalidateDelayed(50L);
             }
         }
@@ -226,7 +226,7 @@ public class c {
                     this.mPaint = getPaint();
                     this.biK = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
                     this.mPaint.setShader(this.biK);
-                    this.jST = new Matrix();
+                    this.jSV = new Matrix();
                 }
             }
         }

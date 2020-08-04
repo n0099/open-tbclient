@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 /* loaded from: classes6.dex */
 public class e {
-    public static int owh = 0;
+    public static int owj = 0;
 
     public static boolean E(View view, int i) {
         if (view.isInEditMode()) {
@@ -18,9 +18,9 @@ public class e {
         }
         tv.chushou.zues.utils.e.d("ViewUtil", String.format("refresh Height %d %d", Integer.valueOf(view.getHeight()), Integer.valueOf(i)));
         if (view.getHeight() != i) {
-            owh = i;
+            owj = i;
             Context context = view.getContext();
-            int i2 = owh;
+            int i2 = owj;
             if (gS(context)) {
                 i2 += tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(context);
             }

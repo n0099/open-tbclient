@@ -3,17 +3,17 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] lMA = {3, 8, 13};
-    public static final int[] lMB = {2, 12};
-    public static final int[] lMC = {20};
-    public static final int[] lMD = {3, 13, 23};
-    private SparseIntArray lME = new SparseIntArray();
-    private String lMF;
-    private final int[] lMG;
+    public static final int[] lMC = {3, 8, 13};
+    public static final int[] lMD = {2, 12};
+    public static final int[] lME = {20};
+    public static final int[] lMF = {3, 13, 23};
+    private SparseIntArray lMG = new SparseIntArray();
+    private String lMH;
+    private final int[] lMI;
 
     public f(String str, int[] iArr) {
-        this.lMG = iArr;
-        this.lMF = str;
+        this.lMI = iArr;
+        this.lMH = str;
     }
 
     public void Fo(int i) {
@@ -21,38 +21,38 @@ public class f {
         if (i < 0) {
             i = 0;
         }
-        if (this.lME != null) {
-            this.lME.clear();
-            if (this.lMG != null) {
-                for (int i2 : this.lMG) {
+        if (this.lMG != null) {
+            this.lMG.clear();
+            if (this.lMI != null) {
+                for (int i2 : this.lMI) {
                     if (i2 >= 0) {
-                        this.lME.append(i2 + i, i2);
+                        this.lMG.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void dkN() {
+    public void dkO() {
         Fo(0);
     }
 
     public void dc(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.lME != null) {
-            this.lME.append(i2, i);
+        if (i >= 0 && i2 >= 0 && this.lMG != null) {
+            this.lMG.append(i2, i);
         }
     }
 
     public int Fp(int i) {
-        if (i >= 0 && this.lME != null) {
-            return this.lME.get(i, -1);
+        if (i >= 0 && this.lMG != null) {
+            return this.lMG.get(i, -1);
         }
         return -1;
     }
 
     public void Fq(int i) {
-        if (this.lME != null) {
-            this.lME.delete(i);
+        if (this.lMG != null) {
+            this.lMG.delete(i);
         }
     }
 }

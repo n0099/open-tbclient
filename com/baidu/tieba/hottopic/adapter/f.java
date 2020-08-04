@@ -43,21 +43,21 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             if (cVar.aho != this.mSkinType) {
                 cVar.aho = this.mSkinType;
                 ao.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
-                ao.setBackgroundColor(cVar.iLz, R.color.cp_bg_line_c);
-                ao.setViewTextColor(cVar.iLA, R.color.cp_cont_c, 1);
+                ao.setBackgroundColor(cVar.iLB, R.color.cp_bg_line_c);
+                ao.setViewTextColor(cVar.iLC, R.color.cp_cont_c, 1);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.c cVar, com.baidu.tieba.hottopic.data.g gVar) {
-        if (cVar == null || gVar == null || StringUtils.isNull(gVar.iJV)) {
+        if (cVar == null || gVar == null || StringUtils.isNull(gVar.iJX)) {
             if (cVar != null) {
-                cVar.iLA.setVisibility(8);
+                cVar.iLC.setVisibility(8);
                 return;
             }
             return;
         }
-        cVar.iLA.setVisibility(0);
-        cVar.iLA.setText(gVar.iJV);
+        cVar.iLC.setVisibility(0);
+        cVar.iLC.setText(gVar.iJX);
     }
 }

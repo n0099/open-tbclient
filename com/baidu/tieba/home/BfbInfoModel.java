@@ -9,7 +9,7 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes18.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     com.baidu.adp.framework.listener.a hAY;
-    private a iqL;
+    private a iqN;
 
     /* loaded from: classes18.dex */
     public interface a {
@@ -25,8 +25,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                     if ((responsedMessage instanceof BfbInfoHttpResponseMessage) || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                         UserBfbInfo userBfbInfo = null;
                         if (responsedMessage.getError() != 0) {
-                            if (BfbInfoModel.this.iqL != null) {
-                                BfbInfoModel.this.iqL.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (BfbInfoModel.this.iqN != null) {
+                                BfbInfoModel.this.iqN.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
@@ -36,8 +36,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                         } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                             userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                         }
-                        if (BfbInfoModel.this.iqL != null) {
-                            BfbInfoModel.this.iqL.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                        if (BfbInfoModel.this.iqN != null) {
+                            BfbInfoModel.this.iqN.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                         }
                     }
                 }
@@ -68,7 +68,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void a(a aVar) {
-        this.iqL = aVar;
+        this.iqN = aVar;
     }
 
     public void clh() {

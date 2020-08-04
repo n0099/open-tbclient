@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class SlidingTabStrip extends LinearLayout {
-    private final int iOH;
-    private final Paint iOI;
-    private int iOJ;
-    private int iOK;
+    private final int iOJ;
+    private final Paint iOK;
+    private int iOL;
+    private int iOM;
     private final Paint mSelectedIndicatorPaint;
     private int mSelectedPosition;
 
@@ -25,11 +25,11 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.iOH = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.iOJ = getResources().getDimensionPixelSize(R.dimen.ds5);
         this.mSelectedIndicatorPaint = new Paint();
         this.mSelectedIndicatorPaint.setColor(ao.getSkinColor(null, R.color.cp_cont_b));
-        this.iOI = new Paint();
-        this.iOI.setColor(ao.getColor(R.color.cp_bg_line_c));
+        this.iOK = new Paint();
+        this.iOK.setColor(ao.getColor(R.color.cp_bg_line_c));
     }
 
     public void i(int i, float f) {
@@ -42,15 +42,15 @@ public class SlidingTabStrip extends LinearLayout {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
         if (i == 0) {
-            this.iOJ = childAt.getLeft();
+            this.iOL = childAt.getLeft();
         } else {
-            this.iOJ = childAt.getLeft() + dimensionPixelSize2;
+            this.iOL = childAt.getLeft() + dimensionPixelSize2;
         }
-        this.iOK = this.iOJ + dimensionPixelSize;
+        this.iOM = this.iOL + dimensionPixelSize;
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.iOJ = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.iOJ));
-            this.iOK = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.iOK));
+            this.iOL = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.iOL));
+            this.iOM = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.iOM));
         }
     }
 
@@ -61,11 +61,11 @@ public class SlidingTabStrip extends LinearLayout {
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f;
         if (this.mSelectedPosition == 0) {
-            this.iOJ = (int) (left + left2);
+            this.iOL = (int) (left + left2);
         } else {
-            this.iOJ = (int) (dimensionPixelSize + left + left2);
+            this.iOL = (int) (dimensionPixelSize + left + left2);
         }
-        this.iOK = getResources().getDimensionPixelSize(R.dimen.ds64) + this.iOJ;
+        this.iOM = getResources().getDimensionPixelSize(R.dimen.ds64) + this.iOL;
         invalidate();
     }
 
@@ -101,15 +101,15 @@ public class SlidingTabStrip extends LinearLayout {
     }
 
     private void a(Canvas canvas, int i) {
-        if (this.iOK <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
-            this.iOK = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.iOM <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
+            this.iOM = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.iOJ, i - this.iOH, this.iOK, i), 10.0f, 10.0f, this.mSelectedIndicatorPaint);
+        canvas.drawRoundRect(new RectF(this.iOL, i - this.iOJ, this.iOM, i), 10.0f, 10.0f, this.mSelectedIndicatorPaint);
     }
 
     public void onChangeSkinType(int i) {
         this.mSelectedIndicatorPaint.setColor(ao.getSkinColor(null, R.color.cp_cont_b));
-        this.iOI.setColor(ao.getColor(R.color.cp_bg_line_c));
+        this.iOK.setColor(ao.getColor(R.color.cp_bg_line_c));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {

@@ -7,13 +7,13 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes16.dex */
 public class a {
-    private int iuU = 1;
-    private final List<t> iuV = new ArrayList();
+    private int iuW = 1;
+    private final List<t> iuX = new ArrayList();
 
     public a() {
         List<t> clV = clV();
         if (!x.isEmpty(clV)) {
-            this.iuV.addAll(clV);
+            this.iuX.addAll(clV);
         }
     }
 
@@ -35,10 +35,10 @@ public class a {
     }
 
     public List<t> clW() {
-        return this.iuV;
+        return this.iuX;
     }
 
     public int clX() {
-        return this.iuU;
+        return this.iuW;
     }
 }

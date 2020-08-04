@@ -20,11 +20,11 @@ public class b extends e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b jyN = new b();
+        private static final b jyP = new b();
     }
 
     public static b cBb() {
-        return a.jyN;
+        return a.jyP;
     }
 
     public synchronized void a(e eVar) {

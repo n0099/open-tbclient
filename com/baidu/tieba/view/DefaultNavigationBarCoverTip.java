@@ -21,8 +21,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     private final com.baidu.tbadk.h.g eFw;
     private View hKw;
     private Activity mActivity;
-    private View.OnClickListener mpe;
-    private NavigationBarCoverTip.a mpf;
+    private View.OnClickListener mpg;
+    private NavigationBarCoverTip.a mph;
 
     public static DefaultNavigationBarCoverTip c(Activity activity, String str, String str2) {
         if (activity == null) {
@@ -33,7 +33,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.mpe = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.mpg = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
@@ -52,19 +52,19 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.mpf = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.mph = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void GF() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void dtE() {
+            public void dtF() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
         buv();
-        setCoverTipListener(this.mpf);
+        setCoverTipListener(this.mph);
     }
 
     public void show() {
@@ -89,7 +89,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.mpe);
+            tBSpecificationBtn.setOnClickListener(this.mpg);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {

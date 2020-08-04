@@ -68,7 +68,7 @@ import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes17.dex */
 public class GroupActivityStatic {
-    public static final BdUniqueId iqI = BdUniqueId.gen();
+    public static final BdUniqueId iqK = BdUniqueId.gen();
 
     static {
         TbadkApplication.getInst().RegisterIntent(GroupSettingActivityConfig.class, GroupSettingActivity.class);
@@ -162,7 +162,7 @@ public class GroupActivityStatic {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                     absDelegateAdapterList.add(new e(null, GroupInfoData.TYPE_FRS_GROUP));
                     absDelegateAdapterList.add(new com.baidu.tieba.im.frsgroup.a(null, GroupPermData.TYPE_FRS_CREATE_GROUP));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.im.frsgroup.h.jaq));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.im.frsgroup.h.jas));
                 }
             }
         });
@@ -172,7 +172,7 @@ public class GroupActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ag)) {
                     com.baidu.tieba.im.frsgroup.d dVar = new com.baidu.tieba.im.frsgroup.d();
-                    dVar.setTag(GroupActivityStatic.iqI);
+                    dVar.setTag(GroupActivityStatic.iqK);
                     ((ag) customResponsedMessage.getData()).a(4, dVar);
                 }
             }

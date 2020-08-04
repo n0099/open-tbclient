@@ -29,7 +29,7 @@ public interface d {
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void dpH();
+        void dpI();
 
         void vL(boolean z);
 

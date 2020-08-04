@@ -15,11 +15,11 @@ import com.baidu.tieba.card.o;
 import com.baidu.tieba.frs.j;
 /* loaded from: classes16.dex */
 public class a extends j<n, C0629a> {
-    private boolean hSs;
+    private boolean hSu;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.hSs = z;
+        this.hSu = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class a extends j<n, C0629a> {
         TiebaStatic.log(new ap(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0629a.hSt.tg(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0629a.hSt.showBottomLine(this.hSs);
-            c0629a.hSt.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0629a.hSv.tg(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0629a.hSv.showBottomLine(this.hSu);
+            c0629a.hSv.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0629a.hSt.a(nVar);
+        c0629a.hSv.a(nVar);
         return c0629a.getView();
     }
 
@@ -51,11 +51,11 @@ public class a extends j<n, C0629a> {
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     public class C0629a extends ad.a {
-        public o hSt;
+        public o hSv;
 
         public C0629a(o oVar) {
             super(oVar.getView());
-            this.hSt = oVar;
+            this.hSv = oVar;
         }
     }
 }

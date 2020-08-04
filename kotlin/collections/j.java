@@ -52,7 +52,7 @@ public class j extends i {
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
         kotlin.jvm.internal.q.m(hVar, "indices");
-        return hVar.isEmpty() ? o.dTO() : f.au(f.p(bArr, hVar.dUs().intValue(), hVar.dUt().intValue() + 1));
+        return hVar.isEmpty() ? o.dTP() : f.au(f.p(bArr, hVar.dUt().intValue(), hVar.dUu().intValue() + 1));
     }
 
     public static final kotlin.b.h av(byte[] bArr) {
@@ -83,7 +83,7 @@ public class j extends i {
         kotlin.jvm.internal.q.m(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.dTV();
+                return al.dTW();
             case 1:
                 return al.bK(tArr[0]);
             default:

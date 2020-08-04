@@ -119,7 +119,7 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
         this.fXv.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.b.d.1
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void disableSwipeBack() {
-                if (d.this.fXT != null && !x.isEmpty(d.this.fXT.lKU) && d.this.fXT.lKU.size() > 1) {
+                if (d.this.fXT != null && !x.isEmpty(d.this.fXT.lKW) && d.this.fXT.lKW.size() > 1) {
                     if (d.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
                         ((BaseActivity) d.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
                     } else if (d.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -147,20 +147,20 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(h hVar) {
-        if (hVar != null && hVar.lKU != null) {
+        if (hVar != null && hVar.lKW != null) {
             this.fXT = hVar;
             setVisibility(0);
             if (this.fXV == null) {
-                this.fXV = new com.baidu.tieba.ala.livecard.vc.b(hVar.lKU, this.eoj, this.eol);
+                this.fXV = new com.baidu.tieba.ala.livecard.vc.b(hVar.lKW, this.eoj, this.eol);
                 this.fXV.nj(2);
                 this.fXV.ni(6);
                 this.fXV.nk(1);
             }
-            this.fXV.bR(hVar.lKU);
+            this.fXV.bR(hVar.lKW);
             this.fXQ.setForumName(this.mForumName);
             this.fXQ.a(this.fXV.bdo(), this.fXW);
             this.fXP.setCurrentItem(this.fXV.bdn(), false);
-            if (hVar.lKU.size() >= 2) {
+            if (hVar.lKW.size() >= 2) {
                 this.fXR.setVisibility(0);
                 if (this.eod.getCount() != this.fXV.bdm()) {
                     this.eod.setCount(this.fXV.bdm());
@@ -170,8 +170,8 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
             } else {
                 this.fXR.setVisibility(8);
             }
-            if (hVar.lKU.size() > 0) {
-                this.fXU.l(hVar.lKU.get(0), "ala_frs_stage_live_feed_back_type");
+            if (hVar.lKW.size() > 0) {
+                this.fXU.l(hVar.lKW.get(0), "ala_frs_stage_live_feed_back_type");
             }
             bCw();
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -180,15 +180,15 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
 
     private void bCw() {
         int nh;
-        if (this.fXT != null && x.isEmpty(this.fXT.lKU) && (nh = this.fXV.nh(this.mCurrentIndex)) < this.fXT.lKU.size() && nh >= 0) {
+        if (this.fXT != null && x.isEmpty(this.fXT.lKW) && (nh = this.fXV.nh(this.mCurrentIndex)) < this.fXT.lKW.size() && nh >= 0) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
-            if (this.fXT.lKU != null && this.fXT.lKU.get(nh) != null) {
-                this.fXT.lKU.get(nh).dPI = this.dPI;
+            if (this.fXT.lKW != null && this.fXT.lKW.get(nh) != null) {
+                this.fXT.lKW.get(nh).dPI = this.dPI;
             }
-            customMessage.setData(this.fXT.lKU.get(nh));
+            customMessage.setData(this.fXT.lKW.get(nh));
             MessageManager.getInstance().sendMessage(customMessage);
-            if (this.fXT.lKU.get(nh) != null) {
-                TiebaStatic.log(new ap("c12804").dn("tid", this.fXT.lKU.get(nh).getId()));
+            if (this.fXT.lKW.get(nh) != null) {
+                TiebaStatic.log(new ap("c12804").dn("tid", this.fXT.lKW.get(nh).getId()));
             }
         }
     }
@@ -256,8 +256,8 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (this.fXT != null && !x.isEmpty(this.fXT.lKU)) {
-                for (bv bvVar2 : this.fXT.lKU) {
+            if (this.fXT != null && !x.isEmpty(this.fXT.lKW)) {
+                for (bv bvVar2 : this.fXT.lKW) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(S(bvVar2));
                 }
             }

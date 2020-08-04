@@ -39,42 +39,42 @@ import org.json.JSONObject;
 public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmentWeightLayout {
     public static String URL = "https://afd.baidu.com/afd/updateTiebaAdExt";
     public static int eUa;
-    private final int lsn;
-    private final int lso;
     private final int lsp;
     private final int lsq;
     private final int lsr;
-    private int lss;
-    private int lst;
-    private a lsu;
+    private final int lss;
+    private final int lst;
+    private int lsu;
+    private int lsv;
+    private a lsw;
     private int style;
     private int type;
 
     public AdThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.lsn = 446;
-        this.lso = 5120;
-        this.lsp = 5120;
+        this.lsp = 446;
         this.lsq = 5120;
         this.lsr = 5120;
+        this.lss = 5120;
+        this.lst = 5120;
         this.style = 1;
         this.type = 0;
-        this.lss = R.drawable.selector_comment_and_prise_item_text_color;
-        this.lst = this.lss;
+        this.lsu = R.drawable.selector_comment_and_prise_item_text_color;
+        this.lsv = this.lsu;
         initSetting();
     }
 
     public AdThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lsn = 446;
-        this.lso = 5120;
-        this.lsp = 5120;
+        this.lsp = 446;
         this.lsq = 5120;
         this.lsr = 5120;
+        this.lss = 5120;
+        this.lst = 5120;
         this.style = 1;
         this.type = 0;
-        this.lss = R.drawable.selector_comment_and_prise_item_text_color;
-        this.lst = this.lss;
+        this.lsu = R.drawable.selector_comment_and_prise_item_text_color;
+        this.lsv = this.lsu;
         initSetting();
     }
 
@@ -200,28 +200,28 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     /* JADX INFO: Access modifiers changed from: private */
     public void DY(int i) {
         if (i == 1) {
-            a(this.lsu.getThreadData(), "nozan", 0);
-            a(this.lsu.getThreadData(), "1", "2");
+            a(this.lsw.getThreadData(), "nozan", 0);
+            a(this.lsw.getThreadData(), "1", "2");
             return;
         }
-        a(this.lsu.getThreadData(), FeedData.TYPE_ZAN, 0);
-        a(this.lsu.getThreadData(), "1", "1");
+        a(this.lsw.getThreadData(), FeedData.TYPE_ZAN, 0);
+        a(this.lsw.getThreadData(), "1", "1");
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void bb(View view) {
-        if (this.aeA != null && this.mContext != null && this.lsu != null) {
-            a(this.lsu.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
-            a(this.lsu.getThreadData(), "2", "1");
+        if (this.aeA != null && this.mContext != null && this.lsw != null) {
+            a(this.lsw.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
+            a(this.lsw.getThreadData(), "2", "1");
             if (ShareSwitch.isOn() || bf.checkUpIsLogin(this.mContext)) {
                 final ShareItem shareItem = new ShareItem();
-                shareItem.title = this.lsu.getTitle();
-                shareItem.content = this.lsu.getAbstract();
-                shareItem.etQ = this.lsu.getTitle();
-                shareItem.linkUrl = this.lsu.getShareLink();
+                shareItem.title = this.lsw.getTitle();
+                shareItem.content = this.lsw.getAbstract();
+                shareItem.etQ = this.lsw.getTitle();
+                shareItem.linkUrl = this.lsw.getShareLink();
                 shareItem.etT = 3;
                 shareItem.etH = true;
-                String imageUrl = this.lsu.getImageUrl();
+                String imageUrl = this.lsw.getImageUrl();
                 Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
                 if (parse != null) {
                     shareItem.imageUri = parse;
@@ -247,8 +247,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     public void setShareData(a aVar) {
-        this.lsu = aVar;
-        setData(this.lsu.getThreadData());
+        this.lsw = aVar;
+        setData(this.lsw.getThreadData());
     }
 
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
@@ -322,8 +322,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public void onChangeSkinType() {
         super.onChangeSkinType();
         SvgManager.baR().a(this.ejC, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.cp_cont_e, (SvgManager.SvgResourceStateType) null);
-        ao.setViewTextColor(this.dKx, this.lss);
-        ao.setViewTextColor(this.ejE, this.lst);
+        ao.setViewTextColor(this.dKx, this.lsu);
+        ao.setViewTextColor(this.ejE, this.lsv);
     }
 
     public void setDisPraiseViewVisibility(boolean z) {
@@ -331,11 +331,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setReplayContainerBgGray(boolean z) {
         if (z) {
-            this.lss = R.color.cp_cont_e;
+            this.lsu = R.color.cp_cont_e;
             this.ekf = R.drawable.icon_home_card_comment_s;
             return;
         }
-        this.lss = R.drawable.selector_comment_and_prise_item_text_color;
+        this.lsu = R.drawable.selector_comment_and_prise_item_text_color;
         this.ekf = R.drawable.icon_home_card_comment;
     }
 
@@ -345,11 +345,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public void setShareContainerBgGray(boolean z) {
         if (z) {
             this.ekg = R.drawable.icon_card_share_s;
-            this.lst = R.color.cp_cont_e;
+            this.lsv = R.color.cp_cont_e;
             return;
         }
         this.ekg = R.drawable.icon_home_card_share;
-        this.lst = R.drawable.selector_comment_and_prise_item_text_color;
+        this.lsv = R.drawable.selector_comment_and_prise_item_text_color;
     }
 
     public void setType(int i) {

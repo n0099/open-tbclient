@@ -1,12 +1,12 @@
 package com.baidu.tieba.frs.gametab;
 /* loaded from: classes16.dex */
 public class a {
-    private int hXD;
+    private int hXF;
     private int tabId;
 
     public a(int i, int i2) {
         this.tabId = i;
-        this.hXD = i2;
+        this.hXF = i2;
     }
 
     public int getTabId() {
@@ -14,6 +14,6 @@ public class a {
     }
 
     public boolean cgq() {
-        return 1 == this.hXD;
+        return 1 == this.hXF;
     }
 }

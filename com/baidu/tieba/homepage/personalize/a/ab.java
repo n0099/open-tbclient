@@ -25,7 +25,7 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.dat
     public BdUniqueId eEU;
     private NEGFeedBackView.a far;
     private ar hol;
-    private com.baidu.tieba.homepage.personalize.model.e izm;
+    private com.baidu.tieba.homepage.personalize.model.e izo;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,14 +51,14 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.dat
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
                 com.baidu.tieba.card.s.bRL().km(true);
                 com.baidu.tieba.a.d.brD().dk("page_recommend", "show_");
-                if (ab.this.izm != null && lVar != null && lVar.aTN() != null && !StringUtils.isNull(lVar.aTN().getTid())) {
+                if (ab.this.izo != null && lVar != null && lVar.aTN() != null && !StringUtils.isNull(lVar.aTN().getTid())) {
                     if (lVar.aTN().dUg > 0) {
                         TiebaStatic.log(lVar.af(lVar.aTN()));
                         return;
                     }
                     if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.eD(com.baidu.adp.lib.f.b.toLong(lVar.aTN().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.eC(com.baidu.adp.lib.f.b.toLong(lVar.aTN().getTid(), 0L));
-                        ab.this.izm.a(com.baidu.adp.lib.f.b.toLong(lVar.aTN().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.bRX(), lVar.bRY(), com.baidu.adp.lib.f.b.toInt((String) view.getTag(), 1), "homepage", lVar.aTN().getBaijiahaoData());
+                        ab.this.izo.a(com.baidu.adp.lib.f.b.toLong(lVar.aTN().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.bRX(), lVar.bRY(), com.baidu.adp.lib.f.b.toInt((String) view.getTag(), 1), "homepage", lVar.aTN().getBaijiahaoData());
                     }
                     ab.this.a(view, lVar);
                 }
@@ -163,16 +163,16 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.dat
             oVar.ajJ = lVar.tid;
             if (lVar.aTN() != null) {
                 oVar.eKO = String.valueOf(lVar.aTN().getFid());
-                oVar.lcQ = lVar.aTN().getNid();
+                oVar.lcS = lVar.aTN().getNid();
                 if (lVar.aTN().aWD() != null) {
-                    oVar.lcM = lVar.aTN().aWD().video_md5;
-                    oVar.lcO = String.valueOf(lVar.aTN().aWD().is_vertical);
+                    oVar.lcO = lVar.aTN().aWD().video_md5;
+                    oVar.lcQ = String.valueOf(lVar.aTN().aWD().is_vertical);
                 }
             }
             oVar.dOV = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.lcL = lVar.bRY();
-            oVar.lcI = lVar.getWeight();
+            oVar.lcN = lVar.bRY();
+            oVar.lcK = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
             oVar.mFloor = String.valueOf(lVar.bRX());
             if (lVar.aTN() != null && lVar.aTN().getBaijiahaoData() != null) {
@@ -184,7 +184,7 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.dat
     }
 
     public void a(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        this.izm = eVar;
+        this.izo = eVar;
     }
 
     @Override // com.baidu.tieba.a.f

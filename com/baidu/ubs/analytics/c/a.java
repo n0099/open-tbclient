@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes6.dex */
 final class a {
-    private static final a mMU = new a();
+    private static final a mMW = new a();
     private boolean ac;
-    private final Set<InterfaceC0796a> mMV = new LinkedHashSet();
+    private final Set<InterfaceC0796a> mMX = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dAx() {
-        return mMU;
+    public static a dAy() {
+        return mMW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0796a> dAy() {
-        return this.mMV;
+    public final Set<InterfaceC0796a> dAz() {
+        return this.mMX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(InterfaceC0796a interfaceC0796a) {
-        synchronized (this.mMV) {
-            this.mMV.add(interfaceC0796a);
+        synchronized (this.mMX) {
+            this.mMX.add(interfaceC0796a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.mMV) {
-            this.mMV.clear();
+        synchronized (this.mMX) {
+            this.mMX.clear();
         }
     }
 

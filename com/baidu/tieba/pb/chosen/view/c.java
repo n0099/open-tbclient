@@ -15,9 +15,9 @@ import tbclient.User;
 public class c {
     private TextView dJr;
     private View gXm;
-    private View kgw;
-    private b kgx;
-    private b kgy;
+    private b kgA;
+    private b kgB;
+    private View kgy;
     private b kgz;
     private View rootView;
 
@@ -30,10 +30,10 @@ public class c {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
         this.dJr = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
         this.gXm = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-        this.kgw = this.rootView.findViewById(R.id.comment_layout_blank_view);
-        this.kgx = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.kgy = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.kgz = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.kgy = this.rootView.findViewById(R.id.comment_layout_blank_view);
+        this.kgz = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.kgA = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.kgB = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public void a(Context context, List<Post> list, List<User> list2) {
@@ -42,31 +42,31 @@ public class c {
         boolean z3;
         if (list == null || list.isEmpty()) {
             this.dJr.setVisibility(8);
-            this.kgx.rQ(false);
-            this.kgy.rQ(false);
             this.kgz.rQ(false);
+            this.kgA.rQ(false);
+            this.kgB.rQ(false);
             this.gXm.setVisibility(8);
             return;
         }
         this.gXm.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.kgx.a(context, list.get(0), a(list.get(0), list2));
-            this.kgy.rQ(false);
-            this.kgz.rQ(false);
+            boolean a2 = this.kgz.a(context, list.get(0), a(list.get(0), list2));
+            this.kgA.rQ(false);
+            this.kgB.rQ(false);
             z2 = false;
             z3 = a2;
             z = false;
         } else if (size == 2) {
-            z3 = this.kgx.a(context, list.get(0), a(list.get(0), list2));
-            boolean a3 = this.kgy.a(context, list.get(1), a(list.get(1), list2));
-            this.kgz.rQ(false);
+            z3 = this.kgz.a(context, list.get(0), a(list.get(0), list2));
+            boolean a3 = this.kgA.a(context, list.get(1), a(list.get(1), list2));
+            this.kgB.rQ(false);
             z2 = a3;
             z = false;
         } else if (size >= 3) {
-            boolean a4 = this.kgx.a(context, list.get(0), a(list.get(0), list2));
-            boolean a5 = this.kgy.a(context, list.get(1), a(list.get(1), list2));
-            z = this.kgz.a(context, list.get(2), a(list.get(2), list2));
+            boolean a4 = this.kgz.a(context, list.get(0), a(list.get(0), list2));
+            boolean a5 = this.kgA.a(context, list.get(1), a(list.get(1), list2));
+            z = this.kgB.a(context, list.get(2), a(list.get(2), list2));
             z2 = a5;
             z3 = a4;
         } else {
@@ -99,12 +99,12 @@ public class c {
 
     public void onChangeSkinType() {
         ao.setBackgroundResource(this.rootView, R.color.common_color_10187);
-        ao.setBackgroundColor(this.kgw, R.color.cp_bg_line_d);
+        ao.setBackgroundColor(this.kgy, R.color.cp_bg_line_d);
         ao.setViewTextColor(this.dJr, R.color.cp_cont_f, 1);
         ao.setBackgroundColor(this.gXm, R.color.cp_bg_line_c);
-        this.kgx.onChangeSkinType();
-        this.kgy.onChangeSkinType();
         this.kgz.onChangeSkinType();
+        this.kgA.onChangeSkinType();
+        this.kgB.onChangeSkinType();
     }
 
     public View getView() {

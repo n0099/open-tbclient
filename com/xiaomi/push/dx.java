@@ -12,10 +12,10 @@ public class dx {
     private static volatile dx a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f232a;
+    private Context f235a;
 
     private dx(Context context) {
-        this.f232a = context;
+        this.f235a = context;
     }
 
     private int a(int i) {
@@ -35,7 +35,7 @@ public class dx {
 
     private void a(com.xiaomi.push.service.ak akVar, ai aiVar, boolean z) {
         if (akVar.a(hr.UploadSwitch.a(), true)) {
-            ei eiVar = new ei(this.f232a);
+            ei eiVar = new ei(this.f235a);
             if (z) {
                 aiVar.a((ai.a) eiVar, a(akVar.a(hr.UploadFrequency.a(), 86400)));
             } else {
@@ -47,7 +47,7 @@ public class dx {
     private boolean a() {
         if (Build.VERSION.SDK_INT >= 14) {
             try {
-                (this.f232a instanceof Application ? (Application) this.f232a : (Application) this.f232a.getApplicationContext()).registerActivityLifecycleCallbacks(new Cdo(this.f232a, String.valueOf(System.currentTimeMillis() / 1000)));
+                (this.f235a instanceof Application ? (Application) this.f235a : (Application) this.f235a.getApplicationContext()).registerActivityLifecycleCallbacks(new Cdo(this.f235a, String.valueOf(System.currentTimeMillis() / 1000)));
                 return true;
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -59,9 +59,9 @@ public class dx {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        ai a2 = ai.a(this.f232a);
-        com.xiaomi.push.service.ak a3 = com.xiaomi.push.service.ak.a(this.f232a);
-        SharedPreferences sharedPreferences = this.f232a.getSharedPreferences("mipush_extra", 0);
+        ai a2 = ai.a(this.f235a);
+        com.xiaomi.push.service.ak a3 = com.xiaomi.push.service.ak.a(this.f235a);
+        SharedPreferences sharedPreferences = this.f235a.getSharedPreferences("mipush_extra", 0);
         long currentTimeMillis = System.currentTimeMillis();
         long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
         if (j == currentTimeMillis) {
@@ -73,13 +73,13 @@ public class dx {
         a(a3, a2, false);
         if (a3.a(hr.StorageCollectionSwitch.a(), true)) {
             int a4 = a(a3.a(hr.StorageCollectionFrequency.a(), 86400));
-            a2.a(new eg(this.f232a, a4), a4, 0);
+            a2.a(new eg(this.f235a, a4), a4, 0);
         }
         boolean a5 = a3.a(hr.AppIsInstalledCollectionSwitch.a(), false);
         String a6 = a3.a(hr.AppIsInstalledList.a(), (String) null);
         if (a5 && !TextUtils.isEmpty(a6)) {
             int a7 = a(a3.a(hr.AppIsInstalledCollectionFrequency.a(), 86400));
-            a2.a(new ea(this.f232a, a7, a6), a7, 0);
+            a2.a(new ea(this.f235a, a7, a6), a7, 0);
         }
         boolean a8 = a3.a(hr.ScreenSizeCollectionSwitch.a(), true);
         boolean a9 = a3.a(hr.AndroidVnCollectionSwitch.a(), true);
@@ -88,7 +88,7 @@ public class dx {
         boolean a12 = a3.a(hr.OperatorSwitch.a(), true);
         if (a8 || a9 || a10 || a11 || a12) {
             int a13 = a(a3.a(hr.DeviceInfoCollectionFrequency.a(), 1209600));
-            a2.a(new ef(this.f232a, a13, a8, a9, a10, a11, a12), a13, 0);
+            a2.a(new ef(this.f235a, a13, a8, a9, a10, a11, a12), a13, 0);
         }
         boolean a14 = a3.a(hr.MacCollectionSwitch.a(), false);
         boolean a15 = a3.a(hr.IMSICollectionSwitch.a(), false);
@@ -96,32 +96,32 @@ public class dx {
         boolean a17 = a3.a(hr.DeviceIdSwitch.a(), false);
         if (a14 || a15 || a16 || a17) {
             int a18 = a(a3.a(hr.DeviceBaseInfoCollectionFrequency.a(), 1209600));
-            a2.a(new ee(this.f232a, a18, a14, a15, a16, a17), a18, 0);
+            a2.a(new ee(this.f235a, a18, a14, a15, a16, a17), a18, 0);
         }
         if (Build.VERSION.SDK_INT < 21 && a3.a(hr.AppActiveListCollectionSwitch.a(), false)) {
             int a19 = a(a3.a(hr.AppActiveListCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
-            a2.a(new dz(this.f232a, a19), a19, 0);
+            a2.a(new dz(this.f235a, a19), a19, 0);
         }
         if (a3.a(hr.TopAppCollectionSwitch.a(), false)) {
             int a20 = a(a3.a(hr.TopAppCollectionFrequency.a(), 300));
-            a2.a(new eh(this.f232a, a20), a20, 0);
+            a2.a(new eh(this.f235a, a20), a20, 0);
         }
         if (a3.a(hr.BroadcastActionCollectionSwitch.a(), true)) {
             int a21 = a(a3.a(hr.BroadcastActionCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
-            a2.a(new ec(this.f232a, a21), a21, 0);
+            a2.a(new ec(this.f235a, a21), a21, 0);
         }
         if (a3.a(hr.ActivityTSSwitch.a(), false)) {
             a();
         }
         if (a3.a(hr.BatteryCollectionSwitch.a(), false)) {
             int a22 = a(a3.a(hr.BatteryCollectionFrequency.a(), 3600));
-            a2.a(new eb(this.f232a, a22), a22, 0);
+            a2.a(new eb(this.f235a, a22), a22, 0);
         }
         a(a3, a2, true);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m229a() {
-        ai.a(this.f232a).a(new dy(this));
+        ai.a(this.f235a).a(new dy(this));
     }
 }

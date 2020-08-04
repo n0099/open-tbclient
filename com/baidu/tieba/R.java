@@ -18736,7 +18736,7 @@ public final class R {
         public static final int commit_good_layout = 0x7f0f0ee3;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f970common = 0x7f0f01ad;
+        public static final int f973common = 0x7f0f01ad;
         public static final int common_card_view_container = 0x7f0f2a60;
         public static final int common_forum_title = 0x7f0f1ed7;
         public static final int common_forum_viewpager = 0x7f0f1ed8;
@@ -26095,7 +26095,7 @@ public final class R {
         public static final int turntable_icon = 0x7f0f08ed;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final int f971tv = 0x7f0f09a8;
+        public static final int f974tv = 0x7f0f09a8;
         public static final int tvActiveSubTitle = 0x7f0f225d;
         public static final int tvActiveTitle = 0x7f0f225c;
         public static final int tvAlaImBottomNewMsg = 0x7f0f079d;

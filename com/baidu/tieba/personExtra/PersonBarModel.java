@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PersonBarModel extends BdBaseModel {
     private static final String ffD = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
     private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, ffD);
-    private int kRU;
+    private int kRW;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -47,7 +47,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void setCurrentPageIndex(int i) {
-        this.kRU = i;
+        this.kRW = i;
     }
 
     public b cWA() {
@@ -82,7 +82,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void Lz(String str) {
-        if (this.kRU == 1 && this.mIsHost) {
+        if (this.kRW == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

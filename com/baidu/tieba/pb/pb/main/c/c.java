@@ -15,29 +15,29 @@ import com.baidu.tieba.card.OriginalThreadCardView;
 /* loaded from: classes16.dex */
 public class c extends a {
     private OriginalThreadCardView gYh;
-    private int knm;
     private int kno;
+    private int knq;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.knm = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.kno = i;
+        this.kno = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.knq = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.gYh == null) {
             this.gYh = new OriginalThreadCardView(this.dVN.getPageActivity());
-            this.gYh.gYV = this.kno;
+            this.gYh.gYV = this.knq;
             this.gYh.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.kAq != null) {
-                        c.this.kAq.a(c.this.gYh, new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.kAs != null) {
+                        c.this.kAs.a(c.this.gYh, new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
                             public bv aTN() {
-                                if (c.this.kAr != null) {
-                                    return c.this.kAr.aUM();
+                                if (c.this.kAt != null) {
+                                    return c.this.kAt.aUM();
                                 }
                                 return null;
                             }
@@ -56,9 +56,9 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.knm;
-            layoutParams.leftMargin = this.knm;
-            layoutParams.rightMargin = this.knm;
+            layoutParams.bottomMargin = this.kno;
+            layoutParams.leftMargin = this.kno;
+            layoutParams.rightMargin = this.kno;
             this.gYh.setLayoutParams(layoutParams);
             this.gYh.onChangeSkinType();
         }
@@ -67,9 +67,9 @@ public class c extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.kAr = originalThreadInfo;
+        this.kAt = originalThreadInfo;
         if (this.gYh != null) {
-            this.gYh.b(this.kAr);
+            this.gYh.b(this.kAt);
         }
     }
 

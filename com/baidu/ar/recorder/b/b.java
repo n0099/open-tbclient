@@ -12,7 +12,7 @@ abstract class b {
     protected MediaCodec ty;
 
     /* renamed from: tv  reason: collision with root package name */
-    private int f962tv = -1;
+    private int f965tv = -1;
     private boolean tw = false;
     protected long tC = 0;
     protected MediaCodec.BufferInfo tz = new MediaCodec.BufferInfo();
@@ -52,7 +52,7 @@ abstract class b {
                 }
                 MediaFormat outputFormat = this.ty.getOutputFormat();
                 com.baidu.ar.f.b.c(TAG, "encoder output format changed: " + outputFormat);
-                this.f962tv = this.tx.a(outputFormat);
+                this.f965tv = this.tx.a(outputFormat);
                 this.tw = true;
                 if (this.tA != null) {
                     this.tA.N(this.tw);
@@ -77,7 +77,7 @@ abstract class b {
                         byteBuffer.limit(this.tz.offset + this.tz.size);
                         eD();
                         com.baidu.ar.f.b.c(TAG, "drainEncoder writeSampleData mBufferInfo = " + this.tz.presentationTimeUs + "&& size = " + this.tz.size);
-                        this.tx.a(this.f962tv, byteBuffer, this.tz);
+                        this.tx.a(this.f965tv, byteBuffer, this.tz);
                     } else {
                         com.baidu.ar.f.b.c(TAG, "drainEncoder wait for mMuxer start !!!");
                     }
@@ -136,7 +136,7 @@ abstract class b {
 
     public void a(boolean z, ByteBuffer byteBuffer, int i, long j) {
         if (this.ty != null) {
-            if (this.tw && this.f962tv == -1) {
+            if (this.tw && this.f965tv == -1) {
                 return;
             }
             int i2 = -1;

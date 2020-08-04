@@ -13,8 +13,8 @@ import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class a {
     private boolean isOriginalImg;
-    private b mxl;
-    private e mxk = new e(true);
+    private b mxn;
+    private e mxm = new e(true);
     private com.baidu.tbadk.img.b eEu = new com.baidu.tbadk.img.b();
 
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
@@ -32,8 +32,8 @@ public class a {
             return;
         }
         this.isOriginalImg = z;
-        if (this.mxl != null) {
-            this.mxl.cancel();
+        if (this.mxn != null) {
+            this.mxn.cancel();
         }
         LinkedList linkedList2 = new LinkedList();
         Iterator<ImageFileInfo> it = linkedList.iterator();
@@ -44,8 +44,8 @@ public class a {
             }
         }
         if (linkedList2.size() > 0) {
-            this.mxl = new b(linkedList, interfaceC0776a);
-            this.mxl.execute(new String[0]);
+            this.mxn = new b(linkedList, interfaceC0776a);
+            this.mxn.execute(new String[0]);
         } else if (interfaceC0776a != null) {
             interfaceC0776a.cFF();
         }
@@ -53,12 +53,12 @@ public class a {
 
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Void, Void> {
-        LinkedList<ImageFileInfo> mxm;
-        InterfaceC0776a mxn;
+        LinkedList<ImageFileInfo> mxo;
+        InterfaceC0776a mxp;
 
         public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0776a interfaceC0776a) {
-            this.mxm = linkedList;
-            this.mxn = interfaceC0776a;
+            this.mxo = linkedList;
+            this.mxp = interfaceC0776a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,8 +66,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(String... strArr) {
             try {
-                if (this.mxm != null) {
-                    Iterator<ImageFileInfo> it = this.mxm.iterator();
+                if (this.mxo != null) {
+                    Iterator<ImageFileInfo> it = this.mxo.iterator();
                     while (it.hasNext()) {
                         ImageFileInfo next = it.next();
                         String j = a.this.j(next);
@@ -85,8 +85,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            if (this.mxn != null) {
-                this.mxn.cFF();
+            if (this.mxp != null) {
+                this.mxp.cFF();
             }
         }
     }
@@ -99,7 +99,7 @@ public class a {
         if (imageFileInfo.getImageType() == 1) {
             return k(imageFileInfo);
         }
-        return this.mxk.c(imageFileInfo, this.isOriginalImg);
+        return this.mxm.c(imageFileInfo, this.isOriginalImg);
     }
 
     private String k(ImageFileInfo imageFileInfo) {

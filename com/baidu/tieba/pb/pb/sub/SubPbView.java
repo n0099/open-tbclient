@@ -28,7 +28,7 @@ public class SubPbView extends LinearLayout {
     private boolean exk;
     private BdTypeListView frv;
     private View hqx;
-    private BlankView kCO;
+    private BlankView kCQ;
     private boolean mIsFinish;
     private float mRatio;
 
@@ -67,7 +67,7 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setBlankView(BlankView blankView) {
-        this.kCO = blankView;
+        this.kCQ = blankView;
     }
 
     public void setTopView(View view) {
@@ -98,7 +98,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.kCO == null) {
+        if (this.kCQ == null) {
             super.onLayout(z, i, i2, i3, i4);
         } else if (this.eJv == 0) {
             super.onLayout(z, i, i2, i3, i4);
@@ -114,7 +114,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.mRatio >= 0.0f && this.kCO != null) {
+        if (this.mRatio >= 0.0f && this.kCQ != null) {
             canvas.drawColor(Color.argb((int) (168.0f * this.mRatio), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
@@ -123,7 +123,7 @@ public class SubPbView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.kCO == null) {
+        if (this.kCQ == null) {
             return super.dispatchTouchEvent(motionEvent);
         }
         if (this.eJu.isRunning()) {

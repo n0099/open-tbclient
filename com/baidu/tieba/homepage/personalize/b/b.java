@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.card.s;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private z iBC;
+    private z iBE;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iBC = new z() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.iBE = new z() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, q qVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new ap("c11273"));
@@ -28,7 +28,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
             }
         };
         this.mPageContext = tbPageContext;
-        a(this.iBC);
+        a(this.iBE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,17 +44,17 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
         s.bRL().e(new ap("c11272"));
-        aVar.iBE.a(cVar);
+        aVar.iBG.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        public com.baidu.tieba.homepage.personalize.b.a iBE;
+        public com.baidu.tieba.homepage.personalize.b.a iBG;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.iBE = aVar;
+            this.iBG = aVar;
         }
     }
 }

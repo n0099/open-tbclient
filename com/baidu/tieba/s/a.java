@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> lKv = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> lKx = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
     public static String Ny(String str) {
         return "enterfourm_att_" + str;
@@ -80,7 +80,7 @@ public class a {
     public static ap a(String str, String str2, boolean z, int i, int i2) {
         ap apVar = new ap(str2);
         apVar.dn("page_type", str).ah("ad_exp", z ? 1 : 0).ah("ad_exp_cnt", i).ah("obj_floor", 0).ah("obj_adlocate", i2);
-        if (str != null && lKv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && lKx.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         }
         return apVar;
@@ -106,7 +106,7 @@ public class a {
         if (!as.isEmpty(bvVar.aXH())) {
             apVar.dn("list_strategy", bvVar.aXH());
         }
-        if (str != null && lKv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().epK)) {
+        if (str != null && lKx.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().epK)) {
             apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         } else if (!as.isEmpty(bvVar.mRecomAbTag)) {
             apVar.dn("ab_tag", bvVar.mRecomAbTag);
@@ -140,7 +140,7 @@ public class a {
             str3 = str4;
         }
         ah.dn("obj_id", str3).ah("obj_adlocate", i3);
-        if (str != null && lKv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && lKx.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             apVar.dn("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().epK);
         }
         if (z) {

@@ -417,7 +417,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.dlJ();
+            this.jsBridge.dlK();
         }
         if (this.fcO != null) {
             this.fcO.getSettings().setBuiltInZoomControls(true);

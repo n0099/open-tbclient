@@ -23,7 +23,7 @@ class ba implements an {
 
     @Override // com.baidu.tieba.frs.an
     public com.baidu.adp.widget.ListView.a<? extends bv, ? extends ad.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.v.lLW) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.v.lLY) {
             return new com.baidu.tieba.frs.entelechy.a.f(tbPageContext, bdUniqueId, z);
         }
         if (bdUniqueId == bv.dTv) {

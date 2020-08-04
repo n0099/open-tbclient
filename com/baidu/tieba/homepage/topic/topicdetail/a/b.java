@@ -9,9 +9,9 @@ import java.util.List;
 public class b {
     private List<com.baidu.adp.widget.ListView.a> aWf;
     private v hlu;
-    private c iEd;
-    private a iEe;
-    private com.baidu.tieba.homepage.topic.topictab.a.b iEf;
+    private c iEf;
+    private a iEg;
+    private com.baidu.tieba.homepage.topic.topictab.a.b iEh;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, v vVar) {
@@ -23,12 +23,12 @@ public class b {
 
     private void DS() {
         this.aWf = new ArrayList();
-        this.iEd = new c(this.mPageContext);
-        this.iEe = new a(this.mPageContext);
-        this.iEf = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
-        this.aWf.add(this.iEd);
-        this.aWf.add(this.iEe);
+        this.iEf = new c(this.mPageContext);
+        this.iEg = new a(this.mPageContext);
+        this.iEh = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
         this.aWf.add(this.iEf);
+        this.aWf.add(this.iEg);
+        this.aWf.add(this.iEh);
     }
 
     public void notifyDataSetChanged() {

@@ -19,48 +19,48 @@ public class p {
     private int eCN;
     private ForumData eCv;
     private AntiData epR;
-    public boolean iko;
-    public Error kiT;
+    public boolean ikq;
+    public Error kiV;
     private int mPageSize = 20;
-    private int kiR = -1;
-    private boolean kiS = false;
-    private PostData kiO = null;
-    private ArrayList<PostData> kiP = new ArrayList<>();
-    private int kiQ = 1;
+    private int kiT = -1;
+    private boolean kiU = false;
+    private PostData kiQ = null;
+    private ArrayList<PostData> kiR = new ArrayList<>();
+    private int kiS = 1;
 
     public Error cLs() {
-        return this.kiT;
+        return this.kiV;
     }
 
     public PostData cLt() {
-        return this.kiO;
+        return this.kiQ;
     }
 
     public void g(PostData postData) {
-        this.kiO = postData;
+        this.kiQ = postData;
     }
 
     public int cLu() {
-        if (this.kiR == -1) {
-            this.kiR = this.aMx;
+        if (this.kiT == -1) {
+            this.kiT = this.aMx;
         }
-        return this.kiR;
+        return this.kiT;
     }
 
     public int cLv() {
-        return this.kiR;
+        return this.kiT;
     }
 
     public void a(p pVar, boolean z) {
         if (pVar != null) {
             b(pVar.cax());
-            this.kiR = pVar.bqF();
+            this.kiT = pVar.bqF();
             a(pVar.bjG());
             setPageSize(pVar.getPageSize());
             setThreadData(pVar.aTN());
             setTotalCount(pVar.getTotalCount());
             By(pVar.cLy());
-            this.kiP.addAll(0, pVar.cLx());
+            this.kiR.addAll(0, pVar.cLx());
         }
     }
 
@@ -76,13 +76,13 @@ public class p {
                 setTotalCount(pVar.getTotalCount());
                 By(pVar.cLy());
             }
-            int size = this.kiP.size();
+            int size = this.kiR.size();
             if (z && size % this.mPageSize != 0) {
                 for (int i = 0; i < size % this.mPageSize; i++) {
-                    this.kiP.remove(this.kiP.size() - 1);
+                    this.kiR.remove(this.kiR.size() - 1);
                 }
             }
-            this.kiP.addAll(pVar.cLx());
+            this.kiR.addAll(pVar.cLx());
         }
     }
 
@@ -98,13 +98,13 @@ public class p {
                 setTotalCount(pVar.getTotalCount());
                 By(pVar.cLy());
             }
-            int size = this.kiP.size();
+            int size = this.kiR.size();
             if (z && size % this.mPageSize != 0) {
                 for (int i = 0; i < size % this.mPageSize; i++) {
-                    this.kiP.remove(this.kiP.size() - 1);
+                    this.kiR.remove(this.kiR.size() - 1);
                 }
             }
-            this.kiP.addAll(pVar.cLx());
+            this.kiR.addAll(pVar.cLx());
             cLw();
         }
     }
@@ -124,37 +124,37 @@ public class p {
                 setPageSize(pVar.getPageSize());
                 setTotalCount(pVar.getTotalCount());
                 By(pVar.cLy());
-                this.kiR = (this.aMx - (((pVar.cLx().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
-                if (this.kiR < 0) {
-                    this.kiR = 0;
+                this.kiT = (this.aMx - (((pVar.cLx().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
+                if (this.kiT < 0) {
+                    this.kiT = 0;
                 }
             }
-            this.kiP.addAll(pVar.cLx());
+            this.kiR.addAll(pVar.cLx());
         }
     }
 
     public void cLw() {
-        if (this.kiR < 0) {
-            this.kiR = this.aMx;
-        } else if (this.kiR > this.aMx) {
-            this.kiR = this.aMx;
+        if (this.kiT < 0) {
+            this.kiT = this.aMx;
+        } else if (this.kiT > this.aMx) {
+            this.kiT = this.aMx;
         }
     }
 
     public ArrayList<PostData> cLx() {
-        return this.kiP;
+        return this.kiR;
     }
 
     public void aN(ArrayList<PostData> arrayList) {
-        this.kiP = arrayList;
+        this.kiR = arrayList;
     }
 
     public int cLy() {
-        return this.kiQ;
+        return this.kiS;
     }
 
     public void By(int i) {
-        this.kiQ = i;
+        this.kiS = i;
     }
 
     public int getTotalCount() {
@@ -204,15 +204,15 @@ public class p {
     }
 
     public boolean cwL() {
-        return (this.aii == null || this.kiO == null || this.aii.aWl() == null || this.aii.aWl().getUserId() == null || this.kiO.aWl() == null || this.kiO.aWl().getUserId() == null || !this.aii.aWl().getUserId().equals(this.kiO.aWl().getUserId())) ? false : true;
+        return (this.aii == null || this.kiQ == null || this.aii.aWl() == null || this.aii.aWl().getUserId() == null || this.kiQ.aWl() == null || this.kiQ.aWl().getUserId() == null || !this.aii.aWl().getUserId().equals(this.kiQ.aWl().getUserId())) ? false : true;
     }
 
     public boolean aSj() {
-        return this.kiS;
+        return this.kiU;
     }
 
     public boolean hasMore() {
-        return this.aMx < this.kiQ;
+        return this.aMx < this.kiS;
     }
 
     public bv aTN() {
@@ -234,7 +234,7 @@ public class p {
             ForumData forumData = new ForumData();
             forumData.parserProtobuf(dataRes.forum);
             pVar.a(forumData);
-            pVar.iko = forumData.isBrandForum;
+            pVar.ikq = forumData.isBrandForum;
             PostData postData = new PostData();
             postData.vj(forumData.isBrandForum);
             postData.a(dataRes.post, context);

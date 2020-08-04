@@ -7,19 +7,19 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b orI;
+    private static volatile b orK;
     private static volatile Application sApplication;
-    private final Map<String, Class<?>> orJ = new TreeMap();
-    private final Map<String, Object> orK = new TreeMap();
-    private static final tv.chushou.a.a.c.b orH = tv.chushou.a.a.c.a.dZQ();
+    private final Map<String, Class<?>> orL = new TreeMap();
+    private final Map<String, Object> orM = new TreeMap();
+    private static final tv.chushou.a.a.c.b orJ = tv.chushou.a.a.c.a.dZR();
     private static volatile boolean sDebug = false;
 
     public static synchronized void a(a aVar) {
         synchronized (b.class) {
             sDebug = aVar.debug;
             sApplication = aVar.application;
-            orH.showLog(aVar.debug);
-            orH.yp(aVar.orL);
+            orJ.showLog(aVar.debug);
+            orJ.yp(aVar.orN);
         }
     }
 
@@ -28,7 +28,7 @@ public class b {
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application dZE() {
+    public static Application dZF() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,32 +45,32 @@ public class b {
         return sApplication;
     }
 
-    public static tv.chushou.a.a.c.b dZF() {
-        return orH;
+    public static tv.chushou.a.a.c.b dZG() {
+        return orJ;
     }
 
-    public static b dZG() {
-        if (orI == null) {
+    public static b dZH() {
+        if (orK == null) {
             synchronized (b.class) {
-                if (orI == null) {
-                    orI = new b();
+                if (orK == null) {
+                    orK = new b();
                 }
             }
         }
-        return orI;
+        return orK;
     }
 
     public void e(Class<?> cls, Class<?> cls2) {
         if (cls != null && cls2 != null) {
             if (!cls.isAssignableFrom(cls2)) {
-                dZF().e("Router", "apiImpl must implements interface api");
+                dZG().e("Router", "apiImpl must implements interface api");
                 return;
             }
             String name = cls.getName();
-            if (this.orJ.get(name) != null) {
+            if (this.orL.get(name) != null) {
                 throw new IllegalStateException("Component " + name + " already has an implementation");
             }
-            this.orJ.put(name, cls2);
+            this.orL.put(name, cls2);
         }
     }
 
@@ -85,24 +85,24 @@ public class b {
         synchronized (this) {
             if (cls != null) {
                 String name = cls.getName();
-                Object obj = this.orK.get(name);
+                Object obj = this.orM.get(name);
                 if (obj != null) {
                     t2 = (tv.chushou.basis.d.a) obj;
                 } else {
-                    Class<?> cls2 = this.orJ.get(name);
+                    Class<?> cls2 = this.orL.get(name);
                     if (cls2 != null) {
                         try {
                             ?? r0 = (tv.chushou.basis.d.a) cls2.newInstance();
                             try {
-                                r0.init(dZE());
-                                this.orK.put(name, r0);
+                                r0.init(dZF());
+                                this.orM.put(name, r0);
                                 t = r0;
                             } catch (Exception e) {
                                 t2 = r0;
                                 e = e;
-                                dZF().e("Router", "component " + name + " newInstance failed", e);
+                                dZG().e("Router", "component " + name + " newInstance failed", e);
                                 if (t2 == null) {
-                                    dZF().e(null, "Router getComponet:" + cls.getName() + " failed");
+                                    dZG().e(null, "Router getComponet:" + cls.getName() + " failed");
                                 }
                                 return t2;
                             }
@@ -114,7 +114,7 @@ public class b {
                     }
                     t2 = t;
                     if (t2 == null && OY()) {
-                        dZF().e(null, "Router getComponet:" + cls.getName() + " failed");
+                        dZG().e(null, "Router getComponet:" + cls.getName() + " failed");
                     }
                 }
             }
@@ -126,7 +126,7 @@ public class b {
     public static class a {
         Application application;
         boolean debug;
-        boolean orL;
+        boolean orN;
 
         public a(Application application) {
             this.application = application;

@@ -20,9 +20,9 @@ import com.baidu.tieba.share.ImplicitShareMessage;
 /* loaded from: classes4.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
     private String dOE;
-    private String jFb;
-    private String jFc;
-    private com.baidu.tieba.livesdk.share.a.a jFd;
+    private String jFd;
+    private String jFe;
+    private com.baidu.tieba.livesdk.share.a.a jFf;
     private String mContent;
     private String mLiveId;
     private ShareItem mShareItem;
@@ -35,28 +35,28 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.jFd = new com.baidu.tieba.livesdk.share.a.a(getPageContext());
+        this.jFf = new com.baidu.tieba.livesdk.share.a.a(getPageContext());
         if (bundle != null) {
             this.mTitle = bundle.getString("title");
             this.mContent = bundle.getString("content");
-            this.jFb = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.jFd = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
             this.dOE = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = bundle.getInt("channel");
             this.mAction = bundle.getInt("action");
             this.mLiveId = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
-            this.jFc = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
+            this.jFe = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
         } else if (getIntent() == null) {
             finish();
             return;
         } else {
             this.mTitle = getIntent().getStringExtra("title");
             this.mContent = getIntent().getStringExtra("content");
-            this.jFb = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
+            this.jFd = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY);
             this.dOE = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY);
             this.mChannel = getIntent().getIntExtra("channel", 0);
             this.mAction = getIntent().getIntExtra("action", 0);
             this.mLiveId = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
-            this.jFc = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
+            this.jFe = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
         }
         this.mShareItem = cDc();
         if (this.mAction == 1) {
@@ -93,8 +93,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 }
             });
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
-            if (this.jFd != null) {
-                this.jFd.cDf();
+            if (this.jFf != null) {
+                this.jFf.cDf();
             }
         }
     }
@@ -103,26 +103,26 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         ShareItem shareItem = new ShareItem();
         shareItem.title = this.mTitle;
         shareItem.content = this.mContent;
-        if (!StringUtils.isNull(this.jFb)) {
-            if (this.jFb.startsWith("file://")) {
-                shareItem.localFile = this.jFb.substring(7);
+        if (!StringUtils.isNull(this.jFd)) {
+            if (this.jFd.startsWith("file://")) {
+                shareItem.localFile = this.jFd.substring(7);
             } else {
-                shareItem.imageUri = Uri.parse(this.jFb);
+                shareItem.imageUri = Uri.parse(this.jFd);
             }
         }
         shareItem.linkUrl = this.dOE;
         shareItem.extData = this.mLiveId;
-        shareItem.extLiveInfo = this.jFc;
+        shareItem.extLiveInfo = this.jFe;
         return shareItem;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cDd() {
-        if (bf.checkUpIsLogin(getPageContext().getPageActivity()) && this.jFd != null) {
-            if (x.isEmpty(this.jFd.cDg())) {
-                this.jFd.cDf();
+        if (bf.checkUpIsLogin(getPageContext().getPageActivity()) && this.jFf != null) {
+            if (x.isEmpty(this.jFf.cDg())) {
+                this.jFf.cDf();
             }
-            this.jFd.fj(com.baidu.adp.lib.f.b.toLong(this.mLiveId, 0L));
+            this.jFf.fj(com.baidu.adp.lib.f.b.toLong(this.mLiveId, 0L));
         }
     }
 
@@ -143,20 +143,20 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         super.onSaveInstanceState(bundle);
         bundle.putString("title", this.mTitle);
         bundle.putString("content", this.mContent);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.jFb);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_IMAGEURI_KEY, this.jFd);
         bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LINKURL_KEY, this.dOE);
         bundle.putInt("channel", this.mChannel);
         bundle.putInt("action", this.mAction);
         bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.mLiveId);
-        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO, this.jFc);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO, this.jFe);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jFd != null) {
-            this.jFd.onDestroy();
+        if (this.jFf != null) {
+            this.jFf.onDestroy();
         }
     }
 }

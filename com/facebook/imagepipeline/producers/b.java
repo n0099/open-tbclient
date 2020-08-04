@@ -5,11 +5,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes4.dex */
 public abstract class b<T> implements k<T> {
-    private boolean ndU = false;
+    private boolean ndW = false;
 
     protected abstract void E(Throwable th);
 
-    protected abstract void dHZ();
+    protected abstract void dIa();
 
     protected abstract void g(T t, int i);
 
@@ -39,8 +39,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void h(@Nullable T t, int i) {
-        if (!this.ndU) {
-            this.ndU = JH(i);
+        if (!this.ndW) {
+            this.ndW = JH(i);
             try {
                 g(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void F(Throwable th) {
-        if (!this.ndU) {
-            this.ndU = true;
+        if (!this.ndW) {
+            this.ndW = true;
             try {
                 E(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void dCt() {
-        if (!this.ndU) {
-            this.ndU = true;
+    public synchronized void dCu() {
+        if (!this.ndW) {
+            this.ndW = true;
             try {
-                dHZ();
+                dIa();
             } catch (Exception e) {
                 x(e);
             }
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void ax(float f) {
-        if (!this.ndU) {
+        if (!this.ndW) {
             try {
                 aM(f);
             } catch (Exception e) {

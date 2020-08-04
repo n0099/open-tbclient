@@ -25,8 +25,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes20.dex */
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
-    private ForumDetailActivity iYL;
-    private a iYM;
+    private ForumDetailActivity iYN;
+    private a iYO;
 
     /* loaded from: classes20.dex */
     public interface a {
@@ -45,8 +45,8 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     public ForumDetailModel(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.iYL = forumDetailActivity;
-        this.iYM = forumDetailActivity;
+        this.iYN = forumDetailActivity;
+        this.iYO = forumDetailActivity;
         cua();
         cub();
         cuc();
@@ -61,7 +61,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof u)) {
-                    ForumDetailModel.this.iYL.pR(((u) customResponsedMessage.getData()).isLike() == 1);
+                    ForumDetailModel.this.iYN.pR(((u) customResponsedMessage.getData()).isLike() == 1);
                 }
             }
         });
@@ -72,19 +72,19 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage == null) {
-                    if (ForumDetailModel.this.iYM != null) {
-                        ForumDetailModel.this.iYM.HM(null);
+                    if (ForumDetailModel.this.iYO != null) {
+                        ForumDetailModel.this.iYO.HM(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (ForumDetailModel.this.iYM != null) {
-                        ForumDetailModel.this.iYM.HM(responsedMessage.getErrorString());
+                    if (ForumDetailModel.this.iYO != null) {
+                        ForumDetailModel.this.iYO.HM(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        ForumDetailModel.this.iYM.a((ForumDetailHttpResponse) responsedMessage);
+                        ForumDetailModel.this.iYO.a((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        ForumDetailModel.this.iYM.a((ForumDetailSocketResponse) responsedMessage);
+                        ForumDetailModel.this.iYO.a((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -105,20 +105,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                         if (requestUpdateMaskInfoMessage.getMaskType() == 12) {
                             if (responseUpdateMaskInfoMessage.getError() != 0) {
                                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                                    errorString = ForumDetailModel.this.iYL.getResources().getString(R.string.neterror);
+                                    errorString = ForumDetailModel.this.iYN.getResources().getString(R.string.neterror);
                                 } else {
                                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                                 }
-                                ForumDetailModel.this.iYL.showToast(errorString);
+                                ForumDetailModel.this.iYN.showToast(errorString);
                                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                    ForumDetailModel.this.iYM.pN(false);
+                                    ForumDetailModel.this.iYO.pN(false);
                                 } else {
-                                    ForumDetailModel.this.iYM.pO(false);
+                                    ForumDetailModel.this.iYO.pO(false);
                                 }
                             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                ForumDetailModel.this.iYM.pN(true);
+                                ForumDetailModel.this.iYO.pN(true);
                             } else {
-                                ForumDetailModel.this.iYM.pO(true);
+                                ForumDetailModel.this.iYO.pO(true);
                             }
                         }
                     }
@@ -133,7 +133,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                    ForumDetailModel.this.iYL.showToast(R.string.delete_success);
+                    ForumDetailModel.this.iYN.showToast(R.string.delete_success);
                 }
             }
         });
@@ -160,11 +160,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && (httpResponsedMessage instanceof BarEmotionResponseMessage)) {
                     if (httpResponsedMessage.hasError()) {
-                        if (ForumDetailModel.this.iYM != null) {
-                            ForumDetailModel.this.iYM.HM(httpResponsedMessage.getErrorString());
+                        if (ForumDetailModel.this.iYO != null) {
+                            ForumDetailModel.this.iYO.HM(httpResponsedMessage.getErrorString());
                         }
                     } else if ((httpResponsedMessage instanceof BarEmotionResponseMessage) && httpResponsedMessage.getCmd() == 1002510) {
-                        ForumDetailModel.this.iYM.a((BarEmotionResponseMessage) httpResponsedMessage);
+                        ForumDetailModel.this.iYO.a((BarEmotionResponseMessage) httpResponsedMessage);
                     }
                 }
             }

@@ -12,10 +12,10 @@ public class k {
     private String dAv;
     private String mCategory;
     private String mId;
-    private String mMn;
-    private String mMo;
     private String mMp;
     private String mMq;
+    private String mMr;
+    private String mMs;
     private int mRate;
     private String mType;
     private String mVersion;
@@ -46,7 +46,7 @@ public class k {
     }
 
     public void QE(String str) {
-        this.mMn = str;
+        this.mMp = str;
     }
 
     public String getId() {
@@ -73,8 +73,8 @@ public class k {
         return this.dAs;
     }
 
-    public String dAb() {
-        return this.mMn;
+    public String dAc() {
+        return this.mMp;
     }
 
     public int aNk() {
@@ -101,12 +101,12 @@ public class k {
         return this.dAv;
     }
 
-    public String dAc() {
-        return this.mMo;
+    public String dAd() {
+        return this.mMq;
     }
 
     public void QF(String str) {
-        this.mMo = str;
+        this.mMq = str;
     }
 
     public void setVersion(String str) {
@@ -118,18 +118,18 @@ public class k {
     }
 
     public void QG(String str) {
-        this.mMp = str;
-    }
-
-    public String dAd() {
-        return this.mMp;
-    }
-
-    public void QH(String str) {
-        this.mMq = str;
+        this.mMr = str;
     }
 
     public String dAe() {
-        return this.mMq;
+        return this.mMr;
+    }
+
+    public void QH(String str) {
+        this.mMs = str;
+    }
+
+    public String dAf() {
+        return this.mMs;
     }
 }

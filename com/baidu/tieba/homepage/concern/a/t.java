@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.c, a> {
-    private static int iti;
-    private static int itj;
+    private static int itk;
+    private static int itl;
 
     public t(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.c.itr);
-        iti = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
-        itj = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.c.itt);
+        itk = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
+        itl = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,15 +39,15 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.c cVar, a aVar) {
-        aVar.itk.setText(cVar.tipString);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.itk.getLayoutParams();
-        if (cVar.itu) {
-            layoutParams.height = itj;
-            aVar.hQh.setVisibility(0);
-        } else if (cVar.itv) {
-            layoutParams.height = iti;
+        aVar.itm.setText(cVar.tipString);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.itm.getLayoutParams();
+        if (cVar.itw) {
+            layoutParams.height = itl;
+            aVar.hQj.setVisibility(0);
+        } else if (cVar.itx) {
+            layoutParams.height = itk;
         }
-        aVar.itk.setLayoutParams(layoutParams);
+        aVar.itm.setLayoutParams(layoutParams);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
@@ -55,21 +55,21 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
         private int aho;
-        public View hQh;
-        public TextView itk;
+        public View hQj;
+        public TextView itm;
 
         public a(View view) {
             super(view);
             this.aho = 3;
-            this.itk = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.hQh = view.findViewById(R.id.concern_tip_top_line);
+            this.itm = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.hQj = view.findViewById(R.id.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
             if (this.aho != i) {
                 ao.setBackgroundColor(getView(), R.color.cp_bg_line_e);
-                ao.setViewTextColor(this.itk, R.color.cp_cont_d);
-                ao.setBackgroundResource(this.hQh, R.color.cp_bg_line_e);
+                ao.setViewTextColor(this.itm, R.color.cp_cont_d);
+                ao.setBackgroundResource(this.hQj, R.color.cp_bg_line_e);
             }
         }
     }

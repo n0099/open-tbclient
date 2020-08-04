@@ -22,7 +22,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private boolean aib;
     private com.baidu.adp.widget.ListView.v ajt;
     public BdUniqueId eEU;
-    private com.baidu.tieba.homepage.personalize.model.e izm;
+    private com.baidu.tieba.homepage.personalize.model.e izo;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,10 +35,10 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
                 com.baidu.tieba.card.s.bRL().km(true);
                 com.baidu.tieba.a.d.brD().dk("page_recommend", "show_");
-                if (view != null && h.this.izm != null && kVar != null && kVar.aTN() != null && !StringUtils.isNull(kVar.aTN().getTid())) {
+                if (view != null && h.this.izo != null && kVar != null && kVar.aTN() != null && !StringUtils.isNull(kVar.aTN().getTid())) {
                     if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.eD(com.baidu.adp.lib.f.b.toLong(kVar.aTN().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.eC(com.baidu.adp.lib.f.b.toLong(kVar.aTN().getTid(), 0L));
-                        h.this.izm.a(com.baidu.adp.lib.f.b.toLong(kVar.aTN().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.bRX(), kVar.bRY(), com.baidu.adp.lib.f.b.toInt((String) view.getTag(), 1), "homepage", kVar.aTN().getBaijiahaoData());
+                        h.this.izo.a(com.baidu.adp.lib.f.b.toLong(kVar.aTN().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.bRX(), kVar.bRY(), com.baidu.adp.lib.f.b.toInt((String) view.getTag(), 1), "homepage", kVar.aTN().getBaijiahaoData());
                     }
                     h.this.b(view, kVar);
                 }
@@ -168,6 +168,6 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void a(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        this.izm = eVar;
+        this.izo = eVar;
     }
 }

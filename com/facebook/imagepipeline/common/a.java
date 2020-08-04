@@ -10,7 +10,7 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes3.dex */
 public class a {
     @Nullable
-    private static Pattern nak;
+    private static Pattern nam;
     public final int from;
     public final int to;
 
@@ -19,7 +19,7 @@ public class a {
         this.to = i2;
     }
 
-    public String dGe() {
+    public String dGf() {
         return String.format(null, "bytes=%s-%s", Jc(this.from), Jc(this.to));
     }
 
@@ -64,11 +64,11 @@ public class a {
     public static a RA(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (nak == null) {
-                nak = Pattern.compile("[-/ ]");
+            if (nam == null) {
+                nam = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = nak.split(str);
+                String[] split = nam.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);

@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes12.dex */
     public static final class a {
         private final String className;
-        private C0803a mQI;
-        private C0803a mQJ;
-        private boolean mQK;
+        private C0803a mQK;
+        private C0803a mQL;
+        private boolean mQM;
 
         private a(String str) {
-            this.mQI = new C0803a();
-            this.mQJ = this.mQI;
-            this.mQK = false;
+            this.mQK = new C0803a();
+            this.mQL = this.mQK;
+            this.mQM = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.mQK;
+            boolean z = this.mQM;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0803a c0803a = this.mQI.mQL; c0803a != null; c0803a = c0803a.mQL) {
+            for (C0803a c0803a = this.mQK.mQN; c0803a != null; c0803a = c0803a.mQN) {
                 if (!z || c0803a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0803a dCv() {
+        private C0803a dCw() {
             C0803a c0803a = new C0803a();
-            this.mQJ.mQL = c0803a;
-            this.mQJ = c0803a;
+            this.mQL.mQN = c0803a;
+            this.mQL = c0803a;
             return c0803a;
         }
 
         private a G(String str, @Nullable Object obj) {
-            C0803a dCv = dCv();
-            dCv.value = obj;
-            dCv.name = (String) g.checkNotNull(str);
+            C0803a dCw = dCw();
+            dCw.value = obj;
+            dCw.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
         public static final class C0803a {
-            C0803a mQL;
+            C0803a mQN;
             @Nullable
             String name;
             @Nullable

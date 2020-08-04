@@ -54,8 +54,8 @@ import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int mCZ = 11;
-    private static int mDa = 18;
+    private static int mDc = 11;
+    private static int mDd = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -75,7 +75,7 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteVoteActivityConfig.class, WriteVoteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AddLinkActivityConfig.class, AddLinkActivity.class);
-        LocationModel.dlS();
+        LocationModel.dlT();
         clf();
         bd.baV().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new bd.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.bd.b
@@ -93,7 +93,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void K(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= mDa && Build.VERSION.SDK_INT >= mCZ) {
+        if (Build.VERSION.SDK_INT <= mDd && Build.VERSION.SDK_INT >= mDc) {
             O(tbPageContext);
         } else {
             P(tbPageContext);

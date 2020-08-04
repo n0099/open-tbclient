@@ -146,9 +146,9 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, a aVar) {
-        aVar.iIp.a(kVar);
-        aVar.iIp.c(this.hly);
-        aVar.iIp.mC(!(getItem(i + 1) instanceof com.baidu.tieba.hottopic.data.n));
+        aVar.iIr.a(kVar);
+        aVar.iIr.c(this.hly);
+        aVar.iIr.mC(!(getItem(i + 1) instanceof com.baidu.tieba.hottopic.data.n));
         if (this.mPageContext != null && (this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
             this.mPageContext.getOrignalPage().s(kVar);
         }
@@ -162,11 +162,11 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public class a extends ad.a {
-        public n iIp;
+        public n iIr;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.iIp = nVar;
+            this.iIr = nVar;
         }
     }
 }

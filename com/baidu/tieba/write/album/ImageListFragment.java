@@ -46,23 +46,23 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     private BaseFragmentActivity hjZ;
     private NoDataView mNoDataView;
     private View mView;
-    private e muJ;
-    private c muN;
-    private TBSpecificationBtn muP;
-    private TransparentHeadGridView mvA;
-    private i mvB;
-    private j mvb;
-    private com.baidu.tbadk.album.f mvy;
-    private com.baidu.tieba.write.view.a mvz;
+    private e muL;
+    private c muP;
+    private TBSpecificationBtn muR;
+    private com.baidu.tbadk.album.f mvA;
+    private com.baidu.tieba.write.view.a mvB;
+    private TransparentHeadGridView mvC;
+    private i mvD;
+    private j mvd;
     private com.baidu.tbadk.core.view.a eJP = null;
-    private View.OnClickListener mvk = new View.OnClickListener() { // from class: com.baidu.tieba.write.album.ImageListFragment.1
+    private View.OnClickListener mvm = new View.OnClickListener() { // from class: com.baidu.tieba.write.album.ImageListFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ImageListFragment.this.muN != null) {
-                int maxImagesAllowed = ImageListFragment.this.muN.getMaxImagesAllowed();
-                if (ImageListFragment.this.muN.size() < maxImagesAllowed) {
-                    if (ImageListFragment.this.muJ != null) {
-                        ImageListFragment.this.muJ.g(ImageListFragment.this.getPageContext());
+            if (ImageListFragment.this.muP != null) {
+                int maxImagesAllowed = ImageListFragment.this.muP.getMaxImagesAllowed();
+                if (ImageListFragment.this.muP.size() < maxImagesAllowed) {
+                    if (ImageListFragment.this.muL != null) {
+                        ImageListFragment.this.muL.g(ImageListFragment.this.getPageContext());
                         return;
                     }
                     return;
@@ -74,11 +74,11 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.album.ImageListFragment.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ImageListFragment.this.muN != null) {
-                if (ImageListFragment.this.mvb == null || !ImageListFragment.this.mvb.duL()) {
+            if (ImageListFragment.this.muP != null) {
+                if (ImageListFragment.this.mvd == null || !ImageListFragment.this.mvd.duM()) {
                     if (view == ImageListFragment.this.bjS) {
-                        ImageListFragment.this.mvz.b(ImageListFragment.this.muN.IY(), ImageListFragment.this.muN.IW());
-                        ImageListFragment.this.mvz.O(ImageListFragment.this.ffK == null ? ImageListFragment.this.bjX : ImageListFragment.this.ffK);
+                        ImageListFragment.this.mvB.b(ImageListFragment.this.muP.IY(), ImageListFragment.this.muP.IW());
+                        ImageListFragment.this.mvB.O(ImageListFragment.this.ffK == null ? ImageListFragment.this.bjX : ImageListFragment.this.ffK);
                         ImageListFragment.this.bjS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.baR().a(R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null), (Drawable) null);
                         return;
                     }
@@ -88,15 +88,15 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             }
         }
     };
-    private TbCameraView.c mvn = new TbCameraView.c() { // from class: com.baidu.tieba.write.album.ImageListFragment.3
+    private TbCameraView.c mvp = new TbCameraView.c() { // from class: com.baidu.tieba.write.album.ImageListFragment.3
         @Override // com.baidu.tieba.write.album.TbCameraView.c
         public boolean bRe() {
             return !ad.requestWriteExternalStorgeAndCameraPermission(ImageListFragment.this.getPageContext().getPageActivity(), 1);
         }
     };
-    private TbCameraView.a mvo = new TbCameraView.a() { // from class: com.baidu.tieba.write.album.ImageListFragment.4
+    private TbCameraView.a mvq = new TbCameraView.a() { // from class: com.baidu.tieba.write.album.ImageListFragment.4
         @Override // com.baidu.tieba.write.album.TbCameraView.a
-        public void duI() {
+        public void duJ() {
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.album.ImageListFragment.5
@@ -111,18 +111,18 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             }
         }
     };
-    private g mvl = new g() { // from class: com.baidu.tieba.write.album.ImageListFragment.6
+    private g mvn = new g() { // from class: com.baidu.tieba.write.album.ImageListFragment.6
         @Override // com.baidu.tieba.write.album.g
         public void a(int i, MediaFileInfo mediaFileInfo) {
-            if (ImageListFragment.this.muN != null && ImageListFragment.this.muN.getWriteImagesInfo() != null && ImageListFragment.this.muN.getWriteImagesInfo().isFromQRCode() && (mediaFileInfo instanceof ImageFileInfo)) {
-                if (ImageListFragment.this.muJ != null) {
-                    ImageListFragment.this.muJ.e((ImageFileInfo) mediaFileInfo);
+            if (ImageListFragment.this.muP != null && ImageListFragment.this.muP.getWriteImagesInfo() != null && ImageListFragment.this.muP.getWriteImagesInfo().isFromQRCode() && (mediaFileInfo instanceof ImageFileInfo)) {
+                if (ImageListFragment.this.muL != null) {
+                    ImageListFragment.this.muL.e((ImageFileInfo) mediaFileInfo);
                 }
-            } else if (mediaFileInfo != null && ImageListFragment.this.muN != null) {
+            } else if (mediaFileInfo != null && ImageListFragment.this.muP != null) {
                 if (mediaFileInfo instanceof ImageFileInfo) {
-                    ImageListFragment.this.muN.d((ImageFileInfo) mediaFileInfo);
-                    if (ImageListFragment.this.muJ != null) {
-                        ImageListFragment.this.muJ.du(1);
+                    ImageListFragment.this.muP.d((ImageFileInfo) mediaFileInfo);
+                    if (ImageListFragment.this.muL != null) {
+                        ImageListFragment.this.muL.du(1);
                         return;
                     }
                     return;
@@ -132,57 +132,57 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             }
         }
     };
-    private a.InterfaceC0786a mvC = new a.InterfaceC0786a() { // from class: com.baidu.tieba.write.album.ImageListFragment.7
+    private a.InterfaceC0786a mvE = new a.InterfaceC0786a() { // from class: com.baidu.tieba.write.album.ImageListFragment.7
         @Override // com.baidu.tieba.write.view.a.InterfaceC0786a
         public void a(int i, com.baidu.tbadk.album.a aVar) {
             List<MediaFileInfo> fM;
-            if (ImageListFragment.this.muN != null && aVar != null) {
+            if (ImageListFragment.this.muP != null && aVar != null) {
                 String albumId = aVar.getAlbumId();
                 String name = aVar.getName();
-                if (albumId != null && !albumId.equals(ImageListFragment.this.muN.IW()) && (fM = ImageListFragment.this.muN.fM(albumId)) != null) {
-                    ImageListFragment.this.muN.fK(albumId);
-                    ImageListFragment.this.mvB.setData(fM);
+                if (albumId != null && !albumId.equals(ImageListFragment.this.muP.IW()) && (fM = ImageListFragment.this.muP.fM(albumId)) != null) {
+                    ImageListFragment.this.muP.fK(albumId);
+                    ImageListFragment.this.mvD.setData(fM);
                     ImageListFragment.this.bjS.setText(name);
-                    ImageListFragment.this.mvA.smoothScrollToPosition(0);
+                    ImageListFragment.this.mvC.smoothScrollToPosition(0);
                 }
             }
         }
     };
-    private h mvm = new h() { // from class: com.baidu.tieba.write.album.ImageListFragment.8
+    private h mvo = new h() { // from class: com.baidu.tieba.write.album.ImageListFragment.8
         @Override // com.baidu.tieba.write.album.h
         public boolean b(int i, MediaFileInfo mediaFileInfo) {
-            if (mediaFileInfo == null || ImageListFragment.this.hjZ == null || ImageListFragment.this.muN == null || ImageListFragment.this.muJ == null) {
+            if (mediaFileInfo == null || ImageListFragment.this.hjZ == null || ImageListFragment.this.muP == null || ImageListFragment.this.muL == null) {
                 return true;
             }
             if (mediaFileInfo instanceof ImageFileInfo) {
-                if (ImageListFragment.this.muN.IS()) {
+                if (ImageListFragment.this.muP.IS()) {
                     ImageListFragment.this.hjZ.showToast(R.string.album_choose_switch_tip);
                     return true;
                 }
                 ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
-                if (ImageListFragment.this.muN.isAdded(imageFileInfo)) {
-                    ImageListFragment.this.muJ.f(imageFileInfo);
+                if (ImageListFragment.this.muP.isAdded(imageFileInfo)) {
+                    ImageListFragment.this.muL.f(imageFileInfo);
                 } else {
-                    ImageListFragment.this.muJ.g(imageFileInfo);
+                    ImageListFragment.this.muL.g(imageFileInfo);
                 }
-                ImageListFragment.this.muN.a(null);
-                ImageListFragment.this.mvB.notifyDataSetChanged();
+                ImageListFragment.this.muP.a(null);
+                ImageListFragment.this.mvD.notifyDataSetChanged();
                 ImageListFragment.this.Jd();
                 return true;
             } else if (mediaFileInfo instanceof VideoFileInfo) {
-                if (ImageListFragment.this.muN.IR()) {
+                if (ImageListFragment.this.muP.IR()) {
                     ImageListFragment.this.hjZ.showToast(R.string.album_choose_switch_tip);
                     return true;
                 }
                 VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
                 if (ImageListFragment.this.c(videoFileInfo)) {
-                    if (ImageListFragment.this.muN.b(videoFileInfo)) {
-                        ImageListFragment.this.muN.a(null);
+                    if (ImageListFragment.this.muP.b(videoFileInfo)) {
+                        ImageListFragment.this.muP.a(null);
                     } else {
-                        ImageListFragment.this.muN.a(videoFileInfo);
+                        ImageListFragment.this.muP.a(videoFileInfo);
                     }
-                    ImageListFragment.this.muN.IT();
-                    ImageListFragment.this.mvB.notifyDataSetChanged();
+                    ImageListFragment.this.muP.IT();
+                    ImageListFragment.this.mvD.notifyDataSetChanged();
                     ImageListFragment.this.Jd();
                     return true;
                 }
@@ -197,25 +197,25 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.hjZ = getBaseFragmentActivity();
-        if (this.muJ == null) {
+        if (this.muL == null) {
             if (this.hjZ instanceof AlbumFloatActivity) {
-                this.muJ = ((AlbumFloatActivity) this.hjZ).muJ;
+                this.muL = ((AlbumFloatActivity) this.hjZ).muL;
             } else if (this.hjZ instanceof AlbumActivity) {
-                this.muJ = ((AlbumActivity) this.hjZ).muJ;
+                this.muL = ((AlbumActivity) this.hjZ).muL;
             }
         }
-        if (this.muJ != null) {
-            this.muN = this.muJ.duD();
+        if (this.muL != null) {
+            this.muP = this.muL.duE();
         }
-        d.duA().a(this);
-        this.mvy = new com.baidu.tbadk.album.f(this.hjZ);
-        this.mvz = new com.baidu.tieba.write.view.a(this.hjZ);
-        this.mvz.setOnDismissListener(this.mOnDismissListener);
-        this.mvz.a(this.mvC);
+        d.duB().a(this);
+        this.mvA = new com.baidu.tbadk.album.f(this.hjZ);
+        this.mvB = new com.baidu.tieba.write.view.a(this.hjZ);
+        this.mvB.setOnDismissListener(this.mOnDismissListener);
+        this.mvB.a(this.mvE);
     }
 
     public void a(e eVar) {
-        this.muJ = eVar;
+        this.muL = eVar;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -229,34 +229,34 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         this.bjY = this.mView.findViewById(R.id.navi_line);
         this.bjg = this.mView.findViewById(R.id.layout_bottom);
         this.bji = (TextView) this.mView.findViewById(R.id.original_select_btn);
-        this.muP = (TBSpecificationBtn) this.mView.findViewById(R.id.next_step);
-        this.muP.setTextSize(R.dimen.tbds34);
-        this.muP.getStyleConfig().mT(l.getDimens(this.hjZ, R.dimen.tbds25));
-        this.muN.fK(com.baidu.tbadk.album.a.ALBUM_ID_ALL);
+        this.muR = (TBSpecificationBtn) this.mView.findViewById(R.id.next_step);
+        this.muR.setTextSize(R.dimen.tbds34);
+        this.muR.getStyleConfig().mT(l.getDimens(this.hjZ, R.dimen.tbds25));
+        this.muP.fK(com.baidu.tbadk.album.a.ALBUM_ID_ALL);
         this.bjS.setText(this.hjZ.getPageContext().getString(R.string.album_all_media));
-        if (this.muN.getWriteImagesInfo() != null) {
-            this.bji.setVisibility(this.muN.getWriteImagesInfo().isEnableChooseOriginalImg() ? 0 : 4);
+        if (this.muP.getWriteImagesInfo() != null) {
+            this.bji.setVisibility(this.muP.getWriteImagesInfo().isEnableChooseOriginalImg() ? 0 : 4);
         }
-        if (this.muN.getWriteImagesInfo() != null && this.muN.getWriteImagesInfo().isFromQRCode()) {
+        if (this.muP.getWriteImagesInfo() != null && this.muP.getWriteImagesInfo().isFromQRCode()) {
             this.bjg.setVisibility(8);
         }
         this.mNoDataView = NoDataViewFactory.a(this.hjZ.getPageContext().getPageActivity(), this.bjP, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.aQ(R.string.album_list_no_data, R.string.album_list_no_data_1), null);
-        this.mvA = (TransparentHeadGridView) this.mView.findViewById(R.id.gv_image_list);
-        this.mvA.setSelector(R.color.transparent);
-        this.mvB = new i(this.hjZ, this.muN);
-        if (this.muN.getWriteImagesInfo() != null && this.muN.getWriteImagesInfo().isFromQRCode()) {
-            this.mvB.wp(false);
+        this.mvC = (TransparentHeadGridView) this.mView.findViewById(R.id.gv_image_list);
+        this.mvC.setSelector(R.color.transparent);
+        this.mvD = new i(this.hjZ, this.muP);
+        if (this.muP.getWriteImagesInfo() != null && this.muP.getWriteImagesInfo().isFromQRCode()) {
+            this.mvD.wp(false);
         } else {
-            this.mvB.wp(true);
+            this.mvD.wp(true);
         }
-        this.mvA.setAdapter((ListAdapter) this.mvB);
-        this.mvA.setOuterOnScrollListener(this);
-        this.mvB.a(this.mvm);
-        this.mvB.a(this.mvl);
-        this.mvB.ak(this.mvk);
-        this.mvB.setOnOpenCameraFailedListener(this.mvo);
-        this.mvB.setOnRequestPermissionListener(this.mvn);
-        this.muP.setOnClickListener(this.hjZ);
+        this.mvC.setAdapter((ListAdapter) this.mvD);
+        this.mvC.setOuterOnScrollListener(this);
+        this.mvD.a(this.mvo);
+        this.mvD.a(this.mvn);
+        this.mvD.ak(this.mvm);
+        this.mvD.setOnOpenCameraFailedListener(this.mvq);
+        this.mvD.setOnRequestPermissionListener(this.mvp);
+        this.muR.setOnClickListener(this.hjZ);
         this.bjQ.setOnClickListener(this.hjZ);
         this.bjR.setOnClickListener(this.hjZ);
         this.bji.setOnClickListener(this.hjZ);
@@ -298,17 +298,17 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     public void Jd() {
         int count;
         String string;
-        if (this.muN != null && this.muP != null) {
-            if (this.muN.IS()) {
-                int i = this.muN.IS() ? 1 : 0;
+        if (this.muP != null && this.muR != null) {
+            if (this.muP.IS()) {
+                int i = this.muP.IS() ? 1 : 0;
                 count = i;
                 string = this.hjZ.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(i), 1});
             } else {
-                count = x.getCount(this.muN.IU());
-                string = this.hjZ.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.muN.getMaxImagesAllowed())});
+                count = x.getCount(this.muP.IU());
+                string = this.hjZ.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.muP.getMaxImagesAllowed())});
             }
-            this.muP.setText(string);
-            this.muP.setEnabled(count > 0);
+            this.muR.setText(string);
+            this.muR.setEnabled(count > 0);
         }
     }
 
@@ -327,25 +327,25 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     private void IG() {
-        if (this.muN == null && this.muJ != null) {
-            this.muN = this.muJ.duD();
+        if (this.muP == null && this.muL != null) {
+            this.muP = this.muL.duE();
         }
-        if (this.muN != null) {
-            if (!this.muN.IZ()) {
-                this.mvB.notifyDataSetChanged();
+        if (this.muP != null) {
+            if (!this.muP.IZ()) {
+                this.mvD.notifyDataSetChanged();
             } else {
                 Je();
             }
-            cp(this.muN.isOriginalImg());
+            cp(this.muP.isOriginalImg());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void Je() {
-        if (this.mvy == null) {
-            this.mvy = new com.baidu.tbadk.album.f(getPageContext().getPageActivity());
+        if (this.mvA == null) {
+            this.mvA = new com.baidu.tbadk.album.f(getPageContext().getPageActivity());
         }
-        this.mvy.a((this.muJ == null || !this.muJ.duE()) ? 2 : 0, new com.baidu.tbadk.album.e() { // from class: com.baidu.tieba.write.album.ImageListFragment.9
+        this.mvA.a((this.muL == null || !this.muL.duF()) ? 2 : 0, new com.baidu.tbadk.album.e() { // from class: com.baidu.tieba.write.album.ImageListFragment.9
             @Override // com.baidu.tbadk.album.e
             public void onPreLoad() {
             }
@@ -358,15 +358,15 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
                 if (gVar == null) {
                     gVar = new com.baidu.tbadk.album.g();
                 }
-                if (ImageListFragment.this.muN != null && gVar != null) {
-                    ImageListFragment.this.muN.c(gVar);
-                    String IW = ImageListFragment.this.muN.IW();
-                    ImageListFragment.this.muN.fK(IW);
-                    ImageListFragment.this.mvB.setData(ImageListFragment.this.muN.fM(IW));
-                    ImageListFragment.this.mvA.smoothScrollToPosition(0);
+                if (ImageListFragment.this.muP != null && gVar != null) {
+                    ImageListFragment.this.muP.c(gVar);
+                    String IW = ImageListFragment.this.muP.IW();
+                    ImageListFragment.this.muP.fK(IW);
+                    ImageListFragment.this.mvD.setData(ImageListFragment.this.muP.fM(IW));
+                    ImageListFragment.this.mvC.smoothScrollToPosition(0);
                     ImageListFragment.this.Jd();
                 }
-                ImageListFragment.this.mvA.Jg();
+                ImageListFragment.this.mvC.Jg();
             }
         });
     }
@@ -377,7 +377,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         com.baidu.tbadk.r.a.a(getPageContext(), this.mView);
         ao.setBackgroundColor(this.bjY, R.color.cp_bg_line_c, i);
         ao.setViewTextColor(this.bjS, R.color.cp_cont_b, i);
-        if (this.muJ != null && this.muJ.IB() == 1) {
+        if (this.muL != null && this.muL.IB() == 1) {
             SvgManager.baR().a(this.bjQ, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
             this.bjR.setVisibility(8);
         } else {
@@ -387,14 +387,14 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         if (this.bjS != null) {
             this.bjS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.baR().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null), (Drawable) null);
         }
-        if (this.mvB != null) {
-            this.mvB.notifyDataSetChanged();
+        if (this.mvD != null) {
+            this.mvD.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.muN != null) {
-            cp(this.muN.isOriginalImg());
+        if (this.muP != null) {
+            cp(this.muP.isOriginalImg());
         }
     }
 
@@ -403,37 +403,37 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public View Jb() {
-        return (this.muJ == null || this.muJ.IB() != 1) ? this.bjR : this.bjQ;
+        return (this.muL == null || this.muL.IB() != 1) ? this.bjR : this.bjQ;
     }
 
     public View Jf() {
-        return this.muP;
+        return this.muR;
     }
 
-    public TbCameraView duw() {
-        if (this.mvB != null) {
-            return this.mvB.duF();
+    public TbCameraView dux() {
+        if (this.mvD != null) {
+            return this.mvD.duG();
         }
         return null;
     }
 
-    public TransparentHeadGridView duH() {
-        return this.mvA;
+    public TransparentHeadGridView duI() {
+        return this.mvC;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
         super.onDetach();
-        if (this.mvz != null) {
-            this.mvz.clearAnimation();
+        if (this.mvB != null) {
+            this.mvB.clearAnimation();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.mvy != null) {
-            this.mvy.cancelLoadTask();
+        if (this.mvA != null) {
+            this.mvA.cancelLoadTask();
         }
         if (this.hjZ != null) {
             this.hjZ.closeLoadingDialog();
@@ -441,7 +441,7 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
         if (this.eJP != null) {
             this.eJP.setDialogVisiable(false);
         }
-        d.duA().b(this);
+        d.duB().b(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -475,20 +475,20 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.mvB.cs(true);
-        } else if (this.mvB.isScroll()) {
-            this.mvB.cs(false);
+            this.mvD.cs(true);
+        } else if (this.mvD.isScroll()) {
+            this.mvD.cs(false);
         }
     }
 
     public void m(int i, boolean z) {
-        if (this.mvA != null) {
-            int firstVisiblePosition = this.mvA.getFirstVisiblePosition();
-            int lastVisiblePosition = this.mvA.getLastVisiblePosition();
+        if (this.mvC != null) {
+            int firstVisiblePosition = this.mvC.getFirstVisiblePosition();
+            int lastVisiblePosition = this.mvC.getLastVisiblePosition();
             if (i >= firstVisiblePosition && i <= lastVisiblePosition) {
-                View childAt = this.mvA.getChildAt(i - firstVisiblePosition);
-                if (childAt != null && this.mvB != null) {
-                    this.mvB.b((ImageView) childAt.findViewById(R.id.select_icon), z);
+                View childAt = this.mvC.getChildAt(i - firstVisiblePosition);
+                if (childAt != null && this.mvD != null) {
+                    this.mvD.b((ImageView) childAt.findViewById(R.id.select_icon), z);
                 } else {
                     return;
                 }
@@ -500,8 +500,8 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public void f(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.mvB != null) {
-            m(this.mvB.i(imageFileInfo), z);
+        if (imageFileInfo != null && this.mvD != null) {
+            m(this.mvD.i(imageFileInfo), z);
         }
     }
 
@@ -523,6 +523,6 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public void a(j jVar) {
-        this.mvb = jVar;
+        this.mvd = jVar;
     }
 }

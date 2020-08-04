@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment iim;
+    private VideoMiddlePageFragment iio;
     private String mFrom;
     private String mId;
     private String mNid;
@@ -69,7 +69,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 videoMiddlePageFragment = VideoMiddlePageFragment.er(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.iim = videoMiddlePageFragment;
+            this.iio = videoMiddlePageFragment;
         }
     }
 
@@ -120,10 +120,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.iim == null) {
+        if (keyEvent == null || this.iio == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.iim.vj(i)) {
+        if (this.iio.vj(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

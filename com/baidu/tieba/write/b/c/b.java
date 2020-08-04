@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a mxp;
+    private com.baidu.tieba.write.b.b.a mxr;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,11 +27,11 @@ public final class b {
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0777b {
-        private static final b mxs = new b();
+        private static final b mxu = new b();
     }
 
-    public static final b dvc() {
-        return C0777b.mxs;
+    public static final b dvd() {
+        return C0777b.mxu;
     }
 
     private b() {
@@ -45,16 +45,16 @@ public final class b {
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
             com.baidu.b.a.a.sN().setAppName("tieba");
-            if (this.mxp == null) {
-                this.mxp = new com.baidu.tieba.write.b.b.a();
+            if (this.mxr == null) {
+                this.mxr = new com.baidu.tieba.write.b.b.a();
             }
-            this.mxp.wt(false);
+            this.mxr.wt(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mxp != null) {
-                        b.this.mxp.wt(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mxr != null) {
+                        b.this.mxr.wt(false);
                     }
                 }
             });

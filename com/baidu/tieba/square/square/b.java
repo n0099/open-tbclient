@@ -21,17 +21,17 @@ import java.util.ArrayList;
 /* loaded from: classes17.dex */
 public class b extends BaseAdapter {
     private Activity bdG;
-    private ArrayList<e> lIy;
-    View.OnClickListener lIz = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private ArrayList<e> lIA;
+    View.OnClickListener lIB = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).lID) != null) {
-                if (eVar.lGB == null) {
+            if ((tag instanceof a) && (eVar = ((a) tag).lIF) != null) {
+                if (eVar.lGD == null) {
                     com.baidu.tieba.square.square.a.h(b.this.djQ(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.djQ(), eVar.lGA, eVar.lGB, eVar.lGC)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.djQ(), eVar.lGC, eVar.lGD, eVar.lGE)));
                 }
             }
         }
@@ -39,35 +39,35 @@ public class b extends BaseAdapter {
 
     public b(Activity activity, c cVar, boolean z) {
         this.bdG = activity;
-        this.lIy = cVar.djP();
+        this.lIA = cVar.djP();
     }
 
     public ArrayList<e> djP() {
-        return this.lIy;
+        return this.lIA;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes17.dex */
     public static class a {
         public TextView dpg;
-        public BarImageView lIB;
-        public BestStringsFitTextView lIC;
-        public e lID;
+        public BarImageView lID;
+        public BestStringsFitTextView lIE;
+        public e lIF;
 
         protected a() {
         }
     }
 
     public void aV(ArrayList<e> arrayList) {
-        this.lIy = arrayList;
+        this.lIA = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lIy == null) {
+        if (this.lIA == null) {
             return 0;
         }
-        return (this.lIy.size() * 2) + 1;
+        return (this.lIA.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -101,33 +101,33 @@ public class b extends BaseAdapter {
             return LayoutInflater.from(this.bdG).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.bdG).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.lIz);
+        inflate.setOnClickListener(this.lIB);
         a aVar = new a();
-        aVar.lIB = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.lID = (BarImageView) inflate.findViewById(R.id.portrait);
         aVar.dpg = (TextView) inflate.findViewById(R.id.name);
-        aVar.lIC = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.lIE = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.lIy.get(i / 2);
-        aVar.lID = eVar;
-        aVar.dpg.setText(eVar.lGA);
-        if (eVar.lIG != null) {
-            aVar.lIC.setVisibility(0);
-            String[] strArr = new String[eVar.lIG.size()];
-            for (int i2 = 0; i2 < eVar.lIG.size(); i2++) {
-                strArr[i2] = eVar.lIG.get(i2).lGA;
+        e eVar = this.lIA.get(i / 2);
+        aVar.lIF = eVar;
+        aVar.dpg.setText(eVar.lGC);
+        if (eVar.lII != null) {
+            aVar.lIE.setVisibility(0);
+            String[] strArr = new String[eVar.lII.size()];
+            for (int i2 = 0; i2 < eVar.lII.size(); i2++) {
+                strArr[i2] = eVar.lII.get(i2).lGC;
             }
-            aVar.lIC.setTextArray(strArr);
+            aVar.lIE.setTextArray(strArr);
         } else {
-            aVar.lIC.setVisibility(8);
+            aVar.lIE.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
             int dip2px = l.dip2px(this.bdG, 45.0f);
-            aVar.lIB.setTag(eVar.logoUrl);
-            aVar.lIB.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            aVar.lID.setTag(eVar.logoUrl);
+            aVar.lID.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 

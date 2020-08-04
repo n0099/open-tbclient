@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean lQi = new AtomicBoolean(false);
-    private static List<Integer> lQj = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean lQk = new AtomicBoolean(false);
+    private static List<Integer> lQl = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!lQj.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!lQl.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!lQj.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!lQl.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
@@ -32,7 +32,7 @@ public class f {
 
     private static boolean b(int i, String str, a aVar) {
         i yD;
-        if (lQi.compareAndSet(false, true)) {
+        if (lQk.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
                 final i bdV = i.bdV();
@@ -74,7 +74,7 @@ public class f {
                 yD.a(aVar);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, yD));
             }
-            lQi.set(false);
+            lQk.set(false);
             return true;
         }
         return false;

@@ -25,15 +25,15 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private String afx;
     public BdUniqueId eEU;
     private int gEw;
-    private int kUR;
-    private int kUS;
+    private int kUT;
+    private int kUU;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kUR = 0;
-        this.kUS = 0;
+        this.kUT = 0;
+        this.kUU = 0;
         this.gEw = 0;
         this.adN = new aa<com.baidu.tieba.card.data.e>() { // from class: com.baidu.tieba.personPolymeric.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -64,8 +64,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         eVar.setPageUniqueId(this.eEU);
         eVar.b(this.mPageContext);
         eVar.bg(32768);
-        if (this.kUR > 0) {
-            eVar.bf(this.kUR);
+        if (this.kUT > 0) {
+            eVar.bf(this.kUT);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -102,7 +102,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         sf.setSourceForPb(4);
         ak<com.baidu.tieba.card.data.e> akVar = new ak<>(sf);
         akVar.setPageId(this.eEU);
-        akVar.bt(this.kUS);
+        akVar.bt(this.kUU);
         a(new z() { // from class: com.baidu.tieba.personPolymeric.a.a.a.4
             @Override // com.baidu.adp.widget.ListView.z
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -163,7 +163,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void CV(int i) {
-        this.kUR = i;
+        this.kUT = i;
     }
 
     public void setTabType(int i) {
@@ -175,6 +175,6 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void CU(int i) {
-        this.kUS = i;
+        this.kUU = i;
     }
 }

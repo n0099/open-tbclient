@@ -7,13 +7,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f implements d {
-    private final b ncF;
+    private final b ncH;
 
     /* loaded from: classes4.dex */
     public interface b {
-        List<Integer> dIg();
+        List<Integer> dIh();
 
-        int dIh();
+        int dIi();
     }
 
     /* loaded from: classes4.dex */
@@ -22,12 +22,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> dIg() {
+        public List<Integer> dIh() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int dIh() {
+        public int dIi() {
             return 0;
         }
     }
@@ -37,23 +37,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.ncF = (b) g.checkNotNull(bVar);
+        this.ncH = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int Jf(int i) {
-        List<Integer> dIg = this.ncF.dIg();
-        if (dIg == null || dIg.isEmpty()) {
+        List<Integer> dIh = this.ncH.dIh();
+        if (dIh == null || dIh.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < dIg.size()) {
-                if (dIg.get(i3).intValue() <= i) {
+            if (i3 < dIh.size()) {
+                if (dIh.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return dIg.get(i3).intValue();
+                    return dIh.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -63,6 +63,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public h Jg(int i) {
-        return com.facebook.imagepipeline.g.g.i(i, i >= this.ncF.dIh(), false);
+        return com.facebook.imagepipeline.g.g.i(i, i >= this.ncH.dIi(), false);
     }
 }

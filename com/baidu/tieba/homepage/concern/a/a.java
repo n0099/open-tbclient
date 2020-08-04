@@ -13,7 +13,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private String afx;
     public BdUniqueId eEU;
     private aa hly;
-    private com.baidu.tieba.card.k isC;
+    private com.baidu.tieba.card.k isE;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -22,9 +22,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
-                if (view != null && a.this.isC != null && a.this.isC.getView() != null && jVar != null && jVar.aTN() != null && !StringUtils.isNull(jVar.aTN().getTid())) {
-                    com.baidu.tieba.homepage.concern.b.a(view, jVar, view == a.this.isC.bRq() ? 1 : 2);
-                    if (view == a.this.isC.fXb.getCommentContainer() || view == a.this.isC.gUl.getCommentContainer()) {
+                if (view != null && a.this.isE != null && a.this.isE.getView() != null && jVar != null && jVar.aTN() != null && !StringUtils.isNull(jVar.aTN().getTid())) {
+                    com.baidu.tieba.homepage.concern.b.a(view, jVar, view == a.this.isE.bRq() ? 1 : 2);
+                    if (view == a.this.isE.fXb.getCommentContainer() || view == a.this.isE.gUl.getCommentContainer()) {
                         ap apVar = new ap("c12942");
                         apVar.ah("obj_locate", 7);
                         apVar.ah("obj_type", 5);
@@ -43,12 +43,12 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.k> b(ViewGroup viewGroup) {
-        this.isC = new com.baidu.tieba.card.k(this.mPageContext, this.eEU);
-        this.isC.hH(true);
+        this.isE = new com.baidu.tieba.card.k(this.mPageContext, this.eEU);
+        this.isE.hH(true);
         if (this.eEU != null) {
-            this.isC.p(this.eEU);
+            this.isE.p(this.eEU);
         }
-        return new com.baidu.tieba.card.a.a<>(this.isC);
+        return new com.baidu.tieba.card.a.a<>(this.isE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,7 +1,7 @@
 package com.google.ar.core;
 /* loaded from: classes5.dex */
 class i {
-    public static final i nip = new i();
+    public static final i nir = new i();
     private float x = 0.0f;
     private float y = 0.0f;
     private float z = 0.0f;

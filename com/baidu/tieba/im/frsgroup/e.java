@@ -68,15 +68,15 @@ public class e extends com.baidu.tieba.frs.j<GroupInfoData, f> {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             ao.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            ao.setViewTextColor(fVar.jah, R.color.cp_cont_b, 1);
-            ao.setViewTextColor(fVar.jai, R.color.cp_cont_b, 1);
-            ao.setBackgroundResource(fVar.jai, R.drawable.bg_jinqun_meizi);
-            fVar.jai.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
             ao.setViewTextColor(fVar.jaj, R.color.cp_cont_b, 1);
-            ao.setBackgroundResource(fVar.jal, R.drawable.icon_grade_small_star);
-            ao.setBackgroundResource(fVar.jam, R.drawable.icon_grade_small_star);
+            ao.setViewTextColor(fVar.jak, R.color.cp_cont_b, 1);
+            ao.setBackgroundResource(fVar.jak, R.drawable.bg_jinqun_meizi);
+            fVar.jak.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            ao.setViewTextColor(fVar.jal, R.color.cp_cont_b, 1);
             ao.setBackgroundResource(fVar.jan, R.drawable.icon_grade_small_star);
-            ao.setViewTextColor(fVar.jak, R.color.cp_cont_c, 1);
+            ao.setBackgroundResource(fVar.jao, R.drawable.icon_grade_small_star);
+            ao.setBackgroundResource(fVar.jap, R.drawable.icon_grade_small_star);
+            ao.setViewTextColor(fVar.jam, R.color.cp_cont_c, 1);
             ao.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view;

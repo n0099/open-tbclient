@@ -5,8 +5,6 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void dFT();
-
     void dFU();
 
     void dFV();
@@ -20,6 +18,8 @@ public interface n {
     void dFZ();
 
     void dGa();
+
+    void dGb();
 
     void p(com.facebook.cache.common.b bVar);
 

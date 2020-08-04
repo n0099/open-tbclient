@@ -9,9 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class TurbonetConfig {
-    private String mKd;
-    private boolean mKe = false;
-    private JSONObject mKc = new JSONObject();
+    private String mKf;
+    private boolean mKg = false;
+    private JSONObject mKe = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes19.dex */
@@ -30,16 +30,16 @@ public class TurbonetConfig {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
-        this.mKd = str;
+        this.mKf = str;
     }
 
     public void A(int i, long j) {
         if (i == 3 || i == 2) {
-            if (dzc() == null) {
+            if (dzd() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.mKe = true;
-        } else if (dzc() != null) {
+            this.mKg = true;
+        } else if (dzd() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         f(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -80,28 +80,28 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject dzb() {
-        return this.mKc;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String dzc() {
-        return this.mKd;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dzd() {
+    public JSONObject dzc() {
         return this.mKe;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String dzd() {
+        return this.mKf;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean dze() {
+        return this.mKg;
     }
 
     public void f(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.mKc.optJSONObject(str);
+            JSONObject optJSONObject = this.mKe.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.mKc.put(str, optJSONObject);
+            this.mKe.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

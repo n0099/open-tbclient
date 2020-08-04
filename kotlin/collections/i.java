@@ -17,10 +17,10 @@ public class i extends h {
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] nXW;
+        final /* synthetic */ byte[] nXY;
 
         a(byte[] bArr) {
-            this.nXW = bArr;
+            this.nXY = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -49,31 +49,31 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.nXW.length;
+            return this.nXY.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.nXW.length == 0;
+            return this.nXY.length == 0;
         }
 
         public boolean e(byte b) {
-            return f.a(this.nXW, b);
+            return f.a(this.nXY, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
         /* renamed from: Lr */
         public Byte get(int i) {
-            return Byte.valueOf(this.nXW[i]);
+            return Byte.valueOf(this.nXY[i]);
         }
 
         public int f(byte b) {
-            return f.b(this.nXW, b);
+            return f.b(this.nXY, b);
         }
 
         public int g(byte b) {
-            return f.c(this.nXW, b);
+            return f.c(this.nXY, b);
         }
     }
 

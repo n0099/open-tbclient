@@ -24,9 +24,9 @@ import com.baidu.tieba.tbadkCore.location.a;
 /* loaded from: classes17.dex */
 public class c implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.suspended.a {
     private BdListView UL;
-    private ImageView iCk;
-    private Intent iPa;
-    private b jGa;
+    private ImageView iCm;
+    private Intent iPc;
+    private b jGc;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectLocationActivity> mPageContext;
@@ -41,38 +41,38 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
 
     private void bmb() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
-        this.iCk = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iCk.getLayoutParams();
+        this.iCm = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iCm.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.iCk.setLayoutParams(layoutParams);
-        this.iCk.setOnClickListener(this);
+        this.iCm.setLayoutParams(layoutParams);
+        this.iCm.setOnClickListener(this);
     }
 
     private void PM() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
         this.UL = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
-        this.jGa = new b(this.mPageContext);
-        this.UL.setAdapter((ListAdapter) this.jGa);
+        this.jGc = new b(this.mPageContext);
+        this.UL.setAdapter((ListAdapter) this.jGc);
         this.UL.setOnItemClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iCk) {
+        if (view == this.iCm) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.jGa != null) {
+        if (this.jGc != null) {
             MessageManager messageManager = MessageManager.getInstance();
             if (i == 0) {
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                 this.mPageContext.getOrignalPage().finish();
                 return;
             }
-            Object item = this.jGa.getItem(i);
+            Object item = this.jGc.getItem(i);
             if (item instanceof a.C0756a) {
                 a.C0756a c0756a = (a.C0756a) item;
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0756a.getName(), c0756a.getAddr(), c0756a.aAC()));
@@ -94,12 +94,12 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
 
     @Override // com.baidu.tbadk.suspended.a
     public void ot(int i) {
-        SvgManager.baR().a(this.iCk, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.jGa.notifyDataSetChanged();
+        SvgManager.baR().a(this.iCm, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.jGc.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.suspended.a
     public Intent blZ() {
-        return this.iPa;
+        return this.iPc;
     }
 }

@@ -13,18 +13,18 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableCreate<T> extends io.reactivex.g<T> {
-    final i<T> nSS;
-    final BackpressureStrategy nST;
+    final i<T> nSU;
+    final BackpressureStrategy nSV;
 
     public FlowableCreate(i<T> iVar, BackpressureStrategy backpressureStrategy) {
-        this.nSS = iVar;
-        this.nST = backpressureStrategy;
+        this.nSU = iVar;
+        this.nSV = backpressureStrategy;
     }
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         BaseEmitter latestAsyncEmitter;
-        switch (this.nST) {
+        switch (this.nSV) {
             case MISSING:
                 latestAsyncEmitter = new MissingEmitter(cVar);
                 break;
@@ -38,12 +38,12 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
                 latestAsyncEmitter = new LatestAsyncEmitter(cVar);
                 break;
             default:
-                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dSM());
+                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dSN());
                 break;
         }
         cVar.onSubscribe(latestAsyncEmitter);
         try {
-            this.nSS.subscribe(latestAsyncEmitter);
+            this.nSU.subscribe(latestAsyncEmitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.K(th);
             latestAsyncEmitter.onError(th);

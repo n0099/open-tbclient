@@ -9,18 +9,18 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes4.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final a neG;
-    private final int neJ;
-    private final Runnable neH = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a neI;
+    private final int neL;
+    private final Runnable neJ = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+        @Override // java.lang.Runnable
+        public void run() {
+            JobScheduler.this.dJK();
+        }
+    };
+    private final Runnable neK = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
             JobScheduler.this.dJJ();
-        }
-    };
-    private final Runnable neI = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
-        @Override // java.lang.Runnable
-        public void run() {
-            JobScheduler.this.dJI();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState neK = JobState.IDLE;
+    JobState neM = JobState.IDLE;
     @GuardedBy("this")
-    long neL = 0;
+    long neN = 0;
     @GuardedBy("this")
-    long neM = 0;
+    long neO = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class b {
-        private static ScheduledExecutorService neP;
+        private static ScheduledExecutorService neR;
 
-        static ScheduledExecutorService dJM() {
-            if (neP == null) {
-                neP = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService dJN() {
+            if (neR == null) {
+                neR = Executors.newSingleThreadScheduledExecutor();
             }
-            return neP;
+            return neR;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.neG = aVar;
-        this.neJ = i;
+        this.neI = aVar;
+        this.neL = i;
     }
 
-    public void dJG() {
+    public void dJH() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,21 +91,21 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean dJH() {
+    public boolean dJI() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.neK) {
+                switch (this.neM) {
                     case IDLE:
-                        j = Math.max(this.neM + this.neJ, uptimeMillis);
-                        this.neL = uptimeMillis;
-                        this.neK = JobState.QUEUED;
+                        j = Math.max(this.neO + this.neL, uptimeMillis);
+                        this.neN = uptimeMillis;
+                        this.neM = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.neK = JobState.RUNNING_AND_PENDING;
+                        this.neM = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void gj(long j) {
         if (j > 0) {
-            b.dJM().schedule(this.neI, j, TimeUnit.MILLISECONDS);
+            b.dJN().schedule(this.neK, j, TimeUnit.MILLISECONDS);
         } else {
-            this.neI.run();
+            this.neK.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJI() {
-        this.mExecutor.execute(this.neH);
+    public void dJJ() {
+        this.mExecutor.execute(this.neJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJJ() {
+    public void dJK() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,31 +140,31 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.neK = JobState.RUNNING;
-            this.neM = uptimeMillis;
+            this.neM = JobState.RUNNING;
+            this.neO = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.neG.d(eVar, i);
+                this.neI.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            dJK();
+            dJL();
         }
     }
 
-    private void dJK() {
+    private void dJL() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.neK == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.neM + this.neJ, uptimeMillis);
+            if (this.neM == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.neO + this.neL, uptimeMillis);
                 z = true;
-                this.neL = uptimeMillis;
-                this.neK = JobState.QUEUED;
+                this.neN = uptimeMillis;
+                this.neM = JobState.QUEUED;
             } else {
-                this.neK = JobState.IDLE;
+                this.neM = JobState.IDLE;
             }
         }
         if (z) {
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.JH(i) || com.facebook.imagepipeline.producers.b.dB(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long dJL() {
-        return this.neM - this.neL;
+    public synchronized long dJM() {
+        return this.neO - this.neN;
     }
 }

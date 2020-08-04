@@ -9,9 +9,9 @@ import java.util.List;
 public abstract class a<K, A> {
     private final List<? extends com.tb.airbnb.lottie.e.a<K>> CL;
     @Nullable
-    protected com.tb.airbnb.lottie.e.c<A> nOI;
+    protected com.tb.airbnb.lottie.e.c<A> nOK;
     @Nullable
-    private com.tb.airbnb.lottie.e.a<K> nOJ;
+    private com.tb.airbnb.lottie.e.a<K> nOL;
     final List<InterfaceC0874a> listeners = new ArrayList();
     private boolean CK = false;
     private float progress = 0.0f;
@@ -62,9 +62,9 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.tb.airbnb.lottie.e.a<K> dQW() {
-        if (this.nOJ != null && this.nOJ.m(this.progress)) {
-            return this.nOJ;
+    private com.tb.airbnb.lottie.e.a<K> dQX() {
+        if (this.nOL != null && this.nOL.m(this.progress)) {
+            return this.nOL;
         }
         com.tb.airbnb.lottie.e.a<K> aVar = this.CL.get(this.CL.size() - 1);
         if (this.progress < aVar.iY()) {
@@ -75,7 +75,7 @@ public abstract class a<K, A> {
                 }
             }
         }
-        this.nOJ = aVar;
+        this.nOL = aVar;
         return aVar;
     }
 
@@ -84,19 +84,19 @@ public abstract class a<K, A> {
         if (this.CK) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.e.a<K> dQW = dQW();
-        if (dQW.jB()) {
+        com.tb.airbnb.lottie.e.a<K> dQX = dQX();
+        if (dQX.jB()) {
             return 0.0f;
         }
-        return (this.progress - dQW.iY()) / (dQW.hJ() - dQW.iY());
+        return (this.progress - dQX.iY()) / (dQX.hJ() - dQX.iY());
     }
 
     private float hH() {
-        com.tb.airbnb.lottie.e.a<K> dQW = dQW();
-        if (dQW.jB()) {
+        com.tb.airbnb.lottie.e.a<K> dQX = dQX();
+        if (dQX.jB()) {
             return 0.0f;
         }
-        return dQW.Gr.getInterpolation(hG());
+        return dQX.Gr.getInterpolation(hG());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
@@ -116,7 +116,7 @@ public abstract class a<K, A> {
     }
 
     public A getValue() {
-        return a(dQW(), hH());
+        return a(dQX(), hH());
     }
 
     public float getProgress() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.e.c<A> cVar) {
-        if (this.nOI != null) {
-            this.nOI.b(null);
+        if (this.nOK != null) {
+            this.nOK.b(null);
         }
-        this.nOI = cVar;
+        this.nOK = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

@@ -11,61 +11,61 @@ import java.util.List;
 /* loaded from: classes15.dex */
 public class l {
     private List<com.baidu.adp.widget.ListView.a> aWf = new LinkedList();
-    private TbPageContext<?> hWy;
+    private TbPageContext<?> hWA;
     private BdTypeRecyclerView hnH;
-    private i jWA;
-    private j jWq;
-    private c jWr;
-    private e jWs;
-    private d jWt;
-    private f jWu;
-    private k jWv;
-    private g jWw;
-    private h jWx;
-    private b jWy;
-    private m jWz;
+    private b jWA;
+    private m jWB;
+    private i jWC;
+    private j jWs;
+    private c jWt;
+    private e jWu;
+    private d jWv;
+    private f jWw;
+    private k jWx;
+    private g jWy;
+    private h jWz;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.hWy = tbPageContext;
+        this.hWA = tbPageContext;
         this.pageId = bdUniqueId;
         this.hnH = bdTypeRecyclerView;
         DS();
     }
 
     private void DS() {
-        this.jWq = new j(this.hWy, bv.dRB, this.pageId);
-        this.jWq.a(this.hnH);
-        this.aWf.add(this.jWq);
-        this.jWr = new c(this.hWy, bv.dRG, this.pageId);
-        this.jWr.a(this.hnH);
-        this.aWf.add(this.jWr);
-        this.jWs = new e(this.hWy, bv.dRE, this.pageId);
+        this.jWs = new j(this.hWA, bv.dRB, this.pageId);
         this.jWs.a(this.hnH);
         this.aWf.add(this.jWs);
-        this.jWt = new d(this.hWy, bv.dRF, this.pageId);
+        this.jWt = new c(this.hWA, bv.dRG, this.pageId);
         this.jWt.a(this.hnH);
         this.aWf.add(this.jWt);
-        this.jWu = new f(this.hWy, bv.dRC, this.pageId);
+        this.jWu = new e(this.hWA, bv.dRE, this.pageId);
         this.jWu.a(this.hnH);
         this.aWf.add(this.jWu);
-        this.jWv = new k(this.hWy, bv.dRS, this.pageId);
+        this.jWv = new d(this.hWA, bv.dRF, this.pageId);
         this.jWv.a(this.hnH);
         this.aWf.add(this.jWv);
-        this.jWw = new g(this.hWy, bv.dRL, this.pageId);
+        this.jWw = new f(this.hWA, bv.dRC, this.pageId);
         this.jWw.a(this.hnH);
         this.aWf.add(this.jWw);
-        this.jWx = new h(this.hWy, bv.dRH, this.pageId);
+        this.jWx = new k(this.hWA, bv.dRS, this.pageId);
         this.jWx.a(this.hnH);
         this.aWf.add(this.jWx);
-        this.jWy = new b(this.hWy, bv.dRK, this.pageId);
+        this.jWy = new g(this.hWA, bv.dRL, this.pageId);
         this.jWy.a(this.hnH);
         this.aWf.add(this.jWy);
-        this.jWz = new m(this.hWy, bi.dOm);
+        this.jWz = new h(this.hWA, bv.dRH, this.pageId);
         this.jWz.a(this.hnH);
         this.aWf.add(this.jWz);
-        this.jWA = new i(this.hWy, com.baidu.tieba.card.data.k.dRW);
+        this.jWA = new b(this.hWA, bv.dRK, this.pageId);
+        this.jWA.a(this.hnH);
         this.aWf.add(this.jWA);
+        this.jWB = new m(this.hWA, bi.dOm);
+        this.jWB.a(this.hnH);
+        this.aWf.add(this.jWB);
+        this.jWC = new i(this.hWA, com.baidu.tieba.card.data.k.dRW);
+        this.aWf.add(this.jWC);
         this.hnH.addAdapters(this.aWf);
     }
 

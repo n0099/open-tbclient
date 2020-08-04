@@ -10,16 +10,16 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes17.dex */
 public class a {
-    private static volatile a mej;
-    private HashMap<String, String> mek;
-    private DownloadData mel;
+    private static volatile a mel;
+    private HashMap<String, String> men;
+    private DownloadData meo;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
     public interface InterfaceC0763a {
         void OE(String str);
 
-        void dpI();
+        void dpJ();
 
         void fG(String str, String str2);
     }
@@ -27,15 +27,15 @@ public class a {
     private a() {
     }
 
-    public static a dqo() {
-        if (mej == null) {
+    public static a dqp() {
+        if (mel == null) {
             synchronized (a.class) {
-                if (mej == null) {
-                    mej = new a();
+                if (mel == null) {
+                    mel = new a();
                 }
             }
         }
-        return mej;
+        return mel;
     }
 
     public String OK(String str) {
@@ -43,29 +43,29 @@ public class a {
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.mek == null) {
-            this.mek = new HashMap<>();
-            dqp();
-            if (this.mek.size() > 0) {
-                return this.mek.get(nameMd5FromUrl);
+        if (this.men == null) {
+            this.men = new HashMap<>();
+            dqq();
+            if (this.men.size() > 0) {
+                return this.men.get(nameMd5FromUrl);
             }
             return null;
         }
-        return this.mek.get(nameMd5FromUrl);
+        return this.men.get(nameMd5FromUrl);
     }
 
-    public void dqp() {
-        if (this.mek == null) {
-            this.mek = new HashMap<>();
+    public void dqq() {
+        if (this.men == null) {
+            this.men = new HashMap<>();
         } else {
-            this.mek.clear();
+            this.men.clear();
         }
-        File file = new File(c.mbL);
+        File file = new File(c.mbN);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.mek.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.men.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,14 +74,14 @@ public class a {
     public void a(String str, final String str2, final InterfaceC0763a interfaceC0763a) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = au.getNameMd5FromUrl(str2)) != null) {
-            if (this.mel != null) {
-                if (!str2.equals(this.mel.getUrl())) {
-                    d.biF().cancelDownLoadByUrl(this.mel.getUrl(), true);
+            if (this.meo != null) {
+                if (!str2.equals(this.meo.getUrl())) {
+                    d.biF().cancelDownLoadByUrl(this.meo.getUrl(), true);
                 } else {
                     return;
                 }
             }
-            File file = new File(c.mbL);
+            File file = new File(c.mbN);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -89,7 +89,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.mbL + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.mbN + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -98,11 +98,11 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.mel != null && downloadData2.getUrl().equals(a.this.mel.getUrl())) {
-                            a.this.mel = null;
+                        if (a.this.meo != null && downloadData2.getUrl().equals(a.this.meo.getUrl())) {
+                            a.this.meo = null;
                         }
                         if (interfaceC0763a != null) {
-                            interfaceC0763a.dpI();
+                            interfaceC0763a.dpJ();
                         }
                     }
                 }
@@ -120,11 +120,11 @@ public class a {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.mel != null && downloadData2.getUrl().equals(a.this.mel.getUrl())) {
-                            a.this.mel = null;
+                        if (a.this.meo != null && downloadData2.getUrl().equals(a.this.meo.getUrl())) {
+                            a.this.meo = null;
                         }
                         if (interfaceC0763a != null) {
-                            a.this.mek.put(downloadData2.getPath().substring(c.mbL.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            a.this.men.put(downloadData2.getPath().substring(c.mbN.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             interfaceC0763a.fG(str2, downloadData2.getPath());
                         }
                     }
@@ -136,22 +136,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.mel != null && downloadData2.getUrl().equals(a.this.mel.getUrl())) {
-                        a.this.mel = null;
+                    if (a.this.meo != null && downloadData2.getUrl().equals(a.this.meo.getUrl())) {
+                        a.this.meo = null;
                     }
                     if (interfaceC0763a != null) {
                         interfaceC0763a.OE(str3);
                     }
                 }
             });
-            this.mel = downloadData;
+            this.meo = downloadData;
             d.biF().f(downloadData);
         }
     }
 
-    public void dqq() {
-        if (this.mel != null) {
-            d.biF().cancelDownLoadByUrl(this.mel.getUrl(), true);
+    public void dqr() {
+        if (this.meo != null) {
+            d.biF().cancelDownLoadByUrl(this.meo.getUrl(), true);
         }
     }
 }

@@ -15,34 +15,34 @@ public class g extends ad.a {
     public int aho;
     public View dtF;
     public TbCyberVideoView fsr;
-    public ForeDrawableImageView iLT;
-    public TopicVideoControllerView iLU;
-    public TopicVideoProgressView iLV;
-    public View iLW;
-    public TextView iLX;
-    public ImageView iLY;
-    public View iLZ;
-    public TextView iMa;
+    public ForeDrawableImageView iLV;
+    public TopicVideoControllerView iLW;
+    public TopicVideoProgressView iLX;
+    public View iLY;
+    public TextView iLZ;
+    public ImageView iMa;
     public View iMb;
-    public RelativeLayout iMc;
+    public TextView iMc;
+    public View iMd;
+    public RelativeLayout iMe;
 
     public g(View view) {
         super(view);
         this.aho = 3;
         if (view != null) {
-            this.iMc = (RelativeLayout) view.findViewById(R.id.topic_layout_video_view);
-            this.iLT = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
+            this.iMe = (RelativeLayout) view.findViewById(R.id.topic_layout_video_view);
+            this.iLV = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
             this.fsr = new TbCyberVideoView(view.getContext());
             bos();
-            this.iLU = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
-            this.iLV = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
-            this.iLW = view.findViewById(R.id.topic_replay_layout);
-            this.iLX = (TextView) view.findViewById(R.id.textview_topic_replay);
-            this.iLY = (ImageView) view.findViewById(R.id.topic_img_pause_play);
-            this.iLZ = view.findViewById(R.id.topic_layout_loading);
+            this.iLW = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
+            this.iLX = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
+            this.iLY = view.findViewById(R.id.topic_replay_layout);
+            this.iLZ = (TextView) view.findViewById(R.id.textview_topic_replay);
+            this.iMa = (ImageView) view.findViewById(R.id.topic_img_pause_play);
+            this.iMb = view.findViewById(R.id.topic_layout_loading);
             this.dtF = view.findViewById(R.id.topic_video_cover_view);
-            this.iMa = (TextView) view.findViewById(R.id.topic_vedio_title);
-            this.iMb = view.findViewById(R.id.topic_vedio_line);
+            this.iMc = (TextView) view.findViewById(R.id.topic_vedio_title);
+            this.iMd = view.findViewById(R.id.topic_vedio_line);
         }
     }
 
@@ -50,7 +50,7 @@ public class g extends ad.a {
         if (this.fsr != null && this.fsr.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(13);
-            this.iMc.addView(this.fsr.getView(), 0);
+            this.iMe.addView(this.fsr.getView(), 0);
             this.fsr.getView().setLayoutParams(layoutParams);
         }
     }

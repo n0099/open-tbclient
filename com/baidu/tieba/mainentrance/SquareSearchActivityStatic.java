@@ -67,7 +67,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_BAR_DATA, com.baidu.tieba.tbadkCore.util.a.dlY());
+                return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_BAR_DATA, com.baidu.tieba.tbadkCore.util.a.dlZ());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
@@ -81,7 +81,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA, com.baidu.tieba.tbadkCore.util.a.dlZ());
+                return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA, com.baidu.tieba.tbadkCore.util.a.dma());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

@@ -1,9 +1,9 @@
 package com.google.gson.internal;
 /* loaded from: classes10.dex */
 public final class d {
-    private static final int njb = dKZ();
+    private static final int njd = dLa();
 
-    private static int dKZ() {
+    private static int dLa() {
         return RL(System.getProperty("java.version"));
     }
 
@@ -47,11 +47,11 @@ public final class d {
         }
     }
 
-    public static int dLa() {
-        return njb;
+    public static int dLb() {
+        return njd;
     }
 
-    public static boolean dLb() {
-        return njb >= 9;
+    public static boolean dLc() {
+        return njd >= 9;
     }
 }

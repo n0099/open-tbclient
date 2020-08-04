@@ -8,27 +8,27 @@ import android.widget.MediaController;
 public class f {
     private MediaController.MediaPlayerControl fdM;
     private a gWJ;
-    private c lbM;
-    private b lbN;
-    private int lbK = 1000;
-    private int lbL = 0;
+    private c lbO;
+    private b lbP;
+    private int lbM = 1000;
+    private int lbN = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message != null && message.what == 1 && f.this.fdM != null && f.this.fdM.isPlaying()) {
                 int currentPosition = f.this.fdM.getCurrentPosition();
                 int duration = f.this.fdM.getDuration();
-                if (currentPosition < f.this.lbL) {
+                if (currentPosition < f.this.lbN) {
                     if (f.this.gWJ != null) {
                         f.this.gWJ.qy();
                     }
-                } else if (currentPosition == f.this.lbL && f.this.lbM != null) {
-                    f.this.lbM.bwQ();
+                } else if (currentPosition == f.this.lbN && f.this.lbO != null) {
+                    f.this.lbO.bwQ();
                 }
-                if (f.this.lbN != null) {
-                    f.this.lbN.bP(duration, currentPosition);
+                if (f.this.lbP != null) {
+                    f.this.lbP.bP(duration, currentPosition);
                 }
-                f.this.lbL = currentPosition;
+                f.this.lbN = currentPosition;
                 f.this.cYN();
             }
         }
@@ -54,7 +54,7 @@ public class f {
     }
 
     public void start() {
-        this.lbL = 0;
+        this.lbN = 0;
         cYN();
     }
 
@@ -65,7 +65,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void cYN() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.lbK);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.lbM);
     }
 
     public void a(a aVar) {
@@ -73,10 +73,10 @@ public class f {
     }
 
     public void a(c cVar) {
-        this.lbM = cVar;
+        this.lbO = cVar;
     }
 
     public void a(b bVar) {
-        this.lbN = bVar;
+        this.lbP = bVar;
     }
 }

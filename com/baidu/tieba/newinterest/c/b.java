@@ -26,13 +26,13 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class b {
-    private InterfaceC0704b kdb;
-    private a kdc;
-    private List<com.baidu.tieba.newinterest.data.b> kdd;
+    private InterfaceC0704b kdd;
+    private a kde;
+    private List<com.baidu.tieba.newinterest.data.b> kdf;
     private final BdUniqueId mBdUniqueId;
     private int mPageNum;
     private Gson gson = new Gson();
-    private com.baidu.adp.framework.listener.a kde = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654) { // from class: com.baidu.tieba.newinterest.c.b.1
+    private com.baidu.adp.framework.listener.a kdg = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654) { // from class: com.baidu.tieba.newinterest.c.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -44,22 +44,22 @@ public class b {
                         cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() != 0) {
-                        if (b.this.kdb != null) {
-                            b.this.kdb.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        if (b.this.kdd != null) {
+                            b.this.kdd.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         }
-                    } else if (cVar == null || x.isEmpty(cVar.kcL)) {
-                        if (b.this.kdb != null) {
-                            b.this.kdb.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    } else if (cVar == null || x.isEmpty(cVar.kcN)) {
+                        if (b.this.kdd != null) {
+                            b.this.kdd.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
-                    } else if (cVar != null && b.this.kdb != null) {
+                    } else if (cVar != null && b.this.kdd != null) {
                         b.c(b.this);
-                        b.this.kdb.a(cVar);
+                        b.this.kdd.a(cVar);
                     }
                 }
             }
         }
     };
-    private HttpMessageListener kdf = new HttpMessageListener(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT) { // from class: com.baidu.tieba.newinterest.c.b.2
+    private HttpMessageListener kdh = new HttpMessageListener(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT) { // from class: com.baidu.tieba.newinterest.c.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -67,11 +67,11 @@ public class b {
                 if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                     InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                     if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                        if (b.this.kdb != null) {
-                            b.this.kdb.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (b.this.kdd != null) {
+                            b.this.kdd.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         }
-                    } else if (b.this.kdc != null) {
-                        b.this.kdc.byL();
+                    } else if (b.this.kde != null) {
+                        b.this.kde.byL();
                     }
                 }
             }
@@ -99,10 +99,10 @@ public class b {
 
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.kde.setTag(this.mBdUniqueId);
-        this.kdf.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.kde);
-        MessageManager.getInstance().registerListener(this.kdf);
+        this.kdg.setTag(this.mBdUniqueId);
+        this.kdh.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.kdg);
+        MessageManager.getInstance().registerListener(this.kdh);
         cJe();
         cJd();
         cJc();
@@ -155,7 +155,7 @@ public class b {
             HashMap hashMap2 = new HashMap();
             for (d dVar : aVar.forum_info) {
                 if (dVar.selected) {
-                    hashMap2.put(dVar.kcM.forum_id, dVar.kcM.forum_name);
+                    hashMap2.put(dVar.kcO.forum_id, dVar.kcO.forum_name);
                 }
             }
             hashMap.put(aVar.class_name, hashMap2);
@@ -164,26 +164,26 @@ public class b {
     }
 
     public void a(InterfaceC0704b interfaceC0704b) {
-        this.kdb = interfaceC0704b;
+        this.kdd = interfaceC0704b;
     }
 
     public void a(a aVar) {
-        this.kdc = aVar;
+        this.kde = aVar;
     }
 
     public void eq(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.kdd = list;
+        this.kdf = list;
         this.mPageNum = 1;
     }
 
     public void cJf() {
         InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-        interestedForumReqMsg.classidList = en(this.kdd.subList((this.mPageNum - 1) * 3, Math.min(this.kdd.size(), this.mPageNum * 3)));
+        interestedForumReqMsg.classidList = en(this.kdf.subList((this.mPageNum - 1) * 3, Math.min(this.kdf.size(), this.mPageNum * 3)));
         interestedForumReqMsg.setTag(this.mBdUniqueId);
         MessageManager.getInstance().sendMessage(interestedForumReqMsg);
     }
 
     public boolean hasMore() {
-        return (this.mPageNum + (-1)) * 3 < this.kdd.size();
+        return (this.mPageNum + (-1)) * 3 < this.kdf.size();
     }
 }

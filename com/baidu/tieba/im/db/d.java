@@ -19,13 +19,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d iWY;
+    private static d iXa;
 
     public static d ctg() {
-        if (iWY == null) {
-            iWY = new d();
+        if (iXa == null) {
+            iXa = new d();
         }
-        return iWY;
+        return iXa;
     }
 
     public void HA(String str) {

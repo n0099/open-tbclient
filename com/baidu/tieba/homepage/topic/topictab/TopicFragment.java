@@ -24,51 +24,51 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes16.dex */
 public class TopicFragment extends BaseFragment implements f.c, ao, a {
-    private TopicModel iFB;
-    private TopicListView iFC;
-    private boolean irZ = false;
+    private TopicModel iFD;
+    private TopicListView iFE;
+    private boolean isb = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iFB.setPresenter(this);
-        this.iFB.setUniqueId(getUniqueId());
-        this.iFC.setPresenter(this);
-        this.iFC.setListPullRefreshListener(this);
-        this.iFC.setPageUniqueId(getUniqueId());
+        this.iFD.setPresenter(this);
+        this.iFD.setUniqueId(getUniqueId());
+        this.iFE.setPresenter(this);
+        this.iFE.setListPullRefreshListener(this);
+        this.iFE.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.iFC.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.iFC.getParent()).removeView(this.iFC);
+        if (this.iFE.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iFE.getParent()).removeView(this.iFE);
         }
-        if (this.irZ) {
-            this.iFC.bCM();
-            this.irZ = false;
+        if (this.isb) {
+            this.iFE.bCM();
+            this.isb = false;
         }
-        return this.iFC;
+        return this.iFE;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.iFC.setViewForeground();
+            this.iFE.setViewForeground();
             TiebaStatic.log(new ap("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.iFC.gw(false);
-        this.iFB.cop();
+        this.iFE.gw(false);
+        this.iFD.cop();
     }
 
     @Override // com.baidu.tieba.frs.ao
     public void IH() {
-        this.iFC.reload();
+        this.iFE.reload();
     }
 
     @Override // com.baidu.tieba.frs.ao
@@ -94,35 +94,35 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.iFC.onChangeSkinType();
+        this.iFE.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.iFB.cop();
+        this.iFD.cop();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.iFC.bwX();
-            this.iFC.gw(false);
-            this.iFB.cop();
+            this.iFE.bwX();
+            this.iFE.gw(false);
+            this.iFD.cop();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void n(int i, List<q> list) {
-        this.iFC.hideLoadingView();
-        this.iFC.bxe();
+        this.iFE.hideLoadingView();
+        this.iFE.bxe();
         if (i != 0 || x.isEmpty(list)) {
-            this.iFC.ng(false);
+            this.iFE.ng(false);
             return;
         }
-        this.iFC.bwX();
-        this.iFC.bBY();
-        this.iFC.setData(list);
-        this.iFC.bxT();
+        this.iFE.bwX();
+        this.iFE.bBY();
+        this.iFE.setData(list);
+        this.iFE.bxT();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -147,8 +147,8 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.iFC.destroy();
-        this.iFB.onDestroy();
-        this.irZ = true;
+        this.iFE.destroy();
+        this.iFD.onDestroy();
+        this.isb = true;
     }
 }

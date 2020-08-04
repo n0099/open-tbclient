@@ -11,19 +11,19 @@ import com.baidu.live.view.web.f;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> implements f {
-    private boolean lvl = false;
-    private d lvm;
+    private boolean lvn = false;
+    private d lvo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         k(getIntent());
-        if (this.lvl) {
+        if (this.lvn) {
             setIsAddSwipeBackLayout(false);
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.lvm = new d(this, this, getIntent());
+            this.lvo = new d(this, this, getIntent());
         }
     }
 
@@ -34,7 +34,7 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
             if (!TextUtils.isEmpty(stringExtra) && (ga = e.ga(stringExtra)) != null && ga.size() > 0) {
                 try {
                     if (ga.containsKey("swiper")) {
-                        this.lvl = Integer.valueOf((String) ga.get("swiper")).intValue() == 0;
+                        this.lvn = Integer.valueOf((String) ga.get("swiper")).intValue() == 0;
                     }
                 } catch (Exception e) {
                 }
@@ -44,7 +44,7 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.lvm == null || !this.lvm.onKeyDown(i, keyEvent)) {
+        if (this.lvo == null || !this.lvo.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -54,8 +54,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.lvm != null) {
-            this.lvm.onResume();
+        if (this.lvo != null) {
+            this.lvo.onResume();
         }
     }
 
@@ -63,8 +63,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.lvm != null) {
-            this.lvm.onDestroy();
+        if (this.lvo != null) {
+            this.lvo.onDestroy();
         }
     }
 
@@ -72,8 +72,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.lvm != null) {
-            this.lvm.onActivityResult(i, i2, intent);
+        if (this.lvo != null) {
+            this.lvo.onActivityResult(i, i2, intent);
         }
     }
 

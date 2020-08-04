@@ -9,25 +9,25 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes8.dex */
 public final class b extends Drawable {
-    private boolean nIZ;
-    private int nJa;
-    private final com.opensource.svgaplayer.a.b nJb;
-    private final f nJc;
-    private final c nJd;
+    private boolean nJb;
+    private int nJc;
+    private final com.opensource.svgaplayer.a.b nJd;
+    private final f nJe;
+    private final c nJf;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.nJc = fVar;
-        this.nJd = cVar;
-        this.nIZ = true;
+        this.nJe = fVar;
+        this.nJf = cVar;
+        this.nJb = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.nJb = new com.opensource.svgaplayer.a.b(this.nJc, this.nJd);
+        this.nJd = new com.opensource.svgaplayer.a.b(this.nJe, this.nJf);
     }
 
-    public final f dOS() {
-        return this.nJc;
+    public final f dOT() {
+        return this.nJe;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -37,19 +37,19 @@ public final class b extends Drawable {
     }
 
     public final void xK(boolean z) {
-        if (this.nIZ != z) {
-            this.nIZ = z;
+        if (this.nJb != z) {
+            this.nJb = z;
             invalidateSelf();
         }
     }
 
-    public final int dOR() {
-        return this.nJa;
+    public final int dOS() {
+        return this.nJc;
     }
 
     public final void KV(int i) {
-        if (this.nJa != i) {
-            this.nJa = i;
+        if (this.nJc != i) {
+            this.nJc = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.nIZ && canvas != null) {
-            this.nJb.a(canvas, this.nJa, this.scaleType);
+        if (!this.nJb && canvas != null) {
+            this.nJd.a(canvas, this.nJc, this.scaleType);
         }
     }
 

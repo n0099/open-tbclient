@@ -20,9 +20,9 @@ class ar extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.a.a == this.a.f868a.f855a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f868a.g);
-            this.a.f868a.f855a = null;
+        if (this.a.a == this.a.f871a.f858a) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f871a.g);
+            this.a.f871a.f858a = null;
         }
     }
 }

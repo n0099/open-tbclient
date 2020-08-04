@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes20.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView iUm;
-    private TextView iUn;
+    private TextView iUo;
+    private TextView iUp;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.iUm = (TextView) findViewById(R.id.message_no_image_title);
-        this.iUn = (TextView) findViewById(R.id.message_info);
+        this.iUo = (TextView) findViewById(R.id.message_no_image_title);
+        this.iUp = (TextView) findViewById(R.id.message_info);
         crB();
     }
 
     public void crB() {
-        ao.setViewTextColor(this.iUn, R.color.cp_cont_j);
-        ao.setViewTextColor(this.iUm, R.color.cp_cont_b);
+        ao.setViewTextColor(this.iUp, R.color.cp_cont_j);
+        ao.setViewTextColor(this.iUo, R.color.cp_cont_b);
     }
 
     public void setData(a.C0667a c0667a, boolean z) {
         int i = TextUtils.isEmpty(c0667a.text) ? 8 : 0;
-        this.iUm.setText(c0667a.title);
-        this.iUn.setText(c0667a.text);
-        this.iUn.setVisibility(i);
+        this.iUo.setText(c0667a.title);
+        this.iUp.setText(c0667a.text);
+        this.iUp.setVisibility(i);
         if (z) {
-            this.iUm.setVisibility(8);
+            this.iUo.setVisibility(8);
         } else {
-            this.iUm.setVisibility(0);
+            this.iUo.setVisibility(0);
         }
     }
 
     public void yv(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iUn.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iUp.getLayoutParams();
         layoutParams.topMargin = i;
-        this.iUn.setLayoutParams(layoutParams);
+        this.iUp.setLayoutParams(layoutParams);
     }
 }

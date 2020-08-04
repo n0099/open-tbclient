@@ -19,10 +19,10 @@ public class a {
     public boolean a(PbModel pbModel) {
         String str;
         int i = 2;
-        if (this.dVN.getPageActivity() == null || pbModel == null || pbModel.klg == null) {
+        if (this.dVN.getPageActivity() == null || pbModel == null || pbModel.kli == null) {
             return false;
         }
-        if ("3".equals(pbModel.klg.kii)) {
+        if ("3".equals(pbModel.kli.kik)) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(2);
             createNormalCfg.setSubTabName(this.dVN.getString(R.string.tab_name_topic_rank));
             this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
@@ -35,8 +35,8 @@ public class a {
         } else {
             str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.aRw().vO(string2) == null) ? null : "2";
         }
-        if (str == null && pbModel.klg.kih != null) {
-            str = pbModel.klg.kih;
+        if (str == null && pbModel.kli.kij != null) {
+            str = pbModel.kli.kij;
         }
         if (str != null) {
             if (str.equals("1")) {
@@ -47,10 +47,10 @@ public class a {
                 return true;
             } else if (str.equals("2")) {
                 MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(1);
-                createNormalCfg3.setSubTab(0, pbModel.klg.kii);
+                createNormalCfg3.setSubTab(0, pbModel.kli.kik);
                 this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
-                if (!"游戏".equals(pbModel.klg.kii)) {
-                    i = "数码".equals(pbModel.klg.kii) ? 3 : 0;
+                if (!"游戏".equals(pbModel.kli.kik)) {
+                    i = "数码".equals(pbModel.kli.kik) ? 3 : 0;
                 }
                 a(pbModel, i);
                 return true;
@@ -64,8 +64,8 @@ public class a {
     private void a(PbModel pbModel, int i) {
         if (pbModel != null) {
             com.baidu.tbadk.core.util.ap apVar = new com.baidu.tbadk.core.util.ap("c13719");
-            apVar.dn("fid", pbModel.klg.getForumId());
-            apVar.dn("tid", pbModel.klg.getThreadId());
+            apVar.dn("fid", pbModel.kli.getForumId());
+            apVar.dn("tid", pbModel.kli.getThreadId());
             apVar.ah("obj_type", i);
             if (pbModel.cOv() == 5) {
                 apVar.ah("obj_source", 1);

@@ -10,15 +10,15 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes17.dex */
 public class b {
-    private static volatile b meq;
-    private HashMap<String, String> mek;
-    private DownloadData mel;
+    private static volatile b mes;
+    private HashMap<String, String> men;
+    private DownloadData meo;
 
     /* loaded from: classes17.dex */
     public interface a {
         void OE(String str);
 
-        void dpI();
+        void dpJ();
 
         void fG(String str, String str2);
     }
@@ -26,15 +26,15 @@ public class b {
     private b() {
     }
 
-    public static b dqr() {
-        if (meq == null) {
+    public static b dqs() {
+        if (mes == null) {
             synchronized (b.class) {
-                if (meq == null) {
-                    meq = new b();
+                if (mes == null) {
+                    mes = new b();
                 }
             }
         }
-        return meq;
+        return mes;
     }
 
     public String OL(String str) {
@@ -42,29 +42,29 @@ public class b {
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.mek == null) {
-            this.mek = new HashMap<>();
-            dqs();
-            if (this.mek.size() > 0) {
-                return this.mek.get(nameMd5FromUrl);
+        if (this.men == null) {
+            this.men = new HashMap<>();
+            dqt();
+            if (this.men.size() > 0) {
+                return this.men.get(nameMd5FromUrl);
             }
             return null;
         }
-        return this.mek.get(nameMd5FromUrl);
+        return this.men.get(nameMd5FromUrl);
     }
 
-    public void dqs() {
-        if (this.mek == null) {
-            this.mek = new HashMap<>();
+    public void dqt() {
+        if (this.men == null) {
+            this.men = new HashMap<>();
         } else {
-            this.mek.clear();
+            this.men.clear();
         }
-        File file = new File(c.mbP);
+        File file = new File(c.mbR);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.mek.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.men.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -73,10 +73,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String nameMd5FromUrl;
         if (!TextUtils.isEmpty(str2) && (nameMd5FromUrl = au.getNameMd5FromUrl(str2)) != null) {
-            if (this.mel != null) {
-                d.biF().cancelDownLoadByUrl(this.mel.getUrl(), true);
+            if (this.meo != null) {
+                d.biF().cancelDownLoadByUrl(this.meo.getUrl(), true);
             }
-            File file = new File(c.mbP);
+            File file = new File(c.mbR);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -84,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.mbP + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.mbR + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -93,11 +93,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.mel != null && downloadData2.getUrl().equals(b.this.mel.getUrl())) {
-                            b.this.mel = null;
+                        if (b.this.meo != null && downloadData2.getUrl().equals(b.this.meo.getUrl())) {
+                            b.this.meo = null;
                         }
                         if (aVar != null) {
-                            aVar.dpI();
+                            aVar.dpJ();
                         }
                     }
                 }
@@ -115,11 +115,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.mel != null && downloadData2.getUrl().equals(b.this.mel.getUrl())) {
-                            b.this.mel = null;
+                        if (b.this.meo != null && downloadData2.getUrl().equals(b.this.meo.getUrl())) {
+                            b.this.meo = null;
                         }
                         if (aVar != null) {
-                            b.this.mek.put(downloadData2.getPath().substring(c.mbP.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            b.this.men.put(downloadData2.getPath().substring(c.mbR.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             aVar.fG(str2, downloadData2.getPath());
                         }
                     }
@@ -131,15 +131,15 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.mel != null && downloadData2.getUrl().equals(b.this.mel.getUrl())) {
-                        b.this.mel = null;
+                    if (b.this.meo != null && downloadData2.getUrl().equals(b.this.meo.getUrl())) {
+                        b.this.meo = null;
                     }
                     if (aVar != null) {
                         aVar.OE(str3);
                     }
                 }
             });
-            this.mel = downloadData;
+            this.meo = downloadData;
             d.biF().f(downloadData);
         }
     }

@@ -13,11 +13,11 @@ import com.baidu.tbadk.coreExtra.share.g;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class a extends c<GroupCardActivity> {
-    private GroupCardActivity jdd;
-    private LinearLayout jdi;
-    private LinearLayout jdj;
+    private GroupCardActivity jdf;
     private LinearLayout jdk;
-    private View jdl;
+    private LinearLayout jdl;
+    private LinearLayout jdm;
+    private View jdn;
     private ImageView mImageView;
     private NavigationBar mNavigationBar;
     private View mParent;
@@ -26,36 +26,36 @@ public class a extends c<GroupCardActivity> {
     public a(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity.getPageContext());
         this.mParent = null;
-        this.jdi = null;
-        this.jdj = null;
         this.jdk = null;
         this.jdl = null;
+        this.jdm = null;
+        this.jdn = null;
         this.progressBar = null;
         this.mNavigationBar = null;
         this.mImageView = null;
-        this.jdd = groupCardActivity;
+        this.jdf = groupCardActivity;
         initUI();
     }
 
     private void initUI() {
-        this.jdd.setContentView(R.layout.group_card_activity);
-        this.mParent = this.jdd.findViewById(R.id.parent);
-        this.jdi = (LinearLayout) this.jdd.findViewById(R.id.groud_card_save);
-        this.jdi.setOnClickListener(this.jdd);
-        this.jdj = (LinearLayout) this.jdd.findViewById(R.id.group_card_share);
-        if (g.dS(this.jdd.getPageContext().getContext())) {
-            this.jdj.setOnClickListener(this.jdd);
+        this.jdf.setContentView(R.layout.group_card_activity);
+        this.mParent = this.jdf.findViewById(R.id.parent);
+        this.jdk = (LinearLayout) this.jdf.findViewById(R.id.groud_card_save);
+        this.jdk.setOnClickListener(this.jdf);
+        this.jdl = (LinearLayout) this.jdf.findViewById(R.id.group_card_share);
+        if (g.dS(this.jdf.getPageContext().getContext())) {
+            this.jdl.setOnClickListener(this.jdf);
         } else {
-            this.jdj.setVisibility(8);
+            this.jdl.setVisibility(8);
         }
-        this.jdk = (LinearLayout) this.jdd.findViewById(R.id.group_card_setting);
-        this.progressBar = (ProgressBar) this.jdd.findViewById(R.id.progress);
-        this.mImageView = (ImageView) this.jdd.findViewById(R.id.group_card_inner_image);
-        this.mNavigationBar = (NavigationBar) this.jdd.findViewById(R.id.group_card_topbar);
+        this.jdm = (LinearLayout) this.jdf.findViewById(R.id.group_card_setting);
+        this.progressBar = (ProgressBar) this.jdf.findViewById(R.id.progress);
+        this.mImageView = (ImageView) this.jdf.findViewById(R.id.group_card_inner_image);
+        this.mNavigationBar = (NavigationBar) this.jdf.findViewById(R.id.group_card_topbar);
         this.mNavigationBar.setSystemClickable(false);
-        this.mNavigationBar.setTitleText(this.jdd.getResources().getString(R.string.group_card_name));
-        this.jdl = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jdl.setOnClickListener(this.jdd);
+        this.mNavigationBar.setTitleText(this.jdf.getResources().getString(R.string.group_card_name));
+        this.jdn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.jdn.setOnClickListener(this.jdf);
     }
 
     public void i(com.baidu.adp.widget.ImageView.a aVar) {
@@ -66,12 +66,12 @@ public class a extends c<GroupCardActivity> {
 
     public void bj(int i, String str) {
         if (str != null) {
-            l.showToast(this.jdd.getPageContext().getContext(), str);
+            l.showToast(this.jdf.getPageContext().getContext(), str);
             return;
         }
         String errMsg = TbErrInfo.getErrMsg(i);
         if (errMsg != null && errMsg.length() > 0) {
-            l.showToast(this.jdd.getPageContext().getContext(), errMsg);
+            l.showToast(this.jdf.getPageContext().getContext(), errMsg);
         }
     }
 
@@ -88,15 +88,15 @@ public class a extends c<GroupCardActivity> {
     }
 
     public View cvi() {
-        return this.jdi;
+        return this.jdk;
     }
 
     public View cvj() {
-        return this.jdj;
+        return this.jdl;
     }
 
     public View cvk() {
-        return this.jdl;
+        return this.jdn;
     }
 
     public View cvl() {
@@ -104,13 +104,13 @@ public class a extends c<GroupCardActivity> {
     }
 
     public LinearLayout cvm() {
-        return this.jdk;
+        return this.jdm;
     }
 
     public void onChangeSkinType(int i) {
-        this.jdd.getLayoutMode().setNightMode(i == 1);
-        this.jdd.getLayoutMode().onModeChanged(this.mParent);
+        this.jdf.getLayoutMode().setNightMode(i == 1);
+        this.jdf.getLayoutMode().onModeChanged(this.mParent);
         ao.setBgColor(this.mParent, i);
-        this.mNavigationBar.onChangeSkinType(this.jdd.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.jdf.getPageContext(), i);
     }
 }

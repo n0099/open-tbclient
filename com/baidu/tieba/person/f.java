@@ -12,11 +12,11 @@ import com.baidu.tieba.R;
 public class f extends com.baidu.adp.base.c {
     TextView dtx;
     TextView gJq;
-    TextView kNt;
-    TextView kNu;
     TextView kNv;
     TextView kNw;
-    TextView ksW;
+    TextView kNx;
+    TextView kNy;
+    TextView ksY;
     TbPageContext mPageContext;
     View mView;
 
@@ -28,36 +28,36 @@ public class f extends com.baidu.adp.base.c {
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
-        this.kNt = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
-        this.kNt.setOnClickListener(onClickListener);
-        this.ksW = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
-        this.ksW.setOnClickListener(onClickListener);
-        this.kNu = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
-        this.kNu.setOnClickListener(onClickListener);
-        this.kNv = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
+        this.kNv = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_friend);
         this.kNv.setOnClickListener(onClickListener);
+        this.ksY = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_report);
+        this.ksY.setOnClickListener(onClickListener);
+        this.kNw = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_black);
+        this.kNw.setOnClickListener(onClickListener);
+        this.kNx = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_mute);
+        this.kNx.setOnClickListener(onClickListener);
         this.dtx = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_cancel);
         this.dtx.setOnClickListener(onClickListener);
         this.gJq = (TextView) this.mView.findViewById(R.id.person_info_more_view_item_username);
-        this.kNw = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
-        this.kNw.setOnClickListener(onClickListener);
+        this.kNy = (TextView) this.mView.findViewById(R.id.person_info_item_remove_fans_view);
+        this.kNy.setOnClickListener(onClickListener);
     }
 
     public void j(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.kNt.setText(R.string.remove_friend);
+            this.kNv.setText(R.string.remove_friend);
         } else {
-            this.kNt.setText(R.string.frs_recommend_friend_item_add);
+            this.kNv.setText(R.string.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.kNu.setText(R.string.remove_block_chat);
+            this.kNw.setText(R.string.remove_block_chat);
         } else {
-            this.kNu.setText(R.string.block_chat_message);
+            this.kNw.setText(R.string.block_chat_message);
         }
         if (z3) {
-            this.kNw.setVisibility(0);
+            this.kNy.setVisibility(0);
         } else {
-            this.kNw.setVisibility(8);
+            this.kNy.setVisibility(8);
         }
     }
 
@@ -66,31 +66,31 @@ public class f extends com.baidu.adp.base.c {
     }
 
     public View cVq() {
-        return this.kNt;
-    }
-
-    public View cVr() {
-        return this.kNu;
-    }
-
-    public View cVs() {
         return this.kNv;
     }
 
-    public View cVt() {
-        return this.ksW;
-    }
-
-    public View cVu() {
+    public View cVr() {
         return this.kNw;
     }
 
+    public View cVs() {
+        return this.kNx;
+    }
+
+    public View cVt() {
+        return this.ksY;
+    }
+
+    public View cVu() {
+        return this.kNy;
+    }
+
     public void CK(int i) {
-        this.kNv.setVisibility(0);
+        this.kNx.setVisibility(0);
         if (i == 0) {
-            this.kNv.setText(this.mPageContext.getResources().getString(R.string.mute));
+            this.kNx.setText(this.mPageContext.getResources().getString(R.string.mute));
         } else if (i == 1) {
-            this.kNv.setText(this.mPageContext.getResources().getString(R.string.un_mute));
+            this.kNx.setText(this.mPageContext.getResources().getString(R.string.un_mute));
         }
     }
 
@@ -105,12 +105,12 @@ public class f extends com.baidu.adp.base.c {
 
     public void onChangeSkinType() {
         ao.setBackgroundResource(this.mView, R.color.cp_bg_line_k);
-        ao.setViewTextColor(this.kNu, R.color.pop_window_item_txt_color_selector);
-        ao.setViewTextColor(this.kNt, R.color.pop_window_item_txt_color_selector);
-        ao.setViewTextColor(this.ksW, R.color.pop_window_item_txt_color_selector);
-        ao.setViewTextColor(this.kNv, R.color.pop_window_item_txt_color_selector);
-        ao.setViewTextColor(this.gJq, R.color.cp_cont_c, 1);
         ao.setViewTextColor(this.kNw, R.color.pop_window_item_txt_color_selector);
+        ao.setViewTextColor(this.kNv, R.color.pop_window_item_txt_color_selector);
+        ao.setViewTextColor(this.ksY, R.color.pop_window_item_txt_color_selector);
+        ao.setViewTextColor(this.kNx, R.color.pop_window_item_txt_color_selector);
+        ao.setViewTextColor(this.gJq, R.color.cp_cont_c, 1);
+        ao.setViewTextColor(this.kNy, R.color.pop_window_item_txt_color_selector);
         ao.setViewTextColor(this.dtx, R.color.pop_window_cancel_txt_color_selector);
     }
 }

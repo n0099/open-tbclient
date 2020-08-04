@@ -25,12 +25,12 @@ public class e extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
     private boolean aib;
     private com.baidu.adp.lib.d.b<ImageView> eRG;
     private com.baidu.adp.lib.d.b<GifView> eRH;
-    private int hOA;
+    private int hOC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hOA = 3;
+        this.hOC = 3;
         this.aib = true;
         this.eRG = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -192,7 +192,7 @@ public class e extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
         mVar.e(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44), 0, 0);
         mVar.setFromCDN(this.aib);
         mVar.setCornerStyle(1);
-        if (this.hOA == 502) {
+        if (this.hOC == 502) {
             mVar.setNeedFrsTabName(false);
         } else {
             mVar.setNeedFrsTabName(true);
@@ -213,7 +213,7 @@ public class e extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
                     if (e.this.adN != null) {
                         e.this.adN.a(akVar2.getView(), bvVar);
                     }
-                    ax.a((AbsThreadDataSupport) bvVar, view.getContext(), e.this.hOA, false);
+                    ax.a((AbsThreadDataSupport) bvVar, view.getContext(), e.this.hOC, false);
                     akVar2.sg().b(new a.C0096a(1));
                 }
             }
@@ -258,11 +258,11 @@ public class e extends com.baidu.tieba.frs.j<bu, com.baidu.card.ak<bv>> implemen
 
     @Override // com.baidu.tieba.card.y
     public void rn(int i) {
-        this.hOA = i;
+        this.hOC = i;
     }
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return hOE;
+        return hOG;
     }
 }

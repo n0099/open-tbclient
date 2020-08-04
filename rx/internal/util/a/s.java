@@ -1,7 +1,7 @@
 package rx.internal.util.a;
 /* loaded from: classes6.dex */
 abstract class s<E> extends u<E> {
-    protected static final long ope = ae.l(s.class, "consumerIndex");
+    protected static final long opg = ae.l(s.class, "consumerIndex");
     protected long consumerIndex;
 
     public s(int i) {

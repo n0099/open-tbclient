@@ -14,13 +14,13 @@ import com.baidu.tieba.message.VideoHolyCardResponseMessage;
 /* loaded from: classes.dex */
 public class VideoHolyCardModel extends BdBaseModel {
     private long gsI;
-    private a jRE;
+    private a jRG;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(1003400) { // from class: com.baidu.tieba.model.VideoHolyCardModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.jRE != null) {
-                VideoHolyCardModel.this.jRE.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.jRG != null) {
+                VideoHolyCardModel.this.jRG.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     };
@@ -52,7 +52,7 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.jRE = aVar;
+        this.jRG = aVar;
     }
 
     public void cGl() {
@@ -68,7 +68,7 @@ public class VideoHolyCardModel extends BdBaseModel {
                 str = "TELECOM";
             }
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                this.jRE.onResult(false);
+                this.jRG.onResult(false);
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(1003400);

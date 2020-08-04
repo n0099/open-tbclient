@@ -37,7 +37,7 @@ public class b extends c {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = this.mhw;
+        String str2 = this.mhy;
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(str2);
         int i3 = 0;
@@ -63,9 +63,9 @@ public class b extends c {
         c.b bVar = new c.b();
         bVar.channel = aVar2.channelCount;
         bVar.sampleRate = aVar2.sampleRate;
-        bVar.mhz = aVar2.mhz;
-        bVar.mhy = str;
-        FileOutputStream fileOutputStream = new FileOutputStream(bVar.mhy);
+        bVar.mhB = aVar2.mhB;
+        bVar.mhA = str;
+        FileOutputStream fileOutputStream = new FileOutputStream(bVar.mhA);
         MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
@@ -103,11 +103,11 @@ public class b extends c {
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.drk()) {
-                                                bArr2 = g.b(aVar2.mhz / 8, aVar.mhz / 8, bArr);
+                                            if (aVar2.drl()) {
+                                                bArr2 = g.b(aVar2.mhB / 8, aVar.mhB / 8, bArr);
                                             }
-                                            if (aVar2.drj()) {
-                                                bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.mhz / 8, bArr2 == null ? bArr : bArr2);
+                                            if (aVar2.drk()) {
+                                                bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.mhB / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }
                                         if (bArr3 != null) {
@@ -116,10 +116,10 @@ public class b extends c {
                                             bArr2 = bArr;
                                         }
                                         fileOutputStream.write(bArr2);
-                                        if (this.mhx != null) {
-                                            this.mhx.b(bArr, bufferInfo.presentationTimeUs / d);
+                                        if (this.mhz != null) {
+                                            this.mhz.b(bArr, bufferInfo.presentationTimeUs / d);
                                         }
-                                        BdLog.i(this.mhw + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        BdLog.i(this.mhy + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     } else {
                                         i2 = i4;
                                     }
@@ -170,8 +170,8 @@ public class b extends c {
             outputBuffers = byteBufferArr;
         }
         bVar.size = i4;
-        if (this.mhx != null) {
-            this.mhx.b(null, 1.0d);
+        if (this.mhz != null) {
+            this.mhz.b(null, 1.0d);
         }
         BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - currentTimeMillis) + " milliseconds !");
         return bVar;

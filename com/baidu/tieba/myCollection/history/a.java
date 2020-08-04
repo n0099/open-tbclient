@@ -17,20 +17,20 @@ import java.util.Date;
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
     private TextView eko;
     private TextView gGh;
-    private TextView jVo;
-    private TextView jVp;
+    private TextView jVq;
+    private TextView jVr;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.jVo = (TextView) view.findViewById(R.id.title);
+        this.jVq = (TextView) view.findViewById(R.id.title);
         this.eko = (TextView) view.findViewById(R.id.content);
         this.eko.setSingleLine();
         this.eko.setEllipsize(TextUtils.TruncateAt.END);
         this.gGh = (TextView) view.findViewById(R.id.time);
-        this.jVp = (TextView) view.findViewById(R.id.live_status);
+        this.jVr = (TextView) view.findViewById(R.id.live_status);
         this.mLine = view.findViewById(R.id.line);
     }
 
@@ -40,22 +40,22 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void ao(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.ao(aVar);
         if (aVar != null) {
-            if (this.jVo != null) {
+            if (this.jVq != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
                         if (StringUtils.isNull(aVar.getUserName())) {
-                            this.jVo.setText(getString(R.string.pb_history_default_user_name));
+                            this.jVq.setText(getString(R.string.pb_history_default_user_name));
                         } else {
-                            this.jVo.setText(aVar.getUserName());
+                            this.jVq.setText(aVar.getUserName());
                         }
                     } else {
-                        this.jVo.setText(aVar.getDescription());
+                        this.jVq.setText(aVar.getDescription());
                     }
                 } else if (aVar.cHq() != null) {
                     if (aVar.isShareThread()) {
-                        this.jVo.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.cHq()));
+                        this.jVq.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.cHq()));
                     } else {
-                        this.jVo.setText(aVar.cHq());
+                        this.jVq.setText(aVar.cHq());
                     }
                 }
             }
@@ -69,9 +69,9 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                 }
             }
             if (aVar.getThreadType() == 49) {
-                this.jVp.setVisibility(aVar.cHt() ? 0 : 8);
+                this.jVr.setVisibility(aVar.cHt() ? 0 : 8);
             } else {
-                this.jVp.setVisibility(8);
+                this.jVr.setVisibility(8);
             }
             if (this.gGh != null) {
                 String l = as.l(new Date(aVar.getTime()));
@@ -88,11 +88,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         ao.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
         ao.setBackgroundResource(this.mLine, R.color.cp_bg_line_c);
-        ao.setViewTextColor(this.jVo, R.color.cp_cont_b, 1);
+        ao.setViewTextColor(this.jVq, R.color.cp_cont_b, 1);
         ao.setViewTextColor(this.eko, R.color.cp_cont_d, 1);
         ao.setViewTextColor(this.gGh, R.color.cp_cont_d, 1);
-        ao.setViewTextColor(this.jVp, R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.e.a.bbr().mf(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.cp_other_b, R.color.cp_cont_h).aX(this.jVp);
+        ao.setViewTextColor(this.jVr, R.color.cp_cont_a);
+        com.baidu.tbadk.core.util.e.a.bbr().mf(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.cp_other_b, R.color.cp_cont_h).aX(this.jVr);
         return true;
     }
 }

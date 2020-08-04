@@ -9,17 +9,17 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes17.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     private int dEL;
-    private RequestGetGroupActivityMessage jcB;
-    private RequestGetGroupActivityLocalMessage jcC;
-    private RequestDelGroupActivityMessage jcD;
-    private GroupActivityActivity jcE;
-    private GroupActivityData jcF;
+    private RequestGetGroupActivityMessage jcD;
+    private RequestGetGroupActivityLocalMessage jcE;
+    private RequestDelGroupActivityMessage jcF;
+    private GroupActivityActivity jcG;
+    private GroupActivityData jcH;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.jcE = groupActivityActivity;
+        this.jcG = groupActivityActivity;
     }
 
     public int cuV() {
@@ -71,8 +71,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.jcB = yV(i);
-        this.jcE.sendMessage(this.jcB);
+        this.jcD = yV(i);
+        this.jcG.sendMessage(this.jcD);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,36 +80,36 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void yX(int i) {
-        this.jcC = yW(i);
-        this.jcE.sendMessage(this.jcC);
+        this.jcE = yW(i);
+        this.jcG.sendMessage(this.jcE);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.jcC;
+        return this.jcE;
     }
 
     public Message<?> getSendMsg() {
-        return this.jcB;
-    }
-
-    public Message<?> cuY() {
         return this.jcD;
     }
 
+    public Message<?> cuY() {
+        return this.jcF;
+    }
+
     public void s(long j, int i) {
-        this.jcD = new RequestDelGroupActivityMessage();
-        this.jcD.setActivityId(i);
-        this.jcD.setGroupId(j);
-        this.jcE.sendMessage(this.jcD);
+        this.jcF = new RequestDelGroupActivityMessage();
+        this.jcF.setActivityId(i);
+        this.jcF.setGroupId(j);
+        this.jcG.sendMessage(this.jcF);
     }
 
     public GroupActivityData cuZ() {
-        return this.jcF;
+        return this.jcH;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.jcF = groupActivityData;
+            this.jcH = groupActivityData;
         }
     }
 }

@@ -6,8 +6,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes19.dex */
 public abstract class CommandLine {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final List<Object> mGi;
-    private static final AtomicReference<CommandLine> mGj;
+    private static final List<Object> mGk;
+    private static final AtomicReference<CommandLine> mGl;
 
     private static native void nativeAppendSwitch(String str);
 
@@ -25,16 +25,16 @@ public abstract class CommandLine {
 
     static {
         $assertionsDisabled = !CommandLine.class.desiredAssertionStatus();
-        mGi = new ArrayList();
-        mGj = new AtomicReference<>();
+        mGk = new ArrayList();
+        mGl = new AtomicReference<>();
     }
 
     public static boolean isInitialized() {
-        return mGj.get() != null;
+        return mGl.get() != null;
     }
 
-    public static CommandLine dxY() {
-        CommandLine commandLine = mGj.get();
+    public static CommandLine dxZ() {
+        CommandLine commandLine = mGl.get();
         if ($assertionsDisabled || commandLine != null) {
             return commandLine;
         }

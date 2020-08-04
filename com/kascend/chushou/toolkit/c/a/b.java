@@ -15,9 +15,9 @@ import tv.chushou.basis.d.a.a.c;
 @h
 /* loaded from: classes6.dex */
 public final class b {
-    private final UploadManager nDb = new UploadManager();
-    public static final a nDd = new a(null);
-    private static final b nDc = new b();
+    private final UploadManager nDd = new UploadManager();
+    public static final a nDf = new a(null);
+    private static final b nDe = new b();
 
     private b() {
     }
@@ -26,31 +26,31 @@ public final class b {
     /* renamed from: com.kascend.chushou.toolkit.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static final class C0847b implements UpCompletionHandler {
-        final /* synthetic */ c.a nCZ;
+        final /* synthetic */ c.a nDb;
 
         C0847b(c.a aVar) {
-            this.nCZ = aVar;
+            this.nDb = aVar;
         }
 
         @Override // com.qiniu.android.storage.UpCompletionHandler
         public final void a(String str, ResponseInfo responseInfo, JSONObject jSONObject) {
             if (responseInfo != null) {
-                if (responseInfo.dQc() && jSONObject != null) {
-                    c.a aVar = this.nCZ;
+                if (responseInfo.dQd() && jSONObject != null) {
+                    c.a aVar = this.nDb;
                     if (aVar != null) {
                         aVar.onSuccess(jSONObject.toString());
                         return;
                     }
                     return;
                 }
-                c.a aVar2 = this.nCZ;
+                c.a aVar2 = this.nDb;
                 if (aVar2 != null) {
                     aVar2.onFailure(-1, responseInfo.error, null);
                     return;
                 }
                 return;
             }
-            c.a aVar3 = this.nCZ;
+            c.a aVar3 = this.nDb;
             if (aVar3 != null) {
                 aVar3.onFailure(-1, null, null);
             }
@@ -61,21 +61,21 @@ public final class b {
         q.m(file, "f");
         q.m(str, "key");
         q.m(str2, "token");
-        this.nDb.a(file, str, str2, new C0847b(aVar), new UploadOptions(null, null, false, new c(aVar), d.nDe));
+        this.nDd.a(file, str, str2, new C0847b(aVar), new UploadOptions(null, null, false, new c(aVar), d.nDg));
     }
 
     @h
     /* loaded from: classes6.dex */
     static final class c implements UpProgressHandler {
-        final /* synthetic */ c.a nCZ;
+        final /* synthetic */ c.a nDb;
 
         c(c.a aVar) {
-            this.nCZ = aVar;
+            this.nDb = aVar;
         }
 
         @Override // com.qiniu.android.storage.UpProgressHandler
         public final void b(String str, double d) {
-            c.a aVar = this.nCZ;
+            c.a aVar = this.nDb;
             if (aVar != null) {
                 aVar.onProgress((int) (100 * d));
             }
@@ -85,7 +85,7 @@ public final class b {
     @h
     /* loaded from: classes6.dex */
     static final class d implements UpCancellationSignal {
-        public static final d nDe = new d();
+        public static final d nDg = new d();
 
         d() {
         }
@@ -106,8 +106,8 @@ public final class b {
             this();
         }
 
-        public final b dOt() {
-            return b.nDc;
+        public final b dOu() {
+            return b.nDe;
         }
     }
 }

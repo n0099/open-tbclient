@@ -9,12 +9,12 @@ public class p extends a {
 
     @Override // com.baidu.tieba.personPolymeric.c.a
     public void cXC() {
-        this.kWr.clear();
+        this.kWt.clear();
         if (this.mCardNullPolymericData != null) {
-            this.kWr.add(this.mCardNullPolymericData);
+            this.kWt.add(this.mCardNullPolymericData);
         }
-        if (!x.isEmpty(this.kWq)) {
-            this.kWr.addAll(this.kWq);
+        if (!x.isEmpty(this.kWs)) {
+            this.kWt.addAll(this.kWs);
         }
     }
 }

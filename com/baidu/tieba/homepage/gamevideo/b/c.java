@@ -31,10 +31,10 @@ import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class c {
     private int eeE;
-    private com.baidu.tieba.homepage.gamevideo.view.b iwa;
-    private com.baidu.tieba.homepage.gamevideo.d.b iwb;
-    private a iwc;
-    private b iwd;
+    private com.baidu.tieba.homepage.gamevideo.view.b iwc;
+    private com.baidu.tieba.homepage.gamevideo.d.b iwd;
+    private a iwe;
+    private b iwf;
     private BdUniqueId mBdUniqueId;
     private TbPageContext mPageContext;
     private CustomMessageListener hoJ = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.gamevideo.b.c.1
@@ -42,12 +42,12 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.this.g(customResponsedMessage);
-            if (c.this.iwa != null) {
-                c.this.iwa.cmF();
+            if (c.this.iwc != null) {
+                c.this.iwc.cmF();
             }
         }
     };
-    private NEGFeedBackView.a iwe = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.2
+    private NEGFeedBackView.a iwg = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.2
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void b(aq aqVar) {
             if (aqVar != null) {
@@ -79,28 +79,28 @@ public class c {
                 } else if (aqVar.threadType == 49) {
                     i = 3;
                 }
-                if (c.this.iwa != null) {
-                    c.this.iwa.DT();
+                if (c.this.iwc != null) {
+                    c.this.iwc.DT();
                 }
                 TiebaStatic.log(new ap("c13500").dn("tid", aqVar.getTid()).dn("uid", TbadkCoreApplication.getCurrentAccount()).dn("fid", aqVar.getFid()).dn("obj_param1", aqVar.weight).dn("obj_source", aqVar.source).dn("obj_id", aqVar.extra).dn("obj_type", sb.toString()).dn("obj_name", str).ah(TiebaInitialize.Params.OBJ_PARAM2, i));
             }
         }
     };
-    private final View.OnClickListener iwf = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.3
+    private final View.OnClickListener iwh = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!c.this.iwa.cmN()) {
-                c.this.iwa.pa(true);
-                if (c.this.iwd.isShowing()) {
-                    c.this.iwd.cms();
-                    c.this.iwa.cmM();
-                    ao.setBackgroundResource(c.this.iwa.cmK(), R.color.cp_bg_line_h);
+            if (!c.this.iwc.cmN()) {
+                c.this.iwc.pa(true);
+                if (c.this.iwf.isShowing()) {
+                    c.this.iwf.cms();
+                    c.this.iwc.cmM();
+                    ao.setBackgroundResource(c.this.iwc.cmK(), R.color.cp_bg_line_h);
                     return;
                 }
-                c.this.iwd.cn(c.this.iwa.cmK());
-                c.this.iwa.cmL();
-                ao.setBackgroundResource(c.this.iwa.cmK(), R.color.cp_bg_line_d);
-                if (c.this.iwb != null && !x.isEmpty(c.this.iwb.cmz())) {
+                c.this.iwf.cn(c.this.iwc.cmK());
+                c.this.iwc.cmL();
+                ao.setBackgroundResource(c.this.iwc.cmK(), R.color.cp_bg_line_d);
+                if (c.this.iwd != null && !x.isEmpty(c.this.iwd.cmz())) {
                     TiebaStatic.log("c13490");
                 }
             }
@@ -110,57 +110,57 @@ public class c {
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                c.this.iwb.xA(c.this.eeE);
+                c.this.iwd.xA(c.this.eeE);
                 c.this.cmx();
-                c.this.iwa.oZ(false);
+                c.this.iwc.oZ(false);
                 return;
             }
-            c.this.iwa.b((f.e) null);
+            c.this.iwc.b((f.e) null);
             c.this.mPageContext.showToast(R.string.im_error_default);
         }
     };
-    private BdListView.e iwg = new BdListView.e() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.5
+    private BdListView.e iwi = new BdListView.e() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.5
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            c.this.iwa.bwT();
-            c.this.iwb.xB(c.this.eeE);
+            c.this.iwc.bwT();
+            c.this.iwd.xB(c.this.eeE);
             c.this.cmx();
         }
     };
-    private b.a iwh = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6
+    private b.a iwj = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6
         @Override // com.baidu.tieba.homepage.gamevideo.d.b.a
         public void e(int i, boolean z, boolean z2) {
-            c.this.iwa.hideLoadingView();
-            c.this.iwa.bwX();
+            c.this.iwc.hideLoadingView();
+            c.this.iwc.bwX();
             if (z || z2) {
-                c.this.iwa.b((f.e) null);
+                c.this.iwc.b((f.e) null);
             } else {
-                c.this.iwa.b(c.this.xz(i));
+                c.this.iwc.b(c.this.xz(i));
             }
             if (!c.this.cmy()) {
-                if (!x.isEmpty(c.this.iwb.cmz()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
-                    c.this.iwa.pb(c.this.iwd.isShowing());
-                    c.this.iwa.cmO();
-                    c.this.iwd.setData(c.this.iwb.cmz());
+                if (!x.isEmpty(c.this.iwd.cmz()) && !StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_game_video_tab_has_choosed_sub_class_name", ""))) {
+                    c.this.iwc.pb(c.this.iwf.isShowing());
+                    c.this.iwc.cmO();
+                    c.this.iwf.setData(c.this.iwd.cmz());
                 }
                 if (i != 0) {
-                    c.this.iwa.aK(c.this.iwb.getDataList());
-                    c.this.iwa.A(c.this.iwi);
-                } else if (x.isEmpty(c.this.iwa.getDataList())) {
-                    c.this.iwa.showNoDataView();
+                    c.this.iwc.aK(c.this.iwd.getDataList());
+                    c.this.iwc.A(c.this.iwk);
+                } else if (x.isEmpty(c.this.iwc.getDataList())) {
+                    c.this.iwc.showNoDataView();
                 } else if (z) {
-                    c.this.iwa.bwS();
+                    c.this.iwc.bwS();
                 }
             }
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.d.b.a
         public void l(int i, String str, boolean z) {
-            c.this.iwa.b((f.e) null);
-            c.this.iwa.hideLoadingView();
-            c.this.iwa.bwX();
-            if (x.isEmpty(c.this.iwa.getDataList())) {
-                c.this.iwa.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6.1
+            c.this.iwc.b((f.e) null);
+            c.this.iwc.hideLoadingView();
+            c.this.iwc.bwX();
+            if (x.isEmpty(c.this.iwc.getDataList())) {
+                c.this.iwc.l(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.6.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         c.this.loadData();
@@ -169,7 +169,7 @@ public class c {
                 return;
             }
             if (z) {
-                c.this.iwa.A(c.this.iwi);
+                c.this.iwc.A(c.this.iwk);
             }
             if (StringUtils.isNull(str)) {
                 c.this.mPageContext.showToast(R.string.game_video_recommend_load_more_fail);
@@ -178,19 +178,19 @@ public class c {
             }
         }
     };
-    private View.OnClickListener iwi = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.7
+    private View.OnClickListener iwk = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.7
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.iwa != null && c.this.iwb != null) {
-                c.this.iwa.bwT();
-                c.this.iwb.xB(c.this.eeE);
+            if (c.this.iwc != null && c.this.iwd != null) {
+                c.this.iwc.bwT();
+                c.this.iwd.xB(c.this.eeE);
             }
         }
     };
-    private b.a iwj = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.8
+    private b.a iwl = new b.a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.8
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
         public void cmv() {
-            c.this.iwa.nN(true);
+            c.this.iwc.nN(true);
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
@@ -198,32 +198,32 @@ public class c {
             if (aVar != null) {
                 c.this.eeE = aVar.sub_class_id;
                 c.this.xy(aVar.sub_class_id);
-                if (c.this.iwa != null) {
-                    c.this.iwa.xw(aVar.sub_class_id);
-                    c.this.iwa.pb(false);
-                    c.this.iwa.GP(aVar.sub_class_name);
+                if (c.this.iwc != null) {
+                    c.this.iwc.xw(aVar.sub_class_id);
+                    c.this.iwc.pb(false);
+                    c.this.iwc.GP(aVar.sub_class_name);
                 }
             }
         }
 
         @Override // com.baidu.tieba.homepage.gamevideo.b.b.a
         public void cmw() {
-            if (c.this.iwa != null) {
-                c.this.iwa.pb(false);
-                c.this.iwa.nN(false);
+            if (c.this.iwc != null) {
+                c.this.iwc.pb(false);
+                c.this.iwc.nN(false);
             }
         }
     };
-    private a.InterfaceC0644a ivP = new a.InterfaceC0644a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.9
+    private a.InterfaceC0644a ivR = new a.InterfaceC0644a() { // from class: com.baidu.tieba.homepage.gamevideo.b.c.9
         @Override // com.baidu.tieba.homepage.gamevideo.b.a.InterfaceC0644a
         public void a(com.baidu.tieba.homepage.gamevideo.c.a aVar) {
             if (aVar != null) {
                 c.this.eeE = aVar.sub_class_id;
                 c.this.xy(aVar.sub_class_id);
-                if (c.this.iwa != null) {
-                    c.this.iwa.xw(aVar.sub_class_id);
-                    c.this.iwa.pb(false);
-                    c.this.iwa.GP(aVar.sub_class_name);
+                if (c.this.iwc != null) {
+                    c.this.iwc.xw(aVar.sub_class_id);
+                    c.this.iwc.pb(false);
+                    c.this.iwc.GP(aVar.sub_class_name);
                 }
             }
         }
@@ -232,28 +232,28 @@ public class c {
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.iwa = new com.baidu.tieba.homepage.gamevideo.view.b(this.mPageContext, bdUniqueId, this.iwe);
-        this.iwb = new com.baidu.tieba.homepage.gamevideo.d.b(this.mPageContext, this.iwh);
-        this.iwd = new b(tbPageContext, this.mBdUniqueId);
-        this.iwd.a(this.iwj);
-        this.iwc = new a(tbPageContext, this.mBdUniqueId);
-        this.iwc.a(this.ivP);
-        this.iwa.B(this.iwf);
+        this.iwc = new com.baidu.tieba.homepage.gamevideo.view.b(this.mPageContext, bdUniqueId, this.iwg);
+        this.iwd = new com.baidu.tieba.homepage.gamevideo.d.b(this.mPageContext, this.iwj);
+        this.iwf = new b(tbPageContext, this.mBdUniqueId);
+        this.iwf.a(this.iwl);
+        this.iwe = new a(tbPageContext, this.mBdUniqueId);
+        this.iwe.a(this.ivR);
+        this.iwc.B(this.iwh);
         this.eeE = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("key_game_video_tab_has_choosed_sub_class_id", 0);
-        this.iwa.xw(this.eeE);
+        this.iwc.xw(this.eeE);
     }
 
     public void init() {
-        this.iwb.registerListener();
-        this.iwa.init();
-        this.iwa.setListPullRefreshListener(this.ftG);
-        this.iwa.a(this.iwg);
+        this.iwd.registerListener();
+        this.iwc.init();
+        this.iwc.setListPullRefreshListener(this.ftG);
+        this.iwc.a(this.iwi);
         MessageManager.getInstance().registerListener(this.hoJ);
     }
 
     public View getView() {
-        if (this.iwa != null) {
-            return this.iwa.getRootView();
+        if (this.iwc != null) {
+            return this.iwc.getRootView();
         }
         return null;
     }
@@ -264,42 +264,42 @@ public class c {
     }
 
     public void loadData() {
-        if (this.iwa != null) {
-            this.iwa.cmI();
-            this.iwa.showLoadingView();
+        if (this.iwc != null) {
+            this.iwc.cmI();
+            this.iwc.showLoadingView();
         }
-        if (this.iwb != null) {
-            this.iwb.xA(this.eeE);
+        if (this.iwd != null) {
+            this.iwd.xA(this.eeE);
         }
     }
 
     public void IH() {
-        if (this.iwa != null) {
-            this.iwa.cmE();
-            this.iwa.startPullRefresh();
-            this.iwa.oZ(false);
-            this.iwa.cmG();
+        if (this.iwc != null) {
+            this.iwc.cmE();
+            this.iwc.startPullRefresh();
+            this.iwc.oZ(false);
+            this.iwc.cmG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void xy(int i) {
-        if (this.iwd != null) {
-            this.iwd.xx(i);
+        if (this.iwf != null) {
+            this.iwf.xx(i);
         }
-        if (this.iwb != null) {
-            this.iwb.reset();
+        if (this.iwd != null) {
+            this.iwd.reset();
         }
         loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean cmy() {
-        if (this.iwb == null || x.isEmpty(this.iwb.cmz()) || (!(this.iwb.cmA() || this.eeE == 0) || this.iwc == null)) {
+        if (this.iwd == null || x.isEmpty(this.iwd.cmz()) || (!(this.iwd.cmA() || this.eeE == 0) || this.iwe == null)) {
             return false;
         }
-        this.iwc.setData(this.iwb.cmz());
-        this.iwc.bB((ViewGroup) this.iwa.getRootView());
+        this.iwe.setData(this.iwd.cmz());
+        this.iwe.bB((ViewGroup) this.iwc.getRootView());
         com.baidu.tbadk.core.sharedPref.b.aZP().remove("key_game_video_tab_has_choosed_sub_class_id");
         com.baidu.tbadk.core.sharedPref.b.aZP().remove("key_game_video_tab_has_choosed_sub_class_name");
         return true;
@@ -317,44 +317,44 @@ public class c {
     }
 
     public void bci() {
-        if (this.iwa != null) {
-            this.iwa.bci();
-        }
-        if (this.iwd != null) {
-            this.iwd.onChangeSkinType();
-        }
         if (this.iwc != null) {
-            this.iwc.onChangeSkinType();
+            this.iwc.bci();
         }
-        if (this.iwd.isShowing()) {
-            ao.setBackgroundResource(this.iwa.cmK(), R.color.cp_bg_line_d);
+        if (this.iwf != null) {
+            this.iwf.onChangeSkinType();
+        }
+        if (this.iwe != null) {
+            this.iwe.onChangeSkinType();
+        }
+        if (this.iwf.isShowing()) {
+            ao.setBackgroundResource(this.iwc.cmK(), R.color.cp_bg_line_d);
         } else {
-            ao.setBackgroundResource(this.iwa.cmK(), R.color.cp_bg_line_h);
+            ao.setBackgroundResource(this.iwc.cmK(), R.color.cp_bg_line_h);
         }
     }
 
     public void onPause() {
-        if (this.iwa != null) {
-            this.iwa.onPause();
-            this.iwa.clx();
-            this.iwa.setTabInForeBackgroundState(true);
+        if (this.iwc != null) {
+            this.iwc.onPause();
+            this.iwc.clx();
+            this.iwc.setTabInForeBackgroundState(true);
         }
     }
 
     public void onDestroy() {
-        if (this.iwa != null) {
-            this.iwa.setListPullRefreshListener(null);
-            this.iwa.a((BdListView.e) null);
-            this.iwa.onDestroy();
+        if (this.iwc != null) {
+            this.iwc.setListPullRefreshListener(null);
+            this.iwc.a((BdListView.e) null);
+            this.iwc.onDestroy();
+        }
+        if (this.iwf != null) {
+            this.iwf.onDestroy();
+        }
+        if (this.iwe != null) {
+            this.iwe.onDestroy();
         }
         if (this.iwd != null) {
             this.iwd.onDestroy();
-        }
-        if (this.iwc != null) {
-            this.iwc.onDestroy();
-        }
-        if (this.iwb != null) {
-            this.iwb.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.hoJ);
     }
@@ -362,26 +362,26 @@ public class c {
     public void setPrimary(boolean z) {
         if (z) {
             TiebaStatic.log(new ap("c13486").ah("obj_type", this.eeE));
-            if (!this.iwd.isShowing()) {
-                this.iwa.setViewForeground();
+            if (!this.iwf.isShowing()) {
+                this.iwc.setViewForeground();
                 return;
             }
             return;
         }
-        if (this.iwd != null) {
-            this.iwd.cmt();
+        if (this.iwf != null) {
+            this.iwf.cmt();
         }
-        this.iwa.clx();
+        this.iwc.clx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.iwb != null && !x.isEmpty(this.iwb.getDataList())) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.iwd != null && !x.isEmpty(this.iwd.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.iwb.Gl(optString);
-            this.iwb.GO(optString);
-            if (this.iwa != null) {
-                this.iwa.GQ(optString);
+            this.iwd.Gl(optString);
+            this.iwd.GO(optString);
+            if (this.iwc != null) {
+                this.iwc.GQ(optString);
             }
         }
     }

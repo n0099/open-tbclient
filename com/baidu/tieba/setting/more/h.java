@@ -17,38 +17,38 @@ import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes20.dex */
 public class h extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
-    private SystemHelpSettingActivity lAj;
-    private TbSettingTextTipView lAk;
-    private TbSettingTextTipView lAl;
-    private BdSwitchView lAm;
-    private BdSwitchView lAn;
-    private TbSettingTextNewDotView lAo;
-    private MsgSettingItemView lAp;
-    private BdSwitchView.a lAq;
-    private final CustomMessageListener lAr;
+    private SystemHelpSettingActivity lAl;
+    private TbSettingTextTipView lAm;
+    private TbSettingTextTipView lAn;
+    private BdSwitchView lAo;
+    private BdSwitchView lAp;
+    private TbSettingTextNewDotView lAq;
+    private MsgSettingItemView lAr;
+    private BdSwitchView.a lAs;
+    private final CustomMessageListener lAt;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public h(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.lAj = null;
-        this.mParent = null;
-        this.lAk = null;
         this.lAl = null;
+        this.mParent = null;
         this.lAm = null;
         this.lAn = null;
         this.lAo = null;
-        this.lAq = new BdSwitchView.a() { // from class: com.baidu.tieba.setting.more.h.1
+        this.lAp = null;
+        this.lAq = null;
+        this.lAs = new BdSwitchView.a() { // from class: com.baidu.tieba.setting.more.h.1
             @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
             public void a(View view, BdSwitchView.SwitchState switchState) {
-                if (view == h.this.lAp.getSwitchView()) {
+                if (view == h.this.lAr.getSwitchView()) {
                     boolean z = BdSwitchView.SwitchState.ON == switchState;
                     com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), z ? false : true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_INFO_TIME, Boolean.valueOf(z)));
                 }
             }
         };
-        this.lAr = new CustomMessageListener(CmdConfigCustom.CMD_PLUGIN_ENABLE_STATE_CHANGED) { // from class: com.baidu.tieba.setting.more.h.2
+        this.lAt = new CustomMessageListener(CmdConfigCustom.CMD_PLUGIN_ENABLE_STATE_CHANGED) { // from class: com.baidu.tieba.setting.more.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,87 +56,87 @@ public class h extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
                 }
             }
         };
-        this.lAj = systemHelpSettingActivity;
-        this.lAj.setContentView(R.layout.system_help_activity);
-        this.mNavigationBar = (NavigationBar) this.lAj.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.lAj.getPageContext().getString(R.string.systemhelpsetting));
+        this.lAl = systemHelpSettingActivity;
+        this.lAl.setContentView(R.layout.system_help_activity);
+        this.mNavigationBar = (NavigationBar) this.lAl.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.lAl.getPageContext().getString(R.string.systemhelpsetting));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.lAk = (TbSettingTextTipView) this.lAj.findViewById(R.id.clear_cache);
-        this.lAk.hideArrow();
-        this.lAk.setOnClickListener(this.lAj);
-        this.lAk.setBottomLineVisibility(true);
-        this.lAl = (TbSettingTextTipView) this.lAj.findViewById(R.id.clear_im);
-        this.lAl.hideArrow();
-        this.lAl.setBottomLineVisibility(true);
-        this.lAl.setOnClickListener(this.lAj);
-        this.lAm = (BdSwitchView) this.lAj.findViewById(R.id.item_switch);
-        l.addToParentArea(this.lAj.getPageContext().getPageActivity(), this.lAm, 10, 10, 10, 10);
-        this.lAm.setOnSwitchStateChangeListener(this.lAj);
-        this.lAn = (BdSwitchView) this.lAj.findViewById(R.id.setting_save_video_switch);
-        l.addToParentArea(this.lAj.getPageContext().getPageActivity(), this.lAn, 10, 10, 10, 10);
-        this.lAn.setOnSwitchStateChangeListener(this.lAj);
-        this.mParent = this.lAj.findViewById(R.id.parent);
+        this.lAm = (TbSettingTextTipView) this.lAl.findViewById(R.id.clear_cache);
+        this.lAm.hideArrow();
+        this.lAm.setOnClickListener(this.lAl);
+        this.lAm.setBottomLineVisibility(true);
+        this.lAn = (TbSettingTextTipView) this.lAl.findViewById(R.id.clear_im);
+        this.lAn.hideArrow();
+        this.lAn.setBottomLineVisibility(true);
+        this.lAn.setOnClickListener(this.lAl);
+        this.lAo = (BdSwitchView) this.lAl.findViewById(R.id.item_switch);
+        l.addToParentArea(this.lAl.getPageContext().getPageActivity(), this.lAo, 10, 10, 10, 10);
+        this.lAo.setOnSwitchStateChangeListener(this.lAl);
+        this.lAp = (BdSwitchView) this.lAl.findViewById(R.id.setting_save_video_switch);
+        l.addToParentArea(this.lAl.getPageContext().getPageActivity(), this.lAp, 10, 10, 10, 10);
+        this.lAp.setOnSwitchStateChangeListener(this.lAl);
+        this.mParent = this.lAl.findViewById(R.id.parent);
         if (TbadkCoreApplication.isLogin()) {
-            this.lAl.setVisibility(0);
+            this.lAn.setVisibility(0);
         } else {
-            this.lAl.setVisibility(8);
+            this.lAn.setVisibility(8);
         }
-        this.lAo = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.sv_plugin_center);
-        this.lAo.setOnClickListener(this.lAj);
-        if (this.lAj != null) {
-            this.lAr.setTag(this.lAj.getUniqueId());
-            MessageManager.getInstance().registerListener(this.lAr);
+        this.lAq = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.sv_plugin_center);
+        this.lAq.setOnClickListener(this.lAl);
+        if (this.lAl != null) {
+            this.lAt.setTag(this.lAl.getUniqueId());
+            MessageManager.getInstance().registerListener(this.lAt);
         }
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(PluginCenterActivityConfig.class)) {
-            this.lAo.setVisibility(0);
+            this.lAq.setVisibility(0);
         } else {
-            this.lAo.setVisibility(8);
+            this.lAq.setVisibility(8);
         }
-        this.lAp = (MsgSettingItemView) this.lAj.findViewById(R.id.recently_bar_switch);
-        this.lAp.setLineVisibility(false);
-        this.lAp.setSpaceView(8);
-        this.lAp.setText(R.string.privacy_hide_recently_bar_text);
-        this.lAp.setOnSwitchStateChangeListener(this.lAq);
+        this.lAr = (MsgSettingItemView) this.lAl.findViewById(R.id.recently_bar_switch);
+        this.lAr.setLineVisibility(false);
+        this.lAr.setSpaceView(8);
+        this.lAr.setText(R.string.privacy_hide_recently_bar_text);
+        this.lAr.setOnSwitchStateChangeListener(this.lAs);
         uS(com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false));
     }
 
     public void uS(boolean z) {
         if (!z) {
-            this.lAp.getSwitchView().turnOnNoCallback();
+            this.lAr.getSwitchView().turnOnNoCallback();
         } else {
-            this.lAp.getSwitchView().turnOffNoCallback();
+            this.lAr.getSwitchView().turnOffNoCallback();
         }
     }
 
     public BdSwitchView dgN() {
-        return this.lAn;
+        return this.lAp;
     }
 
     public BdSwitchView dgO() {
-        return this.lAm;
+        return this.lAo;
     }
 
     public TbSettingTextTipView dgP() {
-        return this.lAk;
+        return this.lAm;
     }
 
     public TbSettingTextTipView dgQ() {
-        return this.lAl;
+        return this.lAn;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: com.baidu.tieba.setting.more.SystemHelpSettingActivity */
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
-        this.lAj.getLayoutMode().setNightMode(i == 1);
-        this.lAj.getLayoutMode().onModeChanged(this.mParent);
+        this.lAl.getLayoutMode().setNightMode(i == 1);
+        this.lAl.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.lAm.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
-        this.lAn.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
-        this.lAp.onChangeSkinType(this.lAj.getPageContext(), i);
-        ao.setBackgroundResource(this.lAk, R.drawable.more_all);
+        this.lAo.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
+        this.lAp.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
+        this.lAr.onChangeSkinType(this.lAl.getPageContext(), i);
+        ao.setBackgroundResource(this.lAm, R.drawable.more_all);
     }
 
     public TbSettingTextNewDotView dgR() {
-        return this.lAo;
+        return this.lAq;
     }
 }

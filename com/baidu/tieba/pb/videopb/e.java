@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes16.dex */
 public class e extends w {
-    private d kGP = new d();
-    private int kGQ = 0;
-    private PbModel kkj;
+    private d kGR = new d();
+    private int kGS = 0;
+    private PbModel kkl;
 
     public void init(Intent intent) {
-        this.kGP.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.kGP.tw(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.kGR.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.kGR.tw(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.kkj = pbModel;
+        this.kkl = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.kGQ) {
-            this.kGQ = i;
-            this.kGP.L(fVar);
+        if (i >= this.kGS) {
+            this.kGS = i;
+            this.kGR.L(fVar);
             if (fVar != null) {
-                d dVar = this.kGP;
+                d dVar = this.kGR;
                 if (fVar.getIsNewUrl() != 1 && !fVar.cLa()) {
                     z = false;
                 }
@@ -39,110 +39,110 @@ public class e extends w {
     }
 
     public com.baidu.tieba.pb.data.f cTx() {
-        return this.kGP.cTx();
+        return this.kGR.cTx();
     }
 
     public boolean isFromCDN() {
-        return this.kGP.isFromCDN();
+        return this.kGR.isFromCDN();
     }
 
     public com.baidu.tieba.pb.data.f cTy() {
-        return this.kGP.cTy();
+        return this.kGR.cTy();
     }
 
     public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.kGP.setData(fVar);
+            this.kGR.setData(fVar);
         }
     }
 
     public p<bv> cTz() {
-        return this.kGP.cTz();
+        return this.kGR.cTz();
     }
 
     public Rect cTA() {
-        if (this.kGP.cTA() == null || this.kGP.cTA().isEmpty()) {
+        if (this.kGR.cTA() == null || this.kGR.cTA().isEmpty()) {
             return null;
         }
-        return this.kGP.cTA();
+        return this.kGR.cTA();
     }
 
     public void tz(boolean z) {
-        if (this.kGP.cTE().getValue() != null) {
-            com.baidu.tieba.pb.data.f aG = this.kkj.aG(this.kGP.cTE().getValue());
+        if (this.kGR.cTE().getValue() != null) {
+            com.baidu.tieba.pb.data.f aG = this.kkl.aG(this.kGR.cTE().getValue());
             if (aG != null) {
-                this.kGP.cTC().addLast(this.kGP.cTy());
-                this.kGP.setData(aG);
-                this.kGP.aO(!x.isEmpty(aG.cKZ()) ? aG.cKZ().get(0) : null);
-                this.kGP.aN(this.kGP.cTC().getLast() != null ? this.kGP.cTC().getLast().cKx() : null);
-                this.kkj.BV(z ? 21 : 22);
-                this.kkj.j(aG);
-                this.kGP.setIsLoading(true);
+                this.kGR.cTC().addLast(this.kGR.cTy());
+                this.kGR.setData(aG);
+                this.kGR.aO(!x.isEmpty(aG.cKZ()) ? aG.cKZ().get(0) : null);
+                this.kGR.aN(this.kGR.cTC().getLast() != null ? this.kGR.cTC().getLast().cKx() : null);
+                this.kkl.BV(z ? 21 : 22);
+                this.kkl.j(aG);
+                this.kGR.setIsLoading(true);
             }
         }
     }
 
     public void aP(bv bvVar) {
         com.baidu.tieba.pb.data.f aG;
-        if (bvVar != null && (aG = this.kkj.aG(bvVar)) != null) {
-            this.kGP.cTC().addLast(this.kGP.cTy());
-            this.kGP.setData(aG);
-            this.kGP.aO(!x.isEmpty(aG.cKZ()) ? aG.cKZ().get(0) : null);
-            this.kGP.aN(this.kGP.cTC().getLast() != null ? this.kGP.cTC().getLast().cKx() : null);
-            this.kkj.BV(20);
-            this.kkj.j(aG);
-            this.kGP.setIsLoading(true);
+        if (bvVar != null && (aG = this.kkl.aG(bvVar)) != null) {
+            this.kGR.cTC().addLast(this.kGR.cTy());
+            this.kGR.setData(aG);
+            this.kGR.aO(!x.isEmpty(aG.cKZ()) ? aG.cKZ().get(0) : null);
+            this.kGR.aN(this.kGR.cTC().getLast() != null ? this.kGR.cTC().getLast().cKx() : null);
+            this.kkl.BV(20);
+            this.kkl.j(aG);
+            this.kGR.setIsLoading(true);
         }
     }
 
     public void cTJ() {
-        com.baidu.tieba.pb.data.f pollLast = this.kGP.cTC().pollLast();
+        com.baidu.tieba.pb.data.f pollLast = this.kGR.cTC().pollLast();
         if (pollLast != null) {
-            this.kGP.setData(pollLast);
-            this.kGP.aO(!x.isEmpty(pollLast.cKZ()) ? pollLast.cKZ().get(0) : null);
-            this.kGP.aN(this.kGP.cTC().peekLast() != null ? this.kGP.cTC().peekLast().cKx() : null);
-            this.kkj.j(pollLast);
-            this.kGP.setIsLoading(true);
+            this.kGR.setData(pollLast);
+            this.kGR.aO(!x.isEmpty(pollLast.cKZ()) ? pollLast.cKZ().get(0) : null);
+            this.kGR.aN(this.kGR.cTC().peekLast() != null ? this.kGR.cTC().peekLast().cKx() : null);
+            this.kkl.j(pollLast);
+            this.kGR.setIsLoading(true);
         }
     }
 
     public p<bv> cTD() {
-        return this.kGP.cTD();
+        return this.kGR.cTD();
     }
 
     public p<bv> cTE() {
-        return this.kGP.cTE();
+        return this.kGR.cTE();
     }
 
     public p<Boolean> cTF() {
-        return this.kGP.cTF();
+        return this.kGR.cTF();
     }
 
     public void tx(boolean z) {
-        this.kGP.tx(z);
+        this.kGR.tx(z);
     }
 
     public p<Boolean> cTG() {
-        return this.kGP.cTG();
+        return this.kGR.cTG();
     }
 
     public void ty(boolean z) {
-        this.kGP.ty(z);
+        this.kGR.ty(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.kGP.setIsLoading(z);
+        this.kGR.setIsLoading(z);
     }
 
     public p<Boolean> cTH() {
-        return this.kGP.cTH();
+        return this.kGR.cTH();
     }
 
     public boolean cTB() {
-        return this.kGP.cTB();
+        return this.kGR.cTB();
     }
 
     public p<Integer> cTI() {
-        return this.kGP.cTI();
+        return this.kGR.cTI();
     }
 }

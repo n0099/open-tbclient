@@ -18,107 +18,107 @@ import com.baidu.tieba.pb.video.h;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes16.dex */
 public class e {
-    private PbFragment kjZ;
-    private h kyG;
-    private g kyH;
-    private boolean kyI = false;
+    private PbFragment kkb;
+    private h kyI;
+    private g kyJ;
+    private boolean kyK = false;
 
     public e(PbFragment pbFragment) {
-        this.kjZ = pbFragment;
+        this.kkb = pbFragment;
     }
 
     public void a(f fVar, PostData postData, BdTypeListView bdTypeListView, d dVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
         if (fVar != null && fVar.cKX()) {
-            if (this.kyG == null) {
-                this.kyG = new h(this.kjZ, cVar, fVar.cKx().aWD(), j);
-                this.kyG.a(fVar.cKx().aWD(), fVar.cKx(), fVar.getForumId());
-                this.kyG.startPlay();
-            } else if (this.kyI) {
-                this.kyG.a(fVar.cKx().aWD(), fVar.cKx(), fVar.getForumId());
-                this.kyG.startPlay();
+            if (this.kyI == null) {
+                this.kyI = new h(this.kkb, cVar, fVar.cKx().aWD(), j);
+                this.kyI.a(fVar.cKx().aWD(), fVar.cKx(), fVar.getForumId());
+                this.kyI.startPlay();
+            } else if (this.kyK) {
+                this.kyI.a(fVar.cKx().aWD(), fVar.cKx(), fVar.getForumId());
+                this.kyI.startPlay();
             } else {
-                this.kyG.Lj(fVar.getForumId());
+                this.kyI.Lj(fVar.getForumId());
             }
-            com.baidu.tieba.pb.c.a.a(this.kjZ.getUniqueId(), fVar, postData, 1, 1);
+            com.baidu.tieba.pb.c.a.a(this.kkb.getUniqueId(), fVar, postData, 1, 1);
             if (fVar.cKy() != null && fVar.cKy().size() >= 1) {
                 bv bvVar = fVar.cKy().get(0);
-                this.kyG.aK(bvVar);
-                this.kyG.Lk(bvVar.getTitle());
+                this.kyI.aK(bvVar);
+                this.kyI.Lk(bvVar.getTitle());
             }
-            this.kyG.b(postData, fVar.cKx(), fVar.cKW());
-            this.kyI = false;
-            bdTypeListView.removeHeaderView(this.kyG.cSL());
-            bdTypeListView.addHeaderView(this.kyG.cSL(), 0);
-            if (this.kyG.bxk() != null && this.kyG.bxk().getParent() == null) {
-                frameLayout.addView(this.kyG.bxk());
+            this.kyI.b(postData, fVar.cKx(), fVar.cKW());
+            this.kyK = false;
+            bdTypeListView.removeHeaderView(this.kyI.cSL());
+            bdTypeListView.addHeaderView(this.kyI.cSL(), 0);
+            if (this.kyI.bxk() != null && this.kyI.bxk().getParent() == null) {
+                frameLayout.addView(this.kyI.bxk());
             }
-            if (this.kyH == null) {
-                this.kyH = new g(this.kjZ.getBaseFragmentActivity());
+            if (this.kyJ == null) {
+                this.kyJ = new g(this.kkb.getBaseFragmentActivity());
             }
-            this.kyH.b(fVar, str);
-            bdTypeListView.removeHeaderView(this.kyH.cSE());
-            bdTypeListView.addHeaderView(this.kyH.cSE(), 1);
+            this.kyJ.b(fVar, str);
+            bdTypeListView.removeHeaderView(this.kyJ.cSE());
+            bdTypeListView.addHeaderView(this.kyJ.cSE(), 1);
             dVar.c(bdTypeListView);
             dVar.a(bdTypeListView, 2);
-            if (this.kyG != null) {
+            if (this.kyI != null) {
                 cVar.tg(false);
-                this.kyG.Ce(TbadkCoreApplication.getInst().getSkinType());
+                this.kyI.Ce(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            if (this.kyG != null) {
-                bdTypeListView.removeHeaderView(this.kyG.cSL());
+            if (this.kyI != null) {
+                bdTypeListView.removeHeaderView(this.kyI.cSL());
             }
-            if (this.kyH != null) {
-                this.kyH.e(bdTypeListView);
+            if (this.kyJ != null) {
+                this.kyJ.e(bdTypeListView);
             }
         }
     }
 
     public void sW(boolean z) {
-        this.kyI = z;
+        this.kyK = z;
     }
 
     public void U(View.OnClickListener onClickListener) {
-        if (this.kyG != null) {
-            this.kyG.U(onClickListener);
+        if (this.kyI != null) {
+            this.kyI.U(onClickListener);
         }
     }
 
     public void d(BdTypeListView bdTypeListView) {
-        if (this.kyG != null) {
+        if (this.kyI != null) {
             TiebaStatic.log(new ap("c11997").ah("obj_type", 1));
-            this.kyG.cRc();
+            this.kyI.cRc();
             bdTypeListView.smoothScrollToPosition(0);
         }
     }
 
     public boolean Cd(int i) {
-        if (this.kyG != null) {
-            return this.kyG.vj(i);
+        if (this.kyI != null) {
+            return this.kyI.vj(i);
         }
         return false;
     }
 
     public void a(PbLandscapeListView pbLandscapeListView, TextView textView, int i) {
         if (pbLandscapeListView != null) {
-            if (this.kyG != null && this.kyG.bxk() != null) {
+            if (this.kyI != null && this.kyI.bxk() != null) {
                 if (textView != null) {
                     pbLandscapeListView.removeHeaderView(textView);
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.kyG.cSL());
-                    pbLandscapeListView.addHeaderView(this.kyG.cSL(), 0);
+                    pbLandscapeListView.removeHeaderView(this.kyI.cSL());
+                    pbLandscapeListView.addHeaderView(this.kyI.cSL(), 0);
                     return;
                 }
                 return;
             }
-            if (this.kyG != null) {
-                pbLandscapeListView.removeHeaderView(this.kyG.cSL());
+            if (this.kyI != null) {
+                pbLandscapeListView.removeHeaderView(this.kyI.cSL());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);
@@ -128,78 +128,78 @@ public class e {
     }
 
     public boolean cQH() {
-        return this.kyG != null && this.kyG.cQH();
+        return this.kyI != null && this.kyI.cQH();
     }
 
     public void cQI() {
-        if (this.kyG != null) {
-            this.kyG.onPause();
+        if (this.kyI != null) {
+            this.kyI.onPause();
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.kyG != null) {
-            this.kyG.c(absListView, i);
+        if (this.kyI != null) {
+            this.kyI.c(absListView, i);
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.kyG != null) {
-            this.kyG.onScrollStateChanged(absListView, i);
+        if (this.kyI != null) {
+            this.kyI.onScrollStateChanged(absListView, i);
         }
     }
 
     public void sU(boolean z) {
-        if (this.kyG != null) {
-            this.kyG.sU(z);
+        if (this.kyI != null) {
+            this.kyI.sU(z);
         }
     }
 
     public void cRc() {
-        if (this.kyG != null) {
-            this.kyG.cRc();
+        if (this.kyI != null) {
+            this.kyI.cRc();
         }
     }
 
     public void destroy() {
-        if (this.kyG != null) {
-            this.kyG.destroy();
+        if (this.kyI != null) {
+            this.kyI.destroy();
         }
     }
 
     public void onPause() {
-        if (this.kyG != null) {
-            this.kyG.onPause();
+        if (this.kyI != null) {
+            this.kyI.onPause();
         }
     }
 
     public void onResume() {
-        if (this.kyG != null) {
-            this.kyG.onResume();
+        if (this.kyI != null) {
+            this.kyI.onResume();
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.kyG != null) {
-            this.kyG.onConfigurationChanged(configuration);
+        if (this.kyI != null) {
+            this.kyI.onConfigurationChanged(configuration);
         }
     }
 
     public void Ce(int i) {
-        if (this.kyG != null) {
-            this.kyG.Ce(i);
+        if (this.kyI != null) {
+            this.kyI.Ce(i);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kyH != null) {
-            this.kyH.onChangeSkinType(i);
+        if (this.kyJ != null) {
+            this.kyJ.onChangeSkinType(i);
         }
     }
 
     public View bxk() {
-        if (this.kyG != null) {
-            return this.kyG.bxk();
+        if (this.kyI != null) {
+            return this.kyI.bxk();
         }
         return null;
     }
@@ -213,15 +213,15 @@ public class e {
     }
 
     public int cRe() {
-        if (this.kyG != null) {
-            return this.kyG.cRe();
+        if (this.kyI != null) {
+            return this.kyI.cRe();
         }
         return 0;
     }
 
     public boolean bDD() {
-        if (this.kyG != null) {
-            return this.kyG.bDD();
+        if (this.kyI != null) {
+            return this.kyI.bDD();
         }
         return false;
     }

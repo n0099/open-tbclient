@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final Set<com.facebook.drawee.controller.c> mSB;
-    private final g mSj;
-    private final com.facebook.imagepipeline.d.g mSy;
+    private final com.facebook.imagepipeline.d.g mSA;
+    private final Set<com.facebook.drawee.controller.c> mSE;
+    private final g mSl;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dHo(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dHp(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.mSy = jVar.dDo();
-        if (bVar != null && bVar.dDk() != null) {
-            this.mSj = bVar.dDk();
+        this.mSA = jVar.dDp();
+        if (bVar != null && bVar.dDl() != null) {
+            this.mSl = bVar.dDl();
         } else {
-            this.mSj = new g();
+            this.mSl = new g();
         }
-        this.mSj.a(context.getResources(), com.facebook.drawee.components.a.dDG(), jVar.fZ(context), i.dCu(), this.mSy.dGC(), bVar != null ? bVar.dDj() : null, bVar != null ? bVar.dDl() : null);
-        this.mSB = set;
+        this.mSl.a(context.getResources(), com.facebook.drawee.components.a.dDH(), jVar.fZ(context), i.dCv(), this.mSA.dGD(), bVar != null ? bVar.dDk() : null, bVar != null ? bVar.dDm() : null);
+        this.mSE = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dDz */
+    /* renamed from: dDA */
     public e get() {
-        return new e(this.mContext, this.mSj, this.mSy, this.mSB);
+        return new e(this.mContext, this.mSl, this.mSA, this.mSE);
     }
 }

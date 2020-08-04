@@ -12,7 +12,7 @@ class n {
     private String mCategory;
     private String mContent;
     private String mId;
-    private String mMp;
+    private String mMr;
     private int mOption;
     private long mTime;
 
@@ -20,7 +20,7 @@ class n {
         this.mContent = "";
         this.dAC = false;
         this.Zo = "";
-        this.mMp = "0";
+        this.mMr = "0";
         this.mId = str;
         this.dAy = str;
         this.dAz = -1;
@@ -35,7 +35,7 @@ class n {
         this.mContent = "";
         this.dAC = false;
         this.Zo = "";
-        this.mMp = "0";
+        this.mMr = "0";
         this.mId = str;
         this.dAy = str;
         this.dAz = -1;
@@ -50,7 +50,7 @@ class n {
         this.mContent = "";
         this.dAC = false;
         this.Zo = "";
-        this.mMp = "0";
+        this.mMr = "0";
         this.mId = str2;
         this.dAy = str;
         this.dAz = i;
@@ -65,7 +65,7 @@ class n {
         this.mContent = "";
         this.dAC = false;
         this.Zo = "";
-        this.mMp = "0";
+        this.mMr = "0";
         this.mId = str2;
         this.dAy = str;
         this.dAz = i;
@@ -137,16 +137,16 @@ class n {
     }
 
     public void aNv() {
-        if (this.mId != null && this.mId.equals(this.dAy) && g.dzZ().uQ(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.dAy) && g.dAa().uQ(this.mId)) {
             this.dAB = UBC.getUBCContext().anq();
         }
     }
 
     public void QG(String str) {
-        this.mMp = str;
+        this.mMr = str;
     }
 
-    public String dAd() {
-        return this.mMp;
+    public String dAe() {
+        return this.mMr;
     }
 }

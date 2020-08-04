@@ -9,7 +9,7 @@ public class a {
     public String mContent = "";
     public String mUserID = "";
     public String mUserNickname = "";
-    public c oqX = new c();
+    public c oqZ = new c();
     public ArrayList<RichText> mContentRichText = new ArrayList<>();
 
     public a() {
@@ -18,6 +18,6 @@ public class a {
     }
 
     public String toString() {
-        return "DanmaInfo{mContent='" + this.mContent + "', mType='" + this.mType + "', mUserID='" + this.mUserID + "', mUserNickname='" + this.mUserNickname + "', mGift=" + this.oqX + ", mContentRichText=" + this.mContentRichText + '}';
+        return "DanmaInfo{mContent='" + this.mContent + "', mType='" + this.mType + "', mUserID='" + this.mUserID + "', mUserNickname='" + this.mUserNickname + "', mGift=" + this.oqZ + ", mContentRichText=" + this.mContentRichText + '}';
     }
 }

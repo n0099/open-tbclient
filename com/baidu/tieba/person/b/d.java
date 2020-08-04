@@ -19,9 +19,9 @@ import java.util.List;
 public class d extends ad.a {
     public int aho;
     public TextView dJr;
-    public View kOa;
-    public HTypeListView kOb;
-    public e kOc;
+    public View kOc;
+    public HTypeListView kOd;
+    public e kOe;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -30,15 +30,15 @@ public class d extends ad.a {
         this.aho = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.kOa = view.findViewById(R.id.divider_view_under_photo_album);
+        this.kOc = view.findViewById(R.id.divider_view_under_photo_album);
         this.dJr = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.kOb = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.kOc = new e(this.mPageContext, this.kOb);
+        this.kOd = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.kOe = new e(this.mPageContext, this.kOd);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.kOc.setDatas(ey(fVar.getPhotoAlbum()));
+            this.kOe.setDatas(ey(fVar.getPhotoAlbum()));
         }
     }
 
@@ -57,9 +57,9 @@ public class d extends ad.a {
         if (this.aho != TbadkCoreApplication.getInst().getSkinType()) {
             this.aho = TbadkCoreApplication.getInst().getSkinType();
             ao.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            ao.setBackgroundColor(this.kOa, R.color.cp_bg_line_c);
+            ao.setBackgroundColor(this.kOc, R.color.cp_bg_line_c);
             ao.setViewTextColor(this.dJr, R.color.cp_cont_d, 1);
-            this.kOc.notifyDataSetChanged();
+            this.kOe.notifyDataSetChanged();
         }
     }
 }

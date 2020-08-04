@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public final class c extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory njH = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
+    public static final TypeAdapterFactory njJ = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dLG() == Date.class) {
+            if (aVar.dLH() == Date.class) {
                 return new c();
             }
             return null;
@@ -31,7 +31,7 @@ public final class c extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (com.google.gson.internal.d.dLb()) {
+        if (com.google.gson.internal.d.dLc()) {
             this.dateFormats.add(com.google.gson.internal.g.dJ(2, 2));
         }
     }
@@ -39,11 +39,11 @@ public final class c extends TypeAdapter<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dLn() == JsonToken.NULL) {
-            aVar.dLs();
+        if (aVar.dLo() == JsonToken.NULL) {
+            aVar.dLt();
             return null;
         }
-        return deserializeToDate(aVar.dLr());
+        return deserializeToDate(aVar.dLs());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
@@ -77,7 +77,7 @@ public final class c extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.dLC();
+            bVar.dLD();
         } else {
             bVar.RP(this.dateFormats.get(0).format(date));
         }

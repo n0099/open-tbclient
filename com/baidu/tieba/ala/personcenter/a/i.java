@@ -137,10 +137,10 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
                 this.fwT = new com.baidu.tieba.ueg.d(this.mPageContext);
             }
             if (this.gGC) {
-                if (this.fwT.doV()) {
+                if (this.fwT.doW()) {
                     return;
                 }
-            } else if (this.fwT.doU()) {
+            } else if (this.fwT.doV()) {
                 return;
             }
             if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {

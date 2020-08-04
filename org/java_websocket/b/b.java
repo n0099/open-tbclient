@@ -12,11 +12,11 @@ public interface b {
 
     void d(Framedata framedata);
 
-    String dXh();
-
     String dXi();
 
-    b dXj();
+    String dXj();
+
+    b dXk();
 
     void e(Framedata framedata) throws InvalidDataException;
 

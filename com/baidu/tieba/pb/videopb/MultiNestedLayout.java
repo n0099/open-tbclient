@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 /* loaded from: classes16.dex */
 public class MultiNestedLayout extends RelativeLayout implements NestedScrollingChild, NestedScrollingParent {
-    private int kFB;
-    private int kFC;
-    private c kFD;
-    private a kFE;
-    private b kFF;
+    private int kFD;
+    private int kFE;
+    private c kFF;
+    private a kFG;
+    private b kFH;
     private NestedScrollingChildHelper mNestedScrollingChildHelper;
     private NestedScrollingParentHelper mNestedScrollingParentHelper;
     private final int[] mParentScrollConsumed;
@@ -47,13 +47,13 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     public MultiNestedLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kFB = Integer.MIN_VALUE;
+        this.kFD = Integer.MIN_VALUE;
         this.mParentScrollConsumed = new int[2];
-        this.kFC = 0;
+        this.kFE = 0;
         this.mState = 0;
-        this.kFD = null;
-        this.kFE = null;
         this.kFF = null;
+        this.kFG = null;
+        this.kFH = null;
         cSQ();
     }
 
@@ -78,7 +78,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTarget != null) {
-            this.kFB = this.mTarget.getTop();
+            this.kFD = this.mTarget.getTop();
         }
     }
 
@@ -88,7 +88,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 View childAt = getChildAt(i);
                 if (childAt instanceof NestedScrollingChild) {
                     this.mTarget = childAt;
-                    this.kFB = this.mTarget.getTop();
+                    this.kFD = this.mTarget.getTop();
                     return;
                 }
             }
@@ -117,45 +117,45 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 i2 -= iArr2[1];
             }
             if (i2 >= 0) {
-                if (this.kFB - this.kFC > i2) {
+                if (this.kFD - this.kFE > i2) {
                     iArr[1] = iArr[1] + i2;
-                    this.kFC += i2;
+                    this.kFE += i2;
                     if (i2 > 0) {
                         this.mState = 2;
-                        if (this.kFF != null) {
-                            this.kFF.onStateChange(this.mState);
+                        if (this.kFH != null) {
+                            this.kFH.onStateChange(this.mState);
                         }
                     }
                 } else {
-                    iArr[1] = iArr[1] + (this.kFB - this.kFC);
-                    this.kFC = this.kFB;
+                    iArr[1] = iArr[1] + (this.kFD - this.kFE);
+                    this.kFE = this.kFD;
                     this.mState = 1;
-                    if (this.kFD != null) {
-                        this.kFD.onScrollToTop();
-                    }
                     if (this.kFF != null) {
-                        this.kFF.onStateChange(this.mState);
+                        this.kFF.onScrollToTop();
+                    }
+                    if (this.kFH != null) {
+                        this.kFH.onStateChange(this.mState);
                     }
                 }
-            } else if (this.kFC > Math.abs(i2)) {
+            } else if (this.kFE > Math.abs(i2)) {
                 iArr[1] = iArr[1] + i2;
-                this.kFC += i2;
+                this.kFE += i2;
                 this.mState = 2;
-                if (this.kFF != null) {
-                    this.kFF.onStateChange(this.mState);
+                if (this.kFH != null) {
+                    this.kFH.onStateChange(this.mState);
                 }
             } else {
-                iArr[1] = iArr[1] + (-this.kFC);
-                this.kFC = 0;
+                iArr[1] = iArr[1] + (-this.kFE);
+                this.kFE = 0;
                 this.mState = 0;
-                if (this.kFE != null) {
-                    this.kFE.cRn();
+                if (this.kFG != null) {
+                    this.kFG.cRn();
                 }
-                if (this.kFF != null) {
-                    this.kFF.onStateChange(this.mState);
+                if (this.kFH != null) {
+                    this.kFH.onStateChange(this.mState);
                 }
             }
-            setTargetOffsetTopAndBottom(-this.kFC);
+            setTargetOffsetTopAndBottom(-this.kFE);
         }
     }
 
@@ -230,29 +230,29 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     public void setOffset(int i) {
         if (cSR()) {
-            this.kFC = i;
-            setTargetOffsetTopAndBottom(-this.kFC);
-            if (this.kFC == this.kFB) {
+            this.kFE = i;
+            setTargetOffsetTopAndBottom(-this.kFE);
+            if (this.kFE == this.kFD) {
                 this.mState = 1;
-                if (this.kFD != null) {
-                    this.kFD.onScrollToTop();
+                if (this.kFF != null) {
+                    this.kFF.onScrollToTop();
                 }
-            } else if (this.kFC == 0) {
+            } else if (this.kFE == 0) {
                 this.mState = 0;
-                if (this.kFE != null) {
-                    this.kFE.cRn();
+                if (this.kFG != null) {
+                    this.kFG.cRn();
                 }
             } else {
                 this.mState = 2;
             }
-            if (this.kFF != null) {
-                this.kFF.onStateChange(this.mState);
+            if (this.kFH != null) {
+                this.kFH.onStateChange(this.mState);
             }
         }
     }
 
     public void setMaxOffset() {
-        setOffset(this.kFB);
+        setOffset(this.kFD);
     }
 
     public void setMinOffset() {
@@ -260,18 +260,18 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     private boolean cSR() {
-        return this.mTarget != null && this.kFB > -10000;
+        return this.mTarget != null && this.kFD > -10000;
     }
 
     public void setScrollToTopListener(c cVar) {
-        this.kFD = cVar;
+        this.kFF = cVar;
     }
 
     public void setScrollBottomListener(a aVar) {
-        this.kFE = aVar;
+        this.kFG = aVar;
     }
 
     public void setScrollStateChangeListener(b bVar) {
-        this.kFF = bVar;
+        this.kFH = bVar;
     }
 }

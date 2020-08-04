@@ -20,14 +20,14 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context b;
     private List<PrivacyItem> c;
     private boolean e = false;
-    private com.kascend.chushou.view.a.a<PrivacyItem> npk;
+    private com.kascend.chushou.view.a.a<PrivacyItem> npm;
 
     public b(int i, Context context, List<PrivacyItem> list, com.kascend.chushou.view.a.a<PrivacyItem> aVar) {
         this.a = 1;
         this.a = i;
         this.b = context;
         this.c = list;
-        this.npk = aVar;
+        this.npm = aVar;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -42,7 +42,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (i == 0) {
             return new C0828b(from.inflate(this.a == 3 ? a.h.view_privacy_setting_group_header_black : a.h.view_privacy_setting_group_header, viewGroup, false));
         } else if (i == 2) {
-            return new c(from.inflate(this.a == 3 ? a.h.view_privacy_setting_toggle_black : a.h.view_privacy_setting_toggle_black, viewGroup, false), this.npk);
+            return new c(from.inflate(this.a == 3 ? a.h.view_privacy_setting_toggle_black : a.h.view_privacy_setting_toggle_black, viewGroup, false), this.npm);
         } else if (i == 3) {
             if (this.a == 2) {
                 i2 = a.h.view_privacy_setting_check_room;
@@ -51,7 +51,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             } else {
                 i2 = a.h.view_privacy_setting_check;
             }
-            return new a(from.inflate(i2, viewGroup, false), this.npk, this.a);
+            return new a(from.inflate(i2, viewGroup, false), this.npm, this.a);
         } else {
             return null;
         }
@@ -100,48 +100,48 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private View g;
         private View h;
         private int i;
-        private PrivacyItem npl;
-        private com.kascend.chushou.view.a.a npm;
-        private FrescoThumbnailView npn;
-        private OnlineToggleButton npo;
+        private PrivacyItem npn;
+        private com.kascend.chushou.view.a.a npo;
+        private FrescoThumbnailView npp;
+        private OnlineToggleButton npq;
 
         public c(View view, com.kascend.chushou.view.a.a aVar) {
             super(view);
             this.c = (TextView) view.findViewById(a.f.tv_text);
-            this.npn = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
-            this.npo = (OnlineToggleButton) view.findViewById(a.f.btn_toggle);
+            this.npp = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
+            this.npq = (OnlineToggleButton) view.findViewById(a.f.btn_toggle);
             this.f = view.findViewById(a.f.sp_top);
             this.g = view.findViewById(a.f.v_top_line);
             this.h = view.findViewById(a.f.v_bottom_line);
-            this.npm = aVar;
+            this.npo = aVar;
             view.setOnClickListener(this);
             this.i = tv.chushou.zues.utils.a.dip2px(view.getContext(), 10.0f);
         }
 
         public void a(PrivacyItem privacyItem) {
-            this.npl = privacyItem;
+            this.npn = privacyItem;
             b(privacyItem);
             this.c.setText(privacyItem.mText);
             if (h.isEmpty(privacyItem.mWebIcon)) {
-                this.npn.setVisibility(8);
+                this.npp.setVisibility(8);
             } else {
-                this.npn.i(privacyItem.mWebIcon, a.e.icon_room_id, 0, 0);
-                this.npn.setVisibility(0);
+                this.npp.i(privacyItem.mWebIcon, a.e.icon_room_id, 0, 0);
+                this.npp.setVisibility(0);
             }
-            this.npo.a(privacyItem);
+            this.npq.a(privacyItem);
             if (privacyItem.mShowing) {
                 this.itemView.setVisibility(0);
             } else {
                 this.itemView.setVisibility(8);
             }
-            if (this.npl.mPopShow) {
+            if (this.npn.mPopShow) {
                 this.c.setTextSize(14.0f);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.npm.b(view, this.npl);
+            this.npo.b(view, this.npn);
         }
 
         private void b(PrivacyItem privacyItem) {
@@ -199,9 +199,9 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private View h;
         private int i;
         private int j;
-        private PrivacyItem npl;
-        private com.kascend.chushou.view.a.a npm;
-        private FrescoThumbnailView npn;
+        private PrivacyItem npn;
+        private com.kascend.chushou.view.a.a npo;
+        private FrescoThumbnailView npp;
 
         public a(View view, com.kascend.chushou.view.a.a aVar, int i) {
             super(view);
@@ -210,22 +210,22 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             this.g = view.findViewById(a.f.v_top_line);
             this.h = view.findViewById(a.f.v_bottom_line);
             this.c = (TextView) view.findViewById(a.f.tv_title);
-            this.npn = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
+            this.npp = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
             this.e = (ImageView) view.findViewById(a.f.iv_check);
-            this.npm = aVar;
+            this.npo = aVar;
             view.setOnClickListener(this);
             this.i = tv.chushou.zues.utils.a.dip2px(view.getContext(), 10.0f);
         }
 
         public void a(PrivacyItem privacyItem) {
-            this.npl = privacyItem;
+            this.npn = privacyItem;
             b(privacyItem);
             this.c.setText(privacyItem.mText);
             if (h.isEmpty(privacyItem.mWebIcon)) {
-                this.npn.setVisibility(8);
+                this.npp.setVisibility(8);
             } else {
-                this.npn.i(privacyItem.mWebIcon, a.e.icon_default_badge, 0, 0);
-                this.npn.setVisibility(0);
+                this.npp.i(privacyItem.mWebIcon, a.e.icon_default_badge, 0, 0);
+                this.npp.setVisibility(0);
             }
             if (privacyItem.mState == 0) {
                 int i = a.e.icon_setting_item_uncheck;
@@ -249,15 +249,15 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             } else {
                 this.itemView.setVisibility(8);
             }
-            if (this.npl.mPopShow) {
+            if (this.npn.mPopShow) {
                 this.c.setTextSize(14.0f);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.npm != null) {
-                this.npm.b(view, this.npl);
+            if (this.npo != null) {
+                this.npo.b(view, this.npn);
             }
         }
 

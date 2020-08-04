@@ -29,8 +29,8 @@ public class d {
     private ImageView fMR;
     private ImageView ggn;
     private com.baidu.tieba.c.d hHZ;
-    private SpecialFrsWebFragment hYy;
-    private ImageView hYz;
+    private SpecialFrsWebFragment hYA;
+    private ImageView hYB;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.d.1
         @Override // android.view.View.OnClickListener
@@ -39,8 +39,8 @@ public class d {
                 d.this.cgB();
             } else if (d.this.hHZ == null || view != d.this.hHZ.getView()) {
                 if (view != d.this.fMR) {
-                    if (view == d.this.hYz) {
-                        d.this.a(d.this.hYy.z(null, null, null, null));
+                    if (view == d.this.hYB) {
+                        d.this.a(d.this.hYA.z(null, null, null, null));
                     }
                 } else if (!StringUtils.isNull(d.this.getForumId())) {
                     d.this.dWk.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(d.this.dWk.getPageActivity(), d.this.getForumId(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
@@ -74,11 +74,11 @@ public class d {
     }
 
     public String getForumId() {
-        return this.hYy != null ? this.hYy.getForumId() : "";
+        return this.hYA != null ? this.hYA.getForumId() : "";
     }
 
     public String getForumName() {
-        return this.hYy != null ? this.hYy.getForumName() : "";
+        return this.hYA != null ? this.hYA.getForumName() : "";
     }
 
     public NavigationBar bAm() {
@@ -86,7 +86,7 @@ public class d {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.hYy != null && this.mNavigationBar != null) {
+        if (this.hYA != null && this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.dWk, i);
             ao.setViewTextColor(this.mNavigationBar.mTextTitle, R.color.cp_cont_b, 1);
             ao.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1);
@@ -96,13 +96,13 @@ public class d {
                 this.hHZ.onChangeSkinType(i);
             }
             ao.setNavbarIconSrc(this.fMR, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
-            SvgManager.baR().a(this.hYz, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.baR().a(this.hYB, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void a(NavigationBar navigationBar, SpecialFrsWebFragment specialFrsWebFragment) {
         this.mNavigationBar = navigationBar;
-        this.hYy = specialFrsWebFragment;
+        this.hYA = specialFrsWebFragment;
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.getBarBgView().setAlpha(1.0f);
         this.mNavigationBar.setCenterTextTitle(getForumName());
@@ -110,9 +110,9 @@ public class d {
         this.ggn.setOnClickListener(this.mOnClickListener);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.getDimens(this.dWk.getPageActivity(), R.dimen.ds24), 0);
-        this.hYz = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.special_frs_web_navigation_share, (View.OnClickListener) null);
-        this.hYz.setLayoutParams(layoutParams);
-        this.hYz.setOnClickListener(this.mOnClickListener);
+        this.hYB = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.special_frs_web_navigation_share, (View.OnClickListener) null);
+        this.hYB.setLayoutParams(layoutParams);
+        this.hYB.setOnClickListener(this.mOnClickListener);
         this.fMR = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
         this.fMR.setLayoutParams(layoutParams);
         this.fMR.setOnClickListener(this.mOnClickListener);
@@ -130,8 +130,8 @@ public class d {
     }
 
     public void a(ShareItem shareItem) {
-        if (this.hYy != null) {
-            this.hYy.a(shareItem);
+        if (this.hYA != null) {
+            this.hYA.a(shareItem);
         }
     }
 
@@ -142,8 +142,8 @@ public class d {
     }
 
     public void hh(boolean z) {
-        if (this.hYz != null) {
-            this.hYz.setVisibility(z ? 0 : 8);
+        if (this.hYB != null) {
+            this.hYB.setVisibility(z ? 0 : 8);
         }
     }
 

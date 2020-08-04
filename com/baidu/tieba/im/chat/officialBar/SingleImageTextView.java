@@ -29,8 +29,8 @@ public class SingleImageTextView extends RelativeLayout {
     private TextView aeq;
     private TextView fvC;
     private TbImageView hoq;
-    private com.baidu.adp.lib.b.b iQC;
-    private TextView iUB;
+    private com.baidu.adp.lib.b.b iQE;
+    private TextView iUD;
     private ImageView mArrow;
     private Context mContext;
     private View mDivider;
@@ -47,7 +47,7 @@ public class SingleImageTextView extends RelativeLayout {
 
     public SingleImageTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iQC = null;
+        this.iQE = null;
         this.mContext = context;
         initView();
     }
@@ -58,15 +58,15 @@ public class SingleImageTextView extends RelativeLayout {
         this.aeq = (TextView) findViewById(R.id.single_abstract);
         this.hoq = (TbImageView) findViewById(R.id.single_content_pic);
         this.hoq.setAutoChangeStyle(false);
-        this.iUB = (TextView) findViewById(R.id.read_all);
+        this.iUD = (TextView) findViewById(R.id.read_all);
         this.mArrow = (ImageView) findViewById(R.id.arrow);
         this.mDivider = findViewById(R.id.single_divider);
         this.fvC = (TextView) findViewById(R.id.show_time_single);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.SingleImageTextView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (SingleImageTextView.this.iQC != null) {
-                    SingleImageTextView.this.iQC.onItemViewLongClick(view, 9, SingleImageTextView.this.mPosition, 0L);
+                if (SingleImageTextView.this.iQE != null) {
+                    SingleImageTextView.this.iQE.onItemViewLongClick(view, 9, SingleImageTextView.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -120,17 +120,17 @@ public class SingleImageTextView extends RelativeLayout {
                         }
                         if (i == 1) {
                             TiebaStatic.eventStat(SingleImageTextView.this.mContext, "official_msg_ck", "click", 1, "fid", c0667a.fid);
-                            com.baidu.tieba.im.data.d Io = com.baidu.tieba.im.util.e.Io(c0667a.iSA);
+                            com.baidu.tieba.im.data.d Io = com.baidu.tieba.im.util.e.Io(c0667a.iSC);
                             if (Io != null) {
-                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", Io.iWS, "task_id", Io.taskId, "loc", "0");
+                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", Io.iWU, "task_id", Io.taskId, "loc", "0");
                                 if ((c0667a.userType == 1 || c0667a.userType == 3) && !"0".equals(Io.taskId)) {
                                     com.baidu.tieba.im.b.a.cxv().Ii(Io.taskId);
                                 }
                             }
                             ap apVar = new ap("official_message_open_detail");
-                            apVar.t("msg_id", c0667a.jhm / 100);
-                            apVar.dn("official_id", c0667a.jhn);
-                            apVar.ah("official_type", c0667a.jho);
+                            apVar.t("msg_id", c0667a.jho / 100);
+                            apVar.dn("official_id", c0667a.jhp);
+                            apVar.ah("official_type", c0667a.jhq);
                             apVar.t("operate_time", System.currentTimeMillis() / 1000);
                             apVar.t("task_id", c0667a.taskId);
                             apVar.dn("obj_params1", c0667a.url);
@@ -194,7 +194,7 @@ public class SingleImageTextView extends RelativeLayout {
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.iQC = bVar;
+        this.iQE = bVar;
     }
 
     public void setPosition(int i) {
@@ -209,7 +209,7 @@ public class SingleImageTextView extends RelativeLayout {
         this.hoq.setAutoChangeStyle(z);
         ao.setViewTextColor(this.mTitle, R.color.cp_cont_b, 1, skinType);
         ao.setViewTextColor(this.aeq, R.color.cp_cont_c, 1, skinType);
-        ao.setViewTextColor(this.iUB, R.color.cp_cont_b, 1, skinType);
+        ao.setViewTextColor(this.iUD, R.color.cp_cont_b, 1, skinType);
         ao.setBackgroundResource(this.mArrow, R.drawable.icon_ba_top_arrow_big, skinType);
         ao.setViewTextColor(this.fvC, R.color.common_color_10067, 1, skinType);
         ao.setBackgroundResource(this.mDivider, R.drawable.multi_single_divider_selector, skinType);

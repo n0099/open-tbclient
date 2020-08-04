@@ -12,17 +12,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static Pattern jhl = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    private static Pattern jhn = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
     /* renamed from: com.baidu.tieba.im.message.chat.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0667a {
         public long createTime;
         public String fid;
-        public String iSA;
-        public long jhm;
-        public String jhn;
-        public int jho;
+        public String iSC;
+        public long jho;
+        public String jhp;
+        public int jhq;
         public long picId;
         public String src;
         public long taskId;
@@ -60,7 +60,7 @@ public class a {
                 C0667a c0667a = new C0667a();
                 if (!TextUtils.isEmpty(optString2)) {
                     optString2 = optString2.trim();
-                    Matcher matcher = jhl.matcher(optString2);
+                    Matcher matcher = jhn.matcher(optString2);
                     if (matcher.find()) {
                         c0667a.tid = matcher.group(1);
                     }
@@ -72,14 +72,14 @@ public class a {
                 c0667a.fid = str2;
                 c0667a.picId = optLong;
                 c0667a.taskId = j2;
-                c0667a.iSA = optString5;
+                c0667a.iSC = optString5;
                 if (i > -1) {
                     c0667a.userType = i;
                 }
                 if (userData != null) {
-                    c0667a.jhm = j;
-                    c0667a.jhn = userData.getUserId();
-                    c0667a.jho = userData.getUserType();
+                    c0667a.jho = j;
+                    c0667a.jhp = userData.getUserId();
+                    c0667a.jhq = userData.getUserType();
                 }
                 linkedList.add(c0667a);
             }

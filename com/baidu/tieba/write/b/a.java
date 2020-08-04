@@ -29,8 +29,8 @@ import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    private static com.baidu.tieba.write.b.c.a mwN;
-    private static CopyOnWriteArrayList<String> mwO = new CopyOnWriteArrayList<>();
+    private static com.baidu.tieba.write.b.c.a mwP;
+    private static CopyOnWriteArrayList<String> mwQ = new CopyOnWriteArrayList<>();
 
     /* renamed from: com.baidu.tieba.write.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -41,7 +41,7 @@ public class a {
     }
 
     static {
-        b.dvc().init();
+        b.dvd().init();
     }
 
     public static void a(final WriteData writeData, final InterfaceC0775a interfaceC0775a) {
@@ -61,11 +61,11 @@ public class a {
             }
             return;
         }
-        if (mwN == null) {
-            mwN = new com.baidu.tieba.write.b.c.a();
+        if (mwP == null) {
+            mwP = new com.baidu.tieba.write.b.c.a();
         }
         final LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
-        mwN.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.b.a.1
+        mwP.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0776a() { // from class: com.baidu.tieba.write.b.a.1
             @Override // com.baidu.tieba.write.b.c.a.InterfaceC0776a
             public void cFF() {
                 ArrayList arrayList = new ArrayList();
@@ -275,13 +275,13 @@ public class a {
     }
 
     public static void PH(String str) {
-        mwO.add(str);
+        mwQ.add(str);
     }
 
-    public static void duT() {
+    public static void duU() {
         try {
-            if (mwO != null && mwO.size() > 0) {
-                mwO.clear();
+            if (mwQ != null && mwQ.size() > 0) {
+                mwQ.clear();
                 n.deleteFileOrDir(new File(e.eEt));
                 TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE"));
             }

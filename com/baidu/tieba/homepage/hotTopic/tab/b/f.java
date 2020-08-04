@@ -17,6 +17,6 @@ public class f implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.iwX;
+        return a.iwZ;
     }
 }

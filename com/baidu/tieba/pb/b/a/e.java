@@ -10,19 +10,19 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes17.dex */
 public class e implements ag, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> kEh;
-    public String kEi;
+    private ArrayList<PreLoadImageInfo> kEj;
+    public String kEk;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.kEh = new ArrayList<>(1);
+            this.kEj = new ArrayList<>(1);
             this.src = excContent.src;
-            this.kEi = excContent.bsize;
-            if (this.kEi != null) {
+            this.kEk = excContent.bsize;
+            if (this.kEk != null) {
                 try {
-                    String[] split = this.kEi.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.kEk.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements ag, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.kEh.add(preLoadImageInfo);
+            this.kEj.add(preLoadImageInfo);
         }
     }
 
@@ -67,6 +67,6 @@ public class e implements ag, d {
 
     @Override // com.baidu.tbadk.core.util.ag
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.kEh;
+        return this.kEj;
     }
 }

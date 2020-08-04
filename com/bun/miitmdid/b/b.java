@@ -18,9 +18,9 @@ import org.json.JSONObject;
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask mOF;
+    private AsyncTask mOH;
     private String a = null;
-    private a mOE = null;
+    private a mOG = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -38,11 +38,11 @@ public class b {
     public class C0801b {
         private String b;
         private int c;
-        private Exception mOI;
+        private Exception mOK;
 
         public C0801b(String str, Exception exc, int i) {
             this.b = str;
-            this.mOI = exc;
+            this.mOK = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0801b dBj() {
+    public C0801b dBk() {
         try {
             String b = b();
             if (j) {
@@ -126,7 +126,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0801b dBk() {
+    public C0801b dBl() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -196,7 +196,7 @@ public class b {
     }
 
     public b a(a aVar) {
-        this.mOE = aVar;
+        this.mOG = aVar;
         return this;
     }
 
@@ -206,12 +206,12 @@ public class b {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dBi() {
-        this.mOF = new AsyncTask<Void, Void, C0801b>() { // from class: com.bun.miitmdid.b.b.1
-            b mOG;
+    public b dBj() {
+        this.mOH = new AsyncTask<Void, Void, C0801b>() { // from class: com.bun.miitmdid.b.b.1
+            b mOI;
 
             {
-                this.mOG = b.this;
+                this.mOI = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -220,16 +220,16 @@ public class b {
             /* renamed from: a */
             public void onPostExecute(C0801b c0801b) {
                 super.onPostExecute(c0801b);
-                if (b.this.mOE != null) {
+                if (b.this.mOG != null) {
                     if (c0801b == null) {
-                        b.this.mOE.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0801b.mOI != null) {
-                        b.this.mOE.a(c0801b.mOI, -1, null);
+                        b.this.mOG.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0801b.mOK != null) {
+                        b.this.mOG.a(c0801b.mOK, -1, null);
                     } else {
                         try {
-                            b.this.mOE.a(null, c0801b.c, c0801b.b);
+                            b.this.mOG.a(null, c0801b.c, c0801b.b);
                         } catch (Exception e) {
-                            b.this.mOE.a(e, -1, null);
+                            b.this.mOG.a(e, -1, null);
                         }
                     }
                 }
@@ -240,7 +240,7 @@ public class b {
             @Override // android.os.AsyncTask
             /* renamed from: q */
             public C0801b doInBackground(Void... voidArr) {
-                return this.mOG.h.equalsIgnoreCase("GET") ? b.this.dBj() : b.this.dBk();
+                return this.mOI.h.equalsIgnoreCase("GET") ? b.this.dBk() : b.this.dBl();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;

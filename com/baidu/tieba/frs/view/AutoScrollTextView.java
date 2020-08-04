@@ -13,12 +13,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
-    private float ijf;
-    private float ijg;
     private float ijh;
     private float iji;
-    public boolean ijj;
-    private View.OnClickListener ijk;
+    private float ijj;
+    private float ijk;
+    public boolean ijl;
+    private View.OnClickListener ijm;
     public boolean isStarting;
     private Paint paint;
     private float progress;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.ijf = 0.0f;
-        this.ijg = 0.0f;
-        this.step = 0.0f;
-        this.y = 0.0f;
         this.ijh = 0.0f;
         this.iji = 0.0f;
+        this.step = 0.0f;
+        this.y = 0.0f;
+        this.ijj = 0.0f;
+        this.ijk = 0.0f;
         this.isStarting = false;
-        this.ijj = false;
+        this.ijl = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ijf = 0.0f;
-        this.ijg = 0.0f;
-        this.step = 0.0f;
-        this.y = 0.0f;
         this.ijh = 0.0f;
         this.iji = 0.0f;
+        this.step = 0.0f;
+        this.y = 0.0f;
+        this.ijj = 0.0f;
+        this.ijk = 0.0f;
         this.isStarting = false;
-        this.ijj = false;
+        this.ijl = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.ijf = this.paint.measureText(this.text);
-        this.ijg = getWidth();
-        if (this.ijg == 0.0f && windowManager != null) {
-            this.ijg = windowManager.getDefaultDisplay().getWidth();
+        this.ijh = this.paint.measureText(this.text);
+        this.iji = getWidth();
+        if (this.iji == 0.0f && windowManager != null) {
+            this.iji = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.ijf;
-        this.ijh = this.ijf;
-        this.iji = this.ijf * 2.0f;
+        this.step = this.ijh;
+        this.ijj = this.ijh;
+        this.ijk = this.ijh * 2.0f;
         this.y = getTextSize();
     }
 
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.ijh - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.ijj - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.ijh - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.ijj - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.iji) {
-            this.step = this.ijf;
+        if (this.step > this.ijk) {
+            this.step = this.ijh;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ijk != null) {
-            this.ijk.onClick(view);
+        if (this.ijm != null) {
+            this.ijm.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.ijk = onClickListener;
+        this.ijm = onClickListener;
     }
 }

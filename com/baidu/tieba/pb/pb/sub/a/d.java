@@ -27,7 +27,7 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.Uj).kEa.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.Uj).kEc.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
         ((a) this.Uj).onChangeSkinType();
         return aVar.getView();
     }
@@ -35,21 +35,21 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
         private View gXm;
-        private TextView kEa;
+        private TextView kEc;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.kEa = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.kEc = (TextView) view.findViewById(R.id.floor_reply_text);
             this.gXm = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ao.setViewTextColor(this.kEa, R.color.cp_cont_b);
+                ao.setViewTextColor(this.kEc, R.color.cp_cont_b);
                 ao.setBackgroundColor(this.gXm, R.color.cp_bg_line_c);
-                ao.setBackgroundColor(this.kEa, R.color.cp_bg_line_d);
+                ao.setBackgroundColor(this.kEc, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes17.dex */
 public class l extends BaseAdapter {
-    private String[] iWn;
-    private GroupAddressEditActivity iWp;
+    private String[] iWp;
+    private GroupAddressEditActivity iWr;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.iWn = null;
         this.iWp = null;
-        this.iWp = groupAddressEditActivity;
-        this.iWn = strArr;
+        this.iWr = null;
+        this.iWr = groupAddressEditActivity;
+        this.iWp = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iWn != null) {
-            return this.iWn.length;
+        if (this.iWp != null) {
+            return this.iWp.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.iWn == null || i <= -1 || i >= this.iWn.length) ? "" : this.iWn[i];
+        return (this.iWp == null || i <= -1 || i >= this.iWp.length) ? "" : this.iWp[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,13 +38,13 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.iWp);
+            aVar = new a(this.iWr);
             view = aVar.bCf();
         } else {
             aVar = (a) view.getTag();
         }
         aVar.Hn(getItem(i).toString());
-        if (this.iWp.csK() == i) {
+        if (this.iWr.csK() == i) {
             aVar.pI(true);
         } else {
             aVar.pI(false);
@@ -54,7 +54,7 @@ public class l extends BaseAdapter {
     }
 
     private void cm(View view) {
-        this.iWp.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iWp.getLayoutMode().onModeChanged(view);
+        this.iWr.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.iWr.getLayoutMode().onModeChanged(view);
     }
 }

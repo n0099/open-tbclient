@@ -2,8 +2,9 @@ package com.baidu.android.bbalbs.common.util;
 
 import com.baidu.android.bbalbs.common.util.b;
 import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
-class c implements Comparator<b.a> {
+public class c implements Comparator<b.a> {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

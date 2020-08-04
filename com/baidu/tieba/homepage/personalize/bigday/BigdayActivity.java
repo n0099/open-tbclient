@@ -23,8 +23,8 @@ import java.util.Calendar;
 public class BigdayActivity extends BaseActivity {
     private String aye;
     private long dLT;
-    private TbImageView iAB;
-    private ImageView iAC;
+    private TbImageView iAD;
+    private ImageView iAE;
     private String imgUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,11 +33,11 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.bigday_activity);
-        this.iAB = (TbImageView) findViewById(R.id.bigday_img);
-        this.iAB.setAutoChangeStyle(false);
-        this.iAC = (ImageView) findViewById(R.id.bigday_close);
+        this.iAD = (TbImageView) findViewById(R.id.bigday_img);
+        this.iAD.setAutoChangeStyle(false);
+        this.iAE = (ImageView) findViewById(R.id.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.iAC.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
+            ((FrameLayout.LayoutParams) this.iAE.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
@@ -45,22 +45,22 @@ public class BigdayActivity extends BaseActivity {
             this.aye = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
             this.dLT = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.iAB.setTag(getPageContext().getUniqueId());
-        this.iAB.startLoad(this.imgUrl, 41, false);
-        this.iAB.setOnClickListener(this);
-        this.iAC.setOnClickListener(this);
+        this.iAD.setTag(getPageContext().getUniqueId());
+        this.iAD.startLoad(this.imgUrl, 41, false);
+        this.iAD.setOnClickListener(this);
+        this.iAE.setOnClickListener(this);
         TiebaStatic.log(new ap("c13111").t("obj_id", this.dLT).dn(TiebaInitialize.Params.OBJ_TO, this.aye));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.iAB.getId()) {
+        if (view.getId() == this.iAD.getId()) {
             if (!StringUtils.isNULL(this.aye)) {
                 bd.baV().b(getPageContext(), new String[]{this.aye});
                 TiebaStatic.log(new ap("c13112").t("obj_id", this.dLT).dn(TiebaInitialize.Params.OBJ_TO, this.aye));
                 finish();
             }
-        } else if (view.getId() == this.iAC.getId()) {
+        } else if (view.getId() == this.iAE.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);

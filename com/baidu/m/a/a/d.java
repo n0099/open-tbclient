@@ -4,11 +4,11 @@ import android.content.Context;
 /* loaded from: classes12.dex */
 public abstract class d implements c {
     protected Context mCtx;
-    protected boolean mNT;
-    protected String mNV;
-    protected String mNW;
+    protected boolean mNV;
     protected String mNX;
-    protected boolean mOw;
+    protected String mNY;
+    protected String mNZ;
+    protected boolean mOy;
     protected int mStatusCode = -200;
 
     public d(Context context) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.m.a.a.c
-    public boolean dAW() {
-        return this.mNT;
-    }
-
-    @Override // com.baidu.m.a.a.c
-    public boolean isSupport() {
-        return this.mOw;
-    }
-
-    @Override // com.baidu.m.a.a.c
-    public String getOAID() {
+    public boolean dAX() {
         return this.mNV;
     }
 
     @Override // com.baidu.m.a.a.c
+    public boolean isSupport() {
+        return this.mOy;
+    }
+
+    @Override // com.baidu.m.a.a.c
+    public String getOAID() {
+        return this.mNX;
+    }
+
+    @Override // com.baidu.m.a.a.c
     public String getAAID() {
-        return this.mNW;
+        return this.mNY;
     }
 
     @Override // com.baidu.m.a.a.c
     public String getVAID() {
-        return this.mNX;
+        return this.mNZ;
     }
 
     @Override // com.baidu.m.a.a.c
@@ -49,27 +49,27 @@ public abstract class d implements c {
 
     @Override // com.baidu.m.a.a.c
     public void wU(boolean z) {
-        this.mNT = z;
+        this.mNV = z;
     }
 
     @Override // com.baidu.m.a.a.c
     public void wV(boolean z) {
-        this.mOw = z;
+        this.mOy = z;
     }
 
     @Override // com.baidu.m.a.a.c
     public void Ra(String str) {
-        this.mNV = str;
+        this.mNX = str;
     }
 
     @Override // com.baidu.m.a.a.c
     public void Rb(String str) {
-        this.mNW = str;
+        this.mNY = str;
     }
 
     @Override // com.baidu.m.a.a.c
     public void Rc(String str) {
-        this.mNX = str;
+        this.mNZ = str;
     }
 
     @Override // com.baidu.m.a.a.c

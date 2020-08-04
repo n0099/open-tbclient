@@ -19,20 +19,20 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes16.dex */
 public class d extends BaseAdapter {
-    private List<String> kyX;
-    private com.baidu.tieba.pb.pb.main.emotion.a kyY;
+    private List<String> kyZ;
+    private com.baidu.tieba.pb.pb.main.emotion.a kza;
     private List<EmotionImageData> mList;
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private Set<String> jZU = new HashSet();
+    private Set<String> jZW = new HashSet();
     private int mItemWidth = l.getDimens(this.mContext, R.dimen.ds116);
-    private int jnb = (int) (((l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) - (this.mItemWidth * 4)) * 0.333d);
+    private int jnd = (int) (((l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) - (this.mItemWidth * 4)) * 0.333d);
 
     public d(List<EmotionImageData> list) {
         this.mList = list;
     }
 
     public void a(com.baidu.tieba.pb.pb.main.emotion.a aVar) {
-        this.kyY = aVar;
+        this.kza = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -56,14 +56,14 @@ public class d extends BaseAdapter {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_search_emotion_item, (ViewGroup) null);
-            aVar.kzc = (EmotionView) view.findViewById(R.id.emotion_view1);
-            aVar.kzd = (EmotionView) view.findViewById(R.id.emotion_view2);
-            aVar.kze = (EmotionView) view.findViewById(R.id.emotion_view3);
-            aVar.kzf = (EmotionView) view.findViewById(R.id.emotion_view4);
+            aVar.kze = (EmotionView) view.findViewById(R.id.emotion_view1);
+            aVar.kzf = (EmotionView) view.findViewById(R.id.emotion_view2);
+            aVar.kzg = (EmotionView) view.findViewById(R.id.emotion_view3);
+            aVar.kzh = (EmotionView) view.findViewById(R.id.emotion_view4);
             aVar.initView();
-            u(aVar.kzd, this.jnb);
-            u(aVar.kze, this.jnb);
-            u(aVar.kzf, this.jnb);
+            u(aVar.kzf, this.jnd);
+            u(aVar.kzg, this.jnd);
+            u(aVar.kzh, this.jnd);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -75,16 +75,16 @@ public class d extends BaseAdapter {
                 EmotionImageData emotionImageData = this.mList.get(i3);
                 switch (i3 - i2) {
                     case 0:
-                        a(aVar.kzc, emotionImageData);
-                        continue;
-                    case 1:
-                        a(aVar.kzd, emotionImageData);
-                        continue;
-                    case 2:
                         a(aVar.kze, emotionImageData);
                         continue;
-                    case 3:
+                    case 1:
                         a(aVar.kzf, emotionImageData);
+                        continue;
+                    case 2:
+                        a(aVar.kzg, emotionImageData);
+                        continue;
+                    case 3:
+                        a(aVar.kzh, emotionImageData);
                         continue;
                 }
             }
@@ -93,7 +93,7 @@ public class d extends BaseAdapter {
     }
 
     public void removeListener() {
-        this.kyY = null;
+        this.kza = null;
     }
 
     private void a(EmotionView emotionView, EmotionImageData emotionImageData) {
@@ -101,9 +101,9 @@ public class d extends BaseAdapter {
             emotionView.setTag(emotionView.getId(), emotionImageData);
             emotionView.bXl();
             emotionView.a(emotionImageData);
-            if (this.jZU != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                if (x.isEmpty(this.kyX) || !this.kyX.contains(emotionImageData.getThumbUrl())) {
-                    this.jZU.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
+            if (this.jZW != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                if (x.isEmpty(this.kyZ) || !this.kyZ.contains(emotionImageData.getThumbUrl())) {
+                    this.jZW.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
                 }
             }
         }
@@ -117,8 +117,8 @@ public class d extends BaseAdapter {
                 public void onClick(View view) {
                     Object tag = view.getTag(view.getId());
                     if (tag != null && (tag instanceof EmotionImageData)) {
-                        if (d.this.kyY != null && (view instanceof EmotionView)) {
-                            d.this.kyY.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+                        if (d.this.kza != null && (view instanceof EmotionView)) {
+                            d.this.kza.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
                         }
                         TiebaStatic.log("c12180");
                     }
@@ -133,8 +133,8 @@ public class d extends BaseAdapter {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (d.this.jZU != null) {
-                    for (String str : d.this.jZU) {
+                if (d.this.jZW != null) {
+                    for (String str : d.this.jZW) {
                         if (!TextUtils.isEmpty(str)) {
                             com.baidu.tbadk.imageManager.c.bkk().deletePic(str);
                         }
@@ -155,24 +155,24 @@ public class d extends BaseAdapter {
     }
 
     public void ev(List<String> list) {
-        this.kyX = list;
+        this.kyZ = list;
     }
 
     /* loaded from: classes16.dex */
     class a {
-        public EmotionView kzc;
-        public EmotionView kzd;
         public EmotionView kze;
         public EmotionView kzf;
+        public EmotionView kzg;
+        public EmotionView kzh;
 
         a() {
         }
 
         public void initView() {
-            d.this.l(this.kzc);
-            d.this.l(this.kzd);
             d.this.l(this.kze);
             d.this.l(this.kzf);
+            d.this.l(this.kzg);
+            d.this.l(this.kzh);
         }
     }
 }

@@ -4,7 +4,7 @@ public class e<T> {
     private String mName;
     private int mType;
     private T mValue;
-    private int mil;
+    private int mio;
 
     public e() {
     }
@@ -13,7 +13,7 @@ public class e<T> {
         this.mType = i;
         this.mName = str;
         this.mValue = t;
-        this.mil = i2;
+        this.mio = i2;
     }
 
     public String getName() {
@@ -24,12 +24,12 @@ public class e<T> {
         this.mName = str;
     }
 
-    public int drt() {
-        return this.mil;
+    public int dru() {
+        return this.mio;
     }
 
     public void GD(int i) {
-        this.mil = i;
+        this.mio = i;
     }
 
     public T getValue() {

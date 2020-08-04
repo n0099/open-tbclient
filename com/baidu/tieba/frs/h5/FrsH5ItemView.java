@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class FrsH5ItemView extends FrameLayout {
     private boolean cwf;
-    private final LinearLayout hZk;
+    private final LinearLayout hZm;
     private boolean hasLoaded;
     private boolean isLoading;
     private final View mNoDataView;
@@ -69,23 +69,23 @@ public class FrsH5ItemView extends FrameLayout {
         this.mNoDataView = LayoutInflater.from(context).inflate(R.layout.frs_no_list_item_view, (ViewGroup) this, false);
         this.mNoDataView.setVisibility(8);
         addView(this.mNoDataView);
-        this.hZk = (LinearLayout) inflate(getContext(), R.layout.custom_loading_toast, null);
+        this.hZm = (LinearLayout) inflate(getContext(), R.layout.custom_loading_toast, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds220), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds140);
-        addView(this.hZk, layoutParams);
+        addView(this.hZm, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         this.mNoDataView.setVisibility(8);
-        this.hZk.setVisibility(0);
+        this.hZm.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoading() {
         this.mWebView.setVisibility(0);
-        this.hZk.setVisibility(8);
+        this.hZm.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
@@ -95,7 +95,7 @@ public class FrsH5ItemView extends FrameLayout {
         layoutParams.height = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
         setLayoutParams(layoutParams);
         this.mWebView.setVisibility(8);
-        this.hZk.setVisibility(8);
+        this.hZm.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 

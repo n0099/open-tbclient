@@ -42,7 +42,7 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
                         cVar.hlU = R.dimen.tbds1;
-                        cVar.iFS = R.color.cp_bg_line_b;
+                        cVar.iFU = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }

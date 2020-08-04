@@ -9,26 +9,26 @@ import com.baidu.tieba.R;
 public class f extends ad.a {
     public int aho;
     public View gIw;
-    public BarImageView iLN;
-    public TextView iLO;
-    public TextView iLP;
+    public BarImageView iLP;
     public TextView iLQ;
     public TextView iLR;
     public TextView iLS;
-    public TextView ilo;
-    public TextView ilp;
+    public TextView iLT;
+    public TextView iLU;
+    public TextView ilq;
+    public TextView ilr;
 
     public f(View view) {
         super(view);
         this.aho = 3;
-        this.iLO = (TextView) view.findViewById(R.id.forum_name);
-        this.iLN = (BarImageView) view.findViewById(R.id.forum_avatar);
-        this.iLQ = (TextView) view.findViewById(R.id.member_num_label);
-        this.iLP = (TextView) view.findViewById(R.id.post_num_label);
-        this.ilp = (TextView) view.findViewById(R.id.member_num);
-        this.ilo = (TextView) view.findViewById(R.id.post_num);
-        this.iLR = (TextView) view.findViewById(R.id.forum_content);
-        this.iLS = (TextView) view.findViewById(R.id.forum_add_love);
+        this.iLQ = (TextView) view.findViewById(R.id.forum_name);
+        this.iLP = (BarImageView) view.findViewById(R.id.forum_avatar);
+        this.iLS = (TextView) view.findViewById(R.id.member_num_label);
+        this.iLR = (TextView) view.findViewById(R.id.post_num_label);
+        this.ilr = (TextView) view.findViewById(R.id.member_num);
+        this.ilq = (TextView) view.findViewById(R.id.post_num);
+        this.iLT = (TextView) view.findViewById(R.id.forum_content);
+        this.iLU = (TextView) view.findViewById(R.id.forum_add_love);
         this.gIw = view.findViewById(R.id.forum_item_divider);
     }
 }

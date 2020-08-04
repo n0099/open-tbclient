@@ -3,8 +3,9 @@ package com.baidu.bdhttpdns;
 import com.baidu.bdhttpdns.BDHttpDns;
 import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.bdhttpdns.h;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes9.dex */
-class d implements Runnable {
+public class d implements Runnable {
     final /* synthetic */ BDHttpDns.a abG;
     final /* synthetic */ BDHttpDnsResult.ResolveType abI;
     final /* synthetic */ h.a abJ;

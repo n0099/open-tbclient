@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class a extends BaseAdapter implements BdSwitchView.a {
     private TbPageContext dVN;
     private ArrayList<OfficialAccountPushInfo> dWx;
-    private BdSwitchView.a lAw;
+    private BdSwitchView.a lAy;
 
     public a(TbPageContext tbPageContext) {
         this.dVN = tbPageContext;
@@ -55,45 +55,45 @@ public class a extends BaseAdapter implements BdSwitchView.a {
         if (view == null) {
             view = LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
             c0744a = new C0744a();
-            c0744a.lAx = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            c0744a.lAz = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
             view.setTag(c0744a);
         } else {
             c0744a = (C0744a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (as.isEmpty(officialAccountPushInfo.name)) {
-            c0744a.lAx.setVisibility(8);
+            c0744a.lAz.setVisibility(8);
         } else {
-            c0744a.lAx.setVisibility(0);
-            c0744a.lAx.setText(officialAccountPushInfo.name);
+            c0744a.lAz.setVisibility(0);
+            c0744a.lAz.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.is_on == 1) {
-                c0744a.lAx.getSwitchView().turnOnNoCallback();
+                c0744a.lAz.getSwitchView().turnOnNoCallback();
             } else {
-                c0744a.lAx.getSwitchView().turnOffNoCallback();
+                c0744a.lAz.getSwitchView().turnOffNoCallback();
             }
-            c0744a.lAx.setLineVisibility(true);
-            c0744a.lAx.onChangeSkinType(this.dVN, TbadkCoreApplication.getInst().getSkinType());
-            c0744a.lAx.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0744a.lAx.getSwitchView().setTag(officialAccountPushInfo);
+            c0744a.lAz.setLineVisibility(true);
+            c0744a.lAz.onChangeSkinType(this.dVN, TbadkCoreApplication.getInst().getSkinType());
+            c0744a.lAz.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0744a.lAz.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.lAw = aVar;
+        this.lAy = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.lAw != null) {
-            this.lAw.a(view, switchState);
+        if (this.lAy != null) {
+            this.lAy.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
     public class C0744a {
-        MsgSettingItemView lAx;
+        MsgSettingItemView lAz;
 
         public C0744a() {
         }

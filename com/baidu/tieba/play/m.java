@@ -7,64 +7,64 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class m {
-    private ViewGroup lci;
-    private ImageView lcj;
-    private VideoLoadingProgressView lck;
-    ObjectAnimator lcl;
-    ObjectAnimator lcm;
+    private ViewGroup lck;
+    private ImageView lcl;
+    private VideoLoadingProgressView lcm;
     ObjectAnimator lcn;
+    ObjectAnimator lco;
+    ObjectAnimator lcp;
 
     public m(ViewGroup viewGroup) {
-        this.lci = viewGroup;
-        this.lcj = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.lck = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.lck = viewGroup;
+        this.lcl = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.lcm = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.lcl = ObjectAnimator.ofFloat(this.lcj, "alpha", 1.0f, 0.5f);
-        this.lcm = ObjectAnimator.ofFloat(this.lcj, "alpha", 0.5f, 0.0f);
-        this.lcn = ObjectAnimator.ofFloat(this.lck, "alpha", 1.0f, 0.0f);
-        this.lcl.setDuration(50L);
-        this.lcm.setDuration(50L);
+        this.lcn = ObjectAnimator.ofFloat(this.lcl, "alpha", 1.0f, 0.5f);
+        this.lco = ObjectAnimator.ofFloat(this.lcl, "alpha", 0.5f, 0.0f);
+        this.lcp = ObjectAnimator.ofFloat(this.lcm, "alpha", 1.0f, 0.0f);
         this.lcn.setDuration(50L);
+        this.lco.setDuration(50L);
+        this.lcp.setDuration(50L);
     }
 
     public void startLoading() {
         cancelAnimator();
-        this.lcj.setAlpha(1.0f);
-        this.lck.setAlpha(1.0f);
-        this.lci.setVisibility(0);
-        this.lck.startLoading();
-        this.lcl.start();
+        this.lcl.setAlpha(1.0f);
+        this.lcm.setAlpha(1.0f);
+        this.lck.setVisibility(0);
+        this.lcm.startLoading();
+        this.lcn.start();
     }
 
     public void cYV() {
         cancelAnimator();
-        this.lck.cYV();
+        this.lcm.cYV();
     }
 
     public void cYW() {
         cancelAnimator();
-        this.lcm.start();
-        this.lcn.start();
+        this.lco.start();
+        this.lcp.start();
     }
 
     public void cYX() {
         cancelAnimator();
-        this.lci.setVisibility(8);
-        this.lck.cYX();
+        this.lck.setVisibility(8);
+        this.lcm.cYX();
     }
 
     private void cancelAnimator() {
-        this.lcl.cancel();
-        this.lcm.cancel();
         this.lcn.cancel();
+        this.lco.cancel();
+        this.lcp.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.lck != null) {
-            this.lck.setLoadingAnimationListener(aVar);
+        if (this.lcm != null) {
+            this.lcm.setLoadingAnimationListener(aVar);
         }
     }
 }

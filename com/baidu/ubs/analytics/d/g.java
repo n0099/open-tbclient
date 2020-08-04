@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes6.dex */
 public final class g {
-    private static String[] mNK = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File mNL = null;
-    private static RandomAccessFile mNM = null;
+    private static String[] mNM = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File mNN = null;
+    private static RandomAccessFile mNO = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (dAT() && f(str2, str3)) {
+            if (dAU() && f(str2, str3)) {
                 try {
-                    mNL = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(mNL, "rwd");
-                    mNM = randomAccessFile;
-                    randomAccessFile.seek(mNL.length());
-                    mNM.write((str + "\r\n").getBytes("UTF-8"));
-                    mNM.close();
+                    mNN = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(mNN, "rwd");
+                    mNO = randomAccessFile;
+                    randomAccessFile.seek(mNN.length());
+                    mNO.write((str + "\r\n").getBytes("UTF-8"));
+                    mNO.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -35,14 +35,14 @@ public final class g {
     public static synchronized String R(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (dAT()) {
+            if (dAU()) {
                 if (QU(str + str2)) {
                     try {
-                        mNL = new File(str + str2);
-                        mNM = new RandomAccessFile(mNL, "r");
+                        mNN = new File(str + str2);
+                        mNO = new RandomAccessFile(mNN, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = mNM.readLine();
+                            String readLine = mNO.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -50,14 +50,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            mNM.close();
+                            mNO.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            mNM.close();
+                            mNO.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -71,39 +71,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean dAT() {
+    private static boolean dAU() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dAu().getContext().checkCallingOrSelfPermission(mNK[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dAv().getContext().checkCallingOrSelfPermission(mNM[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
     public static boolean QU(String str) {
         File file = new File(str);
-        mNL = file;
+        mNN = file;
         return file.exists();
     }
 
     public static boolean QV(String str) {
         File file = new File(str);
-        mNL = file;
+        mNN = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            mNL = new File(str);
+            mNN = new File(str);
             if (!QU(str)) {
-                mNL.mkdirs();
+                mNN.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            mNL = file;
+            mNN = file;
             if (file.exists()) {
                 return true;
             }
-            return mNL.createNewFile();
+            return mNN.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

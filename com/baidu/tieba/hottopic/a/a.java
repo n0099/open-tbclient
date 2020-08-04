@@ -9,32 +9,32 @@ import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class a extends ad.a {
     public int aho;
-    public TextView iLj;
-    public TextView iLk;
     public TextView iLl;
     public TextView iLm;
-    public View iLn;
-    public View iLo;
-    public TbImageView iLp;
-    public LinearLayout iLq;
+    public TextView iLn;
+    public TextView iLo;
+    public View iLp;
+    public View iLq;
+    public TbImageView iLr;
+    public LinearLayout iLs;
 
     public a(View view) {
         super(view);
         this.aho = 3;
-        this.iLj = null;
-        this.iLk = null;
         this.iLl = null;
         this.iLm = null;
         this.iLn = null;
         this.iLo = null;
         this.iLp = null;
         this.iLq = null;
-        this.iLj = (TextView) view.findViewById(R.id.topic_module);
-        this.iLl = (TextView) view.findViewById(R.id.topic_desc);
-        this.iLk = (TextView) view.findViewById(R.id.topic_title);
-        this.iLp = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.iLn = view.findViewById(R.id.devide_line_top);
-        this.iLo = view.findViewById(R.id.devide_line_bottom);
-        this.iLq = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.iLr = null;
+        this.iLs = null;
+        this.iLl = (TextView) view.findViewById(R.id.topic_module);
+        this.iLn = (TextView) view.findViewById(R.id.topic_desc);
+        this.iLm = (TextView) view.findViewById(R.id.topic_title);
+        this.iLr = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.iLp = view.findViewById(R.id.devide_line_top);
+        this.iLq = view.findViewById(R.id.devide_line_bottom);
+        this.iLs = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

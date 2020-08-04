@@ -12,15 +12,15 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.livesdk.share.message.AlaShareInBarResponsedMessage;
 /* loaded from: classes4.dex */
 public class AlaShareInBarModel extends BdBaseModel {
-    private a jFn;
-    private final HttpMessageListener jFo = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.1
+    private a jFp;
+    private final HttpMessageListener jFq = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaShareInBarResponsedMessage)) {
                 AlaShareInBarResponsedMessage alaShareInBarResponsedMessage = (AlaShareInBarResponsedMessage) httpResponsedMessage;
-                if (AlaShareInBarModel.this.jFn != null) {
-                    AlaShareInBarModel.this.jFn.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
+                if (AlaShareInBarModel.this.jFp != null) {
+                    AlaShareInBarModel.this.jFp.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
                 }
             }
         }
@@ -33,7 +33,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     public AlaShareInBarModel() {
         cDh();
-        MessageManager.getInstance().registerListener(this.jFo);
+        MessageManager.getInstance().registerListener(this.jFq);
     }
 
     private void cDh() {
@@ -63,11 +63,11 @@ public class AlaShareInBarModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.jFn = aVar;
+        this.jFp = aVar;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        MessageManager.getInstance().unRegisterListener(this.jFo);
+        MessageManager.getInstance().unRegisterListener(this.jFq);
     }
 }

@@ -45,29 +45,29 @@ public class c extends o<PostData, a> {
 
     /* loaded from: classes16.dex */
     public static class a extends ad.a {
-        private TextView kjr;
+        private TextView kjt;
 
         public a(View view) {
             super(view);
-            this.kjr = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.kjt = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.lNB) {
+                if (postData.lND) {
                     Drawable drawable = ao.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.kjr.setCompoundDrawables(null, null, drawable, null);
+                    this.kjt.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ao.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.kjr.setCompoundDrawables(null, null, drawable2, null);
+                this.kjt.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
         public void bgV() {
-            ao.setViewTextColor(this.kjr, R.color.cp_cont_d);
+            ao.setViewTextColor(this.kjt, R.color.cp_cont_d);
         }
     }
 }

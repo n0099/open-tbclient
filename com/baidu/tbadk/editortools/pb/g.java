@@ -204,7 +204,7 @@ public class g extends com.baidu.tbadk.editortools.c {
                                 }
                             case 20:
                                 eVar.biJ().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                                com.baidu.tieba.tbadkCore.location.c.dlM().vo(true);
+                                com.baidu.tieba.tbadkCore.location.c.dlN().vo(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 27:
@@ -286,7 +286,7 @@ public class g extends com.baidu.tbadk.editortools.c {
         arrayList.add(6);
         arrayList.add(9);
         biJ.b(new com.baidu.tbadk.editortools.imagetool.d(biJ.getContext(), 1));
-        if (com.baidu.tieba.tbadkCore.voice.c.dmv() && s.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, biJ.getContext()), com.baidu.tbadk.editortools.l.class)) != null && (lVar = (com.baidu.tbadk.editortools.l) runTask.getData()) != null) {
+        if (com.baidu.tieba.tbadkCore.voice.c.dmw() && s.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, biJ.getContext()), com.baidu.tbadk.editortools.l.class)) != null && (lVar = (com.baidu.tbadk.editortools.l) runTask.getData()) != null) {
             lVar.eAR = 2;
             biJ.b(lVar);
         }

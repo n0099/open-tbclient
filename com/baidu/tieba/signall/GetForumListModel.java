@@ -22,13 +22,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes18.dex */
 public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
-    private static final String lEj = TbConfig.SERVER_ADDRESS + Config.GET_FORUM_LIST;
-    private ResponsedMessage<?> iaW;
-    private c lEg;
-    private a lEh;
-    private HttpMessage lEi;
-    private boolean lEk;
-    private final HttpMessageListener lEl;
+    private static final String lEl = TbConfig.SERVER_ADDRESS + Config.GET_FORUM_LIST;
+    private ResponsedMessage<?> iaY;
+    private c lEi;
+    private a lEj;
+    private HttpMessage lEk;
+    private boolean lEm;
+    private final HttpMessageListener lEn;
     private final BdUniqueId mBdUniqueId;
 
     /* loaded from: classes18.dex */
@@ -40,74 +40,74 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     public GetForumListModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.lEg = null;
-        this.lEh = null;
+        this.lEi = null;
+        this.lEj = null;
         this.mBdUniqueId = BdUniqueId.gen();
-        this.lEl = new HttpMessageListener(1001201) { // from class: com.baidu.tieba.signall.GetForumListModel.1
+        this.lEn = new HttpMessageListener(1001201) { // from class: com.baidu.tieba.signall.GetForumListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
                     int error = httpResponsedMessage.getError();
-                    GetForumListModel.this.iaW = httpResponsedMessage;
+                    GetForumListModel.this.iaY = httpResponsedMessage;
                     if (!httpResponsedMessage.isSuccess()) {
                         if (error == 110001) {
                             GetForumListModel.this.d(httpResponsedMessage);
                         }
-                        GetForumListModel.this.lEh.HM(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.lEj.HM(httpResponsedMessage.getErrorString());
                     } else if (error == 0) {
-                        GetForumListModel.this.lEg = ((GetForumResponsed) httpResponsedMessage).listData;
-                        if (GetForumListModel.this.lEh != null) {
-                            if (GetForumListModel.this.lEg != null) {
-                                GetForumListModel.this.lEh.a(GetForumListModel.this.lEg);
+                        GetForumListModel.this.lEi = ((GetForumResponsed) httpResponsedMessage).listData;
+                        if (GetForumListModel.this.lEj != null) {
+                            if (GetForumListModel.this.lEi != null) {
+                                GetForumListModel.this.lEj.a(GetForumListModel.this.lEi);
                             } else {
                                 String errorString = httpResponsedMessage.getErrorString();
                                 if (StringUtils.isNull(errorString)) {
                                     errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.neterror);
                                 }
-                                GetForumListModel.this.lEh.HM(errorString);
+                                GetForumListModel.this.lEj.HM(errorString);
                             }
                         }
                     } else {
-                        GetForumListModel.this.lEh.HM(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.lEj.HM(httpResponsedMessage.getErrorString());
                     }
-                    GetForumListModel.this.lEi = null;
+                    GetForumListModel.this.lEk = null;
                 }
             }
         };
-        this.lEk = signAllForumActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.lEm = signAllForumActivity.getIntent().getBooleanExtra("member_buy_show", false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.lEg = new c();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001201, lEj);
+        this.lEi = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001201, lEl);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.lEl);
+        registerListener(this.lEn);
     }
 
     public boolean diH() {
-        return this.lEk;
+        return this.lEm;
     }
 
     public void a(a aVar) {
-        this.lEh = aVar;
+        this.lEj = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.lEi != null) {
+        if (this.lEk != null) {
             return false;
         }
-        this.lEi = new HttpMessage(1001201);
+        this.lEk = new HttpMessage(1001201);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
         if (currentAccountObj != null) {
             str = currentAccountObj.getID();
         }
-        this.lEi.addParam("user_id", str);
-        this.lEi.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().sendMessage(this.lEi);
+        this.lEk.addParam("user_id", str);
+        this.lEk.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().sendMessage(this.lEk);
         return true;
     }
 
@@ -136,15 +136,15 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lEi != null) {
+        if (this.lEk != null) {
             MessageManager.getInstance().removeHttpMessage(this.mBdUniqueId);
-            this.lEi = null;
+            this.lEk = null;
         }
         MessageManager.getInstance().unRegisterTask(1001201);
         return true;
     }
 
     public ResponsedMessage<?> chB() {
-        return this.iaW;
+        return this.iaY;
     }
 }

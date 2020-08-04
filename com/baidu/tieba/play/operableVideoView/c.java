@@ -16,9 +16,9 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
 /* loaded from: classes.dex */
 public class c extends d {
-    private VideoSerializeVideoThreadInfo iii;
-    private VideoItemData ldD;
-    private bv ldE;
+    private VideoSerializeVideoThreadInfo iik;
+    private VideoItemData ldF;
+    private bv ldG;
 
     public c(Context context, View view) {
         super(context, view);
@@ -29,25 +29,25 @@ public class c extends d {
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.lev.setOnTouchListener(null);
-        this.lev.setOnClickListener(this);
+        this.lex.setOnTouchListener(null);
+        this.lex.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bv bvVar) {
         super.setData(bvVar);
-        this.ldE = bvVar;
+        this.ldG = bvVar;
         if (this.ajI) {
-            this.ldD = new VideoItemData();
-            this.ldD.buildWithThreadData(bvVar);
+            this.ldF = new VideoItemData();
+            this.ldF.buildWithThreadData(bvVar);
             return;
         }
-        this.iii = new VideoSerializeVideoThreadInfo();
-        this.iii.copyFromThreadInfo(bvVar);
-        this.iii.source = bvVar.mRecomSource;
-        this.iii.extra = bvVar.mRecomExtra;
-        this.iii.ab_tag = bvVar.mRecomAbTag;
-        this.iii.weight = bvVar.mRecomWeight;
+        this.iik = new VideoSerializeVideoThreadInfo();
+        this.iik.copyFromThreadInfo(bvVar);
+        this.iik.source = bvVar.mRecomSource;
+        this.iik.extra = bvVar.mRecomExtra;
+        this.iik.ab_tag = bvVar.mRecomAbTag;
+        this.iik.weight = bvVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
@@ -56,7 +56,7 @@ public class c extends d {
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void cUn() {
-        this.ldX = 32;
+        this.ldZ = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
@@ -67,11 +67,11 @@ public class c extends d {
             } else if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, R.string.no_network_guide);
             } else if (this.ajI) {
-                if (this.ldD != null) {
-                    fh(this.ldD.forum_id, this.ldD.thread_id);
+                if (this.ldF != null) {
+                    fh(this.ldF.forum_id, this.ldF.thread_id);
                 }
-            } else if (this.iii != null) {
-                fh(this.iii.forumId, this.iii.threadId);
+            } else if (this.iik != null) {
+                fh(this.iik.forumId, this.iik.threadId);
             }
         }
     }
@@ -80,10 +80,10 @@ public class c extends d {
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
         pbActivityConfig.createNormalCfg(str2, null, null);
         pbActivityConfig.setForumId(String.valueOf(str));
-        pbActivityConfig.setThreadData(this.ldE);
-        pbActivityConfig.setVideoOriginArea(ax.aW(this.lev));
+        pbActivityConfig.setThreadData(this.ldG);
+        pbActivityConfig.setVideoOriginArea(ax.aW(this.lex));
         pbActivityConfig.setNeedPreLoad(true);
-        k.ak(this.ldE);
+        k.ak(this.ldG);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
         if (this.ahn != null) {
             this.ahn.onClick(cYJ());
@@ -98,13 +98,13 @@ public class c extends d {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void cUl() {
-        if (this.lee == this.ldW) {
+        if (this.leg == this.ldY) {
             cZu();
         }
     }
 
     public void cZu() {
-        Cw(this.ldX);
+        Cw(this.ldZ);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a

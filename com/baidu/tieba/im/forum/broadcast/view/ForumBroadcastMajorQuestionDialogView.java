@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     private TextView bjS;
     private TextView hgC;
-    private TextView iYk;
+    private TextView iYm;
     private Context mContext;
     private LinearLayout mRootView;
 
@@ -23,7 +23,7 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.iYk.setOnClickListener(onClickListener);
+            this.iYm.setOnClickListener(onClickListener);
         }
     }
 
@@ -32,13 +32,13 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         this.mRootView = (LinearLayout) findViewById(R.id.forum_broadcast_question);
         this.bjS = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_title);
         this.hgC = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
-        this.iYk = (TextView) this.mRootView.findViewById(R.id.known_icon);
+        this.iYm = (TextView) this.mRootView.findViewById(R.id.known_icon);
         this.bjS.setText(R.string.subscribe_bar_title);
         this.hgC.setText(R.string.forum_broadcast_major_history_hint);
-        this.iYk.setText(R.string.know);
+        this.iYm.setText(R.string.know);
         ao.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
         ao.setViewTextColor(this.bjS, R.color.cp_cont_b);
         ao.setViewTextColor(this.hgC, R.color.cp_cont_j);
-        ao.setViewTextColor(this.iYk, R.color.cp_link_tip_a);
+        ao.setViewTextColor(this.iYm, R.color.cp_link_tip_a);
     }
 }

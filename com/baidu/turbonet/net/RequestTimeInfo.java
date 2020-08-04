@@ -1,25 +1,25 @@
 package com.baidu.turbonet.net;
 /* loaded from: classes19.dex */
 public final class RequestTimeInfo {
-    private final long mHZ;
-    private final long mIa;
-    private final long mJZ;
-    private final long mKa;
+    private final long mIb;
+    private final long mIc;
     private final long mKb;
+    private final long mKc;
+    private final long mKd;
 
     public RequestTimeInfo() {
-        this.mJZ = 0L;
-        this.mKa = 0L;
         this.mKb = 0L;
-        this.mHZ = 0L;
-        this.mIa = 0L;
+        this.mKc = 0L;
+        this.mKd = 0L;
+        this.mIb = 0L;
+        this.mIc = 0L;
     }
 
     public RequestTimeInfo(long j, long j2, long j3, long j4, long j5) {
-        this.mJZ = j;
-        this.mKa = j2;
-        this.mKb = j3;
-        this.mHZ = j4;
-        this.mIa = j5;
+        this.mKb = j;
+        this.mKc = j2;
+        this.mKd = j3;
+        this.mIb = j4;
+        this.mIc = j5;
     }
 }

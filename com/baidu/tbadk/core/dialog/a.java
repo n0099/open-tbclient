@@ -559,6 +559,10 @@ public class a {
         this.isAutoNight = z;
     }
 
+    public Window getWindow() {
+        return this.mDialog.getWindow();
+    }
+
     public void setOnlyMessageShowCenter(boolean z) {
         this.isOnlyMessageShowCenter = z;
     }

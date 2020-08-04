@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes16.dex */
 public class a {
-    private static final String kfE = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String kfG = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes16.dex */
     public interface b {
@@ -28,8 +28,8 @@ public class a {
     private static class C0712a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String ets;
         private String etw;
-        private String kfF;
-        private WeakReference<b> kfG;
+        private String kfH;
+        private WeakReference<b> kfI;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -42,12 +42,12 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.kfF = str6;
+            this.kfH = str6;
             this.etw = str8;
             this.ets = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.kfG = new WeakReference<>(bVar);
+            this.kfI = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -56,8 +56,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: K */
         public ForbidResultData doInBackground(String... strArr) {
-            z zVar = new z(a.kfE);
-            zVar.addPostData("day", this.kfF);
+            z zVar = new z(a.kfG);
+            zVar.addPostData("day", this.kfH);
             zVar.addPostData("un", this.mUserName);
             zVar.addPostData("fid", this.mForumId);
             zVar.addPostData("word", this.mForumName);
@@ -91,7 +91,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.kfG.get();
+            b bVar = this.kfI.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && as.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

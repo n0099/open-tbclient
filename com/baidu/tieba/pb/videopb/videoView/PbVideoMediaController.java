@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 /* loaded from: classes16.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
-    private ProgressBar kIL;
+    private ProgressBar kIN;
 
     public PbVideoMediaController(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     }
 
     private void init() {
-        this.kIL = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+        this.kIN = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
@@ -40,13 +40,13 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     @Override // com.baidu.tieba.play.VideoControllerView
     public void bq(int i, int i2) {
         super.bq(i, i2);
-        this.kIL.setProgress(this.fdP.getProgress());
+        this.kIN.setProgress(this.fdP.getProgress());
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void azZ() {
         super.azZ();
-        this.kIL.setProgress(0);
+        this.kIN.setProgress(0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -58,19 +58,19 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
                 this.fdN.setText(as.stringForVideoTime(i));
             }
         }
-        this.kIL.setProgress(this.fdP.getProgress());
+        this.kIN.setProgress(this.fdP.getProgress());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.VideoControllerView
     public int bss() {
         int bss = super.bss();
-        this.kIL.setProgress(this.fdP.getProgress());
+        this.kIN.setProgress(this.fdP.getProgress());
         return bss;
     }
 
     public void setBottomBarShow(boolean z) {
-        this.kIL.setVisibility(z ? 0 : 8);
+        this.kIN.setVisibility(z ? 0 : 8);
         this.fdP.setVisibility(z ? 8 : 0);
         this.fdN.setVisibility(z ? 8 : 0);
         this.fdO.setVisibility(z ? 8 : 0);

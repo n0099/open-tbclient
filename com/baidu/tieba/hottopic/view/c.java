@@ -35,20 +35,20 @@ public class c {
     private CustomViewPager dYQ;
     private NoNetworkView fqQ;
     private NoNetworkView.a hCK;
-    public ImageView hNc;
-    private ImageView iEP;
-    private RelativeLayout iMM;
-    private NavigationBar iMN;
-    private ImageView iMO;
-    private e iMP;
-    private HotTopicHeaderView iMQ;
-    private HotTopicThreadPagerAdapter iMR;
-    private DisableScrollLayout iMS;
-    private int iMT;
-    private TextView iMU;
-    private com.baidu.tieba.hottopic.controller.c iMV;
-    private boolean iMX;
-    private float iMY;
+    public ImageView hNe;
+    private ImageView iER;
+    private RelativeLayout iMO;
+    private NavigationBar iMP;
+    private ImageView iMQ;
+    private e iMR;
+    private HotTopicHeaderView iMS;
+    private HotTopicThreadPagerAdapter iMT;
+    private DisableScrollLayout iMU;
+    private int iMV;
+    private TextView iMW;
+    private com.baidu.tieba.hottopic.controller.c iMX;
+    private boolean iMZ;
+    private float iNa;
     private NavigationBar mNavigationBar;
     private int mNavigationBarHeight;
     private String mTopicId;
@@ -56,33 +56,33 @@ public class c {
         @Override // com.baidu.tbadk.widget.layout.e
         public void d(View view, int i, int i2, int i3, int i4) {
             c.this.mNavigationBarHeight = i2;
-            if (c.this.iMQ != null) {
-                c.this.iMQ.yb(i2);
+            if (c.this.iMS != null) {
+                c.this.iMS.yb(i2);
             }
         }
     };
-    private final com.baidu.tbadk.widget.layout.e iMW = new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.hottopic.view.c.2
+    private final com.baidu.tbadk.widget.layout.e iMY = new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.hottopic.view.c.2
         @Override // com.baidu.tbadk.widget.layout.e
         public void d(View view, int i, int i2, int i3, int i4) {
             c.this.cEo = i2;
-            c.this.iMR.xR(i2);
-            c.this.iMS.setHeaderViewHeight(i2);
+            c.this.iMT.xR(i2);
+            c.this.iMU.setHeaderViewHeight(i2);
         }
     };
-    private boolean iMZ = false;
-    private a iIs = new a() { // from class: com.baidu.tieba.hottopic.view.c.5
+    private boolean iNb = false;
+    private a iIu = new a() { // from class: com.baidu.tieba.hottopic.view.c.5
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            HotTopicView coA = c.this.iMR.coA();
+            HotTopicView coA = c.this.iMT.coA();
             if (coA != null && absListView == coA.getListView() && i == 0) {
-                c.this.iMX = true;
-                float y = c.this.iMQ.getY();
-                if (c.this.iMR != null) {
-                    if (Math.abs(c.this.iMY) != c.this.cpD() || c.this.iMY == y) {
-                        c.this.iMR.xV((int) (c.this.iMY - y));
+                c.this.iMZ = true;
+                float y = c.this.iMS.getY();
+                if (c.this.iMT != null) {
+                    if (Math.abs(c.this.iNa) != c.this.cpD() || c.this.iNa == y) {
+                        c.this.iMT.xV((int) (c.this.iNa - y));
                         return;
                     }
-                    c.this.iMR.am(y);
+                    c.this.iMT.am(y);
                     c.this.mNavigationBar.hideBottomLine();
                 }
             }
@@ -91,30 +91,30 @@ public class c {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             HotTopicActivity hotTopicActivity;
-            HotTopicView coA = c.this.iMR.coA();
+            HotTopicView coA = c.this.iMT.coA();
             if (coA != null) {
                 if (absListView == coA.getListView()) {
-                    if (c.this.iMP != null) {
-                        c.this.iMP.yf(i);
+                    if (c.this.iMR != null) {
+                        c.this.iMR.yf(i);
                     }
                     c.this.cpE();
                 }
-                if (c.this.iMR != null && c.this.iMQ.getNavigationBarSwitchHeight() != c.this.mNavigationBarHeight) {
-                    if (c.this.iMZ) {
-                        float navigationBarSwitchHeight = (-c.this.iMQ.getY()) / (c.this.iMQ.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight);
+                if (c.this.iMT != null && c.this.iMS.getNavigationBarSwitchHeight() != c.this.mNavigationBarHeight) {
+                    if (c.this.iNb) {
+                        float navigationBarSwitchHeight = (-c.this.iMS.getY()) / (c.this.iMS.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight);
                         c.this.mNavigationBar.setAlpha(1.0f - navigationBarSwitchHeight);
-                        c.this.iMN.setAlpha(navigationBarSwitchHeight);
-                        if (c.this.iMU != null) {
-                            c.this.iMU.setAlpha((-c.this.iMQ.getY()) / (c.this.iMQ.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight));
+                        c.this.iMP.setAlpha(navigationBarSwitchHeight);
+                        if (c.this.iMW != null) {
+                            c.this.iMW.setAlpha((-c.this.iMS.getY()) / (c.this.iMS.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight));
                         }
                     } else {
-                        if (c.this.iMU != null) {
-                            c.this.iMU.setAlpha((-c.this.iMQ.getY()) / (c.this.iMQ.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight));
+                        if (c.this.iMW != null) {
+                            c.this.iMW.setAlpha((-c.this.iMS.getY()) / (c.this.iMS.getNavigationBarSwitchHeight() - c.this.mNavigationBarHeight));
                         }
-                        if (Math.abs(c.this.iMY) == c.this.cpD()) {
-                            c.this.iMN.hideBottomLine();
+                        if (Math.abs(c.this.iNa) == c.this.cpD()) {
+                            c.this.iMP.hideBottomLine();
                         } else {
-                            c.this.iMN.showBottomLine();
+                            c.this.iMP.showBottomLine();
                         }
                     }
                 }
@@ -134,21 +134,21 @@ public class c {
     private void initView() {
         if (this.dVN != null) {
             this.dVN.getOrignalPage().setContentView(R.layout.hot_topic_activity);
-            this.iMT = l.getDimens(this.dVN.getPageActivity(), R.dimen.ds80);
-            this.iMV = new com.baidu.tieba.hottopic.controller.c((OvalActionButton) this.dVN.getOrignalPage().findViewById(R.id.topic_post_forum_button), this.dVN);
-            this.iMV.setTopicId(this.mTopicId);
-            this.iMM = (RelativeLayout) this.dVN.getOrignalPage().findViewById(R.id.hot_topic_root_view);
-            this.iMS = (DisableScrollLayout) this.iMM.findViewById(R.id.disable_scroll_layout);
+            this.iMV = l.getDimens(this.dVN.getPageActivity(), R.dimen.ds80);
+            this.iMX = new com.baidu.tieba.hottopic.controller.c((OvalActionButton) this.dVN.getOrignalPage().findViewById(R.id.topic_post_forum_button), this.dVN);
+            this.iMX.setTopicId(this.mTopicId);
+            this.iMO = (RelativeLayout) this.dVN.getOrignalPage().findViewById(R.id.hot_topic_root_view);
+            this.iMU = (DisableScrollLayout) this.iMO.findViewById(R.id.disable_scroll_layout);
             this.mNavigationBar = (NavigationBar) this.dVN.getOrignalPage().findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.hideBottomLine();
-            this.iMN = (NavigationBar) this.dVN.getOrignalPage().findViewById(R.id.view_navigation_bar_after_scroll);
-            this.iMU = this.iMN.setCenterTextTitle("");
-            this.iMU.setAlpha(0.0f);
-            this.iMN.hideBottomLine();
+            this.iMP = (NavigationBar) this.dVN.getOrignalPage().findViewById(R.id.view_navigation_bar_after_scroll);
+            this.iMW = this.iMP.setCenterTextTitle("");
+            this.iMW.setAlpha(0.0f);
+            this.iMP.hideBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ao.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.selector_topbar_return_white);
-            this.iMN.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.iEP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.c.3
+            this.iMP.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.iER = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!j.isNetWorkAvailable()) {
@@ -162,7 +162,7 @@ public class c {
                     }
                 }
             });
-            this.iMO = (ImageView) this.iMN.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.c.4
+            this.iMQ = (ImageView) this.iMP.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!j.isNetWorkAvailable()) {
@@ -176,101 +176,101 @@ public class c {
                     }
                 }
             });
-            this.fqQ = (NoNetworkView) this.iMM.findViewById(R.id.view_no_network);
-            ((ObservedChangeLinearLayout) this.iMM.findViewById(R.id.hot_topic_observed_change_layout)).setOnSizeChangeListener(this.eSb);
-            this.iMP = new e(this.dVN, this.iMM);
-            this.iMQ = (HotTopicHeaderView) this.iMM.findViewById(R.id.hot_topic_header);
-            this.iMQ.setOnSizeChangeListener(this.iMW);
-            this.dYQ = (CustomViewPager) this.iMM.findViewById(R.id.hot_topic_view_pager);
-            this.iMR = new HotTopicThreadPagerAdapter(this.dVN.getPageActivity(), this.iIs);
-            this.iMR.setMainView(this);
-            this.dYQ.setAdapter(this.iMR);
-            this.iMQ.setViewPager(this.dYQ);
-            this.iMQ.setHeaderBottomLineShow(false);
-            this.hNc = (ImageView) this.iMM.findViewById(R.id.normal_write_icon);
-            this.hNc.setVisibility(8);
+            this.fqQ = (NoNetworkView) this.iMO.findViewById(R.id.view_no_network);
+            ((ObservedChangeLinearLayout) this.iMO.findViewById(R.id.hot_topic_observed_change_layout)).setOnSizeChangeListener(this.eSb);
+            this.iMR = new e(this.dVN, this.iMO);
+            this.iMS = (HotTopicHeaderView) this.iMO.findViewById(R.id.hot_topic_header);
+            this.iMS.setOnSizeChangeListener(this.iMY);
+            this.dYQ = (CustomViewPager) this.iMO.findViewById(R.id.hot_topic_view_pager);
+            this.iMT = new HotTopicThreadPagerAdapter(this.dVN.getPageActivity(), this.iIu);
+            this.iMT.setMainView(this);
+            this.dYQ.setAdapter(this.iMT);
+            this.iMS.setViewPager(this.dYQ);
+            this.iMS.setHeaderBottomLineShow(false);
+            this.hNe = (ImageView) this.iMO.findViewById(R.id.normal_write_icon);
+            this.hNe.setVisibility(8);
         }
     }
 
     public void a(int i, boolean z, long j, int i2) {
-        this.iMP.a(i, z, j, i2);
+        this.iMR.a(i, z, j, i2);
     }
 
     public void b(View.OnTouchListener onTouchListener) {
-        if (onTouchListener != null && this.hNc != null) {
-            this.hNc.setOnTouchListener(onTouchListener);
+        if (onTouchListener != null && this.hNe != null) {
+            this.hNe.setOnTouchListener(onTouchListener);
         }
     }
 
     public View cpv() {
-        return this.iMM;
+        return this.iMO;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mNavigationBar != null && this.iMZ) {
+        if (this.mNavigationBar != null && this.iNb) {
             this.mNavigationBar.onChangeSkinType(this.dVN, i);
             this.mNavigationBar.setBackgroundResource(R.drawable.black_alpha_from_30_to_0);
             ao.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.selector_topbar_return_white);
-            this.mNavigationBar.setAlpha((this.iMQ.getY() / (this.iMQ.getNavigationBarSwitchHeight() - this.mNavigationBarHeight)) + 1.0f);
+            this.mNavigationBar.setAlpha((this.iMS.getY() / (this.iMS.getNavigationBarSwitchHeight() - this.mNavigationBarHeight)) + 1.0f);
         }
-        if (this.iMN != null) {
-            this.iMN.onChangeSkinType(this.dVN, i);
-            if (this.iMZ) {
-                this.iMN.setAlpha((-this.iMQ.getY()) / (this.iMQ.getNavigationBarSwitchHeight() - this.mNavigationBarHeight));
+        if (this.iMP != null) {
+            this.iMP.onChangeSkinType(this.dVN, i);
+            if (this.iNb) {
+                this.iMP.setAlpha((-this.iMS.getY()) / (this.iMS.getNavigationBarSwitchHeight() - this.mNavigationBarHeight));
             } else {
-                this.iMN.setAlpha(1.0f);
+                this.iMP.setAlpha(1.0f);
             }
         }
         if (this.fqQ != null) {
             this.fqQ.onChangeSkinType(this.dVN, i);
         }
-        if (this.iMO != null) {
-            SvgManager.baR().a(this.iMO, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-        if (this.iEP != null) {
-            SvgManager.baR().a(this.iEP, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
         if (this.iMQ != null) {
-            this.iMQ.onChangeSkinType();
+            SvgManager.baR().a(this.iMQ, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        if (this.iMR != null) {
-            this.iMR.onChangeSkinType(i);
+        if (this.iER != null) {
+            SvgManager.baR().a(this.iER, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        if (this.hNc != null) {
-            ao.setBackgroundResource(this.hNc, R.drawable.icon_tabbar_chaticon_n);
-            ao.setImageResource(this.hNc, R.drawable.icon_tabbar_add_n);
+        if (this.iMS != null) {
+            this.iMS.onChangeSkinType();
+        }
+        if (this.iMT != null) {
+            this.iMT.onChangeSkinType(i);
+        }
+        if (this.hNe != null) {
+            ao.setBackgroundResource(this.hNe, R.drawable.icon_tabbar_chaticon_n);
+            ao.setImageResource(this.hNe, R.drawable.icon_tabbar_add_n);
         }
     }
 
     public void c(com.baidu.tieba.hottopic.data.e eVar) {
         if (eVar != null && eVar.cpf() != null) {
-            if (!this.iMQ.cpB()) {
-                this.iMQ.setData(eVar.cpf());
+            if (!this.iMS.cpB()) {
+                this.iMS.setData(eVar.cpf());
             }
             if (eVar.cpf() != null) {
-                this.iMZ = !StringUtils.isNull(eVar.cpf().iKn);
-                this.mNavigationBar.setVisibility(this.iMZ ? 0 : 8);
-                if (!this.iMZ) {
-                    this.iMN.setAlpha(1.0f);
-                    this.iMN.showBottomLine();
+                this.iNb = !StringUtils.isNull(eVar.cpf().iKp);
+                this.mNavigationBar.setVisibility(this.iNb ? 0 : 8);
+                if (!this.iNb) {
+                    this.iMP.setAlpha(1.0f);
+                    this.iMP.showBottomLine();
                 }
             }
             String str = eVar.cpf().dQI;
             if (StringUtils.isNull(str)) {
-                this.hNc.setVisibility(8);
+                this.hNe.setVisibility(8);
                 GX("");
             } else {
                 GX(com.baidu.tieba.hottopic.b.a.aO(str, 10));
             }
-            this.iMQ.setHeaderBottomLineShow(true);
+            this.iMS.setHeaderBottomLineShow(true);
         }
     }
 
     private void GX(String str) {
-        if (this.iMU != null) {
-            this.iMU.setText(str);
-        } else if (this.iMN != null) {
-            this.iMU = this.iMN.setCenterTextTitle(str);
+        if (this.iMW != null) {
+            this.iMW.setText(str);
+        } else if (this.iMP != null) {
+            this.iMW = this.iMP.setCenterTextTitle(str);
         }
     }
 
@@ -289,32 +289,32 @@ public class c {
     }
 
     public void yc(int i) {
-        this.iMQ.setVisibility(i);
+        this.iMS.setVisibility(i);
         this.dYQ.setVisibility(i);
     }
 
     public void bwX() {
-        this.iMR.bwX();
+        this.iMT.bwX();
     }
 
     public void showLoadingView() {
-        this.iMR.showLoadingView();
+        this.iMT.showLoadingView();
     }
 
     public void cpx() {
-        this.iMR.pp(false);
+        this.iMT.pp(false);
     }
 
     public void dn(List<com.baidu.tieba.hottopic.data.e> list) {
-        this.iMR.dj(list);
+        this.iMT.dj(list);
     }
 
     public void destroy() {
-        if (this.iMR != null) {
-            this.iMR.destroy();
+        if (this.iMT != null) {
+            this.iMT.destroy();
         }
-        if (this.iMP != null) {
-            this.iMP.clearAnimation();
+        if (this.iMR != null) {
+            this.iMR.clearAnimation();
         }
         if (this.fqQ != null && this.hCK != null) {
             this.fqQ.b(this.hCK);
@@ -322,14 +322,14 @@ public class c {
     }
 
     public void resume() {
-        if (this.iMR != null) {
-            this.iMR.resume();
+        if (this.iMT != null) {
+            this.iMT.resume();
         }
     }
 
     public void pause() {
-        if (this.iMR != null) {
-            this.iMR.pause();
+        if (this.iMT != null) {
+            this.iMT.pause();
         }
     }
 
@@ -344,49 +344,49 @@ public class c {
     }
 
     public HotTopicView cpC() {
-        return this.iMR.coA();
+        return this.iMT.coA();
     }
 
     public int cpD() {
-        return (this.cEo - this.iMT) - this.mNavigationBarHeight;
+        return (this.cEo - this.iMV) - this.mNavigationBarHeight;
     }
 
     public void xS(int i) {
-        if (this.iMR != null) {
-            this.iMR.xS(i);
+        if (this.iMT != null) {
+            this.iMT.xS(i);
         }
     }
 
     public void xT(int i) {
-        if (this.iMR != null) {
-            this.iMR.xT(i);
+        if (this.iMT != null) {
+            this.iMT.xT(i);
         }
     }
 
     public void xU(int i) {
-        if (this.iMR != null) {
-            this.iMR.xU(i);
+        if (this.iMT != null) {
+            this.iMT.xU(i);
         }
     }
 
     public void a(AbsListView absListView, int i) {
         HotTopicView coA;
-        if (this.iMQ != null && this.iMS != null && (coA = this.iMR.coA()) != null && coA.getListView() != null && absListView == coA.getListView()) {
-            this.iMS.setHeaderViewHeight(this.cEo - i);
-            this.iMQ.setY(-i);
+        if (this.iMS != null && this.iMU != null && (coA = this.iMT.coA()) != null && coA.getListView() != null && absListView == coA.getListView()) {
+            this.iMU.setHeaderViewHeight(this.cEo - i);
+            this.iMS.setY(-i);
             if (i == 0) {
-                this.iMS.hW(false);
+                this.iMU.hW(false);
             } else {
-                this.iMS.hW(true);
+                this.iMU.hW(true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cpE() {
-        if (this.iMX) {
-            this.iMY = this.iMQ.getY();
-            this.iMX = false;
+        if (this.iMZ) {
+            this.iNa = this.iMS.getY();
+            this.iMZ = false;
         }
     }
 
@@ -397,7 +397,7 @@ public class c {
     }
 
     public HotTopicHeaderView cpF() {
-        return this.iMQ;
+        return this.iMS;
     }
 
     public int cpG() {

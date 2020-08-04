@@ -17,8 +17,8 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
     private static final int eUa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int kjp = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int kYx = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int kjr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int kYz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<q> eG(List<q> list) {
         bv bvVar;
@@ -115,8 +115,8 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!x.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = kYx;
-            kVar.paddingTop = kjp;
+            kVar.paddingBottom = kYz;
+            kVar.paddingTop = kjr;
             kVar.paddingLeft = eUa;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);

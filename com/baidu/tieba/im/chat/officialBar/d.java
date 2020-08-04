@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /* loaded from: classes20.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<com.baidu.tbadk.mvc.b.a> agL = new ArrayList<>();
-    private c iSU;
+    private c iSW;
     private TbPageContext<?> mPageContext;
 
     /* loaded from: classes20.dex */
@@ -28,7 +28,7 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbPageContext<?> tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.iSU = cVar;
+        this.iSW = cVar;
     }
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
@@ -70,47 +70,47 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* loaded from: classes20.dex */
     class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private BarImageView iSX;
-        private View iSY;
-        private a iSZ;
-        private TextView ijr;
+        private BarImageView iSZ;
+        private View iTa;
+        private a iTb;
+        private TextView ijt;
 
         b(View view) {
             super(view);
-            this.iSX = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.ijr = (TextView) view.findViewById(R.id.official_bar_name);
-            this.iSY = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.iSX.setShowOval(true);
-            this.iSX.setPlaceHolder(2);
-            this.iSX.setShowOuterBorder(false);
-            this.iSX.setShowInnerBorder(true);
-            this.iSX.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.iSZ = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.ijt = (TextView) view.findViewById(R.id.official_bar_name);
+            this.iTa = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.iSZ.setShowOval(true);
+            this.iSZ.setPlaceHolder(2);
+            this.iSZ.setShowOuterBorder(false);
+            this.iSZ.setShowInnerBorder(true);
+            this.iSZ.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.iSZ = (a) aVar;
-            ao.setViewTextColor(this.ijr, R.color.cp_cont_b);
-            ao.setBackgroundResource(this.iSY, R.drawable.icon_official_bar_red_dot);
-            this.iSX.setStrokeColorResId(R.color.cp_border_a);
-            this.iSX.startLoad(this.iSZ.crm(), 10, false);
-            if (as.getChineseAndEnglishLength(this.iSZ.crn()) <= 10) {
-                this.ijr.setText(this.iSZ.crn());
+            this.iTb = (a) aVar;
+            ao.setViewTextColor(this.ijt, R.color.cp_cont_b);
+            ao.setBackgroundResource(this.iTa, R.drawable.icon_official_bar_red_dot);
+            this.iSZ.setStrokeColorResId(R.color.cp_border_a);
+            this.iSZ.startLoad(this.iTb.crm(), 10, false);
+            if (as.getChineseAndEnglishLength(this.iTb.crn()) <= 10) {
+                this.ijt.setText(this.iTb.crn());
             } else {
-                this.ijr.setText(as.cutChineseAndEnglishWithSuffix(this.iSZ.crn(), 8, StringHelper.STRING_MORE));
+                this.ijt.setText(as.cutChineseAndEnglishWithSuffix(this.iTb.crn(), 8, StringHelper.STRING_MORE));
             }
-            this.iSX.setOnClickListener(this);
-            if (this.iSZ.getUnReadCount() > 0 && (this.iSZ.cro() <= 0 || System.currentTimeMillis() - this.iSZ.cro() < 864000000)) {
-                this.iSY.setVisibility(0);
+            this.iSZ.setOnClickListener(this);
+            if (this.iTb.getUnReadCount() > 0 && (this.iTb.cro() <= 0 || System.currentTimeMillis() - this.iTb.cro() < 864000000)) {
+                this.iTa.setVisibility(0);
             } else {
-                this.iSY.setVisibility(8);
+                this.iTa.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.iSY.setVisibility(8);
-            if (d.this.iSU != null) {
-                d.this.iSU.a(view, this.iSZ, getAdapterPosition(), getItemId());
+            this.iTa.setVisibility(8);
+            if (d.this.iSW != null) {
+                d.this.iSW.a(view, this.iTb, getAdapterPosition(), getItemId());
             }
         }
     }
@@ -120,18 +120,18 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class a implements com.baidu.tbadk.mvc.b.a {
         private long ciw;
         private long groupId;
-        private String iSV;
-        private String iSW;
+        private String iSX;
+        private String iSY;
         private int unReadCount;
         private int userType;
 
         String crm() {
-            return this.iSV;
+            return this.iSX;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public String crn() {
-            return this.iSW;
+            return this.iSY;
         }
 
         int getUnReadCount() {
@@ -140,12 +140,12 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void Hf(String str) {
-            this.iSV = str;
+            this.iSX = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void Hg(String str) {
-            this.iSW = str;
+            this.iSY = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */

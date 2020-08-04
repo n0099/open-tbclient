@@ -64,9 +64,9 @@ public final class OnErrorThrowable extends RuntimeException {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes6.dex */
         public static final class a {
-            static final Set<Class<?>> ojR = dXR();
+            static final Set<Class<?>> ojT = dXS();
 
-            private static Set<Class<?>> dXR() {
+            private static Set<Class<?>> dXS() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.ojR.contains(obj.getClass())) {
+            if (a.ojT.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,7 +109,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String cd = f.dYK().dYL().cd(obj);
+            String cd = f.dYL().dYM().cd(obj);
             return cd != null ? cd : obj.getClass().getName() + ".class";
         }
     }

@@ -3,10 +3,10 @@ package com.tb.airbnb.lottie.model.content;
 import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes5.dex */
 public class ShapeTrimPath implements b {
-    private final Type nOE;
-    private final com.tb.airbnb.lottie.model.a.b nPK;
-    private final com.tb.airbnb.lottie.model.a.b nPN;
-    private final com.tb.airbnb.lottie.model.a.b nPO;
+    private final Type nOG;
+    private final com.tb.airbnb.lottie.model.a.b nPM;
+    private final com.tb.airbnb.lottie.model.a.b nPP;
+    private final com.tb.airbnb.lottie.model.a.b nPQ;
     private final String name;
 
     /* loaded from: classes5.dex */
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.nOE = type;
-        this.nPN = bVar;
-        this.nPO = bVar2;
-        this.nPK = bVar3;
+        this.nOG = type;
+        this.nPP = bVar;
+        this.nPQ = bVar2;
+        this.nPM = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dQS() {
-        return this.nOE;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b dRK() {
-        return this.nPO;
+    public Type dQT() {
+        return this.nOG;
     }
 
     public com.tb.airbnb.lottie.model.a.b dRL() {
-        return this.nPN;
+        return this.nPQ;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dRG() {
-        return this.nPK;
+    public com.tb.airbnb.lottie.model.a.b dRM() {
+        return this.nPP;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b dRH() {
+        return this.nPM;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.nPN + ", end: " + this.nPO + ", offset: " + this.nPK + "}";
+        return "Trim Path: {start: " + this.nPP + ", end: " + this.nPQ + ", offset: " + this.nPM + "}";
     }
 }

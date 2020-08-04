@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes16.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i>> {
-    private com.baidu.tieba.card.i hVh;
+    private com.baidu.tieba.card.i hVj;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
@@ -26,8 +26,8 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.i> b(ViewGroup viewGroup) {
-        this.hVh = new com.baidu.tieba.card.i(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.hVh);
+        this.hVj = new com.baidu.tieba.card.i(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.hVj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

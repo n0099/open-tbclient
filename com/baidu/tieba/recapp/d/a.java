@@ -14,25 +14,25 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a lqQ;
+    private static a lqS;
     private String latitude;
     private String longitude;
-    private String lqO;
-    private String lqP = b.aZP().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
+    private String lqQ;
+    private String lqR = b.aZP().getString(SharedPrefConfig.ASP_SHOWN_INFO, "");
     private long saveTime;
 
     private a() {
     }
 
     public static a dcN() {
-        if (lqQ == null) {
+        if (lqS == null) {
             synchronized (c.class) {
-                if (lqQ == null) {
-                    lqQ = new a();
+                if (lqS == null) {
+                    lqS = new a();
                 }
             }
         }
-        return lqQ;
+        return lqS;
     }
 
     public void Ho(String str) {
@@ -48,27 +48,27 @@ public class a {
     }
 
     private String dcO() {
-        if (TextUtils.isEmpty(this.lqO)) {
+        if (TextUtils.isEmpty(this.lqQ)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.lqO = connectionInfo.getBSSID();
+                this.lqQ = connectionInfo.getBSSID();
             } else {
-                this.lqO = "";
+                this.lqQ = "";
             }
         }
-        return this.lqO;
+        return this.lqQ;
     }
 
     public void MB(String str) {
-        this.lqO = str;
+        this.lqQ = str;
     }
 
     public void MC(String str) {
-        this.lqP = str;
+        this.lqR = str;
     }
 
     public void dcP() {
-        b.aZP().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.lqP);
+        b.aZP().putString(SharedPrefConfig.ASP_SHOWN_INFO, this.lqR);
     }
 
     public AppPosInfo dcQ() {
@@ -79,14 +79,14 @@ public class a {
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.lqP;
-        MercatorModel.MercatorData mercatorData = MercatorModel.dme().getMercatorData();
+        builder.asp_shown_info = this.lqR;
+        MercatorModel.MercatorData mercatorData = MercatorModel.dmf().getMercatorData();
         if (mercatorData != null) {
-            builder.mercator_lat = mercatorData.dmg();
-            builder.mercator_lon = mercatorData.dmf();
-            builder.mercator_city = Integer.valueOf(mercatorData.dmi());
-            builder.mercator_radius = mercatorData.dmh();
-            builder.mercator_time = Long.valueOf(mercatorData.dmj());
+            builder.mercator_lat = mercatorData.dmh();
+            builder.mercator_lon = mercatorData.dmg();
+            builder.mercator_city = Integer.valueOf(mercatorData.dmj());
+            builder.mercator_radius = mercatorData.dmi();
+            builder.mercator_time = Long.valueOf(mercatorData.dmk());
         }
         return builder.build(false);
     }
@@ -109,14 +109,14 @@ public class a {
         }
         builder.addr_timestamp = Long.valueOf(this.saveTime);
         builder.coordinate_type = "BD09LL";
-        builder.asp_shown_info = this.lqP;
-        MercatorModel.MercatorData mercatorData = MercatorModel.dme().getMercatorData();
+        builder.asp_shown_info = this.lqR;
+        MercatorModel.MercatorData mercatorData = MercatorModel.dmf().getMercatorData();
         if (mercatorData != null) {
-            builder.mercator_lat = mercatorData.dmg();
-            builder.mercator_lon = mercatorData.dmf();
-            builder.mercator_city = Integer.valueOf(mercatorData.dmi());
-            builder.mercator_radius = mercatorData.dmh();
-            builder.mercator_time = Long.valueOf(mercatorData.dmj());
+            builder.mercator_lat = mercatorData.dmh();
+            builder.mercator_lon = mercatorData.dmg();
+            builder.mercator_city = Integer.valueOf(mercatorData.dmj());
+            builder.mercator_radius = mercatorData.dmi();
+            builder.mercator_time = Long.valueOf(mercatorData.dmk());
         }
         return builder.build(false);
     }

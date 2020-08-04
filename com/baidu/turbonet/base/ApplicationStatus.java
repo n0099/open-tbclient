@@ -13,13 +13,13 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes19.dex */
 public class ApplicationStatus {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object mFV;
-    private static Integer mFW;
-    private static Activity mFX;
-    private static c mFY;
-    private static final Map<Activity, a> mFZ;
-    private static final com.baidu.turbonet.base.b<b> mGa;
-    private static final com.baidu.turbonet.base.b<c> mGb;
+    private static Object mFX;
+    private static Integer mFY;
+    private static Activity mFZ;
+    private static c mGa;
+    private static final Map<Activity, a> mGb;
+    private static final com.baidu.turbonet.base.b<b> mGc;
+    private static final com.baidu.turbonet.base.b<c> mGd;
 
     /* loaded from: classes19.dex */
     public interface b {
@@ -36,21 +36,21 @@ public class ApplicationStatus {
 
     static {
         $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        mFV = new Object();
-        mFZ = new ConcurrentHashMap();
-        mGa = new com.baidu.turbonet.base.b<>();
-        mGb = new com.baidu.turbonet.base.b<>();
+        mFX = new Object();
+        mGb = new ConcurrentHashMap();
+        mGc = new com.baidu.turbonet.base.b<>();
+        mGd = new com.baidu.turbonet.base.b<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes19.dex */
     public static class a {
-        private com.baidu.turbonet.base.b<b> mGd;
+        private com.baidu.turbonet.base.b<b> mGf;
         private int mStatus;
 
         private a() {
             this.mStatus = 6;
-            this.mGd = new com.baidu.turbonet.base.b<>();
+            this.mGf = new com.baidu.turbonet.base.b<>();
         }
 
         public int getStatus() {
@@ -61,8 +61,8 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> dxW() {
-            return this.mGd;
+        public com.baidu.turbonet.base.b<b> dxX() {
+            return this.mGf;
         }
     }
 
@@ -74,8 +74,8 @@ public class ApplicationStatus {
             @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
             public void l(Activity activity, boolean z) {
                 int at;
-                if (z && activity != ApplicationStatus.mFX && (at = ApplicationStatus.at(activity)) != 6 && at != 5) {
-                    Activity unused = ApplicationStatus.mFX = activity;
+                if (z && activity != ApplicationStatus.mFZ && (at = ApplicationStatus.at(activity)) != 6 && at != 5) {
+                    Activity unused = ApplicationStatus.mFZ = activity;
                 }
             }
         });
@@ -121,46 +121,46 @@ public class ApplicationStatus {
         if (activity == null) {
             throw new IllegalArgumentException("null activity is not supported");
         }
-        if (mFX == null || i == 1 || i == 3 || i == 2) {
-            mFX = activity;
+        if (mFZ == null || i == 1 || i == 3 || i == 2) {
+            mFZ = activity;
         }
         int stateForApplication = getStateForApplication();
         if (i == 1) {
-            if (!$assertionsDisabled && mFZ.containsKey(activity)) {
+            if (!$assertionsDisabled && mGb.containsKey(activity)) {
                 throw new AssertionError();
             }
-            mFZ.put(activity, new a());
+            mGb.put(activity, new a());
         }
-        synchronized (mFV) {
-            mFW = null;
+        synchronized (mFX) {
+            mFY = null;
         }
-        a aVar = mFZ.get(activity);
+        a aVar = mGb.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.dxW().iterator();
+        Iterator<b> it = aVar.dxX().iterator();
         while (it.hasNext()) {
             it.next().l(activity, i);
         }
-        Iterator<b> it2 = mGa.iterator();
+        Iterator<b> it2 = mGc.iterator();
         while (it2.hasNext()) {
             it2.next().l(activity, i);
         }
         int stateForApplication2 = getStateForApplication();
         if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = mGb.iterator();
+            Iterator<c> it3 = mGd.iterator();
             while (it3.hasNext()) {
                 it3.next().Hy(stateForApplication2);
             }
         }
         if (i == 6) {
-            mFZ.remove(activity);
-            if (activity == mFX) {
-                mFX = null;
+            mGb.remove(activity);
+            if (activity == mFZ) {
+                mFZ = null;
             }
         }
     }
 
     public static int at(Activity activity) {
-        a aVar = mFZ.get(activity);
+        a aVar = mGb.get(activity);
         if (aVar != null) {
             return aVar.getStatus();
         }
@@ -170,17 +170,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (mFV) {
-            if (mFW == null) {
-                mFW = Integer.valueOf(dxT());
+        synchronized (mFX) {
+            if (mFY == null) {
+                mFY = Integer.valueOf(dxU());
             }
-            intValue = mFW.intValue();
+            intValue = mFY.intValue();
         }
         return intValue;
     }
 
     public static void a(c cVar) {
-        mGb.aK(cVar);
+        mGd.aK(cVar);
     }
 
     @CalledByNative
@@ -188,25 +188,25 @@ public class ApplicationStatus {
         ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ApplicationStatus.mFY == null) {
-                    c unused = ApplicationStatus.mFY = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
+                if (ApplicationStatus.mGa == null) {
+                    c unused = ApplicationStatus.mGa = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
                         @Override // com.baidu.turbonet.base.ApplicationStatus.c
                         public void Hy(int i) {
                             ApplicationStatus.nativeOnApplicationStateChange(i);
                         }
                     };
-                    ApplicationStatus.a(ApplicationStatus.mFY);
+                    ApplicationStatus.a(ApplicationStatus.mGa);
                 }
             }
         });
     }
 
-    private static int dxT() {
+    private static int dxU() {
         boolean z;
         boolean z2;
         boolean z3 = false;
         boolean z4 = false;
-        for (a aVar : mFZ.values()) {
+        for (a aVar : mGb.values()) {
             int status = aVar.getStatus();
             if (status != 4 && status != 5 && status != 6) {
                 return 1;

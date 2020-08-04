@@ -34,83 +34,83 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes17.dex */
     public static class a {
         private boolean isMemGroup;
-        private boolean jeN;
-        private boolean jeO;
-        private GroupData jha;
-        private List<MemberData> jhb;
-        private List<PhotoUrlData> jhc;
-        private int jhd;
-        private int jhe;
-        private boolean jhf;
-        private boolean jhg;
-        private GroupActivityData jhh;
+        private boolean jeP;
+        private boolean jeQ;
+        private GroupData jhc;
+        private List<MemberData> jhd;
+        private List<PhotoUrlData> jhe;
+        private int jhf;
+        private int jhg;
+        private boolean jhh;
+        private boolean jhi;
+        private GroupActivityData jhj;
 
         public GroupActivityData cwk() {
-            return this.jhh;
+            return this.jhj;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.jhh = groupActivityData;
+            this.jhj = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.jha;
-        }
-
-        public void setGroup(GroupData groupData) {
-            this.jha = groupData;
-        }
-
-        public List<MemberData> cwl() {
-            return this.jhb;
-        }
-
-        public void dH(List<MemberData> list) {
-            this.jhb = list;
-        }
-
-        public List<PhotoUrlData> cwm() {
             return this.jhc;
         }
 
-        public void dI(List<PhotoUrlData> list) {
-            this.jhc = list;
+        public void setGroup(GroupData groupData) {
+            this.jhc = groupData;
         }
 
-        public int cwn() {
+        public List<MemberData> cwl() {
             return this.jhd;
         }
 
-        public void ze(int i) {
-            this.jhd = i;
+        public void dH(List<MemberData> list) {
+            this.jhd = list;
         }
 
-        public int cwo() {
+        public List<PhotoUrlData> cwm() {
             return this.jhe;
         }
 
+        public void dI(List<PhotoUrlData> list) {
+            this.jhe = list;
+        }
+
+        public int cwn() {
+            return this.jhf;
+        }
+
+        public void ze(int i) {
+            this.jhf = i;
+        }
+
+        public int cwo() {
+            return this.jhg;
+        }
+
         public void zf(int i) {
-            this.jhe = i;
+            this.jhg = i;
         }
 
         public boolean cwp() {
-            return this.jeN;
+            return this.jeP;
         }
 
         public void qk(boolean z) {
-            this.jeN = z;
+            this.jeP = z;
         }
 
         public boolean cwq() {
-            return this.jeO;
+            return this.jeQ;
         }
 
         public void ql(boolean z) {
-            this.jeO = z;
+            this.jeQ = z;
         }
 
         public void qm(boolean z) {
-            this.jhf = z;
+            this.jhh = z;
         }
 
         public boolean isMemGroup() {
@@ -122,11 +122,11 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         }
 
         public boolean cwr() {
-            return this.jhg;
+            return this.jhi;
         }
 
         public void qn(boolean z) {
-            this.jhg = z;
+            this.jhi = z;
         }
     }
 

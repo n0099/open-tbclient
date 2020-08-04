@@ -282,13 +282,13 @@ public class h extends com.baidu.tbadk.editortools.d {
                 this.eBQ.dhF().setVoice(null);
                 this.eBQ.dhF().setVoiceDuringTime(-1);
             }
-            if (!this.eBQ.dmz()) {
+            if (!this.eBQ.dmA()) {
                 bdZ().showToast(R.string.write_img_limit);
             } else if (this.eBY == null || !this.eBY.bji()) {
                 if (this.eBX != null) {
                     this.eBX.bjj();
                 }
-                if (!this.eBQ.dmw()) {
+                if (!this.eBQ.dmx()) {
                 }
             }
         }

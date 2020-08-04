@@ -18,8 +18,8 @@ public class ImageProblemItemView extends FrameLayout {
     protected LinearLayout ewV;
     protected TextView ewW;
     protected ImageView ewZ;
-    protected LinearLayout juU;
-    protected TextView juV;
+    protected LinearLayout juW;
+    protected TextView juX;
     protected Context mContext;
     protected TextView textView;
 
@@ -68,19 +68,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.juU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.juW.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.juU.setLayoutParams(layoutParams);
-            this.juV.setText("");
-            this.juV.setVisibility(8);
+            this.juW.setLayoutParams(layoutParams);
+            this.juX.setText("");
+            this.juX.setVisibility(8);
             return;
         }
-        this.juU.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.juU.getLayoutParams();
+        this.juW.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.juW.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.juU.setLayoutParams(layoutParams2);
-        this.juV.setText(str);
-        this.juV.setVisibility(0);
+        this.juW.setLayoutParams(layoutParams2);
+        this.juX.setText(str);
+        this.juX.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -120,8 +120,8 @@ public class ImageProblemItemView extends FrameLayout {
         this.textView = (TextView) findViewById(R.id.text);
         this.ewW = (TextView) findViewById(R.id.tip);
         this.ewZ = (ImageView) findViewById(R.id.arrow2);
-        this.juU = (LinearLayout) findViewById(R.id.ll_container);
-        this.juV = (TextView) findViewById(R.id.tv_help);
+        this.juW = (LinearLayout) findViewById(R.id.ll_container);
+        this.juX = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void e(AttributeSet attributeSet) {

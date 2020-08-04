@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private static int iXt = 1500;
-    private static int iXu = 500;
+    private static int iXv = 1500;
+    private static int iXw = 500;
 
     public static void ctA() {
         if (!StrangeCleanSwitch.isOn()) {
@@ -32,14 +32,14 @@ public class n {
     }
 
     public static void yG(int i) {
-        if (i < iXu) {
-            i = iXu;
+        if (i < iXw) {
+            i = iXw;
         }
         com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.KEY_MAX_STRANGER, i);
     }
 
     private static int ctB() {
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.KEY_MAX_STRANGER, iXt);
+        return com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.KEY_MAX_STRANGER, iXv);
     }
 
     private static String ctC() {

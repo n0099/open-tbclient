@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class d implements com.baidu.tbadk.coreExtra.a.c {
-    private static d keo;
+    private static d keq;
 
     private d() {
     }
@@ -16,10 +16,10 @@ public class d implements com.baidu.tbadk.coreExtra.a.c {
     public static synchronized d cJI() {
         d dVar;
         synchronized (d.class) {
-            if (keo == null) {
-                keo = new d();
+            if (keq == null) {
+                keq = new d();
             }
-            dVar = keo;
+            dVar = keq;
         }
         return dVar;
     }

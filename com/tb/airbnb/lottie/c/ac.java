@@ -5,7 +5,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class ac implements aj<com.tb.airbnb.lottie.e.d> {
-    public static final ac nQo = new ac();
+    public static final ac nQq = new ac();
 
     private ac() {
     }

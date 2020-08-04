@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a mNh;
+    private a mNj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.mNh = aVar;
+        this.mNj = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.mNh.dAy()) {
-            for (a.InterfaceC0796a interfaceC0796a : this.mNh.dAy()) {
+        synchronized (this.mNj.dAz()) {
+            for (a.InterfaceC0796a interfaceC0796a : this.mNj.dAz()) {
                 interfaceC0796a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.mNh.dAy()) {
-            for (a.InterfaceC0796a interfaceC0796a : this.mNh.dAy()) {
+        synchronized (this.mNj.dAz()) {
+            for (a.InterfaceC0796a interfaceC0796a : this.mNj.dAz()) {
                 interfaceC0796a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.mNh.dAy()) {
-            for (a.InterfaceC0796a interfaceC0796a : this.mNh.dAy()) {
+        synchronized (this.mNj.dAz()) {
+            for (a.InterfaceC0796a interfaceC0796a : this.mNj.dAz()) {
                 interfaceC0796a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.mNh.dAy()) {
-            Iterator<a.InterfaceC0796a> it = this.mNh.dAy().iterator();
+        synchronized (this.mNj.dAz()) {
+            Iterator<a.InterfaceC0796a> it = this.mNj.dAz().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.mNh.dAy()) {
-            Iterator<a.InterfaceC0796a> it = this.mNh.dAy().iterator();
+        synchronized (this.mNj.dAz()) {
+            Iterator<a.InterfaceC0796a> it = this.mNj.dAz().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.mNh.dAy()) {
-            Iterator<a.InterfaceC0796a> it = this.mNh.dAy().iterator();
+        synchronized (this.mNj.dAz()) {
+            Iterator<a.InterfaceC0796a> it = this.mNj.dAz().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.mNh.dAy()) {
-            for (a.InterfaceC0796a interfaceC0796a : this.mNh.dAy()) {
+        synchronized (this.mNj.dAz()) {
+            for (a.InterfaceC0796a interfaceC0796a : this.mNj.dAz()) {
                 interfaceC0796a.onActivityDestroyed(activity);
             }
         }

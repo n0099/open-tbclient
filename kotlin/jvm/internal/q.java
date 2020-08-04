@@ -13,7 +13,7 @@ public class q {
         return str + obj;
     }
 
-    public static void dUg() {
+    public static void dUh() {
         throw ((KotlinNullPointerException) R(new KotlinNullPointerException()));
     }
 
@@ -47,7 +47,7 @@ public class q {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void dUh() {
+    public static void dUi() {
         Tg("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
@@ -56,7 +56,7 @@ public class q {
     }
 
     public static void bM(int i, String str) {
-        dUh();
+        dUi();
     }
 
     private static <T extends Throwable> T R(T t) {

@@ -23,7 +23,7 @@ public class b {
     private g fBv;
     private BdTypeListView frv;
     private PbListView fsC;
-    private h jbR;
+    private h jbT;
     private View mHeaderView;
     private com.baidu.tbadk.core.view.g mPullView;
     private ViewGroup mRootView;
@@ -99,8 +99,8 @@ public class b {
             this.fsC.setTextColor(ao.getColor(R.color.cp_cont_d));
             this.fsC.changeSkin(i);
         }
-        if (this.jbR != null) {
-            this.jbR.onChangeSkinType();
+        if (this.jbT != null) {
+            this.jbT.onChangeSkinType();
         }
         if (this.fBv != null) {
             this.fBv.onChangeSkinType();
@@ -141,26 +141,26 @@ public class b {
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.jbR == null) {
-            this.jbR = new h(this.dVN.getPageActivity(), onClickListener);
-            this.jbR.setLayoutMargin(BdListViewHelper.eKp);
-            this.jbR.onChangeSkinType();
+        if (this.jbT == null) {
+            this.jbT = new h(this.dVN.getPageActivity(), onClickListener);
+            this.jbT.setLayoutMargin(BdListViewHelper.eKp);
+            this.jbT.onChangeSkinType();
         }
-        if (!this.jbR.isViewAttached()) {
+        if (!this.jbT.isViewAttached()) {
             this.frv.setVisibility(8);
             if (StringUtils.isNull(str)) {
                 str = this.dVN.getString(R.string.invite_friend_no_data_now);
             }
-            this.jbR.setTitle(str);
-            this.jbR.attachView(this.mRootView, true);
-            this.jbR.showRefreshButton();
+            this.jbT.setTitle(str);
+            this.jbT.attachView(this.mRootView, true);
+            this.jbT.showRefreshButton();
         }
     }
 
     public void bwX() {
-        if (this.jbR != null && this.jbR.isViewAttached()) {
+        if (this.jbT != null && this.jbT.isViewAttached()) {
             this.frv.setVisibility(0);
-            this.jbR.dettachView(this.mRootView);
+            this.jbT.dettachView(this.mRootView);
         }
     }
 }

@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import java.util.Map;
 /* loaded from: classes18.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a jTY;
-    private CustomMessageListener jTZ = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a jUa;
+    private CustomMessageListener jUb = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,8 +28,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.jTY.cGQ()) {
-                    CollectTabActivity.this.jTY.rr(z);
+                if (i != -1 && i == CollectTabActivity.this.jUa.cGQ()) {
+                    CollectTabActivity.this.jUa.rr(z);
                 }
             }
         }
@@ -40,8 +40,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.jTY = new a(this);
-        registerListener(this.jTZ);
+        this.jUa = new a(this);
+        registerListener(this.jUb);
         cGP();
         ac(getIntent());
     }
@@ -58,19 +58,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.jTY.aJ(aVar.getList());
+        this.jUa.aJ(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.jTY.onChangeSkinType(i);
+        this.jUa.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jTY.cGS()) {
-            this.jTY.rq(!this.jTY.cGT());
+        if (view == this.jUa.cGS()) {
+            this.jUa.rq(!this.jUa.cGT());
         }
     }
 
@@ -94,7 +94,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment cGR = this.jTY.cGR();
+        Fragment cGR = this.jUa.cGR();
         if (cGR != null) {
             cGR.onActivityResult(i, i2, intent);
         }

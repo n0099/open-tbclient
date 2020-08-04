@@ -24,9 +24,9 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
-    private BdRecyclerView iDa;
-    private a iDb;
-    private f<SpecialColumnItemData> iwR = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
+    private BdRecyclerView iDc;
+    private a iDd;
+    private f<SpecialColumnItemData> iwT = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
@@ -65,7 +65,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navi_college_petrol_station);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.iDa = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
+        this.iDc = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
         SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
         if (specialColumnListData != null) {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
@@ -73,7 +73,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
             if (bxj != null && bxj.size() > 0) {
                 SpecialColumnItemData specialColumnItemData = bxj.get(0);
                 if (specialColumnItemData.specialType == 1 || specialColumnItemData.specialType == 2) {
-                    this.iDa.setLayoutManager(new LinearLayoutManager(this));
+                    this.iDc.setLayoutManager(new LinearLayoutManager(this));
                 } else if (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4) {
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                     gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.1
@@ -82,25 +82,25 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                             return i == bxj.size() ? 2 : 1;
                         }
                     });
-                    this.iDa.setLayoutManager(gridLayoutManager);
+                    this.iDc.setLayoutManager(gridLayoutManager);
                     int dimens = l.getDimens(this, R.dimen.tbds44);
                     int dimens2 = l.getDimens(this, R.dimen.tbds44);
-                    this.iDa.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
+                    this.iDc.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
                 }
             }
-            this.iDb = new a(this, bxj);
+            this.iDd = new a(this, bxj);
         }
-        this.iDb.a(this.iwR);
-        this.iDa.setAdapter(this.iDb);
+        this.iDd.a(this.iwT);
+        this.iDc.setAdapter(this.iDd);
         View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_homepage_tabfeed_footer_view_layout, (ViewGroup) null);
         ao.setViewTextColor(inflate.findViewById(R.id.tv_footer_content), R.color.cp_cont_d, 1);
-        this.iDa.addFooterView(inflate);
+        this.iDc.addFooterView(inflate);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.iDb.notifyDataSetChanged();
+        this.iDd.notifyDataSetChanged();
     }
 }

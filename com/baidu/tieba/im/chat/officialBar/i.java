@@ -23,7 +23,7 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class i {
     private TbPageContext context;
-    private a iUx;
+    private a iUz;
     private CustomMessageListener mCustomMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.chat.officialBar.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -33,7 +33,7 @@ public class i {
             }
         }
     };
-    private com.baidu.adp.framework.listener.a iUz = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.chat.officialBar.i.2
+    private com.baidu.adp.framework.listener.a iUB = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.chat.officialBar.i.2
         @Override // com.baidu.adp.framework.listener.a
         @RequiresApi(api = 16)
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -54,8 +54,8 @@ public class i {
                         }
                         longSparseArray = longSparseArray2;
                     }
-                    if (i.this.iUx != null && longSparseArray != null) {
-                        i.this.iUx.onReadCountLoad(longSparseArray);
+                    if (i.this.iUz != null && longSparseArray != null) {
+                        i.this.iUz.onReadCountLoad(longSparseArray);
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class i {
     public i(TbPageContext tbPageContext) {
         this.context = tbPageContext;
         tbPageContext.registerListener(CmdConfigCustom.CMD_LOAD_HISTORY_OFFICICAL, this.mCustomMessageListener);
-        tbPageContext.registerListener(this.iUz);
+        tbPageContext.registerListener(this.iUB);
     }
 
     public void GD(String str) {
@@ -103,8 +103,8 @@ public class i {
                     }
                 }
                 sendReadCountMessage(arrayList);
-                if (this.iUx != null) {
-                    this.iUx.dr(arrayList);
+                if (this.iUz != null) {
+                    this.iUz.dr(arrayList);
                 }
             }
         }
@@ -115,7 +115,7 @@ public class i {
             ArrayList arrayList = new ArrayList(list.size());
             for (com.baidu.tieba.im.message.chat.b bVar : list) {
                 if (bVar.cws()) {
-                    arrayList.add(Long.valueOf(bVar.cwt().jhm));
+                    arrayList.add(Long.valueOf(bVar.cwt().jho));
                 }
             }
             BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
@@ -126,6 +126,6 @@ public class i {
     }
 
     public void a(a aVar) {
-        this.iUx = aVar;
+        this.iUz = aVar;
     }
 }

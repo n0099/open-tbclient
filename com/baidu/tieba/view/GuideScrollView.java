@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class GuideScrollView extends ScrollView {
-    private a mqk;
+    private a mqm;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,16 +27,16 @@ public class GuideScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.mqk != null) {
-            this.mqk.onScrollChanged(i, i2, i3, i4);
+        if (this.mqm != null) {
+            this.mqm.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollChangedListener(a aVar) {
-        this.mqk = aVar;
+        this.mqm = aVar;
     }
 
     public a getScrollChangedListener() {
-        return this.mqk;
+        return this.mqm;
     }
 }

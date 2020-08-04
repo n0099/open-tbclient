@@ -25,7 +25,7 @@ import org.json.JSONObject;
 /* loaded from: classes20.dex */
 public class RecAppStatic {
     static {
-        r.llH.set(new t());
+        r.llJ.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         com.baidu.tieba.ad.a.brW().a(new g.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.g.a

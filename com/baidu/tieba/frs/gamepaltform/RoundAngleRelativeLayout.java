@@ -16,7 +16,7 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     private float edR;
     private float edS;
     private float edT;
-    private Paint hUG;
+    private Paint hUI;
 
     public RoundAngleRelativeLayout(Context context) {
         this(context, null);
@@ -33,13 +33,13 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
         this.bnS.setAntiAlias(true);
         this.bnS.setStyle(Paint.Style.FILL);
         this.bnS.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.hUG = new Paint();
-        this.hUG.setXfermode(null);
+        this.hUI = new Paint();
+        this.hUI.setXfermode(null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.hUG, 31);
+        canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.hUI, 31);
         super.dispatchDraw(canvas);
         K(canvas);
         L(canvas);

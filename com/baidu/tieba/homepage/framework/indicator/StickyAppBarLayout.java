@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ap;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
 /* loaded from: classes16.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private StickyAppBarLayoutBehavior ivo;
-    private a ivp;
+    private StickyAppBarLayoutBehavior ivq;
+    private a ivr;
     CustomMessageListener listener;
     private int mSkinType;
 
@@ -71,20 +71,20 @@ public class StickyAppBarLayout extends AppBarLayout {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.ivo = (StickyAppBarLayoutBehavior) behavior;
+                this.ivq = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
     public boolean cmh() {
-        if (this.ivo == null) {
+        if (this.ivq == null) {
             cmg();
         }
-        if (this.ivo != null) {
-            if (isSticky() && this.ivo.cmm() != null && this.ivo.cmm().getVisibility() == 0) {
+        if (this.ivq != null) {
+            if (isSticky() && this.ivq.cmm() != null && this.ivq.cmm().getVisibility() == 0) {
                 cmj();
             }
-            this.ivo.cmk();
+            this.ivq.cmk();
             return true;
         }
         return false;
@@ -92,22 +92,22 @@ public class StickyAppBarLayout extends AppBarLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean cmi() {
-        if (this.ivo == null) {
+        if (this.ivq == null) {
             cmg();
         }
-        if (this.ivo != null) {
-            this.ivo.cml();
+        if (this.ivq != null) {
+            this.ivq.cml();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.ivo == null) {
+        if (this.ivq == null) {
             cmg();
         }
-        if (this.ivo != null) {
-            return this.ivo.isSticky();
+        if (this.ivq != null) {
+            return this.ivq.isSticky();
         }
         return false;
     }
@@ -122,11 +122,11 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.ivp = aVar;
+        this.ivr = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.ivp;
+        return this.ivr;
     }
 
     @Override // android.view.ViewGroup, android.view.View

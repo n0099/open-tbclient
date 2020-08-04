@@ -22,16 +22,16 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.HashSet;
 /* loaded from: classes16.dex */
 public class c {
-    public static int icQ;
-    private static c icT;
-    private a icR;
-    private SparseArray<HashSet<String>> icS;
+    public static int icS;
+    private static c icV;
+    private a icT;
+    private SparseArray<HashSet<String>> icU;
     private CustomMessageListener dLt = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.frs.d.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && c.this.icS != null) {
-                c.this.icS.clear();
+            if (customResponsedMessage != null && c.this.icU != null) {
+                c.this.icU.clear();
             }
         }
     };
@@ -42,7 +42,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.icW = false;
+                        aVar.icY = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -58,56 +58,56 @@ public class c {
     /* loaded from: classes16.dex */
     public class a {
         public int count;
-        public long icV;
-        public boolean icW;
+        public long icX;
+        public boolean icY;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.icW = false;
+            this.icY = false;
         }
     }
 
     public c() {
-        icQ = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("card_show_statistic_max_count", 200);
+        icS = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("card_show_statistic_max_count", 200);
         MessageManager.getInstance().registerListener(this.dLt);
     }
 
     public static c chQ() {
-        if (icT == null) {
+        if (icV == null) {
             synchronized (s.class) {
-                if (icT == null) {
-                    icT = new c();
+                if (icV == null) {
+                    icV = new c();
                 }
             }
         }
-        return icT;
+        return icV;
     }
 
     private boolean chR() {
-        if (this.icR == null) {
-            this.icR = new a();
+        if (this.icT == null) {
+            this.icT = new a();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.icR.icW) {
+        if (this.icT.icY) {
             return true;
         }
-        if (this.icR.isRunning) {
-            this.icR.count++;
-            if (currentTimeMillis - this.icR.icV < 120000) {
-                if (this.icR.count >= icQ) {
-                    this.icR.icW = true;
-                    a(this.icR);
+        if (this.icT.isRunning) {
+            this.icT.count++;
+            if (currentTimeMillis - this.icT.icX < 120000) {
+                if (this.icT.count >= icS) {
+                    this.icT.icY = true;
+                    a(this.icT);
                     return true;
                 }
             } else {
-                this.icR.isRunning = false;
-                this.icR.count = 0;
+                this.icT.isRunning = false;
+                this.icT.count = 0;
             }
         } else {
-            this.icR.isRunning = true;
-            this.icR.icV = currentTimeMillis;
+            this.icT.isRunning = true;
+            this.icT.icX = currentTimeMillis;
         }
         return false;
     }
@@ -152,22 +152,22 @@ public class c {
     }
 
     public void a(b bVar, bv bvVar) {
-        if (bVar != null && bVar.icK && bvVar != null && bvVar.getTid() != null) {
-            if (this.icS == null) {
-                this.icS = new SparseArray<>();
+        if (bVar != null && bVar.icM && bvVar != null && bvVar.getTid() != null) {
+            if (this.icU == null) {
+                this.icU = new SparseArray<>();
             }
-            if (this.icS.get(bVar.icN) == null) {
-                this.icS.put(bVar.icN, new HashSet<>());
+            if (this.icU.get(bVar.icP) == null) {
+                this.icU.put(bVar.icP, new HashSet<>());
             }
-            HashSet<String> hashSet = this.icS.get(bVar.icN);
+            HashSet<String> hashSet = this.icU.get(bVar.icP);
             String tid = bvVar.getTid();
-            if (bVar.icO >= 0) {
-                tid = tid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + bVar.icO;
+            if (bVar.icQ >= 0) {
+                tid = tid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + bVar.icQ;
             }
             if (!hashSet.contains(tid) && !chR()) {
                 hashSet.add(tid);
                 ap apVar = new ap("c11439");
-                apVar.dn("fid", bVar.icM);
+                apVar.dn("fid", bVar.icO);
                 apVar.ah("obj_locate", a(bVar));
                 apVar.dn("obj_source", bvVar.mRecomSource);
                 apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, bvVar.mRecomWeight);
@@ -177,15 +177,15 @@ public class c {
                 apVar.dn("nid", bvVar.getNid());
                 apVar.dn("uid", TbadkCoreApplication.getCurrentAccount());
                 apVar.t(TiebaInitialize.Params.EXPOSURE_TIME, System.currentTimeMillis());
-                if (bVar.icN >= 0) {
-                    apVar.ah("tab_id", bVar.icN);
+                if (bVar.icP >= 0) {
+                    apVar.ah("tab_id", bVar.icP);
                 }
                 if (bvVar.dPI >= 0) {
                     apVar.ah("obj_floor", bvVar.dPI);
                 }
-                boolean z = (bvVar.aXO() == null || (bvVar.aXO().dlj() == null && bvVar.aXO().boR() == null)) ? false : true;
-                if (z && bvVar.aXO().dlj() != null && bvVar.aXO().dlj().boJ() != null && bvVar.aXO().dlj().boJ().size() > 0) {
-                    apVar.ah("obj_name", bvVar.aXO().lNH ? 3 : 2);
+                boolean z = (bvVar.aXO() == null || (bvVar.aXO().dlk() == null && bvVar.aXO().boR() == null)) ? false : true;
+                if (z && bvVar.aXO().dlk() != null && bvVar.aXO().dlk().boJ() != null && bvVar.aXO().dlk().boJ().size() > 0) {
+                    apVar.ah("obj_name", bvVar.aXO().lNJ ? 3 : 2);
                 } else {
                     apVar.ah("obj_name", z ? 1 : 0);
                 }
@@ -202,7 +202,7 @@ public class c {
                 s.bRL().e(apVar);
                 if (bvVar.aUR()) {
                     ap apVar2 = new ap("c12099");
-                    apVar2.dn("fid", bVar.icM);
+                    apVar2.dn("fid", bVar.icO);
                     apVar2.ah("obj_locate", a(bVar));
                     apVar2.dn("obj_source", bvVar.mRecomSource);
                     apVar2.dn(TiebaInitialize.Params.OBJ_PARAM2, bvVar.mRecomWeight);
@@ -212,9 +212,9 @@ public class c {
                     apVar2.dn("uid", TbadkCoreApplication.getCurrentAccount());
                     s.bRL().e(apVar2);
                 }
-                if (bVar.icN == 501) {
+                if (bVar.icP == 501) {
                     ap apVar3 = new ap("c13259");
-                    apVar3.dn("fid", bVar.icM);
+                    apVar3.dn("fid", bVar.icO);
                     apVar3.dn("tid", bvVar.getTid());
                     s.bRL().e(apVar3);
                 }
@@ -223,10 +223,10 @@ public class c {
     }
 
     public void a(b bVar, bv bvVar, int i) {
-        if (bVar != null && bVar.icK && bvVar != null && bvVar.getTid() != null) {
+        if (bVar != null && bVar.icM && bvVar != null && bvVar.getTid() != null) {
             s.bRL().mH(true);
             ap apVar = new ap("c11438");
-            apVar.dn("fid", bVar.icM);
+            apVar.dn("fid", bVar.icO);
             apVar.ah("obj_locate", a(bVar));
             apVar.dn("obj_source", bvVar.mRecomSource);
             apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, bvVar.mRecomWeight);
@@ -242,8 +242,8 @@ public class c {
                 apVar.ah("obj_type", i);
             }
             apVar.dn(TiebaInitialize.Params.OBJ_TO, aw(bvVar));
-            if (bVar.icN >= 0) {
-                apVar.ah("tab_id", bVar.icN);
+            if (bVar.icP >= 0) {
+                apVar.ah("tab_id", bVar.icP);
             }
             if (bvVar.dPI >= 0) {
                 apVar.ah("obj_floor", bvVar.dPI);
@@ -252,7 +252,7 @@ public class c {
             TiebaStatic.log(apVar);
             if (bvVar.aUR()) {
                 ap apVar2 = new ap("c12098");
-                apVar2.dn("fid", bVar.icM);
+                apVar2.dn("fid", bVar.icO);
                 apVar2.ah("obj_locate", a(bVar));
                 apVar2.dn("obj_source", bvVar.mRecomSource);
                 apVar2.dn(TiebaInitialize.Params.OBJ_PARAM2, bvVar.mRecomWeight);
@@ -263,9 +263,9 @@ public class c {
                 apVar2.dn(TiebaInitialize.Params.OBJ_TO, aw(bvVar));
                 TiebaStatic.log(apVar2);
             }
-            if (bVar.icN == 501) {
+            if (bVar.icP == 501) {
                 ap apVar3 = new ap("c13260");
-                apVar3.dn("fid", bVar.icM);
+                apVar3.dn("fid", bVar.icO);
                 apVar3.dn("tid", bvVar.getTid());
                 s.bRL().e(apVar3);
             }
@@ -284,14 +284,14 @@ public class c {
         if (bVar == null) {
             return 5;
         }
-        if (bVar.icP > 0) {
-            return bVar.icP;
+        if (bVar.icR > 0) {
+            return bVar.icR;
         }
-        int i = bVar.icL;
+        int i = bVar.icN;
         if (i == 8) {
             i = 9;
         }
-        if (bVar.icN == 504) {
+        if (bVar.icP == 504) {
             return 11;
         }
         return i;

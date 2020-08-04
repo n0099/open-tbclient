@@ -21,9 +21,9 @@ import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage
 /* loaded from: classes20.dex */
 public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     private boolean eZg;
-    private final a iYg;
-    private com.baidu.tieba.im.forum.broadcast.data.a iYh;
-    private HttpMessageListener iYi;
+    private final a iYi;
+    private com.baidu.tieba.im.forum.broadcast.data.a iYj;
+    private HttpMessageListener iYk;
     private boolean isLoading;
     private long lastId;
     private final String mForumId;
@@ -32,7 +32,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, a aVar, String str) {
         super(tbPageContext);
         this.lastId = 0L;
-        this.iYh = null;
+        this.iYj = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -49,18 +49,18 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(ForumBroadCastMajorHistoryModel.this.mErrorCode);
                     errorData.setError_msg(ForumBroadCastMajorHistoryModel.this.mErrorString);
-                    if (ForumBroadCastMajorHistoryModel.this.iYg != null) {
+                    if (ForumBroadCastMajorHistoryModel.this.iYi != null) {
                         if (ForumBroadCastMajorHistoryModel.this.mErrorCode != 0 || aVar2 == null) {
-                            ForumBroadCastMajorHistoryModel.this.iYg.a(errorData);
+                            ForumBroadCastMajorHistoryModel.this.iYi.a(errorData);
                             return;
                         }
-                        ForumBroadCastMajorHistoryModel.this.iYh = aVar2;
+                        ForumBroadCastMajorHistoryModel.this.iYj = aVar2;
                         ForumBroadCastMajorHistoryModel.this.bST();
                     }
                 }
             }
         };
-        this.iYi = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.2
+        this.iYk = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -69,8 +69,8 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                     if (httpResponsedMessage instanceof ResponseHttpMajorResidueMessage) {
                         forumBroadcastMajorResidueData = ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData();
                     }
-                    if (ForumBroadCastMajorHistoryModel.this.iYg != null) {
-                        ForumBroadCastMajorHistoryModel.this.iYg.a(forumBroadcastMajorResidueData);
+                    if (ForumBroadCastMajorHistoryModel.this.iYi != null) {
+                        ForumBroadCastMajorHistoryModel.this.iYi.a(forumBroadcastMajorResidueData);
                     }
                 }
             }
@@ -79,18 +79,18 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         com.baidu.tieba.tbadkCore.a.a.a(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
         registerListener(this.netMessageListener);
-        registerListener(this.iYi);
-        this.iYg = aVar;
+        registerListener(this.iYk);
+        this.iYi = aVar;
         this.mForumId = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bST() {
-        if (this.iYh.ctG() != null && this.iYh.ctG().size() > 1) {
-            this.lastId = this.iYh.ctG().get(this.iYh.ctG().size() - 1).ctM();
+        if (this.iYj.ctG() != null && this.iYj.ctG().size() > 1) {
+            this.lastId = this.iYj.ctG().get(this.iYj.ctG().size() - 1).ctM();
         }
-        this.iYh.pM(this.eZg);
-        this.iYg.a(this.iYh);
+        this.iYj.pM(this.eZg);
+        this.iYi.a(this.iYj);
     }
 
     public void bwE() {
@@ -145,10 +145,10 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     }
 
     public boolean hasData() {
-        return (this.iYh == null || x.isEmpty(this.iYh.ctG())) ? false : true;
+        return (this.iYj == null || x.isEmpty(this.iYj.ctG())) ? false : true;
     }
 
     public void onDestory() {
-        this.iYh = null;
+        this.iYj = null;
     }
 }

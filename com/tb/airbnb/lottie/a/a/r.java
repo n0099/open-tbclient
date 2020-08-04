@@ -7,24 +7,24 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class r implements b, a.InterfaceC0874a {
     private final List<a.InterfaceC0874a> listeners = new ArrayList();
-    private final ShapeTrimPath.Type nOE;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOF;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOG;
+    private final ShapeTrimPath.Type nOG;
     private final com.tb.airbnb.lottie.a.b.a<?, Float> nOH;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOI;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOJ;
     private final String name;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.nOE = shapeTrimPath.dQS();
-        this.nOF = shapeTrimPath.dRL().dRc();
-        this.nOG = shapeTrimPath.dRK().dRc();
-        this.nOH = shapeTrimPath.dRG().dRc();
-        aVar.a(this.nOF);
-        aVar.a(this.nOG);
+        this.nOG = shapeTrimPath.dQT();
+        this.nOH = shapeTrimPath.dRM().dRd();
+        this.nOI = shapeTrimPath.dRL().dRd();
+        this.nOJ = shapeTrimPath.dRH().dRd();
         aVar.a(this.nOH);
-        this.nOF.b(this);
-        this.nOG.b(this);
+        aVar.a(this.nOI);
+        aVar.a(this.nOJ);
         this.nOH.b(this);
+        this.nOI.b(this);
+        this.nOJ.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0874a
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0874a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dQS() {
-        return this.nOE;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dQT() {
-        return this.nOF;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dQU() {
+    public ShapeTrimPath.Type dQT() {
         return this.nOG;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dQV() {
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dQU() {
         return this.nOH;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dQV() {
+        return this.nOI;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dQW() {
+        return this.nOJ;
     }
 }

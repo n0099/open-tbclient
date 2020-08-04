@@ -15,7 +15,7 @@ public interface a {
 
     void cUN();
 
-    void dpY();
+    void dpZ();
 
     void fg(List<PendantData> list);
 

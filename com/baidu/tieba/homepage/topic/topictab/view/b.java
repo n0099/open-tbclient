@@ -10,7 +10,7 @@ import com.baidu.tieba.homepage.topic.topictab.b.c;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.tieba.card.b<c> {
     private View hnu;
-    private c iGY;
+    private c iHa;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -30,8 +30,8 @@ public class b extends com.baidu.tieba.card.b<c> {
     @Override // com.baidu.tieba.card.b
     public void a(c cVar) {
         if (cVar != null) {
-            this.iGY = cVar;
-            ao.setBackgroundColor(this.hnu, this.iGY.iFS);
+            this.iHa = cVar;
+            ao.setBackgroundColor(this.hnu, this.iHa.iFU);
             ViewGroup.LayoutParams layoutParams = this.hnu.getLayoutParams();
             layoutParams.height = l.getDimens(this.mContext, cVar.hlU);
             this.hnu.setLayoutParams(layoutParams);

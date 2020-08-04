@@ -19,9 +19,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class LikeModel extends BdBaseModel {
     private String from;
-    private String lLQ;
-    private String lLR;
-    private a lLS;
+    private String lLS;
+    private String lLT;
+    private a lLU;
     private String mAuthSid;
     private BlockPopInfoData mBlockPopInfoData;
     private String mForumId;
@@ -32,8 +32,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.lLQ = null;
         this.lLS = null;
+        this.lLU = null;
         this.mPageContext = tbPageContext;
     }
 
@@ -55,30 +55,30 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void dkA() {
-        if (this.lLS != null) {
-            this.lLS.cancel();
-            this.lLS = null;
+    public void dkB() {
+        if (this.lLU != null) {
+            this.lLU.cancel();
+            this.lLU = null;
         }
     }
 
     public void ay(String str, String str2, String str3) {
         fz(str, str2);
-        this.lLQ = str3;
+        this.lLS = str3;
     }
 
     public void fz(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.lLS == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.lLU == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.lLS = new a();
-            this.lLS.setPriority(2);
-            this.lLS.execute(new Object[0]);
+            this.lLU = new a();
+            this.lLU.setPriority(2);
+            this.lLU.execute(new Object[0]);
         }
     }
 
-    public boolean dkB() {
-        return this.lLS != null;
+    public boolean dkC() {
+        return this.lLU != null;
     }
 
     public Context getContext() {
@@ -109,11 +109,11 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.addPostData("fid", LikeModel.this.mForumId);
                 this.mNetwork.addPostData("st_type", LikeModel.this.from);
                 this.mNetwork.addPostData("authsid", LikeModel.this.mAuthSid);
-                if (!StringUtils.isNull(LikeModel.this.lLR)) {
-                    this.mNetwork.addPostData("dev_id", LikeModel.this.lLR);
+                if (!StringUtils.isNull(LikeModel.this.lLT)) {
+                    this.mNetwork.addPostData("dev_id", LikeModel.this.lLT);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.lLQ)) {
-                    this.mNetwork.addPostData("pagefrom", LikeModel.this.lLQ);
+                if (!TextUtils.isEmpty(LikeModel.this.lLS)) {
+                    this.mNetwork.addPostData("pagefrom", LikeModel.this.lLS);
                 }
                 this.mNetwork.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -150,8 +150,8 @@ public class LikeModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(u uVar) {
-            LikeModel.this.lLS = null;
-            if (this.mNetwork != null && uVar != null && !AntiHelper.c(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), uVar.dkC())) {
+            LikeModel.this.lLU = null;
+            if (this.mNetwork != null && uVar != null && !AntiHelper.c(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), uVar.dkD())) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = com.baidu.adp.lib.f.b.toLong(uVar.getFid(), 0L);
                 if (uVar != null && this.mNetwork.bav().baX().isRequestSuccess()) {
@@ -177,7 +177,7 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            LikeModel.this.lLS = null;
+            LikeModel.this.lLU = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.callback(null);

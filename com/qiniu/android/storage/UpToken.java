@@ -6,8 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class UpToken {
-    public static UpToken nMM = new UpToken("", "", "");
-    public final String nLp;
+    public static UpToken nMO = new UpToken("", "", "");
+    public final String nLr;
     private String returnUrl;
     public final String token;
 
@@ -15,29 +15,29 @@ public final class UpToken {
         this.returnUrl = null;
         this.returnUrl = str;
         this.token = str2;
-        this.nLp = str3;
+        this.nLr = str3;
     }
 
     public static UpToken Su(String str) {
         try {
             String[] split = str.split(":");
             if (split.length != 3) {
-                return nMM;
+                return nMO;
             }
             try {
                 JSONObject jSONObject = new JSONObject(new String(UrlSafeBase64.decode(split[2])));
                 if (jSONObject.optString("scope").equals("")) {
-                    return nMM;
+                    return nMO;
                 }
                 if (jSONObject.optInt("deadline") == 0) {
-                    return nMM;
+                    return nMO;
                 }
                 return new UpToken(jSONObject.optString(CashierData.RETURN_URL), str, split[0]);
             } catch (JSONException e) {
-                return nMM;
+                return nMO;
             }
         } catch (Exception e2) {
-            return nMM;
+            return nMO;
         }
     }
 
@@ -45,7 +45,7 @@ public final class UpToken {
         return this.token;
     }
 
-    public boolean dQq() {
+    public boolean dQr() {
         return !this.returnUrl.equals("");
     }
 }

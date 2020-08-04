@@ -29,25 +29,25 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
-    private d iTM;
-    private b jon;
-    private StrangerListModel joo;
-    private StrangerListActivity jop;
-    private com.baidu.tbadk.core.dialog.a joq;
-    private a.b jor = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.2
+    private d iTO;
+    private b jop;
+    private StrangerListModel joq;
+    private StrangerListActivity jor;
+    private com.baidu.tbadk.core.dialog.a jos;
+    private a.b jot = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            StrangerListActivity.this.joq.dismiss();
-            StrangerListActivity.this.joo.a(StrangerListActivity.this.iTQ);
+            StrangerListActivity.this.jos.dismiss();
+            StrangerListActivity.this.joq.a(StrangerListActivity.this.iTS);
         }
     };
-    private a.b jos = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.3
+    private a.b jou = new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.3
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            StrangerListActivity.this.joq.dismiss();
+            StrangerListActivity.this.jos.dismiss();
         }
     };
-    private final CustomMessageListener iTN = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.4
+    private final CustomMessageListener iTP = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -59,20 +59,20 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 } else if (customResponsedMessage.getCmd() == 2016007) {
                     StrangerListActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
-                    StrangerListActivity.this.joo.setData(null, StrangerListActivity.this.iTP);
-                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.jon != null && StrangerListActivity.this.jon.cyH() != null) {
-                    StrangerListActivity.this.jon.cyH().notifyDataSetChanged();
+                    StrangerListActivity.this.joq.setData(null, StrangerListActivity.this.iTR);
+                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.jop != null && StrangerListActivity.this.jop.cyH() != null) {
+                    StrangerListActivity.this.jop.cyH().notifyDataSetChanged();
                 }
             }
         }
     };
-    private com.baidu.tieba.im.chat.a.a iTP = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
+    private com.baidu.tieba.im.chat.a.a iTR = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
             StrangerListActivity.this.cry();
         }
     };
-    private final com.baidu.tieba.im.chat.a.b iTQ = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
+    private final com.baidu.tieba.im.chat.a.b iTS = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
             StrangerListActivity.this.crx();
@@ -80,8 +80,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onProgressUpdate(int i, String str, int i2) {
-            if (StrangerListActivity.this.iTM != null) {
-                StrangerListActivity.this.iTM.setPercent(i);
+            if (StrangerListActivity.this.iTO != null) {
+                StrangerListActivity.this.iTO.setPercent(i);
             }
             StrangerListActivity.this.notifyDataSetChanged();
         }
@@ -104,7 +104,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jop = this;
+        this.jor = this;
         a(this);
         initData();
         registerListener();
@@ -138,39 +138,39 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     private void registerListener() {
-        registerListener(CmdConfigCustom.MEMORY_CHANGED, this.iTN);
-        registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.iTN);
-        registerListener(CmdConfigCustom.MEMORY_CLEAR, this.iTN);
-        registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.iTN);
-        registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.iTN);
+        registerListener(CmdConfigCustom.MEMORY_CHANGED, this.iTP);
+        registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.iTP);
+        registerListener(CmdConfigCustom.MEMORY_CLEAR, this.iTP);
+        registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.iTP);
+        registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.iTP);
     }
 
     private void a(StrangerListActivity strangerListActivity) {
-        this.jon = new b(strangerListActivity);
-        this.joq = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
-        this.joq.ln(R.string.sure_to_delete_all_stranger_msg);
-        this.joq.a(R.string.confirm, this.jor);
-        this.joq.b(R.string.cancel, this.jos);
-        this.joq.b(strangerListActivity.getPageContext());
+        this.jop = new b(strangerListActivity);
+        this.jos = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
+        this.jos.ln(R.string.sure_to_delete_all_stranger_msg);
+        this.jos.a(R.string.confirm, this.jot);
+        this.jos.b(R.string.cancel, this.jou);
+        this.jos.b(strangerListActivity.getPageContext());
     }
 
     private void initData() {
-        this.joo = new StrangerListModel(getPageContext());
+        this.joq = new StrangerListModel(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.jon != null) {
-            this.jon.onChangeSkinType(i);
+        if (this.jop != null) {
+            this.jop.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData ys;
-        if (this.jon != null && this.jon.cyH() != null && (ys = this.jon.cyH().getItem(i)) != null) {
-            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.jop.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(ys.getFriendId(), 0L), ys.getFriendName(), ys.getFriendNameShow(), ys.getFriendPortrait(), 0, 0);
+        if (this.jop != null && this.jop.cyH() != null && (ys = this.jop.cyH().getItem(i)) != null) {
+            PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.jor.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(ys.getFriendId(), 0L), ys.getFriendName(), ys.getFriendNameShow(), ys.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, personalChatActivityConfig));
         }
@@ -179,10 +179,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         final ImMessageCenterShowItemData ys;
-        if (this.jon == null || this.jon.cyH() == null || (ys = this.jon.cyH().getItem(i)) == null) {
+        if (this.jop == null || this.jop.cyH() == null || (ys = this.jop.cyH().getItem(i)) == null) {
             return false;
         }
-        final int size = this.joo.getData().size();
+        final int size = this.joq.getData().size();
         final i iVar = new i(getPageContext());
         iVar.a(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, new k.c() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.1
             @Override // com.baidu.tbadk.core.dialog.k.c
@@ -191,9 +191,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     iVar.dismiss();
                 }
                 if (size == 1) {
-                    StrangerListActivity.this.joo.a(StrangerListActivity.this.iTQ);
+                    StrangerListActivity.this.joq.a(StrangerListActivity.this.iTS);
                 } else {
-                    StrangerListActivity.this.joo.asyncDeleteItem(ys, StrangerListActivity.this.iTQ);
+                    StrangerListActivity.this.joq.asyncDeleteItem(ys, StrangerListActivity.this.iTS);
                 }
             }
         });
@@ -204,8 +204,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.jon.cyI() && this.joq != null) {
-            this.joq.aYL();
+        if (view == this.jop.cyI() && this.jos != null) {
+            this.jos.aYL();
         }
     }
 
@@ -213,8 +213,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jon != null && this.jon.cyH() != null) {
-            this.jon.cyH().notifyDataSetChanged();
+        if (this.jop != null && this.jop.cyH() != null) {
+            this.jop.cyH().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.STRANGE_MERGE, -7)));
     }
@@ -232,11 +232,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.joo != null) {
-                    this.joo.insertOrUpdate(data, this.iTP);
+                if (this.joq != null) {
+                    this.joq.insertOrUpdate(data, this.iTR);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.joo != null) {
-                this.joo.remove(data, this.iTP);
+            } else if (memoryChangedMessage.getType() == 2 && this.joq != null) {
+                this.joq.remove(data, this.iTR);
             }
         }
     }
@@ -246,8 +246,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 3 && this.joo != null) {
-                this.joo.setData(data, this.iTP);
+            if (responsedMemoryListMessage.getType() == 3 && this.joq != null) {
+                this.joq.setData(data, this.iTR);
             }
         }
     }
@@ -255,18 +255,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void crx() {
         zA();
-        if (this.iTM == null) {
-            this.iTM = e.cth().eZ(getPageContext().getPageActivity());
+        if (this.iTO == null) {
+            this.iTO = e.cth().eZ(getPageContext().getPageActivity());
         }
-        this.iTM.show();
-        this.iTM.setPercent(0);
+        this.iTO.show();
+        this.iTO.setPercent(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zA() {
-        if (this.iTM != null && this.iTM.isShowing()) {
-            this.iTM.dismiss();
-            this.iTM = null;
+        if (this.iTO != null && this.iTO.isShowing()) {
+            this.iTO.dismiss();
+            this.iTO = null;
         }
         closeLoadingDialog();
         dismissAllDialog();
@@ -274,18 +274,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.jon != null && this.jon.cyH() != null) {
-            this.jon.cyH().notifyDataSetChanged();
+        if (this.jop != null && this.jop.cyH() != null) {
+            this.jop.cyH().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cry() {
-        if (this.jon != null && this.jon.cyH() != null && this.joo != null) {
-            if (this.joo != null && this.joo.isEmpty()) {
+        if (this.jop != null && this.jop.cyH() != null && this.joq != null) {
+            if (this.joq != null && this.joq.isEmpty()) {
                 finish();
             }
-            this.jon.cyH().setData(this.joo.getData());
+            this.jop.cyH().setData(this.joq.getData());
         }
     }
 }

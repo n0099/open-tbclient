@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State nXO = State.NotReady;
-    private T nXP;
+    private State nXQ = State.NotReady;
+    private T nXR;
 
-    protected abstract void dTK();
+    protected abstract void dTL();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.nXO != State.Failed) {
-            switch (this.nXO) {
+        if (this.nXQ != State.Failed) {
+            switch (this.nXQ) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dTJ();
+                    return dTK();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.nXO = State.NotReady;
-            return this.nXP;
+            this.nXQ = State.NotReady;
+            return this.nXR;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dTJ() {
-        this.nXO = State.Failed;
-        dTK();
-        return this.nXO == State.Ready;
+    private final boolean dTK() {
+        this.nXQ = State.Failed;
+        dTL();
+        return this.nXQ == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bI(T t) {
-        this.nXP = t;
-        this.nXO = State.Ready;
+        this.nXR = t;
+        this.nXQ = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.nXO = State.Done;
+        this.nXQ = State.Done;
     }
 }

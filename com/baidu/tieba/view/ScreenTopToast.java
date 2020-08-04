@@ -19,12 +19,12 @@ import com.baidu.tieba.R;
 public class ScreenTopToast extends LinearLayout {
     private TextView cdm;
     private TBSpecificationBtn hmd;
-    private Animation ifF;
-    private Animation ifG;
+    private Animation ifH;
+    private Animation ifI;
     private boolean isShow;
     private Runnable mHideRunnable;
     private TextView mTitleView;
-    private ShadowLinearLayout mrw;
+    private ShadowLinearLayout mry;
 
     public ScreenTopToast(Context context) {
         this(context, null);
@@ -45,7 +45,7 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.mrw = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.mry = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
         this.cdm = (TextView) findViewById(R.id.screen_top_toast_content);
         this.hmd = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
@@ -55,9 +55,9 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     private void initAnimation() {
-        this.ifF = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.ifG = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.ifG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
+        this.ifH = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.ifI = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.ifI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -114,7 +114,7 @@ public class ScreenTopToast extends LinearLayout {
             }
             viewGroup.addView(this, -1, -2);
             this.isShow = true;
-            startAnimation(this.ifF);
+            startAnimation(this.ifH);
             com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, 5000L);
         }
     }
@@ -122,7 +122,7 @@ public class ScreenTopToast extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.ifG);
+        startAnimation(this.ifI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -135,7 +135,7 @@ public class ScreenTopToast extends LinearLayout {
         ao.setViewTextColor(this.mTitleView, R.color.cp_link_tip_a);
         ao.setViewTextColor(this.cdm, R.color.cp_link_tip_a);
         this.hmd.bci();
-        this.mrw.onChangeSkinType();
+        this.mry.onChangeSkinType();
     }
 
     public boolean isShow() {

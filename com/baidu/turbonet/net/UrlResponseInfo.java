@@ -7,81 +7,81 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes19.dex */
 public final class UrlResponseInfo {
-    private final int mJc;
-    private final AtomicLong mKA = new AtomicLong();
-    private final HeaderBlock mKB;
-    private final List<String> mKv;
-    private final String mKw;
-    private final boolean mKx;
+    private final int mJe;
+    private final String mKA;
+    private final String mKB;
+    private final AtomicLong mKC = new AtomicLong();
+    private final HeaderBlock mKD;
+    private final List<String> mKx;
     private final String mKy;
-    private final String mKz;
+    private final boolean mKz;
 
     /* loaded from: classes19.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> mKC;
+        private final List<Map.Entry<String, String>> mKE;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.mKC = list;
+            this.mKE = list;
         }
 
-        public List<Map.Entry<String, String>> dzz() {
-            return this.mKC;
+        public List<Map.Entry<String, String>> dzA() {
+            return this.mKE;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.mKv = Collections.unmodifiableList(list);
-        this.mJc = i;
-        this.mKw = str;
-        this.mKB = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.mKx = z;
-        this.mKy = str2;
-        this.mKz = str3;
+        this.mKx = Collections.unmodifiableList(list);
+        this.mJe = i;
+        this.mKy = str;
+        this.mKD = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.mKz = z;
+        this.mKA = str2;
+        this.mKB = str3;
     }
 
     public String getUrl() {
-        return this.mKv.get(this.mKv.size() - 1);
+        return this.mKx.get(this.mKx.size() - 1);
     }
 
-    public List<String> dzt() {
-        return this.mKv;
-    }
-
-    public int getHttpStatusCode() {
-        return this.mJc;
-    }
-
-    public String dzu() {
-        return this.mKw;
-    }
-
-    public List<Map.Entry<String, String>> dzv() {
-        return this.mKB.dzz();
-    }
-
-    public boolean dzw() {
+    public List<String> dzu() {
         return this.mKx;
     }
 
-    public String dzx() {
+    public int getHttpStatusCode() {
+        return this.mJe;
+    }
+
+    public String dzv() {
         return this.mKy;
     }
 
-    public String dzy() {
+    public List<Map.Entry<String, String>> dzw() {
+        return this.mKD.dzA();
+    }
+
+    public boolean dzx() {
         return this.mKz;
     }
 
+    public String dzy() {
+        return this.mKA;
+    }
+
+    public String dzz() {
+        return this.mKB;
+    }
+
     public long getReceivedBytesCount() {
-        return this.mKA.get();
+        return this.mKC.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dzt().toString(), Integer.valueOf(getHttpStatusCode()), dzu(), dzv().toString(), Boolean.valueOf(dzw()), dzx(), dzy(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dzu().toString(), Integer.valueOf(getHttpStatusCode()), dzv(), dzw().toString(), Boolean.valueOf(dzx()), dzy(), dzz(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fR(long j) {
-        this.mKA.set(j);
+        this.mKC.set(j);
     }
 }

@@ -144,10 +144,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        z lvZ;
+        z lwb;
 
         private a() {
-            this.lvZ = null;
+            this.lwb = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -156,19 +156,19 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             String postNetData;
             try {
-                this.lvZ = new z(Config.CHANNEL_ADDRESS);
-                this.lvZ.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.lvZ.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.lvZ.addPostData("model", Build.MODEL);
-                this.lvZ.addPostData("edition", TbConfig.getVersion());
-                this.lvZ.addPostData("system", Build.VERSION.SDK);
-                this.lvZ.bav().baW().bba().mIsBaiduServer = false;
-                postNetData = this.lvZ.postNetData();
+                this.lwb = new z(Config.CHANNEL_ADDRESS);
+                this.lwb.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.lwb.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.lwb.addPostData("model", Build.MODEL);
+                this.lwb.addPostData("edition", TbConfig.getVersion());
+                this.lwb.addPostData("system", Build.VERSION.SDK);
+                this.lwb.bav().baW().bba().mIsBaiduServer = false;
+                postNetData = this.lwb.postNetData();
             } catch (Exception e) {
                 b.aZP().putInt(SharedPrefConfig.ACTIVE_STATE, 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.lvZ.isNetSuccess()) {
+            if (this.lwb.isNetSuccess()) {
                 return postNetData;
             }
             return null;
@@ -177,8 +177,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.lvZ != null) {
-                this.lvZ.cancelNetConnect();
+            if (this.lwb != null) {
+                this.lwb.cancelNetConnect();
             }
             super.cancel(true);
         }

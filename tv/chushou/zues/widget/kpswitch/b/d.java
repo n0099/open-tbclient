@@ -12,9 +12,9 @@ import android.view.inputmethod.InputMethodManager;
 import tv.chushou.zues.b;
 /* loaded from: classes6.dex */
 public class d {
-    private static int owe = 0;
-    private static int owf = 0;
     private static int owg = 0;
+    private static int owh = 0;
+    private static int owi = 0;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -50,16 +50,16 @@ public class d {
         if (i < 0) {
             return false;
         }
-        owe = i;
+        owg = i;
         tv.chushou.zues.utils.e.m("KeyBordUtil", "%s%s", "save keyboard:", Integer.valueOf(i));
         return b.G(context, i);
     }
 
     public static int gQ(Context context) {
-        if (owe == 0) {
-            owe = b.H(context, d(context.getResources()));
+        if (owg == 0) {
+            owg = b.H(context, d(context.getResources()));
         }
-        return owe;
+        return owg;
     }
 
     public static int gR(Context context) {
@@ -67,17 +67,17 @@ public class d {
     }
 
     public static int c(Resources resources) {
-        if (owf == 0) {
-            owf = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
+        if (owh == 0) {
+            owh = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_max_height);
         }
-        return owf;
+        return owh;
     }
 
     public static int d(Resources resources) {
-        if (owg == 0) {
-            owg = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
+        if (owi == 0) {
+            owi = resources.getDimensionPixelSize(b.c.zues_keyboard_pannel_min_height);
         }
-        return owg;
+        return owi;
     }
 
     public static c a(Activity activity, tv.chushou.zues.widget.kpswitch.b bVar, a aVar, boolean z) {
@@ -95,6 +95,6 @@ public class d {
         } else {
             viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
-        tv.chushou.zues.widget.kpswitch.b.a.ovP = null;
+        tv.chushou.zues.widget.kpswitch.b.a.ovR = null;
     }
 }

@@ -24,8 +24,8 @@ public class TopicVideoControllerView extends RelativeLayout {
     private TextView fdO;
     private SeekBar fdP;
     private SeekBar.OnSeekBarChangeListener fdT;
-    private StringBuilder iOg;
-    private Formatter iOh;
+    private StringBuilder iOi;
+    private Formatter iOj;
     private boolean mDragging;
     private Handler mHandler;
     private boolean mShowing;
@@ -181,8 +181,8 @@ public class TopicVideoControllerView extends RelativeLayout {
         this.fdO = (TextView) inflate.findViewById(R.id.progress_textview_duration);
         this.fdP = (SeekBar) inflate.findViewById(R.id.topic_video_controller_seekBar);
         this.fdP.setOnSeekBarChangeListener(this.fdT);
-        this.iOg = new StringBuilder();
-        this.iOh = new Formatter(this.iOg, Locale.getDefault());
+        this.iOi = new StringBuilder();
+        this.iOj = new Formatter(this.iOi, Locale.getDefault());
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -252,8 +252,8 @@ public class TopicVideoControllerView extends RelativeLayout {
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
         int i5 = i2 / 3600;
-        this.iOg.setLength(0);
-        return i5 > 0 ? this.iOh.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : this.iOh.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
+        this.iOi.setLength(0);
+        return i5 > 0 ? this.iOj.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : this.iOj.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
     }
 
     public void onChangeSkinType(int i) {

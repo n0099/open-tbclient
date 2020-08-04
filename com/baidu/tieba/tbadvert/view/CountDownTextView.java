@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private int cbI;
     private final Runnable fgR;
-    private b lRA;
+    private b lRC;
     private Handler mHandler;
     private String mText;
 
@@ -39,13 +39,13 @@ public class CountDownTextView extends TextView {
         super(context);
         this.cbI = 0;
         this.mText = "";
-        this.lRA = null;
+        this.lRC = null;
         this.mHandler = new Handler();
         this.fgR = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.lRA = bVar;
+        this.lRC = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -85,8 +85,8 @@ public class CountDownTextView extends TextView {
     public void pX(int i) {
         this.cbI -= i;
         if (this.cbI == 0) {
-            if (this.lRA != null) {
-                this.lRA.bB(this);
+            if (this.lRC != null) {
+                this.lRC.bB(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;

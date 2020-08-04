@@ -16,8 +16,8 @@ public class y {
             boolean aNV = ahVar.aNV();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (aNV != g.dzZ().uP(aNU.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + aNV + "  content " + ahVar.dAr().toString());
+                    if (aNV != g.dAa().uP(aNU.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + aNV + "  content " + ahVar.dAs().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

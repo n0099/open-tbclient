@@ -5,14 +5,14 @@ import tbclient.ManagerElection;
 /* loaded from: classes16.dex */
 public class k {
     private boolean gQx;
-    private int kio;
-    private int kip;
-    private List<String> kiq;
-    private List<String> kir;
+    private int kiq;
+    private int kir;
     private List<String> kis;
-    private String kit;
-    private boolean kiu;
-    private int kiv;
+    private List<String> kit;
+    private List<String> kiu;
+    private String kiv;
+    private boolean kiw;
+    private int kix;
     private int status;
 
     public static k b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class k {
             return null;
         }
         k kVar = new k();
-        kVar.kip = managerElection.begin_vote_time.intValue();
+        kVar.kir = managerElection.begin_vote_time.intValue();
         kVar.gQx = managerElection.can_vote.intValue() == 1;
-        kVar.kio = managerElection.vote_num.intValue();
-        kVar.kiu = managerElection.is_show_distribute.intValue() == 1;
-        kVar.kiv = managerElection.remainder_time.intValue();
+        kVar.kiq = managerElection.vote_num.intValue();
+        kVar.kiw = managerElection.is_show_distribute.intValue() == 1;
+        kVar.kix = managerElection.remainder_time.intValue();
         kVar.status = managerElection.status.intValue();
-        kVar.kit = managerElection.tail_text;
-        kVar.kiq = managerElection.vote_condition_pic;
-        kVar.kir = managerElection.vote_condition_title;
-        kVar.kis = managerElection.vote_condition;
+        kVar.kiv = managerElection.tail_text;
+        kVar.kis = managerElection.vote_condition_pic;
+        kVar.kit = managerElection.vote_condition_title;
+        kVar.kiu = managerElection.vote_condition;
         return kVar;
     }
 
@@ -38,27 +38,27 @@ public class k {
     }
 
     public boolean cLg() {
-        return this.kiu;
+        return this.kiw;
     }
 
     public int cLh() {
-        return this.kiv;
+        return this.kix;
     }
 
     public int cLi() {
-        return this.kio;
+        return this.kiq;
     }
 
     public List<String> cLj() {
-        return this.kir;
+        return this.kit;
     }
 
     public List<String> cLk() {
-        return this.kis;
+        return this.kiu;
     }
 
     public String cLl() {
-        return this.kit;
+        return this.kiv;
     }
 
     public boolean bQE() {
@@ -74,6 +74,6 @@ public class k {
     }
 
     public void Bx(int i) {
-        this.kio = i;
+        this.kiq = i;
     }
 }

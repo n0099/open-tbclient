@@ -274,23 +274,23 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
         ByteBuffer buffer;
         DataSource dataSource;
-        long nmE = 0;
-        int nmF = 0;
+        long nmG = 0;
+        int nmH = 0;
         long start;
 
-        public void dLX() throws IOException {
-            this.buffer = this.dataSource.map(this.nmE, Math.min(this.dataSource.size() - this.nmE, H264TrackImpl.BUFFER));
+        public void dLY() throws IOException {
+            this.buffer = this.dataSource.map(this.nmG, Math.min(this.dataSource.size() - this.nmG, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
             this.dataSource = dataSource;
-            dLX();
+            dLY();
         }
 
-        boolean dLY() throws IOException {
-            if (this.buffer.limit() - this.nmF >= 3) {
-                return this.buffer.get(this.nmF) == 0 && this.buffer.get(this.nmF + 1) == 0 && this.buffer.get(this.nmF + 2) == 1;
-            } else if (this.nmE + this.nmF != this.dataSource.size()) {
+        boolean dLZ() throws IOException {
+            if (this.buffer.limit() - this.nmH >= 3) {
+                return this.buffer.get(this.nmH) == 0 && this.buffer.get(this.nmH + 1) == 0 && this.buffer.get(this.nmH + 2) == 1;
+            } else if (this.nmG + this.nmH != this.dataSource.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -298,33 +298,33 @@ public class H264TrackImpl extends AbstractTrack {
             }
         }
 
-        boolean dLZ() throws IOException {
-            if (this.buffer.limit() - this.nmF >= 3) {
-                return this.buffer.get(this.nmF) == 0 && this.buffer.get(this.nmF + 1) == 0 && (this.buffer.get(this.nmF + 2) == 0 || this.buffer.get(this.nmF + 2) == 1);
-            } else if (this.nmE + this.nmF + 3 > this.dataSource.size()) {
-                return this.nmE + ((long) this.nmF) == this.dataSource.size();
+        boolean dMa() throws IOException {
+            if (this.buffer.limit() - this.nmH >= 3) {
+                return this.buffer.get(this.nmH) == 0 && this.buffer.get(this.nmH + 1) == 0 && (this.buffer.get(this.nmH + 2) == 0 || this.buffer.get(this.nmH + 2) == 1);
+            } else if (this.nmG + this.nmH + 3 > this.dataSource.size()) {
+                return this.nmG + ((long) this.nmH) == this.dataSource.size();
             } else {
-                this.nmE = this.start;
-                this.nmF = 0;
-                dLX();
-                return dLZ();
+                this.nmG = this.start;
+                this.nmH = 0;
+                dLY();
+                return dMa();
             }
         }
 
-        void dMa() {
-            this.nmF++;
-        }
-
         void dMb() {
-            this.nmF += 3;
-            this.start = this.nmE + this.nmF;
+            this.nmH++;
         }
 
-        public ByteBuffer dMc() {
-            if (this.start >= this.nmE) {
-                this.buffer.position((int) (this.start - this.nmE));
+        void dMc() {
+            this.nmH += 3;
+            this.start = this.nmG + this.nmH;
+        }
+
+        public ByteBuffer dMd() {
+            if (this.start >= this.nmG) {
+                this.buffer.position((int) (this.start - this.nmG));
                 ByteBuffer slice = this.buffer.slice();
-                slice.limit((int) (this.nmF - (this.start - this.nmE)));
+                slice.limit((int) (this.nmH - (this.start - this.nmG)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
@@ -332,18 +332,18 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     private ByteBuffer findNextSample(a aVar) throws IOException {
-        while (!aVar.dLY()) {
+        while (!aVar.dLZ()) {
             try {
-                aVar.dMa();
+                aVar.dMb();
             } catch (EOFException e) {
                 return null;
             }
         }
-        aVar.dMb();
-        while (!aVar.dLZ()) {
-            aVar.dMa();
+        aVar.dMc();
+        while (!aVar.dMa()) {
+            aVar.dMb();
         }
-        return aVar.dMc();
+        return aVar.dMd();
     }
 
     protected Sample createSample(List<? extends ByteBuffer> list) {

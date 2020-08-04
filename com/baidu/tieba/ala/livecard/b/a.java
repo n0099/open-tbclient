@@ -81,7 +81,7 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
         this.fXv.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.b.a.1
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void disableSwipeBack() {
-                if (a.this.fXz != null && !x.isEmpty(a.this.fXz.lKR) && a.this.fXz.lKR.size() > 1) {
+                if (a.this.fXz != null && !x.isEmpty(a.this.fXz.lKT) && a.this.fXz.lKT.size() > 1) {
                     if (a.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
                         ((BaseActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
                     } else if (a.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -123,15 +123,15 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
         if (gVar != null) {
             this.fXz = gVar;
             bCw();
-            this.fXx.setData(gVar.lKR);
+            this.fXx.setData(gVar.lKT);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void bCw() {
-        if (!x.isEmpty(this.fXz.lKR)) {
+        if (!x.isEmpty(this.fXz.lKT)) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
-            customMessage.setData(this.fXz.lKR.get(0));
+            customMessage.setData(this.fXz.lKT.get(0));
             MessageManager.getInstance().sendMessage(customMessage);
         }
     }
@@ -181,8 +181,8 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (this.fXz != null && !x.isEmpty(this.fXz.lKR)) {
-                for (bv bvVar2 : this.fXz.lKR) {
+            if (this.fXz != null && !x.isEmpty(this.fXz.lKT)) {
+                for (bv bvVar2 : this.fXz.lKT) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(S(bvVar2));
                 }
             }

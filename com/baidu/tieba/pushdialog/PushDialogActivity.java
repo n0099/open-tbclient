@@ -45,19 +45,19 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     private com.baidu.adp.lib.d.b<View> eUY;
     private com.baidu.adp.lib.d.b<LinearLayout> eUZ;
     private com.baidu.adp.lib.d.b<RelativeLayout> eVa;
-    private com.baidu.tieba.v.b iiK;
-    private c lhK;
-    private a lhL;
-    private com.baidu.tieba.ueg.b lhM;
-    private HomeWatcherReceiver lhO;
-    private boolean lhN = false;
-    private String lhP = "push_dialog";
+    private com.baidu.tieba.v.b iiM;
+    private c lhM;
+    private a lhN;
+    private com.baidu.tieba.ueg.b lhO;
+    private HomeWatcherReceiver lhQ;
+    private boolean lhP = false;
+    private String lhR = "push_dialog";
     private CustomMessageListener Ny = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.pushdialog.PushDialogActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && PushDialogActivity.this.lhK != null) {
-                PushDialogActivity.this.lhK.daV();
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && PushDialogActivity.this.lhM != null) {
+                PushDialogActivity.this.lhM.daV();
             }
         }
     };
@@ -88,14 +88,14 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.lhP += "_1";
-        TiebaStatic.eventStat(this, "push_dialog", this.lhP);
+        this.lhR += "_1";
+        TiebaStatic.eventStat(this, "push_dialog", this.lhR);
         super.onCreate(bundle);
-        this.iiK = com.baidu.tieba.screenlocknotify.a.ddK().luJ;
-        if (this.lhM == null) {
-            this.lhM = new com.baidu.tieba.ueg.b();
+        this.iiM = com.baidu.tieba.screenlocknotify.a.ddK().luL;
+        if (this.lhO == null) {
+            this.lhO = new com.baidu.tieba.ueg.b();
         }
-        this.lhM.vI(true);
+        this.lhO.vI(true);
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         Window window = getWindow();
@@ -103,24 +103,24 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             window.addFlags(524288);
         }
         getWindow().getDecorView().setDrawingCacheEnabled(false);
-        this.lhK = new c(this, R.layout.activtiy_push_dialog);
-        this.lhL = new a(this);
-        this.lhL.loadData();
+        this.lhM = new c(this, R.layout.activtiy_push_dialog);
+        this.lhN = new a(this);
+        this.lhN.loadData();
         registerListener(this.Ny);
-        this.lhO = new HomeWatcherReceiver();
+        this.lhQ = new HomeWatcherReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        registerReceiver(this.lhO, intentFilter);
+        registerReceiver(this.lhQ, intentFilter);
         registerListener(this.hGV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        this.lhP += "_2";
-        TiebaStatic.eventStat(this, "push_dialog", this.lhP);
+        this.lhR += "_2";
+        TiebaStatic.eventStat(this, "push_dialog", this.lhR);
         super.onResume();
-        this.lhK.onResume();
+        this.lhM.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -134,49 +134,49 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     public void a(boolean z, com.baidu.tieba.pushdialog.data.a aVar) {
-        this.lhP += "_3";
-        TiebaStatic.eventStat(this, "push_dialog", this.lhP);
-        this.lhN = true;
+        this.lhR += "_3";
+        TiebaStatic.eventStat(this, "push_dialog", this.lhR);
+        this.lhP = true;
         if (!z || aVar == null) {
             finish();
-        } else if (this.lhK != null) {
-            this.lhK.a(aVar);
+        } else if (this.lhM != null) {
+            this.lhM.a(aVar);
             TiebaStatic.log(new ap("c13197").dn("tid", getTid()));
-            TiebaStatic.log(new ap("c13196").ah("obj_type", 2).ah("obj_source", this.lhL.getTaskId() != 0 ? 2 : 1).dn("tid", getTid()));
+            TiebaStatic.log(new ap("c13196").ah("obj_type", 2).ah("obj_source", this.lhN.getTaskId() != 0 ? 2 : 1).dn("tid", getTid()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        this.lhP += "_4";
-        TiebaStatic.eventStat(this, "push_dialog", this.lhP);
+        this.lhR += "_4";
+        TiebaStatic.eventStat(this, "push_dialog", this.lhR);
         super.onPause();
-        this.lhK.onPause();
+        this.lhM.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.lhP += "_5";
-        TiebaStatic.eventStat(this, "push_dialog", this.lhP);
-        if (!this.lhN) {
-            PushDialogActivityConfig pushDialogActivityConfig = new PushDialogActivityConfig(this, this.lhL.getTaskId(), this.lhL.getTid());
+        this.lhR += "_5";
+        TiebaStatic.eventStat(this, "push_dialog", this.lhR);
+        if (!this.lhP) {
+            PushDialogActivityConfig pushDialogActivityConfig = new PushDialogActivityConfig(this, this.lhN.getTaskId(), this.lhN.getTid());
             pushDialogActivityConfig.getIntent().putExtra("need_show_lock", false);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, pushDialogActivityConfig));
         }
         super.onDestroy();
-        this.lhK.onDestroy();
-        if (this.lhO != null) {
-            unregisterReceiver(this.lhO);
+        this.lhM.onDestroy();
+        if (this.lhQ != null) {
+            unregisterReceiver(this.lhQ);
         }
-        if (this.lhM != null) {
-            this.lhM.vI(false);
+        if (this.lhO != null) {
+            this.lhO.vI(false);
         }
     }
 
     public com.baidu.tieba.v.b daL() {
-        return this.iiK;
+        return this.iiM;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
@@ -479,10 +479,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     public String getTid() {
-        if (this.lhL == null) {
+        if (this.lhN == null) {
             return null;
         }
-        return this.lhL.getTid();
+        return this.lhN.getTid();
     }
 
     /* loaded from: classes15.dex */

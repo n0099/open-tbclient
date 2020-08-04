@@ -8,10 +8,10 @@ public interface b<T> {
 
     boolean abo();
 
-    boolean dCV();
+    boolean dCW();
 
     @Nullable
-    Throwable dCX();
+    Throwable dCY();
 
     float getProgress();
 

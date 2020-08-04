@@ -15,10 +15,10 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     TextView eJF;
     private View eJG;
     TbPageContext<GroupAddressEditActivity> huq;
-    private boolean iWk;
-    private TextView iWm;
-    private String[] iWn;
-    l iWo;
+    private boolean iWm;
+    private TextView iWo;
+    private String[] iWp;
+    l iWq;
     NavigationBar mNavigationBar;
     View mParent;
 
@@ -38,12 +38,12 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.eJF = null;
         this.eJG = null;
         this.UL = null;
-        this.iWm = null;
-        this.iWn = null;
-        this.iWk = false;
         this.iWo = null;
-        this.iWn = strArr;
-        this.iWk = z;
+        this.iWp = null;
+        this.iWm = false;
+        this.iWq = null;
+        this.iWp = strArr;
+        this.iWm = z;
         b(tbPageContext.getOrignalPage());
         a(tbPageContext.getOrignalPage());
     }
@@ -58,17 +58,17 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         groupAddressEditActivity.setContentView(R.layout.group_address_activity);
         this.mParent = groupAddressEditActivity.findViewById(R.id.parent);
         this.UL = (BdListView) groupAddressEditActivity.findViewById(R.id.lv_address);
-        this.iWo = new l(groupAddressEditActivity, this.iWn);
-        this.UL.setAdapter((ListAdapter) this.iWo);
+        this.iWq = new l(groupAddressEditActivity, this.iWp);
+        this.UL.setAdapter((ListAdapter) this.iWq);
         this.UL.setOnItemClickListener(groupAddressEditActivity);
-        this.iWm = (TextView) groupAddressEditActivity.findViewById(R.id.address_title_poslist);
-        if (this.iWn == null || this.iWn.length < 1) {
+        this.iWo = (TextView) groupAddressEditActivity.findViewById(R.id.address_title_poslist);
+        if (this.iWp == null || this.iWp.length < 1) {
             this.UL.setVisibility(8);
-            this.iWm.setText(R.string.address_locate_noaddresslist);
+            this.iWo.setText(R.string.address_locate_noaddresslist);
         }
         SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) groupAddressEditActivity.findViewById(R.id.address_showorhidden);
         settingTextSwitchView.setSwitchStateChangeListener(groupAddressEditActivity);
-        if (this.iWk) {
+        if (this.iWm) {
             settingTextSwitchView.turnOn();
         } else {
             settingTextSwitchView.turnOff();
@@ -81,7 +81,7 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     }
 
     public void csM() {
-        this.iWo.notifyDataSetChanged();
+        this.iWq.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {

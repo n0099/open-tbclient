@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class f {
     private String mAppCachePath = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
     private BdUniqueId mPageId;
-    private e mxV;
+    private e mxX;
 
     public f(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -35,7 +35,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.mxV = eVar;
+        this.mxX = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -67,7 +67,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.mxF;
+                str = cVar.mxH;
             }
             z zVar = new z();
             zVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -81,7 +81,7 @@ public class f {
             zVar.addPostData("new_vcode", "1");
             zVar.addPostData("content", cVar.Qw);
             zVar.addPostData("fid", cVar.forumId);
-            zVar.addPostData("kw", cVar.mxE);
+            zVar.addPostData("kw", cVar.mxG);
             zVar.addPostData("is_hide", "0");
             zVar.addPostData("call_from", "2");
             zVar.addPostData("title", cVar.Qw);
@@ -94,9 +94,9 @@ public class f {
                 zVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 zVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.dlM().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.dlN().getLocationData();
             if (locationData != null) {
-                zVar.addPostData("name", locationData.dlK());
+                zVar.addPostData("name", locationData.dlL());
                 zVar.addPostData(IXAdRequestInfo.SN, locationData.aAC());
             }
             zVar.addPostData("is_link_thread", "0");
@@ -104,18 +104,18 @@ public class f {
                 zVar.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             zVar.addPostData("tbopen_app_key", cVar.appKey);
-            zVar.addPostData("tbopen_app_icon", cVar.mxD);
+            zVar.addPostData("tbopen_app_icon", cVar.mxF);
             zVar.addPostData("tbopen_app_name", cVar.appName);
             zVar.addPostData("share_abstract", cVar.content);
             zVar.addPostData("share_image", str);
             zVar.addPostData("share_h5_url", cVar.linkUrl);
-            zVar.addPostData("share_swan_app_key", cVar.mxC);
-            zVar.addPostData("share_swan_path", cVar.mxG);
+            zVar.addPostData("share_swan_app_key", cVar.mxE);
+            zVar.addPostData("share_swan_path", cVar.mxI);
             String postNetData = zVar.postNetData();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(postNetData);
-                dVar.mxI = jSONObject.optString("msg");
+                dVar.mxK = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -133,7 +133,7 @@ public class f {
             if (errorData.error_code != 0 && !j.isNetWorkAvailable()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.mxH = errorData;
+            dVar.mxJ = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
@@ -156,8 +156,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.mxV != null) {
-                f.this.mxV.a(dVar);
+            if (f.this.mxX != null) {
+                f.this.mxX.a(dVar);
             }
         }
     }

@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     private BdListView UL;
     private NoNetworkView fqQ;
-    private IMBlackListActivity jmV;
-    private a jmZ;
+    private IMBlackListActivity jmX;
+    private a jnb;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ProgressBar mProgress;
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
 
     public b(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
-        this.jmV = iMBlackListActivity;
+        this.jmX = iMBlackListActivity;
         initialize();
     }
 
@@ -40,26 +40,26 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     }
 
     public void b(BlackListItemData blackListItemData) {
-        this.jmZ.b(blackListItemData);
-        if (this.jmZ.getCount() <= 0) {
+        this.jnb.b(blackListItemData);
+        if (this.jnb.getCount() <= 0) {
             this.UL.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.UL.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.jmZ.notifyDataSetChanged();
+        this.jnb.notifyDataSetChanged();
     }
 
     public void refreshData() {
-        if (this.jmZ.getCount() <= 0) {
+        if (this.jnb.getCount() <= 0) {
             this.UL.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.UL.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.jmZ.notifyDataSetChanged();
+        this.jnb.notifyDataSetChanged();
     }
 
     public void az(ArrayList<BlackListItemData> arrayList) {
@@ -70,31 +70,31 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         }
         this.UL.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.jmZ.setData(arrayList);
-        this.jmZ.notifyDataSetChanged();
+        this.jnb.setData(arrayList);
+        this.jnb.notifyDataSetChanged();
     }
 
     private void initialize() {
-        this.jmV.setContentView(R.layout.im_black_list);
-        this.mRoot = this.jmV.findViewById(R.id.root_view);
+        this.jmX.setContentView(R.layout.im_black_list);
+        this.mRoot = this.jmX.findViewById(R.id.root_view);
         this.fqQ = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.chat_black_list_title);
         this.UL = (BdListView) this.mRoot.findViewById(R.id.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.jmV.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.eKp), NoDataViewFactory.d.mF(R.string.black_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.jmX.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.eKp), NoDataViewFactory.d.mF(R.string.black_list_no_data_text), null);
         this.mProgress = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        this.jmZ = new a(this.jmV);
-        this.UL.setAdapter((ListAdapter) this.jmZ);
+        this.jnb = new a(this.jmX);
+        this.UL.setAdapter((ListAdapter) this.jnb);
         bci();
     }
 
     private void bci() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.jmV.getLayoutMode().setNightMode(skinType == 1);
-        this.jmV.getLayoutMode().onModeChanged(this.mRoot);
-        this.mNavigationBar.onChangeSkinType(this.jmV.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.jmV.getPageContext(), skinType);
-        this.fqQ.onChangeSkinType(this.jmV.getPageContext(), skinType);
+        this.jmX.getLayoutMode().setNightMode(skinType == 1);
+        this.jmX.getLayoutMode().onModeChanged(this.mRoot);
+        this.mNavigationBar.onChangeSkinType(this.jmX.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.jmX.getPageContext(), skinType);
+        this.fqQ.onChangeSkinType(this.jmX.getPageContext(), skinType);
     }
 }

@@ -11,7 +11,7 @@ public class c {
     private final List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
     private com.baidu.adp.base.e dWk;
     private BdTypeListView frv;
-    private b hTY;
+    private b hUa;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
         this.dWk = eVar;
@@ -20,8 +20,8 @@ public class c {
     }
 
     private void DS() {
-        this.hTY = new b((TbPageContext) this.dWk, com.baidu.tieba.frs.game.strategy.data.b.hTf);
-        this.aWf.add(this.hTY);
+        this.hUa = new b((TbPageContext) this.dWk, com.baidu.tieba.frs.game.strategy.data.b.hTh);
+        this.aWf.add(this.hUa);
         this.frv.addAdapters(this.aWf);
     }
 

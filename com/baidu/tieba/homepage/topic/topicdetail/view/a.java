@@ -55,8 +55,8 @@ public class a extends com.baidu.tbadk.editortools.d {
     private View.OnClickListener eCG;
     private NewWriteModel.d eCe;
     private final com.baidu.adp.base.d eCf;
-    private String iEF;
-    private c iEG;
+    private String iEH;
+    private c iEI;
     private AntiHelper.a mInjectListener;
     private String mPostContent;
     private long mTopicId;
@@ -100,7 +100,7 @@ public class a extends com.baidu.tbadk.editortools.d {
     public a(EditorTools editorTools) {
         super(editorTools);
         this.mPostContent = "";
-        this.iEF = null;
+        this.iEH = null;
         this.eCC = false;
         this.eBU = null;
         this.writeImagesInfo = new WriteImagesInfo();
@@ -360,13 +360,13 @@ public class a extends com.baidu.tbadk.editortools.d {
             this.eBQ.dhF().setTitle("");
             this.eBQ.dhF().setVoice(null);
             this.eBQ.dhF().setVoiceDuringTime(-1);
-            if (!this.eBQ.dmz()) {
+            if (!this.eBQ.dmA()) {
                 bdZ().showToast(R.string.write_img_limit);
             } else if (this.eBY == null || !this.eBY.bji()) {
                 if (this.eBX != null) {
                     this.eBX.bjj();
                 }
-                if (!this.eBQ.dmw()) {
+                if (!this.eBQ.dmx()) {
                 }
             }
         }
@@ -465,10 +465,10 @@ public class a extends com.baidu.tbadk.editortools.d {
     }
 
     public c coj() {
-        if (this.iEG == null && biJ() != null) {
-            this.iEG = (c) biJ().nT(29);
+        if (this.iEI == null && biJ() != null) {
+            this.iEI = (c) biJ().nT(29);
         }
-        return this.iEG;
+        return this.iEI;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {

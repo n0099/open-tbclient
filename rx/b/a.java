@@ -3,7 +3,7 @@ package rx.b;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final rx.e<Object> opn = new rx.e<Object>() { // from class: rx.b.a.1
+    private static final rx.e<Object> opp = new rx.e<Object>() { // from class: rx.b.a.1
         @Override // rx.e
         public final void onCompleted() {
         }
@@ -18,7 +18,7 @@ public final class a {
         }
     };
 
-    public static <T> rx.e<T> dYF() {
-        return (rx.e<T>) opn;
+    public static <T> rx.e<T> dYG() {
+        return (rx.e<T>) opp;
     }
 }

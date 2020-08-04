@@ -3,25 +3,25 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int oqJ;
-    public int oqK;
-    public boolean oqL;
+    public int oqL;
     public int oqM;
+    public boolean oqN;
+    public int oqO;
     public int strokeWidth;
 
     public a(C0945a c0945a) {
-        this.oqJ = 20;
-        this.oqK = 20;
-        this.oqL = true;
+        this.oqL = 20;
+        this.oqM = 20;
+        this.oqN = true;
         this.strokeWidth = 2;
-        this.oqM = 800;
+        this.oqO = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.oqJ = c0945a.oqJ;
-        this.oqK = c0945a.oqK;
         this.oqL = c0945a.oqL;
-        this.strokeWidth = c0945a.strokeWidth;
         this.oqM = c0945a.oqM;
+        this.oqN = c0945a.oqN;
+        this.strokeWidth = c0945a.strokeWidth;
+        this.oqO = c0945a.oqO;
         this.isFullScreen = c0945a.isFullScreen;
         this.borderColor = c0945a.borderColor;
     }
@@ -31,14 +31,14 @@ public class a {
     public static class C0945a {
         public int borderColor;
         public boolean isFullScreen;
-        public int oqJ;
-        public int oqK;
-        public boolean oqL;
+        public int oqL;
         public int oqM;
+        public boolean oqN;
+        public int oqO;
         public int strokeWidth;
 
         public C0945a ym(boolean z) {
-            this.oqL = z;
+            this.oqN = z;
             return this;
         }
 
@@ -48,7 +48,7 @@ public class a {
         }
 
         public C0945a LQ(int i) {
-            this.oqM = i;
+            this.oqO = i;
             return this;
         }
 
@@ -62,7 +62,7 @@ public class a {
             return this;
         }
 
-        public a dZp() {
+        public a dZq() {
             return new a(this);
         }
     }

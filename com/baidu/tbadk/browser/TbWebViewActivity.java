@@ -297,7 +297,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.t.c.dnU().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.t.c.dnV().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -630,7 +630,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.dlJ();
+            this.jsBridge.dlK();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);

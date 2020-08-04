@@ -12,73 +12,73 @@ import tv.chushou.zues.widget.kpswitch.b.d;
 public class c implements ViewTreeObserver.OnGlobalLayoutListener {
     private final int bLP;
     private final boolean isFullScreen;
-    private int ovV = 0;
-    private final ViewGroup ovW;
-    private final tv.chushou.zues.widget.kpswitch.b ovX;
-    private final boolean ovY;
-    private final boolean ovZ;
-    private int owa;
-    private boolean owb;
-    private final d.a owc;
-    private int owd;
+    private int ovX = 0;
+    private final ViewGroup ovY;
+    private final tv.chushou.zues.widget.kpswitch.b ovZ;
+    private final boolean owa;
+    private final boolean owb;
+    private int owc;
+    private boolean owd;
+    private final d.a owe;
+    private int owf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, tv.chushou.zues.widget.kpswitch.b bVar, d.a aVar) {
-        this.ovW = viewGroup;
-        this.ovX = bVar;
+        this.ovY = viewGroup;
+        this.ovZ = bVar;
         this.isFullScreen = z;
-        this.ovY = z2;
-        this.ovZ = z3;
+        this.owa = z2;
+        this.owb = z3;
         this.bLP = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(viewGroup.getContext());
         if (viewGroup.getContext() instanceof Activity) {
-            this.owa = tv.chushou.zues.utils.systemBar.b.ax((Activity) viewGroup.getContext());
+            this.owc = tv.chushou.zues.utils.systemBar.b.ax((Activity) viewGroup.getContext());
         } else {
-            this.owa = tv.chushou.zues.utils.systemBar.b.gI(viewGroup.getContext());
+            this.owc = tv.chushou.zues.utils.systemBar.b.gI(viewGroup.getContext());
         }
-        this.owc = aVar;
+        this.owe = aVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         int i;
-        View childAt = this.ovW.getChildAt(0);
-        View view = (View) this.ovW.getParent();
+        View childAt = this.ovY.getChildAt(0);
+        View view = (View) this.ovY.getParent();
         Rect rect = new Rect();
-        if (this.ovY) {
+        if (this.owa) {
             view.getWindowVisibleDisplayFrame(rect);
-            i = (rect.bottom - rect.top) + this.bLP + this.owa;
+            i = (rect.bottom - rect.top) + this.bLP + this.owc;
         } else {
             childAt.getWindowVisibleDisplayFrame(rect);
             i = rect.bottom - rect.top;
         }
-        if (this.ovV != i) {
+        if (this.ovX != i) {
             Mo(i);
             Mp(i);
-            this.ovV = i;
+            this.ovX = i;
         }
     }
 
     private void Mo(int i) {
         int abs;
         int gR;
-        if (this.ovV == 0) {
-            this.ovV = i;
-            this.ovX.Mm(d.gR(getContext()));
+        if (this.ovX == 0) {
+            this.ovX = i;
+            this.ovZ.Mm(d.gR(getContext()));
             return;
         }
-        if (a.l(this.isFullScreen, this.ovY, this.ovZ)) {
-            int height = ((View) this.ovW.getParent()).getHeight() - i;
-            tv.chushou.zues.utils.e.d("KeyboardStatusListener", String.format(Locale.CHINA, "action bar over layout %d display height: %d", Integer.valueOf(((View) this.ovW.getParent()).getHeight()), Integer.valueOf(i)));
+        if (a.l(this.isFullScreen, this.owa, this.owb)) {
+            int height = ((View) this.ovY.getParent()).getHeight() - i;
+            tv.chushou.zues.utils.e.d("KeyboardStatusListener", String.format(Locale.CHINA, "action bar over layout %d display height: %d", Integer.valueOf(((View) this.ovY.getParent()).getHeight()), Integer.valueOf(i)));
             abs = height;
         } else {
-            abs = Math.abs(i - this.ovV);
+            abs = Math.abs(i - this.ovX);
         }
         if (abs > 0) {
-            this.ovV = i;
+            this.ovX = i;
             if (abs == this.bLP) {
                 tv.chushou.zues.utils.e.w("KeyboardStatusListener", String.format(Locale.CHINA, "On global layout change get keyboard height just equal statusBar height %d", Integer.valueOf(abs)));
-            } else if (d.I(getContext(), abs) && this.ovX.getHeight() != (gR = d.gR(getContext()))) {
-                this.ovX.Mm(gR);
+            } else if (d.I(getContext(), abs) && this.ovZ.getHeight() != (gR = d.gR(getContext()))) {
+                this.ovZ.Mm(gR);
             }
         }
     }
@@ -86,38 +86,38 @@ public class c implements ViewTreeObserver.OnGlobalLayoutListener {
     private void Mp(int i) {
         boolean z;
         boolean z2 = true;
-        View view = (View) this.ovW.getParent();
+        View view = (View) this.ovY.getParent();
         int height = view.getHeight() - view.getPaddingTop();
-        if (a.l(this.isFullScreen, this.ovY, this.ovZ)) {
-            if (!this.ovY && height - i == this.bLP) {
-                z = this.owb;
+        if (a.l(this.isFullScreen, this.owa, this.owb)) {
+            if (!this.owa && height - i == this.bLP) {
+                z = this.owd;
             } else {
                 z = height > i;
             }
         } else {
-            int i2 = this.ovW.getResources().getDisplayMetrics().heightPixels;
-            if (!this.ovY && i2 == height) {
+            int i2 = this.ovY.getResources().getDisplayMetrics().heightPixels;
+            if (!this.owa && i2 == height) {
                 tv.chushou.zues.utils.e.w("KeyboardStatusListener", String.format("skip the keyboard status calculate, the current activity is paused. and phone-display-height %d, root-height+actionbar-height %d", Integer.valueOf(i2), Integer.valueOf(height)));
                 return;
             }
-            if (this.owd == 0) {
-                z2 = this.owb;
-            } else if ((this.owd - this.owa) - i <= 100) {
+            if (this.owf == 0) {
+                z2 = this.owd;
+            } else if ((this.owf - this.owc) - i <= 100) {
                 z2 = false;
             }
-            this.owd = Math.max(this.owd, height);
+            this.owf = Math.max(this.owf, height);
             z = z2;
         }
-        if (this.owb != z) {
-            this.ovX.xD(z);
-            if (this.owc != null) {
-                this.owc.xD(z);
+        if (this.owd != z) {
+            this.ovZ.xD(z);
+            if (this.owe != null) {
+                this.owe.xD(z);
             }
         }
-        this.owb = z;
+        this.owd = z;
     }
 
     private Context getContext() {
-        return this.ovW.getContext();
+        return this.ovY.getContext();
     }
 }

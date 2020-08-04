@@ -14,9 +14,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private View hRd;
-    private TbImageView hRe;
-    private boolean hRf;
+    private View hRf;
+    private TbImageView hRg;
+    private boolean hRh;
     private Animation hxX;
     private int mIconId;
     private int mSkinType;
@@ -26,7 +26,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         this.mSkinType = 3;
         this.hxX = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.hRf = false;
+        this.hRh = false;
         i(context, null);
     }
 
@@ -35,7 +35,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         this.mSkinType = 3;
         this.hxX = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.hRf = false;
+        this.hRh = false;
         i(context, attributeSet);
     }
 
@@ -44,13 +44,13 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         this.mSkinType = 3;
         this.hxX = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.hRf = false;
+        this.hRh = false;
         i(context, attributeSet);
     }
 
     public void setIconResource(int i) {
         this.mIconId = i;
-        ao.setImageResource(this.hRe, this.mIconId);
+        ao.setImageResource(this.hRg, this.mIconId);
     }
 
     public void i(Context context, AttributeSet attributeSet) {
@@ -58,32 +58,32 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.EntelechyPullUpRefreshView);
                 this.mIconId = obtainStyledAttributes.getResourceId(R.styleable.EntelechyPullUpRefreshView_tb_pull_up_icon, R.drawable.icon_frs_reload);
-                this.hRf = obtainStyledAttributes.getBoolean(R.styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
+                this.hRh = obtainStyledAttributes.getBoolean(R.styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
                 obtainStyledAttributes.recycle();
             }
             setOrientation(1);
             setGravity(1);
             ao.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-            if (this.hRf) {
-                this.hRd = new View(context);
-                this.hRd.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
-                ao.setBackgroundResource(this.hRd, R.color.cp_bg_line_c);
-                addView(this.hRd);
+            if (this.hRh) {
+                this.hRf = new View(context);
+                this.hRf.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
+                ao.setBackgroundResource(this.hRf, R.color.cp_bg_line_c);
+                addView(this.hRf);
             }
-            this.hRe = new TbImageView(context);
+            this.hRg = new TbImageView(context);
             int dimens = l.getDimens(getContext(), R.dimen.ds48);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
             layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds20);
-            this.hRe.setLayoutParams(layoutParams);
-            ao.setImageResource(this.hRe, this.mIconId);
-            addView(this.hRe);
+            this.hRg.setLayoutParams(layoutParams);
+            ao.setImageResource(this.hRg, this.mIconId);
+            addView(this.hRg);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.hRd, R.color.cp_bg_line_c);
-            ao.setImageResource(this.hRe, this.mIconId);
+            ao.setBackgroundResource(this.hRf, R.color.cp_bg_line_c);
+            ao.setImageResource(this.hRg, this.mIconId);
             ao.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
             this.mSkinType = i;
         }

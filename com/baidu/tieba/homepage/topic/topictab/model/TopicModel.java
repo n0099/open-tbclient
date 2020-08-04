@@ -9,12 +9,12 @@ import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessag
 /* loaded from: classes16.dex */
 public class TopicModel extends BdBaseModel {
     private a dFJ;
-    private com.baidu.tieba.homepage.topic.topictab.a iFT;
-    private a iyO;
+    private com.baidu.tieba.homepage.topic.topictab.a iFV;
+    private a iyQ;
     private boolean mIsLoading;
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.iFT = aVar;
+        this.iFV = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -22,14 +22,14 @@ public class TopicModel extends BdBaseModel {
         super.setUniqueId(bdUniqueId);
         this.dFJ.setTag(bdUniqueId);
         registerListener(this.dFJ);
-        this.iyO.setTag(bdUniqueId);
-        registerListener(this.iyO);
+        this.iyQ.setTag(bdUniqueId);
+        registerListener(this.iyQ);
     }
 
     public void cop() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.iFT != null) {
-                this.iFT.n(-1, null);
+            if (this.iFV != null) {
+                this.iFV.n(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();
@@ -55,7 +55,7 @@ public class TopicModel extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.dFJ);
-        MessageManager.getInstance().unRegisterListener(this.iyO);
+        MessageManager.getInstance().unRegisterListener(this.iyQ);
         this.mIsLoading = false;
     }
 }

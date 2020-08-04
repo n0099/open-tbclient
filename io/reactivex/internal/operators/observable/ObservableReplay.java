@@ -15,15 +15,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableReplay<T> extends io.reactivex.d.a<T> implements io.reactivex.disposables.b {
-    static final a nUr = new c();
+    static final a nUt = new c();
     final AtomicReference<ReplayObserver<T>> current;
-    final t<T> nUk;
-    final a<T> nUq;
+    final t<T> nUm;
+    final a<T> nUs;
     final t<T> source;
 
     /* loaded from: classes7.dex */
     interface a<T> {
-        b<T> dTb();
+        b<T> dTc();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,7 +51,7 @@ public final class ObservableReplay<T> extends io.reactivex.d.a<T> implements io
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.nUk.subscribe(uVar);
+        this.nUm.subscribe(uVar);
     }
 
     @Override // io.reactivex.d.a
@@ -62,7 +62,7 @@ public final class ObservableReplay<T> extends io.reactivex.d.a<T> implements io
             if (replayObserver != null && !replayObserver.isDisposed()) {
                 break;
             }
-            ReplayObserver<T> replayObserver2 = new ReplayObserver<>(this.nUq.dTb());
+            ReplayObserver<T> replayObserver2 = new ReplayObserver<>(this.nUs.dTc());
             if (this.current.compareAndSet(replayObserver, replayObserver2)) {
                 replayObserver = replayObserver2;
                 break;
@@ -488,7 +488,7 @@ public final class ObservableReplay<T> extends io.reactivex.d.a<T> implements io
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.f.b) obj).dTB();
+            return ((io.reactivex.f.b) obj).dTC();
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BoundedReplayBuffer
@@ -547,7 +547,7 @@ public final class ObservableReplay<T> extends io.reactivex.d.a<T> implements io
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
                 io.reactivex.f.b bVar = (io.reactivex.f.b) node3.value;
-                if (NotificationLite.isComplete(bVar.dTB()) || NotificationLite.isError(bVar.dTB()) || bVar.aob() > a) {
+                if (NotificationLite.isComplete(bVar.dTC()) || NotificationLite.isError(bVar.dTC()) || bVar.aob() > a) {
                     break;
                 }
                 node2 = node3;
@@ -562,7 +562,7 @@ public final class ObservableReplay<T> extends io.reactivex.d.a<T> implements io
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.a
-        public b<Object> dTb() {
+        public b<Object> dTc() {
             return new UnboundedReplayBuffer(16);
         }
     }

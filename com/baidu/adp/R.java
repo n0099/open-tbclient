@@ -862,7 +862,7 @@ public final class R {
         public static final int chronometer = 0x7f0f1c8f;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f955common = 0x7f0f01ad;
+        public static final int f958common = 0x7f0f01ad;
         public static final int container = 0x7f0f039b;
         public static final int contentPanel = 0x7f0f0259;
         public static final int coordinator = 0x7f0f0f97;

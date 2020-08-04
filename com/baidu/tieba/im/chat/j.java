@@ -42,7 +42,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    public static boolean iRz = m.bmD();
+    public static boolean iRB = m.bmD();
 
     public static void a(Context context, TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
         if (chatMessage != null) {

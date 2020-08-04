@@ -15,16 +15,16 @@ public class g implements a {
     private TabMenuPopView.a hKE = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, bd bdVar) {
-            if (g.this.idM != null) {
-                g.this.idM.dismissMenu();
+            if (g.this.idO != null) {
+                g.this.idO.dismissMenu();
             }
-            g.this.idO.wi(bdVar.hJP);
+            g.this.idQ.wi(bdVar.hJP);
         }
     };
-    private List<bd> hNe;
-    private e idM;
-    private e.b idO;
-    private TabMenuPopView idP;
+    private List<bd> hNg;
+    private e idO;
+    private e.b idQ;
+    private TabMenuPopView idR;
     private View mContentView;
     private Context mContext;
     private View mTopLine;
@@ -33,26 +33,26 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.idM = eVar;
-            this.idO = eVar.chV();
+            this.idO = eVar;
+            this.idQ = eVar.chV();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(R.layout.tab_menu_multline_view, (ViewGroup) null);
             this.mTopLine = this.mContentView.findViewById(R.id.top_line);
-            this.idP = (TabMenuPopView) this.mContentView.findViewById(R.id.categorycontainer);
-            this.idP.setOnItemClickCallBack(this.hKE);
+            this.idR = (TabMenuPopView) this.mContentView.findViewById(R.id.categorycontainer);
+            this.idR.setOnItemClickCallBack(this.hKE);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void setData(List<bd> list) {
         if (list != null) {
-            this.hNe = list;
+            this.hNg = list;
             bd bdVar = new bd();
             bdVar.hJP = 0;
             bdVar.name = this.mContext.getResources().getString(R.string.all);
             bdVar.isSelected = false;
             ao.setBackgroundColor(this.mContentView, R.color.cp_bg_line_d);
             ao.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-            this.idP.setData(this.hNe, bdVar);
+            this.idR.setData(this.hNg, bdVar);
         }
     }
 

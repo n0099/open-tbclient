@@ -15,7 +15,7 @@ public class c extends ad.a {
     private q Vm;
     public TbImageView YF;
     public View hwm;
-    public TextView kNZ;
+    public TextView kOb;
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
@@ -25,7 +25,7 @@ public class c extends ad.a {
         this.YF = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.YF.setDefaultBgResource(R.color.cp_bg_line_e);
         this.hwm = view.findViewById(R.id.normal_pic_click_bg);
-        this.kNZ = (TextView) view.findViewById(R.id.tip_default_view);
+        this.kOb = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void h(q qVar) {
@@ -34,7 +34,7 @@ public class c extends ad.a {
             m mVar = (m) qVar;
             if (mVar.bip()) {
                 String xH = com.baidu.tbadk.core.util.q.xH(mVar.getSmallUrl());
-                this.kNZ.setVisibility(0);
+                this.kOb.setVisibility(0);
                 if (StringUtils.isNull(xH)) {
                     this.YF.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
@@ -42,7 +42,7 @@ public class c extends ad.a {
                 }
             } else {
                 this.YF.setDefaultResource(R.drawable.img_default_100);
-                this.kNZ.setVisibility(8);
+                this.kOb.setVisibility(8);
                 this.YF.startLoad(mVar.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
@@ -52,8 +52,8 @@ public class c extends ad.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setViewTextColor(this.kNZ, R.color.cp_cont_g, 1);
-            ao.setBackgroundColor(this.kNZ, R.color.black_alpha50);
+            ao.setViewTextColor(this.kOb, R.color.cp_cont_g, 1);
+            ao.setBackgroundColor(this.kOb, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }

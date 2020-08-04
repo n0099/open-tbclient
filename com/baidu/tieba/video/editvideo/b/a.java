@@ -11,49 +11,49 @@ import java.util.List;
 /* loaded from: classes17.dex */
 public class a {
     private Context mContext;
-    private com.baidu.tieba.video.editvideo.data.a mdO;
-    private b mdP;
-    b.a mdQ;
+    private com.baidu.tieba.video.editvideo.data.a mdQ;
+    private b mdR;
+    b.a mdS;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.mdO = aVar;
+        this.mdQ = aVar;
     }
 
-    public String dqa() {
-        return (this.mdO == null || "normal".equalsIgnoreCase(this.mdO.value)) ? "" : this.mdO.value;
+    public String dqb() {
+        return (this.mdQ == null || "normal".equalsIgnoreCase(this.mdQ.value)) ? "" : this.mdQ.value;
     }
 
     public void fH(String str, String str2) {
-        if ((this.mdP == null || !this.mdP.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.mdP = new b(this.mContext, str, dqd(), str2);
-            if (this.mdQ != null) {
-                this.mdP.a(this.mdQ);
+        if ((this.mdR == null || !this.mdR.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.mdR = new b(this.mContext, str, dqe(), str2);
+            if (this.mdS != null) {
+                this.mdR.a(this.mdS);
             }
-            this.mdP.dqe();
+            this.mdR.dqf();
         }
     }
 
-    public boolean dqb() {
-        if (this.mdP != null) {
-            return this.mdP.isRunning();
+    public boolean dqc() {
+        if (this.mdR != null) {
+            return this.mdR.isRunning();
         }
         return false;
     }
 
-    public void dqc() {
-        if (this.mdP != null) {
-            this.mdP.dqf();
+    public void dqd() {
+        if (this.mdR != null) {
+            this.mdR.dqg();
         }
     }
 
     public void a(b.a aVar) {
-        this.mdQ = aVar;
-        if (this.mdP != null) {
-            this.mdP.a(this.mdQ);
+        this.mdS = aVar;
+        if (this.mdR != null) {
+            this.mdR.a(this.mdS);
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    private static String dqd() {
-        return com.baidu.tieba.video.c.mbN + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dqe() {
+        return com.baidu.tieba.video.c.mbP + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

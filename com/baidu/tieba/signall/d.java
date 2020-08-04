@@ -13,14 +13,14 @@ public class d implements ag {
     private String forumName;
     private int fzb;
     private boolean isSigned;
-    private int lDY;
-    private int lDZ;
     private int lEa;
     private int lEb;
-    private boolean lEc;
-    private boolean lEd;
+    private int lEc;
+    private int lEd;
     private boolean lEe;
-    private int lEf;
+    private boolean lEf;
+    private boolean lEg;
+    private int lEh;
 
     public int getForumId() {
         return this.forumId;
@@ -35,7 +35,7 @@ public class d implements ag {
     }
 
     public int diy() {
-        return this.lDY;
+        return this.lEa;
     }
 
     public int diz() {
@@ -43,19 +43,19 @@ public class d implements ag {
     }
 
     public int diA() {
-        return this.lDZ;
-    }
-
-    public int diB() {
-        return this.lEa;
-    }
-
-    public int diC() {
         return this.lEb;
     }
 
+    public int diB() {
+        return this.lEc;
+    }
+
+    public int diC() {
+        return this.lEd;
+    }
+
     public void EW(int i) {
-        this.lDY = i;
+        this.lEa = i;
     }
 
     public void EX(int i) {
@@ -63,7 +63,7 @@ public class d implements ag {
     }
 
     public void EY(int i) {
-        this.lDZ = i;
+        this.lEb = i;
     }
 
     public boolean bxH() {
@@ -72,32 +72,32 @@ public class d implements ag {
 
     public void uX(boolean z) {
         this.isSigned = z;
-        this.lDY = 1;
+        this.lEa = 1;
     }
 
     public boolean diD() {
-        return this.lEd;
-    }
-
-    public void uY(boolean z) {
-        this.lEd = z;
-        this.lDY = 0;
-    }
-
-    public boolean diE() {
-        return this.lEe;
-    }
-
-    public void uZ(boolean z) {
-        this.lEe = z;
-    }
-
-    public int diF() {
         return this.lEf;
     }
 
+    public void uY(boolean z) {
+        this.lEf = z;
+        this.lEa = 0;
+    }
+
+    public boolean diE() {
+        return this.lEg;
+    }
+
+    public void uZ(boolean z) {
+        this.lEg = z;
+    }
+
+    public int diF() {
+        return this.lEh;
+    }
+
     public void EZ(int i) {
-        this.lEf = i;
+        this.lEh = i;
     }
 
     public void setErrorMsg(String str) {
@@ -105,11 +105,11 @@ public class d implements ag {
     }
 
     public boolean diG() {
-        return this.lEc;
+        return this.lEe;
     }
 
     public void va(boolean z) {
-        this.lEc = z;
+        this.lEe = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ag {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.lDY = jSONObject.optInt("is_sign_in");
+            this.lEa = jSONObject.optInt("is_sign_in");
             this.fzb = jSONObject.optInt("cont_sign_num");
-            this.lDZ = jSONObject.optInt("user_level");
-            this.lEa = jSONObject.optInt("user_exp");
-            this.lEb = jSONObject.optInt("need_exp");
-            if (this.lDY != 0) {
+            this.lEb = jSONObject.optInt("user_level");
+            this.lEc = jSONObject.optInt("user_exp");
+            this.lEd = jSONObject.optInt("need_exp");
+            if (this.lEa != 0) {
                 this.isSigned = true;
-                this.lEd = false;
+                this.lEf = false;
             }
         }
     }

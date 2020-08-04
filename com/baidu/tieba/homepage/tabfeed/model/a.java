@@ -13,30 +13,30 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a {
-    private final List<bv> iDE = new ArrayList();
+    private final List<bv> iDG = new ArrayList();
 
     public c a(boolean z, com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         c cVar = new c();
         cVar.eZg = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.iDz = aVar.cnV();
-        cVar.iDA = aVar.cnW();
+        cVar.iDB = aVar.cnV();
+        cVar.iDC = aVar.cnW();
         ArrayList<bv> bWn = aVar.bWn();
         if (z) {
             if (!x.isEmpty(bWn)) {
-                this.iDE.clear();
-                this.iDE.addAll(bWn);
+                this.iDG.clear();
+                this.iDG.addAll(bWn);
             }
         } else if (!x.isEmpty(bWn)) {
-            this.iDE.addAll(bWn);
+            this.iDG.addAll(bWn);
         }
         ArrayList<q> arrayList = new ArrayList<>();
-        arrayList.addAll(this.iDE);
+        arrayList.addAll(this.iDG);
         a(arrayList, aVar.cnT());
         a(arrayList, aVar.cnU());
         a(arrayList, aVar.cnX());
         a(arrayList, aVar.cnY());
-        cVar.iDy = ay(arrayList);
+        cVar.iDA = ay(arrayList);
         return cVar;
     }
 
@@ -174,6 +174,6 @@ public class a {
     }
 
     public boolean hasData() {
-        return (this.iDE == null || x.isEmpty(this.iDE)) ? false : true;
+        return (this.iDG == null || x.isEmpty(this.iDG)) ? false : true;
     }
 }

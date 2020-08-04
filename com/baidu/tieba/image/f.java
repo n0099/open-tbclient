@@ -11,13 +11,13 @@ public class f {
     private boolean isBlockedPic;
     private boolean isFirstPost;
     private boolean isLongPic;
-    private boolean jsP;
-    private String jsN = null;
+    private boolean jsR;
+    private String jsP = null;
     private String imageUrl = null;
     private String eUF = null;
     private int width = 0;
     private int height = 0;
-    private String jsO = null;
+    private String jsQ = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
@@ -25,14 +25,14 @@ public class f {
     private long overAllIndex = 0;
     private String postId = null;
     private String commentNum = null;
-    private JSONArray jsQ = null;
+    private JSONArray jsS = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
     public String czE() {
-        return this.jsN;
+        return this.jsP;
     }
 
     public String czF() {
@@ -56,7 +56,7 @@ public class f {
     }
 
     public String bph() {
-        return this.jsO;
+        return this.jsQ;
     }
 
     public long getOriginalSize() {
@@ -72,7 +72,7 @@ public class f {
     }
 
     public boolean czG() {
-        return this.jsP;
+        return this.jsR;
     }
 
     public boolean czH() {
@@ -96,7 +96,7 @@ public class f {
     }
 
     public JSONArray czK() {
-        return this.jsQ;
+        return this.jsS;
     }
 
     public boolean czL() {
@@ -108,7 +108,7 @@ public class f {
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
             this.postId = jSONObject.optString("post_id");
-            this.jsP = jSONObject.optInt("show_original_btn") == 1;
+            this.jsR = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
@@ -127,15 +127,15 @@ public class f {
                 this.agreeData.hasAgree = z;
                 this.agreeData.agreeNum = optInt;
             }
-            this.jsQ = jSONObject.optJSONArray("post_content");
+            this.jsS = jSONObject.optJSONArray("post_content");
             JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                this.jsN = optJSONObject.optString("id");
+                this.jsP = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
                 this.eUF = optJSONObject.optString("big_cdn_src", null);
-                this.jsO = optJSONObject.optString("original_src");
+                this.jsQ = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt(TiebaInitialize.LogFields.SIZE);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");

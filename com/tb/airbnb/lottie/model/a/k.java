@@ -4,18 +4,18 @@ import android.support.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class k {
     @Nullable
-    public final a nPe;
+    public final a nPg;
     @Nullable
-    public final a nPf;
+    public final a nPh;
     @Nullable
-    public final b nPg;
+    public final b nPi;
     @Nullable
-    public final b nPh;
+    public final b nPj;
 
     public k(@Nullable a aVar, @Nullable a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.nPe = aVar;
-        this.nPf = aVar2;
-        this.nPg = bVar;
-        this.nPh = bVar2;
+        this.nPg = aVar;
+        this.nPh = aVar2;
+        this.nPi = bVar;
+        this.nPj = bVar2;
     }
 }

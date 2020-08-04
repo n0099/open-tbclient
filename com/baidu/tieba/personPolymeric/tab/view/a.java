@@ -28,15 +28,15 @@ public class a {
     private BdTypeRecyclerView VT;
     private TbPageContext dVN;
     private PbListView fsC;
-    private n kYy;
-    private PersonCenterTabBaseFragment kYz;
+    private n kYA;
+    private PersonCenterTabBaseFragment kYB;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, View view, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
         this.dVN = tbPageContext;
         this.mRootView = view;
-        this.kYz = personCenterTabBaseFragment;
+        this.kYB = personCenterTabBaseFragment;
         initUI();
     }
 
@@ -51,19 +51,19 @@ public class a {
         this.fsC.setTextSize(R.dimen.tbfontsize33);
         this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
         this.fsC.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.kYy = new n(this.dVN, this.VT, this.kYz.getUniqueId());
-        this.kYy.setIsHost(this.kYz.isHost());
-        this.kYy.CT(32);
+        this.kYA = new n(this.dVN, this.VT, this.kYB.getUniqueId());
+        this.kYA.setIsHost(this.kYB.isHost());
+        this.kYA.CT(32);
         int i = 0;
-        if (this.kYz.isHost()) {
-            if (this.kYz instanceof PersonCenterDynamicTabFragment) {
+        if (this.kYB.isHost()) {
+            if (this.kYB instanceof PersonCenterDynamicTabFragment) {
                 i = 4;
-            } else if (this.kYz instanceof PersonCenterThreadTabFragment) {
+            } else if (this.kYB instanceof PersonCenterThreadTabFragment) {
                 i = 6;
             }
         }
-        this.kYy.CU(i);
-        this.kYy.setTabType(this.kYz.getTabType());
+        this.kYA.CU(i);
+        this.kYA.setTabType(this.kYB.getTabType());
     }
 
     public void addHeaderView(View view) {
@@ -88,15 +88,15 @@ public class a {
             this.VT.removeHeaderView(this.mNoDataView);
         }
         this.VT.setData(list);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.kYz.getTabType())));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.kYB.getTabType())));
     }
 
     private void yK(int i) {
         String string;
-        if (this.kYz.getTabType() == 1) {
-            string = this.kYz.getResources().getString(R.string.person_center_listempty_dynamic_txt);
+        if (this.kYB.getTabType() == 1) {
+            string = this.kYB.getResources().getString(R.string.person_center_listempty_dynamic_txt);
         } else {
-            string = this.kYz.getResources().getString(R.string.person_center_listempty_thread_txt);
+            string = this.kYB.getResources().getString(R.string.person_center_listempty_thread_txt);
         }
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.dVN.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.m31do(null, string), null);
@@ -110,8 +110,8 @@ public class a {
 
     public void onChangeSkinType(int i) {
         ao.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-        if (this.kYy != null) {
-            this.kYy.notifyDataSetChanged();
+        if (this.kYA != null) {
+            this.kYA.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.dVN, i);
@@ -123,7 +123,7 @@ public class a {
     }
 
     public n cYh() {
-        return this.kYy;
+        return this.kYA;
     }
 
     public View getRootView() {

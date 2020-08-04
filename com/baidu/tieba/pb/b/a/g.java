@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes17.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder kEj;
-    private int kEk;
+    private SpannableStringBuilder kEl;
+    private int kEm;
     private int textSize;
 
     public g() {
-        this.kEk = 0;
+        this.kEm = 0;
         this.textSize = -1;
-        this.kEj = new SpannableStringBuilder();
+        this.kEl = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.kEk = 0;
+        this.kEm = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.kEj = new SpannableStringBuilder();
+            this.kEl = new SpannableStringBuilder();
             if (excContent != null) {
-                this.kEj.append((CharSequence) excContent.text);
+                this.kEl.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.kEk = excContent.align.intValue();
+                this.kEm = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void r(CharSequence charSequence) {
         if (charSequence != null) {
-            this.kEj.append(charSequence);
+            this.kEl.append(charSequence);
         }
     }
 
@@ -53,11 +53,11 @@ public class g implements c {
 
     @Override // com.baidu.tieba.pb.b.a.c
     public CharSequence cSz() {
-        return this.kEj;
+        return this.kEl;
     }
 
     public int cSB() {
-        return this.kEk;
+        return this.kEm;
     }
 
     public String cSC() {
@@ -66,7 +66,7 @@ public class g implements c {
 
     @Override // com.baidu.tieba.pb.b.a.c
     public boolean cSA() {
-        return (this.kEk > 0 && this.kEk < 3) || !StringUtils.isNull(this.color);
+        return (this.kEm > 0 && this.kEm < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

@@ -82,9 +82,9 @@ public class n {
         il ilVar = new il();
         ilVar.b(b.m89a(context).m90a());
         ilVar.d(context.getPackageName());
-        ilVar.c(hw.AwakeAppResponse.f478a);
+        ilVar.c(hw.AwakeAppResponse.f481a);
         ilVar.a(com.xiaomi.push.service.an.a());
-        ilVar.f619a = hashMap;
+        ilVar.f622a = hashMap;
         a(context, ilVar);
     }
 

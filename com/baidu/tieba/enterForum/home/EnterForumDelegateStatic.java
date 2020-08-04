@@ -244,7 +244,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     private static void bUU() {
-        com.baidu.tieba.tbadkCore.d.c.dlA();
+        com.baidu.tieba.tbadkCore.d.c.dlB();
         if (hhS == null) {
             hhS = new EnterForumModel(null);
             hhS.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.12

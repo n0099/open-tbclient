@@ -14,25 +14,25 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class a extends ad.a implements View.OnClickListener {
     private bv aii;
-    CardForumHeadLayout kxL;
+    CardForumHeadLayout kxN;
 
     public a(View view) {
         super(view);
-        this.kxL = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        if (this.kxL != null) {
-            this.kxL.setOnClickListener(this.kxL);
-            this.kxL.setAfterClickListener(this);
+        this.kxN = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+        if (this.kxN != null) {
+            this.kxN.setOnClickListener(this.kxN);
+            this.kxN.setAfterClickListener(this);
         }
     }
 
     public void setData(bv bvVar) {
         this.aii = bvVar;
-        this.kxL.setData(bvVar);
+        this.kxN.setData(bvVar);
     }
 
     public void bci() {
-        this.kxL.onChangeSkinType();
-        ao.c(this.kxL, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+        this.kxN.onChangeSkinType();
+        ao.c(this.kxN, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.cp_bg_line_g, R.color.cp_bg_line_g);
     }
 
     @Override // android.view.View.OnClickListener

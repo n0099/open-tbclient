@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0710a kiY;
+    private InterfaceC0710a kja;
     private int count = 0;
-    private long kiW = 0;
-    private long kiX = 0;
-    private long kiZ = 500;
+    private long kiY = 0;
+    private long kiZ = 0;
+    private long kjb = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.kiW = 0L;
-                a.this.kiX = 0L;
+                a.this.kiY = 0L;
+                a.this.kiZ = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.kiY != null) {
-                    a.this.kiY.cLA();
+                if (a.this.kja != null) {
+                    a.this.kja.cLA();
                 }
                 a.this.count = 0;
-                a.this.kiW = 0L;
-                a.this.kiX = 0L;
+                a.this.kiY = 0L;
+                a.this.kiZ = 0L;
             }
         }
     };
@@ -38,24 +38,24 @@ public class a implements View.OnTouchListener {
     }
 
     public a(InterfaceC0710a interfaceC0710a) {
-        this.kiY = interfaceC0710a;
+        this.kja = interfaceC0710a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.kiY == null) {
+            if (this.kja == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.kiW = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.kiZ);
+                this.kiY = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.kjb);
                 return true;
             } else if (this.count == 2) {
-                this.kiX = System.currentTimeMillis();
-                if (this.kiX - this.kiW < this.kiZ) {
-                    this.kiY.cLz();
+                this.kiZ = System.currentTimeMillis();
+                if (this.kiZ - this.kiY < this.kjb) {
+                    this.kja.cLz();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

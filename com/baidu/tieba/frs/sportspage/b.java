@@ -27,13 +27,13 @@ public class b {
             }
         }
     };
-    private TbImageView icA;
-    private TbImageView icB;
-    private TextView icC;
-    private TextView icD;
+    private TbImageView icC;
+    private TbImageView icD;
     private TextView icE;
     private TextView icF;
     private TextView icG;
+    private TextView icH;
+    private TextView icI;
     private String mForumId;
     private View mRootView;
 
@@ -43,15 +43,15 @@ public class b {
             BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
             this.mRootView = view.findViewById(R.id.frs_sports_schedule_card_layout);
             this.fqP = (TextView) view.findViewById(R.id.frs_sports_tab_view);
-            this.icA = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
-            this.icB = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
-            this.icC = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
-            this.icD = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
-            this.icE = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
-            this.icF = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
-            this.icG = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
-            this.icA.setPageId(uniqueId);
-            this.icB.setPageId(uniqueId);
+            this.icC = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
+            this.icD = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
+            this.icE = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
+            this.icF = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
+            this.icG = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
+            this.icH = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
+            this.icI = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
+            this.icC.setPageId(uniqueId);
+            this.icD.setPageId(uniqueId);
         }
     }
 
@@ -64,8 +64,8 @@ public class b {
         }
         this.mRootView.setVisibility(0);
         this.fqP.setVisibility(8);
-        this.icA.startLoad(sportScheduleInfo.home_team_icon, 10, false);
-        this.icB.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
+        this.icC.startLoad(sportScheduleInfo.home_team_icon, 10, false);
+        this.icD.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
         String str2 = sportScheduleInfo.home_team_name;
         if (as.getChineseAndEnglishLength(str2) > 14) {
             str2 = as.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
@@ -74,11 +74,11 @@ public class b {
         if (as.getChineseAndEnglishLength(str3) > 14) {
             str3 = as.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
         }
-        this.icC.setText(str2);
-        this.icD.setText(str3);
-        this.icE.setText(sportScheduleInfo.match_top_info);
-        this.icF.setText(sportScheduleInfo.match_middle_info);
-        this.icG.setText(sportScheduleInfo.match_bottom_info);
+        this.icE.setText(str2);
+        this.icF.setText(str3);
+        this.icG.setText(sportScheduleInfo.match_top_info);
+        this.icH.setText(sportScheduleInfo.match_middle_info);
+        this.icI.setText(sportScheduleInfo.match_bottom_info);
         this.fcs = sportScheduleInfo.msg_url;
         this.mForumId = str;
         this.mRootView.setOnClickListener(this.hIl);
@@ -88,10 +88,10 @@ public class b {
         ao.setBackgroundResource(this.mRootView, R.drawable.bg_sports_frs_schedule_card_shape);
         ao.setBackgroundResource(this.fqP, R.drawable.bg_sports_frs_schedule_card_shape);
         ao.setViewTextColor(this.fqP, R.color.cp_cont_b);
-        ao.setViewTextColor(this.icC, R.color.cp_cont_b);
-        ao.setViewTextColor(this.icD, R.color.cp_cont_b);
-        ao.setViewTextColor(this.icE, R.color.cp_cont_c);
+        ao.setViewTextColor(this.icE, R.color.cp_cont_b);
         ao.setViewTextColor(this.icF, R.color.cp_cont_b);
         ao.setViewTextColor(this.icG, R.color.cp_cont_c);
+        ao.setViewTextColor(this.icH, R.color.cp_cont_b);
+        ao.setViewTextColor(this.icI, R.color.cp_cont_c);
     }
 }

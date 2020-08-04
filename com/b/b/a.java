@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     static class C0015a {
-        private static Object nIU;
-        private static Method nIV;
-        private static Method nIW;
+        private static Object nIW;
         private static Method nIX;
         private static Method nIY;
+        private static Method nIZ;
+        private static Method nJa;
         private static Class<?> sClass;
 
         static {
-            nIV = null;
-            nIW = null;
             nIX = null;
             nIY = null;
+            nIZ = null;
+            nJa = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                nIU = sClass.newInstance();
-                nIV = sClass.getMethod("getUDID", Context.class);
-                nIW = sClass.getMethod("getOAID", Context.class);
-                nIX = sClass.getMethod("getVAID", Context.class);
-                nIY = sClass.getMethod("getAAID", Context.class);
+                nIW = sClass.newInstance();
+                nIX = sClass.getMethod("getUDID", Context.class);
+                nIY = sClass.getMethod("getOAID", Context.class);
+                nIZ = sClass.getMethod("getVAID", Context.class);
+                nJa = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || nIU == null) ? false : true;
+            return (sClass == null || nIW == null) ? false : true;
         }
 
         public static String gk(Context context) {
-            return b(context, nIW);
+            return b(context, nIY);
         }
 
         private static String b(Context context, Method method) {
-            if (nIU != null && method != null) {
+            if (nIW != null && method != null) {
                 try {
-                    Object invoke = method.invoke(nIU, context);
+                    Object invoke = method.invoke(nIW, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

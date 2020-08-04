@@ -20,39 +20,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes16.dex */
 public class h extends j {
-    private String hYB;
-    private final CustomMessageListener hYJ;
-    private bv ibj;
-    private boolean ibk;
-    private PraiseModel ibl;
+    private String hYD;
+    private final CustomMessageListener hYL;
+    private bv ibl;
+    private boolean ibm;
+    private PraiseModel ibn;
 
     public h(FrsFragment frsFragment) {
         super(frsFragment);
-        this.hYJ = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
+        this.hYL = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bv)) {
                     bv bvVar = (bv) customResponsedMessage.getData();
-                    h.this.hYB = bvVar.getId();
-                    if (!TextUtils.isEmpty(h.this.hYB) && bvVar.aVW() != null) {
+                    h.this.hYD = bvVar.getId();
+                    if (!TextUtils.isEmpty(h.this.hYD) && bvVar.aVW() != null) {
                         h.this.vP(bvVar.aVW().getIsLike());
                     }
                 }
             }
         };
-        this.iac.registerListener(this.hYJ);
-        this.ibl = chH();
+        this.iae.registerListener(this.hYL);
+        this.ibn = chH();
     }
 
     public final PraiseModel chH() {
-        if (this.ibl == null) {
-            this.ibl = new PraiseModel(this.iac.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
+        if (this.ibn == null) {
+            this.ibn = new PraiseModel(this.iae.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void Br(String str) {
                     int i = 1;
-                    if (h.this.ibk) {
-                        if (h.this.ibj != null && h.this.ibj.aVW().getIsLike() == 1) {
+                    if (h.this.ibm) {
+                        if (h.this.ibl != null && h.this.ibl.aVW().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.vP(i);
@@ -62,22 +62,22 @@ public class h extends j {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void onLoadFailed(int i, String str) {
-                    if (h.this.iac != null && h.this.iac.getPageContext() != null && h.this.ibk && !TextUtils.isEmpty(str)) {
+                    if (h.this.iae != null && h.this.iae.getPageContext() != null && h.this.ibm && !TextUtils.isEmpty(str)) {
                         if (AntiHelper.bB(i, str)) {
-                            AntiHelper.aW(h.this.iac.getPageContext().getPageActivity(), str);
+                            AntiHelper.aW(h.this.iae.getPageContext().getPageActivity(), str);
                         } else {
-                            h.this.iac.showToast(str);
+                            h.this.iae.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.ibl;
+        return this.ibn;
     }
 
     public void vP(int i) {
         ArrayList<q> threadList;
-        FrsViewData cbZ = this.iac.cbZ();
+        FrsViewData cbZ = this.iae.cbZ();
         if (cbZ != null && this.hFz != null && (threadList = cbZ.getThreadList()) != null) {
             Iterator<q> it = threadList.iterator();
             while (true) {
@@ -87,13 +87,13 @@ public class h extends j {
                 q next = it.next();
                 if (next instanceof bu) {
                     bv bvVar = ((bu) next).dLK;
-                    if (bvVar == this.ibj) {
+                    if (bvVar == this.ibl) {
                         c(bvVar, i);
-                        this.ibj = null;
+                        this.ibl = null;
                         break;
-                    } else if (bvVar.getId() != null && bvVar.getId().equals(this.hYB)) {
+                    } else if (bvVar.getId() != null && bvVar.getId().equals(this.hYD)) {
                         c(bvVar, i);
-                        this.hYB = null;
+                        this.hYD = null;
                         break;
                     }
                 }
@@ -144,6 +144,6 @@ public class h extends j {
     }
 
     public void ov(boolean z) {
-        this.ibk = z;
+        this.ibm = z;
     }
 }

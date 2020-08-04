@@ -8,10 +8,10 @@ import java.util.List;
 public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hu> f574a;
+    public List<hu> f577a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f573a = new jn("XmPushActionCollectData");
+    private static final jn f576a = new jn("XmPushActionCollectData");
     private static final jf a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
         if (getClass().equals(cif.getClass())) {
             int compareTo = Boolean.valueOf(m402a()).compareTo(Boolean.valueOf(cif.m402a()));
             if (compareTo == 0) {
-                if (!m402a() || (a2 = iy.a(this.f574a, cif.f574a)) == 0) {
+                if (!m402a() || (a2 = iy.a(this.f577a, cif.f577a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -33,12 +33,12 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     }
 
     public Cif a(List<hu> list) {
-        this.f574a = list;
+        this.f577a = list;
         return this;
     }
 
     public void a() {
-        if (this.f574a == null) {
+        if (this.f577a == null) {
             throw new jj("Required field 'dataCollectionItems' was not present! Struct: " + toString());
         }
     }
@@ -53,15 +53,15 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m480a.f780a) {
+            switch (m480a.f783a) {
                 case 1:
                     if (m480a.a == 15) {
                         jg m481a = jiVar.m481a();
-                        this.f574a = new ArrayList(m481a.f781a);
-                        for (int i = 0; i < m481a.f781a; i++) {
+                        this.f577a = new ArrayList(m481a.f784a);
+                        for (int i = 0; i < m481a.f784a; i++) {
                             hu huVar = new hu();
                             huVar.a(jiVar);
-                            this.f574a.add(huVar);
+                            this.f577a.add(huVar);
                         }
                         jiVar.i();
                         break;
@@ -79,7 +79,7 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m402a() {
-        return this.f574a != null;
+        return this.f577a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -89,17 +89,17 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
         }
         boolean m402a = m402a();
         boolean m402a2 = cif.m402a();
-        return !(m402a || m402a2) || (m402a && m402a2 && this.f574a.equals(cif.f574a));
+        return !(m402a || m402a2) || (m402a && m402a2 && this.f577a.equals(cif.f577a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         a();
-        jiVar.a(f573a);
-        if (this.f574a != null) {
+        jiVar.a(f576a);
+        if (this.f577a != null) {
             jiVar.a(a);
-            jiVar.a(new jg((byte) 12, this.f574a.size()));
-            for (hu huVar : this.f574a) {
+            jiVar.a(new jg((byte) 12, this.f577a.size()));
+            for (hu huVar : this.f577a) {
                 huVar.b(jiVar);
             }
             jiVar.e();
@@ -123,10 +123,10 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCollectData(");
         sb.append("dataCollectionItems:");
-        if (this.f574a == null) {
+        if (this.f577a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f574a);
+            sb.append(this.f577a);
         }
         sb.append(")");
         return sb.toString();

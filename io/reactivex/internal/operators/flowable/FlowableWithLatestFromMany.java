@@ -13,18 +13,18 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final org.a.b<?>[] nTH;
-    final Iterable<? extends org.a.b<?>> nTI;
+    final org.a.b<?>[] nTJ;
+    final Iterable<? extends org.a.b<?>> nTK;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         int length;
-        org.a.b<?>[] bVarArr = this.nTH;
+        org.a.b<?>[] bVarArr = this.nTJ;
         int i = 0;
         if (bVarArr == null) {
             bVarArr = new org.a.b[8];
             try {
-                for (org.a.b<?> bVar : this.nTI) {
+                for (org.a.b<?> bVar : this.nTK) {
                     if (i == bVarArr.length) {
                         bVarArr = (org.a.b[]) Arrays.copyOf(bVarArr, (i >> 1) + i);
                     }
@@ -42,13 +42,13 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
             length = bVarArr.length;
         }
         if (length == 0) {
-            new f(this.nSE, new a()).a(cVar);
+            new f(this.nSG, new a()).a(cVar);
             return;
         }
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(cVar, this.combiner, length);
         cVar.onSubscribe(withLatestFromSubscriber);
         withLatestFromSubscriber.subscribe(bVarArr, length);
-        this.nSE.a((j) withLatestFromSubscriber);
+        this.nSG.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */

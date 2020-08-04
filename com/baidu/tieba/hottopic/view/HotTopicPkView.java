@@ -18,21 +18,21 @@ import com.baidu.tieba.hottopic.data.i;
 public class HotTopicPkView extends View {
     private int ds30;
     private boolean eXD;
-    private int iNb;
-    private int iNc;
     private int iNd;
     private int iNe;
-    private Drawable iNf;
-    private Drawable iNg;
+    private int iNf;
+    private int iNg;
     private Drawable iNh;
-    private int iNi;
-    private int iNj;
+    private Drawable iNi;
+    private Drawable iNj;
     private int iNk;
     private int iNl;
-    private RectF iNm;
-    private RectF iNn;
-    private i iNo;
-    private HotTopicActivity iNp;
+    private int iNm;
+    private int iNn;
+    private RectF iNo;
+    private RectF iNp;
+    private i iNq;
+    private HotTopicActivity iNr;
     private boolean isLeft;
     private int mSkinType;
     private Paint paint;
@@ -69,40 +69,40 @@ public class HotTopicPkView extends View {
         this.paint.setFilterBitmap(true);
         this.ds30 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
         cpH();
-        this.iNh = ao.getDrawable(R.drawable.icon_pic_vs);
-        this.iNi = this.iNf.getIntrinsicWidth();
-        this.iNj = this.iNf.getIntrinsicHeight();
+        this.iNj = ao.getDrawable(R.drawable.icon_pic_vs);
         this.iNk = this.iNh.getIntrinsicWidth();
         this.iNl = this.iNh.getIntrinsicHeight();
-        this.iNm = new RectF(0.0f, 0.0f, this.iNi, this.iNj);
-        this.iNe = (this.iNj - this.iNl) / 2;
+        this.iNm = this.iNj.getIntrinsicWidth();
+        this.iNn = this.iNj.getIntrinsicHeight();
+        this.iNo = new RectF(0.0f, 0.0f, this.iNk, this.iNl);
+        this.iNg = (this.iNl - this.iNn) / 2;
     }
 
     public void setData(i iVar, HotTopicActivity hotTopicActivity) {
         if (iVar != null && hotTopicActivity != null) {
-            this.iNo = iVar;
-            this.iNp = hotTopicActivity;
+            this.iNq = iVar;
+            this.iNr = hotTopicActivity;
             invalidate();
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.iNo.iJK != 0) {
+        if (this.iNq.iJM != 0) {
             return true;
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.iNm.contains(motionEvent.getX(), motionEvent.getY())) {
-                    this.iNo.iKA++;
-                    this.iNo.iJK = 1;
-                } else if (this.iNn.contains(motionEvent.getX(), motionEvent.getY())) {
-                    this.iNo.iKD++;
-                    this.iNo.iJK = 2;
+                if (this.iNo.contains(motionEvent.getX(), motionEvent.getY())) {
+                    this.iNq.iKC++;
+                    this.iNq.iJM = 1;
+                } else if (this.iNp.contains(motionEvent.getX(), motionEvent.getY())) {
+                    this.iNq.iKF++;
+                    this.iNq.iJM = 2;
                 }
                 cpH();
-                if (this.iNo.iJK != 0) {
-                    if (this.iNo.iKA + this.iNo.iKD > 50) {
+                if (this.iNq.iJM != 0) {
+                    if (this.iNq.iKC + this.iNq.iKF > 50) {
                         this.eXD = true;
                         new Thread(new Runnable() { // from class: com.baidu.tieba.hottopic.view.HotTopicPkView.1
                             @Override // java.lang.Runnable
@@ -121,7 +121,7 @@ public class HotTopicPkView extends View {
                     } else {
                         invalidate();
                     }
-                    this.iNp.coO();
+                    this.iNr.coO();
                     return true;
                 }
                 return true;
@@ -133,12 +133,12 @@ public class HotTopicPkView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.iNb = this.iNj;
+        this.iNd = this.iNl;
         this.width = View.MeasureSpec.getSize(i);
-        setMeasuredDimension(this.width, this.iNb + this.ds30);
-        this.iNc = (this.width - (this.iNi * 2)) - 100;
-        if (this.iNn == null) {
-            this.iNn = new RectF(this.width - this.iNi, 0.0f, this.width, this.iNb);
+        setMeasuredDimension(this.width, this.iNd + this.ds30);
+        this.iNe = (this.width - (this.iNk * 2)) - 100;
+        if (this.iNp == null) {
+            this.iNp = new RectF(this.width - this.iNk, 0.0f, this.width, this.iNd);
         }
     }
 
@@ -152,80 +152,80 @@ public class HotTopicPkView extends View {
     }
 
     private void O(Canvas canvas) {
-        if (this.iNo.iKA == 0 && this.iNo.iKD == 0) {
-            this.iNd = (int) ((0.5d * this.iNc) + this.iNi + 50.0d);
+        if (this.iNq.iKC == 0 && this.iNq.iKF == 0) {
+            this.iNf = (int) ((0.5d * this.iNe) + this.iNk + 50.0d);
         } else {
-            this.iNd = (int) (((((float) this.iNo.iKA) / ((float) (this.iNo.iKA + this.iNo.iKD))) * this.iNc) + this.iNi + 50.0f);
+            this.iNf = (int) (((((float) this.iNq.iKC) / ((float) (this.iNq.iKC + this.iNq.iKF))) * this.iNe) + this.iNk + 50.0f);
         }
-        if (this.iNo.iJK == 2) {
+        if (this.iNq.iJM == 2) {
             this.paint.setColor(ao.getColor(R.color.topic_pk_agree_disable));
         } else {
             this.paint.setColor(ao.getColor(R.color.cp_other_b));
         }
-        canvas.drawRect(this.iNi / 2.0f, this.iNe, this.iNd, this.iNb - this.iNe, this.paint);
-        if (this.iNo.iJK == 1) {
+        canvas.drawRect(this.iNk / 2.0f, this.iNg, this.iNf, this.iNd - this.iNg, this.paint);
+        if (this.iNq.iJM == 1) {
             this.paint.setColor(ao.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.paint.setColor(ao.getColor(R.color.cp_link_tip_a));
         }
-        canvas.drawRect(this.iNd, this.iNe, this.width - (this.iNi / 2.0f), this.iNb - this.iNe, this.paint);
+        canvas.drawRect(this.iNf, this.iNg, this.width - (this.iNk / 2.0f), this.iNd - this.iNg, this.paint);
     }
 
     private void P(Canvas canvas) {
         cpH();
-        this.iNf.setBounds(0, 0, this.iNi, this.iNj);
-        this.iNf.draw(canvas);
-        this.iNg.setBounds(this.width - this.iNi, 0, this.width, this.iNj);
-        this.iNg.draw(canvas);
+        this.iNh.setBounds(0, 0, this.iNk, this.iNl);
+        this.iNh.draw(canvas);
+        this.iNi.setBounds(this.width - this.iNk, 0, this.width, this.iNl);
+        this.iNi.draw(canvas);
     }
 
     private void Q(Canvas canvas) {
-        this.iNh = ao.getDrawable(R.drawable.icon_pic_vs);
+        this.iNj = ao.getDrawable(R.drawable.icon_pic_vs);
         if (this.eXD) {
             if (this.isLeft) {
-                this.iNh.setBounds((this.iNd - (this.iNk / 2)) - 3, this.iNe, ((this.iNd - (this.iNk / 2)) - 3) + this.iNk, this.iNe + this.iNl);
-                this.iNh.draw(canvas);
+                this.iNj.setBounds((this.iNf - (this.iNm / 2)) - 3, this.iNg, ((this.iNf - (this.iNm / 2)) - 3) + this.iNm, this.iNg + this.iNn);
+                this.iNj.draw(canvas);
             } else {
-                this.iNh.setBounds((this.iNd - (this.iNk / 2)) + 3, this.iNe, (this.iNd - (this.iNk / 2)) + 3 + this.iNk, this.iNe + this.iNl);
-                this.iNh.draw(canvas);
+                this.iNj.setBounds((this.iNf - (this.iNm / 2)) + 3, this.iNg, (this.iNf - (this.iNm / 2)) + 3 + this.iNm, this.iNg + this.iNn);
+                this.iNj.draw(canvas);
             }
             this.isLeft = !this.isLeft;
             return;
         }
-        this.iNh.setBounds(this.iNd - (this.iNk / 2), this.iNe, (this.iNd - (this.iNk / 2)) + this.iNk, this.iNe + this.iNl);
-        this.iNh.draw(canvas);
+        this.iNj.setBounds(this.iNf - (this.iNm / 2), this.iNg, (this.iNf - (this.iNm / 2)) + this.iNm, this.iNg + this.iNn);
+        this.iNj.draw(canvas);
     }
 
     private void G(Canvas canvas) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds25);
         this.paint.setTextSize(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        if (this.iNo.iJK == 2) {
+        if (this.iNq.iJM == 2) {
             this.paint.setColor(ao.getColor(R.color.topic_pk_agree_disable));
         } else {
             this.paint.setColor(ao.getColor(R.color.cp_other_b));
         }
-        canvas.drawText(as.numberUniformFormat(this.iNo.iKA), this.iNi, this.iNb + dimensionPixelSize, this.paint);
-        if (this.iNo.iJK == 1) {
+        canvas.drawText(as.numberUniformFormat(this.iNq.iKC), this.iNk, this.iNd + dimensionPixelSize, this.paint);
+        if (this.iNq.iJM == 1) {
             this.paint.setColor(ao.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.paint.setColor(ao.getColor(R.color.cp_link_tip_a));
         }
-        canvas.drawText(as.numberUniformFormat(this.iNo.iKD), (this.width - this.iNi) - ((int) this.paint.measureText(as.numberUniformFormat(this.iNo.iKD))), dimensionPixelSize + this.iNb, this.paint);
+        canvas.drawText(as.numberUniformFormat(this.iNq.iKF), (this.width - this.iNk) - ((int) this.paint.measureText(as.numberUniformFormat(this.iNq.iKF))), dimensionPixelSize + this.iNd, this.paint);
     }
 
     private void cpH() {
-        if (this.iNo == null) {
-            this.iNf = ao.getDrawable(R.drawable.icon_pk_red_n);
-            this.iNg = ao.getDrawable(R.drawable.icon_pk_blule_n);
-        } else if (this.iNo.iJK == 1) {
-            this.iNf = ao.getDrawable(R.drawable.icon_pk_red_s);
-            this.iNg = ao.getDrawable(R.drawable.icon_pk_blule_d);
-        } else if (this.iNo.iJK == 2) {
-            this.iNg = ao.getDrawable(R.drawable.icon_pk_blule_s);
-            this.iNf = ao.getDrawable(R.drawable.icon_pk_red_d);
+        if (this.iNq == null) {
+            this.iNh = ao.getDrawable(R.drawable.icon_pk_red_n);
+            this.iNi = ao.getDrawable(R.drawable.icon_pk_blule_n);
+        } else if (this.iNq.iJM == 1) {
+            this.iNh = ao.getDrawable(R.drawable.icon_pk_red_s);
+            this.iNi = ao.getDrawable(R.drawable.icon_pk_blule_d);
+        } else if (this.iNq.iJM == 2) {
+            this.iNi = ao.getDrawable(R.drawable.icon_pk_blule_s);
+            this.iNh = ao.getDrawable(R.drawable.icon_pk_red_d);
         } else {
-            this.iNf = ao.getDrawable(R.drawable.icon_pk_red_n);
-            this.iNg = ao.getDrawable(R.drawable.icon_pk_blule_n);
+            this.iNh = ao.getDrawable(R.drawable.icon_pk_red_n);
+            this.iNi = ao.getDrawable(R.drawable.icon_pk_blule_n);
         }
     }
 }

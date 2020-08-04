@@ -8,17 +8,17 @@ public class ad implements Runnable {
     final /* synthetic */ MiTinyDataClient.a.C0889a a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hq f41a;
+    final /* synthetic */ hq f44a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(MiTinyDataClient.a.C0889a c0889a, hq hqVar) {
         this.a = c0889a;
-        this.f41a = hqVar;
+        this.f44a = hqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.f36a.add(this.f41a);
+        this.a.f39a.add(this.f44a);
         this.a.a();
     }
 }

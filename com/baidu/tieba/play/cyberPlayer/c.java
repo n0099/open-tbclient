@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 /* loaded from: classes.dex */
 public class c {
-    private static OkHttpClient ldA;
-    private static TurbonetContext ldB;
-    private static long ldC = 0;
+    private static OkHttpClient ldC;
+    private static TurbonetContext ldD;
+    private static long ldE = 0;
     private static boolean sInited = false;
 
     public static void init() {
@@ -29,15 +29,15 @@ public class c {
     }
 
     public static OkHttpClient getOkHttpClient() {
-        if (ldA == null) {
-            ldA = build();
+        if (ldC == null) {
+            ldC = build();
         }
-        return ldA;
+        return ldC;
     }
 
     private static OkHttpClient build() {
-        ldB = cZq();
-        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(ldB);
+        ldD = cZq();
+        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(ldD);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
         return builder.build();
@@ -45,7 +45,7 @@ public class c {
 
     private static TurbonetContext cZq() {
         TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), cZr());
-        ldB = turbonetContext;
+        ldD = turbonetContext;
         return turbonetContext;
     }
 
@@ -94,10 +94,10 @@ public class c {
     }
 
     public static long cZs() {
-        if (ldB != null && ldC == 0) {
-            ldC = ldB.dzf();
+        if (ldD != null && ldE == 0) {
+            ldE = ldD.dzg();
         }
-        return ldC;
+        return ldE;
     }
 
     public static String getCachePath() {

@@ -16,15 +16,15 @@ public class ae implements Runnable {
     public void run() {
         ScheduledFuture scheduledFuture;
         ScheduledFuture scheduledFuture2;
-        if (this.a.f36a.size() != 0) {
+        if (this.a.f39a.size() != 0) {
             this.a.b();
             return;
         }
-        scheduledFuture = this.a.f37a;
+        scheduledFuture = this.a.f40a;
         if (scheduledFuture != null) {
-            scheduledFuture2 = this.a.f37a;
+            scheduledFuture2 = this.a.f40a;
             scheduledFuture2.cancel(false);
-            this.a.f37a = null;
+            this.a.f40a = null;
         }
     }
 }

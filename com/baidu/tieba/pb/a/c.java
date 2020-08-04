@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
     private View bhA;
-    private a kjb;
+    private a kjd;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.kjb = aVar;
+        this.kjd = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -60,24 +60,24 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.kjb != null) {
-            return this.kjb.onDoubleTap(this.bhA, motionEvent);
+        if (this.kjd != null) {
+            return this.kjd.onDoubleTap(this.bhA, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.kjb != null) {
-            return this.kjb.onDoubleTapEvent(this.bhA, motionEvent);
+        if (this.kjd != null) {
+            return this.kjd.onDoubleTapEvent(this.bhA, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.kjb != null) {
-            return this.kjb.onSingleTapConfirmed(this.bhA, motionEvent);
+        if (this.kjd != null) {
+            return this.kjd.onSingleTapConfirmed(this.bhA, motionEvent);
         }
         return false;
     }

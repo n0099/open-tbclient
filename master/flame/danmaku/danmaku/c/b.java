@@ -9,18 +9,18 @@ import master.flame.danmaku.danmaku.model.m;
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.dVv()) {
-            long dVE = dVar2.dVE() - dVar.dVE();
-            if (dVE <= 0) {
+        if (type == dVar2.getType() && !dVar.dVw()) {
+            long dVF = dVar2.dVF() - dVar.dVF();
+            if (dVF <= 0) {
                 return true;
             }
-            if (Math.abs(dVE) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
+            if (Math.abs(dVF) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dVE() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dVF() + dVar.getDuration());
         }
         return false;
     }
@@ -51,12 +51,12 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.obO), (int) Math.ceil(dVar.obP), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.obQ), (int) Math.ceil(dVar.obR), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.ocP, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.ocR, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.K(mVar.getWidth(), mVar.getHeight(), mVar.dVS(), mVar.dVT());
+                fVar.K(mVar.getWidth(), mVar.getHeight(), mVar.dVT(), mVar.dVU());
             }
         }
         return eVar;
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.obK = split;
+                dVar.obM = split;
             }
         }
     }

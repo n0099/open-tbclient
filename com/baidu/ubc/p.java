@@ -118,7 +118,7 @@ public class p {
     }
 
     public void aNv() {
-        if (g.dzZ().uQ(this.mId)) {
+        if (g.dAa().uQ(this.mId)) {
             this.dAB = UBC.getUBCContext().anq();
         }
     }

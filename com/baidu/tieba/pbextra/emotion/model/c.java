@@ -5,29 +5,29 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.down.manage.DownloadConstants;
 /* loaded from: classes16.dex */
 class c {
-    protected int kMd;
-    protected byte[] kMe;
     protected int kMf;
-    protected int kMg;
-    protected int[] kMi = new int[256];
-    protected int[] kMj = new int[256];
+    protected byte[] kMg;
+    protected int kMh;
+    protected int kMi;
     protected int[] kMk = new int[256];
-    protected int[] kMl = new int[32];
-    protected int[][] kMh = new int[256];
+    protected int[] kMl = new int[256];
+    protected int[] kMm = new int[256];
+    protected int[] kMn = new int[32];
+    protected int[][] kMj = new int[256];
 
     public c(byte[] bArr, int i, int i2) {
-        this.kMe = bArr;
-        this.kMf = i;
-        this.kMg = i2;
+        this.kMg = bArr;
+        this.kMh = i;
+        this.kMi = i2;
         for (int i3 = 0; i3 < 256; i3++) {
-            this.kMh[i3] = new int[4];
-            int[] iArr = this.kMh[i3];
+            this.kMj[i3] = new int[4];
+            int[] iArr = this.kMj[i3];
             int i4 = (i3 << 12) / 256;
             iArr[2] = i4;
             iArr[1] = i4;
             iArr[0] = i4;
-            this.kMk[i3] = 256;
-            this.kMj[i3] = 0;
+            this.kMm[i3] = 256;
+            this.kMl[i3] = 0;
         }
     }
 
@@ -35,17 +35,17 @@ class c {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
-            iArr[this.kMh[i][3]] = i;
+            iArr[this.kMj[i][3]] = i;
         }
         int i2 = 0;
         for (int i3 = 0; i3 < 256; i3++) {
             int i4 = iArr[i3];
             int i5 = i2 + 1;
-            bArr[i2] = (byte) this.kMh[i4][0];
+            bArr[i2] = (byte) this.kMj[i4][0];
             int i6 = i5 + 1;
-            bArr[i5] = (byte) this.kMh[i4][1];
+            bArr[i5] = (byte) this.kMj[i4][1];
             i2 = i6 + 1;
-            bArr[i6] = (byte) this.kMh[i4][2];
+            bArr[i6] = (byte) this.kMj[i4][2];
         }
         return bArr;
     }
@@ -57,17 +57,17 @@ class c {
         int i4 = 0;
         int i5 = 0;
         while (i5 < 256) {
-            int[] iArr = this.kMh[i5];
+            int[] iArr = this.kMj[i5];
             int i6 = iArr[1];
             int i7 = i5;
             for (int i8 = i5 + 1; i8 < 256; i8++) {
-                int[] iArr2 = this.kMh[i8];
+                int[] iArr2 = this.kMj[i8];
                 if (iArr2[1] < i6) {
                     i6 = iArr2[1];
                     i7 = i8;
                 }
             }
-            int[] iArr3 = this.kMh[i7];
+            int[] iArr3 = this.kMj[i7];
             if (i5 != i7) {
                 int i9 = iArr3[0];
                 iArr3[0] = iArr[0];
@@ -83,9 +83,9 @@ class c {
                 iArr[3] = i12;
             }
             if (i6 != i4) {
-                this.kMi[i4] = (i3 + i5) >> 1;
+                this.kMk[i4] = (i3 + i5) >> 1;
                 for (int i13 = i4 + 1; i13 < i6; i13++) {
-                    this.kMi[i13] = i5;
+                    this.kMk[i13] = i5;
                 }
                 i2 = i6;
                 i = i5;
@@ -97,32 +97,32 @@ class c {
             i3 = i;
             i4 = i2;
         }
-        this.kMi[i4] = (i3 + 255) >> 1;
+        this.kMk[i4] = (i3 + 255) >> 1;
         for (int i14 = i4 + 1; i14 < 256; i14++) {
-            this.kMi[i14] = 255;
+            this.kMk[i14] = 255;
         }
     }
 
     public void cVb() {
         int i;
-        if (this.kMf < 1509) {
-            this.kMg = 1;
+        if (this.kMh < 1509) {
+            this.kMi = 1;
         }
-        this.kMd = ((this.kMg - 1) / 3) + 30;
-        byte[] bArr = this.kMe;
-        int i2 = this.kMf;
-        int i3 = this.kMf / (this.kMg * 3);
+        this.kMf = ((this.kMi - 1) / 3) + 30;
+        byte[] bArr = this.kMg;
+        int i2 = this.kMh;
+        int i3 = this.kMh / (this.kMi * 3);
         int i4 = i3 / 100;
         for (int i5 = 0; i5 < 32; i5++) {
-            this.kMl[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
+            this.kMn[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
         }
-        if (this.kMf < 1509) {
+        if (this.kMh < 1509) {
             i = 3;
-        } else if (this.kMf % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
+        } else if (this.kMh % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
             i = 1497;
-        } else if (this.kMf % 491 != 0) {
+        } else if (this.kMh % 491 != 0) {
             i = 1473;
-        } else if (this.kMf % 487 != 0) {
+        } else if (this.kMh % 487 != 0) {
             i = 1461;
         } else {
             i = 1509;
@@ -142,18 +142,18 @@ class c {
                 f(i7, V, i11, i12, i13);
             }
             int i14 = i6 + i;
-            int i15 = i14 >= i2 ? i14 - this.kMf : i14;
+            int i15 = i14 >= i2 ? i14 - this.kMh : i14;
             int i16 = i9 + 1;
             int i17 = i4 == 0 ? 1 : i4;
             if (i16 % i17 == 0) {
-                int i18 = i10 - (i10 / this.kMd);
+                int i18 = i10 - (i10 / this.kMf);
                 int i19 = i8 - (i8 / 30);
                 int i20 = i19 >> 6;
                 if (i20 <= 1) {
                     i20 = 0;
                 }
                 for (int i21 = 0; i21 < i20; i21++) {
-                    this.kMl[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
+                    this.kMn[i21] = ((((i20 * i20) - (i21 * i21)) * 256) / (i20 * i20)) * i18;
                 }
                 i6 = i15;
                 i4 = i17;
@@ -173,7 +173,7 @@ class c {
         int i4;
         int i5;
         int i6;
-        int i7 = this.kMi[i2];
+        int i7 = this.kMk[i2];
         int i8 = -1;
         int i9 = 1000;
         int i10 = i7 - 1;
@@ -181,7 +181,7 @@ class c {
         while (true) {
             if (i11 < 256 || i10 >= 0) {
                 if (i11 < 256) {
-                    int[] iArr = this.kMh[i11];
+                    int[] iArr = this.kMj[i11];
                     int i12 = iArr[1] - i2;
                     if (i12 >= i9) {
                         i5 = i9;
@@ -216,7 +216,7 @@ class c {
                     i6 = i8;
                 }
                 if (i10 >= 0) {
-                    int[] iArr2 = this.kMh[i10];
+                    int[] iArr2 = this.kMj[i10];
                     int i16 = i2 - iArr2[1];
                     if (i16 >= i5) {
                         i8 = i6;
@@ -265,13 +265,13 @@ class c {
 
     public void cVd() {
         for (int i = 0; i < 256; i++) {
-            int[] iArr = this.kMh[i];
+            int[] iArr = this.kMj[i];
             iArr[0] = iArr[0] >> 4;
-            int[] iArr2 = this.kMh[i];
+            int[] iArr2 = this.kMj[i];
             iArr2[1] = iArr2[1] >> 4;
-            int[] iArr3 = this.kMh[i];
+            int[] iArr3 = this.kMj[i];
             iArr3[2] = iArr3[2] >> 4;
-            this.kMh[i][3] = i;
+            this.kMj[i][3] = i;
         }
     }
 
@@ -289,10 +289,10 @@ class c {
         while (true) {
             if (i12 < i9 || i10 > i8) {
                 int i13 = i11 + 1;
-                int i14 = this.kMl[i11];
+                int i14 = this.kMn[i11];
                 if (i12 < i9) {
                     i6 = i12 + 1;
-                    int[] iArr = this.kMh[i12];
+                    int[] iArr = this.kMj[i12];
                     try {
                         iArr[0] = iArr[0] - (((iArr[0] - i3) * i14) / 262144);
                         iArr[1] = iArr[1] - (((iArr[1] - i4) * i14) / 262144);
@@ -305,7 +305,7 @@ class c {
                 }
                 if (i10 > i8) {
                     int i15 = i10 - 1;
-                    int[] iArr2 = this.kMh[i10];
+                    int[] iArr2 = this.kMj[i10];
                     try {
                         iArr2[0] = iArr2[0] - (((iArr2[0] - i3) * i14) / 262144);
                         iArr2[1] = iArr2[1] - (((iArr2[1] - i4) * i14) / 262144);
@@ -330,7 +330,7 @@ class c {
     }
 
     protected void g(int i, int i2, int i3, int i4, int i5) {
-        int[] iArr = this.kMh[i2];
+        int[] iArr = this.kMj[i2];
         iArr[0] = iArr[0] - (((iArr[0] - i3) * i) / 1024);
         iArr[1] = iArr[1] - (((iArr[1] - i4) * i) / 1024);
         iArr[2] = iArr[2] - (((iArr[2] - i5) * i) / 1024);
@@ -346,7 +346,7 @@ class c {
         int i10 = -1;
         int i11 = 0;
         while (i11 < 256) {
-            int[] iArr = this.kMh[i11];
+            int[] iArr = this.kMj[i11];
             int i12 = iArr[0] - i;
             if (i12 < 0) {
                 i12 = -i12;
@@ -368,17 +368,17 @@ class c {
                 i4 = i9;
                 i5 = i10;
             }
-            int i17 = i16 - (this.kMj[i11] >> 12);
+            int i17 = i16 - (this.kMl[i11] >> 12);
             if (i17 < i7) {
                 i6 = i11;
             } else {
                 i17 = i7;
                 i6 = i8;
             }
-            int i18 = this.kMk[i11] >> 10;
-            int[] iArr2 = this.kMk;
+            int i18 = this.kMm[i11] >> 10;
+            int[] iArr2 = this.kMm;
             iArr2[i11] = iArr2[i11] - i18;
-            int[] iArr3 = this.kMj;
+            int[] iArr3 = this.kMl;
             iArr3[i11] = (i18 << 10) + iArr3[i11];
             i11++;
             i7 = i17;
@@ -386,9 +386,9 @@ class c {
             i10 = i5;
             i9 = i4;
         }
-        int[] iArr4 = this.kMk;
+        int[] iArr4 = this.kMm;
         iArr4[i10] = iArr4[i10] + 64;
-        int[] iArr5 = this.kMj;
+        int[] iArr5 = this.kMl;
         iArr5[i10] = iArr5[i10] - 65536;
         return i8;
     }

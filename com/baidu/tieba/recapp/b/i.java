@@ -31,10 +31,10 @@ public class i extends com.baidu.adp.widget.ListView.a<n, j> implements m {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, j jVar) {
         boolean z = false;
-        AppData dkV = nVar.dkV();
-        if (dkV != null) {
-            com.baidu.tbadk.core.data.b bVar = dkV.advertAppContext;
-            if (dkV.goods != null && dkV.goods.goods_style == -1001) {
+        AppData dkW = nVar.dkW();
+        if (dkW != null) {
+            com.baidu.tbadk.core.data.b bVar = dkW.advertAppContext;
+            if (dkW.goods != null && dkW.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.b.b(bVar, nVar.getPosition(), z);

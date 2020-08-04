@@ -20,12 +20,12 @@ import com.baidu.tieba.frs.be;
 public class e {
     private MorePopupWindow dJC;
     private LinearLayout hsG;
-    private be idC;
-    private View idD;
-    private SparseArray<com.baidu.tieba.frs.tab.a> idE = new SparseArray<>();
-    private com.baidu.tieba.frs.tab.a idF;
-    private b idn;
-    private a ido;
+    private be idE;
+    private View idF;
+    private SparseArray<com.baidu.tieba.frs.tab.a> idG = new SparseArray<>();
+    private com.baidu.tieba.frs.tab.a idH;
+    private b idp;
+    private a idq;
     private Context mContext;
 
     /* loaded from: classes16.dex */
@@ -41,20 +41,20 @@ public class e {
     /* loaded from: classes16.dex */
     public static class c {
         public TextView dpg;
-        public ImageView idI;
-        public View idJ;
-        public View idK;
+        public ImageView idK;
+        public View idL;
+        public View idM;
     }
 
     public e(Context context, b bVar, a aVar) {
         this.mContext = context;
-        this.idn = bVar;
-        this.ido = aVar;
+        this.idp = bVar;
+        this.idq = aVar;
         this.hsG = new LinearLayout(context);
         this.hsG.setOrientation(1);
         this.hsG.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.idD = new View(context);
-        this.idD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
+        this.idF = new View(context);
+        this.idF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.adp.lib.f.g.dismissPopupWindow(e.this.dJC);
@@ -80,22 +80,22 @@ public class e {
         this.dJC.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (e.this.ido != null) {
-                    e.this.ido.a(tabItemView);
+                if (e.this.idq != null) {
+                    e.this.idq.a(tabItemView);
                 }
             }
         });
     }
 
     public void a(Activity activity, View view, TabItemView tabItemView, be beVar) {
-        this.idC = beVar;
-        this.idF = this.idE.get(this.idC.hJS);
-        if (this.idF == null) {
-            this.idF = h.wm(this.idC.hJS);
-            this.idF.a(this.mContext, this);
-            this.idE.put(this.idC.hJS, this.idF);
+        this.idE = beVar;
+        this.idH = this.idG.get(this.idE.hJS);
+        if (this.idH == null) {
+            this.idH = h.wm(this.idE.hJS);
+            this.idH.a(this.mContext, this);
+            this.idG.put(this.idE.hJS, this.idH);
         }
-        this.idF.setData(beVar.hJT);
+        this.idH.setData(beVar.hJT);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -103,7 +103,7 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.initDeviceData(horizontalTabView.getContext());
                 int equipmentHeight = l.getEquipmentHeight(horizontalTabView.getContext());
-                int chT = this.idF.chT();
+                int chT = this.idH.chT();
                 int measuredHeight = (equipmentHeight - iArr[1]) - horizontalTabView.getMeasuredHeight();
                 if (measuredHeight < chT) {
                     horizontalTabView.getmShowMenuCallBack().wj(chT - measuredHeight);
@@ -111,10 +111,10 @@ public class e {
             }
         }
         this.hsG.removeAllViews();
-        this.hsG.addView(this.idF.getView());
+        this.hsG.addView(this.idH.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        ao.setBackgroundResource(this.idD, R.color.common_color_10050);
-        this.hsG.addView(this.idD, layoutParams);
+        ao.setBackgroundResource(this.idF, R.color.common_color_10050);
+        this.hsG.addView(this.idF, layoutParams);
         a(activity, view, tabItemView);
         if (this.dJC != null) {
             this.dJC.refresh();
@@ -135,6 +135,6 @@ public class e {
     }
 
     public b chV() {
-        return this.idn;
+        return this.idp;
     }
 }

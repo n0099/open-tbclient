@@ -5,9 +5,9 @@ import kotlin.h;
 @h
 /* loaded from: classes8.dex */
 public final class e {
-    private static final Path nKm = new Path();
+    private static final Path nKo = new Path();
 
-    public static final Path dPM() {
-        return nKm;
+    public static final Path dPN() {
+        return nKo;
     }
 }

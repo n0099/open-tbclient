@@ -3,20 +3,20 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
 public class p {
-    private boolean lLP;
+    private boolean lLR;
     private String menu_name;
 
-    public boolean dkw() {
-        return this.lLP;
+    public boolean dkx() {
+        return this.lLR;
     }
 
-    public String dkx() {
+    public String dky() {
         return this.menu_name;
     }
 
     public void a(GconAccount gconAccount) {
         if (gconAccount != null) {
-            this.lLP = gconAccount.has_account.intValue() == 1;
+            this.lLR = gconAccount.has_account.intValue() == 1;
             this.menu_name = gconAccount.menu_name;
         }
     }

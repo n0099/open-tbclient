@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes17.dex */
 public class e {
     private Context context;
-    private View kgJ;
-    private TextView kgK;
-    private ImageView kgL;
+    private View kgL;
     private TextView kgM;
-    private TextView kgN;
-    private a kgO;
-    public boolean kgP;
-    private Animation kgR;
-    private long kgQ = 0;
-    private boolean kgS = false;
+    private ImageView kgN;
+    private TextView kgO;
+    private TextView kgP;
+    private a kgQ;
+    public boolean kgR;
+    private Animation kgT;
+    private long kgS = 0;
+    private boolean kgU = false;
 
     /* loaded from: classes17.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.kgJ = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.kgK = (TextView) this.kgJ.findViewById(R.id.chosen_post_info_copyright);
-        this.kgL = (ImageView) this.kgJ.findViewById(R.id.chosen_post_info_praise_icon);
-        this.kgM = (TextView) this.kgJ.findViewById(R.id.chosen_post_info_praise_num);
-        this.kgN = (TextView) this.kgJ.findViewById(R.id.chosen_post_info_original_post);
+        this.kgL = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.kgM = (TextView) this.kgL.findViewById(R.id.chosen_post_info_copyright);
+        this.kgN = (ImageView) this.kgL.findViewById(R.id.chosen_post_info_praise_icon);
+        this.kgO = (TextView) this.kgL.findViewById(R.id.chosen_post_info_praise_num);
+        this.kgP = (TextView) this.kgL.findViewById(R.id.chosen_post_info_original_post);
     }
 
     public View cKr() {
-        return this.kgJ;
+        return this.kgL;
     }
 
     public void a(a aVar) {
-        this.kgO = aVar;
+        this.kgQ = aVar;
     }
 
     public void Bv(int i) {
-        if (this.kgK != null) {
-            this.kgK.setText(i);
+        if (this.kgM != null) {
+            this.kgM.setText(i);
         }
     }
 
     public void O(View.OnClickListener onClickListener) {
-        if (this.kgN != null) {
-            this.kgN.setOnClickListener(onClickListener);
+        if (this.kgP != null) {
+            this.kgP.setOnClickListener(onClickListener);
         }
     }
 
     public void fv(long j) {
         if (j >= 0) {
-            this.kgQ = j;
-            if (this.kgM != null) {
-                this.kgM.setVisibility(0);
-                this.kgM.setText(this.context.getString(R.string.chosen_pb_praise_num, as.numFormatOver10000(j)));
+            this.kgS = j;
+            if (this.kgO != null) {
+                this.kgO.setVisibility(0);
+                this.kgO.setText(this.context.getString(R.string.chosen_pb_praise_num, as.numFormatOver10000(j)));
             }
-            if (this.kgM != null && this.kgM.getVisibility() == 8) {
-                this.kgM.setVisibility(0);
+            if (this.kgO != null && this.kgO.getVisibility() == 8) {
+                this.kgO.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             Bv(R.string.chosen_pb_copyright);
             fv(excellentPbThreadInfo.zan.zansum.longValue());
             rT(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.kgL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.kgN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.kgS && bf.checkUpIsLogin(e.this.context)) {
-                        e.this.kgS = true;
-                        e.this.kgL.startAnimation(e.this.cKt());
-                        if (e.this.kgO != null) {
-                            e.this.kgO.rP(e.this.kgP);
+                    if (!e.this.kgU && bf.checkUpIsLogin(e.this.context)) {
+                        e.this.kgU = true;
+                        e.this.kgN.startAnimation(e.this.cKt());
+                        if (e.this.kgQ != null) {
+                            e.this.kgQ.rP(e.this.kgR);
                         }
                     }
                 }
@@ -96,8 +96,8 @@ public class e {
             O(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.kgO != null) {
-                        e.this.kgO.v(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.kgQ != null) {
+                        e.this.kgQ.v(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
@@ -105,34 +105,34 @@ public class e {
     }
 
     public void cKs() {
-        this.kgS = false;
+        this.kgU = false;
     }
 
     public void rS(boolean z) {
         rT(z);
         if (z) {
-            this.kgQ++;
+            this.kgS++;
         } else {
-            this.kgQ--;
+            this.kgS--;
         }
-        fv(this.kgQ);
+        fv(this.kgS);
     }
 
     private void rT(boolean z) {
-        this.kgP = z;
+        this.kgR = z;
         if (z) {
-            ao.setImageResource(this.kgL, R.drawable.btn_zambia_big_s);
+            ao.setImageResource(this.kgN, R.drawable.btn_zambia_big_s);
         } else {
-            ao.setImageResource(this.kgL, R.drawable.btn_zambia_big_n);
+            ao.setImageResource(this.kgN, R.drawable.btn_zambia_big_n);
         }
-        this.kgL.setVisibility(0);
+        this.kgN.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation cKt() {
-        if (this.kgR == null) {
-            this.kgR = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+        if (this.kgT == null) {
+            this.kgT = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.kgR;
+        return this.kgT;
     }
 }

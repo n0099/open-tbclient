@@ -33,7 +33,7 @@ public class d extends BroadcastReceiver {
             }
         }
         if (z) {
-            a Sf = e.dOP().Sf(intent.getStringExtra("openIdType"));
+            a Sf = e.dOQ().Sf(intent.getStringExtra("openIdType"));
             if (Sf != null) {
                 Sf.b();
             }

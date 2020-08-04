@@ -25,8 +25,8 @@ import java.util.Iterator;
 /* loaded from: classes17.dex */
 public class a extends BaseAdapter {
     private TbPageContext<?> dVN;
-    private CoverFlowView<i> lJQ;
-    private HashSet<String> lJP = new HashSet<>();
+    private CoverFlowView<i> lJS;
+    private HashSet<String> lJR = new HashSet<>();
     private ArrayList<i> datas = new ArrayList<>();
     private d<i> dXb = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
         @Override // com.baidu.tbadk.core.flow.a.d
@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         public void a(int i, i iVar) {
             if (iVar != null) {
                 String djY = iVar.djY();
-                if (i == 2 && !TextUtils.isEmpty(djY) && a.this.lJP.add(djY)) {
+                if (i == 2 && !TextUtils.isEmpty(djY) && a.this.lJR.add(djY)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(djY), "obj_name", String.valueOf(djY), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
                 }
             }
@@ -53,10 +53,10 @@ public class a extends BaseAdapter {
     };
 
     public a(final TbPageContext<?> tbPageContext) {
-        this.lJQ = null;
+        this.lJS = null;
         this.dVN = tbPageContext;
-        this.lJQ = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.lJQ.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
+        this.lJS = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.lJS.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e so() {
                 e eVar = new e();
@@ -75,7 +75,7 @@ public class a extends BaseAdapter {
                 return sp;
             }
         });
-        this.lJQ.setCallback(this.dXb);
+        this.lJS.setCallback(this.dXb);
     }
 
     public void setData(ArrayList<bs> arrayList) {
@@ -88,7 +88,7 @@ public class a extends BaseAdapter {
             }
         }
         this.datas = arrayList2;
-        this.lJQ.setData(arrayList2);
+        this.lJS.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -109,16 +109,16 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.lJQ;
+        return this.lJS;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.lJQ != null) {
-            this.lJQ.onChangeSkinType();
+        if (this.lJS != null) {
+            this.lJS.onChangeSkinType();
         }
     }
 
     public CoverFlowView<i> dkf() {
-        return this.lJQ;
+        return this.lJS;
     }
 }

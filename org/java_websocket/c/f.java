@@ -7,7 +7,7 @@ public interface f {
 
     boolean Tv(String str);
 
-    Iterator<String> dXs();
+    Iterator<String> dXt();
 
     byte[] getContent();
 }

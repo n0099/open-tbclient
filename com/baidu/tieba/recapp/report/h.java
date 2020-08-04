@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h implements e {
-    private TbHttpMessageTask lru;
-    private HttpMessageListener lrt = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.h.1
+    private TbHttpMessageTask lrw;
+    private HttpMessageListener lrv = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -28,18 +28,18 @@ public class h implements e {
             }
         }
     };
-    private ArrayList<c> lrv = new ArrayList<>();
+    private ArrayList<c> lrx = new ArrayList<>();
 
     public h() {
         bNV();
-        MessageManager.getInstance().registerListener(this.lrt);
+        MessageManager.getInstance().registerListener(this.lrv);
     }
 
     private void bNV() {
-        this.lru = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
-        this.lru.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.lru.setIsNeedAddCommenParam(true);
-        this.lru.setResponsedClass(JsonHttpResponsedMessage.class);
+        this.lrw = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
+        this.lrw.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.lrw.setIsNeedAddCommenParam(true);
+        this.lrw.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.e
@@ -47,7 +47,7 @@ public class h implements e {
         if (cVar != null) {
             com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (!(adAdSense == null || adAdSense.bdL())) {
-                this.lru.setUrl("http://als.baidu.com/clog/clog");
+                this.lrw.setUrl("http://als.baidu.com/clog/clog");
             }
             d(cVar);
             ddb();
@@ -67,9 +67,9 @@ public class h implements e {
     }
 
     private void ddb() {
-        if (x.getCount(this.lrv) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.lrv), this.lru);
-            this.lrv.clear();
+        if (x.getCount(this.lrx) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.lrx), this.lrw);
+            this.lrx.clear();
         }
     }
 
@@ -86,10 +86,10 @@ public class h implements e {
 
     private void d(c cVar) {
         if (cVar != null) {
-            if (x.getCount(this.lrv) >= 20) {
-                this.lrv.remove(0);
+            if (x.getCount(this.lrx) >= 20) {
+                this.lrx.remove(0);
             }
-            this.lrv.add(cVar);
+            this.lrx.add(cVar);
         }
     }
 }

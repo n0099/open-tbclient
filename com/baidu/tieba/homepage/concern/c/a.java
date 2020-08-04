@@ -16,7 +16,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes16.dex */
 public class a {
-    private final c itB = new c();
+    private final c itD = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -200,8 +200,8 @@ public class a {
             i3 = i2;
         }
         com.baidu.tbadk.a.a.a.aG(linkedList);
-        this.itB.eZc = linkedList;
-        return this.itB;
+        this.itD.eZc = linkedList;
+        return this.itD;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -232,7 +232,7 @@ public class a {
                     }
                 }
             }
-            this.itB.iBp = x.getCount(list) - count;
+            this.itD.iBr = x.getCount(list) - count;
         }
     }
 

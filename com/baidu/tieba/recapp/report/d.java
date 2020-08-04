@@ -17,27 +17,27 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class d {
-    private static d lro;
-    private CustomMessageListener lrq = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
+    private static d lrq;
+    private CustomMessageListener lrs = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.lrp != null) {
-                d.this.lrp.dda();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.lrr != null) {
+                d.this.lrr.dda();
             }
         }
     };
-    private e lrp = new h();
+    private e lrr = new h();
 
     public static d dcY() {
-        if (lro == null) {
+        if (lrq == null) {
             synchronized (d.class) {
-                if (lro == null) {
-                    lro = new d();
+                if (lrq == null) {
+                    lrq = new d();
                 }
             }
         }
-        return lro;
+        return lrq;
     }
 
     private boolean dcZ() {
@@ -45,15 +45,15 @@ public class d {
     }
 
     private d() {
-        MessageManager.getInstance().registerListener(this.lrq);
+        MessageManager.getInstance().registerListener(this.lrs);
     }
 
     public void a(c cVar) {
-        if (dcZ() && cVar != null && this.lrp != null) {
+        if (dcZ() && cVar != null && this.lrr != null) {
             if (j.isNetWorkAvailable()) {
-                this.lrp.b(cVar);
+                this.lrr.b(cVar);
             } else {
-                this.lrp.c(cVar);
+                this.lrr.c(cVar);
             }
         }
     }

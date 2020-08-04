@@ -7,7 +7,7 @@ public class z {
     public boolean hiL;
     public String imageUrl;
     public int index;
-    public aa lMh;
+    public aa lMj;
     public String link;
     public String name;
     public String version;

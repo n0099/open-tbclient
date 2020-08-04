@@ -13,7 +13,7 @@ public class b {
     private final List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
     private e dWk;
     private BdTypeListView frv;
-    private a hWA;
+    private a hWC;
 
     public b(e eVar, BdTypeListView bdTypeListView) {
         this.dWk = eVar;
@@ -22,8 +22,8 @@ public class b {
     }
 
     private void DS() {
-        this.hWA = new a((TbPageContext) this.dWk, d.hWW);
-        this.aWf.add(this.hWA);
+        this.hWC = new a((TbPageContext) this.dWk, d.hWY);
+        this.aWf.add(this.hWC);
         this.frv.addAdapters(this.aWf);
     }
 
@@ -34,6 +34,6 @@ public class b {
     }
 
     public void setClickListener(a.InterfaceC0634a interfaceC0634a) {
-        this.hWA.setClickListener(interfaceC0634a);
+        this.hWC.setClickListener(interfaceC0634a);
     }
 }

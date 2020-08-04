@@ -8,14 +8,14 @@ public abstract class v implements Runnable {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private File f944a;
+    private File f947a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Runnable f945a;
+    private Runnable f948a;
 
     private v(Context context, File file) {
         this.a = context;
-        this.f944a = file;
+        this.f947a = file;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,12 +35,12 @@ public abstract class v implements Runnable {
         u uVar = null;
         try {
             try {
-                if (this.f944a == null) {
-                    this.f944a = new File(this.a.getFilesDir(), "default_locker");
+                if (this.f947a == null) {
+                    this.f947a = new File(this.a.getFilesDir(), "default_locker");
                 }
-                uVar = u.a(this.a, this.f944a);
-                if (this.f945a != null) {
-                    this.f945a.run();
+                uVar = u.a(this.a, this.f947a);
+                if (this.f948a != null) {
+                    this.f948a.run();
                 }
                 a(this.a);
                 if (uVar != null) {

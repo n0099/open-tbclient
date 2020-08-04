@@ -7,14 +7,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes16.dex */
 public class al {
-    private NavigationBarCoverTip ihB;
-    private int ihC;
+    private NavigationBarCoverTip ihD;
+    private int ihE;
     private com.baidu.adp.base.e mContext;
     private TextView mTipView;
 
     public al(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.ihB = navigationBarCoverTip;
+        this.ihD = navigationBarCoverTip;
         init();
     }
 
@@ -29,25 +29,25 @@ public class al {
     }
 
     public void KM(String str) {
-        if (this.ihB != null) {
-            if (com.baidu.tbadk.core.util.as.isEmpty(str) || this.ihC > 0) {
+        if (this.ihD != null) {
+            if (com.baidu.tbadk.core.util.as.isEmpty(str) || this.ihE > 0) {
                 onDestory();
-                this.ihB.setVisibility(8);
+                this.ihD.setVisibility(8);
                 return;
             }
-            this.ihB.setVisibility(0);
-            this.ihC++;
+            this.ihD.setVisibility(0);
+            this.ihE++;
             this.mTipView.setText(str);
             com.baidu.tbadk.core.util.ao.setViewTextColor(this.mTipView, R.color.cp_cont_a);
-            this.ihB.removeAllViews();
-            this.ihB.addView(this.mTipView);
-            this.ihB.i(this.mContext.getPageActivity(), 5000);
+            this.ihD.removeAllViews();
+            this.ihD.addView(this.mTipView);
+            this.ihD.i(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.ihB != null) {
-            this.ihB.onDestroy();
+        if (this.ihD != null) {
+            this.ihD.onDestroy();
         }
     }
 }

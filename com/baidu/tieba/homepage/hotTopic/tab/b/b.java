@@ -6,12 +6,12 @@ import tbclient.RecomTopicList;
 public class b {
     public String dQI;
     public int index;
-    public boolean ixb;
+    public boolean ixd;
     public int tag;
     public long topicId;
 
     public b() {
-        this.ixb = true;
+        this.ixd = true;
     }
 
     public b(@NonNull RecomTopicList recomTopicList) {

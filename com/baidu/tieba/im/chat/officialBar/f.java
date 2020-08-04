@@ -14,10 +14,10 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class f extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     private BaseActivity fbZ;
-    private NavigationBar iTu;
-    private e iTv;
-    private View iTw;
-    private BdListView idL;
+    private NavigationBar iTw;
+    private e iTx;
+    private View iTy;
+    private BdListView idN;
     private NoDataView mNoDataView;
     private View mRoot;
 
@@ -30,34 +30,34 @@ public class f extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     private void initView() {
         this.mRoot = View.inflate(this.fbZ.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
         this.fbZ.getPageContext().getPageActivity().setContentView(this.mRoot);
-        this.iTu = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.iTu.setTitleText(R.string.officical_bar_info_history);
-        this.iTu.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.idL = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
-        this.iTv = new e(this.fbZ, this.fbZ.getPageContext().getContext());
-        this.idL.setAdapter((ListAdapter) this.iTv);
-        this.iTw = View.inflate(this.fbZ.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-        this.idL.addHeaderView(this.iTw);
-        this.idL.addFooterView(this.iTw);
+        this.iTw = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
+        this.iTw.setTitleText(R.string.officical_bar_info_history);
+        this.iTw.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.idN = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
+        this.iTx = new e(this.fbZ, this.fbZ.getPageContext().getContext());
+        this.idN.setAdapter((ListAdapter) this.iTx);
+        this.iTy = View.inflate(this.fbZ.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
+        this.idN.addHeaderView(this.iTy);
+        this.idN.addFooterView(this.iTy);
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.iTv.setData(list);
+        this.iTx.setData(list);
         m36do(list);
     }
 
     public void onChangeSkinType(int i) {
         this.fbZ.getLayoutMode().setNightMode(i == 1);
         this.fbZ.getLayoutMode().onModeChanged(this.mRoot);
-        this.iTu.onChangeSkinType(this.fbZ.getPageContext(), i);
+        this.iTw.onChangeSkinType(this.fbZ.getPageContext(), i);
     }
 
     public void c(BdListView.e eVar) {
-        this.idL.setOnSrollToBottomListener(eVar);
+        this.idN.setOnSrollToBottomListener(eVar);
     }
 
     public boolean crp() {
-        return this.iTv.getCount() != 0 && this.idL.getLastVisiblePosition() - this.idL.getHeaderViewsCount() < this.iTv.getCount() + (-1);
+        return this.iTx.getCount() != 0 && this.idN.getLastVisiblePosition() - this.idN.getHeaderViewsCount() < this.iTx.getCount() + (-1);
     }
 
     /* renamed from: do  reason: not valid java name */

@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes12.dex */
 public class b implements c {
-    public static final b mQQ = new b();
-    private String mQR = "unknown";
-    private int mQS = 5;
+    public static final b mQS = new b();
+    private String mQT = "unknown";
+    private int mQU = 5;
 
-    public static b dCA() {
-        return mQQ;
+    public static b dCB() {
+        return mQS;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.mQS <= i;
+        return this.mQU <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -70,8 +70,8 @@ public class b implements c {
     }
 
     private String Rn(String str) {
-        if (this.mQR != null) {
-            return this.mQR + ":" + str;
+        if (this.mQT != null) {
+            return this.mQT + ":" + str;
         }
         return str;
     }

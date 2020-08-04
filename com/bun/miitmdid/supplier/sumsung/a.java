@@ -6,11 +6,11 @@ import com.bun.miitmdid.utils.SupplierListener;
 /* loaded from: classes19.dex */
 public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     public SupplierListener a;
-    private SumsungCore mPa;
+    private SumsungCore mPc;
 
     public a(Context context, SupplierListener supplierListener) {
         this.a = supplierListener;
-        this.mPa = new SumsungCore(context, this);
+        this.mPc = new SumsungCore(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
@@ -39,39 +39,39 @@ public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         String aaid;
-        return (isSupported() && (aaid = this.mPa.getAAID()) != null) ? aaid : "";
+        return (isSupported() && (aaid = this.mPc.getAAID()) != null) ? aaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         String oaid;
-        return (isSupported() && (oaid = this.mPa.getOAID()) != null) ? oaid : "";
+        return (isSupported() && (oaid = this.mPc.getOAID()) != null) ? oaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         String udid;
-        return (isSupported() && (udid = this.mPa.getUDID()) != null) ? udid : "";
+        return (isSupported() && (udid = this.mPc.getUDID()) != null) ? udid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         String vaid;
-        return (isSupported() && (vaid = this.mPa.getVAID()) != null) ? vaid : "";
+        return (isSupported() && (vaid = this.mPc.getVAID()) != null) ? vaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        if (this.mPa != null) {
-            return this.mPa.isSupported();
+        if (this.mPc != null) {
+            return this.mPc.isSupported();
         }
         return false;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
-        if (this.mPa != null) {
-            this.mPa.shutdown();
+        if (this.mPc != null) {
+            this.mPc.shutdown();
         }
     }
 }

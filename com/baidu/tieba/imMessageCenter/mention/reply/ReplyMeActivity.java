@@ -10,7 +10,7 @@ import com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment;
 /* loaded from: classes16.dex */
 public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManager.c {
     private VoiceManager hFy;
-    private ReplyMessageFragment jrT;
+    private ReplyMessageFragment jrV;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,8 +21,8 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.reply));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jrT = new ReplyMessageFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, this.jrT).commitAllowingStateLoss();
+        this.jrV = new ReplyMessageFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, this.jrV).commitAllowingStateLoss();
         adjustResizeForSoftInput();
         this.hFy = getVoiceManager();
         this.hFy.onCreate(getPageContext());
@@ -71,8 +71,8 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.jrT != null) {
-            this.jrT.onChangeSkinType(i);
+        if (this.jrV != null) {
+            this.jrV.onChangeSkinType(i);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }

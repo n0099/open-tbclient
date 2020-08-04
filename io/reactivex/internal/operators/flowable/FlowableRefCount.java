@@ -10,9 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class FlowableRefCount<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final ReentrantLock lock;
-    final io.reactivex.b.a<T> nTl;
-    volatile io.reactivex.disposables.a nTm;
-    final AtomicInteger nTn;
+    final io.reactivex.b.a<T> nTn;
+    volatile io.reactivex.disposables.a nTo;
+    final AtomicInteger nTp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -65,13 +65,13 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
         void cleanup() {
             FlowableRefCount.this.lock.lock();
             try {
-                if (FlowableRefCount.this.nTm == this.currentBase) {
-                    if (FlowableRefCount.this.nTl instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) FlowableRefCount.this.nTl).dispose();
+                if (FlowableRefCount.this.nTo == this.currentBase) {
+                    if (FlowableRefCount.this.nTn instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) FlowableRefCount.this.nTn).dispose();
                     }
-                    FlowableRefCount.this.nTm.dispose();
-                    FlowableRefCount.this.nTm = new io.reactivex.disposables.a();
-                    FlowableRefCount.this.nTn.set(0);
+                    FlowableRefCount.this.nTo.dispose();
+                    FlowableRefCount.this.nTo = new io.reactivex.disposables.a();
+                    FlowableRefCount.this.nTp.set(0);
                 }
             } finally {
                 FlowableRefCount.this.lock.unlock();
@@ -83,10 +83,10 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
     public void a(org.a.c<? super T> cVar) {
         boolean z;
         this.lock.lock();
-        if (this.nTn.incrementAndGet() == 1) {
+        if (this.nTp.incrementAndGet() == 1) {
             AtomicBoolean atomicBoolean = new AtomicBoolean(true);
             try {
-                this.nTl.c(a(cVar, atomicBoolean));
+                this.nTn.c(a(cVar, atomicBoolean));
                 if (z) {
                     return;
                 }
@@ -97,7 +97,7 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
             }
         }
         try {
-            a(cVar, this.nTm);
+            a(cVar, this.nTo);
         } finally {
             this.lock.unlock();
         }
@@ -110,7 +110,7 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
     void a(org.a.c<? super T> cVar, io.reactivex.disposables.a aVar) {
         ConnectionSubscriber connectionSubscriber = new ConnectionSubscriber(cVar, aVar, a(aVar));
         cVar.onSubscribe(connectionSubscriber);
-        this.nTl.a((j) connectionSubscriber);
+        this.nTn.a((j) connectionSubscriber);
     }
 
     private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
@@ -120,12 +120,12 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public final class a implements io.reactivex.c.g<io.reactivex.disposables.b> {
-        private final AtomicBoolean nTo;
+        private final AtomicBoolean nTq;
         private final org.a.c<? super T> subscriber;
 
         a(org.a.c<? super T> cVar, AtomicBoolean atomicBoolean) {
             this.subscriber = cVar;
-            this.nTo = atomicBoolean;
+            this.nTq = atomicBoolean;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,11 +133,11 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
         /* renamed from: f */
         public void accept(io.reactivex.disposables.b bVar) {
             try {
-                FlowableRefCount.this.nTm.a(bVar);
-                FlowableRefCount.this.a(this.subscriber, FlowableRefCount.this.nTm);
+                FlowableRefCount.this.nTo.a(bVar);
+                FlowableRefCount.this.a(this.subscriber, FlowableRefCount.this.nTo);
             } finally {
                 FlowableRefCount.this.lock.unlock();
-                this.nTo.set(false);
+                this.nTq.set(false);
             }
         }
     }
@@ -145,22 +145,22 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public final class b implements Runnable {
-        private final io.reactivex.disposables.a nTp;
+        private final io.reactivex.disposables.a nTr;
 
         b(io.reactivex.disposables.a aVar) {
-            this.nTp = aVar;
+            this.nTr = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             FlowableRefCount.this.lock.lock();
             try {
-                if (FlowableRefCount.this.nTm == this.nTp && FlowableRefCount.this.nTn.decrementAndGet() == 0) {
-                    if (FlowableRefCount.this.nTl instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) FlowableRefCount.this.nTl).dispose();
+                if (FlowableRefCount.this.nTo == this.nTr && FlowableRefCount.this.nTp.decrementAndGet() == 0) {
+                    if (FlowableRefCount.this.nTn instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) FlowableRefCount.this.nTn).dispose();
                     }
-                    FlowableRefCount.this.nTm.dispose();
-                    FlowableRefCount.this.nTm = new io.reactivex.disposables.a();
+                    FlowableRefCount.this.nTo.dispose();
+                    FlowableRefCount.this.nTo = new io.reactivex.disposables.a();
                 }
             } finally {
                 FlowableRefCount.this.lock.unlock();

@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 public class l extends PostData {
     public static final BdUniqueId Wc = BdUniqueId.gen();
     public int fsQ;
+    public int kiA;
+    public int kiB;
     @DrawableRes
-    public int kiw;
-    public String kix;
     public int kiy;
-    public int kiz;
+    public String kiz;
     private int position = 0;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q

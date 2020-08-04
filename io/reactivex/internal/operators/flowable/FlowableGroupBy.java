@@ -20,7 +20,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.b.b<K, V>> cVar) {
-        this.nSE.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+        this.nSG.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes7.dex */
@@ -293,7 +293,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> nTd;
+        final State<T, K> nTf;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -301,24 +301,24 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.nTd = state;
+            this.nTf = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.nTd.subscribe(cVar);
+            this.nTf.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.nTd.onNext(t);
+            this.nTf.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.nTd.onError(th);
+            this.nTf.onError(th);
         }
 
         public void onComplete() {
-            this.nTd.onComplete();
+            this.nTf.onComplete();
         }
     }
 

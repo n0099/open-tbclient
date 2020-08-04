@@ -119,7 +119,7 @@ public class QuickImInputHeaderView extends RelativeLayout implements com.baidu.
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.ala_quick_im_input_header_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.textView = (TextView) view.findViewById(a.g.f967tv);
+                bVar2.textView = (TextView) view.findViewById(a.g.f970tv);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {

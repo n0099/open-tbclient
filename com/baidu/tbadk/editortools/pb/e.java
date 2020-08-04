@@ -124,8 +124,8 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.dlK())) {
-                    e.this.a(2, true, aVar.dlK());
+                if (aVar != null && !StringUtils.isNull(aVar.dlL())) {
+                    e.this.a(2, true, aVar.dlL());
                 } else {
                     onFail(null);
                 }
@@ -429,12 +429,12 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
             this.dVN.showToast(R.string.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             bjq();
-        } else if (this.eBP.dlR()) {
+        } else if (this.eBP.dlS()) {
             bjm();
         } else {
             this.eBP.vp(false);
             a(1, true, (String) null);
-            this.eBP.dlP();
+            this.eBP.dlQ();
         }
     }
 
@@ -447,8 +447,8 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
     }
 
     public void bjp() {
-        if (!this.isBJH && this.eBP != null && !com.baidu.tieba.tbadkCore.location.c.dlM().dlN() && UtilHelper.isSystemLocationProviderEnabled(this.dVN.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared()) {
-            this.eBP.dlP();
+        if (!this.isBJH && this.eBP != null && !com.baidu.tieba.tbadkCore.location.c.dlN().dlO() && UtilHelper.isSystemLocationProviderEnabled(this.dVN.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared()) {
+            this.eBP.dlQ();
         }
     }
 
@@ -459,7 +459,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     e.this.a(1, true, (String) null);
-                    e.this.eBP.dlT();
+                    e.this.eBP.dlU();
                 } else {
                     e.this.eCc.bjD();
                 }
@@ -477,12 +477,12 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
 
     public void bjr() {
         if (this.eBP.bNz()) {
-            if (this.eBP.dlR()) {
-                this.eCc.a(com.baidu.tieba.tbadkCore.location.c.dlM().getLocationData());
+            if (this.eBP.dlS()) {
+                this.eCc.a(com.baidu.tieba.tbadkCore.location.c.dlN().getLocationData());
                 return;
             }
             if (l.isNetOk()) {
-                this.eBP.dlP();
+                this.eBP.dlQ();
             }
             a(0, true, (String) null);
             return;
@@ -769,13 +769,13 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
                 this.eBQ.dhF().setVoice(null);
                 this.eBQ.dhF().setVoiceDuringTime(-1);
             }
-            if (!this.eBQ.dmz()) {
+            if (!this.eBQ.dmA()) {
                 this.dVN.showToast(R.string.write_img_limit);
             } else if (this.eBY == null || !this.eBY.bji()) {
                 if (this.eBX != null) {
                     this.eBX.bjj();
                 }
-                if (!this.eBQ.dmw()) {
+                if (!this.eBQ.dmx()) {
                 }
             }
         }

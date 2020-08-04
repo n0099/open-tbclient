@@ -8,142 +8,142 @@ import java.io.IOException;
 import java.io.Reader;
 /* loaded from: classes10.dex */
 public class a implements Closeable {
-    private static final char[] nlM = ")]}'\n".toCharArray();
-    private int njO;
-    private String[] njP;
-    private int[] njQ;
-    private final Reader nlN;
-    private long nlS;
-    private int nlT;
-    private String nlU;
+    private static final char[] nlO = ")]}'\n".toCharArray();
+    private int njQ;
+    private String[] njR;
+    private int[] njS;
+    private final Reader nlP;
+    private long nlU;
+    private int nlV;
+    private String nlW;
     private boolean lenient = false;
-    private final char[] nlO = new char[1024];
+    private final char[] nlQ = new char[1024];
     private int pos = 0;
     private int limit = 0;
-    private int nlP = 0;
-    private int nlQ = 0;
-    int nlR = 0;
-    private int[] nlV = new int[32];
+    private int nlR = 0;
+    private int nlS = 0;
+    int nlT = 0;
+    private int[] nlX = new int[32];
 
     static {
-        e.njc = new e() { // from class: com.google.gson.stream.a.1
+        e.nje = new e() { // from class: com.google.gson.stream.a.1
             @Override // com.google.gson.internal.e
             public void a(a aVar) throws IOException {
                 if (aVar instanceof com.google.gson.internal.a.e) {
-                    ((com.google.gson.internal.a.e) aVar).dLu();
+                    ((com.google.gson.internal.a.e) aVar).dLv();
                     return;
                 }
-                int i = aVar.nlR;
+                int i = aVar.nlT;
                 if (i == 0) {
-                    i = aVar.dLI();
+                    i = aVar.dLJ();
                 }
                 if (i == 13) {
-                    aVar.nlR = 9;
+                    aVar.nlT = 9;
                 } else if (i == 12) {
-                    aVar.nlR = 8;
+                    aVar.nlT = 8;
                 } else if (i == 14) {
-                    aVar.nlR = 10;
+                    aVar.nlT = 10;
                 } else {
-                    throw new IllegalStateException("Expected a name but was " + aVar.dLn() + aVar.dLv());
+                    throw new IllegalStateException("Expected a name but was " + aVar.dLo() + aVar.dLw());
                 }
             }
         };
     }
 
     public a(Reader reader) {
-        this.njO = 0;
-        int[] iArr = this.nlV;
-        int i = this.njO;
-        this.njO = i + 1;
+        this.njQ = 0;
+        int[] iArr = this.nlX;
+        int i = this.njQ;
+        this.njQ = i + 1;
         iArr[i] = 6;
-        this.njP = new String[32];
-        this.njQ = new int[32];
+        this.njR = new String[32];
+        this.njS = new int[32];
         if (reader == null) {
             throw new NullPointerException("in == null");
         }
-        this.nlN = reader;
+        this.nlP = reader;
     }
 
     public final void xx(boolean z) {
         this.lenient = z;
     }
 
-    public final boolean dLH() {
+    public final boolean dLI() {
         return this.lenient;
     }
 
-    public void dLl() throws IOException {
-        int i = this.nlR;
+    public void dLm() throws IOException {
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 3) {
             push(1);
-            this.njQ[this.njO - 1] = 0;
-            this.nlR = 0;
+            this.njS[this.njQ - 1] = 0;
+            this.nlT = 0;
             return;
         }
-        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + dLn() + dLv());
+        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + dLo() + dLw());
     }
 
     public void endArray() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 4) {
-            this.njO--;
-            int[] iArr = this.njQ;
-            int i2 = this.njO - 1;
+            this.njQ--;
+            int[] iArr = this.njS;
+            int i2 = this.njQ - 1;
             iArr[i2] = iArr[i2] + 1;
-            this.nlR = 0;
+            this.nlT = 0;
             return;
         }
-        throw new IllegalStateException("Expected END_ARRAY but was " + dLn() + dLv());
+        throw new IllegalStateException("Expected END_ARRAY but was " + dLo() + dLw());
     }
 
-    public void dLm() throws IOException {
-        int i = this.nlR;
+    public void dLn() throws IOException {
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 1) {
             push(3);
-            this.nlR = 0;
+            this.nlT = 0;
             return;
         }
-        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + dLn() + dLv());
+        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + dLo() + dLw());
     }
 
     public void endObject() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 2) {
-            this.njO--;
-            this.njP[this.njO] = null;
-            int[] iArr = this.njQ;
-            int i2 = this.njO - 1;
+            this.njQ--;
+            this.njR[this.njQ] = null;
+            int[] iArr = this.njS;
+            int i2 = this.njQ - 1;
             iArr[i2] = iArr[i2] + 1;
-            this.nlR = 0;
+            this.nlT = 0;
             return;
         }
-        throw new IllegalStateException("Expected END_OBJECT but was " + dLn() + dLv());
+        throw new IllegalStateException("Expected END_OBJECT but was " + dLo() + dLw());
     }
 
     public boolean hasNext() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         return (i == 2 || i == 4) ? false : true;
     }
 
-    public JsonToken dLn() throws IOException {
-        int i = this.nlR;
+    public JsonToken dLo() throws IOException {
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         switch (i) {
             case 1:
@@ -179,34 +179,34 @@ public class a implements Closeable {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    int dLI() throws IOException {
-        int i = this.nlV[this.njO - 1];
+    int dLJ() throws IOException {
+        int i = this.nlX[this.njQ - 1];
         if (i == 1) {
-            this.nlV[this.njO - 1] = 2;
+            this.nlX[this.njQ - 1] = 2;
         } else if (i == 2) {
             switch (xy(true)) {
                 case 44:
                     break;
                 case 59:
-                    dLN();
+                    dLO();
                     break;
                 case 93:
-                    this.nlR = 4;
+                    this.nlT = 4;
                     return 4;
                 default:
                     throw RR("Unterminated array");
             }
         } else if (i == 3 || i == 5) {
-            this.nlV[this.njO - 1] = 4;
+            this.nlX[this.njQ - 1] = 4;
             if (i == 5) {
                 switch (xy(true)) {
                     case 44:
                         break;
                     case 59:
-                        dLN();
+                        dLO();
                         break;
                     case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
-                        this.nlR = 2;
+                        this.nlT = 2;
                         return 2;
                     default:
                         throw RR("Unterminated object");
@@ -215,29 +215,29 @@ public class a implements Closeable {
             int xy = xy(true);
             switch (xy) {
                 case 34:
-                    this.nlR = 13;
+                    this.nlT = 13;
                     return 13;
                 case 39:
-                    dLN();
-                    this.nlR = 12;
+                    dLO();
+                    this.nlT = 12;
                     return 12;
                 case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
                     if (i != 5) {
-                        this.nlR = 2;
+                        this.nlT = 2;
                         return 2;
                     }
                     throw RR("Expected name");
                 default:
-                    dLN();
+                    dLO();
                     this.pos--;
                     if (g((char) xy)) {
-                        this.nlR = 14;
+                        this.nlT = 14;
                         return 14;
                     }
                     throw RR("Expected name");
             }
         } else if (i == 4) {
-            this.nlV[this.njO - 1] = 5;
+            this.nlX[this.njQ - 1] = 5;
             switch (xy(true)) {
                 case 58:
                     break;
@@ -246,8 +246,8 @@ public class a implements Closeable {
                 default:
                     throw RR("Expected ':'");
                 case 61:
-                    dLN();
-                    if ((this.pos < this.limit || Kt(1)) && this.nlO[this.pos] == '>') {
+                    dLO();
+                    if ((this.pos < this.limit || Kt(1)) && this.nlQ[this.pos] == '>') {
                         this.pos++;
                         break;
                     }
@@ -255,73 +255,73 @@ public class a implements Closeable {
             }
         } else if (i == 6) {
             if (this.lenient) {
-                dLO();
+                dLP();
             }
-            this.nlV[this.njO - 1] = 7;
+            this.nlX[this.njQ - 1] = 7;
         } else if (i == 7) {
             if (xy(false) == -1) {
-                this.nlR = 17;
+                this.nlT = 17;
                 return 17;
             }
-            dLN();
+            dLO();
             this.pos--;
         } else if (i == 8) {
             throw new IllegalStateException("JsonReader is closed");
         }
         switch (xy(true)) {
             case 34:
-                this.nlR = 9;
+                this.nlT = 9;
                 return 9;
             case 39:
-                dLN();
-                this.nlR = 8;
+                dLO();
+                this.nlT = 8;
                 return 8;
             case 44:
             case 59:
                 break;
             case 91:
-                this.nlR = 3;
+                this.nlT = 3;
                 return 3;
             case 93:
                 if (i == 1) {
-                    this.nlR = 4;
+                    this.nlT = 4;
                     return 4;
                 }
                 break;
             case 123:
-                this.nlR = 1;
+                this.nlT = 1;
                 return 1;
             default:
                 this.pos--;
-                int dLJ = dLJ();
-                if (dLJ == 0) {
-                    int dLK = dLK();
-                    if (dLK == 0) {
-                        if (!g(this.nlO[this.pos])) {
+                int dLK = dLK();
+                if (dLK == 0) {
+                    int dLL = dLL();
+                    if (dLL == 0) {
+                        if (!g(this.nlQ[this.pos])) {
                             throw RR("Expected value");
                         }
-                        dLN();
-                        this.nlR = 10;
+                        dLO();
+                        this.nlT = 10;
                         return 10;
                     }
-                    return dLK;
+                    return dLL;
                 }
-                return dLJ;
+                return dLK;
         }
         if (i == 1 || i == 2) {
-            dLN();
+            dLO();
             this.pos--;
-            this.nlR = 7;
+            this.nlT = 7;
             return 7;
         }
         throw RR("Unexpected value");
     }
 
-    private int dLJ() throws IOException {
+    private int dLK() throws IOException {
         String str;
         String str2;
         int i;
-        char c = this.nlO[this.pos];
+        char c = this.nlQ[this.pos];
         if (c == 't' || c == 'T') {
             str = "true";
             str2 = "TRUE";
@@ -342,16 +342,16 @@ public class a implements Closeable {
             if (this.pos + i2 >= this.limit && !Kt(i2 + 1)) {
                 return 0;
             }
-            char c2 = this.nlO[this.pos + i2];
+            char c2 = this.nlQ[this.pos + i2];
             if (c2 != str.charAt(i2) && c2 != str2.charAt(i2)) {
                 return 0;
             }
         }
-        if ((this.pos + length < this.limit || Kt(length + 1)) && g(this.nlO[this.pos + length])) {
+        if ((this.pos + length < this.limit || Kt(length + 1)) && g(this.nlQ[this.pos + length])) {
             return 0;
         }
         this.pos += length;
-        this.nlR = i;
+        this.nlT = i;
         return i;
     }
 
@@ -383,9 +383,9 @@ public class a implements Closeable {
         if (r5 == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0037, code lost:
-        r15.nlS = r6;
+        r15.nlU = r6;
         r15.pos += r10;
-        r15.nlR = 15;
+        r15.nlT = 15;
      */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x005a, code lost:
         if (g(r2) == false) goto L10;
@@ -406,8 +406,8 @@ public class a implements Closeable {
         if (r3 != 7) goto L30;
      */
     /* JADX WARN: Code restructure failed: missing block: B:86:0x00f0, code lost:
-        r15.nlT = r10;
-        r15.nlR = 16;
+        r15.nlV = r10;
+        r15.nlT = 16;
      */
     /* JADX WARN: Code restructure failed: missing block: B:87:0x00f8, code lost:
         return 0;
@@ -415,11 +415,11 @@ public class a implements Closeable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int dLK() throws IOException {
+    private int dLL() throws IOException {
         char c;
         boolean z;
         boolean z2;
-        char[] cArr = this.nlO;
+        char[] cArr = this.nlQ;
         int i = this.pos;
         long j = 0;
         boolean z3 = false;
@@ -550,177 +550,177 @@ public class a implements Closeable {
             case ';':
             case '=':
             case '\\':
-                dLN();
+                dLO();
                 break;
         }
         return false;
     }
 
-    public String dLq() throws IOException {
+    public String dLr() throws IOException {
         String h;
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 14) {
-            h = dLL();
+            h = dLM();
         } else if (i == 12) {
             h = h('\'');
         } else if (i == 13) {
             h = h('\"');
         } else {
-            throw new IllegalStateException("Expected a name but was " + dLn() + dLv());
+            throw new IllegalStateException("Expected a name but was " + dLo() + dLw());
         }
-        this.nlR = 0;
-        this.njP[this.njO - 1] = h;
+        this.nlT = 0;
+        this.njR[this.njQ - 1] = h;
         return h;
     }
 
-    public String dLr() throws IOException {
+    public String dLs() throws IOException {
         String str;
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 10) {
-            str = dLL();
+            str = dLM();
         } else if (i == 8) {
             str = h('\'');
         } else if (i == 9) {
             str = h('\"');
         } else if (i == 11) {
-            str = this.nlU;
-            this.nlU = null;
+            str = this.nlW;
+            this.nlW = null;
         } else if (i == 15) {
-            str = Long.toString(this.nlS);
+            str = Long.toString(this.nlU);
         } else if (i == 16) {
-            str = new String(this.nlO, this.pos, this.nlT);
-            this.pos += this.nlT;
+            str = new String(this.nlQ, this.pos, this.nlV);
+            this.pos += this.nlV;
         } else {
-            throw new IllegalStateException("Expected a string but was " + dLn() + dLv());
+            throw new IllegalStateException("Expected a string but was " + dLo() + dLw());
         }
-        this.nlR = 0;
-        int[] iArr = this.njQ;
-        int i2 = this.njO - 1;
+        this.nlT = 0;
+        int[] iArr = this.njS;
+        int i2 = this.njQ - 1;
         iArr[i2] = iArr[i2] + 1;
         return str;
     }
 
     public boolean nextBoolean() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 5) {
-            this.nlR = 0;
-            int[] iArr = this.njQ;
-            int i2 = this.njO - 1;
+            this.nlT = 0;
+            int[] iArr = this.njS;
+            int i2 = this.njQ - 1;
             iArr[i2] = iArr[i2] + 1;
             return true;
         } else if (i == 6) {
-            this.nlR = 0;
-            int[] iArr2 = this.njQ;
-            int i3 = this.njO - 1;
+            this.nlT = 0;
+            int[] iArr2 = this.njS;
+            int i3 = this.njQ - 1;
             iArr2[i3] = iArr2[i3] + 1;
             return false;
         } else {
-            throw new IllegalStateException("Expected a boolean but was " + dLn() + dLv());
+            throw new IllegalStateException("Expected a boolean but was " + dLo() + dLw());
         }
     }
 
-    public void dLs() throws IOException {
-        int i = this.nlR;
+    public void dLt() throws IOException {
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 7) {
-            this.nlR = 0;
-            int[] iArr = this.njQ;
-            int i2 = this.njO - 1;
+            this.nlT = 0;
+            int[] iArr = this.njS;
+            int i2 = this.njQ - 1;
             iArr[i2] = iArr[i2] + 1;
             return;
         }
-        throw new IllegalStateException("Expected null but was " + dLn() + dLv());
+        throw new IllegalStateException("Expected null but was " + dLo() + dLw());
     }
 
     public double nextDouble() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 15) {
-            this.nlR = 0;
-            int[] iArr = this.njQ;
-            int i2 = this.njO - 1;
+            this.nlT = 0;
+            int[] iArr = this.njS;
+            int i2 = this.njQ - 1;
             iArr[i2] = iArr[i2] + 1;
-            return this.nlS;
+            return this.nlU;
         }
         if (i == 16) {
-            this.nlU = new String(this.nlO, this.pos, this.nlT);
-            this.pos += this.nlT;
+            this.nlW = new String(this.nlQ, this.pos, this.nlV);
+            this.pos += this.nlV;
         } else if (i == 8 || i == 9) {
-            this.nlU = h(i == 8 ? '\'' : '\"');
+            this.nlW = h(i == 8 ? '\'' : '\"');
         } else if (i == 10) {
-            this.nlU = dLL();
+            this.nlW = dLM();
         } else if (i != 11) {
-            throw new IllegalStateException("Expected a double but was " + dLn() + dLv());
+            throw new IllegalStateException("Expected a double but was " + dLo() + dLw());
         }
-        this.nlR = 11;
-        double parseDouble = Double.parseDouble(this.nlU);
+        this.nlT = 11;
+        double parseDouble = Double.parseDouble(this.nlW);
         if (!this.lenient && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
-            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + dLv());
+            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + dLw());
         }
-        this.nlU = null;
-        this.nlR = 0;
-        int[] iArr2 = this.njQ;
-        int i3 = this.njO - 1;
+        this.nlW = null;
+        this.nlT = 0;
+        int[] iArr2 = this.njS;
+        int i3 = this.njQ - 1;
         iArr2[i3] = iArr2[i3] + 1;
         return parseDouble;
     }
 
     public long nextLong() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 15) {
-            this.nlR = 0;
-            int[] iArr = this.njQ;
-            int i2 = this.njO - 1;
+            this.nlT = 0;
+            int[] iArr = this.njS;
+            int i2 = this.njQ - 1;
             iArr[i2] = iArr[i2] + 1;
-            return this.nlS;
+            return this.nlU;
         }
         if (i == 16) {
-            this.nlU = new String(this.nlO, this.pos, this.nlT);
-            this.pos += this.nlT;
+            this.nlW = new String(this.nlQ, this.pos, this.nlV);
+            this.pos += this.nlV;
         } else if (i == 8 || i == 9 || i == 10) {
             if (i == 10) {
-                this.nlU = dLL();
+                this.nlW = dLM();
             } else {
-                this.nlU = h(i == 8 ? '\'' : '\"');
+                this.nlW = h(i == 8 ? '\'' : '\"');
             }
             try {
-                long parseLong = Long.parseLong(this.nlU);
-                this.nlR = 0;
-                int[] iArr2 = this.njQ;
-                int i3 = this.njO - 1;
+                long parseLong = Long.parseLong(this.nlW);
+                this.nlT = 0;
+                int[] iArr2 = this.njS;
+                int i3 = this.njQ - 1;
                 iArr2[i3] = iArr2[i3] + 1;
                 return parseLong;
             } catch (NumberFormatException e) {
             }
         } else {
-            throw new IllegalStateException("Expected a long but was " + dLn() + dLv());
+            throw new IllegalStateException("Expected a long but was " + dLo() + dLw());
         }
-        this.nlR = 11;
-        double parseDouble = Double.parseDouble(this.nlU);
+        this.nlT = 11;
+        double parseDouble = Double.parseDouble(this.nlW);
         long j = (long) parseDouble;
         if (j != parseDouble) {
-            throw new NumberFormatException("Expected a long but was " + this.nlU + dLv());
+            throw new NumberFormatException("Expected a long but was " + this.nlW + dLw());
         }
-        this.nlU = null;
-        this.nlR = 0;
-        int[] iArr3 = this.njQ;
-        int i4 = this.njO - 1;
+        this.nlW = null;
+        this.nlT = 0;
+        int[] iArr3 = this.njS;
+        int i4 = this.njQ - 1;
         iArr3[i4] = iArr3[i4] + 1;
         return j;
     }
@@ -730,7 +730,7 @@ public class a implements Closeable {
         int i2;
         StringBuilder sb;
         int i3;
-        char[] cArr = this.nlO;
+        char[] cArr = this.nlQ;
         StringBuilder sb2 = null;
         do {
             int i4 = this.pos;
@@ -763,8 +763,8 @@ public class a implements Closeable {
                     i2 = i10;
                 } else {
                     if (c2 == '\n') {
-                        this.nlP++;
-                        this.nlQ = i7;
+                        this.nlR++;
+                        this.nlS = i7;
                     }
                     int i11 = i4;
                     i = i5;
@@ -786,12 +786,12 @@ public class a implements Closeable {
         throw RR("Unterminated string");
     }
 
-    private String dLL() throws IOException {
+    private String dLM() throws IOException {
         StringBuilder sb = null;
         int i = 0;
         while (true) {
             if (this.pos + i < this.limit) {
-                switch (this.nlO[this.pos + i]) {
+                switch (this.nlQ[this.pos + i]) {
                     case '\t':
                     case '\n':
                     case '\f':
@@ -809,19 +809,19 @@ public class a implements Closeable {
                     case ';':
                     case '=':
                     case '\\':
-                        dLN();
+                        dLO();
                         break;
                     default:
                         i++;
                 }
-            } else if (i < this.nlO.length) {
+            } else if (i < this.nlQ.length) {
                 if (Kt(i + 1)) {
                 }
             } else {
                 if (sb == null) {
                     sb = new StringBuilder(Math.max(i, 16));
                 }
-                sb.append(this.nlO, this.pos, i);
+                sb.append(this.nlQ, this.pos, i);
                 this.pos = i + this.pos;
                 if (Kt(1)) {
                     i = 0;
@@ -830,13 +830,13 @@ public class a implements Closeable {
                 }
             }
         }
-        String str = sb == null ? new String(this.nlO, this.pos, i) : sb.append(this.nlO, this.pos, i).toString();
+        String str = sb == null ? new String(this.nlQ, this.pos, i) : sb.append(this.nlQ, this.pos, i).toString();
         this.pos = i + this.pos;
         return str;
     }
 
     private void i(char c) throws IOException {
-        char[] cArr = this.nlO;
+        char[] cArr = this.nlQ;
         do {
             int i = this.pos;
             int i2 = this.limit;
@@ -854,8 +854,8 @@ public class a implements Closeable {
                     i4 = this.pos;
                     i2 = this.limit;
                 } else if (c2 == '\n') {
-                    this.nlP++;
-                    this.nlQ = i4;
+                    this.nlR++;
+                    this.nlS = i4;
                 }
                 i3 = i4;
             }
@@ -864,11 +864,11 @@ public class a implements Closeable {
         throw RR("Unterminated string");
     }
 
-    private void dLM() throws IOException {
+    private void dLN() throws IOException {
         do {
             int i = 0;
             while (this.pos + i < this.limit) {
-                switch (this.nlO[this.pos + i]) {
+                switch (this.nlQ[this.pos + i]) {
                     case '\t':
                     case '\n':
                     case '\f':
@@ -887,7 +887,7 @@ public class a implements Closeable {
                     case ';':
                     case '=':
                     case '\\':
-                        dLN();
+                        dLO();
                         this.pos = i + this.pos;
                         return;
                     default:
@@ -899,70 +899,70 @@ public class a implements Closeable {
     }
 
     public int nextInt() throws IOException {
-        int i = this.nlR;
+        int i = this.nlT;
         if (i == 0) {
-            i = dLI();
+            i = dLJ();
         }
         if (i == 15) {
-            int i2 = (int) this.nlS;
-            if (this.nlS != i2) {
-                throw new NumberFormatException("Expected an int but was " + this.nlS + dLv());
+            int i2 = (int) this.nlU;
+            if (this.nlU != i2) {
+                throw new NumberFormatException("Expected an int but was " + this.nlU + dLw());
             }
-            this.nlR = 0;
-            int[] iArr = this.njQ;
-            int i3 = this.njO - 1;
+            this.nlT = 0;
+            int[] iArr = this.njS;
+            int i3 = this.njQ - 1;
             iArr[i3] = iArr[i3] + 1;
             return i2;
         }
         if (i == 16) {
-            this.nlU = new String(this.nlO, this.pos, this.nlT);
-            this.pos += this.nlT;
+            this.nlW = new String(this.nlQ, this.pos, this.nlV);
+            this.pos += this.nlV;
         } else if (i == 8 || i == 9 || i == 10) {
             if (i == 10) {
-                this.nlU = dLL();
+                this.nlW = dLM();
             } else {
-                this.nlU = h(i == 8 ? '\'' : '\"');
+                this.nlW = h(i == 8 ? '\'' : '\"');
             }
             try {
-                int parseInt = Integer.parseInt(this.nlU);
-                this.nlR = 0;
-                int[] iArr2 = this.njQ;
-                int i4 = this.njO - 1;
+                int parseInt = Integer.parseInt(this.nlW);
+                this.nlT = 0;
+                int[] iArr2 = this.njS;
+                int i4 = this.njQ - 1;
                 iArr2[i4] = iArr2[i4] + 1;
                 return parseInt;
             } catch (NumberFormatException e) {
             }
         } else {
-            throw new IllegalStateException("Expected an int but was " + dLn() + dLv());
+            throw new IllegalStateException("Expected an int but was " + dLo() + dLw());
         }
-        this.nlR = 11;
-        double parseDouble = Double.parseDouble(this.nlU);
+        this.nlT = 11;
+        double parseDouble = Double.parseDouble(this.nlW);
         int i5 = (int) parseDouble;
         if (i5 != parseDouble) {
-            throw new NumberFormatException("Expected an int but was " + this.nlU + dLv());
+            throw new NumberFormatException("Expected an int but was " + this.nlW + dLw());
         }
-        this.nlU = null;
-        this.nlR = 0;
-        int[] iArr3 = this.njQ;
-        int i6 = this.njO - 1;
+        this.nlW = null;
+        this.nlT = 0;
+        int[] iArr3 = this.njS;
+        int i6 = this.njQ - 1;
         iArr3[i6] = iArr3[i6] + 1;
         return i5;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.nlR = 0;
-        this.nlV[0] = 8;
-        this.njO = 1;
-        this.nlN.close();
+        this.nlT = 0;
+        this.nlX[0] = 8;
+        this.njQ = 1;
+        this.nlP.close();
     }
 
-    public void dLt() throws IOException {
+    public void dLu() throws IOException {
         int i = 0;
         do {
-            int i2 = this.nlR;
+            int i2 = this.nlT;
             if (i2 == 0) {
-                i2 = dLI();
+                i2 = dLJ();
             }
             if (i2 == 3) {
                 push(1);
@@ -971,49 +971,49 @@ public class a implements Closeable {
                 push(3);
                 i++;
             } else if (i2 == 4) {
-                this.njO--;
+                this.njQ--;
                 i--;
             } else if (i2 == 2) {
-                this.njO--;
+                this.njQ--;
                 i--;
             } else if (i2 == 14 || i2 == 10) {
-                dLM();
+                dLN();
             } else if (i2 == 8 || i2 == 12) {
                 i('\'');
             } else if (i2 == 9 || i2 == 13) {
                 i('\"');
             } else if (i2 == 16) {
-                this.pos += this.nlT;
+                this.pos += this.nlV;
             }
-            this.nlR = 0;
+            this.nlT = 0;
         } while (i != 0);
-        int[] iArr = this.njQ;
-        int i3 = this.njO - 1;
+        int[] iArr = this.njS;
+        int i3 = this.njQ - 1;
         iArr[i3] = iArr[i3] + 1;
-        this.njP[this.njO - 1] = "null";
+        this.njR[this.njQ - 1] = "null";
     }
 
     private void push(int i) {
-        if (this.njO == this.nlV.length) {
-            int[] iArr = new int[this.njO * 2];
-            int[] iArr2 = new int[this.njO * 2];
-            String[] strArr = new String[this.njO * 2];
-            System.arraycopy(this.nlV, 0, iArr, 0, this.njO);
-            System.arraycopy(this.njQ, 0, iArr2, 0, this.njO);
-            System.arraycopy(this.njP, 0, strArr, 0, this.njO);
-            this.nlV = iArr;
-            this.njQ = iArr2;
-            this.njP = strArr;
+        if (this.njQ == this.nlX.length) {
+            int[] iArr = new int[this.njQ * 2];
+            int[] iArr2 = new int[this.njQ * 2];
+            String[] strArr = new String[this.njQ * 2];
+            System.arraycopy(this.nlX, 0, iArr, 0, this.njQ);
+            System.arraycopy(this.njS, 0, iArr2, 0, this.njQ);
+            System.arraycopy(this.njR, 0, strArr, 0, this.njQ);
+            this.nlX = iArr;
+            this.njS = iArr2;
+            this.njR = strArr;
         }
-        int[] iArr3 = this.nlV;
-        int i2 = this.njO;
-        this.njO = i2 + 1;
+        int[] iArr3 = this.nlX;
+        int i2 = this.njQ;
+        this.njQ = i2 + 1;
         iArr3[i2] = i;
     }
 
     private boolean Kt(int i) throws IOException {
-        char[] cArr = this.nlO;
-        this.nlQ -= this.pos;
+        char[] cArr = this.nlQ;
+        this.nlS -= this.pos;
         if (this.limit != this.pos) {
             this.limit -= this.pos;
             System.arraycopy(cArr, this.pos, cArr, 0, this.limit);
@@ -1022,14 +1022,14 @@ public class a implements Closeable {
         }
         this.pos = 0;
         do {
-            int read = this.nlN.read(cArr, this.limit, cArr.length - this.limit);
+            int read = this.nlP.read(cArr, this.limit, cArr.length - this.limit);
             if (read == -1) {
                 return false;
             }
             this.limit = read + this.limit;
-            if (this.nlP == 0 && this.nlQ == 0 && this.limit > 0 && cArr[0] == 65279) {
+            if (this.nlR == 0 && this.nlS == 0 && this.limit > 0 && cArr[0] == 65279) {
                 this.pos++;
-                this.nlQ++;
+                this.nlS++;
                 i++;
             }
         } while (this.limit < i);
@@ -1037,7 +1037,7 @@ public class a implements Closeable {
     }
 
     private int xy(boolean z) throws IOException {
-        char[] cArr = this.nlO;
+        char[] cArr = this.nlQ;
         int i = this.pos;
         int i2 = this.limit;
         while (true) {
@@ -1047,7 +1047,7 @@ public class a implements Closeable {
                     i = this.pos;
                     i2 = this.limit;
                 } else if (z) {
-                    throw new EOFException("End of input" + dLv());
+                    throw new EOFException("End of input" + dLw());
                 } else {
                     return -1;
                 }
@@ -1055,8 +1055,8 @@ public class a implements Closeable {
             int i3 = i + 1;
             char c = cArr[i];
             if (c == '\n') {
-                this.nlP++;
-                this.nlQ = i3;
+                this.nlR++;
+                this.nlS = i3;
                 i = i3;
             } else if (c == ' ' || c == '\r') {
                 i = i3;
@@ -1072,7 +1072,7 @@ public class a implements Closeable {
                         return c;
                     }
                 }
-                dLN();
+                dLO();
                 switch (cArr[this.pos]) {
                     case '*':
                         this.pos++;
@@ -1093,7 +1093,7 @@ public class a implements Closeable {
                 }
             } else if (c == '#') {
                 this.pos = i3;
-                dLN();
+                dLO();
                 skipToEndOfLine();
                 i = this.pos;
                 i2 = this.limit;
@@ -1104,7 +1104,7 @@ public class a implements Closeable {
         }
     }
 
-    private void dLN() throws IOException {
+    private void dLO() throws IOException {
         if (!this.lenient) {
             throw RR("Use JsonReader.setLenient(true) to accept malformed JSON");
         }
@@ -1114,13 +1114,13 @@ public class a implements Closeable {
         char c;
         do {
             if (this.pos < this.limit || Kt(1)) {
-                char[] cArr = this.nlO;
+                char[] cArr = this.nlQ;
                 int i = this.pos;
                 this.pos = i + 1;
                 c = cArr[i];
                 if (c == '\n') {
-                    this.nlP++;
-                    this.nlQ = this.pos;
+                    this.nlR++;
+                    this.nlS = this.pos;
                     return;
                 }
             } else {
@@ -1136,12 +1136,12 @@ public class a implements Closeable {
             if (this.pos + length > this.limit && !Kt(length)) {
                 return false;
             }
-            if (this.nlO[this.pos] == '\n') {
-                this.nlP++;
-                this.nlQ = this.pos + 1;
+            if (this.nlQ[this.pos] == '\n') {
+                this.nlR++;
+                this.nlS = this.pos + 1;
             } else {
                 for (i = 0; i < length; i = i + 1) {
-                    i = this.nlO[this.pos + i] == str.charAt(i) ? i + 1 : 0;
+                    i = this.nlQ[this.pos + i] == str.charAt(i) ? i + 1 : 0;
                 }
                 return true;
             }
@@ -1150,28 +1150,28 @@ public class a implements Closeable {
     }
 
     public String toString() {
-        return getClass().getSimpleName() + dLv();
+        return getClass().getSimpleName() + dLw();
     }
 
-    String dLv() {
-        return " at line " + (this.nlP + 1) + " column " + ((this.pos - this.nlQ) + 1) + " path " + getPath();
+    String dLw() {
+        return " at line " + (this.nlR + 1) + " column " + ((this.pos - this.nlS) + 1) + " path " + getPath();
     }
 
     public String getPath() {
         StringBuilder append = new StringBuilder().append('$');
-        int i = this.njO;
+        int i = this.njQ;
         for (int i2 = 0; i2 < i; i2++) {
-            switch (this.nlV[i2]) {
+            switch (this.nlX[i2]) {
                 case 1:
                 case 2:
-                    append.append('[').append(this.njQ[i2]).append(']');
+                    append.append('[').append(this.njS[i2]).append(']');
                     break;
                 case 3:
                 case 4:
                 case 5:
                     append.append('.');
-                    if (this.njP[i2] != null) {
-                        append.append(this.njP[i2]);
+                    if (this.njR[i2] != null) {
+                        append.append(this.njR[i2]);
                         break;
                     } else {
                         break;
@@ -1186,14 +1186,14 @@ public class a implements Closeable {
         if (this.pos == this.limit && !Kt(1)) {
             throw RR("Unterminated escape sequence");
         }
-        char[] cArr = this.nlO;
+        char[] cArr = this.nlQ;
         int i2 = this.pos;
         this.pos = i2 + 1;
         char c = cArr[i2];
         switch (c) {
             case '\n':
-                this.nlP++;
-                this.nlQ = this.pos;
+                this.nlR++;
+                this.nlS = this.pos;
                 return c;
             case '\"':
             case '\'':
@@ -1218,7 +1218,7 @@ public class a implements Closeable {
                 int i4 = i3 + 4;
                 char c2 = 0;
                 for (int i5 = i3; i5 < i4; i5++) {
-                    char c3 = this.nlO[i5];
+                    char c3 = this.nlQ[i5];
                     char c4 = (char) (c2 << 4);
                     if (c3 >= '0' && c3 <= '9') {
                         i = c3 - '0';
@@ -1227,7 +1227,7 @@ public class a implements Closeable {
                     } else if (c3 >= 'A' && c3 <= 'F') {
                         i = (c3 - 'A') + 10;
                     } else {
-                        throw new NumberFormatException("\\u" + new String(this.nlO, this.pos, 4));
+                        throw new NumberFormatException("\\u" + new String(this.nlQ, this.pos, 4));
                     }
                     c2 = (char) (c4 + i);
                 }
@@ -1239,19 +1239,19 @@ public class a implements Closeable {
     }
 
     private IOException RR(String str) throws IOException {
-        throw new MalformedJsonException(str + dLv());
+        throw new MalformedJsonException(str + dLw());
     }
 
-    private void dLO() throws IOException {
+    private void dLP() throws IOException {
         xy(true);
         this.pos--;
-        if (this.pos + nlM.length <= this.limit || Kt(nlM.length)) {
-            for (int i = 0; i < nlM.length; i++) {
-                if (this.nlO[this.pos + i] != nlM[i]) {
+        if (this.pos + nlO.length <= this.limit || Kt(nlO.length)) {
+            for (int i = 0; i < nlO.length; i++) {
+                if (this.nlQ[this.pos + i] != nlO[i]) {
                     return;
                 }
             }
-            this.pos += nlM.length;
+            this.pos += nlO.length;
         }
     }
 }

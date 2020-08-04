@@ -10,7 +10,7 @@ import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes16.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     private String ids;
-    private int jqt;
+    private int jqv;
     private int mPn = 1;
 
     public void e(FeedData feedData) {
@@ -21,17 +21,17 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.jqt = 4;
+        this.jqv = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.jqt = 1;
+        this.jqv = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.jqt;
+        return this.jqv;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -43,7 +43,7 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-        if (this.jqt == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.jqv == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;

@@ -30,7 +30,7 @@ import java.util.List;
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
-    private SapiResult kdD = new SapiResult();
+    private SapiResult kdF = new SapiResult();
     private String tpl;
     private int type;
 
@@ -45,8 +45,8 @@ public class AuthActivity extends BaseActivity {
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.kdD.setResultCode(-202);
-            this.kdD.setResultMsg("网络连接失败，请检查网络设置");
+            this.kdF.setResultCode(-202);
+            this.kdF.setResultMsg("网络连接失败，请检查网络设置");
             t(false, null);
         }
     }
@@ -60,21 +60,21 @@ public class AuthActivity extends BaseActivity {
             this.authToken = getIntent().getStringExtra("EXTRA_AUTH_TOKEN");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.authToken) || TextUtils.isEmpty(this.tpl)) {
-                this.kdD.setResultCode(-204);
-                this.kdD.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.kdF.setResultCode(-204);
+                this.kdF.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                 t(false, null);
             }
         } else if (this.type == 1 || this.type == 2) {
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.bduss)) {
-                this.kdD.setResultCode(-204);
-                this.kdD.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.kdF.setResultCode(-204);
+                this.kdF.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                 t(false, null);
             }
         } else {
-            this.kdD.setResultCode(-204);
-            this.kdD.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+            this.kdF.setResultCode(-204);
+            this.kdF.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
             t(false, null);
         }
     }
@@ -196,8 +196,8 @@ public class AuthActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.kdD.setResultCode(-301);
-        this.kdD.setResultMsg("流程已结束");
+        this.kdF.setResultCode(-301);
+        this.kdF.setResultMsg("流程已结束");
         t(false, null);
     }
 

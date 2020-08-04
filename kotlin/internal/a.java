@@ -11,7 +11,7 @@ public class a {
         q.m(th2, "exception");
     }
 
-    public d dUc() {
+    public d dUd() {
         return new kotlin.random.b();
     }
 }

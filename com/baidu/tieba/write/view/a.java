@@ -34,11 +34,11 @@ public class a extends PopupWindow {
     private ListView mListView;
     private final View.OnClickListener mOnClickListener;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
-    private int mzE;
-    private ValueAnimator mzF;
-    private ValueAnimator mzG;
-    private b mzH;
-    private InterfaceC0786a mzI;
+    private int mzG;
+    private ValueAnimator mzH;
+    private ValueAnimator mzI;
+    private b mzJ;
+    private InterfaceC0786a mzK;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class a extends PopupWindow {
     }
 
     public void a(InterfaceC0786a interfaceC0786a) {
-        this.mzI = interfaceC0786a;
+        this.mzK = interfaceC0786a;
     }
 
     public a(BaseFragmentActivity baseFragmentActivity) {
@@ -55,9 +55,9 @@ public class a extends PopupWindow {
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = a.this.mzH.getItem(i);
-                if (a.this.mzI != null) {
-                    a.this.mzI.a(i, item);
+                com.baidu.tbadk.album.a item = a.this.mzJ.getItem(i);
+                if (a.this.mzK != null) {
+                    a.this.mzK.a(i, item);
                 }
                 a.this.Jj();
             }
@@ -87,9 +87,9 @@ public class a extends PopupWindow {
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.mzH = new b(this.feq);
-        this.mzH.b(list, str);
-        bdListView.setAdapter((ListAdapter) this.mzH);
+        this.mzJ = new b(this.feq);
+        this.mzJ.b(list, str);
+        bdListView.setAdapter((ListAdapter) this.mzJ);
         FrameLayout frameLayout = new FrameLayout(this.feq.getPageContext().getPageActivity());
         FrameLayout frameLayout2 = new FrameLayout(this.feq.getPageContext().getPageActivity());
         this.bkA = frameLayout2;
@@ -106,22 +106,22 @@ public class a extends PopupWindow {
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         if (list != null) {
             this.bkC = d(list, str);
-            this.mzE = -2;
+            this.mzG = -2;
             if (list.size() > 5) {
-                this.mzE = this.feq.getResources().getDimensionPixelSize(R.dimen.ds618);
+                this.mzG = this.feq.getResources().getDimensionPixelSize(R.dimen.ds618);
             }
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mListView.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.mzE);
+                layoutParams = new FrameLayout.LayoutParams(-1, this.mzG);
             } else {
-                layoutParams.height = this.mzE;
+                layoutParams.height = this.mzG;
             }
             this.mListView.setLayoutParams(layoutParams);
-            if (this.mzE < 0) {
-                this.mzE = l.getDimens(this.feq, R.dimen.tbds168) * list.size();
+            if (this.mzG < 0) {
+                this.mzG = l.getDimens(this.feq, R.dimen.tbds168) * list.size();
             }
-            this.mzH.b(list, str);
-            this.mzH.notifyDataSetChanged();
+            this.mzJ.b(list, str);
+            this.mzJ.notifyDataSetChanged();
         }
     }
 
@@ -174,9 +174,9 @@ public class a extends PopupWindow {
     }
 
     private void Jl() {
-        if (this.mzF == null) {
-            this.mzF = ValueAnimator.ofInt(0, this.mzE);
-            this.mzF.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.3
+        if (this.mzH == null) {
+            this.mzH = ValueAnimator.ofInt(0, this.mzG);
+            this.mzH.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
@@ -185,9 +185,9 @@ public class a extends PopupWindow {
                     a.this.mListView.setLayoutParams(layoutParams);
                 }
             });
-            this.mzF.setDuration(350L);
+            this.mzH.setDuration(350L);
         }
-        this.mzF.start();
+        this.mzH.start();
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
@@ -195,9 +195,9 @@ public class a extends PopupWindow {
     }
 
     private void Jm() {
-        if (this.mzG == null) {
-            this.mzG = ValueAnimator.ofInt(this.mListView.getHeight(), 0);
-            this.mzG.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.4
+        if (this.mzI == null) {
+            this.mzI = ValueAnimator.ofInt(this.mListView.getHeight(), 0);
+            this.mzI.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
@@ -206,9 +206,9 @@ public class a extends PopupWindow {
                     a.this.mListView.setLayoutParams(layoutParams);
                 }
             });
-            this.mzG.setDuration(350L);
+            this.mzI.setDuration(350L);
         }
-        this.mzG.start();
+        this.mzI.start();
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());

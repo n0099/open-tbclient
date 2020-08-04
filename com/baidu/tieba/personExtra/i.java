@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes18.dex */
 public class i {
-    private a kUe;
+    private a kUg;
     private boolean isLoading = false;
     private com.baidu.adp.framework.listener.a dFJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
         @Override // com.baidu.adp.framework.listener.a
@@ -50,12 +50,12 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
-        if (this.kUe != null) {
-            this.kUe.a(z, aVar);
+        if (this.kUg != null) {
+            this.kUg.a(z, aVar);
         }
     }
 
     public void a(a aVar) {
-        this.kUe = aVar;
+        this.kUg = aVar;
     }
 }

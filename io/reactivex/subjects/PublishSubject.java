@@ -5,12 +5,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] nXv = new PublishDisposable[0];
-    static final PublishDisposable[] nXw = new PublishDisposable[0];
+    static final PublishDisposable[] nXx = new PublishDisposable[0];
+    static final PublishDisposable[] nXy = new PublishDisposable[0];
     Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nXw);
+    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nXy);
 
-    public static <T> PublishSubject<T> dTC() {
+    public static <T> PublishSubject<T> dTD() {
         return new PublishSubject<>();
     }
 
@@ -41,7 +41,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == nXv) {
+            if (publishDisposableArr == nXx) {
                 return false;
             }
             int length = publishDisposableArr.length;
@@ -57,7 +57,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != nXv && publishDisposableArr != nXw) {
+            if (publishDisposableArr != nXx && publishDisposableArr != nXy) {
                 int length = publishDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -73,7 +73,7 @@ public final class PublishSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishDisposableArr2 = nXw;
+                        publishDisposableArr2 = nXy;
                     } else {
                         publishDisposableArr2 = new PublishDisposable[length - 1];
                         System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
@@ -90,7 +90,7 @@ public final class PublishSubject<T> extends b<T> {
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == nXv) {
+        if (this.subscribers.get() == nXx) {
             bVar.dispose();
         }
     }
@@ -98,7 +98,7 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onNext(T t) {
         io.reactivex.internal.functions.a.k(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != nXv) {
+        if (this.subscribers.get() != nXx) {
             for (PublishDisposable<T> publishDisposable : this.subscribers.get()) {
                 publishDisposable.onNext(t);
             }
@@ -108,20 +108,20 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nXv) {
+        if (this.subscribers.get() == nXx) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nXv)) {
+        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nXx)) {
             publishDisposable.onError(th);
         }
     }
 
     @Override // io.reactivex.u
     public void onComplete() {
-        if (this.subscribers.get() != nXv) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nXv)) {
+        if (this.subscribers.get() != nXx) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nXx)) {
                 publishDisposable.onComplete();
             }
         }

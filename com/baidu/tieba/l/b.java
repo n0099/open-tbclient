@@ -7,25 +7,25 @@ import com.baidu.tieba.k.e;
 import java.io.File;
 /* loaded from: classes17.dex */
 public class b implements e {
-    private String jSI;
-    private boolean jSJ = false;
-    private boolean jSK = false;
-    private e.a jSL;
+    private String jSK;
+    private boolean jSL = false;
+    private boolean jSM = false;
+    private e.a jSN;
 
     public b(String str) {
-        this.jSI = str;
+        this.jSK = str;
     }
 
     @Override // com.baidu.tieba.k.e
     public void a(e.a aVar) {
-        this.jSL = aVar;
+        this.jSN = aVar;
     }
 
     @Override // com.baidu.tieba.k.e
     public void cGm() {
-        if (StringUtils.isNull(this.jSI)) {
-            if (this.jSL != null) {
-                this.jSL.AK(2);
+        if (StringUtils.isNull(this.jSK)) {
+            if (this.jSN != null) {
+                this.jSN.AK(2);
                 return;
             }
             return;
@@ -64,19 +64,19 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.jSL != null) {
-                            b.this.jSL.AK(cVar.value);
+                        if (b.this.jSN != null) {
+                            b.this.jSN.AK(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.jSL != null) {
-                            b.this.jSL.onChange(cVar.value == 1);
+                        if (b.this.jSN != null) {
+                            b.this.jSN.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.jSL != null) {
-                        b.this.jSL.rn(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.jSN != null) {
+                        b.this.jSN.rn(cVar.value == 1);
                     }
                 }
             }
-        }.execute(this.jSI);
+        }.execute(this.jSK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

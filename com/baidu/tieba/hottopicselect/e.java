@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class e extends BaseExpandableListAdapter {
-    private LayoutInflater iPl;
-    private ExpandableListView iPm;
+    private LayoutInflater iPn;
+    private ExpandableListView iPo;
     private final List<c> mList = new ArrayList();
     private TbPageContext<HotTopicSelectActivity> mPageContext;
 
     /* loaded from: classes15.dex */
     public static class a {
         int aho = 3;
-        TextView iLk = null;
-        TextView iPn = null;
-        View iLn = null;
-        View iLo = null;
+        TextView iLm = null;
+        TextView iPp = null;
+        View iLp = null;
+        View iLq = null;
     }
 
     /* loaded from: classes15.dex */
     public static class b {
         int aho = 3;
         View dividerLine;
-        View iPo;
+        View iPq;
         TextView titleTv;
     }
 
     public e(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.iPl = LayoutInflater.from(this.mPageContext.getPageActivity());
+        this.iPn = LayoutInflater.from(this.mPageContext.getPageActivity());
     }
 
     public List<c> getList() {
@@ -57,11 +57,11 @@ public class e extends BaseExpandableListAdapter {
 
     @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
     public void onGroupCollapsed(int i) {
-        if (this.iPm != null) {
+        if (this.iPo != null) {
             int groupCount = getGroupCount();
             for (int i2 = 0; i2 < groupCount; i2++) {
                 if (i2 != i) {
-                    this.iPm.collapseGroup(i);
+                    this.iPo.collapseGroup(i);
                 }
             }
         }
@@ -116,11 +116,11 @@ public class e extends BaseExpandableListAdapter {
     public View getGroupView(int i, boolean z, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || !(view.getTag() instanceof b)) {
-            view = this.iPl.inflate(R.layout.hot_group_item, (ViewGroup) null);
+            view = this.iPn.inflate(R.layout.hot_group_item, (ViewGroup) null);
             b bVar2 = new b();
             bVar2.titleTv = (TextView) view.findViewById(R.id.header_text);
             bVar2.dividerLine = view.findViewById(R.id.divider_line);
-            bVar2.iPo = view.findViewById(R.id.group_divider);
+            bVar2.iPq = view.findViewById(R.id.group_divider);
             view.setTag(bVar2);
             view.setClickable(false);
             bVar = bVar2;
@@ -132,10 +132,10 @@ public class e extends BaseExpandableListAdapter {
             bVar.titleTv.setText(as.cutStringWithSuffix(group.cpX(), 15, null));
             if (i == 0) {
                 bVar.dividerLine.setVisibility(0);
-                bVar.iPo.setVisibility(8);
+                bVar.iPq.setVisibility(8);
             } else {
                 bVar.dividerLine.setVisibility(8);
-                bVar.iPo.setVisibility(0);
+                bVar.iPq.setVisibility(0);
             }
             a(bVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -146,7 +146,7 @@ public class e extends BaseExpandableListAdapter {
         if (bVar != null && bVar.aho != i) {
             ao.setBackgroundColor(view, R.color.cp_bg_line_d);
             ao.setBackgroundColor(bVar.dividerLine, R.color.cp_bg_line_c);
-            ao.setBackgroundColor(bVar.iPo, R.color.cp_bg_line_e);
+            ao.setBackgroundColor(bVar.iPq, R.color.cp_bg_line_e);
             ao.setViewTextColor(bVar.titleTv, R.color.cp_cont_d, 1);
             bVar.aho = i;
         }
@@ -155,11 +155,11 @@ public class e extends BaseExpandableListAdapter {
     private void a(a aVar, View view, int i) {
         if (aVar != null && aVar.aho != i) {
             ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ao.setBackgroundResource(aVar.iPn, R.drawable.hot_select_tag_bg);
-            ao.setBackgroundColor(aVar.iLn, R.color.cp_bg_line_c);
-            ao.setBackgroundColor(aVar.iLo, R.color.cp_bg_line_c);
-            ao.setViewTextColor(aVar.iPn, R.color.cp_link_tip_a, 1);
-            ao.setViewTextColor(aVar.iLk, R.color.cp_cont_b, 1);
+            ao.setBackgroundResource(aVar.iPp, R.drawable.hot_select_tag_bg);
+            ao.setBackgroundColor(aVar.iLp, R.color.cp_bg_line_c);
+            ao.setBackgroundColor(aVar.iLq, R.color.cp_bg_line_c);
+            ao.setViewTextColor(aVar.iPp, R.color.cp_link_tip_a, 1);
+            ao.setViewTextColor(aVar.iLm, R.color.cp_cont_b, 1);
             aVar.aho = i;
         }
     }
@@ -170,12 +170,12 @@ public class e extends BaseExpandableListAdapter {
         View view2;
         d child = getChild(i, i2);
         if (view == null || !(view.getTag() instanceof a)) {
-            View inflate = this.iPl.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
+            View inflate = this.iPn.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
             aVar = new a();
-            aVar.iLk = (TextView) inflate.findViewById(R.id.hot_topic_title);
-            aVar.iPn = (TextView) inflate.findViewById(R.id.hot_topic_tag);
-            aVar.iLn = inflate.findViewById(R.id.divider_line_top);
-            aVar.iLo = inflate.findViewById(R.id.divider_line_bottom);
+            aVar.iLm = (TextView) inflate.findViewById(R.id.hot_topic_title);
+            aVar.iPp = (TextView) inflate.findViewById(R.id.hot_topic_tag);
+            aVar.iLp = inflate.findViewById(R.id.divider_line_top);
+            aVar.iLq = inflate.findViewById(R.id.divider_line_bottom);
             inflate.setTag(aVar);
             view2 = inflate;
         } else {
@@ -183,8 +183,8 @@ public class e extends BaseExpandableListAdapter {
             view2 = view;
         }
         if (child != null) {
-            aVar.iLk.setText(com.baidu.tbadk.plugins.b.Aj(as.cutStringWithEllipsisNew(child.getTopicName(), 15)));
-            h(aVar.iPn, child.cpY().intValue());
+            aVar.iLm.setText(com.baidu.tbadk.plugins.b.Aj(as.cutStringWithEllipsisNew(child.getTopicName(), 15)));
+            h(aVar.iPp, child.cpY().intValue());
             a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
         }
         return view2;

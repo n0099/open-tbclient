@@ -6,8 +6,8 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 /* loaded from: classes16.dex */
 public abstract class a extends BaseAdapter {
-    private boolean hTS = true;
-    private f hTX;
+    private boolean hTU = true;
+    private f hTZ;
 
     public abstract View c(int i, View view, ViewGroup viewGroup);
 
@@ -24,10 +24,10 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         if (cfL()) {
-            if (this.hTS) {
-                return this.hTX.getArrowIndex() + 1;
+            if (this.hTU) {
+                return this.hTZ.getArrowIndex() + 1;
             }
-            if (this.hTX != null && this.hTX.cfJ()) {
+            if (this.hTZ != null && this.hTZ.cfJ()) {
                 return cfH() + 1;
             }
             return cfH();
@@ -67,7 +67,7 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (cfL() && (arrowIndex = this.hTX.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (cfL() && (arrowIndex = this.hTZ.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -76,25 +76,25 @@ public abstract class a extends BaseAdapter {
     }
 
     public void a(f fVar) {
-        this.hTX = fVar;
+        this.hTZ = fVar;
     }
 
     private View ch(View view) {
-        if (this.hTX != null) {
-            if (view == null || view != this.hTX.getArrowView()) {
-                view = this.hTX.getArrowView();
+        if (this.hTZ != null) {
+            if (view == null || view != this.hTZ.getArrowView()) {
+                view = this.hTZ.getArrowView();
                 if (view.getLayoutParams() == null) {
                     view.setLayoutParams(new AbsListView.LayoutParams(-1, cfG()));
                 }
             }
-            this.hTX.cg(view);
+            this.hTZ.cg(view);
         }
         return view;
     }
 
     public int vG(int i) {
         int arrowIndex;
-        if (this.hTX != null && this.hTX.cfJ() && i >= (arrowIndex = this.hTX.getArrowIndex())) {
+        if (this.hTZ != null && this.hTZ.cfJ() && i >= (arrowIndex = this.hTZ.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -104,10 +104,10 @@ public abstract class a extends BaseAdapter {
     }
 
     public boolean cfL() {
-        return this.hTX != null && this.hTX.cfJ() && cfH() + (-1) > this.hTX.getArrowIndex();
+        return this.hTZ != null && this.hTZ.cfJ() && cfH() + (-1) > this.hTZ.getArrowIndex();
     }
 
     public void ol(boolean z) {
-        this.hTS = z;
+        this.hTU = z;
     }
 }

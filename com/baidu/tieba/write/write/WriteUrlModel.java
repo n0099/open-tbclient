@@ -35,7 +35,7 @@ public class WriteUrlModel extends NewWriteModel {
             dhF.setPostLatLng(true);
             dhF.setLat(str5);
             dhF.setLng(str6);
-            dmw();
+            dmx();
         }
     }
 }

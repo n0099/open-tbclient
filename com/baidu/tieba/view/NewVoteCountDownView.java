@@ -17,14 +17,14 @@ import com.baidu.tieba.R;
 public class NewVoteCountDownView extends LinearLayout {
     private a gTV;
     private Context mContext;
-    private TextView mqI;
-    private View mqJ;
-    private View mqK;
+    private TextView mqK;
     private View mqL;
-    private TextView mqM;
-    private TextView mqN;
+    private View mqM;
+    private View mqN;
     private TextView mqO;
-    private CountDownTimer mqP;
+    private TextView mqP;
+    private TextView mqQ;
+    private CountDownTimer mqR;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -54,8 +54,8 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     private void dF(long j) {
-        if (this.mqP == null) {
-            this.mqP = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.NewVoteCountDownView.1
+        if (this.mqR == null) {
+            this.mqR = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.NewVoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + 60000;
@@ -70,7 +70,7 @@ public class NewVoteCountDownView extends LinearLayout {
                     NewVoteCountDownView.this.buU();
                 }
             };
-            this.mqP.start();
+            this.mqR.start();
         }
     }
 
@@ -82,31 +82,31 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     private void ss() {
-        this.mqI = (TextView) findViewById(R.id.prefix_count_down_view);
-        this.mqJ = findViewById(R.id.day_num_container);
-        this.mqK = findViewById(R.id.hour_num_container);
-        this.mqL = findViewById(R.id.minute_num_container);
-        this.mqM = (TextView) findViewById(R.id.day_num_count_down_view);
-        this.mqN = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.mqO = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.mqK = (TextView) findViewById(R.id.prefix_count_down_view);
+        this.mqL = findViewById(R.id.day_num_container);
+        this.mqM = findViewById(R.id.hour_num_container);
+        this.mqN = findViewById(R.id.minute_num_container);
+        this.mqO = (TextView) findViewById(R.id.day_num_count_down_view);
+        this.mqP = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.mqQ = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2, long j3) {
         String string = TbadkCoreApplication.getInst().getString(R.string.add_zero_when_less_ten);
-        this.mqM.setText(String.format(string, Long.valueOf(j)));
-        this.mqN.setText(String.format(string, Long.valueOf(j2)));
-        this.mqO.setText(String.format(string, Long.valueOf(j3)));
+        this.mqO.setText(String.format(string, Long.valueOf(j)));
+        this.mqP.setText(String.format(string, Long.valueOf(j2)));
+        this.mqQ.setText(String.format(string, Long.valueOf(j3)));
     }
 
     public void qZ(int i) {
-        ao.setViewTextColor(this.mqI, R.color.cp_cont_b, 1, i);
-        ao.setViewTextColor(this.mqM, R.color.cp_cont_b, 1, i);
-        ao.setBackgroundResource(this.mqJ, R.drawable.bg_gradient_round, i);
-        ao.setBackgroundResource(this.mqK, R.drawable.bg_gradient_round, i);
+        ao.setViewTextColor(this.mqK, R.color.cp_cont_b, 1, i);
+        ao.setViewTextColor(this.mqO, R.color.cp_cont_b, 1, i);
         ao.setBackgroundResource(this.mqL, R.drawable.bg_gradient_round, i);
-        ao.setViewTextColor(this.mqM, R.color.cp_cont_a, 1, i);
-        ao.setViewTextColor(this.mqN, R.color.cp_cont_a, 1, i);
+        ao.setBackgroundResource(this.mqM, R.drawable.bg_gradient_round, i);
+        ao.setBackgroundResource(this.mqN, R.drawable.bg_gradient_round, i);
         ao.setViewTextColor(this.mqO, R.color.cp_cont_a, 1, i);
+        ao.setViewTextColor(this.mqP, R.color.cp_cont_a, 1, i);
+        ao.setViewTextColor(this.mqQ, R.color.cp_cont_a, 1, i);
     }
 
     public void setData(long j) {
@@ -122,9 +122,9 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     public void onDestroy() {
-        if (this.mqP != null) {
-            this.mqP.cancel();
-            this.mqP = null;
+        if (this.mqR != null) {
+            this.mqR.cancel();
+            this.mqR = null;
         }
     }
 }

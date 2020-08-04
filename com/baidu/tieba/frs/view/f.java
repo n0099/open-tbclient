@@ -6,7 +6,7 @@ import android.view.View;
 /* loaded from: classes16.dex */
 public class f extends RecyclerView.ItemDecoration {
     private int hSpacing;
-    private boolean ilS;
+    private boolean ilU;
     private int spanCount;
     private int vSpacing;
 
@@ -14,14 +14,14 @@ public class f extends RecyclerView.ItemDecoration {
         this.spanCount = i;
         this.vSpacing = i2;
         this.hSpacing = i3;
-        this.ilS = z;
+        this.ilU = z;
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
         int i = childAdapterPosition % this.spanCount;
-        if (this.ilS) {
+        if (this.ilU) {
             rect.left = this.vSpacing - ((this.vSpacing * i) / this.spanCount);
             rect.right = ((i + 1) * this.vSpacing) / this.spanCount;
             if (childAdapterPosition < this.spanCount) {

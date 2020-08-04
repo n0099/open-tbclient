@@ -9,7 +9,7 @@ import java.io.IOException;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes16.dex */
 public class i {
-    public static boolean iBc = false;
+    public static boolean iBe = false;
 
     public static DataRes cnD() {
         l<byte[]> df = com.baidu.tbadk.core.c.a.aYG().df("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());

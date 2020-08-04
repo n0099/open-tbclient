@@ -12,7 +12,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, com.baidu.tieba.card.a
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.iFR);
+        super(tbPageContext.getPageActivity(), c.iFT);
         this.mPageContext = tbPageContext;
     }
 

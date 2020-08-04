@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 public class a {
     private com.baidu.tbadk.core.dialog.a ZV;
     private TbImageView hyx;
-    private TextView kXZ;
+    private TextView kYb;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private TextView mTip;
@@ -27,15 +27,15 @@ public class a {
             }
         }
     };
-    private boolean kXY = com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
+    private boolean kYa = com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
     public void cYd() {
-        if (!this.kXY) {
-            this.kXY = true;
+        if (!this.kYa) {
+            this.kYa = true;
             com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
             initView();
             this.ZV = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
@@ -57,8 +57,8 @@ public class a {
         this.hyx.setIsBitmapPic(true);
         this.mTip = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-        this.kXZ = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-        this.kXZ.setOnClickListener(this.mOnClickListener);
+        this.kYb = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+        this.kYb.setOnClickListener(this.mOnClickListener);
         onChangeSkinType();
     }
 
@@ -73,13 +73,13 @@ public class a {
     }
 
     public boolean cYe() {
-        return this.kXY;
+        return this.kYa;
     }
 
     private void onChangeSkinType() {
         ao.setImageResource(this.hyx, R.drawable.pic_person_center_dynamic_guide);
         ao.setViewTextColor(this.mTip, R.color.cp_cont_j);
         ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
-        ao.setViewTextColor(this.kXZ, R.color.cp_link_tip_a);
+        ao.setViewTextColor(this.kYb, R.color.cp_link_tip_a);
     }
 }

@@ -7,12 +7,12 @@ import tbclient.ThreadInfo;
 public class b {
     private String content;
     private String ctr;
-    private long iXX;
-    private int iXY;
     private long iXZ;
     private int iYa;
-    private RecommendForumInfo iYb;
-    private ThreadInfo iYc;
+    private long iYb;
+    private int iYc;
+    private RecommendForumInfo iYd;
+    private ThreadInfo iYe;
     private String picUrl;
     private int pv;
     private String title;
@@ -30,11 +30,11 @@ public class b {
     }
 
     public long ctI() {
-        return this.iXX;
+        return this.iXZ;
     }
 
     public int ctJ() {
-        return this.iXY;
+        return this.iYa;
     }
 
     public int ctK() {
@@ -46,34 +46,34 @@ public class b {
     }
 
     public long ctM() {
-        return this.iXZ;
-    }
-
-    public int ctN() {
-        return this.iYa;
-    }
-
-    public RecommendForumInfo ctO() {
         return this.iYb;
     }
 
-    public ThreadInfo ctP() {
+    public int ctN() {
         return this.iYc;
+    }
+
+    public RecommendForumInfo ctO() {
+        return this.iYd;
+    }
+
+    public ThreadInfo ctP() {
+        return this.iYe;
     }
 
     public void a(BroadcastInfo broadcastInfo) {
         if (broadcastInfo != null) {
-            this.iXZ = broadcastInfo.bcast_id.longValue();
+            this.iYb = broadcastInfo.bcast_id.longValue();
             this.title = broadcastInfo.title;
             this.content = broadcastInfo.content;
             this.picUrl = broadcastInfo.pic_url;
-            this.iXX = broadcastInfo.publish_time.intValue();
-            this.iXY = broadcastInfo.pushuser_cnt.intValue();
-            this.iYb = broadcastInfo.forum_info;
-            this.iYc = broadcastInfo.thread_infos;
+            this.iXZ = broadcastInfo.publish_time.intValue();
+            this.iYa = broadcastInfo.pushuser_cnt.intValue();
+            this.iYd = broadcastInfo.forum_info;
+            this.iYe = broadcastInfo.thread_infos;
             this.ctr = broadcastInfo.ctr;
             this.pv = broadcastInfo.pv.intValue();
-            this.iYa = broadcastInfo.audit_status.intValue();
+            this.iYc = broadcastInfo.audit_status.intValue();
         }
     }
 }

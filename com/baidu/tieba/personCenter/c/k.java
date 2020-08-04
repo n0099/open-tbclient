@@ -5,19 +5,19 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class k extends com.baidu.tieba.card.data.b implements q {
-    public static BdUniqueId kPD = BdUniqueId.gen();
-    private List<c> kPE;
+    public static BdUniqueId kPF = BdUniqueId.gen();
+    private List<c> kPG;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kPD;
+        return kPF;
     }
 
     public void setData(List<c> list) {
-        this.kPE = list;
+        this.kPG = list;
     }
 
     public List<c> getData() {
-        return this.kPE;
+        return this.kPG;
     }
 }

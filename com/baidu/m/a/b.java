@@ -5,29 +5,29 @@ import com.baidu.sapi2.share.m;
 import java.util.ArrayList;
 /* loaded from: classes12.dex */
 public class b {
-    static ArrayList<Integer> mOj = new ArrayList<>(4);
-    static String mOk;
+    static ArrayList<Integer> mOl = new ArrayList<>(4);
+    static String mOm;
 
     static {
-        mOj.add(10000);
-        mOj.add(10001);
-        mOj.add(10002);
-        mOj.add(Integer.valueOf((int) m.g));
-        mOj.add(-1);
+        mOl.add(10000);
+        mOl.add(10001);
+        mOl.add(10002);
+        mOl.add(Integer.valueOf((int) m.g));
+        mOl.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int dBa() {
-        if (TextUtils.isEmpty(mOk)) {
-            mOk = com.baidu.m.a.c.d.getManufacturer();
+    public static int dBb() {
+        if (TextUtils.isEmpty(mOm)) {
+            mOm = com.baidu.m.a.c.d.getManufacturer();
         }
-        if (TextUtils.isEmpty(mOk)) {
+        if (TextUtils.isEmpty(mOm)) {
             return m.g;
         }
-        if (mOk.toUpperCase().contains("HUAWEI")) {
+        if (mOm.toUpperCase().contains("HUAWEI")) {
             return 10001;
         }
-        if (mOk.toUpperCase().contains("XIAOMI")) {
+        if (mOm.toUpperCase().contains("XIAOMI")) {
             return 10002;
         }
         return m.g;

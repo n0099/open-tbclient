@@ -20,52 +20,52 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
     private TextView ksE;
     private TextView ksF;
     private TextView ksG;
-    private boolean ksH;
-    private TextView ksy;
-    private TextView ksz;
+    private TextView ksH;
+    private TextView ksI;
+    private boolean ksJ;
 
     public ah(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.ksH = false;
+        this.ksJ = false;
         this.dVN = tbPageContext;
         this.hCJ = onClickListener;
         abJ();
     }
 
     public TextView cOK() {
-        return this.ksy;
-    }
-
-    public TextView cOL() {
-        return this.ksz;
-    }
-
-    public TextView cOM() {
         return this.ksA;
     }
 
-    public TextView cON() {
+    public TextView cOL() {
         return this.ksB;
     }
 
-    public TextView cOO() {
+    public TextView cOM() {
         return this.ksC;
     }
 
-    public TextView cOP() {
-        return this.ksF;
-    }
-
-    public TextView cOQ() {
+    public TextView cON() {
         return this.ksD;
     }
 
-    public TextView cOR() {
+    public TextView cOO() {
         return this.ksE;
     }
 
-    public TextView cOS() {
+    public TextView cOP() {
+        return this.ksH;
+    }
+
+    public TextView cOQ() {
+        return this.ksF;
+    }
+
+    public TextView cOR() {
         return this.ksG;
+    }
+
+    public TextView cOS() {
+        return this.ksI;
     }
 
     private void abJ() {
@@ -76,15 +76,15 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
                 ah.this.hCJ.onClick(view);
             }
         });
-        this.ksF = cO(getItemView(1));
-        this.ksy = cO(getItemView(5));
-        this.ksz = cO(getItemView(8));
-        this.ksA = cO(getItemView(6));
-        this.ksB = cO(getItemView(7));
-        this.ksC = cO(getItemView(4));
-        this.ksD = cO(getItemView(2));
-        this.ksE = cO(getItemView(3));
-        this.ksG = cO(getItemView(0));
+        this.ksH = cO(getItemView(1));
+        this.ksA = cO(getItemView(5));
+        this.ksB = cO(getItemView(8));
+        this.ksC = cO(getItemView(6));
+        this.ksD = cO(getItemView(7));
+        this.ksE = cO(getItemView(4));
+        this.ksF = cO(getItemView(2));
+        this.ksG = cO(getItemView(3));
+        this.ksI = cO(getItemView(0));
     }
 
     private TextView cO(View view) {
@@ -92,7 +92,7 @@ public class ah extends com.baidu.tbadk.core.dialog.i {
     }
 
     public void sz(boolean z) {
-        this.ksA.setVisibility(z ? 0 : 8);
+        this.ksC.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {

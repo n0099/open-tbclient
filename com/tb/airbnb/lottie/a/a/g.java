@@ -21,14 +21,14 @@ import java.util.List;
 public class g implements d, j, a.InterfaceC0874a {
     private final int Cm;
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    private final com.tb.airbnb.lottie.model.layer.a nOc;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> nOe;
+    private final com.tb.airbnb.lottie.model.layer.a nOe;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> nOg;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> nOg;
-    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> nOm;
-    private final GradientType nOn;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> nOo;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> nOp;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> nOi;
+    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> nOo;
+    private final GradientType nOp;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> nOq;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> nOr;
     @NonNull
     private final String name;
     private final LongSparseArray<LinearGradient> Cf = new LongSparseArray<>();
@@ -40,24 +40,24 @@ public class g implements d, j, a.InterfaceC0874a {
     private final List<l> BW = new ArrayList();
 
     public g(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.d dVar) {
-        this.nOc = aVar;
+        this.nOe = aVar;
         this.name = dVar.getName();
         this.lottieDrawable = fVar;
-        this.nOn = dVar.dRn();
+        this.nOp = dVar.dRo();
         this.path.setFillType(dVar.ip());
         this.Cm = (int) (fVar.getComposition().gT() / 32.0f);
-        this.nOm = dVar.dRo().dRc();
-        this.nOm.b(this);
-        aVar.a(this.nOm);
-        this.nOe = dVar.dRi().dRc();
-        this.nOe.b(this);
-        aVar.a(this.nOe);
-        this.nOo = dVar.dRp().dRc();
+        this.nOo = dVar.dRp().dRd();
         this.nOo.b(this);
         aVar.a(this.nOo);
-        this.nOp = dVar.dRq().dRc();
-        this.nOp.b(this);
-        aVar.a(this.nOp);
+        this.nOg = dVar.dRj().dRd();
+        this.nOg.b(this);
+        aVar.a(this.nOg);
+        this.nOq = dVar.dRq().dRd();
+        this.nOq.b(this);
+        aVar.a(this.nOq);
+        this.nOr = dVar.dRr().dRd();
+        this.nOr.b(this);
+        aVar.a(this.nOr);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0874a
@@ -91,7 +91,7 @@ public class g implements d, j, a.InterfaceC0874a {
             this.path.addPath(this.BW.get(i2).ht(), matrix);
         }
         this.path.computeBounds(this.Ci, false);
-        if (this.nOn == GradientType.Linear) {
+        if (this.nOp == GradientType.Linear) {
             hv = hu();
         } else {
             hv = hv();
@@ -99,10 +99,10 @@ public class g implements d, j, a.InterfaceC0874a {
         this.Ch.set(matrix);
         hv.setLocalMatrix(this.Ch);
         this.paint.setShader(hv);
-        if (this.nOg != null) {
-            this.paint.setColorFilter(this.nOg.getValue());
+        if (this.nOi != null) {
+            this.paint.setColorFilter(this.nOi.getValue());
         }
-        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.nOe.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.nOg.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
         canvas.drawPath(this.path, this.paint);
         com.tb.airbnb.lottie.c.aW("GradientFillContent#draw");
     }
@@ -126,9 +126,9 @@ public class g implements d, j, a.InterfaceC0874a {
         int hw = hw();
         LinearGradient linearGradient = this.Cf.get(hw);
         if (linearGradient == null) {
-            PointF value = this.nOo.getValue();
-            PointF value2 = this.nOp.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.nOm.getValue();
+            PointF value = this.nOq.getValue();
+            PointF value2 = this.nOr.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.nOo.getValue();
             LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.im(), Shader.TileMode.CLAMP);
             this.Cf.put(hw, linearGradient2);
             return linearGradient2;
@@ -140,9 +140,9 @@ public class g implements d, j, a.InterfaceC0874a {
         int hw = hw();
         RadialGradient radialGradient = this.Cg.get(hw);
         if (radialGradient == null) {
-            PointF value = this.nOo.getValue();
-            PointF value2 = this.nOp.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.nOm.getValue();
+            PointF value = this.nOq.getValue();
+            PointF value2 = this.nOr.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.nOo.getValue();
             int[] colors = value3.getColors();
             float[] im = value3.im();
             float f = value.x;
@@ -155,9 +155,9 @@ public class g implements d, j, a.InterfaceC0874a {
     }
 
     private int hw() {
-        int round = Math.round(this.nOo.getProgress() * this.Cm);
-        int round2 = Math.round(this.nOp.getProgress() * this.Cm);
-        int round3 = Math.round(this.nOm.getProgress() * this.Cm);
+        int round = Math.round(this.nOq.getProgress() * this.Cm);
+        int round2 = Math.round(this.nOr.getProgress() * this.Cm);
+        int round3 = Math.round(this.nOo.getProgress() * this.Cm);
         int i = 17;
         if (round != 0) {
             i = round * 527;
@@ -180,12 +180,12 @@ public class g implements d, j, a.InterfaceC0874a {
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.Bx) {
             if (cVar == null) {
-                this.nOg = null;
+                this.nOi = null;
                 return;
             }
-            this.nOg = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.nOg.b(this);
-            this.nOc.a(this.nOg);
+            this.nOi = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.nOi.b(this);
+            this.nOe.a(this.nOi);
         }
     }
 }

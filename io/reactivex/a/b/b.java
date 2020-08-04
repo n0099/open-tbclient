@@ -29,7 +29,7 @@ public final class b extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dSR() {
+    public v.c dSS() {
         return new a(this.handler);
     }
 
@@ -51,7 +51,7 @@ public final class b extends v {
                 throw new NullPointerException("unit == null");
             }
             if (this.disposed) {
-                return c.dSU();
+                return c.dSV();
             }
             RunnableC0902b runnableC0902b = new RunnableC0902b(this.handler, io.reactivex.e.a.L(runnable));
             Message obtain = Message.obtain(this.handler, runnableC0902b);
@@ -59,7 +59,7 @@ public final class b extends v {
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
             if (this.disposed) {
                 this.handler.removeCallbacks(runnableC0902b);
-                return c.dSU();
+                return c.dSV();
             }
             return runnableC0902b;
         }
@@ -81,17 +81,17 @@ public final class b extends v {
     private static final class RunnableC0902b implements io.reactivex.disposables.b, Runnable {
         private volatile boolean disposed;
         private final Handler handler;
-        private final Runnable nSd;
+        private final Runnable nSf;
 
         RunnableC0902b(Handler handler, Runnable runnable) {
             this.handler = handler;
-            this.nSd = runnable;
+            this.nSf = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.nSd.run();
+                this.nSf.run();
             } catch (Throwable th) {
                 io.reactivex.e.a.onError(th);
             }

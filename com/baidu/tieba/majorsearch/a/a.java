@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class a extends RecyclerView.Adapter<b> {
     private String drQ;
-    private InterfaceC0695a jIe;
+    private InterfaceC0695a jIg;
     private Context mContext;
     private List<String> mDataList;
 
@@ -46,15 +46,15 @@ public class a extends RecyclerView.Adapter<b> {
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                bVar.jIh.setText(str);
-                ao.setViewTextColor(bVar.jIh, R.color.cp_cont_b);
+                bVar.jIj.setText(str);
+                ao.setViewTextColor(bVar.jIj, R.color.cp_cont_b);
                 ao.setBackgroundResource(bVar.itemView, R.drawable.more_pop_item_bg_selector);
-                c(bVar.jIh, str);
+                c(bVar.jIj, str);
                 bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (a.this.jIe != null) {
-                            a.this.jIe.Jh(str);
+                        if (a.this.jIg != null) {
+                            a.this.jIg.Jh(str);
                         }
                     }
                 });
@@ -71,7 +71,7 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void b(InterfaceC0695a interfaceC0695a) {
-        this.jIe = interfaceC0695a;
+        this.jIg = interfaceC0695a;
     }
 
     public void setData(List<String> list) {
@@ -92,11 +92,11 @@ public class a extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes18.dex */
     public class b extends RecyclerView.ViewHolder {
-        TextView jIh;
+        TextView jIj;
 
         public b(View view) {
             super(view);
-            this.jIh = (TextView) view.findViewById(R.id.tv_major_name);
+            this.jIj = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 

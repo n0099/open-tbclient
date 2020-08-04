@@ -20,13 +20,13 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern lMV = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern lMX = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String lMT = null;
-    private SpannableStringBuilder lMU = null;
-    private boolean lMS = false;
+    private String lMV = null;
+    private SpannableStringBuilder lMW = null;
+    private boolean lMU = false;
 
     public static boolean dd(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -44,20 +44,20 @@ public class l {
         return this.text;
     }
 
-    public String dkQ() {
+    public String dkR() {
         return this.c;
     }
 
-    public SpannableStringBuilder dkR() {
-        return this.lMU;
+    public SpannableStringBuilder dkS() {
+        return this.lMW;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.lMU == null) {
-            this.lMU = new SpannableStringBuilder();
+        if (this.lMW == null) {
+            this.lMW = new SpannableStringBuilder();
         }
-        this.lMU.append((CharSequence) spannableString);
-        return this.lMU;
+        this.lMW.append((CharSequence) spannableString);
+        return this.lMW;
     }
 
     public SpannableString fq(Context context) {
@@ -83,7 +83,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.lMV.matcher(l.this.link);
+                        Matcher matcher2 = l.lMX.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

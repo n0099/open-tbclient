@@ -30,21 +30,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class h {
-    private static volatile h mhE;
+    private static volatile h mhG;
 
     private h() {
-        g.drh();
+        g.dri();
     }
 
-    public static h drn() {
-        if (mhE == null) {
+    public static h dro() {
+        if (mhG == null) {
             synchronized (h.class) {
-                if (mhE == null) {
-                    mhE = new h();
+                if (mhG == null) {
+                    mhG = new h();
                 }
             }
         }
-        return mhE;
+        return mhG;
     }
 
     public i a(List<String> list, String str, boolean z) {
@@ -124,7 +124,7 @@ public class h {
             return new i(209, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str4 = com.baidu.tieba.video.c.mbN + (au.getNameMd5FromUrl(str + str2 + str3) + "/");
+        String str4 = com.baidu.tieba.video.c.mbP + (au.getNameMd5FromUrl(str + str2 + str3) + "/");
         new File(str4).mkdirs();
         File file = new File(str3);
         file.mkdirs();
@@ -208,7 +208,7 @@ public class h {
                 }
                 String str5 = str2 + "temp_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
                 if (new b(strArr[i]).a(str5, z, Pb, aVar) != null) {
-                    if (!z && i != 0 && aVar.dri()) {
+                    if (!z && i != 0 && aVar.drj()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
                         boolean d = g.d(str5, str3, aVar.sampleRate, Pb.sampleRate);
@@ -221,26 +221,26 @@ public class h {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer drl = MultiAudioMixer.drl();
-            drl.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
-                FileOutputStream mhF;
+            MultiAudioMixer drm = MultiAudioMixer.drm();
+            drm.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
+                FileOutputStream mhH;
 
                 {
-                    this.mhF = new FileOutputStream(str4);
+                    this.mhH = new FileOutputStream(str4);
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void ai(byte[] bArr) throws IOException {
-                    if (this.mhF != null) {
-                        this.mhF.write(bArr);
+                    if (this.mhH != null) {
+                        this.mhH.write(bArr);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void GA(int i2) {
                     try {
-                        if (this.mhF != null) {
-                            this.mhF.close();
+                        if (this.mhH != null) {
+                            this.mhH.close();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -248,17 +248,17 @@ public class h {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void drm() {
+                public void drn() {
                     try {
-                        if (this.mhF != null) {
-                            this.mhF.close();
+                        if (this.mhH != null) {
+                            this.mhH.close();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             });
-            drl.e(fileArr);
+            drm.e(fileArr);
             d Pa = d.Pa(str4);
             Pa.setSampleRate(Pb.sampleRate);
             Pa.setChannelCount(Pb.channelCount);

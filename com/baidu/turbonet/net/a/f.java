@@ -7,17 +7,17 @@ import java.io.OutputStream;
 /* loaded from: classes19.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException mLt;
-    private boolean mLu;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dzD() throws IOException;
+    private IOException mLv;
+    private boolean mLw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void dzE() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dzF();
+    public abstract void dzF() throws IOException;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract UploadDataProvider dzG();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.mLt = iOException;
-        this.mLu = true;
+        this.mLv = iOException;
+        this.mLw = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.mLu) {
-            dzT();
+        if (this.mLw) {
+            dzU();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dzT() throws IOException {
-        if (this.mLt != null) {
-            throw this.mLt;
+    public void dzU() throws IOException {
+        if (this.mLv != null) {
+            throw this.mLv;
         }
     }
 }

@@ -18,21 +18,21 @@ import java.nio.ByteBuffer;
 /* loaded from: classes17.dex */
 public class e {
     private boolean bud;
-    private h lOt;
+    private h lOv;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
-    private c ngs;
+    private c ngu;
     private Bundle cAu = new Bundle();
-    private long ngV = 0;
-    private boolean ngQ = false;
+    private long ngX = 0;
+    private boolean ngS = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.lOt = lVar.cGE();
+            this.lOv = lVar.cGE();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.b, i, i2);
@@ -50,11 +50,11 @@ public class e {
         }
         this.mTrackIndex = -1;
         this.bud = false;
-        this.ngs = cVar;
+        this.ngu = cVar;
     }
 
     public synchronized void requestStop() {
-        this.ngQ = true;
+        this.ngS = true;
     }
 
     public Surface getInputSurface() {
@@ -67,15 +67,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.ngs != null) {
+        if (this.ngu != null) {
             try {
-                this.ngs.stop();
+                this.ngu.stop();
             } catch (IllegalStateException e) {
-                if (this.lOt != null) {
-                    this.lOt.bp(17, com.baidu.tieba.k.a.s(e));
+                if (this.lOv != null) {
+                    this.lOv.bp(17, com.baidu.tieba.k.a.s(e));
                 }
             }
-            this.ngs = null;
+            this.ngu = null;
         }
     }
 
@@ -98,19 +98,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.ngs.c(outputFormat);
-                if (!this.ngs.start()) {
-                    synchronized (this.ngs) {
-                        while (!this.ngs.isStarted() && !this.ngQ) {
+                this.mTrackIndex = this.ngu.c(outputFormat);
+                if (!this.ngu.start()) {
+                    synchronized (this.ngu) {
+                        while (!this.ngu.isStarted() && !this.ngS) {
                             try {
-                                this.ngs.wait(100L);
+                                this.ngu.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.ngQ) {
+                if (!this.ngS) {
                     this.bud = true;
                 } else {
                     return;
@@ -131,12 +131,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.ngs.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.ngu.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.ngV >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.ngX >= 500) {
                     this.mEncoder.setParameters(this.cAu);
-                    this.ngV = System.currentTimeMillis();
+                    this.ngX = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

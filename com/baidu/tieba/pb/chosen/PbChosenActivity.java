@@ -70,27 +70,27 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     private NavigationBar ffK;
     private VoiceManager hFy;
     private BdListView hbF;
-    private DataModel<PbChosenActivity> jqI;
-    private d kfK;
-    private e kfL;
-    private c kfM;
-    private f kfN;
-    private TextView kfO;
-    private View kfP;
-    private com.baidu.tieba.pb.chosen.view.a kfQ;
-    private LikeModel kfR;
-    private com.baidu.tieba.pb.chosen.net.zan.a kfS;
-    private b kfT;
-    private a kfU;
-    private com.baidu.tbadk.editortools.pb.e kfV;
-    private boolean kfW;
+    private DataModel<PbChosenActivity> jqK;
+    private d kfM;
+    private e kfN;
+    private c kfO;
+    private f kfP;
+    private TextView kfQ;
+    private View kfR;
+    private com.baidu.tieba.pb.chosen.view.a kfS;
+    private LikeModel kfT;
+    private com.baidu.tieba.pb.chosen.net.zan.a kfU;
+    private b kfV;
+    private a kfW;
+    private com.baidu.tbadk.editortools.pb.e kfX;
+    private boolean kfY;
     private RelativeLayout rootView;
     private long startTime;
     private String shareUrl = null;
     private boolean huV = false;
-    private boolean jJG = false;
+    private boolean jJI = false;
     private int from = 1;
-    private int kfX = -1;
+    private int kfZ = -1;
     private final AbsListView.OnScrollListener cEp = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.1
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
@@ -98,9 +98,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (i != 0 && PbChosenActivity.this.kfV != null && PbChosenActivity.this.kfV.biJ() != null) {
-                PbChosenActivity.this.kfV.biJ().hide();
-                PbChosenActivity.this.kfN.setVisible(true);
+            if (i != 0 && PbChosenActivity.this.kfX != null && PbChosenActivity.this.kfX.biJ() != null) {
+                PbChosenActivity.this.kfX.biJ().hide();
+                PbChosenActivity.this.kfP.setVisible(true);
             }
         }
     };
@@ -110,12 +110,12 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             PbChosenActivity.this.showProgressBar();
         }
     };
-    private View.OnClickListener kfY = new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.12
+    private View.OnClickListener kga = new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.12
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.kfV != null && PbChosenActivity.this.kfV.biJ() != null) {
-                PbChosenActivity.this.kfV.biJ().display();
-                PbChosenActivity.this.kfN.setVisible(false);
+            if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.kfX != null && PbChosenActivity.this.kfX.biJ() != null) {
+                PbChosenActivity.this.kfX.biJ().display();
+                PbChosenActivity.this.kfP.setVisible(false);
             }
         }
     };
@@ -124,8 +124,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ad adVar, WriteData writeData, AntiData antiData) {
             PbChosenActivity.this.hideProgressBar();
             if (z) {
-                PbChosenActivity.this.kfV.biJ().hide();
-                PbChosenActivity.this.kfN.setVisible(true);
+                PbChosenActivity.this.kfX.biJ().hide();
+                PbChosenActivity.this.kfP.setVisible(true);
                 if (postWriteCallBackData != null) {
                     com.baidu.tieba.tbadkCore.writeModel.c.f(PbChosenActivity.this.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                 }
@@ -138,7 +138,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             }
         }
     };
-    private c.a kfZ = new c.a() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.14
+    private c.a kgb = new c.a() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.14
         @Override // com.baidu.tieba.pb.chosen.view.c.a
         public void Ko(String str) {
             if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && !StringUtils.isNull(str)) {
@@ -149,7 +149,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             }
         }
     };
-    private View.OnClickListener kga = new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.15
+    private View.OnClickListener kgc = new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.15
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null) {
@@ -159,10 +159,10 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 if (PbChosenActivity.this.from == 2) {
                     TiebaStatic.log("c10148");
                 }
-                if (PbChosenActivity.this.kfU == null) {
-                    PbChosenActivity.this.kfU = new a(PbChosenActivity.this);
+                if (PbChosenActivity.this.kfW == null) {
+                    PbChosenActivity.this.kfW = new a(PbChosenActivity.this);
                 }
-                PbChosenActivity.this.kfU.a(PbChosenActivity.this.chosenData, PbChosenActivity.this.shareUrl);
+                PbChosenActivity.this.kfW.a(PbChosenActivity.this.chosenData, PbChosenActivity.this.shareUrl);
             }
         }
     };
@@ -173,18 +173,18 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             PbChosenActivity.this.a(true, customResponsedMessage);
         }
     };
-    private CustomMessageListener kgb = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.17
+    private CustomMessageListener kgd = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.17
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PbChosenActivity.this.a(false, customResponsedMessage);
         }
     };
-    private e.a kgc = new e.a() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.18
+    private e.a kge = new e.a() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.18
         @Override // com.baidu.tieba.pb.chosen.view.e.a
         public void v(long j, String str) {
             if (!StringUtils.isNull(str)) {
-                PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity()).createCfgForPbChosen(str, PbChosenActivity.this.kfX)));
+                PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity()).createCfgForPbChosen(str, PbChosenActivity.this.kfZ)));
                 if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && PbChosenActivity.this.chosenData.getThreadInfo().excid != null) {
                     TiebaStatic.log(new ap("pb_new_detail_btn").ah("obj_source", PbChosenActivity.this.chosenData.getThreadInfo().source.intValue()).dn("abtest", PbChosenActivity.this.chosenData.getThreadInfo().abtest));
                 }
@@ -194,19 +194,19 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         @Override // com.baidu.tieba.pb.chosen.view.e.a
         public void rP(boolean z) {
             if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && PbChosenActivity.this.chosenData.getThreadInfo().excid != null) {
-                if (PbChosenActivity.this.kfS == null) {
-                    PbChosenActivity.this.kfS = new com.baidu.tieba.pb.chosen.net.zan.a();
+                if (PbChosenActivity.this.kfU == null) {
+                    PbChosenActivity.this.kfU = new com.baidu.tieba.pb.chosen.net.zan.a();
                 }
                 if (z) {
-                    PbChosenActivity.this.kfS.a(PbChosenActivity.this, PbChosenActivity.this.chosenData.getThreadInfo().excid.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().thread_id.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().post_id.longValue(), 2);
+                    PbChosenActivity.this.kfU.a(PbChosenActivity.this, PbChosenActivity.this.chosenData.getThreadInfo().excid.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().thread_id.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().post_id.longValue(), 2);
                 } else {
-                    PbChosenActivity.this.kfS.a(PbChosenActivity.this, PbChosenActivity.this.chosenData.getThreadInfo().excid.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().thread_id.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().post_id.longValue(), 1);
+                    PbChosenActivity.this.kfU.a(PbChosenActivity.this, PbChosenActivity.this.chosenData.getThreadInfo().excid.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().thread_id.longValue(), PbChosenActivity.this.chosenData.getThreadInfo().post_id.longValue(), 1);
                 }
                 TiebaStatic.log(new ap("pb_new_like").ah("obj_source", PbChosenActivity.this.chosenData.getThreadInfo().source.intValue()).dn("abtest", PbChosenActivity.this.chosenData.getThreadInfo().abtest));
             }
         }
     };
-    private d.b kgd = new d.b() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.2
+    private d.b kgf = new d.b() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.2
         @Override // com.baidu.tieba.pb.chosen.view.d.b
         public void fa(String str, String str2) {
             PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity(), str, str2)));
@@ -227,19 +227,19 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (!j.isNetWorkAvailable()) {
                 BdToast.b(PbChosenActivity.this.getPageContext().getPageActivity(), PbChosenActivity.this.getResources().getString(R.string.neterror)).aYR();
             } else if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id != null) {
-                if (PbChosenActivity.this.kfR == null) {
-                    PbChosenActivity.this.kfR = new LikeModel(PbChosenActivity.this.getPageContext());
+                if (PbChosenActivity.this.kfT == null) {
+                    PbChosenActivity.this.kfT = new LikeModel(PbChosenActivity.this.getPageContext());
                 }
-                PbChosenActivity.this.kfR.setFrom("from_frs");
-                PbChosenActivity.this.kfR.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.2.1
+                PbChosenActivity.this.kfT.setFrom("from_frs");
+                PbChosenActivity.this.kfT.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.2.1
                     @Override // com.baidu.adp.base.d
                     public void callback(Object obj) {
-                        if (AntiHelper.bB(PbChosenActivity.this.kfR.getErrorCode(), PbChosenActivity.this.kfR.getErrorString())) {
-                            AntiHelper.aW(PbChosenActivity.this.getActivity(), PbChosenActivity.this.kfR.getErrorString());
+                        if (AntiHelper.bB(PbChosenActivity.this.kfT.getErrorCode(), PbChosenActivity.this.kfT.getErrorString())) {
+                            AntiHelper.aW(PbChosenActivity.this.getActivity(), PbChosenActivity.this.kfT.getErrorString());
                         }
                     }
                 });
-                PbChosenActivity.this.kfR.fz(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_name, String.valueOf(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id));
+                PbChosenActivity.this.kfT.fz(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_name, String.valueOf(PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id));
                 if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null) {
                     TiebaStatic.log(new ap("c10322").dn("fid", PbChosenActivity.this.chosenData.getThreadInfo().forum.forum_id + "").dn("tid", PbChosenActivity.this.chosenData.getThreadInfo().thread_id + "").ah("obj_source", PbChosenActivity.this.chosenData.getThreadInfo().source.intValue()).dn("abtest", PbChosenActivity.this.chosenData.getThreadInfo().abtest));
                 }
@@ -252,7 +252,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (responsedMessage instanceof com.baidu.tieba.pb.chosen.net.a) {
                 com.baidu.tieba.pb.chosen.net.a aVar = (com.baidu.tieba.pb.chosen.net.a) responsedMessage;
                 int erroCode = aVar.getErroCode();
-                PbChosenActivity.this.jJG = true;
+                PbChosenActivity.this.jJI = true;
                 if (erroCode == 0) {
                     PbChosenActivity.this.a(aVar);
                 } else {
@@ -262,31 +262,31 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 if (!PbChosenActivity.this.huV) {
                     PbChosenActivity.this.showNetRefreshView(PbChosenActivity.this.rootView, PbChosenActivity.this.getResources().getString(R.string.error_unkown_try_again), true);
                     PbChosenActivity.this.setNetRefreshLayoutMarginTop(false);
-                    PbChosenActivity.this.kfN.setVisible(false);
+                    PbChosenActivity.this.kfP.setVisible(false);
                 }
             }
         }
     };
-    private CustomMessageListener kge = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.4
+    private CustomMessageListener kgg = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PbChosenActivity.this.kfL.cKs();
-            PbChosenActivity.this.kfL.kgP = !PbChosenActivity.this.kfL.kgP;
-            PbChosenActivity.this.kfL.rS(PbChosenActivity.this.kfL.kgP);
-            if (PbChosenActivity.this.kfL.kgP) {
-                PbChosenActivity.this.kfX = 1;
+            PbChosenActivity.this.kfN.cKs();
+            PbChosenActivity.this.kfN.kgR = !PbChosenActivity.this.kfN.kgR;
+            PbChosenActivity.this.kfN.rS(PbChosenActivity.this.kfN.kgR);
+            if (PbChosenActivity.this.kfN.kgR) {
+                PbChosenActivity.this.kfZ = 1;
             } else {
-                PbChosenActivity.this.kfX = 0;
+                PbChosenActivity.this.kfZ = 0;
             }
         }
     };
-    private com.baidu.adp.framework.listener.a kgf = new com.baidu.adp.framework.listener.a(1003007, CmdConfigSocket.CMD_CHOSEN_PB_PRAISE) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.5
+    private com.baidu.adp.framework.listener.a kgh = new com.baidu.adp.framework.listener.a(1003007, CmdConfigSocket.CMD_CHOSEN_PB_PRAISE) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.5
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
             if (responsedMessage != null) {
-                PbChosenActivity.this.kfL.cKs();
+                PbChosenActivity.this.kfN.cKs();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
                         errorString = PbChosenActivity.this.getResources().getString(R.string.neterror);
@@ -299,17 +299,17 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof ChosenZanNetMessage) {
                     ChosenZanNetMessage chosenZanNetMessage = (ChosenZanNetMessage) extra;
-                    PbChosenActivity.this.kfL.rS(chosenZanNetMessage.isPraise());
+                    PbChosenActivity.this.kfN.rS(chosenZanNetMessage.isPraise());
                     if (chosenZanNetMessage.isPraise()) {
-                        PbChosenActivity.this.kfX = 1;
+                        PbChosenActivity.this.kfZ = 1;
                     } else {
-                        PbChosenActivity.this.kfX = 0;
+                        PbChosenActivity.this.kfZ = 0;
                     }
                 }
             }
         }
     };
-    private CustomMessageListener kgg = new CustomMessageListener(CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.6
+    private CustomMessageListener kgi = new CustomMessageListener(CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -319,13 +319,13 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 long longExtra3 = PbChosenActivity.this.getIntent().getLongExtra("thread_id", 0L);
                 com.baidu.tieba.pb.chosen.net.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
                 if (chosenData != null && chosenData.getThreadInfo() != null && chosenData.getThreadInfo().excid != null && longExtra == chosenData.getThreadInfo().excid.longValue()) {
-                    PbChosenActivity.this.jJG = true;
+                    PbChosenActivity.this.jJI = true;
                     PbChosenActivity.this.a(chosenData);
                 }
-                if (PbChosenActivity.this.kfT == null) {
-                    PbChosenActivity.this.kfT = new b();
+                if (PbChosenActivity.this.kfV == null) {
+                    PbChosenActivity.this.kfV = new b();
                 }
-                PbChosenActivity.this.kfT.a(PbChosenActivity.this, longExtra, longExtra2, longExtra3);
+                PbChosenActivity.this.kfV.a(PbChosenActivity.this, longExtra, longExtra2, longExtra3);
             }
         }
     };
@@ -335,7 +335,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         if (customResponsedMessage != null && this.chosenData != null && this.chosenData.getThreadInfo() != null && this.chosenData.getThreadInfo().forum.forum_id != null) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Long) && ((Long) data).longValue() == this.chosenData.getThreadInfo().forum.forum_id.longValue()) {
-                this.kfK.rR(z);
+                this.kfM.rR(z);
             }
         }
     }
@@ -347,10 +347,10 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             long longExtra = getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
             long longExtra2 = getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
             long longExtra3 = getIntent().getLongExtra("thread_id", 0L);
-            if (this.kfT == null) {
-                this.kfT = new b();
+            if (this.kfV == null) {
+                this.kfV = new b();
             }
-            this.kfT.a(this, longExtra, longExtra2, longExtra3);
+            this.kfV.a(this, longExtra, longExtra2, longExtra3);
             hideNetRefreshView(this.rootView);
             showLoadingView(this.rootView, true);
         }
@@ -362,32 +362,32 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         if (aVar == null || aVar.isEmpty()) {
             showNetRefreshView(this.rootView, getResources().getString(R.string.error_unkown_try_again), true);
             setNetRefreshLayoutMarginTop(false);
-            this.kfN.setVisible(false);
+            this.kfP.setVisible(false);
             return;
         }
         this.huV = true;
-        this.kfN.setVisible(true);
+        this.kfP.setVisible(true);
         this.chosenData = aVar;
         UserInfo userInfo = aVar.getUserInfo();
         if (userInfo != null) {
-            this.kfK.a(userInfo);
+            this.kfM.a(userInfo);
         }
-        if (this.kfM != null) {
-            this.kfM.a(getPageContext().getPageActivity(), aVar.getPostList(), aVar.getUserList());
+        if (this.kfO != null) {
+            this.kfO.a(getPageContext().getPageActivity(), aVar.getPostList(), aVar.getUserList());
         }
         ExcellentPbThreadInfo threadInfo = aVar.getThreadInfo();
         if (threadInfo != null) {
-            if (this.kfO != null && threadInfo.post_num != null) {
+            if (this.kfQ != null && threadInfo.post_num != null) {
                 String numFormatOver10000 = as.numFormatOver10000(threadInfo.post_num.longValue());
-                this.kfO.setText(getResources().getString(R.string.chosen_pb_reply_number_text, numFormatOver10000));
-                this.kfN.Kq(getResources().getString(R.string.chosen_pb_reply_count_text, numFormatOver10000));
+                this.kfQ.setText(getResources().getString(R.string.chosen_pb_reply_number_text, numFormatOver10000));
+                this.kfP.Kq(getResources().getString(R.string.chosen_pb_reply_count_text, numFormatOver10000));
             }
-            this.kfL.a(threadInfo);
-            this.kfK.a(getPageContext().getPageActivity(), threadInfo);
+            this.kfN.a(threadInfo);
+            this.kfM.a(getPageContext().getPageActivity(), threadInfo);
             com.baidu.tieba.pb.b.a aVar2 = new com.baidu.tieba.pb.b.a();
             aVar2.a(getPageContext(), aVar.getThreadInfo().content);
-            this.kfQ.er(aVar2.getData());
-            this.kfQ.notifyDataSetChanged();
+            this.kfS.er(aVar2.getData());
+            this.kfS.notifyDataSetChanged();
         }
         this.hbF.setVisibility(0);
     }
@@ -404,36 +404,36 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 l.hideSoftKeyPad(PbChosenActivity.this.getActivity(), PbChosenActivity.this.getCurrentFocus());
-                if (PbChosenActivity.this.kfV != null && PbChosenActivity.this.kfV.biJ() != null) {
-                    PbChosenActivity.this.kfV.biJ().hide();
+                if (PbChosenActivity.this.kfX != null && PbChosenActivity.this.kfX.biJ() != null) {
+                    PbChosenActivity.this.kfX.biJ().hide();
                 }
-                PbChosenActivity.this.kfN.setVisible(true);
+                PbChosenActivity.this.kfP.setVisible(true);
                 return false;
             }
         });
         this.hbF.setOnScrollListener(this.cEp);
-        this.kfQ = new com.baidu.tieba.pb.chosen.view.a(getPageContext().getPageActivity());
-        this.hbF.setAdapter((ListAdapter) this.kfQ);
-        this.kfN = new f(findViewById(R.id.chosen_pb_reply));
-        this.kfN.P(this.kfY);
-        this.kfN.Q(this.kga);
-        this.kfK = new d(getPageContext().getPageActivity());
-        this.kfL = new e(getPageContext().getPageActivity());
-        this.kfM = new c(getPageContext().getPageActivity(), this.kfZ);
-        this.kfK.a(this.kgd);
-        this.kfL.a(this.kgc);
-        this.hbF.addHeaderView(this.kfK.cKq());
+        this.kfS = new com.baidu.tieba.pb.chosen.view.a(getPageContext().getPageActivity());
+        this.hbF.setAdapter((ListAdapter) this.kfS);
+        this.kfP = new f(findViewById(R.id.chosen_pb_reply));
+        this.kfP.P(this.kga);
+        this.kfP.Q(this.kgc);
+        this.kfM = new d(getPageContext().getPageActivity());
+        this.kfN = new e(getPageContext().getPageActivity());
+        this.kfO = new c(getPageContext().getPageActivity(), this.kgb);
+        this.kfM.a(this.kgf);
+        this.kfN.a(this.kge);
+        this.hbF.addHeaderView(this.kfM.cKq());
         BdListViewHelper.a(getActivity(), this.hbF, BdListViewHelper.HeadType.DEFAULT);
-        this.hbF.addFooterView(this.kfL.cKr());
-        this.hbF.addFooterView(this.kfM.getView());
+        this.hbF.addFooterView(this.kfN.cKr());
+        this.hbF.addFooterView(this.kfO.getView());
         bmb();
-        registerListener(this.kgf);
-        registerListener(this.kge);
-        this.kgg.setSelfListener(true);
+        registerListener(this.kgh);
         registerListener(this.kgg);
+        this.kgi.setSelfListener(true);
+        registerListener(this.kgi);
         registerListener(this.ezs);
         registerListener(this.hGV);
-        registerListener(this.kgb);
+        registerListener(this.kgd);
         cKl();
         if (getIntent() != null) {
             this.shareUrl = getIntent().getStringExtra(PbChosenActivityConfig.KEY_SHARE_URL);
@@ -453,8 +453,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.kfW && !this.jJG) {
-            this.kfW = true;
+        if (z && !this.kfY && !this.jJI) {
+            this.kfY = true;
             showLoadingView(this.rootView, true);
         }
     }
@@ -477,14 +477,14 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 }
             });
             this.ffK.setTitleText(R.string.chosen_pb_title);
-            this.kfP = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.chosen_pb_reply_layout, (ViewGroup) null);
-            this.kfO = (TextView) this.kfP.findViewById(R.id.chosen_pb_reply_number);
-            this.ffK.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kfP, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.9
+            this.kfR = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.chosen_pb_reply_layout, (ViewGroup) null);
+            this.kfQ = (TextView) this.kfR.findViewById(R.id.chosen_pb_reply_number);
+            this.ffK.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kfR, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.9
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null) {
                         TiebaStatic.log(new ap("c10091").dn("tid", PbChosenActivity.this.chosenData.getThreadInfo().thread_id + "").dn("obj_name", PbChosenActivity.this.chosenData.getThreadInfo().tag_name).ah("obj_source", PbChosenActivity.this.chosenData.getThreadInfo().source.intValue()).dn("abtest", PbChosenActivity.this.chosenData.getThreadInfo().abtest));
-                        PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity()).createCfgForPbChosen(PbChosenActivity.this.chosenData.getThreadInfo().thread_id + "", PbChosenActivity.this.kfX)));
+                        PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity()).createCfgForPbChosen(PbChosenActivity.this.chosenData.getThreadInfo().thread_id + "", PbChosenActivity.this.kfZ)));
                     }
                 }
             });
@@ -502,8 +502,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         if (i2 == -1) {
-            if (this.kfV != null) {
-                this.kfV.onActivityResult(i, i2, intent);
+            if (this.kfX != null) {
+                this.kfX.onActivityResult(i, i2, intent);
             }
             switch (i) {
                 case RequestResponseCode.REQUEST_SELECT_IM_CHAT_GROUP_CODE /* 23003 */:
@@ -534,8 +534,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     }
 
     private DataModel<PbChosenActivity> cKm() {
-        if (this.jqI == null) {
-            this.jqI = new DataModel<PbChosenActivity>(getPageContext()) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.10
+        if (this.jqK == null) {
+            this.jqK = new DataModel<PbChosenActivity>(getPageContext()) { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.10
                 @Override // com.baidu.adp.base.BdBaseModel
                 public boolean cancelLoadData() {
                     return false;
@@ -571,7 +571,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 }
             };
         }
-        return this.jqI;
+        return this.jqK;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -579,35 +579,35 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getPageContext().getLayoutMode().setNightMode(i == 1);
-        getPageContext().getLayoutMode().onModeChanged(this.kfK.cKq());
-        getPageContext().getLayoutMode().onModeChanged(this.kfL.cKr());
-        this.kfM.onChangeSkinType();
-        this.kfN.onChangeSkinType();
+        getPageContext().getLayoutMode().onModeChanged(this.kfM.cKq());
+        getPageContext().getLayoutMode().onModeChanged(this.kfN.cKr());
+        this.kfO.onChangeSkinType();
+        this.kfP.onChangeSkinType();
         if (this.ffK != null) {
             this.ffK.onChangeSkinType(getPageContext(), i);
         }
-        if (this.kfV != null && this.kfV.biJ() != null) {
-            this.kfV.biJ().onChangeSkinType(i);
+        if (this.kfX != null && this.kfX.biJ() != null) {
+            this.kfX.biJ().onChangeSkinType(i);
         }
-        ao.setNavbarTitleColor(this.kfO, R.color.navi_op_text, R.color.navi_op_text_skin);
+        ao.setNavbarTitleColor(this.kfQ, R.color.navi_op_text, R.color.navi_op_text_skin);
         ao.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.kfQ.notifyDataSetChanged();
+        this.kfS.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4 || this.kfV == null || this.kfV.biJ() == null || !this.kfV.biJ().biL()) {
+        if (i != 4 || this.kfX == null || this.kfX.biJ() == null || !this.kfX.biJ().biL()) {
             return super.onKeyDown(i, keyEvent);
         }
-        this.kfV.biJ().bhl();
+        this.kfX.biJ().bhl();
         return true;
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.kfV != null) {
-            this.kfV.onSaveInstanceState(bundle);
+        if (this.kfX != null) {
+            this.kfX.onSaveInstanceState(bundle);
         }
         if (this.hFy != null) {
             this.hFy.onSaveInstanceState(getPageContext().getPageActivity());
@@ -645,8 +645,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kfV != null) {
-            this.kfV.onDestroy();
+        if (this.kfX != null) {
+            this.kfX.onDestroy();
         }
         if (this.hFy != null) {
             this.hFy.onDestory(getPageContext());
@@ -656,13 +656,13 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     private void as(Bundle bundle) {
         g gVar = new g();
         gVar.a(cKm());
-        this.kfV = (com.baidu.tbadk.editortools.pb.e) gVar.dT(getActivity());
-        this.kfV.a(getPageContext());
-        this.kfV.a(this.eCe);
-        this.kfV.a(this.eBX);
-        this.kfV.biJ().iJ(true);
-        this.kfV.a(getPageContext(), bundle);
-        i(this.kfV);
+        this.kfX = (com.baidu.tbadk.editortools.pb.e) gVar.dT(getActivity());
+        this.kfX.a(getPageContext());
+        this.kfX.a(this.eCe);
+        this.kfX.a(this.eBX);
+        this.kfX.biJ().iJ(true);
+        this.kfX.a(getPageContext(), bundle);
+        i(this.kfX);
     }
 
     private void i(com.baidu.tbadk.editortools.pb.e eVar) {

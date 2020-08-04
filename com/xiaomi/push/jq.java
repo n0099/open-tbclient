@@ -4,17 +4,17 @@ public class jq extends js {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ja f785a;
+    private ja f788a;
 
     public jq(int i) {
-        this.f785a = new ja(i);
+        this.f788a = new ja(i);
     }
 
     @Override // com.xiaomi.push.js
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m476a = this.f785a.m476a();
-        if (i2 > this.f785a.a() - this.a) {
-            i2 = this.f785a.a() - this.a;
+        byte[] m476a = this.f788a.m476a();
+        if (i2 > this.f788a.a() - this.a) {
+            i2 = this.f788a.a() - this.a;
         }
         if (i2 > 0) {
             System.arraycopy(m476a, this.a, bArr, i, i2);
@@ -25,10 +25,10 @@ public class jq extends js {
 
     @Override // com.xiaomi.push.js
     public void a(byte[] bArr, int i, int i2) {
-        this.f785a.write(bArr, i, i2);
+        this.f788a.write(bArr, i, i2);
     }
 
     public int a_() {
-        return this.f785a.size();
+        return this.f788a.size();
     }
 }

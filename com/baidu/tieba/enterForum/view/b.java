@@ -201,8 +201,8 @@ public class b implements EnterForumAdView.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void bWH() {
         if (bWI() && this.hqh) {
+            this.hpR.dtK();
             this.hpR.dtJ();
-            this.hpR.dtI();
             this.hpR.setCancelable(false);
             com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("has_guide_popup_window_been_shown", true);
             com.baidu.adp.lib.f.g.showDialog(this.hpR, this.hpK.getFragmentActivity());

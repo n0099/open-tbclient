@@ -17,13 +17,13 @@ import com.baidu.tieba.video.VideoItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends d {
-    private VideoSerializeVideoThreadInfo iii;
-    private VideoItemData ldD;
-    private bv ldE;
+    private VideoSerializeVideoThreadInfo iik;
+    private VideoItemData ldF;
+    private bv ldG;
 
     public b(Context context, View view) {
         super(context, view);
-        this.ldF = 5000;
+        this.ldH = 5000;
     }
 
     public b(Context context, View view, boolean z) {
@@ -35,25 +35,25 @@ public class b extends d {
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.lev.setOnTouchListener(null);
-        this.lev.setOnClickListener(this);
+        this.lex.setOnTouchListener(null);
+        this.lex.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bv bvVar) {
         super.setData(bvVar);
-        this.ldE = bvVar;
+        this.ldG = bvVar;
         if (this.ajI) {
-            this.ldD = new VideoItemData();
-            this.ldD.buildWithThreadData(bvVar);
+            this.ldF = new VideoItemData();
+            this.ldF.buildWithThreadData(bvVar);
             return;
         }
-        this.iii = new VideoSerializeVideoThreadInfo();
-        this.iii.copyFromThreadInfo(bvVar);
-        this.iii.source = bvVar.mRecomSource;
-        this.iii.extra = bvVar.mRecomExtra;
-        this.iii.ab_tag = bvVar.mRecomAbTag;
-        this.iii.weight = bvVar.mRecomWeight;
+        this.iik = new VideoSerializeVideoThreadInfo();
+        this.iik.copyFromThreadInfo(bvVar);
+        this.iik.source = bvVar.mRecomSource;
+        this.iik.extra = bvVar.mRecomExtra;
+        this.iik.ab_tag = bvVar.mRecomAbTag;
+        this.iik.weight = bvVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
@@ -62,7 +62,7 @@ public class b extends d {
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void cUn() {
-        this.ldX = 32;
+        this.ldZ = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
@@ -88,28 +88,28 @@ public class b extends d {
     }
 
     private void bRu() {
-        if (this.ldD != null) {
+        if (this.ldF != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.ldE != null) {
-                this.ldD.buildWithThreadData(this.ldE);
+            if (this.ldG != null) {
+                this.ldF.buildWithThreadData(this.ldG);
             }
-            arrayList.add(this.ldD);
+            arrayList.add(this.ldF);
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.mContext, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", this.mFrom, this.mFrom);
-            if (this.ldE != null && this.ldE.getBaijiahaoData() != null) {
-                videoPlayActivityConfig.setNid(this.ldE.getBaijiahaoData().oriUgcNid);
+            if (this.ldG != null && this.ldG.getBaijiahaoData() != null) {
+                videoPlayActivityConfig.setNid(this.ldG.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoPlayActivityConfig));
         }
     }
 
     private void bRv() {
-        if (this.iii != null) {
-            if (this.ldE != null) {
-                this.iii.copyFromThreadInfo(this.ldE);
+        if (this.iik != null) {
+            if (this.ldG != null) {
+                this.iik.copyFromThreadInfo(this.ldG);
             }
-            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ajJ, m.aVX(), "", this.iii);
-            if (this.ldE != null && this.ldE.getBaijiahaoData() != null) {
-                videoMiddlePageActivityConfig.setNid(this.ldE.getBaijiahaoData().oriUgcNid);
+            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ajJ, m.aVX(), "", this.iik);
+            if (this.ldG != null && this.ldG.getBaijiahaoData() != null) {
+                videoMiddlePageActivityConfig.setNid(this.ldG.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
@@ -123,13 +123,13 @@ public class b extends d {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void cUl() {
-        if (this.lee == this.ldW) {
+        if (this.leg == this.ldY) {
             cZu();
         }
     }
 
     public void cZu() {
-        Cw(this.ldX);
+        Cw(this.ldZ);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a

@@ -617,7 +617,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
                 aVar.customGroupType = cacheInfo.customGroupType;
                 aVar.id = cacheInfo.id;
-                aVar.jgY = chatMessage2;
+                aVar.jha = chatMessage2;
                 aVar.type = 2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
             }
@@ -1028,7 +1028,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (i2 >= 0 && i < size) {
                 for (ChatMessage chatMessage : list) {
                     if (chatMessage.getMsgType() == 4) {
-                        j.iRz = com.baidu.tbadk.util.m.bmD();
+                        j.iRB = com.baidu.tbadk.util.m.bmD();
                     }
                     long userId = chatMessage.getUserId();
                     String portrait = chatMessage.getUserInfo().getPortrait();

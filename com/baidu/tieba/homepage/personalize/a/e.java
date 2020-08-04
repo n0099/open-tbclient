@@ -103,7 +103,7 @@ public class e extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, a
         akVar.sg().setPosition(i);
         akVar.sg().setPage(this.afx);
         akVar.aK(true).a(this.far);
-        akVar.a(eVar.aTY(), this.irx);
+        akVar.a(eVar.aTY(), this.irz);
         akVar.b((ak<com.baidu.tieba.card.data.e>) eVar);
         akVar.sg().a(this.adN);
         akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());

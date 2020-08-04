@@ -21,8 +21,8 @@ public class b extends LinearLayout implements View.OnClickListener {
     private View b;
     private ImageView c;
     private List<ListItem> e;
-    private ListItem nnq;
-    private FrescoThumbnailView nzx;
+    private ListItem nns;
+    private FrescoThumbnailView nzz;
 
     public b(Context context) {
         super(context);
@@ -31,11 +31,11 @@ public class b extends LinearLayout implements View.OnClickListener {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(a.h.popup_gift_right, (ViewGroup) this, true);
-        this.nzx = (FrescoThumbnailView) findViewById(a.f.gift_popup_gift);
-        this.nzx.setAnim(true);
+        this.nzz = (FrescoThumbnailView) findViewById(a.f.gift_popup_gift);
+        this.nzz.setAnim(true);
         this.b = findViewById(a.f.gift_popup_close_layout);
         this.c = (ImageView) findViewById(a.f.gift_popup_close_view);
-        this.nzx.setOnClickListener(this);
+        this.nzz.setOnClickListener(this);
         this.b.setOnClickListener(this);
         this.c.setOnClickListener(this);
     }
@@ -49,8 +49,8 @@ public class b extends LinearLayout implements View.OnClickListener {
             this.c.setImageResource(a.e.ic_room_ad_close_circle);
         }
         this.e = list;
-        this.nnq = listItem;
-        this.nzx.a(listItem.mCover, a.e.default_color_bg, tv.chushou.zues.widget.fresco.b.ouE, b.C0959b.ouG, 1);
+        this.nns = listItem;
+        this.nzz.a(listItem.mCover, a.e.default_color_bg, tv.chushou.zues.widget.fresco.b.ouG, b.C0959b.ouI, 1);
     }
 
     @Override // android.view.View.OnClickListener
@@ -58,14 +58,14 @@ public class b extends LinearLayout implements View.OnClickListener {
         int id = view.getId();
         if (id == a.f.gift_popup_close_layout || id == a.f.gift_popup_close_view) {
             if (this.e != null) {
-                this.e.remove(this.nnq);
+                this.e.remove(this.nns);
             }
             ViewParent parent = getParent();
             if (parent instanceof ViewGroup) {
                 ((ViewGroup) parent).removeView(this);
             }
-        } else if (id == a.f.gift_popup_gift && this.nnq != null) {
-            e.a(getContext(), this.nnq, e.P("_fromView", Constants.VIA_ACT_TYPE_NINETEEN, "_fromPos", BaseUtils.METHOD_SENDMESSAGE));
+        } else if (id == a.f.gift_popup_gift && this.nns != null) {
+            e.a(getContext(), this.nns, e.P("_fromView", Constants.VIA_ACT_TYPE_NINETEEN, "_fromPos", BaseUtils.METHOD_SENDMESSAGE));
         }
     }
 }

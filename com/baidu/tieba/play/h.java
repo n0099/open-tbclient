@@ -50,7 +50,7 @@ public class h {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (oVar != null) {
-            httpMessage.addParam("video_md5", oVar.lcM);
+            httpMessage.addParam("video_md5", oVar.lcO);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM2, str2);
@@ -62,17 +62,17 @@ public class h {
         if (httpMessage != null && oVar != null) {
             httpMessage.addParam("tid", oVar.ajJ);
             httpMessage.addParam("fid", oVar.eKO);
-            httpMessage.addParam(TiebaInitialize.Params.OBJ_TO, oVar.lcH);
+            httpMessage.addParam(TiebaInitialize.Params.OBJ_TO, oVar.lcJ);
             httpMessage.addParam("obj_id", oVar.dOV);
-            httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM3, oVar.lcI);
+            httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM3, oVar.lcK);
             httpMessage.addParam("obj_source", oVar.mSource);
             httpMessage.addParam("obj_locate", oVar.mLocate);
-            httpMessage.addParam("obj_param1", oVar.lcJ);
-            if (!StringUtils.isNull(oVar.lcN)) {
-                httpMessage.addParam("topic_type", oVar.lcN);
+            httpMessage.addParam("obj_param1", oVar.lcL);
+            if (!StringUtils.isNull(oVar.lcP)) {
+                httpMessage.addParam("topic_type", oVar.lcP);
             }
-            if (!StringUtils.isNull(oVar.lcO)) {
-                httpMessage.addParam("is_vertical", oVar.lcO);
+            if (!StringUtils.isNull(oVar.lcQ)) {
+                httpMessage.addParam("is_vertical", oVar.lcQ);
             }
         }
     }

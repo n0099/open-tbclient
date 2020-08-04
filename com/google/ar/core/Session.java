@@ -27,8 +27,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes5.dex */
 public class Session {
-    long nia;
-    final q niq;
+    long nic;
+    final q nis;
 
     /* loaded from: classes5.dex */
     enum a {
@@ -180,9 +180,9 @@ public class Session {
     }
 
     protected void finalize() throws Throwable {
-        if (this.nia != 0) {
-            nativeDestroySession(this.nia);
-            this.nia = 0L;
+        if (this.nic != 0) {
+            nativeDestroySession(this.nic);
+            this.nic = 0L;
         }
         super.finalize();
     }

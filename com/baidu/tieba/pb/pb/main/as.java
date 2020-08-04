@@ -15,18 +15,18 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class as {
-    private com.baidu.tieba.pb.data.f klg;
-    private boolean kri;
+    private com.baidu.tieba.pb.data.f kli;
     private boolean krk;
-    private String kue;
-    private boolean kuf;
-    private Rect kug;
+    private boolean krm;
+    private String kug;
     private boolean kuh;
-    private Parcelable kui;
+    private Rect kui;
     private boolean kuj;
-    private PostData kuk;
-    private PostData kul;
-    private int kum;
+    private Parcelable kuk;
+    private boolean kul;
+    private PostData kum;
+    private PostData kun;
+    private int kuo;
     private int mTabIndex;
 
     static {
@@ -90,110 +90,110 @@ public class as {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public static class a {
-        private static as kun = new as();
+        private static as kup = new as();
     }
 
     public static as cPg() {
-        return a.kun;
+        return a.kup;
     }
 
     private as() {
-        this.kue = null;
-        this.kuf = false;
-        this.mTabIndex = 0;
-        this.klg = null;
+        this.kug = null;
         this.kuh = false;
-        this.kui = null;
-        this.krk = true;
-        this.kri = false;
+        this.mTabIndex = 0;
+        this.kli = null;
         this.kuj = false;
+        this.kuk = null;
+        this.krm = true;
+        this.krk = false;
+        this.kul = false;
     }
 
     public void aN(String str, boolean z) {
-        this.kuf = false;
+        this.kuh = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.kue = null;
-        } else if (!str.equals(this.kue)) {
+            this.kug = null;
+        } else if (!str.equals(this.kug)) {
             reset();
-            this.kue = str;
+            this.kug = str;
         } else {
-            this.kuf = true;
+            this.kuh = true;
         }
     }
 
     public com.baidu.tieba.pb.data.f getPbData() {
-        if (!this.kuf) {
-            this.kuh = false;
+        if (!this.kuh) {
+            this.kuj = false;
             return null;
-        } else if (this.klg != null && this.klg.cKz() != null && this.klg.cKz().size() > 0) {
-            this.kuh = true;
-            com.baidu.tieba.pb.data.f fVar = this.klg;
-            this.klg = null;
+        } else if (this.kli != null && this.kli.cKz() != null && this.kli.cKz().size() > 0) {
+            this.kuj = true;
+            com.baidu.tieba.pb.data.f fVar = this.kli;
+            this.kli = null;
             return fVar;
         } else {
-            this.kuh = false;
-            this.klg = null;
+            this.kuj = false;
+            this.kli = null;
             return null;
         }
     }
 
     public Parcelable cPh() {
-        if (this.kuh) {
-            this.kuh = false;
-            Parcelable parcelable = this.kui;
-            this.kui = null;
+        if (this.kuj) {
+            this.kuj = false;
+            Parcelable parcelable = this.kuk;
+            this.kuk = null;
             return parcelable;
         }
-        this.kui = null;
+        this.kuk = null;
         return null;
     }
 
     public int cPi() {
-        return this.kum;
+        return this.kuo;
     }
 
     public void BX(int i) {
-        this.kum = i;
+        this.kuo = i;
     }
 
     public PostData cPj() {
-        return this.kul;
+        return this.kun;
     }
 
     public void p(PostData postData) {
-        this.kul = postData;
+        this.kun = postData;
     }
 
     public PostData cPk() {
-        return this.kuk;
+        return this.kum;
     }
 
     public void q(PostData postData) {
-        this.kuk = postData;
+        this.kum = postData;
     }
 
     public boolean cNN() {
-        return this.krk;
+        return this.krm;
     }
 
     public boolean cPl() {
-        return this.kri;
+        return this.krk;
     }
 
     public boolean cPm() {
-        return this.kuj;
+        return this.kul;
     }
 
     public void h(Rect rect) {
-        this.kug = rect;
+        this.kui = rect;
     }
 
     public Rect cPn() {
-        return this.kug;
+        return this.kui;
     }
 
     public void BY(int i) {
@@ -205,8 +205,8 @@ public class as {
     }
 
     public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
-        this.kuf = false;
-        if (this.kue == null) {
+        this.kuh = false;
+        if (this.kug == null) {
             reset();
             return false;
         } else if (fVar == null) {
@@ -219,43 +219,43 @@ public class as {
             reset();
             return false;
         } else {
-            this.klg = fVar;
-            this.kuh = false;
-            this.kui = parcelable;
-            this.krk = z;
-            this.kri = z2;
-            this.kuj = z3;
+            this.kli = fVar;
+            this.kuj = false;
+            this.kuk = parcelable;
+            this.krm = z;
+            this.krk = z2;
+            this.kul = z3;
             return true;
         }
     }
 
     public void reset() {
-        this.kuf = false;
-        this.klg = null;
         this.kuh = false;
+        this.kli = null;
+        this.kuj = false;
+        this.kuk = null;
         this.kui = null;
-        this.kug = null;
         this.mTabIndex = 0;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.klg != null && this.klg.getForum() != null) {
+        if (customResponsedMessage != null && this.kli != null && this.kli.getForum() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.f.b.toLong(this.klg.getForum().getId(), 0L)) {
-                this.klg.getForum().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.f.b.toLong(this.kli.getForum().getId(), 0L)) {
+                this.kli.getForum().setLike(i);
             }
         }
     }
 
     public void updateCurrentUserPendant(com.baidu.tbadk.data.l lVar) {
-        if (lVar != null && this.klg != null && this.klg.cKz() != null && this.klg.cKz().size() > 0) {
+        if (lVar != null && this.kli != null && this.kli.cKz() != null && this.kli.cKz().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.klg.cKz().size();
+                int size = this.kli.cKz().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.klg.cKz().get(i) != null && this.klg.cKz().get(i).aWl() != null && currentAccount.equals(this.klg.cKz().get(i).aWl().getUserId()) && this.klg.cKz().get(i).aWl().getPendantData() != null) {
-                        this.klg.cKz().get(i).aWl().getPendantData().wU(lVar.aUh());
-                        this.klg.cKz().get(i).aWl().getPendantData().cN(lVar.bin());
+                    if (this.kli.cKz().get(i) != null && this.kli.cKz().get(i).aWl() != null && currentAccount.equals(this.kli.cKz().get(i).aWl().getUserId()) && this.kli.cKz().get(i).aWl().getPendantData() != null) {
+                        this.kli.cKz().get(i).aWl().getPendantData().wU(lVar.aUh());
+                        this.kli.cKz().get(i).aWl().getPendantData().cN(lVar.bin());
                     }
                 }
             }
@@ -263,8 +263,8 @@ public class as {
     }
 
     public void a(com.baidu.tieba.tbadkCore.data.e eVar) {
-        if (this.klg != null && eVar != null) {
-            ArrayList<PostData> cKz = this.klg.cKz();
+        if (this.kli != null && eVar != null) {
+            ArrayList<PostData> cKz = this.kli.cKz();
             if (!com.baidu.tbadk.core.util.x.isEmpty(cKz)) {
                 AgreeData agreeData = eVar.agreeData;
                 for (PostData postData : cKz) {
@@ -283,13 +283,13 @@ public class as {
     }
 
     public void b(com.baidu.tieba.tbadkCore.data.e eVar) {
-        if (this.klg != null && this.klg.cKx() != null && this.klg.cKx().aYc() != null && eVar != null) {
+        if (this.kli != null && this.kli.cKx() != null && this.kli.cKx().aYc() != null && eVar != null) {
             AgreeData agreeData = eVar.agreeData;
-            AgreeData aYc = this.klg.cKx().aYc();
+            AgreeData aYc = this.kli.cKx().aYc();
             if (agreeData != null && aYc != null) {
                 String str = agreeData.nid;
                 if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                    BaijiahaoData baijiahaoData = this.klg.cKx().getBaijiahaoData();
+                    BaijiahaoData baijiahaoData = this.kli.cKx().getBaijiahaoData();
                     if (baijiahaoData != null && TextUtils.equals(str, baijiahaoData.oriUgcNid)) {
                         aYc.agreeType = agreeData.agreeType;
                         aYc.hasAgree = agreeData.hasAgree;

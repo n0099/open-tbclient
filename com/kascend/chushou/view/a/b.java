@@ -5,10 +5,10 @@ import android.view.View;
 /* loaded from: classes6.dex */
 public class b<T> implements a<T> {
     private long a = 0;
-    private a<T> npm;
+    private a<T> npo;
 
     public b(a<T> aVar) {
-        this.npm = aVar;
+        this.npo = aVar;
     }
 
     @Override // com.kascend.chushou.view.a.a
@@ -16,8 +16,8 @@ public class b<T> implements a<T> {
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.a > 500) {
             this.a = uptimeMillis;
-            if (this.npm != null) {
-                this.npm.b(view, t);
+            if (this.npo != null) {
+                this.npo.b(view, t);
             }
         }
     }

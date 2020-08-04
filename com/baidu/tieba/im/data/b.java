@@ -7,8 +7,8 @@ public class b {
     private String content;
     private long create_time;
     private String forum_id;
-    private int iWP;
-    private int iWQ;
+    private int iWR;
+    private int iWS;
     private String id;
     private int level;
     private String name;
@@ -32,7 +32,7 @@ public class b {
     }
 
     public void yC(int i) {
-        this.iWP = i;
+        this.iWR = i;
     }
 
     public String getName() {
@@ -44,11 +44,11 @@ public class b {
     }
 
     public int csX() {
-        return this.iWQ;
+        return this.iWS;
     }
 
     public void yD(int i) {
-        this.iWQ = i;
+        this.iWS = i;
     }
 
     public void setCreate_time(long j) {

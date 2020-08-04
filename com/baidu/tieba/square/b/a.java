@@ -4,10 +4,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.d;
 /* loaded from: classes17.dex */
 public class a extends d {
-    private static final String lGr = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    private static final String lGt = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
     public String djw() {
-        setUrl(lGr);
+        setUrl(lGt);
         return getResult();
     }
 

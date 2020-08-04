@@ -26,14 +26,14 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     private RelativeLayout fvE;
     private TextView goe;
     private boolean isShowing;
-    private TbImageView kJp;
-    private boolean kJq;
+    private TbImageView kJr;
+    private boolean kJs;
     private boolean mHasInit;
     private CustomMessageListener mLikeForumListener;
     private final View.OnClickListener mOnClickListener;
     private CustomMessageListener mUnlikeForumListener;
-    private static final int kJo = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
-    private static final int ilM = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+    private static final int kJq = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
+    private static final int ilO = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
 
     public PbBusinessPromotionContainer(Context context) {
         this(context, null);
@@ -46,7 +46,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public PbBusinessPromotionContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasInit = false;
-        this.kJq = false;
+        this.kJs = false;
         this.isShowing = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbBusinessPromotionContainer.1
             @Override // android.view.View.OnClickListener
@@ -64,7 +64,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (PbBusinessPromotionContainer.this.aii != null && PbBusinessPromotionContainer.this.aii.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.kJq = false;
+                        PbBusinessPromotionContainer.this.kJs = false;
                         PbBusinessPromotionContainer.this.cUA();
                     }
                 }
@@ -77,7 +77,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (PbBusinessPromotionContainer.this.aii != null && PbBusinessPromotionContainer.this.aii.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.kJq = true;
+                        PbBusinessPromotionContainer.this.kJs = true;
                         PbBusinessPromotionContainer.this.cUA();
                     }
                 }
@@ -85,13 +85,13 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         };
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
         this.fvE = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.kJp = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.kJr = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
         this.ekx = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
         this.goe = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.kJp.setRadius(l.getDimens(context, R.dimen.tbds24));
-        this.kJp.setConrers(5);
-        this.kJp.setDefaultResource(17170445);
-        this.kJp.setDefaultBgResource(17170445);
+        this.kJr.setRadius(l.getDimens(context, R.dimen.tbds24));
+        this.kJr.setConrers(5);
+        this.kJr.setDefaultResource(17170445);
+        this.kJr.setDefaultBgResource(17170445);
         this.fvE.setOnClickListener(this.mOnClickListener);
         MessageManager.getInstance().registerListener(this.mLikeForumListener);
         MessageManager.getInstance().registerListener(this.mUnlikeForumListener);
@@ -107,18 +107,18 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         tE(z);
         this.isShowing = true;
         setVisibility(0);
-        this.kJp.startLoad(brVar.getAvatar(), 10, false);
+        this.kJr.startLoad(brVar.getAvatar(), 10, false);
         this.ekx.setText(brVar.getForumName());
         if (!this.mHasInit) {
             this.mHasInit = true;
-            this.kJq = brVar.getIsLike();
+            this.kJs = brVar.getIsLike();
             cUA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cUA() {
-        if (this.kJq) {
+        if (this.kJs) {
             this.goe.setText(getResources().getString(R.string.followed));
             ao.setViewTextColor(this.goe, R.color.cp_cont_d);
             ao.setBackgroundResource(this.goe, 17170445);
@@ -134,7 +134,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public void onChangeSkinType() {
         ao.setViewTextColor(this.ekx, R.color.cp_cont_b);
         ao.setBackgroundResource(this.fvE, R.drawable.pb_business_promotion_bg);
-        if (this.kJq) {
+        if (this.kJs) {
             ao.setViewTextColor(this.goe, R.color.cp_cont_d);
             ao.setBackgroundResource(this.goe, 17170445);
             return;
@@ -151,13 +151,13 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         if (z) {
             setPadding(0, 0, 0, 0);
         } else {
-            setPadding(0, kJo, 0, ilM);
+            setPadding(0, kJq, 0, ilO);
         }
     }
 
     public void destroy() {
         this.mHasInit = false;
-        this.kJq = false;
+        this.kJs = false;
         this.isShowing = false;
         if (this.mLikeForumListener != null) {
             MessageManager.getInstance().unRegisterListener(this.mLikeForumListener);

@@ -9,13 +9,13 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 /* loaded from: classes20.dex */
 public class d {
-    private g lmQ;
-    private b lmU;
+    private g lmS;
+    private b lmW;
     private int Kz = 0;
     private long Km = 0;
 
     public d(g gVar) {
-        this.lmQ = gVar;
+        this.lmS = gVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF] complete} */
@@ -26,49 +26,49 @@ public class d {
             i = com.baidu.adp.framework.d.b.jZ().getRetryCount();
         }
         int timeOutAuto2 = i4 <= 0 ? com.baidu.adp.framework.d.b.jZ().ka().getTimeOutAuto() : i4;
-        this.lmU = new b(this.lmQ);
+        this.lmW = new b(this.lmS);
         for (int i5 = 0; i5 < i; i5++) {
             e eVar = new e();
             try {
                 eVar.retry = i5 + 1;
                 this.Kz = i5;
-                boolean a = this.lmU.a(str, jVar, timeOutAuto, timeOutAuto2, z, eVar, z2);
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.a(eVar);
+                boolean a = this.lmW.a(str, jVar, timeOutAuto, timeOutAuto2, z, eVar, z2);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.a(eVar);
                 a dcn = a.dcn();
                 if (dcn != null) {
-                    dcn.a(this.lmQ);
+                    dcn.a(this.lmS);
                 }
                 return a;
             } catch (FileNotFoundException e) {
                 try {
-                    this.lmQ.dcq().responseCode = -100;
-                    eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
-                    this.lmQ.a(eVar);
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    this.lmS.dcq().responseCode = -100;
+                    eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
+                    this.lmS.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn2 = a.dcn();
                     if (dcn2 != null) {
-                        dcn2.a(this.lmQ);
+                        dcn2.a(this.lmS);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn3 = a.dcn();
                     if (dcn3 != null) {
-                        dcn3.a(this.lmQ);
+                        dcn3.a(this.lmS);
                     }
                     throw th;
                 }
             } catch (Exception e2) {
-                this.lmQ.dcq().responseCode = -10;
-                eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
-                this.lmQ.a(eVar);
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.a(eVar);
+                this.lmS.dcq().responseCode = -10;
+                eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
+                this.lmS.a(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.a(eVar);
                 a dcn4 = a.dcn();
                 if (dcn4 != null) {
-                    dcn4.a(this.lmQ);
+                    dcn4.a(this.lmS);
                 }
             }
         }
@@ -89,9 +89,9 @@ public class d {
         }
         boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
-        for (int i4 = 0; !this.lmQ.dcq().Le && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.lmS.dcq().Le && z && i4 < i; i4++) {
             e eVar = new e();
-            this.lmQ.a(eVar);
+            this.lmS.a(eVar);
             try {
                 try {
                     try {
@@ -100,107 +100,107 @@ public class d {
                                 this.Kz = i4;
                                 eVar.retry = i4 + 1;
                                 eVar.KP = 1;
-                                this.lmU = new b(this.lmQ);
-                                this.lmU.a(i2, i3, eVar);
+                                this.lmW = new b(this.lmS);
+                                this.lmW.a(i2, i3, eVar);
                             } catch (IllegalStateException e) {
-                                this.lmQ.dcq().mNetErrorCode = -19;
+                                this.lmS.dcq().mNetErrorCode = -19;
                                 eVar.exception = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                                if (this.Km <= 0 && this.lmU != null) {
-                                    this.Km = this.lmU.kK();
+                                if (this.Km <= 0 && this.lmW != null) {
+                                    this.Km = this.lmW.kK();
                                 }
                                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                                this.lmQ.b(eVar);
+                                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                                this.lmS.b(eVar);
                                 a dcn = a.dcn();
                                 if (dcn != null) {
-                                    dcn.a(this.lmQ);
+                                    dcn.a(this.lmS);
                                 }
                             }
                         } catch (Exception e2) {
-                            eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                            this.lmQ.dcq().mNetErrorCode = -10;
+                            eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                            this.lmS.dcq().mNetErrorCode = -10;
                             BdLog.e(e2.getMessage());
-                            if (this.Km <= 0 && this.lmU != null) {
-                                this.Km = this.lmU.kK();
+                            if (this.Km <= 0 && this.lmW != null) {
+                                this.Km = this.lmW.kK();
                             }
                             eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                            this.lmQ.b(eVar);
+                            com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                            this.lmS.b(eVar);
                             a dcn2 = a.dcn();
                             if (dcn2 != null) {
-                                dcn2.a(this.lmQ);
+                                dcn2.a(this.lmS);
                                 return;
                             }
                             return;
                         }
                     } catch (SocketTimeoutException e3) {
-                        eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                        this.lmQ.dcq().mNetErrorCode = -13;
-                        if (this.Km <= 0 && this.lmU != null) {
-                            this.Km = this.lmU.kK();
+                        eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                        this.lmS.dcq().mNetErrorCode = -13;
+                        if (this.Km <= 0 && this.lmW != null) {
+                            this.Km = this.lmW.kK();
                         }
                         eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                        this.lmQ.b(eVar);
+                        com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                        this.lmS.b(eVar);
                         a dcn3 = a.dcn();
                         if (dcn3 != null) {
-                            dcn3.a(this.lmQ);
+                            dcn3.a(this.lmS);
                         }
                         z = true;
                     }
                 } catch (SocketException e4) {
-                    eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
-                    this.lmQ.dcq().mNetErrorCode = -12;
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                    eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
+                    this.lmS.dcq().mNetErrorCode = -12;
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.b(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.b(eVar);
                     a dcn4 = a.dcn();
                     if (dcn4 != null) {
-                        dcn4.a(this.lmQ);
+                        dcn4.a(this.lmS);
                     }
                     z = true;
                 }
-                if (this.lmQ.dcq().responseCode == 200) {
-                    this.lmQ.b(eVar);
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                if (this.lmS.dcq().responseCode == 200) {
+                    this.lmS.b(eVar);
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.b(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.b(eVar);
                     a dcn5 = a.dcn();
                     if (dcn5 != null) {
-                        dcn5.a(this.lmQ);
+                        dcn5.a(this.lmS);
                         return;
                     }
                     return;
                 }
-                eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i4;
-                boolean ak = ak(this.lmQ.dcq().responseCode);
-                if (this.Km <= 0 && this.lmU != null) {
-                    this.Km = this.lmU.kK();
+                eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i4;
+                boolean ak = ak(this.lmS.dcq().responseCode);
+                if (this.Km <= 0 && this.lmW != null) {
+                    this.Km = this.lmW.kK();
                 }
                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.b(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.b(eVar);
                 a dcn6 = a.dcn();
                 if (dcn6 != null) {
-                    dcn6.a(this.lmQ);
+                    dcn6.a(this.lmS);
                 }
                 z = ak;
             } catch (Throwable th) {
-                if (this.Km <= 0 && this.lmU != null) {
-                    this.Km = this.lmU.kK();
+                if (this.Km <= 0 && this.lmW != null) {
+                    this.Km = this.lmW.kK();
                 }
                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.b(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.b(eVar);
                 a dcn7 = a.dcn();
                 if (dcn7 != null) {
-                    dcn7.a(this.lmQ);
+                    dcn7.a(this.lmS);
                 }
                 throw th;
             }
@@ -222,118 +222,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.lmQ.dcq().Le && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.lmS.dcq().Le && z2 && i4 < i; i4++) {
             e eVar = new e();
             eVar.retry = i4 + 1;
             this.Kz = i4;
             try {
                 try {
                     try {
-                        this.lmU = new b(this.lmQ);
-                        this.lmU.b(i2, i3, eVar);
+                        this.lmW = new b(this.lmS);
+                        this.lmW.b(i2, i3, eVar);
                     } catch (UnsupportedOperationException e) {
                         z = false;
-                        this.lmQ.dcq().mNetErrorCode = -14;
+                        this.lmS.dcq().mNetErrorCode = -14;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                        this.lmQ.a(eVar);
-                        if (this.Km <= 0 && this.lmU != null) {
-                            this.Km = this.lmU.kK();
+                        this.lmS.a(eVar);
+                        if (this.Km <= 0 && this.lmW != null) {
+                            this.Km = this.lmW.kK();
                         }
                         eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                        this.lmQ.a(eVar);
+                        com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                        this.lmS.a(eVar);
                         a dcn = a.dcn();
-                        if (dcn != null && this.lmU != null && this.lmU.kN()) {
-                            dcn.a(this.lmQ);
+                        if (dcn != null && this.lmW != null && this.lmW.kN()) {
+                            dcn.a(this.lmS);
                         }
                     } catch (SocketTimeoutException e2) {
-                        this.lmQ.dcq().mNetErrorCode = -13;
+                        this.lmS.dcq().mNetErrorCode = -13;
                         z = true;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e2.getMessage());
-                        this.lmQ.a(eVar);
-                        if (this.Km <= 0 && this.lmU != null) {
-                            this.Km = this.lmU.kK();
+                        this.lmS.a(eVar);
+                        if (this.Km <= 0 && this.lmW != null) {
+                            this.Km = this.lmW.kK();
                         }
                         eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                        this.lmQ.a(eVar);
+                        com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                        this.lmS.a(eVar);
                         a dcn2 = a.dcn();
-                        if (dcn2 != null && this.lmU != null && this.lmU.kN()) {
-                            dcn2.a(this.lmQ);
+                        if (dcn2 != null && this.lmW != null && this.lmW.kN()) {
+                            dcn2.a(this.lmS);
                         }
                     }
                 } catch (SocketException e3) {
-                    this.lmQ.dcq().mNetErrorCode = -12;
+                    this.lmS.dcq().mNetErrorCode = -12;
                     z = true;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.lmQ.a(eVar);
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                    this.lmS.a(eVar);
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn3 = a.dcn();
-                    if (dcn3 != null && this.lmU != null && this.lmU.kN()) {
-                        dcn3.a(this.lmQ);
+                    if (dcn3 != null && this.lmW != null && this.lmW.kN()) {
+                        dcn3.a(this.lmS);
                     }
                 } catch (Throwable th) {
-                    this.lmQ.dcq().mNetErrorCode = -10;
+                    this.lmS.dcq().mNetErrorCode = -10;
                     z = false;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    this.lmQ.a(eVar);
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                    this.lmS.a(eVar);
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn4 = a.dcn();
-                    if (dcn4 != null && this.lmU != null && this.lmU.kN()) {
-                        dcn4.a(this.lmQ);
+                    if (dcn4 != null && this.lmW != null && this.lmW.kN()) {
+                        dcn4.a(this.lmS);
                     }
                 }
-                if (this.lmQ.dcq().responseCode == 200) {
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                if (this.lmS.dcq().responseCode == 200) {
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn5 = a.dcn();
-                    if (dcn5 == null || this.lmU == null || !this.lmU.kN()) {
+                    if (dcn5 == null || this.lmW == null || !this.lmW.kN()) {
                         return;
                     }
-                    dcn5.a(this.lmQ);
+                    dcn5.a(this.lmS);
                     return;
                 }
-                eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i4;
-                z = ak(this.lmQ.dcq().responseCode);
-                this.lmQ.a(eVar);
-                if (this.Km <= 0 && this.lmU != null) {
-                    this.Km = this.lmU.kK();
+                eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i4;
+                z = ak(this.lmS.dcq().responseCode);
+                this.lmS.a(eVar);
+                if (this.Km <= 0 && this.lmW != null) {
+                    this.Km = this.lmW.kK();
                 }
                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.a(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.a(eVar);
                 a dcn6 = a.dcn();
-                if (dcn6 != null && this.lmU != null && this.lmU.kN()) {
-                    dcn6.a(this.lmQ);
+                if (dcn6 != null && this.lmW != null && this.lmW.kN()) {
+                    dcn6.a(this.lmS);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.Km <= 0 && this.lmU != null) {
-                    this.Km = this.lmU.kK();
+                if (this.Km <= 0 && this.lmW != null) {
+                    this.Km = this.lmW.kK();
                 }
                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.a(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.a(eVar);
                 a dcn7 = a.dcn();
-                if (dcn7 != null && this.lmU != null && this.lmU.kN()) {
-                    dcn7.a(this.lmQ);
+                if (dcn7 != null && this.lmW != null && this.lmW.kN()) {
+                    dcn7.a(this.lmS);
                 }
                 throw th2;
             }
@@ -348,7 +348,7 @@ public class d {
     }
 
     public void f(int i, int i2, int i3) {
-        if (this.lmQ.dcp().kX()) {
+        if (this.lmS.dcp().kX()) {
             e(i, i2, i3);
         } else {
             g(i, i2, i3);
@@ -370,118 +370,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.lmQ.dcq().Le && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.lmS.dcq().Le && z2 && i4 < i; i4++) {
             e eVar = new e();
             this.Kz = i4;
             eVar.retry = i4 + 1;
             try {
                 try {
                     try {
-                        this.lmU = new b(this.lmQ);
-                        this.lmU.c(i2, i3, eVar);
+                        this.lmW = new b(this.lmS);
+                        this.lmW.c(i2, i3, eVar);
                     } catch (SocketTimeoutException e) {
-                        this.lmQ.dcq().mNetErrorCode = -13;
+                        this.lmS.dcq().mNetErrorCode = -13;
                         z = true;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        this.lmQ.a(eVar);
-                        if (this.Km <= 0 && this.lmU != null) {
-                            this.Km = this.lmU.kK();
+                        this.lmS.a(eVar);
+                        if (this.Km <= 0 && this.lmW != null) {
+                            this.Km = this.lmW.kK();
                         }
                         eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                        this.lmQ.a(eVar);
+                        com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                        this.lmS.a(eVar);
                         a dcn = a.dcn();
                         if (dcn != null) {
-                            dcn.a(this.lmQ);
+                            dcn.a(this.lmS);
                         }
                     } catch (Throwable th) {
-                        this.lmQ.dcq().mNetErrorCode = -10;
+                        this.lmS.dcq().mNetErrorCode = -10;
                         z = false;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
-                        this.lmQ.a(eVar);
-                        if (this.Km <= 0 && this.lmU != null) {
-                            this.Km = this.lmU.kK();
+                        this.lmS.a(eVar);
+                        if (this.Km <= 0 && this.lmW != null) {
+                            this.Km = this.lmW.kK();
                         }
                         eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                        this.lmQ.a(eVar);
+                        com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                        this.lmS.a(eVar);
                         a dcn2 = a.dcn();
                         if (dcn2 != null) {
-                            dcn2.a(this.lmQ);
+                            dcn2.a(this.lmS);
                         }
                     }
                 } catch (UnsupportedOperationException e2) {
                     z = false;
-                    this.lmQ.dcq().mNetErrorCode = -14;
+                    this.lmS.dcq().mNetErrorCode = -14;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                    this.lmQ.a(eVar);
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                    this.lmS.a(eVar);
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn3 = a.dcn();
                     if (dcn3 != null) {
-                        dcn3.a(this.lmQ);
+                        dcn3.a(this.lmS);
                     }
                 } catch (SocketException e3) {
-                    this.lmQ.dcq().mNetErrorCode = -12;
+                    this.lmS.dcq().mNetErrorCode = -12;
                     z = true;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.lmQ.a(eVar);
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                    this.lmS.a(eVar);
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn4 = a.dcn();
                     if (dcn4 != null) {
-                        dcn4.a(this.lmQ);
+                        dcn4.a(this.lmS);
                     }
                 }
-                if (this.lmQ.dcq().responseCode == 200) {
-                    if (this.Km <= 0 && this.lmU != null) {
-                        this.Km = this.lmU.kK();
+                if (this.lmS.dcq().responseCode == 200) {
+                    if (this.Km <= 0 && this.lmW != null) {
+                        this.Km = this.lmW.kK();
                     }
                     eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                    this.lmQ.a(eVar);
+                    com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                    this.lmS.a(eVar);
                     a dcn5 = a.dcn();
                     if (dcn5 != null) {
-                        dcn5.a(this.lmQ);
+                        dcn5.a(this.lmS);
                         return;
                     }
                     return;
                 }
-                eVar.exception = String.valueOf(this.lmQ.dcq().responseCode) + "|retryCount:" + i4;
-                z = ak(this.lmQ.dcq().responseCode);
-                this.lmQ.a(eVar);
-                if (this.Km <= 0 && this.lmU != null) {
-                    this.Km = this.lmU.kK();
+                eVar.exception = String.valueOf(this.lmS.dcq().responseCode) + "|retryCount:" + i4;
+                z = ak(this.lmS.dcq().responseCode);
+                this.lmS.a(eVar);
+                if (this.Km <= 0 && this.lmW != null) {
+                    this.Km = this.lmW.kK();
                 }
                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.a(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.a(eVar);
                 a dcn6 = a.dcn();
                 if (dcn6 != null) {
-                    dcn6.a(this.lmQ);
+                    dcn6.a(this.lmS);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.Km <= 0 && this.lmU != null) {
-                    this.Km = this.lmU.kK();
+                if (this.Km <= 0 && this.lmW != null) {
+                    this.Km = this.lmW.kK();
                 }
                 eVar.KE = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.ky().a(this.lmQ.dcp().getUrl(), this.lmQ.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
-                this.lmQ.a(eVar);
+                com.baidu.adp.lib.a.a.ky().a(this.lmS.dcp().getUrl(), this.lmS.dcp().bC("Host"), TextUtils.isEmpty(eVar.exception), eVar.KI != null);
+                this.lmS.a(eVar);
                 a dcn7 = a.dcn();
                 if (dcn7 != null) {
-                    dcn7.a(this.lmQ);
+                    dcn7.a(this.lmS);
                 }
                 throw th2;
             }
@@ -489,21 +489,21 @@ public class d {
     }
 
     public void cancel() {
-        if (this.lmU != null) {
-            this.lmU.cancelNetConnect();
+        if (this.lmW != null) {
+            this.lmW.cancelNetConnect();
         }
     }
 
     public boolean isCancel() {
-        if (this.lmQ == null) {
+        if (this.lmS == null) {
             return false;
         }
-        return this.lmQ.dcq().Le;
+        return this.lmS.dcq().Le;
     }
 
     public void setCancel() {
-        if (this.lmQ != null) {
-            this.lmQ.dcq().Le = true;
+        if (this.lmS != null) {
+            this.lmS.dcq().Le = true;
         }
     }
 }

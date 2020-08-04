@@ -32,23 +32,23 @@ import java.util.Map;
 import protobuf.NewpushRepair;
 /* loaded from: classes.dex */
 public class b {
-    private static b jht;
-    private List<GroupUpdateMessage> jhB;
-    private boolean jhH;
-    private int jhu = 900000;
-    private int jhv = 360000;
-    private int jhw = this.jhv;
-    private final int jhx = 0;
-    private final int jhy = 1;
-    private final int jhz = 2;
-    private int jhA = 0;
+    private static b jhv;
+    private List<GroupUpdateMessage> jhD;
+    private boolean jhJ;
+    private int jhw = 900000;
+    private int jhx = 360000;
+    private int jhy = this.jhx;
+    private final int jhz = 0;
+    private final int jhA = 1;
+    private final int jhB = 2;
     private int jhC = 0;
-    private long jhD = 0;
     private int jhE = 0;
+    private long jhF = 0;
+    private int jhG = 0;
     private final BdUniqueId mTag = BdUniqueId.gen();
     private final Handler mHandler = new a();
-    private LongSparseArray<Long> jhF = null;
-    private LongSparseArray<Long> jhG = null;
+    private LongSparseArray<Long> jhH = null;
+    private LongSparseArray<Long> jhI = null;
     private final com.baidu.adp.framework.client.socket.link.a HJ = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tieba.im.a.b.3
         @Override // com.baidu.adp.framework.client.socket.link.a
         public boolean onClose(int i, String str) {
@@ -74,7 +74,7 @@ public class b {
         public void onTextMessage(String str) {
         }
     };
-    private final com.baidu.adp.framework.listener.c iPM = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.a.b.4
+    private final com.baidu.adp.framework.listener.c iPO = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -86,7 +86,7 @@ public class b {
                 } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
                     ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
                     if (responseOnlineMessage.getError() == 0) {
-                        b.this.jhB = responseOnlineMessage.getGroupInfos();
+                        b.this.jhD = responseOnlineMessage.getGroupInfos();
                         if (com.baidu.tieba.im.memorycache.b.cvV().isInit()) {
                             b.this.cww();
                         }
@@ -108,18 +108,18 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener jhI = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.a.b.6
+    private final CustomMessageListener jhK = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.a.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (b.this.jhF != null) {
-                    b.this.jhF.clear();
+                if (b.this.jhH != null) {
+                    b.this.jhH.clear();
                 }
-                if (b.this.jhG != null) {
-                    b.this.jhG.clear();
+                if (b.this.jhI != null) {
+                    b.this.jhI.clear();
                 }
-                b.this.jhB = null;
+                b.this.jhD = null;
             }
         }
     };
@@ -144,7 +144,7 @@ public class b {
                 }
             }
         });
-        jht = null;
+        jhv = null;
     }
 
     /* loaded from: classes.dex */
@@ -162,12 +162,12 @@ public class b {
                     return;
                 case 3:
                     b.cwz().mHandler.removeMessages(3);
-                    if (b.cwz().jhE == 3) {
+                    if (b.cwz().jhG == 3) {
                         b.cwz().cwF();
                     } else {
                         b.cwz().cwE();
                     }
-                    b.cwz().mHandler.sendMessageDelayed(b.cwz().mHandler.obtainMessage(3), b.cwz().jhw);
+                    b.cwz().mHandler.sendMessageDelayed(b.cwz().mHandler.obtainMessage(3), b.cwz().jhy);
                     return;
                 default:
                     return;
@@ -205,24 +205,24 @@ public class b {
         MessageManager.getInstance().sendMessage(b);
         j.e(true, false, false);
         if (i == 3 || i == 1 || i == 2) {
-            if (this.jhF != null) {
-                this.jhF.clear();
+            if (this.jhH != null) {
+                this.jhH.clear();
             }
-            if (this.jhG != null) {
-                this.jhG.clear();
+            if (this.jhI != null) {
+                this.jhI.clear();
             }
         }
     }
 
     public void cww() {
         boolean z;
-        if (this.jhB != null) {
+        if (this.jhD != null) {
             LongSparseArray<Long> cwg = com.baidu.tieba.im.memorycache.b.cvV().cwg();
             if (cwg == null) {
-                this.jhB = null;
+                this.jhD = null;
                 return;
             }
-            Iterator<GroupUpdateMessage> it = this.jhB.iterator();
+            Iterator<GroupUpdateMessage> it = this.jhD.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -236,19 +236,19 @@ public class b {
                     }
                 }
             }
-            this.jhE = 3;
+            this.jhG = 3;
             if (z) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
             } else {
-                cwz().mHandler.sendMessageDelayed(cwz().mHandler.obtainMessage(3), cwz().jhw);
+                cwz().mHandler.sendMessageDelayed(cwz().mHandler.obtainMessage(3), cwz().jhy);
             }
-            this.jhB = null;
+            this.jhD = null;
         }
     }
 
     private void cwx() {
-        if (this.jhA != 0) {
-            if (this.jhA == 1) {
+        if (this.jhC != 0) {
+            if (this.jhC == 1) {
                 g(0L, 0L, 0L);
             } else {
                 cwE();
@@ -264,10 +264,10 @@ public class b {
     public static synchronized b cwz() {
         b bVar;
         synchronized (b.class) {
-            if (jht == null) {
-                jht = new b();
+            if (jhv == null) {
+                jhv = new b();
             }
-            bVar = jht;
+            bVar = jhv;
         }
         return bVar;
     }
@@ -277,11 +277,11 @@ public class b {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
         MessageManager.getInstance().registerListener(this.mCustomListener);
-        MessageManager.getInstance().registerListener(this.jhI);
+        MessageManager.getInstance().registerListener(this.jhK);
         h.bhY().a(this.HJ);
-        MessageManager.getInstance().registerListener(1003, this.iPM);
-        MessageManager.getInstance().registerListener(1001, this.iPM);
-        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_PUSH_COUNT, this.iPM);
+        MessageManager.getInstance().registerListener(1003, this.iPO);
+        MessageManager.getInstance().registerListener(1001, this.iPO);
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_PUSH_COUNT, this.iPO);
         cwA();
     }
 
@@ -303,36 +303,36 @@ public class b {
     }
 
     public void cwB() {
-        this.jhw = this.jhv;
+        this.jhy = this.jhx;
     }
 
     public void cwC() {
-        cwz().jhw = cwz().jhu;
+        cwz().jhy = cwz().jhw;
     }
 
     public void zi(int i) {
         if (i > 0) {
-            this.jhv = i;
+            this.jhx = i;
         }
     }
 
     public void zj(int i) {
         if (i > 0) {
-            this.jhu = i;
+            this.jhw = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void cwD() {
-        if (System.currentTimeMillis() - this.jhD >= 180000) {
+        if (System.currentTimeMillis() - this.jhF >= 180000) {
             PushCountMessage pushCountMessage = new PushCountMessage();
-            pushCountMessage.setPusherCount(this.jhC);
+            pushCountMessage.setPusherCount(this.jhE);
             pushCountMessage.setUpFlowSize(com.baidu.adp.lib.webSocket.h.mY().getUpFlowSize());
             pushCountMessage.setDownFlowSize(com.baidu.adp.lib.webSocket.h.mY().getDownFlowSize());
             pushCountMessage.setEnterForeCount(TbadkCoreApplication.getInst().getEnterForeCount());
             MessageManager.getInstance().sendMessage(pushCountMessage);
-            this.jhD = System.currentTimeMillis();
-            this.jhC = 0;
+            this.jhF = System.currentTimeMillis();
+            this.jhE = 0;
             com.baidu.adp.lib.webSocket.h.mY().nc();
             com.baidu.adp.lib.webSocket.h.mY().nb();
             TbadkCoreApplication.getInst().clearEnterForeCount();
@@ -351,7 +351,7 @@ public class b {
         } else {
             messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.cvV().cwg());
         }
-        messageSyncMessage.setForTimer(this.jhH);
+        messageSyncMessage.setForTimer(this.jhJ);
         LocalViewSize.ImageSize bau = LocalViewSize.bas().bau();
         if (bau != null) {
             messageSyncMessage.setWidth(bau.width);
@@ -372,22 +372,22 @@ public class b {
 
     public synchronized void c(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.jhC++;
-        this.jhH = false;
-        this.jhE = 1;
+        this.jhE++;
+        this.jhJ = false;
+        this.jhG = 1;
         this.mHandler.removeMessages(3);
-        cwz().mHandler.sendMessageDelayed(cwz().mHandler.obtainMessage(3), cwz().jhw);
-        if (this.jhF == null) {
-            this.jhF = new LongSparseArray<>();
-            this.jhF.clear();
+        cwz().mHandler.sendMessageDelayed(cwz().mHandler.obtainMessage(3), cwz().jhy);
+        if (this.jhH == null) {
+            this.jhH = new LongSparseArray<>();
+            this.jhH.clear();
         }
-        if (this.jhG == null) {
-            this.jhG = new LongSparseArray<>();
+        if (this.jhI == null) {
+            this.jhI = new LongSparseArray<>();
         }
         LongSparseArray<Long> cwg = com.baidu.tieba.im.memorycache.b.cvV().cwg();
         if (0 != j) {
             Long l = cwg.get(j);
-            Long l2 = this.jhF.get(j);
+            Long l2 = this.jhH.get(j);
             if (l == null) {
                 if (l2 == null) {
                     longValue = j2;
@@ -398,38 +398,38 @@ public class b {
                 longValue = l.longValue();
             }
             if (longValue > 0) {
-                this.jhF.put(j, Long.valueOf(longValue));
+                this.jhH.put(j, Long.valueOf(longValue));
             }
         }
-        if (this.jhF != null && this.jhF.size() > 0) {
-            for (int i = 0; i < this.jhF.size(); i++) {
-                long keyAt = this.jhF.keyAt(i);
+        if (this.jhH != null && this.jhH.size() > 0) {
+            for (int i = 0; i < this.jhH.size(); i++) {
+                long keyAt = this.jhH.keyAt(i);
                 Long l3 = cwg.get(keyAt);
                 if (l3 != null && l3.longValue() > 0) {
-                    this.jhF.put(keyAt, l3);
+                    this.jhH.put(keyAt, l3);
                 }
             }
         }
         if (!z) {
             if (j > 0 && j2 > 0) {
-                if (this.jhG.get(j) == null) {
-                    this.jhG.put(j, Long.valueOf(j2));
+                if (this.jhI.get(j) == null) {
+                    this.jhI.put(j, Long.valueOf(j2));
                 } else {
-                    long longValue2 = this.jhG.get(j).longValue();
+                    long longValue2 = this.jhI.get(j).longValue();
                     if (longValue2 > j2) {
                         j2 = longValue2;
                     }
-                    this.jhG.put(j, Long.valueOf(j2));
+                    this.jhI.put(j, Long.valueOf(j2));
                 }
             }
-            int size = this.jhF.size();
+            int size = this.jhH.size();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < size; i2++) {
-                long keyAt2 = this.jhF.keyAt(i2);
-                long longValue3 = this.jhF.valueAt(i2).longValue();
+                long keyAt2 = this.jhH.keyAt(i2);
+                long longValue3 = this.jhH.valueAt(i2).longValue();
                 long j4 = 0;
-                if (this.jhG.get(keyAt2) != null) {
-                    j4 = this.jhG.get(keyAt2).longValue();
+                if (this.jhI.get(keyAt2) != null) {
+                    j4 = this.jhI.get(keyAt2).longValue();
                 }
                 if (longValue3 >= j4) {
                     arrayList.add(Long.valueOf(j));
@@ -437,14 +437,14 @@ public class b {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.jhF.remove(((Long) it.next()).longValue());
+                this.jhH.remove(((Long) it.next()).longValue());
             }
         }
-        if (this.jhF.size() == 0) {
+        if (this.jhH.size() == 0) {
             cwH();
-            this.jhG.clear();
+            this.jhI.clear();
         } else {
-            a(this.jhF, 1);
+            a(this.jhH, 1);
         }
     }
 
@@ -463,32 +463,32 @@ public class b {
     public synchronized void a(LongSparseArray<Long> longSparseArray) {
         if (longSparseArray != null) {
             if (longSparseArray.size() != 0) {
-                this.jhH = false;
-                this.jhE = 4;
+                this.jhJ = false;
+                this.jhG = 4;
                 this.mHandler.removeMessages(3);
-                cwz().mHandler.sendMessageDelayed(cwz().mHandler.obtainMessage(3), cwz().jhw);
+                cwz().mHandler.sendMessageDelayed(cwz().mHandler.obtainMessage(3), cwz().jhy);
                 a(longSparseArray, 4);
             }
         }
     }
 
     private synchronized void zk(int i) {
-        this.jhH = true;
-        this.jhE = i;
+        this.jhJ = true;
+        this.jhG = i;
         a((LongSparseArray<Long>) null, i);
     }
 
     private void zl(int i) {
         if (i == 1) {
-            if (this.jhA != 2) {
-                this.jhA = 1;
+            if (this.jhC != 2) {
+                this.jhC = 1;
             }
         } else if (i == 3 || i == 2) {
-            this.jhA = 2;
+            this.jhC = 2;
         }
     }
 
     private void cwH() {
-        this.jhA = 0;
+        this.jhC = 0;
     }
 }

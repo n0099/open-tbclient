@@ -13,17 +13,17 @@ import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class c {
-    private OvalActionButton hXQ;
+    private OvalActionButton hXS;
     private TbPageContext<?> mPageContext;
     private String mPostContent;
     private String mTopicId;
 
     public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.hXQ = ovalActionButton;
-        this.hXQ.setIsCircle(true);
-        this.hXQ.setHasShadow(false);
-        this.hXQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
+        this.hXS = ovalActionButton;
+        this.hXS.setIsCircle(true);
+        this.hXS.setHasShadow(false);
+        this.hXS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.coh();

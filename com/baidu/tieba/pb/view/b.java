@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class b {
-    private static SparseIntArray kKm = new SparseIntArray();
+    private static SparseIntArray kKo = new SparseIntArray();
 
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
@@ -51,10 +51,10 @@ public class b {
     }
 
     private static int CA(int i) {
-        int i2 = kKm.get(i, -1);
+        int i2 = kKo.get(i, -1);
         if (i2 == -1) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), i);
-            kKm.put(i, dimens);
+            kKo.put(i, dimens);
             return dimens;
         }
         return i2;

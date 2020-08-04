@@ -8,7 +8,7 @@ public interface c {
     public interface a {
         void ceq();
 
-        void dpK();
+        void dpL();
     }
 
     /* loaded from: classes17.dex */

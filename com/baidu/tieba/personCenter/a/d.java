@@ -8,7 +8,7 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.personCenter.c.h;
 /* loaded from: classes16.dex */
 public class d extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.g>> {
-    private aa<h> hUP;
+    private aa<h> hUR;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -22,7 +22,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.card.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.g> b(ViewGroup viewGroup) {
         com.baidu.tieba.personCenter.view.g gVar = new com.baidu.tieba.personCenter.view.g(this.mPageContext);
-        gVar.c(this.hUP);
+        gVar.c(this.hUR);
         return new com.baidu.tieba.card.a.a<>(gVar);
     }
 
@@ -35,6 +35,6 @@ public class d extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.card.a
     }
 
     public void c(aa<h> aaVar) {
-        this.hUP = aaVar;
+        this.hUR = aaVar;
     }
 }

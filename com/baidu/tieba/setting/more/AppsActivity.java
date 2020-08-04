@@ -21,12 +21,12 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     private String mUrl = null;
     private BaseWebView mWebView = null;
     private ImageView mBack = null;
-    private a lxN = null;
-    private LinearLayout lxO = null;
-    private ProgressBar lxP = null;
-    private ImageView lxQ = null;
-    private RelativeLayout iQl = null;
-    private RelativeLayout lxR = null;
+    private a lxP = null;
+    private LinearLayout lxQ = null;
+    private ProgressBar lxR = null;
+    private ImageView lxS = null;
+    private RelativeLayout iQn = null;
+    private RelativeLayout lxT = null;
     private TextView bjS = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,42 +53,42 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
-        if (this.lxN != null) {
-            this.lxN.cancel();
+        if (this.lxP != null) {
+            this.lxP.cancel();
         }
-        this.lxN = new a(this.mUrl);
-        this.lxN.setPriority(3);
-        this.lxN.execute(new Object[0]);
+        this.lxP = new a(this.mUrl);
+        this.lxP.setPriority(3);
+        this.lxP.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ao.setBgColor(this.iQl, i);
+        ao.setBgColor(this.iQn, i);
         ao.setBgColor(this.mWebView, i);
-        ao.setTopBarBgImage(this.lxR, i);
+        ao.setTopBarBgImage(this.lxT, i);
         ao.setTopBarBackBgImage(this.mBack, i);
         ao.setTopBarTitleColor(this.bjS, i);
-        ao.setTopBarRefrshBgImage(this.lxQ, i);
+        ao.setTopBarRefrshBgImage(this.lxS, i);
     }
 
     private void brF() {
-        this.iQl = (RelativeLayout) findViewById(R.id.parent);
-        this.lxR = (RelativeLayout) findViewById(R.id.title);
+        this.iQn = (RelativeLayout) findViewById(R.id.parent);
+        this.lxT = (RelativeLayout) findViewById(R.id.title);
         this.bjS = (TextView) findViewById(R.id.title_text);
         this.mWebView = (BaseWebView) findViewById(R.id.app_webView);
         this.mWebView.setDownloadEnabled(true);
-        this.lxP = (ProgressBar) findViewById(R.id.app_progress);
-        this.lxO = (LinearLayout) findViewById(R.id.webview_fail_imageview);
-        this.lxO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.1
+        this.lxR = (ProgressBar) findViewById(R.id.app_progress);
+        this.lxQ = (LinearLayout) findViewById(R.id.webview_fail_imageview);
+        this.lxQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AppsActivity.this.refresh();
             }
         });
-        this.lxQ = (ImageView) findViewById(R.id.refresh);
-        this.lxQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.2
+        this.lxS = (ImageView) findViewById(R.id.refresh);
+        this.lxS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AppsActivity.this.refresh();
@@ -117,8 +117,8 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            AppsActivity.this.lxP.setVisibility(0);
-            AppsActivity.this.lxO.setVisibility(8);
+            AppsActivity.this.lxR.setVisibility(0);
+            AppsActivity.this.lxQ.setVisibility(8);
             AppsActivity.this.mWebView.setVisibility(0);
         }
 
@@ -141,8 +141,8 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             if (this.byq != null) {
                 this.byq.cancelNetConnect();
             }
-            AppsActivity.this.lxP.setVisibility(8);
-            AppsActivity.this.lxN = null;
+            AppsActivity.this.lxR.setVisibility(8);
+            AppsActivity.this.lxP = null;
             super.cancel(true);
         }
 
@@ -150,7 +150,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(final String str) {
-            AppsActivity.this.lxP.setVisibility(8);
+            AppsActivity.this.lxR.setVisibility(8);
             if (this.byq != null && this.byq.isNetSuccess() && str != null && str.length() > 0) {
                 com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.AppsActivity.a.1
                     @Override // java.lang.Runnable
@@ -162,7 +162,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                 AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
             } else if (!AppsActivity.this.dfa() && str == null) {
                 AppsActivity.this.mWebView.setVisibility(8);
-                AppsActivity.this.lxO.setVisibility(0);
+                AppsActivity.this.lxQ.setVisibility(0);
                 AppsActivity.this.showToast(AppsActivity.this.getPageContext().getString(R.string.neterror));
             } else {
                 AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, AppsActivity.this.getPageContext().getString(R.string.server_404), "text/html", "utf-8", "");
@@ -176,7 +176,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         if (noAccountData == null || noAccountData.length() <= 1) {
             return false;
         }
-        this.lxP.setVisibility(8);
+        this.lxR.setVisibility(8);
         this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, noAccountData, "text/html", "utf-8", "");
         return true;
     }

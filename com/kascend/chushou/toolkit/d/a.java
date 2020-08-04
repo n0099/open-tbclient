@@ -31,23 +31,23 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private static final String a = c.nnC.a();
-    private static final String b = c.nnC.b();
-    private static volatile a nDj;
+    private static final String a = c.nnE.a();
+    private static final String b = c.nnE.b();
+    private static volatile a nDl;
     private final List<UpdateVo> d = new ArrayList();
-    private final Set<String> nDk = new HashSet();
+    private final Set<String> nDm = new HashSet();
     private volatile boolean f = false;
     private volatile boolean g = false;
 
-    public static a dOw() {
-        if (nDj == null) {
+    public static a dOx() {
+        if (nDl == null) {
             synchronized (a.class) {
-                if (nDj == null) {
-                    nDj = new a();
+                if (nDl == null) {
+                    nDl = new a();
                 }
             }
         }
-        return nDj;
+        return nDl;
     }
 
     private a() {
@@ -67,9 +67,9 @@ public class a {
     }
 
     private void c() {
-        if (tv.chushou.zues.utils.a.ead() && !this.g) {
+        if (tv.chushou.zues.utils.a.eae() && !this.g) {
             this.g = true;
-            com.kascend.chushou.c.c.dMk().a(new tv.chushou.basis.d.a.c.a<String>() { // from class: com.kascend.chushou.toolkit.d.a.1
+            com.kascend.chushou.c.c.dMl().a(new tv.chushou.basis.d.a.c.a<String>() { // from class: com.kascend.chushou.toolkit.d.a.1
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                 }
@@ -134,7 +134,7 @@ public class a {
                         File file2 = listFiles[i2];
                         String name = file2.getName();
                         if (name.contains("apk")) {
-                            if (name.equals(updateVo.apk_name) && h.parseInt(updateVo.apk_versionCode) <= (a2 = a(tv.chushou.basis.d.b.dZE(), file2.getAbsolutePath()))) {
+                            if (name.equals(updateVo.apk_name) && h.parseInt(updateVo.apk_versionCode) <= (a2 = a(tv.chushou.basis.d.b.dZF(), file2.getAbsolutePath()))) {
                                 e.d("AnimPluginManager", updateVo.apk_name + " no need to update, version=" + a2);
                                 list.remove(i);
                                 break;
@@ -182,7 +182,7 @@ public class a {
     }
 
     private boolean d() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) tv.chushou.basis.d.b.dZE().getSystemService("connectivity");
+        ConnectivityManager connectivityManager = (ConnectivityManager) tv.chushou.basis.d.b.dZF().getSystemService("connectivity");
         if (connectivityManager == null) {
             return false;
         }
@@ -239,9 +239,9 @@ public class a {
             tv.chushou.zues.utils.e.d(r0, r1)
             goto L5
         L45:
-            java.util.Set<java.lang.String> r1 = r10.nDk
+            java.util.Set<java.lang.String> r1 = r10.nDm
             monitor-enter(r1)
-            java.util.Set<java.lang.String> r0 = r10.nDk     // Catch: java.lang.Throwable -> L77
+            java.util.Set<java.lang.String> r0 = r10.nDm     // Catch: java.lang.Throwable -> L77
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L77
             boolean r0 = r0.contains(r3)     // Catch: java.lang.Throwable -> L77
             if (r0 == 0) goto L7a
@@ -263,7 +263,7 @@ public class a {
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L77
             throw r0
         L7a:
-            java.util.Set<java.lang.String> r0 = r10.nDk     // Catch: java.lang.Throwable -> L77
+            java.util.Set<java.lang.String> r0 = r10.nDm     // Catch: java.lang.Throwable -> L77
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L77
             r0.add(r3)     // Catch: java.lang.Throwable -> L77
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L77
@@ -275,14 +275,14 @@ public class a {
             if (r0 == 0) goto L96
             r3.delete()
         L96:
-            tv.chushou.basis.d.b r0 = tv.chushou.basis.d.b.dZG()
+            tv.chushou.basis.d.b r0 = tv.chushou.basis.d.b.dZH()
             java.lang.Class<tv.chushou.basis.http.Http> r1 = tv.chushou.basis.http.Http.class
             tv.chushou.basis.d.a r0 = r0.S(r1)
             tv.chushou.basis.http.Http r0 = (tv.chushou.basis.http.Http) r0
             if (r0 != 0) goto Lb4
-            java.util.Set<java.lang.String> r1 = r10.nDk
+            java.util.Set<java.lang.String> r1 = r10.nDm
             monitor-enter(r1)
-            java.util.Set<java.lang.String> r0 = r10.nDk     // Catch: java.lang.Throwable -> Lb1
+            java.util.Set<java.lang.String> r0 = r10.nDm     // Catch: java.lang.Throwable -> Lb1
             java.lang.String r2 = r11.uri     // Catch: java.lang.Throwable -> Lb1
             r0.remove(r2)     // Catch: java.lang.Throwable -> Lb1
             monitor-exit(r1)     // Catch: java.lang.Throwable -> Lb1
@@ -298,9 +298,9 @@ public class a {
             boolean r0 = r0.downloadSync(r2, r1)     // Catch: java.lang.Throwable -> L232
             if (r0 != 0) goto Ldb
             tv.chushou.a.a.d.a.delete(r3)     // Catch: java.lang.Throwable -> L232
-            java.util.Set<java.lang.String> r2 = r10.nDk
+            java.util.Set<java.lang.String> r2 = r10.nDm
             monitor-enter(r2)
-            java.util.Set<java.lang.String> r0 = r10.nDk     // Catch: java.lang.Throwable -> Ld8
+            java.util.Set<java.lang.String> r0 = r10.nDm     // Catch: java.lang.Throwable -> Ld8
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> Ld8
             r0.remove(r3)     // Catch: java.lang.Throwable -> Ld8
             monitor-exit(r2)     // Catch: java.lang.Throwable -> Ld8
@@ -348,9 +348,9 @@ public class a {
             java.lang.String r2 = "apk"
             boolean r0 = r0.contains(r2)     // Catch: java.lang.Throwable -> L232
             if (r0 == 0) goto L1fb
-            android.app.Application r0 = tv.chushou.basis.d.b.dZE()     // Catch: java.lang.Throwable -> L232
+            android.app.Application r0 = tv.chushou.basis.d.b.dZF()     // Catch: java.lang.Throwable -> L232
             tv.chushou.basis.a.c r0 = tv.chushou.basis.a.c.gB(r0)     // Catch: java.lang.Throwable -> L232
-            java.lang.String r0 = r0.dZs()     // Catch: java.lang.Throwable -> L232
+            java.lang.String r0 = r0.dZt()     // Catch: java.lang.Throwable -> L232
             if (r0 == 0) goto L182
             java.lang.String r2 = r11.apk_name     // Catch: java.lang.Throwable -> L232
             r4 = 0
@@ -395,9 +395,9 @@ public class a {
             java.lang.StringBuilder r2 = r2.append(r4)     // Catch: java.lang.Throwable -> L232
             java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L232
             tv.chushou.zues.utils.e.d(r0, r2)     // Catch: java.lang.Throwable -> L232
-            java.util.Set<java.lang.String> r2 = r10.nDk
+            java.util.Set<java.lang.String> r2 = r10.nDm
             monitor-enter(r2)
-            java.util.Set<java.lang.String> r0 = r10.nDk     // Catch: java.lang.Throwable -> L268
+            java.util.Set<java.lang.String> r0 = r10.nDm     // Catch: java.lang.Throwable -> L268
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L268
             r0.remove(r3)     // Catch: java.lang.Throwable -> L268
             monitor-exit(r2)     // Catch: java.lang.Throwable -> L268
@@ -448,9 +448,9 @@ public class a {
             if (r1 == 0) goto L23d
             r3.delete()     // Catch: java.lang.Throwable -> L274
         L23d:
-            java.util.Set<java.lang.String> r1 = r10.nDk
+            java.util.Set<java.lang.String> r1 = r10.nDm
             monitor-enter(r1)
-            java.util.Set<java.lang.String> r2 = r10.nDk     // Catch: java.lang.Throwable -> L26b
+            java.util.Set<java.lang.String> r2 = r10.nDm     // Catch: java.lang.Throwable -> L26b
             java.lang.String r3 = r11.uri     // Catch: java.lang.Throwable -> L26b
             r2.remove(r3)     // Catch: java.lang.Throwable -> L26b
             monitor-exit(r1)     // Catch: java.lang.Throwable -> L26b
@@ -465,9 +465,9 @@ public class a {
         L254:
             r0 = move-exception
         L255:
-            java.util.Set<java.lang.String> r2 = r10.nDk
+            java.util.Set<java.lang.String> r2 = r10.nDm
             monitor-enter(r2)
-            java.util.Set<java.lang.String> r3 = r10.nDk     // Catch: java.lang.Throwable -> L26e
+            java.util.Set<java.lang.String> r3 = r10.nDm     // Catch: java.lang.Throwable -> L26e
             java.lang.String r4 = r11.uri     // Catch: java.lang.Throwable -> L26e
             r3.remove(r4)     // Catch: java.lang.Throwable -> L26e
             monitor-exit(r2)     // Catch: java.lang.Throwable -> L26e
@@ -535,7 +535,7 @@ public class a {
         tv.chushou.basis.a.d TD = gB.TD(str4);
         if (TD != null) {
             try {
-                Class loadClass = TD.ore.loadClass(str4 + ".PluginInterface");
+                Class loadClass = TD.orh.loadClass(str4 + ".PluginInterface");
                 view2 = (View) loadClass.getMethod("startAnimation", Context.class, View.class, Resources.class, Animation.AnimationListener.class, Object.class).invoke(loadClass.newInstance(), context, view, TD.resources, animationListener, obj);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -574,7 +574,7 @@ public class a {
         tv.chushou.basis.a.d TD = gB.TD(str3);
         Class<?>[] clsArr = {Context.class, View.class, Resources.class, View.class};
         try {
-            Class loadClass = TD.ore.loadClass(str3 + ".PluginInterface");
+            Class loadClass = TD.orh.loadClass(str3 + ".PluginInterface");
             loadClass.getMethod("stopAnimation", clsArr).invoke(loadClass.newInstance(), context, view, TD.resources, view2);
             e.d("AnimPluginManager", "stopAnimation()---->");
             return true;
@@ -688,7 +688,7 @@ public class a {
             }
         }
         if (updateVo != null) {
-            tv.chushou.a.a.b.a.dZP().N(new Runnable() { // from class: com.kascend.chushou.toolkit.d.a.3
+            tv.chushou.a.a.b.a.dZQ().N(new Runnable() { // from class: com.kascend.chushou.toolkit.d.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.a(updateVo);

@@ -5,12 +5,12 @@ import java.util.StringTokenizer;
 /* loaded from: classes20.dex */
 abstract class f implements org.aspectj.lang.c {
     String name;
-    int niR;
-    ClassLoader oge = null;
-    String ogn;
-    Class ogo;
-    a ogp;
-    private String ogq;
+    int niT;
+    ClassLoader ogg = null;
+    String ogp;
+    Class ogq;
+    a ogr;
+    private String ogs;
     private static boolean aqU = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
     static Class[] EMPTY_CLASS_ARRAY = new Class[0];
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.niR = -1;
-        this.niR = i;
+        this.niT = -1;
+        this.niT = i;
         this.name = str;
-        this.ogo = cls;
+        this.ogq = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
         if (aqU) {
-            if (this.ogp == null) {
+            if (this.ogr == null) {
                 try {
-                    this.ogp = new b();
+                    this.ogr = new b();
                 } catch (Throwable th) {
                     aqU = false;
                 }
             } else {
-                str = this.ogp.get(hVar.ogB);
+                str = this.ogr.get(hVar.ogD);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
         if (aqU) {
-            this.ogp.set(hVar.ogB, str);
+            this.ogr.set(hVar.ogD, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.ogD);
+        return a(h.ogF);
     }
 
-    public int dWO() {
-        if (this.niR == -1) {
-            this.niR = LF(0);
+    public int dWP() {
+        if (this.niT == -1) {
+            this.niT = LF(0);
         }
-        return this.niR;
+        return this.niT;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class dWP() {
-        if (this.ogo == null) {
-            this.ogo = LG(2);
+    public Class dWQ() {
+        if (this.ogq == null) {
+            this.ogq = LG(2);
         }
-        return this.ogo;
+        return this.ogq;
     }
 
-    public String dWQ() {
-        if (this.ogn == null) {
-            this.ogn = dWP().getName();
+    public String dWR() {
+        if (this.ogp == null) {
+            this.ogp = dWQ().getName();
         }
-        return this.ogn;
+        return this.ogp;
     }
 
-    private ClassLoader dWR() {
-        if (this.oge == null) {
-            this.oge = getClass().getClassLoader();
+    private ClassLoader dWS() {
+        if (this.ogg == null) {
+            this.ogg = getClass().getClassLoader();
         }
-        return this.oge;
+        return this.ogg;
     }
 
     String LE(int i) {
         int i2 = 0;
-        int indexOf = this.ogq.indexOf(45);
+        int indexOf = this.ogs.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.ogq.indexOf(45, i2);
+            indexOf = this.ogs.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.ogq.length();
+            indexOf = this.ogs.length();
         }
-        return this.ogq.substring(i2, indexOf);
+        return this.ogs.substring(i2, indexOf);
     }
 
     int LF(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class LG(int i) {
-        return org.aspectj.a.b.b.b(LE(i), dWR());
+        return org.aspectj.a.b.b.b(LE(i), dWS());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dWR());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dWS());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes20.dex */
     public static final class b implements a {
-        private SoftReference ogr;
+        private SoftReference ogt;
 
         public b() {
-            dWT();
+            dWU();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] dWS = dWS();
-            if (dWS == null) {
+            String[] dWT = dWT();
+            if (dWT == null) {
                 return null;
             }
-            return dWS[i];
+            return dWT[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void set(int i, String str) {
-            String[] dWS = dWS();
-            if (dWS == null) {
-                dWS = dWT();
+            String[] dWT = dWT();
+            if (dWT == null) {
+                dWT = dWU();
             }
-            dWS[i] = str;
-        }
-
-        private String[] dWS() {
-            return (String[]) this.ogr.get();
+            dWT[i] = str;
         }
 
         private String[] dWT() {
+            return (String[]) this.ogt.get();
+        }
+
+        private String[] dWU() {
             String[] strArr = new String[3];
-            this.ogr = new SoftReference(strArr);
+            this.ogt = new SoftReference(strArr);
             return strArr;
         }
     }

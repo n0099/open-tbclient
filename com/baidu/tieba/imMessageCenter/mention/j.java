@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes16.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> jqg = new ArrayList<>();
+    protected ArrayList<FeedData> jqi = new ArrayList<>();
     protected au page = new au();
-    protected h jqh = new h();
+    protected h jqj = new h();
 
     public ArrayList<FeedData> czb() {
-        return this.jqg;
+        return this.jqi;
     }
 
     public au getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.jqg.add(feedData);
+                    this.jqi.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && x.getCount(feedData.getPraiseList()) == 0) {
-                        this.jqg.remove(feedData);
+                        this.jqi.remove(feedData);
                     }
                 }
             }
-            this.jqh.parserJson(jSONObject.optJSONObject("message"));
+            this.jqj.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.jqg.add(feedData);
+                        this.jqi.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && x.getCount(feedData.getPraiseList()) == 0) {
-                            this.jqg.remove(feedData);
+                            this.jqi.remove(feedData);
                         }
                     }
                 }

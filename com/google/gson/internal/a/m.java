@@ -10,12 +10,12 @@ import java.lang.reflect.TypeVariable;
 /* loaded from: classes10.dex */
 public final class m<T> extends TypeAdapter<T> {
     private final TypeAdapter<T> delegate;
-    private final Gson nkt;
+    private final Gson nkv;
     private final Type type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.nkt = gson;
+        this.nkv = gson;
         this.delegate = typeAdapter;
         this.type = type;
     }
@@ -30,7 +30,7 @@ public final class m<T> extends TypeAdapter<T> {
         TypeAdapter<T> typeAdapter = this.delegate;
         Type a = a(this.type, t);
         if (a != this.type) {
-            typeAdapter = this.nkt.getAdapter(com.google.gson.b.a.k(a));
+            typeAdapter = this.nkv.getAdapter(com.google.gson.b.a.k(a));
             if ((typeAdapter instanceof i.a) && !(this.delegate instanceof i.a)) {
                 typeAdapter = this.delegate;
             }

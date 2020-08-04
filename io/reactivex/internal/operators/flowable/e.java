@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 /* loaded from: classes7.dex */
 public final class e extends io.reactivex.g<Object> implements io.reactivex.internal.a.e<Object> {
-    public static final io.reactivex.g<Object> nTa = new e();
+    public static final io.reactivex.g<Object> nTc = new e();
 
     private e() {
     }

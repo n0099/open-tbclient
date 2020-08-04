@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e jkd = new e();
+    private static e jkf = new e();
 
     private e() {
     }
 
     public static e cxt() {
-        return jkd;
+        return jkf;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class e extends a {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.jjT) {
-            ChatSetting chatSetting = this.jjT.get(str3);
+        synchronized (this.jjV) {
+            ChatSetting chatSetting = this.jjV.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -76,8 +76,8 @@ public class e extends a {
             l<String> cxp = cxp();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.jjT) {
-                this.jjT.put(str, personalSettingItemData);
+            synchronized (this.jjV) {
+                this.jjV.put(str, personalSettingItemData);
             }
             cxp.setForever(str, jsonStrWithObject);
         }
@@ -96,8 +96,8 @@ public class e extends a {
                 return;
             }
             final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.jjT) {
-                this.jjT.put(str, personalSettingItemData);
+            synchronized (this.jjV) {
+                this.jjV.put(str, personalSettingItemData);
             }
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */

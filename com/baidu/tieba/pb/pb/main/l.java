@@ -7,14 +7,14 @@ import com.baidu.adp.widget.ListView.ad;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class l extends ad.a {
-    private ViewGroup klB;
+    private ViewGroup klD;
     private TextView mTitle;
     private View mTopLine;
 
     public l(View view) {
         super(view);
         this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.klB = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.klD = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
     }
 
@@ -24,7 +24,7 @@ public class l extends ad.a {
 
     public void onChangeSkinType() {
         com.baidu.tbadk.core.util.ao.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.klB, R.color.cp_bg_line_e);
+        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.klD, R.color.cp_bg_line_e);
         com.baidu.tbadk.core.util.ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
     }
 }

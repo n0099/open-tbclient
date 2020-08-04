@@ -26,10 +26,10 @@ public class TopicListView extends FrameLayout {
     private g fBv;
     private PbListView fsC;
     private BdSwipeRefreshLayout ftC;
-    private com.baidu.tieba.homepage.topic.topictab.a iFT;
-    private com.baidu.tieba.homepage.topic.topictab.a.a iGf;
-    private ScrollFragmentTabHost isi;
-    ScrollFragmentTabHost.a isj;
+    private com.baidu.tieba.homepage.topic.topictab.a iFV;
+    private com.baidu.tieba.homepage.topic.topictab.a.a iGh;
+    private ScrollFragmentTabHost isk;
+    ScrollFragmentTabHost.a isl;
     RecyclerView.OnScrollListener mOnScrollListener;
     private TbPageContext<?> mPageContext;
     private com.baidu.tbadk.core.view.g mPullView;
@@ -42,16 +42,16 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setViewForeground() {
-        if (this.isi != null) {
-            this.isi.b(this.isj);
-            this.isi.a(this.isj);
-            this.isj.cmf();
+        if (this.isk != null) {
+            this.isk.b(this.isl);
+            this.isk.a(this.isl);
+            this.isl.cmf();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.iGf != null) {
-            this.iGf.setPageUniqueId(bdUniqueId);
+        if (this.iGh != null) {
+            this.iGh.setPageUniqueId(bdUniqueId);
         }
         if (this.mPullView != null) {
             this.mPullView.setTag(bdUniqueId);
@@ -59,12 +59,12 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.iFT = aVar;
+        this.iFV = aVar;
     }
 
     public void setData(List<q> list) {
         if (!x.isEmpty(list)) {
-            this.iGf.setData(list);
+            this.iGh.setData(list);
         }
     }
 
@@ -79,8 +79,8 @@ public class TopicListView extends FrameLayout {
     public void reload() {
         this.VT.setSelection(0);
         startPullRefresh();
-        if (this.isj != null) {
-            this.isj.cmf();
+        if (this.isl != null) {
+            this.isl.cmf();
         }
     }
 
@@ -137,9 +137,9 @@ public class TopicListView extends FrameLayout {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.isNetworkAvailableForImmediately() && TopicListView.this.iFT != null) {
+                        if (j.isNetworkAvailableForImmediately() && TopicListView.this.iFV != null) {
                             TopicListView.this.VT.setVisibility(0);
-                            TopicListView.this.iFT.loadData();
+                            TopicListView.this.iFV.loadData();
                         }
                     }
                 });
@@ -178,8 +178,8 @@ public class TopicListView extends FrameLayout {
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            if (this.iGf != null) {
-                this.iGf.notifyDataSetChanged();
+            if (this.iGh != null) {
+                this.iGh.notifyDataSetChanged();
             }
             ao.setBackgroundColor(this.ftC, R.color.cp_bg_line_e);
             ao.setBackgroundColor(this.VT, R.color.cp_bg_line_d);
@@ -197,16 +197,16 @@ public class TopicListView extends FrameLayout {
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.isi = scrollFragmentTabHost;
-        if (this.isi != null) {
-            this.isi.b(this.isj);
-            this.isi.a(this.isj);
+        this.isk = scrollFragmentTabHost;
+        if (this.isk != null) {
+            this.isk.b(this.isl);
+            this.isk.a(this.isl);
         }
     }
 
     public void destroy() {
-        if (this.isi != null) {
-            this.isi.b(this.isj);
+        if (this.isk != null) {
+            this.isk.b(this.isl);
         }
         this.VT.removeOnScrollListener(this.mOnScrollListener);
         bxe();

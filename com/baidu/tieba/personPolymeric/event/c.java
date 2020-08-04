@@ -49,11 +49,11 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes18.dex */
 public class c extends a {
-    private f kVX;
+    private f kVZ;
 
     public c(TbPageContext tbPageContext, f fVar) {
         super(tbPageContext);
-        this.kVX = fVar;
+        this.kVZ = fVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0151, code lost:
@@ -88,7 +88,7 @@ public class c extends a {
                         mVar.iC(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(mVar);
-                        this.kVX.cXo().a((q) mVar, (List<q>) arrayList, 0);
+                        this.kVZ.cXo().a((q) mVar, (List<q>) arrayList, 0);
                         return;
                     }
                     return;
@@ -112,9 +112,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.kVX != null && this.kVX.cXn() != null) {
+                    if (this.kVZ != null && this.kVZ.cXn() != null) {
                         TiebaStatic.log("c12207");
-                        this.kVX.cXn().cXt();
+                        this.kVZ.cXn().cXt();
                         return;
                     }
                     return;
@@ -309,8 +309,8 @@ public class c extends a {
                         mVar2.iC(false);
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(mVar2);
-                        if (this.kVX.cXo() != null) {
-                            this.kVX.cXo().a((q) mVar2, (List<q>) arrayList2, 0, true);
+                        if (this.kVZ.cXo() != null) {
+                            this.kVZ.cXo().a((q) mVar2, (List<q>) arrayList2, 0, true);
                             return;
                         }
                         return;

@@ -6,8 +6,8 @@ import kascend.core.KSDevice;
 /* loaded from: classes12.dex */
 public abstract class a {
     protected Context context;
-    protected a nXE;
-    protected KSDevice nXF;
+    protected a nXG;
+    protected KSDevice nXH;
 
     public abstract void Ta(String str);
 
@@ -18,32 +18,32 @@ public abstract class a {
     }
 
     public void a(a aVar) {
-        this.nXE = aVar;
+        this.nXG = aVar;
     }
 
     public void a(KSDevice kSDevice) {
-        this.nXF = kSDevice;
+        this.nXH = kSDevice;
     }
 
-    public String dTF() {
+    public String dTG() {
         String ds = getDS();
         if (TextUtils.isEmpty(ds)) {
-            if (this.nXE == null) {
-                return dTG();
+            if (this.nXG == null) {
+                return dTH();
             }
-            return this.nXE.dTF();
+            return this.nXG.dTG();
         }
         return ds;
     }
 
     public void SZ(String str) {
         Ta(str);
-        if (this.nXE != null) {
-            this.nXE.Ta(str);
+        if (this.nXG != null) {
+            this.nXG.Ta(str);
         }
     }
 
-    public String dTG() {
-        return this.nXF != null ? this.nXF.getDeviceId() : "";
+    public String dTH() {
+        return this.nXH != null ? this.nXH.getDeviceId() : "";
     }
 }

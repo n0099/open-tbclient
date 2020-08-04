@@ -25,21 +25,21 @@ import com.baidu.tieba.sdk.b.g;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a lvk = null;
+    private static a lvm = null;
 
     private a() {
     }
 
     public static a ddS() {
         a aVar;
-        if (lvk != null) {
-            return lvk;
+        if (lvm != null) {
+            return lvm;
         }
         synchronized (a.class) {
-            if (lvk == null) {
-                lvk = new a();
+            if (lvm == null) {
+                lvm = new a();
             }
-            aVar = lvk;
+            aVar = lvm;
         }
         return aVar;
     }

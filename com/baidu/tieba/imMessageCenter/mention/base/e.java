@@ -16,8 +16,8 @@ public class e {
     private b jrA;
     private b jrB;
     private b jrC;
-    private b jry;
-    private b jrz;
+    private b jrD;
+    private b jrE;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void x(TbPageContext tbPageContext) {
-        this.jry = new b(tbPageContext, a.jrh);
-        this.jrz = new b(tbPageContext, a.jri);
-        this.jrA = new b(tbPageContext, a.jrl);
+        this.jrA = new b(tbPageContext, a.jrj);
         this.jrB = new b(tbPageContext, a.jrk);
-        this.jrC = new b(tbPageContext, a.jrj);
-        this.aWf.add(this.jry);
-        this.aWf.add(this.jrz);
+        this.jrC = new b(tbPageContext, a.jrn);
+        this.jrD = new b(tbPageContext, a.jrm);
+        this.jrE = new b(tbPageContext, a.jrl);
         this.aWf.add(this.jrA);
         this.aWf.add(this.jrB);
         this.aWf.add(this.jrC);
+        this.aWf.add(this.jrD);
+        this.aWf.add(this.jrE);
         this.VT.addAdapters(this.aWf);
     }
 
@@ -77,8 +77,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa aaVar) {
+        this.jrE.setOnCardSubClickListener(aaVar);
+        this.jrD.setOnCardSubClickListener(aaVar);
         this.jrC.setOnCardSubClickListener(aaVar);
-        this.jrB.setOnCardSubClickListener(aaVar);
-        this.jrA.setOnCardSubClickListener(aaVar);
     }
 }

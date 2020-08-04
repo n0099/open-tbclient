@@ -4,7 +4,7 @@ import rx.d;
 import rx.g;
 /* loaded from: classes6.dex */
 public final class n<T> implements d.a<T> {
-    final rx.d<T> ojX;
+    final rx.d<T> ojZ;
     final rx.g scheduler;
 
     @Override // rx.functions.b
@@ -14,7 +14,7 @@ public final class n<T> implements d.a<T> {
 
     public n(rx.d<T> dVar, rx.g gVar) {
         this.scheduler = gVar;
-        this.ojX = dVar;
+        this.ojZ = dVar;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -27,18 +27,18 @@ public final class n<T> implements d.a<T> {
     /* renamed from: rx.internal.operators.n$1  reason: invalid class name */
     /* loaded from: classes6.dex */
     public class AnonymousClass1 implements rx.functions.a {
-        final /* synthetic */ g.a omJ;
+        final /* synthetic */ g.a omL;
         final /* synthetic */ rx.j val$subscriber;
 
         AnonymousClass1(rx.j jVar, g.a aVar) {
             this.val$subscriber = jVar;
-            this.omJ = aVar;
+            this.omL = aVar;
         }
 
         @Override // rx.functions.a
         public void call() {
             final Thread currentThread = Thread.currentThread();
-            n.this.ojX.a((rx.j) new rx.j<T>(this.val$subscriber) { // from class: rx.internal.operators.n.1.1
+            n.this.ojZ.a((rx.j) new rx.j<T>(this.val$subscriber) { // from class: rx.internal.operators.n.1.1
                 @Override // rx.e
                 public void onNext(T t) {
                     AnonymousClass1.this.val$subscriber.onNext(t);
@@ -49,7 +49,7 @@ public final class n<T> implements d.a<T> {
                     try {
                         AnonymousClass1.this.val$subscriber.onError(th);
                     } finally {
-                        AnonymousClass1.this.omJ.unsubscribe();
+                        AnonymousClass1.this.omL.unsubscribe();
                     }
                 }
 
@@ -58,7 +58,7 @@ public final class n<T> implements d.a<T> {
                     try {
                         AnonymousClass1.this.val$subscriber.onCompleted();
                     } finally {
-                        AnonymousClass1.this.omJ.unsubscribe();
+                        AnonymousClass1.this.omL.unsubscribe();
                     }
                 }
 
@@ -70,7 +70,7 @@ public final class n<T> implements d.a<T> {
                             if (currentThread == Thread.currentThread()) {
                                 fVar.request(j);
                             } else {
-                                AnonymousClass1.this.omJ.c(new rx.functions.a() { // from class: rx.internal.operators.n.1.1.1.1
+                                AnonymousClass1.this.omL.c(new rx.functions.a() { // from class: rx.internal.operators.n.1.1.1.1
                                     @Override // rx.functions.a
                                     public void call() {
                                         fVar.request(j);

@@ -38,7 +38,7 @@ public class l {
         a.ah("obj_param5", u(bvVar));
         a.ah("obj_type", bvVar.aXr());
         if (bvVar.aXO() != null) {
-            a.ah("obj_name", bvVar.aXO().lNV ? 1 : 0);
+            a.ah("obj_name", bvVar.aXO().lNX ? 1 : 0);
         }
         if (bvVar.getBaijiahaoData() != null) {
             a.dn("obj_param4", bvVar.getBaijiahaoData().oriUgcNid);

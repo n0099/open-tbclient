@@ -33,8 +33,8 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     private FrsFragment hHU;
     public com.baidu.tieba.write.g hJJ;
     private com.baidu.tieba.frs.profession.permission.c hJL;
-    private l ifA;
-    private NoPressedRelativeLayout ifc;
+    private l ifC;
+    private NoPressedRelativeLayout ife;
     private c.a hJM = new c.a() { // from class: com.baidu.tieba.frs.vc.d.1
         @Override // com.baidu.tieba.frs.profession.permission.c.a
         public void nQ(boolean z) {
@@ -60,9 +60,9 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.d.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (bf.checkUpIsLogin(d.this.hHU.getPageContext().getPageActivity()) && !d.this.fwT.doV() && !d.this.cdt()) {
-                if (d.this.ifA != null) {
-                    d.this.ifA.cjy();
+            if (bf.checkUpIsLogin(d.this.hHU.getPageContext().getPageActivity()) && !d.this.fwT.doW() && !d.this.cdt()) {
+                if (d.this.ifC != null) {
+                    d.this.ifC.cjy();
                 }
                 if (d.this.hHU.cbu().wB(502) != null) {
                     d.this.hJL.aK(d.this.hHU.getForumId(), d.this.hHU.cbu().cjp().tabId);
@@ -170,7 +170,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     public d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
         if (frsFragment != null && noPressedRelativeLayout != null) {
             this.hHU = frsFragment;
-            this.ifc = noPressedRelativeLayout;
+            this.ife = noPressedRelativeLayout;
             this.fwT = new com.baidu.tieba.ueg.d(frsFragment.getPageContext());
             this.hJL = new com.baidu.tieba.frs.profession.permission.c(frsFragment.getPageContext());
             this.hJL.a(this.hJM);
@@ -190,7 +190,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     /* JADX INFO: Access modifiers changed from: private */
     public void va(int i) {
         if (this.hJJ == null) {
-            this.hJJ = new com.baidu.tieba.write.g(this.hHU.getPageContext(), this.ifc, "frs");
+            this.hJJ = new com.baidu.tieba.write.g(this.hHU.getPageContext(), this.ife, "frs");
             this.hJJ.PA("2");
             ItemInfo itemInfo = this.hHU.cbZ().itemInfo;
             this.hJJ.wk((itemInfo == null || itemInfo.id.intValue() <= 0 || as.isEmpty(itemInfo.name)) ? false : true);
@@ -226,14 +226,14 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
         if (this.hJJ != null) {
             this.hJJ.onDestroy();
         }
-        if (this.ifA != null) {
-            this.ifA.cjy();
+        if (this.ifC != null) {
+            this.ifC.cjy();
         }
     }
 
     public void ciz() {
-        if (this.ifA != null) {
-            this.ifA.cjy();
+        if (this.ifC != null) {
+            this.ifC.cjy();
         }
     }
 
@@ -363,17 +363,17 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
 
     public void a(View view, FrsViewData frsViewData) {
         if (this.hHU != null && frsViewData != null && frsViewData.getForum() != null && frsViewData.postTopic != null) {
-            if (this.ifA == null) {
-                this.ifA = new l(this.hHU.getActivity(), this);
+            if (this.ifC == null) {
+                this.ifC = new l(this.hHU.getActivity(), this);
             }
-            this.ifA.cjy();
-            this.ifA.b(view, frsViewData);
+            this.ifC.cjy();
+            this.ifC.b(view, frsViewData);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public boolean cfm() {
-        return (this.fwT.doV() || cdt()) ? false : true;
+        return (this.fwT.doW() || cdt()) ? false : true;
     }
 
     public void b(OvalActionButton ovalActionButton) {

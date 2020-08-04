@@ -17,26 +17,26 @@ import java.util.Set;
 /* loaded from: classes20.dex */
 public class d implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     private n eYQ;
-    private com.baidu.adp.widget.ListView.a iAr;
-    private com.baidu.adp.widget.ListView.a iAs;
-    private com.baidu.adp.widget.ListView.a llA;
+    private com.baidu.adp.widget.ListView.a iAt;
+    private com.baidu.adp.widget.ListView.a iAu;
     private com.baidu.adp.widget.ListView.a llB;
-    private com.baidu.tieba.InjectPlugin.a.c llv;
-    private com.baidu.adp.widget.ListView.a llz;
+    private com.baidu.adp.widget.ListView.a llC;
+    private com.baidu.adp.widget.ListView.a llD;
+    private com.baidu.tieba.InjectPlugin.a.c llx;
     private List<Object> mOriginDatas;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void init(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.llv = cVar;
-        if (this.llv != null && (this.llv.bqu() instanceof n)) {
-            this.eYQ = (n) this.llv.bqu();
-            this.iAr = new com.baidu.tieba.recapp.b.e(this.eYQ, AdvertAppInfo.dMF);
-            this.iAs = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMO);
-            this.llz = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMP);
-            this.llA = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMQ);
-            this.llB = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMR);
+        this.llx = cVar;
+        if (this.llx != null && (this.llx.bqu() instanceof n)) {
+            this.eYQ = (n) this.llx.bqu();
+            this.iAt = new com.baidu.tieba.recapp.b.e(this.eYQ, AdvertAppInfo.dMF);
+            this.iAu = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMO);
+            this.llB = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMP);
+            this.llC = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMQ);
+            this.llD = new com.baidu.tieba.recapp.b.g(this.eYQ, AdvertAppInfo.dMR);
         }
     }
 
@@ -295,15 +295,15 @@ public class d implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
             BdUniqueId type = advertAppInfo.getType();
             if (type == AdvertAppInfo.dMO) {
-                aVar = this.iAs;
+                aVar = this.iAu;
             } else if (type == AdvertAppInfo.dMF) {
-                aVar = this.iAr;
+                aVar = this.iAt;
             } else if (type == AdvertAppInfo.dMP) {
-                aVar = this.llz;
+                aVar = this.llB;
             } else if (type == AdvertAppInfo.dMQ) {
-                aVar = this.llA;
+                aVar = this.llC;
             } else {
-                aVar = type == AdvertAppInfo.dMR ? this.llB : null;
+                aVar = type == AdvertAppInfo.dMR ? this.llD : null;
             }
             if (aVar != null) {
                 return aVar.getView(i, view, viewGroup, advertAppInfo);
@@ -319,15 +319,15 @@ public class d implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.dMO) {
-                aVar = this.iAs;
+                aVar = this.iAu;
             } else if (type == AdvertAppInfo.dMF) {
-                aVar = this.iAr;
+                aVar = this.iAt;
             } else if (type == AdvertAppInfo.dMP) {
-                aVar = this.llz;
+                aVar = this.llB;
             } else if (type == AdvertAppInfo.dMQ) {
-                aVar = this.llA;
+                aVar = this.llC;
             } else {
-                aVar = type == AdvertAppInfo.dMR ? this.llB : null;
+                aVar = type == AdvertAppInfo.dMR ? this.llD : null;
             }
             if (aVar != null) {
                 return aVar.a(viewGroup, obj);
@@ -343,17 +343,17 @@ public class d implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
         if (obj instanceof AdvertAppInfo) {
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
             if (type == AdvertAppInfo.dMO) {
-                aVar2 = this.iAs;
+                aVar2 = this.iAu;
             } else if (type == AdvertAppInfo.dMF) {
-                aVar2 = this.iAr;
+                aVar2 = this.iAt;
             } else if (type == AdvertAppInfo.dMP) {
-                aVar2 = this.llz;
+                aVar2 = this.llB;
             } else if (type == AdvertAppInfo.dMQ) {
-                aVar2 = this.llA;
+                aVar2 = this.llC;
             } else if (type != AdvertAppInfo.dMR) {
                 aVar2 = null;
             } else {
-                aVar2 = this.llB;
+                aVar2 = this.llD;
             }
             if (aVar2 != null) {
                 aVar2.a(i, viewGroup, aVar, obj);

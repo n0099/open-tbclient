@@ -11,19 +11,19 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 /* loaded from: classes17.dex */
 class a {
-    private static final int jSv = ag(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
-    private static final int jSw = ag(new byte[]{106, 117, 110, 107});
-    private static final int jSx = ag(new byte[]{109, 100, 97, 116});
-    private static final int jSy = ag(new byte[]{109, 111, 111, 118});
-    private static final int jSz = ag(new byte[]{112, 110, 111, 116});
-    private static final int jSA = ag(new byte[]{115, 107, 105, 112});
-    private static final int jSB = ag(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
-    private static final int jSC = ag(new byte[]{80, 73, 67, 84});
-    private static final int jSD = ag(new byte[]{102, 116, 121, 112});
-    private static final int jSE = ag(new byte[]{117, 117, 105, 100});
-    private static final int jSF = ag(new byte[]{99, 109, 111, 118});
-    private static final int jSG = ag(new byte[]{115, 116, 99, 111});
-    private static final int jSH = ag(new byte[]{99, 111, 54, 52});
+    private static final int jSx = ag(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int jSy = ag(new byte[]{106, 117, 110, 107});
+    private static final int jSz = ag(new byte[]{109, 100, 97, 116});
+    private static final int jSA = ag(new byte[]{109, 111, 111, 118});
+    private static final int jSB = ag(new byte[]{112, 110, 111, 116});
+    private static final int jSC = ag(new byte[]{115, 107, 105, 112});
+    private static final int jSD = ag(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int jSE = ag(new byte[]{80, 73, 67, 84});
+    private static final int jSF = ag(new byte[]{102, 116, 121, 112});
+    private static final int jSG = ag(new byte[]{117, 117, 105, 100});
+    private static final int jSH = ag(new byte[]{99, 109, 111, 118});
+    private static final int jSI = ag(new byte[]{115, 116, 99, 111});
+    private static final int jSJ = ag(new byte[]{99, 111, 54, 52});
 
     static long AO(int i) {
         return i & 4294967295L;
@@ -97,14 +97,14 @@ class a {
             }
             long AO = AO(order.getInt());
             i = order.getInt();
-            if (i == jSD) {
+            if (i == jSF) {
                 int fn = fn(AO);
                 ByteBuffer order2 = ByteBuffer.allocate(fn).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= fn - 8) {
                     order2.flip();
-                    if ((i == jSv && i != jSw && i != jSx && i != jSy && i != jSz && i != jSA && i != jSB && i != jSC && i != jSE && i != jSD) || AO < 8) {
+                    if ((i == jSx && i != jSy && i != jSz && i != jSA && i != jSB && i != jSC && i != jSD && i != jSE && i != jSG && i != jSF) || AO < 8) {
                         break;
                     }
                     i2 = i;
@@ -122,12 +122,12 @@ class a {
                 } else {
                     fileChannel.position((fileChannel.position() + AO) - 8);
                 }
-                if (i == jSv) {
+                if (i == jSx) {
                 }
                 i2 = i;
             }
         }
-        return i != jSy ? 0 : 1;
+        return i != jSA ? 0 : 1;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
@@ -194,7 +194,7 @@ class a {
             }
             j2 = AO(order.getInt());
             i2 = order.getInt();
-            if (i2 == jSD) {
+            if (i2 == jSF) {
                 int fn = fn(j2);
                 byteBuffer2 = ByteBuffer.allocate(fn).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -208,7 +208,7 @@ class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == jSv && i2 != jSw && i2 != jSx && i2 != jSy && i2 != jSz && i2 != jSA && i2 != jSB && i2 != jSC && i2 != jSE && i2 != jSD) {
+                if (i2 == jSx && i2 != jSy && i2 != jSz && i2 != jSA && i2 != jSB && i2 != jSC && i2 != jSD && i2 != jSE && i2 != jSG && i2 != jSF) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -236,13 +236,13 @@ class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == jSv) {
+                if (i2 == jSx) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != jSy) {
+        if (i != jSA) {
             return false;
         }
         int fn2 = fn(j2);
@@ -251,13 +251,13 @@ class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == jSF) {
+        if (order2.getInt(12) == jSH) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != jSG && i3 != jSH) {
+            if (i3 != jSI && i3 != jSJ) {
                 order2.position(order2.position() + 1);
             } else if (AO(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -267,7 +267,7 @@ class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int fn3 = fn(order2.getInt());
-                if (i3 == jSG) {
+                if (i3 == jSI) {
                     if (order2.remaining() < fn3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -280,7 +280,7 @@ class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != jSH) {
+                } else if (i3 != jSJ) {
                     continue;
                 } else if (order2.remaining() < fn3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

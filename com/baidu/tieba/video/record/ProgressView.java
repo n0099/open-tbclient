@@ -17,23 +17,23 @@ public class ProgressView extends View {
     private long hio;
     private long lastStartTime;
     private int mProgress;
-    private a mjf;
-    private Paint mjg;
-    private Paint mjh;
+    private a mjh;
     private Paint mji;
     private Paint mjj;
     private Paint mjk;
-    private float mjl;
-    private float mjm;
-    private LinkedList<Integer> mjn;
+    private Paint mjl;
+    private Paint mjm;
+    private float mjn;
     private float mjo;
-    private volatile State mjp;
+    private LinkedList<Integer> mjp;
     private float mjq;
-    private float mjr;
+    private volatile State mjr;
     private float mjs;
-    private long mjt;
-    private long mju;
+    private float mjt;
+    private float mju;
     private long mjv;
+    private long mjw;
+    private long mjx;
 
     /* loaded from: classes17.dex */
     public interface a {
@@ -42,77 +42,77 @@ public class ProgressView extends View {
 
     public ProgressView(Context context) {
         super(context);
-        this.mjn = new LinkedList<>();
-        this.mjo = 0.0f;
-        this.mjp = State.PAUSE;
-        this.ejP = true;
+        this.mjp = new LinkedList<>();
         this.mjq = 0.0f;
-        this.mjr = 0.0f;
+        this.mjr = State.PAUSE;
+        this.ejP = true;
         this.mjs = 0.0f;
-        this.mjt = 0L;
-        this.lastStartTime = 0L;
-        this.mju = 0L;
+        this.mjt = 0.0f;
+        this.mju = 0.0f;
         this.mjv = 0L;
+        this.lastStartTime = 0L;
+        this.mjw = 0L;
+        this.mjx = 0L;
         init(context);
     }
 
     public ProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mjn = new LinkedList<>();
-        this.mjo = 0.0f;
-        this.mjp = State.PAUSE;
-        this.ejP = true;
+        this.mjp = new LinkedList<>();
         this.mjq = 0.0f;
-        this.mjr = 0.0f;
+        this.mjr = State.PAUSE;
+        this.ejP = true;
         this.mjs = 0.0f;
-        this.mjt = 0L;
-        this.lastStartTime = 0L;
-        this.mju = 0L;
+        this.mjt = 0.0f;
+        this.mju = 0.0f;
         this.mjv = 0L;
+        this.lastStartTime = 0L;
+        this.mjw = 0L;
+        this.mjx = 0L;
         init(context);
     }
 
     public ProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mjn = new LinkedList<>();
-        this.mjo = 0.0f;
-        this.mjp = State.PAUSE;
-        this.ejP = true;
+        this.mjp = new LinkedList<>();
         this.mjq = 0.0f;
-        this.mjr = 0.0f;
+        this.mjr = State.PAUSE;
+        this.ejP = true;
         this.mjs = 0.0f;
-        this.mjt = 0L;
-        this.lastStartTime = 0L;
-        this.mju = 0L;
+        this.mjt = 0.0f;
+        this.mju = 0.0f;
         this.mjv = 0L;
+        this.lastStartTime = 0L;
+        this.mjw = 0L;
+        this.mjx = 0L;
         init(context);
     }
 
     private void init(Context context) {
-        this.mjg = new Paint();
-        this.mjh = new Paint();
         this.mji = new Paint();
-        this.mjk = new Paint();
         this.mjj = new Paint();
+        this.mjk = new Paint();
+        this.mjm = new Paint();
+        this.mjl = new Paint();
         setBackgroundColor(Color.parseColor("#FFFFFF"));
-        this.mjg.setStyle(Paint.Style.FILL);
-        this.mjg.setColor(Color.parseColor("#33aaff"));
-        this.mjh.setStyle(Paint.Style.FILL);
-        this.mjh.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
         this.mji.setStyle(Paint.Style.FILL);
-        this.mji.setColor(Color.parseColor("#FFFFFF"));
-        this.mjk.setStyle(Paint.Style.FILL);
-        this.mjk.setColor(Color.parseColor("#e53917"));
+        this.mji.setColor(Color.parseColor("#33aaff"));
         this.mjj.setStyle(Paint.Style.FILL);
-        this.mjj.setColor(Color.parseColor("#33aaff"));
+        this.mjj.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
+        this.mjk.setStyle(Paint.Style.FILL);
+        this.mjk.setColor(Color.parseColor("#FFFFFF"));
+        this.mjm.setStyle(Paint.Style.FILL);
+        this.mjm.setColor(Color.parseColor("#e53917"));
+        this.mjl.setStyle(Paint.Style.FILL);
+        this.mjl.setColor(Color.parseColor("#33aaff"));
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.mjo = displayMetrics.widthPixels / 15000.0f;
-        this.mjs = this.mjo;
+        this.mjq = displayMetrics.widthPixels / 15000.0f;
+        this.mju = this.mjq;
     }
 
     public void setListener(a aVar) {
-        this.mjf = aVar;
+        this.mjh = aVar;
     }
 
     /* loaded from: classes17.dex */
@@ -149,75 +149,75 @@ public class ProgressView extends View {
         if (this.hio == 0) {
             this.hio = System.currentTimeMillis();
         }
-        if (this.mjv == 0) {
-            this.mjv = getHeight();
+        if (this.mjx == 0) {
+            this.mjx = getHeight();
         }
-        this.mjl = (float) this.mjv;
-        this.mjm = (float) ((this.mjv * 1) / 3);
+        this.mjn = (float) this.mjx;
+        this.mjo = (float) ((this.mjx * 1) / 3);
         long currentTimeMillis = System.currentTimeMillis();
-        this.mjq = 0.0f;
-        if (!this.mjn.isEmpty()) {
-            Iterator<Integer> it = this.mjn.iterator();
+        this.mjs = 0.0f;
+        if (!this.mjp.isEmpty()) {
+            Iterator<Integer> it = this.mjp.iterator();
             long j = 0;
             while (it.hasNext()) {
                 this.lastStartTime = j;
                 long intValue = it.next().intValue();
-                this.mju = intValue;
-                float f = this.mjq;
-                this.mjq += ((float) (intValue - j)) * this.mjo;
-                float f2 = this.mjq - this.mjm;
+                this.mjw = intValue;
+                float f = this.mjs;
+                this.mjs += ((float) (intValue - j)) * this.mjq;
+                float f2 = this.mjs - this.mjo;
                 if (f2 < 1.0f) {
                     f2 = 1.0f;
                 }
-                canvas.drawRect(f, 0.0f, f2, (float) (this.mjv - 1), this.mjg);
-                canvas.drawRect(f2, 0.0f, this.mjq, (float) (this.mjv - 1), this.mji);
+                canvas.drawRect(f, 0.0f, f2, (float) (this.mjx - 1), this.mji);
+                canvas.drawRect(f2, 0.0f, this.mjs, (float) (this.mjx - 1), this.mjk);
                 j = intValue;
             }
-            if (this.mjn.getLast().intValue() <= 3000.0f) {
-                canvas.drawRect(3000.0f * this.mjo, 0.0f, this.mjl + (this.mjo * 3000.0f), (float) (this.mjv - 1), this.mjh);
+            if (this.mjp.getLast().intValue() <= 3000.0f) {
+                canvas.drawRect(3000.0f * this.mjq, 0.0f, this.mjn + (this.mjq * 3000.0f), (float) (this.mjx - 1), this.mjj);
             }
         } else {
-            canvas.drawRect(3000.0f * this.mjo, 0.0f, this.mjl + (this.mjo * 3000.0f), (float) (this.mjv - 1), this.mjh);
+            canvas.drawRect(3000.0f * this.mjq, 0.0f, this.mjn + (this.mjq * 3000.0f), (float) (this.mjx - 1), this.mjj);
         }
-        if (this.mjp == State.ROLLBACK) {
-            canvas.drawRect(this.mjq - (((float) (this.mju - this.lastStartTime)) * this.mjo), 0.0f, this.mjq, (float) this.mjv, this.mjk);
+        if (this.mjr == State.ROLLBACK) {
+            canvas.drawRect(this.mjs - (((float) (this.mjw - this.lastStartTime)) * this.mjq), 0.0f, this.mjs, (float) this.mjx, this.mjm);
         }
-        if (this.mjp == State.START) {
-            this.mjr += this.mjs * ((float) (currentTimeMillis - this.hio));
-            float f3 = this.mjq + this.mjr;
+        if (this.mjr == State.START) {
+            this.mjt += this.mju * ((float) (currentTimeMillis - this.hio));
+            float f3 = this.mjs + this.mjt;
             if (f3 <= getMeasuredWidth()) {
-                canvas.drawRect(this.mjq, 0.0f, this.mjr + this.mjq, (float) (this.mjv - 1), this.mjg);
+                canvas.drawRect(this.mjs, 0.0f, this.mjt + this.mjs, (float) (this.mjx - 1), this.mji);
             } else {
-                canvas.drawRect(this.mjq, 0.0f, getMeasuredWidth(), (float) (this.mjv - 1), this.mjg);
+                canvas.drawRect(this.mjs, 0.0f, getMeasuredWidth(), (float) (this.mjx - 1), this.mji);
             }
-            canvas.drawRect(f3 - 5.0f, 0.0f, ((float) this.mjv) + (f3 - 5.0f), (float) (this.mjv - 1), this.mjj);
-            if (this.mjf != null) {
+            canvas.drawRect(f3 - 5.0f, 0.0f, ((float) this.mjx) + (f3 - 5.0f), (float) (this.mjx - 1), this.mjl);
+            if (this.mjh != null) {
                 int measuredWidth = (int) ((f3 / getMeasuredWidth()) * 100.0f);
                 if (measuredWidth > 100) {
                     measuredWidth = 100;
                 }
                 if (measuredWidth != this.mProgress) {
                     this.mProgress = measuredWidth;
-                    this.mjf.GF(this.mProgress);
+                    this.mjh.GF(this.mProgress);
                 }
             }
         } else {
-            if (this.mjf != null) {
-                int measuredWidth2 = (int) ((this.mjq / getMeasuredWidth()) * 100.0f);
+            if (this.mjh != null) {
+                int measuredWidth2 = (int) ((this.mjs / getMeasuredWidth()) * 100.0f);
                 if (measuredWidth2 > 100) {
                     measuredWidth2 = 100;
                 }
                 if (measuredWidth2 != this.mProgress) {
                     this.mProgress = measuredWidth2;
-                    this.mjf.GF(this.mProgress);
+                    this.mjh.GF(this.mProgress);
                 }
             }
-            if (this.mjt == 0 || currentTimeMillis - this.mjt >= 800) {
+            if (this.mjv == 0 || currentTimeMillis - this.mjv >= 800) {
                 this.ejP = !this.ejP;
-                this.mjt = System.currentTimeMillis();
+                this.mjv = System.currentTimeMillis();
             }
             if (this.ejP) {
-                canvas.drawRect(this.mjq - 5.0f, 0.0f, ((float) this.mjv) + (this.mjq - 5.0f), (float) (this.mjv - 1), this.mjj);
+                canvas.drawRect(this.mjs - 5.0f, 0.0f, ((float) this.mjx) + (this.mjs - 5.0f), (float) (this.mjx - 1), this.mjl);
             }
         }
         this.hio = System.currentTimeMillis();
@@ -225,57 +225,57 @@ public class ProgressView extends View {
     }
 
     public void setCurrentState(State state) {
-        this.mjp = state;
+        this.mjr = state;
         if (state != State.START) {
-            this.mjr = this.mjs;
+            this.mjt = this.mju;
         }
-        if (state == State.DELETE && this.mjn != null && !this.mjn.isEmpty()) {
-            this.mjn.removeLast();
+        if (state == State.DELETE && this.mjp != null && !this.mjp.isEmpty()) {
+            this.mjp.removeLast();
         }
     }
 
     public State getCurrentState() {
-        return this.mjp;
+        return this.mjr;
     }
 
     public void GE(int i) {
-        this.mjn.add(Integer.valueOf(i));
+        this.mjp.add(Integer.valueOf(i));
     }
 
     public int getLastProgress() {
-        if (this.mjn == null || this.mjn.isEmpty()) {
+        if (this.mjp == null || this.mjp.isEmpty()) {
             return 0;
         }
-        return this.mjn.getLast().intValue();
+        return this.mjp.getLast().intValue();
     }
 
-    public boolean drT() {
-        return this.mjn.isEmpty();
+    public boolean drU() {
+        return this.mjp.isEmpty();
     }
 
     public LinkedList<Integer> getTimeList() {
-        return this.mjn;
+        return this.mjp;
     }
 
     public void setTimeList(LinkedList<Integer> linkedList) {
         if (linkedList != null && linkedList.size() > 0) {
-            this.mjn = linkedList;
+            this.mjp = linkedList;
         }
     }
 
     public void setPaintHeight(int i) {
-        this.mjv = i;
+        this.mjx = i;
     }
 
     public void reset() {
-        this.mjn.clear();
-        this.mjp = State.PAUSE;
-        this.mjn.clear();
-        this.mjq = 0.0f;
+        this.mjp.clear();
+        this.mjr = State.PAUSE;
+        this.mjp.clear();
+        this.mjs = 0.0f;
         this.hio = 0L;
         this.lastStartTime = 0L;
-        this.mju = 0L;
+        this.mjw = 0L;
         this.mProgress = 0;
-        this.mjt = 0L;
+        this.mjv = 0L;
     }
 }

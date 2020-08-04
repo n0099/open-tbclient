@@ -9,13 +9,13 @@ import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes16.dex */
 public class z implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId kqv = BdUniqueId.gen();
+    public static final BdUniqueId kqx = BdUniqueId.gen();
     public String cover;
     public MetaData dSF;
     public String description;
     public boolean isChushou;
-    public int kqw;
-    public com.baidu.tbadk.core.data.aq kqz;
+    public com.baidu.tbadk.core.data.aq kqB;
+    public int kqy;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -24,8 +24,8 @@ public class z implements com.baidu.adp.widget.ListView.q {
     private HashMap<String, MetaData> userMap;
     public String userName;
     private boolean dPr = false;
-    public boolean kqx = false;
-    public boolean kqy = false;
+    public boolean kqz = false;
+    public boolean kqA = false;
 
     public void a(AlaLiveInfo alaLiveInfo) {
         MetaData metaData;
@@ -33,7 +33,7 @@ public class z implements com.baidu.adp.widget.ListView.q {
             this.userName = alaLiveInfo.user_info.user_name;
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
-            this.kqw = alaLiveInfo.audience_count.intValue();
+            this.kqy = alaLiveInfo.audience_count.intValue();
             this.liveStatus = alaLiveInfo.live_status.intValue();
             this.liveId = alaLiveInfo.live_id.longValue();
             this.isChushou = alaLiveInfo.live_from.intValue() == 1;
@@ -54,11 +54,11 @@ public class z implements com.baidu.adp.widget.ListView.q {
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.kqz = new com.baidu.tbadk.core.data.aq();
-                this.kqz.setFeedBackReasonMap(sparseArray);
-                this.kqz.dPE = sparseArray2;
+                this.kqB = new com.baidu.tbadk.core.data.aq();
+                this.kqB.setFeedBackReasonMap(sparseArray);
+                this.kqB.dPE = sparseArray2;
             } else {
-                this.kqz = null;
+                this.kqB = null;
             }
             this.dPr = true;
         }
@@ -70,7 +70,7 @@ public class z implements com.baidu.adp.widget.ListView.q {
 
     public void reset() {
         this.userName = null;
-        this.kqw = 0;
+        this.kqy = 0;
         this.description = null;
         this.cover = null;
         this.liveStatus = 0;
@@ -81,7 +81,7 @@ public class z implements com.baidu.adp.widget.ListView.q {
         this.thirdLiveType = null;
         this.thirdRoomId = null;
         this.routeType = null;
-        this.kqy = false;
+        this.kqA = false;
         this.dPr = false;
     }
 
@@ -91,6 +91,6 @@ public class z implements com.baidu.adp.widget.ListView.q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kqv;
+        return kqx;
     }
 }

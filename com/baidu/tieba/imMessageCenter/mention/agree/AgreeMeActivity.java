@@ -28,33 +28,33 @@ import com.baidu.tieba.imMessageCenter.mention.agree.b;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class AgreeMeActivity extends BaseActivity implements BdListView.e {
-    private b jqU;
-    private a jqV;
+    private b jqW;
+    private a jqX;
     private int mSkinType = 3;
-    private a.InterfaceC0676a jqW = new a.InterfaceC0676a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
+    private a.InterfaceC0676a jqY = new a.InterfaceC0676a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0676a
         public void bQi() {
-            if (AgreeMeActivity.this.jqU != null) {
-                AgreeMeActivity.this.jqU.bwE();
+            if (AgreeMeActivity.this.jqW != null) {
+                AgreeMeActivity.this.jqW.bwE();
             }
         }
 
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0676a
         public void cew() {
-            if (AgreeMeActivity.this.jqU != null) {
-                AgreeMeActivity.this.jqU.cew();
+            if (AgreeMeActivity.this.jqW != null) {
+                AgreeMeActivity.this.jqW.cew();
             }
         }
     };
-    private b.a jqX = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
+    private b.a jqZ = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
         public void ao(ArrayList<q> arrayList) {
-            if (AgreeMeActivity.this.jqV != null) {
-                AgreeMeActivity.this.jqV.c(AgreeMeActivity.this.jqU.hasMore, arrayList);
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.jqV.bxo());
-                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.jqV.getRootView());
-                if (AgreeMeActivity.this.jqV.fuP != null) {
-                    AgreeMeActivity.this.jqV.fuP.setVisibility(0);
+            if (AgreeMeActivity.this.jqX != null) {
+                AgreeMeActivity.this.jqX.c(AgreeMeActivity.this.jqW.hasMore, arrayList);
+                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.jqX.bxo());
+                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.jqX.getRootView());
+                if (AgreeMeActivity.this.jqX.fuP != null) {
+                    AgreeMeActivity.this.jqX.fuP.setVisibility(0);
                 }
             }
         }
@@ -62,36 +62,36 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
         public void onFailed(String str) {
             com.baidu.tbadk.coreExtra.messageCenter.b.bfl().ns(0);
-            if (AgreeMeActivity.this.jqV != null) {
-                AgreeMeActivity.this.jqV.qB(false);
-                if (x.isEmpty(AgreeMeActivity.this.jqV.getDatas())) {
-                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.jqV.bxo());
-                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.jqV.getRootView(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
+            if (AgreeMeActivity.this.jqX != null) {
+                AgreeMeActivity.this.jqX.qB(false);
+                if (x.isEmpty(AgreeMeActivity.this.jqX.getDatas())) {
+                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.jqX.bxo());
+                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.jqX.getRootView(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
                     AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                    if (AgreeMeActivity.this.jqV.fuP != null) {
-                        AgreeMeActivity.this.jqV.fuP.setVisibility(8);
+                    if (AgreeMeActivity.this.jqX.fuP != null) {
+                        AgreeMeActivity.this.jqX.fuP.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.jqV.bxo());
+                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.jqX.bxo());
                 AgreeMeActivity.this.showToast(str);
             }
         }
     };
-    private z jqQ = new z() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
+    private z jqS = new z() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
         @Override // com.baidu.adp.widget.ListView.z
         public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if (qVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 com.baidu.tieba.imMessageCenter.mention.base.a aVar = (com.baidu.tieba.imMessageCenter.mention.base.a) qVar;
-                if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.jrh) {
+                if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.jrj) {
                     AgreeMeActivity.this.a(aVar);
                 } else {
                     AgreeMeActivity.this.e(aVar);
                 }
                 if (aVar.czj() != null) {
                     ap ah = new ap(aVar.czj()).ah("obj_locate", 1);
-                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.jri) {
+                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.jrk) {
                         ah.ah("obj_type", 2);
                     } else {
                         ah.ah("obj_type", 1);
@@ -116,21 +116,21 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
         super.onCreate(bundle);
         View inflate = getLayoutInflater().inflate(R.layout.agree_me_activity, (ViewGroup) null);
         setContentView(inflate);
-        this.jqV = new a(getPageContext(), inflate);
-        this.jqV.a(this.jqW);
-        this.jqV.e(this.jqQ);
-        this.jqU = new b(getPageContext(), this.jqX);
-        showLoadingView(this.jqV.bxo());
-        this.jqV.qB(false);
-        this.jqU.clr();
+        this.jqX = new a(getPageContext(), inflate);
+        this.jqX.a(this.jqY);
+        this.jqX.e(this.jqS);
+        this.jqW = new b(getPageContext(), this.jqZ);
+        showLoadingView(this.jqX.bxo());
+        this.jqX.qB(false);
+        this.jqW.clr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jqV != null) {
-            this.jqV.onDestroy();
+        if (this.jqX != null) {
+            this.jqX.onDestroy();
         }
     }
 
@@ -139,26 +139,26 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.jqV != null) {
-                this.jqV.changeSkinType(i);
+            if (this.jqX != null) {
+                this.jqX.changeSkinType(i);
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.jqU != null) {
-            this.jqU.bwE();
+        if (this.jqW != null) {
+            this.jqW.bwE();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (j.isNetWorkAvailable() && this.jqU != null && this.jqV != null) {
-            hideNetRefreshView(this.jqV.getRootView());
-            showLoadingView(this.jqV.bxo(), true);
-            this.jqU.clr();
+        if (j.isNetWorkAvailable() && this.jqW != null && this.jqX != null) {
+            hideNetRefreshView(this.jqX.getRootView());
+            showLoadingView(this.jqX.bxo(), true);
+            this.jqW.clr();
         }
     }
 

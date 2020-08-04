@@ -10,11 +10,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
     protected long flq;
-    protected com.baidu.adp.lib.b.a iQB;
-    protected com.baidu.adp.lib.b.b iQC;
-    private boolean iQI;
-    private boolean iQJ;
-    protected int iQK;
+    protected com.baidu.adp.lib.b.a iQD;
+    protected com.baidu.adp.lib.b.b iQE;
+    private boolean iQK;
+    private boolean iQL;
+    protected int iQM;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
@@ -26,20 +26,20 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iQB = null;
-        this.iQC = null;
+        this.iQD = null;
+        this.iQE = null;
         this.flq = 0L;
-        this.iQI = false;
-        this.iQJ = false;
+        this.iQK = false;
+        this.iQL = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.iQB = aVar;
+        this.iQD = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.iQC = bVar;
+        this.iQE = bVar;
     }
 
     private void cqX() {
@@ -47,23 +47,23 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
     }
 
     public boolean cqY() {
-        return this.iQI;
+        return this.iQK;
     }
 
     public void px(boolean z) {
-        this.iQI = z;
+        this.iQK = z;
     }
 
     public boolean cqZ() {
-        return this.iQJ;
+        return this.iQL;
     }
 
     public void py(boolean z) {
-        this.iQJ = z;
+        this.iQL = z;
     }
 
     public void yq(int i) {
-        this.iQK = i;
+        this.iQM = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -77,15 +77,15 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
 
     /* loaded from: classes.dex */
     public static class a<T> extends ad.a {
-        private T iQL;
+        private T iQN;
 
         public a(View view, T t) {
             super(view);
-            this.iQL = t;
+            this.iQN = t;
         }
 
         public T cra() {
-            return this.iQL;
+            return this.iQN;
         }
     }
 }

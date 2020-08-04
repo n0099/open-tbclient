@@ -21,13 +21,13 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class PbGiftListView extends FrameLayout {
     private View dpe;
-    private TbImageView kJM;
-    private TbImageView kJN;
     private TbImageView kJO;
     private TbImageView kJP;
-    private TextView kJQ;
-    private TextView kJR;
-    private String kJS;
+    private TbImageView kJQ;
+    private TbImageView kJR;
+    private TextView kJS;
+    private TextView kJT;
+    private String kJU;
     private Context mContext;
     private int mSkinType;
     private long postId;
@@ -56,28 +56,28 @@ public class PbGiftListView extends FrameLayout {
 
     private void initView() {
         this.dpe = View.inflate(this.mContext, R.layout.pb_gift_list_item, this);
-        this.kJM = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view1);
-        this.kJN = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view2);
-        this.kJO = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view3);
-        this.kJP = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view4);
-        this.kJM.setDefaultBgResource(R.drawable.transparent_bg);
-        this.kJN.setDefaultBgResource(R.drawable.transparent_bg);
+        this.kJO = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view1);
+        this.kJP = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view2);
+        this.kJQ = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view3);
+        this.kJR = (TbImageView) this.dpe.findViewById(R.id.pb_gift_view4);
         this.kJO.setDefaultBgResource(R.drawable.transparent_bg);
         this.kJP.setDefaultBgResource(R.drawable.transparent_bg);
-        this.kJM.setDefaultResource(R.drawable.icon_gift_moren);
-        this.kJN.setDefaultResource(R.drawable.icon_gift_moren);
+        this.kJQ.setDefaultBgResource(R.drawable.transparent_bg);
+        this.kJR.setDefaultBgResource(R.drawable.transparent_bg);
         this.kJO.setDefaultResource(R.drawable.icon_gift_moren);
         this.kJP.setDefaultResource(R.drawable.icon_gift_moren);
-        this.kJQ = (TextView) this.dpe.findViewById(R.id.pb_gift_number_view);
-        this.kJR = (TextView) this.dpe.findViewById(R.id.pb_gift_send_view);
-        this.kJR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
+        this.kJQ.setDefaultResource(R.drawable.icon_gift_moren);
+        this.kJR.setDefaultResource(R.drawable.icon_gift_moren);
+        this.kJS = (TextView) this.dpe.findViewById(R.id.pb_gift_number_view);
+        this.kJT = (TextView) this.dpe.findViewById(R.id.pb_gift_send_view);
+        this.kJT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext tbPageContext = (TbPageContext) i.G(PbGiftListView.this.mContext);
                 if (tbPageContext != null) {
                     if (TbadkCoreApplication.isLogin()) {
                         if (!StringUtils.isNull(PbGiftListView.this.toUserName)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.kJS, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.kJU, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
                             return;
                         }
                         return;
@@ -91,7 +91,7 @@ public class PbGiftListView extends FrameLayout {
     public void a(aw awVar, String str, String str2, long j, long j2, long j3) {
         this.toUserId = j;
         this.toUserName = str;
-        this.kJS = str2;
+        this.kJU = str2;
         this.postId = j3;
         this.threadId = j2;
         if (awVar == null || awVar.aVd() == null || awVar.aVd().size() <= 0) {
@@ -100,50 +100,50 @@ public class PbGiftListView extends FrameLayout {
         }
         switch (awVar.aVd().size() > 4 ? 4 : awVar.aVd().size()) {
             case 1:
-                this.kJM.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
-                this.kJM.setVisibility(0);
-                this.kJN.setVisibility(8);
-                this.kJO.setVisibility(8);
+                this.kJO.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
+                this.kJO.setVisibility(0);
                 this.kJP.setVisibility(8);
+                this.kJQ.setVisibility(8);
+                this.kJR.setVisibility(8);
                 break;
             case 2:
-                this.kJM.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
-                this.kJN.startLoad(awVar.aVd().get(1).thumbnailUrl, 10, false);
-                this.kJM.setVisibility(0);
-                this.kJN.setVisibility(0);
-                this.kJO.setVisibility(8);
-                this.kJP.setVisibility(8);
-                break;
-            case 3:
-                this.kJM.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
-                this.kJN.startLoad(awVar.aVd().get(1).thumbnailUrl, 10, false);
-                this.kJO.startLoad(awVar.aVd().get(2).thumbnailUrl, 10, false);
-                this.kJM.setVisibility(0);
-                this.kJN.setVisibility(0);
-                this.kJO.setVisibility(0);
-                this.kJP.setVisibility(8);
-                break;
-            case 4:
-                this.kJM.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
-                this.kJN.startLoad(awVar.aVd().get(1).thumbnailUrl, 10, false);
-                this.kJO.startLoad(awVar.aVd().get(2).thumbnailUrl, 10, false);
-                this.kJP.startLoad(awVar.aVd().get(3).thumbnailUrl, 10, false);
-                this.kJM.setVisibility(0);
-                this.kJN.setVisibility(0);
+                this.kJO.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
+                this.kJP.startLoad(awVar.aVd().get(1).thumbnailUrl, 10, false);
                 this.kJO.setVisibility(0);
                 this.kJP.setVisibility(0);
+                this.kJQ.setVisibility(8);
+                this.kJR.setVisibility(8);
+                break;
+            case 3:
+                this.kJO.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
+                this.kJP.startLoad(awVar.aVd().get(1).thumbnailUrl, 10, false);
+                this.kJQ.startLoad(awVar.aVd().get(2).thumbnailUrl, 10, false);
+                this.kJO.setVisibility(0);
+                this.kJP.setVisibility(0);
+                this.kJQ.setVisibility(0);
+                this.kJR.setVisibility(8);
+                break;
+            case 4:
+                this.kJO.startLoad(awVar.aVd().get(0).thumbnailUrl, 10, false);
+                this.kJP.startLoad(awVar.aVd().get(1).thumbnailUrl, 10, false);
+                this.kJQ.startLoad(awVar.aVd().get(2).thumbnailUrl, 10, false);
+                this.kJR.startLoad(awVar.aVd().get(3).thumbnailUrl, 10, false);
+                this.kJO.setVisibility(0);
+                this.kJP.setVisibility(0);
+                this.kJQ.setVisibility(0);
+                this.kJR.setVisibility(0);
                 break;
         }
         if (awVar.getTotal() > 0) {
-            this.kJQ.setText(String.format(this.mContext.getResources().getString(R.string.gift_counts), Integer.valueOf(awVar.getTotal())));
-            this.kJQ.setVisibility(0);
+            this.kJS.setText(String.format(this.mContext.getResources().getString(R.string.gift_counts), Integer.valueOf(awVar.getTotal())));
+            this.kJS.setVisibility(0);
         } else {
-            this.kJQ.setVisibility(8);
+            this.kJS.setVisibility(8);
         }
         if (j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.kJR.setVisibility(8);
+            this.kJT.setVisibility(8);
         } else {
-            this.kJR.setVisibility(0);
+            this.kJT.setVisibility(0);
         }
     }
 
@@ -151,8 +151,8 @@ public class PbGiftListView extends FrameLayout {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != skinType) {
             this.mSkinType = skinType;
-            ao.setViewTextColor(this.kJQ, R.color.cp_cont_d, 1);
-            ao.setViewTextColor(this.kJR, R.color.cp_link_tip_c, 1);
+            ao.setViewTextColor(this.kJS, R.color.cp_cont_d, 1);
+            ao.setViewTextColor(this.kJT, R.color.cp_link_tip_c, 1);
         }
     }
 

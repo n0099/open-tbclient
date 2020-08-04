@@ -3,62 +3,62 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int opa = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long opb;
-    private static final int opc;
-    protected final E[] nXZ;
-    protected final long opd;
+    protected static final int opc = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long opd;
+    private static final int ope;
+    protected final E[] nYb;
+    protected final long opf;
 
     static {
-        int Q = ae.opl.Q(Object[].class);
+        int Q = ae.opn.Q(Object[].class);
         if (4 == Q) {
-            opc = opa + 2;
+            ope = opc + 2;
         } else if (8 == Q) {
-            opc = opa + 3;
+            ope = opc + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        opb = ae.opl.R(Object[].class) + (32 << (opc - opa));
+        opd = ae.opn.R(Object[].class) + (32 << (ope - opc));
     }
 
     public f(int i) {
         int Lo = h.Lo(i);
-        this.opd = Lo - 1;
-        this.nXZ = (E[]) new Object[(Lo << opa) + 64];
+        this.opf = Lo - 1;
+        this.nYb = (E[]) new Object[(Lo << opc) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final long gO(long j) {
-        return X(j, this.opd);
+        return X(j, this.opf);
     }
 
     protected final long X(long j, long j2) {
-        return opb + ((j & j2) << opc);
+        return opd + ((j & j2) << ope);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.opl.a(eArr, j, e);
+        ae.opn.a(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.opl.b(eArr, j, e);
+        ae.opn.b(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.opl.c(eArr, j);
+        return (E) ae.opn.c(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E gP(long j) {
-        return b(this.nXZ, j);
+        return b(this.nYb, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.opl.d(eArr, j);
+        return (E) ae.opn.d(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

@@ -10,21 +10,21 @@ import java.util.List;
 public class b {
     private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
     private BdTypeListView frv;
-    private d iIa;
-    private c iIb;
-    private m iIc;
+    private d iIc;
+    private c iId;
+    private m iIe;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.iIa = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.iJS);
-        this.iIb = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.iJR);
-        this.iIc = new m(hotRanklistActivity, o.iKX);
-        this.aWf.add(this.iIa);
-        this.aWf.add(this.iIb);
+        this.iIc = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.iJU);
+        this.iId = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.iJT);
+        this.iIe = new m(hotRanklistActivity, o.iKZ);
         this.aWf.add(this.iIc);
+        this.aWf.add(this.iId);
+        this.aWf.add(this.iIe);
         this.frv = bdTypeListView;
         this.frv.addAdapters(this.aWf);
     }
@@ -36,11 +36,11 @@ public class b {
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.iIc != null) {
-            this.iIc.coC();
+        if (this.iIe != null) {
+            this.iIe.coC();
         }
-        if (this.iIa != null) {
-            this.iIa.GV(str);
+        if (this.iIc != null) {
+            this.iIc.GV(str);
         }
         if (this.frv != null) {
             this.frv.setData(arrayList);

@@ -27,36 +27,36 @@ public class a implements View.OnClickListener, b.InterfaceC0703b, b.a, b.Interf
     private BdListView.e UC = new BdListView.e() { // from class: com.baidu.tieba.newinterest.b.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (a.this.kcF.hasMore()) {
-                a.this.kcF.cJf();
+            if (a.this.kcH.hasMore()) {
+                a.this.kcH.cJf();
                 a.this.bxS();
             }
         }
     };
     private PbListView fsC;
     private final BdRecyclerView gPM;
-    private final InterestedForumFragment kcE;
-    private final com.baidu.tieba.newinterest.c.b kcF;
-    private com.baidu.tieba.newinterest.a.b kcG;
-    private final TBSpecificationBtn kcH;
-    private final TBSpecificationBtn kcI;
+    private final InterestedForumFragment kcG;
+    private final com.baidu.tieba.newinterest.c.b kcH;
+    private com.baidu.tieba.newinterest.a.b kcI;
+    private final TBSpecificationBtn kcJ;
+    private final TBSpecificationBtn kcK;
     private final TbPageContext<BaseFragmentActivity> mPageContext;
 
     public a(InterestedForumFragment interestedForumFragment, BdRecyclerView bdRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, com.baidu.tieba.newinterest.c.b bVar) {
-        this.kcE = interestedForumFragment;
+        this.kcG = interestedForumFragment;
         this.gPM = bdRecyclerView;
-        this.kcF = bVar;
+        this.kcH = bVar;
         this.mPageContext = tbPageContext;
-        this.kcI = tBSpecificationBtn;
-        this.kcH = tBSpecificationBtn2;
+        this.kcK = tBSpecificationBtn;
+        this.kcJ = tBSpecificationBtn2;
         initUI();
         cfu();
     }
 
     private void initUI() {
-        this.kcG = new com.baidu.tieba.newinterest.a.b();
+        this.kcI = new com.baidu.tieba.newinterest.a.b();
         this.gPM.setLayoutManager(new LinearLayoutManager(this.gPM.getContext()));
-        this.gPM.setAdapter(this.kcG);
+        this.gPM.setAdapter(this.kcI);
         this.fsC = new PbListView(this.gPM.getContext());
         this.fsC.createView();
         this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
@@ -70,10 +70,10 @@ public class a implements View.OnClickListener, b.InterfaceC0703b, b.a, b.Interf
 
     private void cfu() {
         this.gPM.setOnSrollToBottomListener(this.UC);
-        this.kcF.a((b.InterfaceC0704b) this);
-        this.kcF.a((b.a) this);
-        this.kcG.a(this);
-        this.kcI.setOnClickListener(this);
+        this.kcH.a((b.InterfaceC0704b) this);
+        this.kcH.a((b.a) this);
+        this.kcI.a(this);
+        this.kcK.setOnClickListener(this);
     }
 
     public void bxS() {
@@ -92,12 +92,12 @@ public class a implements View.OnClickListener, b.InterfaceC0703b, b.a, b.Interf
     }
 
     public void cIW() {
-        this.kcG.cIW();
+        this.kcI.cIW();
     }
 
     public void ek(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.kcF.eq(list);
-        this.kcF.cJf();
+        this.kcH.eq(list);
+        this.kcH.cJf();
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.a
@@ -107,48 +107,48 @@ public class a implements View.OnClickListener, b.InterfaceC0703b, b.a, b.Interf
 
     @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0704b
     public void a(c cVar) {
-        if (cVar != null && cVar.kcL != null && !x.isEmpty(cVar.kcL)) {
+        if (cVar != null && cVar.kcN != null && !x.isEmpty(cVar.kcN)) {
             if (this.gPM.getVisibility() == 8) {
                 this.gPM.setVisibility(0);
             }
-            this.kcG.bP(cVar.kcL);
-            this.kcE.cIZ();
+            this.kcI.bP(cVar.kcN);
+            this.kcG.cIZ();
         }
-        if (!this.kcF.hasMore()) {
+        if (!this.kcH.hasMore()) {
             cIY();
         }
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0704b
     public void onError(int i, String str) {
-        this.kcE.onError(str);
+        this.kcG.onError(str);
     }
 
     @Override // com.baidu.tieba.newinterest.a.b.InterfaceC0703b
     public void Z(int i, boolean z) {
-        if (i > 0 && !this.kcI.isEnabled()) {
-            this.kcI.setEnabled(true);
-            this.kcI.setText(this.gPM.getResources().getString(R.string.start_the_trip));
+        if (i > 0 && !this.kcK.isEnabled()) {
+            this.kcK.setEnabled(true);
+            this.kcK.setText(this.gPM.getResources().getString(R.string.start_the_trip));
         } else if (i == 0) {
-            this.kcI.setEnabled(false);
-            this.kcI.setText(this.gPM.getResources().getString(R.string.try_to_select));
+            this.kcK.setEnabled(false);
+            this.kcK.setText(this.gPM.getResources().getString(R.string.try_to_select));
         }
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         if (!z) {
-            this.kcH.setText(this.mPageContext.getString(R.string.select_all));
-            this.kcH.setConfig(cVar);
+            this.kcJ.setText(this.mPageContext.getString(R.string.select_all));
+            this.kcJ.setConfig(cVar);
             return;
         }
-        this.kcH.setText(this.mPageContext.getString(R.string.unselect_all));
+        this.kcJ.setText(this.mPageContext.getString(R.string.unselect_all));
         cVar.mX(R.color.cp_cont_d);
-        this.kcH.setConfig(cVar);
+        this.kcJ.setConfig(cVar);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kcI) {
+        if (view == this.kcK) {
             try {
-                this.kcF.eo(this.kcG.cIV());
+                this.kcH.eo(this.kcI.cIV());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

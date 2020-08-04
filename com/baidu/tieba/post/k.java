@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class k {
     private String mUuid;
     private boolean isSuccess = true;
-    private int lgL = 0;
-    private boolean lfX = false;
-    private List<com.baidu.tieba.n.b> lgM = new ArrayList();
+    private int lgN = 0;
+    private boolean lfZ = false;
+    private List<com.baidu.tieba.n.b> lgO = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.checkSD()) {
@@ -24,9 +24,9 @@ public class k {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.k.d.JF(g.a.jRH);
-                    com.baidu.tieba.k.d.JF(g.a.jRO);
-                    com.baidu.tieba.k.d.JF(g.a.jRP);
+                    com.baidu.tieba.k.d.JF(g.a.jRJ);
+                    com.baidu.tieba.k.d.JF(g.a.jRQ);
+                    com.baidu.tieba.k.d.JF(g.a.jRR);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -46,23 +46,23 @@ public class k {
     }
 
     public void dag() {
-        this.lgL++;
+        this.lgN++;
     }
 
     public boolean dah() {
-        return this.lgL > 0;
+        return this.lgN > 0;
     }
 
     public void dai() {
-        this.lfX = true;
+        this.lfZ = true;
     }
 
     public boolean daj() {
-        return this.lfX;
+        return this.lfZ;
     }
 
     public void a(com.baidu.tieba.n.b bVar) {
-        this.lgM.add(bVar);
+        this.lgO.add(bVar);
         dal();
         b(bVar);
         dak();
@@ -79,7 +79,7 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.k.d.a(new File(g.a.jRQ + g.a.jRG + lVar.uuid + g.a.jRG + "debug"), lVar.lgP.cZL().toString() + "\n", true);
+                            com.baidu.tieba.k.d.a(new File(g.a.jRS + g.a.jRI + lVar.uuid + g.a.jRI + "debug"), lVar.lgR.cZL().toString() + "\n", true);
                         }
                     }
                     return null;
@@ -99,18 +99,18 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.k.d.a(new File(g.a.jRQ + g.a.jRG + eVar.uuid + g.a.jRG + "kpi"), k.b(eVar.isSuccess, eVar.lfW, eVar.lfX).toString(), false);
+                            com.baidu.tieba.k.d.a(new File(g.a.jRS + g.a.jRI + eVar.uuid + g.a.jRI + "kpi"), k.b(eVar.isSuccess, eVar.lfY, eVar.lfZ).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.lgL, this.lfX, this.mUuid));
+            }.execute(new e(this.isSuccess, this.lgN, this.lfZ, this.mUuid));
         }
     }
 
     private void dal() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
-            File file = new File(g.a.jRQ + g.a.jRG + this.mUuid + g.a.jRG);
+            File file = new File(g.a.jRS + g.a.jRI + this.mUuid + g.a.jRI);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -118,7 +118,7 @@ public class k {
     }
 
     public JSONObject cGv() {
-        return b(this.isSuccess, this.lgL, this.lfX);
+        return b(this.isSuccess, this.lgN, this.lfZ);
     }
 
     public static final JSONObject b(boolean z, int i, boolean z2) {
@@ -137,10 +137,10 @@ public class k {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!x.isEmpty(this.lgM)) {
-                int size = this.lgM.size();
+            if (!x.isEmpty(this.lgO)) {
+                int size = this.lgO.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.lgM.get(i).cZL());
+                    jSONArray.put(this.lgO.get(i).cZL());
                 }
             }
             jSONObject.put("running", jSONArray);

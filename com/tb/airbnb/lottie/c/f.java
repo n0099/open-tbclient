@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class f implements aj<Integer> {
-    public static final f nQi = new f();
+    public static final f nQk = new f();
 
     private f() {
     }

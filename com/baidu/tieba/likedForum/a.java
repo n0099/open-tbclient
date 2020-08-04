@@ -8,10 +8,10 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes15.dex */
 public class a {
-    private List<ForumInfo> ijo;
+    private List<ForumInfo> ijq;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0680a jEr = null;
+    private InterfaceC0680a jEt = null;
     private com.baidu.adp.framework.listener.a netMessageListener = new com.baidu.adp.framework.listener.a(1003316, CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -19,20 +19,20 @@ public class a {
                 if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || a.this.mRequestId == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.jEr != null) {
-                                a.this.jEr.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (a.this.jEt != null) {
+                                a.this.jEt.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetBottleForumListHttpResMessage) {
-                            a.this.ijo = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                            a.this.ijq = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                         }
                         if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                            a.this.ijo = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                            a.this.ijq = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                         }
-                        if (a.this.jEr != null) {
-                            a.this.jEr.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.ijo);
+                        if (a.this.jEt != null) {
+                            a.this.jEt.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.ijq);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ public class a {
     }
 
     public void a(InterfaceC0680a interfaceC0680a) {
-        this.jEr = interfaceC0680a;
+        this.jEt = interfaceC0680a;
     }
 
     public void destroy() {

@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes4.dex */
 public class p {
-    private final com.facebook.common.memory.c nbh;
-    private final r nds;
-    private final s ndt;
+    private final com.facebook.common.memory.c nbj;
+    private final s ndA;
     private final r ndu;
-    private final r ndv;
-    private final s ndw;
+    private final s ndv;
+    private final r ndw;
     private final r ndx;
     private final s ndy;
+    private final r ndz;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.nds == null) {
-            rVar = e.dIN();
-        } else {
-            rVar = aVar.nds;
-        }
-        this.nds = rVar;
-        if (aVar.ndt == null) {
-            sVar = n.dIS();
-        } else {
-            sVar = aVar.ndt;
-        }
-        this.ndt = sVar;
         if (aVar.ndu == null) {
-            rVar2 = g.dIN();
+            rVar = e.dIO();
         } else {
-            rVar2 = aVar.ndu;
+            rVar = aVar.ndu;
         }
-        this.ndu = rVar2;
-        if (aVar.nbh == null) {
-            cVar = com.facebook.common.memory.d.dCB();
-        } else {
-            cVar = aVar.nbh;
-        }
-        this.nbh = cVar;
+        this.ndu = rVar;
         if (aVar.ndv == null) {
-            rVar3 = h.dIN();
+            sVar = n.dIT();
         } else {
-            rVar3 = aVar.ndv;
+            sVar = aVar.ndv;
         }
-        this.ndv = rVar3;
+        this.ndv = sVar;
         if (aVar.ndw == null) {
-            sVar2 = n.dIS();
+            rVar2 = g.dIO();
         } else {
-            sVar2 = aVar.ndw;
+            rVar2 = aVar.ndw;
         }
-        this.ndw = sVar2;
+        this.ndw = rVar2;
+        if (aVar.nbj == null) {
+            cVar = com.facebook.common.memory.d.dCC();
+        } else {
+            cVar = aVar.nbj;
+        }
+        this.nbj = cVar;
         if (aVar.ndx == null) {
-            rVar4 = f.dIN();
+            rVar3 = h.dIO();
         } else {
-            rVar4 = aVar.ndx;
+            rVar3 = aVar.ndx;
         }
-        this.ndx = rVar4;
+        this.ndx = rVar3;
         if (aVar.ndy == null) {
-            sVar3 = n.dIS();
+            sVar2 = n.dIT();
         } else {
-            sVar3 = aVar.ndy;
+            sVar2 = aVar.ndy;
         }
-        this.ndy = sVar3;
+        this.ndy = sVar2;
+        if (aVar.ndz == null) {
+            rVar4 = f.dIO();
+        } else {
+            rVar4 = aVar.ndz;
+        }
+        this.ndz = rVar4;
+        if (aVar.ndA == null) {
+            sVar3 = n.dIT();
+        } else {
+            sVar3 = aVar.ndA;
+        }
+        this.ndA = sVar3;
     }
 
-    public r dIV() {
-        return this.nds;
-    }
-
-    public s dIW() {
-        return this.ndt;
-    }
-
-    public com.facebook.common.memory.c dGQ() {
-        return this.nbh;
-    }
-
-    public r dIX() {
-        return this.ndv;
-    }
-
-    public s dIY() {
-        return this.ndw;
-    }
-
-    public r dIZ() {
+    public r dIW() {
         return this.ndu;
     }
 
-    public r dJa() {
+    public s dIX() {
+        return this.ndv;
+    }
+
+    public com.facebook.common.memory.c dGR() {
+        return this.nbj;
+    }
+
+    public r dIY() {
         return this.ndx;
     }
 
-    public s dJb() {
+    public s dIZ() {
         return this.ndy;
     }
 
-    public static a dJc() {
+    public r dJa() {
+        return this.ndw;
+    }
+
+    public r dJb() {
+        return this.ndz;
+    }
+
+    public s dJc() {
+        return this.ndA;
+    }
+
+    public static a dJd() {
         return new a();
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private com.facebook.common.memory.c nbh;
-        private r nds;
-        private s ndt;
+        private com.facebook.common.memory.c nbj;
+        private s ndA;
         private r ndu;
-        private r ndv;
-        private s ndw;
+        private s ndv;
+        private r ndw;
         private r ndx;
         private s ndy;
+        private r ndz;
 
         private a() {
         }
 
-        public p dJd() {
+        public p dJe() {
             return new p(this);
         }
     }

@@ -9,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes6.dex */
 public class m<T> implements d.b<T, T> {
-    private final Long omg = null;
-    private final rx.functions.a omh = null;
-    private final a.d omi = rx.a.oje;
+    private final Long omi = null;
+    private final rx.functions.a omj = null;
+    private final a.d omk = rx.a.ojg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class b {
-        static final m<?> omn = new m<>();
+        static final m<?> omp = new m<>();
     }
 
     @Override // rx.functions.f
@@ -24,17 +24,17 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> dYe() {
-        return (m<T>) b.omn;
+    public static <T> m<T> dYf() {
+        return (m<T>) b.omp;
     }
 
     m() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.omg, this.omh, this.omi);
+        a aVar = new a(jVar, this.omi, this.omj, this.omk);
         jVar.add(aVar);
-        jVar.setProducer(aVar.dYg());
+        jVar.setProducer(aVar.dYh());
         return aVar;
     }
 
@@ -42,19 +42,19 @@ public class m<T> implements d.b<T, T> {
     /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a omh;
-        private final a.d omi;
-        private final AtomicLong omk;
-        private final BackpressureDrainManager omm;
-        private final ConcurrentLinkedQueue<Object> omj = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean oml = new AtomicBoolean(false);
+        private final rx.functions.a omj;
+        private final a.d omk;
+        private final AtomicLong omm;
+        private final BackpressureDrainManager omo;
+        private final ConcurrentLinkedQueue<Object> oml = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean omn = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.omk = l != null ? new AtomicLong(l.longValue()) : null;
-            this.omh = aVar;
-            this.omm = new BackpressureDrainManager(this);
-            this.omi = dVar;
+            this.omm = l != null ? new AtomicLong(l.longValue()) : null;
+            this.omj = aVar;
+            this.omo = new BackpressureDrainManager(this);
+            this.omk = dVar;
         }
 
         @Override // rx.j
@@ -64,23 +64,23 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.oml.get()) {
-                this.omm.terminateAndDrain();
+            if (!this.omn.get()) {
+                this.omo.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.oml.get()) {
-                this.omm.terminateAndDrain(th);
+            if (!this.omn.get()) {
+                this.omo.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (dYf()) {
-                this.omj.offer(NotificationLite.next(t));
-                this.omm.drain();
+            if (dYg()) {
+                this.oml.offer(NotificationLite.next(t));
+                this.omo.drain();
             }
         }
 
@@ -100,42 +100,42 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.omj.peek();
+            return this.oml.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.omj.poll();
-            if (this.omk != null && poll != null) {
-                this.omk.incrementAndGet();
+            Object poll = this.oml.poll();
+            if (this.omm != null && poll != null) {
+                this.omm.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean dYf() {
+        private boolean dYg() {
             long j;
             boolean z;
-            if (this.omk == null) {
+            if (this.omm == null) {
                 return true;
             }
             do {
-                j = this.omk.get();
+                j = this.omm.get();
                 if (j <= 0) {
                     try {
-                        z = this.omi.dXw() && poll() != null;
+                        z = this.omk.dXx() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.oml.compareAndSet(false, true)) {
+                        if (this.omn.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.omh != null) {
+                    if (this.omj != null) {
                         try {
-                            this.omh.call();
+                            this.omj.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.K(th);
-                            this.omm.terminateAndDrain(th);
+                            this.omo.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -143,12 +143,12 @@ public class m<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.omk.compareAndSet(j, j - 1));
+            } while (!this.omm.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f dYg() {
-            return this.omm;
+        protected rx.f dYh() {
+            return this.omo;
         }
     }
 }

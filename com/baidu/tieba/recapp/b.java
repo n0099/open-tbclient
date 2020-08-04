@@ -26,11 +26,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes20.dex */
 public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
-    private static final Pattern llx = Pattern.compile("(/p/){1}(\\d+)");
+    private static final Pattern llz = Pattern.compile("(/p/){1}(\\d+)");
     private ac evc;
-    private BannerView hYR = null;
-    private boolean hYT = false;
-    BannerView.a hYW = new BannerView.a() { // from class: com.baidu.tieba.recapp.b.2
+    private BannerView hYT = null;
+    private boolean hYV = false;
+    BannerView.a hYY = new BannerView.a() { // from class: com.baidu.tieba.recapp.b.2
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void bgW() {
             b.this.cgG();
@@ -41,8 +41,8 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
             b.this.cgI();
         }
     };
-    private com.baidu.tieba.InjectPlugin.a.c llv;
-    private a.InterfaceC0521a llw;
+    private com.baidu.tieba.InjectPlugin.a.c llx;
+    private a.InterfaceC0521a lly;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
@@ -51,9 +51,9 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void init(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.llv = cVar;
-        if (this.llv != null && (this.llv.bqu() instanceof TbPageContext)) {
-            this.mPageContext = (TbPageContext) this.llv.bqu();
+        this.llx = cVar;
+        if (this.llx != null && (this.llx.bqu() instanceof TbPageContext)) {
+            this.mPageContext = (TbPageContext) this.llx.bqu();
         }
     }
 
@@ -74,23 +74,23 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void a(a.InterfaceC0521a interfaceC0521a) {
-        this.llw = interfaceC0521a;
+        this.lly = interfaceC0521a;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void bqp() {
-        if (this.mPageContext != null && this.llw != null) {
+        if (this.mPageContext != null && this.lly != null) {
             if (this.evc == null) {
                 cgI();
             } else if (!this.evc.isValid()) {
                 cgI();
             } else {
-                if (!this.hYT) {
-                    if (this.hYR == null) {
-                        this.hYR = new BannerView(this.mPageContext.getPageActivity());
-                        this.hYR.setVisibility(8);
-                        this.hYR.setBannerViewClickListener(this.hYW);
-                        this.hYR.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.b.1
+                if (!this.hYV) {
+                    if (this.hYT == null) {
+                        this.hYT = new BannerView(this.mPageContext.getPageActivity());
+                        this.hYT.setVisibility(8);
+                        this.hYT.setBannerViewClickListener(this.hYY);
+                        this.hYT.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.b.1
                             @Override // com.baidu.tbadk.widget.TbImageView.a
                             public void onComplete(String str, boolean z) {
                                 if (z) {
@@ -101,9 +101,9 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                                         }
                                         b.this.evc.dOY = false;
                                     }
-                                    if (b.this.hYR != null && b.this.hYR.bgU() && !b.this.hYT) {
-                                        b.this.hYT = true;
-                                        b.this.llw.a(b.this.llv, b.this.hYR);
+                                    if (b.this.hYT != null && b.this.hYT.bgU() && !b.this.hYV) {
+                                        b.this.hYV = true;
+                                        b.this.lly.a(b.this.llx, b.this.hYT);
                                     }
                                 }
                             }
@@ -119,12 +119,12 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                         return;
                     }
                 } else {
-                    this.llw.a(this.llv, this.hYR);
+                    this.lly.a(this.llx, this.hYT);
                 }
-                this.hYR.setBannerData(this.evc);
-                this.hYR.reset();
+                this.hYT.setBannerData(this.evc);
+                this.hYT.reset();
                 if (this.evc.getType() == 1 && !TextUtils.isEmpty(this.evc.aUy())) {
-                    this.hYR.setData(this.mPageContext, this.evc.aUy());
+                    this.hYT.setData(this.mPageContext, this.evc.aUy());
                 }
             }
         }
@@ -132,10 +132,10 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cgI() {
-        if (this.hYR != null && this.llw != null) {
-            this.hYT = false;
-            this.llw.b(this.llv, this.hYR);
-            this.hYR = null;
+        if (this.hYT != null && this.lly != null) {
+            this.hYV = false;
+            this.lly.b(this.llx, this.hYT);
+            this.hYT = null;
         }
     }
 
@@ -149,7 +149,7 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                 fl(aUq, value);
             } else if (this.evc.aUx() == 2) {
                 if (value.contains("tieba.baidu.com")) {
-                    Matcher matcher = llx.matcher(value);
+                    Matcher matcher = llz.matcher(value);
                     if (matcher.find()) {
                         try {
                             PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(matcher.group(2), null, "frs_banner");
@@ -208,20 +208,20 @@ public class b implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public View getView() {
-        return this.hYR;
+        return this.hYT;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void setBannerMaskColor(int i) {
-        if (this.hYR != null) {
-            this.hYR.setBannerMaskColor(i);
+        if (this.hYT != null) {
+            this.hYT.setBannerMaskColor(i);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void changeSkinType(int i) {
-        if (this.hYR != null) {
-            this.hYR.bgV();
+        if (this.hYT != null) {
+            this.hYT.bgV();
         }
     }
 }

@@ -18,13 +18,13 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BdTopToast extends LinearLayout {
     private TextView cdm;
-    private Animation ifF;
-    private Animation ifG;
+    private Animation ifH;
+    private Animation ifI;
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout moF;
-    private boolean moG;
+    private BottomShadowLinearLayout moH;
+    private boolean moI;
 
     public BdTopToast(Context context) {
         this(context, null);
@@ -46,16 +46,16 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.moF = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.moH = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
         this.cdm = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
     }
 
     private void initAnimation() {
-        this.ifF = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.ifG = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.ifG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
+        this.ifH = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.ifI = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.ifI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -81,7 +81,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast wd(boolean z) {
-        this.moG = z;
+        this.moI = z;
         return this;
     }
 
@@ -98,7 +98,7 @@ public class BdTopToast extends LinearLayout {
             release();
             viewGroup.addView(this, -1, -2);
             onChangeSkinType();
-            startAnimation(this.ifF);
+            startAnimation(this.ifH);
             com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, 5000L);
         }
     }
@@ -106,7 +106,7 @@ public class BdTopToast extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.ifG);
+        startAnimation(this.ifI);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,13 +117,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ao.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_h);
-        if (this.moG) {
+        if (this.moI) {
             SvgManager.baR().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.cdm, R.color.cp_link_tip_a);
         } else {
             SvgManager.baR().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.cdm, R.color.cp_cont_h);
         }
-        this.moF.onChangeSkinType();
+        this.moH.onChangeSkinType();
     }
 }

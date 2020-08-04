@@ -20,42 +20,42 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.m;
 /* loaded from: classes18.dex */
 public class b extends c {
-    private ImageView ixp;
-    private m lBT;
-    private View lBU;
-    private TbImageView lBV;
+    private ImageView ixr;
+    private m lBV;
     private View lBW;
     private TbImageView lBX;
-    private TextView lBY;
-    private View lBZ;
+    private View lBY;
+    private TbImageView lBZ;
     private TextView lCa;
     private View lCb;
     private TextView lCc;
-    private ImageView lCd;
+    private View lCd;
     private TextView lCe;
-    private TbImageView lCf;
+    private ImageView lCf;
+    private TextView lCg;
+    private TbImageView lCh;
 
     public b(Context context, boolean z, int i, m mVar) {
         super(context, z, i);
-        this.lBT = mVar;
-        this.lBU = this.mRootView.findViewById(R.id.pb_post_share_card);
-        this.lBV = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
-        this.lBW = this.mRootView.findViewById(R.id.pb_share_origin_thread_img_container);
-        this.lBX = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
-        this.lBX.setPlaceHolder(2);
-        this.lBX.setConrers(15);
-        this.lBX.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-        this.lBX.setGifIconSupport(false);
-        this.lBX.setLongIconSupport(false);
-        this.lBY = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
-        this.lBZ = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
-        this.ixp = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
-        this.lCa = (TextView) this.mRootView.findViewById(R.id.pb_post_video_during_time_tv);
-        this.lCb = this.mRootView.findViewById(R.id.pb_post_screen_shot_container);
-        this.lCc = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
-        this.lCd = (ImageView) this.mRootView.findViewById(R.id.post_share_screen_shot);
-        this.lCe = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
-        this.lCf = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
+        this.lBV = mVar;
+        this.lBW = this.mRootView.findViewById(R.id.pb_post_share_card);
+        this.lBX = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
+        this.lBY = this.mRootView.findViewById(R.id.pb_share_origin_thread_img_container);
+        this.lBZ = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
+        this.lBZ.setPlaceHolder(2);
+        this.lBZ.setConrers(15);
+        this.lBZ.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+        this.lBZ.setGifIconSupport(false);
+        this.lBZ.setLongIconSupport(false);
+        this.lCa = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
+        this.lCb = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
+        this.ixr = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
+        this.lCc = (TextView) this.mRootView.findViewById(R.id.pb_post_video_during_time_tv);
+        this.lCd = this.mRootView.findViewById(R.id.pb_post_screen_shot_container);
+        this.lCe = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
+        this.lCf = (ImageView) this.mRootView.findViewById(R.id.post_share_screen_shot);
+        this.lCg = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
+        this.lCh = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
         dhu();
     }
 
@@ -70,7 +70,7 @@ public class b extends c {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.sharesdk.d.c
     public ShareItem EH(int i) {
-        ShareItem shareItem = this.lBN.get(1);
+        ShareItem shareItem = this.lBP.get(1);
         if (shareItem == null) {
             shareItem = new ShareItem();
         }
@@ -78,9 +78,9 @@ public class b extends c {
         shareItem.eue = false;
         shareItem.content = "";
         shareItem.shareType = 1;
-        shareItem.w(cR(this.lBU));
+        shareItem.w(cR(this.lBW));
         shareItem.bgO();
-        this.lBN.put(1, shareItem);
+        this.lBP.put(1, shareItem);
         return super.EH(i);
     }
 
@@ -96,35 +96,35 @@ public class b extends c {
 
     @Override // com.baidu.tieba.sharesdk.d.c
     public void show() {
-        if (this.lBT != null) {
+        if (this.lBV != null) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds32);
             int dimens2 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            ao.c(this.lBU, dimens, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
-            ao.c(this.lCb, dimens2, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
-            ao.setImageResource(this.lBV, R.drawable.pic_pb_share_logo);
-            ao.setViewTextColor(this.lBY, R.color.cp_cont_b);
-            if (this.lBT.cLp()) {
-                com.baidu.tbadk.core.util.e.a.bbr().ma(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha50).mf(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).aX(this.lBZ);
+            ao.c(this.lBW, dimens, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+            ao.c(this.lCd, dimens2, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
+            ao.setImageResource(this.lBX, R.drawable.pic_pb_share_logo);
+            ao.setViewTextColor(this.lCa, R.color.cp_cont_b);
+            if (this.lBV.cLp()) {
+                com.baidu.tbadk.core.util.e.a.bbr().ma(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha50).mf(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).aX(this.lCb);
             }
-            ao.setViewTextColor(this.lCc, R.color.cp_link_tip_a);
-            ao.setViewTextColor(this.lCe, R.color.cp_cont_j);
-            ao.setViewTextColor(this.lCa, R.color.cp_cont_a, 1);
-            this.ixp.setImageDrawable(SvgManager.baR().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-            this.lBY.setText(this.lBT.getContent());
-            if (StringUtils.isNull(this.lBT.getThreadImgUrl())) {
-                this.lBW.setVisibility(8);
+            ao.setViewTextColor(this.lCe, R.color.cp_link_tip_a);
+            ao.setViewTextColor(this.lCg, R.color.cp_cont_j);
+            ao.setViewTextColor(this.lCc, R.color.cp_cont_a, 1);
+            this.ixr.setImageDrawable(SvgManager.baR().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            this.lCa.setText(this.lBV.getContent());
+            if (StringUtils.isNull(this.lBV.getThreadImgUrl())) {
+                this.lBY.setVisibility(8);
             } else {
-                this.lBX.startLoad(this.lBT.getThreadImgUrl(), 10, false);
+                this.lBZ.startLoad(this.lBV.getThreadImgUrl(), 10, false);
             }
-            if (this.lBT.cLp()) {
-                this.lCa.setText(this.lBT.cLo());
+            if (this.lBV.cLp()) {
+                this.lCc.setText(this.lBV.cLo());
             } else {
-                this.lBZ.setVisibility(8);
-                this.ixp.setVisibility(8);
-                this.lCa.setVisibility(8);
+                this.lCb.setVisibility(8);
+                this.ixr.setVisibility(8);
+                this.lCc.setVisibility(8);
             }
-            this.lCd.setImageBitmap(this.lBT.cLm());
-            this.lCf.setImageBitmap(this.lBT.cLn());
+            this.lCf.setImageBitmap(this.lBV.cLm());
+            this.lCh.setImageBitmap(this.lBV.cLn());
             super.show();
         }
     }

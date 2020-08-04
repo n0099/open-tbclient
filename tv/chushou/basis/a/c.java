@@ -10,26 +10,26 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class c {
-    private static c ora;
+    private static c orc;
     private Context mContext;
-    private final HashMap<String, d> orb = new HashMap<>();
-    private String orc;
+    private final HashMap<String, d> ord = new HashMap<>();
+    private String ore;
 
     private c(Context context) {
-        this.orc = null;
+        this.ore = null;
         this.mContext = context.getApplicationContext();
-        this.orc = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.ore = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
     public static c gB(Context context) {
-        if (ora == null) {
+        if (orc == null) {
             synchronized (c.class) {
-                if (ora == null) {
-                    ora = new c(context);
+                if (orc == null) {
+                    orc = new c(context);
                 }
             }
         }
-        return ora;
+        return orc;
     }
 
     public d bd(String str, boolean z) {
@@ -45,20 +45,20 @@ public class c {
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.orb.get(packageInfo.packageName);
+        d dVar = this.ord.get(packageInfo.packageName);
         if (dVar == null) {
             d dVar2 = new d(TB(str), a(TC(str)), packageInfo);
-            this.orb.put(packageInfo.packageName, dVar2);
+            this.ord.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
     private DexClassLoader TB(String str) {
-        return new DexClassLoader(str, dZs(), this.orc, this.mContext.getClassLoader());
+        return new DexClassLoader(str, dZt(), this.ore, this.mContext.getClassLoader());
     }
 
-    public String dZs() {
+    public String dZt() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
@@ -74,7 +74,7 @@ public class c {
     }
 
     public d TD(String str) {
-        return this.orb.get(str);
+        return this.ord.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -83,7 +83,7 @@ public class c {
     }
 
     private void TE(String str) {
-        e.dZu().v(this.mContext, str, this.orc);
+        e.dZv().v(this.mContext, str, this.ore);
     }
 
     private boolean ar(File file) {

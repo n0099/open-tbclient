@@ -7,20 +7,20 @@ class dt implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f229a;
+    final /* synthetic */ Intent f232a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ ds f230a;
+    final /* synthetic */ ds f233a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dt(ds dsVar, Context context, Intent intent) {
-        this.f230a = dsVar;
+        this.f233a = dsVar;
         this.a = context;
-        this.f229a = intent;
+        this.f232a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f230a.b(this.a, this.f229a);
+        this.f233a.b(this.a, this.f232a);
     }
 }

@@ -53,10 +53,10 @@ public class HttpImpl extends HttpExecutor implements Http {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Request.Builder commonHeaders(Request.Builder builder) {
-        Map<String, String> dOq;
-        b bVar = (b) tv.chushou.basis.d.b.dZG().S(b.class);
-        if (bVar != null && (dOq = bVar.dOq()) != null) {
-            for (Map.Entry<String, String> entry : dOq.entrySet()) {
+        Map<String, String> dOr;
+        b bVar = (b) tv.chushou.basis.d.b.dZH().S(b.class);
+        if (bVar != null && (dOr = bVar.dOr()) != null) {
+            for (Map.Entry<String, String> entry : dOr.entrySet()) {
                 builder.header(entry.getKey(), entry.getValue());
             }
         }
@@ -66,21 +66,21 @@ public class HttpImpl extends HttpExecutor implements Http {
     private v getScheduler(EventThread eventThread, ExecutorService executorService) {
         switch (eventThread) {
             case NEW_THREAD:
-                return a.dTz();
-            case IO:
-                return a.dTx();
-            case COMPUTATION:
-                return a.dTw();
-            case TRAMPOLINE:
-                return a.dTy();
-            case SINGLE:
                 return a.dTA();
+            case IO:
+                return a.dTy();
+            case COMPUTATION:
+                return a.dTx();
+            case TRAMPOLINE:
+                return a.dTz();
+            case SINGLE:
+                return a.dTB();
             case EXECUTOR:
-                return executorService != null ? a.a(executorService) : a.dTx();
+                return executorService != null ? a.a(executorService) : a.dTy();
             case HANDLER:
                 return io.reactivex.a.b.a.b(ThreadHandler.DEFAULT.getHandler().getLooper());
             default:
-                return io.reactivex.a.b.a.dSS();
+                return io.reactivex.a.b.a.dST();
         }
     }
 
@@ -345,7 +345,7 @@ public class HttpImpl extends HttpExecutor implements Http {
                 */
                 throw new UnsupportedOperationException("Method not decompiled: tv.chushou.basis.http.impl.HttpImpl.AnonymousClass7.subscribe(io.reactivex.h):void");
             }
-        }, BackpressureStrategy.LATEST).b(a.dTx()).a(new io.reactivex.c.g<d>() { // from class: tv.chushou.basis.http.impl.HttpImpl.6
+        }, BackpressureStrategy.LATEST).b(a.dTy()).a(new io.reactivex.c.g<d>() { // from class: tv.chushou.basis.http.impl.HttpImpl.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -354,7 +354,7 @@ public class HttpImpl extends HttpExecutor implements Http {
                     downloadListener.onStart();
                 }
             }
-        }).b(io.reactivex.a.b.a.dSS()).a(io.reactivex.a.b.a.dSS()).a(new io.reactivex.c.g<File>() { // from class: tv.chushou.basis.http.impl.HttpImpl.3
+        }).b(io.reactivex.a.b.a.dST()).a(io.reactivex.a.b.a.dST()).a(new io.reactivex.c.g<File>() { // from class: tv.chushou.basis.http.impl.HttpImpl.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
@@ -368,7 +368,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dZF().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dZG().e(HttpExecutor.TAG, "", th);
                 if (downloadListener != null) {
                     downloadListener.onFailure(-1, "", th);
                 }
@@ -503,9 +503,9 @@ public class HttpImpl extends HttpExecutor implements Http {
             public Http.Resp apply(Http.Resp resp) {
                 if (JSONObject.class.equals(thirdParty.respType)) {
                     if ((resp.respJson != null ? resp.respJson.optInt("code", -1) : -1) == 602) {
-                        c cVar = (c) tv.chushou.basis.d.b.dZG().S(c.class);
+                        c cVar = (c) tv.chushou.basis.d.b.dZH().S(c.class);
                         if (cVar != null) {
-                            cVar.dOv();
+                            cVar.dOw();
                         }
                         throw new HttpException(6);
                     }
@@ -542,7 +542,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dZF().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dZG().e(HttpExecutor.TAG, "", th);
                 if (aVar != null) {
                     aVar.onFailure(-1, "", th);
                 }
@@ -640,9 +640,9 @@ public class HttpImpl extends HttpExecutor implements Http {
             public Http.Resp apply(Http.Resp resp) {
                 if (JSONObject.class.equals(thirdParty.respType)) {
                     if ((resp.respJson != null ? resp.respJson.optInt("code", -1) : -1) == 602) {
-                        c cVar = (c) tv.chushou.basis.d.b.dZG().S(c.class);
+                        c cVar = (c) tv.chushou.basis.d.b.dZH().S(c.class);
                         if (cVar != null) {
-                            cVar.dOv();
+                            cVar.dOw();
                         }
                         throw new HttpException(6);
                     }
@@ -679,7 +679,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dZF().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dZG().e(HttpExecutor.TAG, "", th);
                 if (aVar != null) {
                     aVar.onFailure(-1, "", th);
                 }
@@ -718,7 +718,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         httpParam.b();
         httpParam.c();
         MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-        for (Map.Entry<String, String> entry2 : httpParam.dZD()) {
+        for (Map.Entry<String, String> entry2 : httpParam.dZE()) {
             type.addFormDataPart(entry2.getKey(), entry2.getValue());
         }
         if (list != null) {
@@ -770,7 +770,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         }
         HttpUrl parse = HttpUrl.parse(str);
         if (parse == null) {
-            tv.chushou.basis.d.b.dZF().e(HttpExecutor.TAG, "pack h5 url, parse failed:" + str);
+            tv.chushou.basis.d.b.dZG().e(HttpExecutor.TAG, "pack h5 url, parse failed:" + str);
             return str;
         }
         HttpUrl.Builder newBuilder = parse.newBuilder();
@@ -825,7 +825,7 @@ public class HttpImpl extends HttpExecutor implements Http {
         for (String str2 : hashSet) {
             newBuilder.removeAllQueryParameters(str2);
         }
-        for (Map.Entry<String, String> entry2 : httpParam.dZD()) {
+        for (Map.Entry<String, String> entry2 : httpParam.dZE()) {
             newBuilder.addQueryParameter(entry2.getKey(), entry2.getValue());
         }
         return newBuilder.toString();
@@ -850,9 +850,9 @@ public class HttpImpl extends HttpExecutor implements Http {
             public Http.Resp apply(Http.Resp resp) {
                 if (JSONObject.class.equals(thirdParty.respType)) {
                     if ((resp.respJson != null ? resp.respJson.optInt("code", -1) : -1) == 602) {
-                        c cVar = (c) tv.chushou.basis.d.b.dZG().S(c.class);
+                        c cVar = (c) tv.chushou.basis.d.b.dZH().S(c.class);
                         if (cVar != null) {
-                            cVar.dOv();
+                            cVar.dOw();
                         }
                         throw new HttpException(6);
                     }
@@ -889,7 +889,7 @@ public class HttpImpl extends HttpExecutor implements Http {
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Throwable th) {
-                tv.chushou.basis.d.b.dZF().e(HttpExecutor.TAG, "", th);
+                tv.chushou.basis.d.b.dZG().e(HttpExecutor.TAG, "", th);
                 if (aVar != null) {
                     aVar.onFailure(-1, "", th);
                 }

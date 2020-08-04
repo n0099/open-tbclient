@@ -4,88 +4,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes16.dex */
 class b {
-    private int kLG;
-    private int kLH;
-    private byte[] kLI;
+    private int kLI;
     private int kLJ;
-    private int kLK;
+    private byte[] kLK;
     private int kLL;
-    int kLM;
+    private int kLM;
+    private int kLN;
     int kLO;
-    int kLV;
-    int kLW;
+    int kLQ;
     int kLX;
-    int kMb;
-    int kLN = 12;
-    int kLP = 4096;
-    int[] kLQ = new int[5003];
-    int[] kLR = new int[5003];
-    int kLS = 5003;
-    int kLT = 0;
-    boolean kLU = false;
-    int kLY = 0;
-    int kLZ = 0;
-    int[] kMa = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
-    byte[] kMc = new byte[256];
+    int kLY;
+    int kLZ;
+    int kMd;
+    int kLP = 12;
+    int kLR = 4096;
+    int[] kLS = new int[5003];
+    int[] kLT = new int[5003];
+    int kLU = 5003;
+    int kLV = 0;
+    boolean kLW = false;
+    int kMa = 0;
+    int kMb = 0;
+    int[] kMc = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
+    byte[] kMe = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.kLG = i;
-        this.kLH = i2;
-        this.kLI = bArr;
-        this.kLJ = Math.max(2, i3);
+        this.kLI = i;
+        this.kLJ = i2;
+        this.kLK = bArr;
+        this.kLL = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.kMc;
-        int i = this.kMb;
-        this.kMb = i + 1;
+        byte[] bArr = this.kMe;
+        int i = this.kMd;
+        this.kMd = i + 1;
         bArr[i] = b;
-        if (this.kMb >= 254) {
+        if (this.kMd >= 254) {
             d(outputStream);
         }
     }
 
     void c(OutputStream outputStream) throws IOException {
-        CE(this.kLS);
-        this.kLT = this.kLW + 2;
-        this.kLU = true;
-        b(this.kLW, outputStream);
+        CE(this.kLU);
+        this.kLV = this.kLY + 2;
+        this.kLW = true;
+        b(this.kLY, outputStream);
     }
 
     void CE(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.kLQ[i2] = -1;
+            this.kLS[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.kLV = i;
-        this.kLU = false;
-        this.kLM = this.kLV;
-        this.kLO = CF(this.kLM);
-        this.kLW = 1 << (i - 1);
-        this.kLX = this.kLW + 1;
-        this.kLT = this.kLW + 2;
-        this.kMb = 0;
+        this.kLX = i;
+        this.kLW = false;
+        this.kLO = this.kLX;
+        this.kLQ = CF(this.kLO);
+        this.kLY = 1 << (i - 1);
+        this.kLZ = this.kLY + 1;
+        this.kLV = this.kLY + 2;
+        this.kMd = 0;
         int cUY = cUY();
-        for (int i3 = this.kLS; i3 < 65536; i3 *= 2) {
+        for (int i3 = this.kLU; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.kLS;
+        int i5 = this.kLU;
         CE(i5);
-        b(this.kLW, outputStream);
+        b(this.kLY, outputStream);
         while (true) {
             int cUY2 = cUY();
             if (cUY2 != -1) {
-                int i6 = (cUY2 << this.kLN) + cUY;
+                int i6 = (cUY2 << this.kLP) + cUY;
                 int i7 = (cUY2 << i4) ^ cUY;
-                if (this.kLQ[i7] == i6) {
-                    cUY = this.kLR[i7];
+                if (this.kLS[i7] == i6) {
+                    cUY = this.kLT[i7];
                 } else {
-                    if (this.kLQ[i7] >= 0) {
+                    if (this.kLS[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -95,19 +95,19 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.kLQ[i7] == i6) {
-                                cUY = this.kLR[i7];
+                            if (this.kLS[i7] == i6) {
+                                cUY = this.kLT[i7];
                                 break;
                             }
-                        } while (this.kLQ[i7] >= 0);
+                        } while (this.kLS[i7] >= 0);
                     }
                     b(cUY, outputStream);
-                    if (this.kLT < this.kLP) {
-                        int[] iArr = this.kLR;
-                        int i9 = this.kLT;
-                        this.kLT = i9 + 1;
+                    if (this.kLV < this.kLR) {
+                        int[] iArr = this.kLT;
+                        int i9 = this.kLV;
+                        this.kLV = i9 + 1;
                         iArr[i7] = i9;
-                        this.kLQ[i7] = i6;
+                        this.kLS[i7] = i6;
                         cUY = cUY2;
                     } else {
                         c(outputStream);
@@ -116,7 +116,7 @@ class b {
                 }
             } else {
                 b(cUY, outputStream);
-                b(this.kLX, outputStream);
+                b(this.kLZ, outputStream);
                 return;
             }
         }
@@ -124,18 +124,18 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.kLJ);
-        this.kLK = this.kLG * this.kLH;
-        this.kLL = 0;
-        a(this.kLJ + 1, outputStream);
+        outputStream.write(this.kLL);
+        this.kLM = this.kLI * this.kLJ;
+        this.kLN = 0;
+        a(this.kLL + 1, outputStream);
         outputStream.write(0);
     }
 
     void d(OutputStream outputStream) throws IOException {
-        if (this.kMb > 0) {
-            outputStream.write(this.kMb);
-            outputStream.write(this.kMc, 0, this.kMb);
-            this.kMb = 0;
+        if (this.kMd > 0) {
+            outputStream.write(this.kMd);
+            outputStream.write(this.kMe, 0, this.kMd);
+            this.kMd = 0;
         }
     }
 
@@ -144,49 +144,49 @@ class b {
     }
 
     private int cUY() {
-        if (this.kLK == 0) {
+        if (this.kLM == 0) {
             return -1;
         }
-        this.kLK--;
-        byte[] bArr = this.kLI;
-        int i = this.kLL;
-        this.kLL = i + 1;
+        this.kLM--;
+        byte[] bArr = this.kLK;
+        int i = this.kLN;
+        this.kLN = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.kLY &= this.kMa[this.kLZ];
-        if (this.kLZ > 0) {
-            this.kLY |= i << this.kLZ;
+        this.kMa &= this.kMc[this.kMb];
+        if (this.kMb > 0) {
+            this.kMa |= i << this.kMb;
         } else {
-            this.kLY = i;
+            this.kMa = i;
         }
-        this.kLZ += this.kLM;
-        while (this.kLZ >= 8) {
-            a((byte) (this.kLY & 255), outputStream);
-            this.kLY >>= 8;
-            this.kLZ -= 8;
+        this.kMb += this.kLO;
+        while (this.kMb >= 8) {
+            a((byte) (this.kMa & 255), outputStream);
+            this.kMa >>= 8;
+            this.kMb -= 8;
         }
-        if (this.kLT > this.kLO || this.kLU) {
-            if (this.kLU) {
-                int i2 = this.kLV;
-                this.kLM = i2;
-                this.kLO = CF(i2);
-                this.kLU = false;
+        if (this.kLV > this.kLQ || this.kLW) {
+            if (this.kLW) {
+                int i2 = this.kLX;
+                this.kLO = i2;
+                this.kLQ = CF(i2);
+                this.kLW = false;
             } else {
-                this.kLM++;
-                if (this.kLM == this.kLN) {
-                    this.kLO = this.kLP;
+                this.kLO++;
+                if (this.kLO == this.kLP) {
+                    this.kLQ = this.kLR;
                 } else {
-                    this.kLO = CF(this.kLM);
+                    this.kLQ = CF(this.kLO);
                 }
             }
         }
-        if (i == this.kLX) {
-            while (this.kLZ > 0) {
-                a((byte) (this.kLY & 255), outputStream);
-                this.kLY >>= 8;
-                this.kLZ -= 8;
+        if (i == this.kLZ) {
+            while (this.kMb > 0) {
+                a((byte) (this.kMa & 255), outputStream);
+                this.kMa >>= 8;
+                this.kMb -= 8;
             }
             d(outputStream);
         }

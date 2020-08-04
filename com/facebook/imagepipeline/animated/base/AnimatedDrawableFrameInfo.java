@@ -3,10 +3,10 @@ package com.facebook.imagepipeline.animated.base;
 public class AnimatedDrawableFrameInfo {
     public final int gWP;
     public final int height;
-    public final int mYv;
-    public final int mYw;
-    public final BlendOperation mYx;
-    public final DisposalMethod mYy;
+    public final DisposalMethod mYA;
+    public final int mYx;
+    public final int mYy;
+    public final BlendOperation mYz;
     public final int width;
 
     /* loaded from: classes12.dex */
@@ -23,12 +23,12 @@ public class AnimatedDrawableFrameInfo {
     }
 
     public AnimatedDrawableFrameInfo(int i, int i2, int i3, int i4, int i5, BlendOperation blendOperation, DisposalMethod disposalMethod) {
-        this.mYv = i;
-        this.mYw = i2;
+        this.mYx = i;
+        this.mYy = i2;
         this.gWP = i3;
         this.width = i4;
         this.height = i5;
-        this.mYx = blendOperation;
-        this.mYy = disposalMethod;
+        this.mYz = blendOperation;
+        this.mYA = disposalMethod;
     }
 }

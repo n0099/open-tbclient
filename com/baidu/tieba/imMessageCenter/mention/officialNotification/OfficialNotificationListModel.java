@@ -48,8 +48,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 20;
-        aVar.jgW = null;
-        aVar.jgX = null;
+        aVar.jgY = null;
+        aVar.jgZ = null;
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
@@ -70,8 +70,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             j = this.mDatas.getChatMessages().get(0).getMsgId();
             j2 = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.jgW = String.valueOf(j);
-        aVar.jgX = String.valueOf(j2);
+        aVar.jgY = String.valueOf(j);
+        aVar.jgZ = String.valueOf(j2);
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;

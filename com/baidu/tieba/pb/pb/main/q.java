@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes16.dex */
 public class q {
     private BaseFragmentActivity hjZ;
-    private PbModel kkj;
-    private a kmF = null;
-    protected final HttpMessageListener kmG = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.q.1
+    private PbModel kkl;
+    private a kmH = null;
+    protected final HttpMessageListener kmI = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.q.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    q.this.kmF.n(-1, null, null);
+                    q.this.kmH.n(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -26,7 +26,7 @@ public class q {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                q.this.kmF.n(errorCode, errorMessage, tid);
+                q.this.kmH.n(errorCode, errorMessage, tid);
             }
         }
     };
@@ -37,19 +37,19 @@ public class q {
     }
 
     public q(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.kkj = pbModel;
+        this.kkl = pbModel;
         this.hjZ = baseFragmentActivity;
-        this.hjZ.registerListener(this.kmG);
+        this.hjZ.registerListener(this.kmI);
     }
 
     public void a(a aVar) {
-        this.kmF = aVar;
+        this.kmH = aVar;
     }
 
     public void BE(int i) {
-        if (this.kkj != null) {
+        if (this.kkl != null) {
             HttpMessage httpMessage = new HttpMessage(1003066);
-            httpMessage.addParam("thread_id", this.kkj.cNL());
+            httpMessage.addParam("thread_id", this.kkl.cNL());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

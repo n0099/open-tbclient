@@ -14,100 +14,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes15.dex */
 public class i {
-    private String jtM;
-    private int jtN;
-    private int jtO;
+    private String jtO;
     private int jtP;
-    private long jtL = 0;
-    private HashMap<String, Boolean> jtK = new HashMap<>();
+    private int jtQ;
+    private int jtR;
+    private long jtN = 0;
+    private HashMap<String, Boolean> jtM = new HashMap<>();
 
     public void zK(int i) {
-        this.jtO = i;
+        this.jtQ = i;
     }
 
     public int cAb() {
-        return this.jtO;
+        return this.jtQ;
     }
 
     public void zL(int i) {
-        this.jtP = i;
+        this.jtR = i;
     }
 
     public int cAc() {
-        return this.jtP;
+        return this.jtR;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.jtM = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.jtO = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.jtM = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.jtO = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.jtN = intExtra;
-            this.jtO = intExtra;
             this.jtP = intExtra;
+            this.jtQ = intExtra;
+            this.jtR = intExtra;
         }
     }
 
     public void az(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.jtM);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.jtO);
         }
     }
 
     public void g(List<String> list, int i, int i2) {
-        synchronized (this.jtK) {
-            if (System.nanoTime() - this.jtL > 300000000 && list != null && i < list.size()) {
-                this.jtK.put(list.get(i), true);
+        synchronized (this.jtM) {
+            if (System.nanoTime() - this.jtN > 300000000 && list != null && i < list.size()) {
+                this.jtM.put(list.get(i), true);
             }
-            this.jtL = System.nanoTime();
-            if (list != null && i2 < list.size() && this.jtK.get(list.get(i2)) == null) {
-                this.jtK.put(list.get(i2), false);
+            this.jtN = System.nanoTime();
+            if (list != null && i2 < list.size() && this.jtM.get(list.get(i2)) == null) {
+                this.jtM.put(list.get(i2), false);
             }
         }
-        if (this.jtK.size() >= 100) {
+        if (this.jtM.size() >= 100) {
             cAd();
         }
     }
 
     public void cAd() {
-        if (this.jtK != null) {
-            synchronized (this.jtK) {
-                if (this.jtK.size() > 0) {
+        if (this.jtM != null) {
+            synchronized (this.jtM) {
+                if (this.jtM.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.jtK.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.jtM.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.jtK.size(), this.jtM, this.jtN + 1, this.jtO + 1);
-                    this.jtK.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.jtM.size(), this.jtO, this.jtP + 1, this.jtQ + 1);
+                    this.jtM.clear();
                 }
             }
         }
     }
 
     public void bm(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.jtL > 300000000) {
-            this.jtK.put(str, true);
+        if (i == 1 && System.nanoTime() - this.jtN > 300000000) {
+            this.jtM.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.jtP == this.jtO) {
-            sb.append(this.jtP + 1);
-            if (this.jtO == i - 1) {
+        if (this.jtR == this.jtQ) {
+            sb.append(this.jtR + 1);
+            if (this.jtQ == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.jtP; i2 <= this.jtO; i2++) {
-                if (i2 == this.jtO) {
+            for (int i2 = this.jtR; i2 <= this.jtQ; i2++) {
+                if (i2 == this.jtQ) {
                     sb.append(i2 + 1);
-                    if (this.jtO == i - 1) {
+                    if (this.jtQ == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -134,9 +134,9 @@ public class i {
         apVar.ah("pic_count", i);
         apVar.dn("obj_floors", sb.toString());
         apVar.dn("obj_isads", sb2.toString());
-        int i3 = (this.jtO - this.jtP) + 1;
+        int i3 = (this.jtQ - this.jtR) + 1;
         if (i3 == 1) {
-            if (this.jtO == i - 1) {
+            if (this.jtQ == i - 1) {
                 apVar.dn("obj_id", str);
             } else {
                 apVar.dn("obj_id", "");
@@ -147,7 +147,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.jtO == i - 1) {
+            if (this.jtQ == i - 1) {
                 sb3.append(str);
             }
             apVar.dn("obj_ids", str);

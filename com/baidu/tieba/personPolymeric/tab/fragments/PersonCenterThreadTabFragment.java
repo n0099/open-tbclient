@@ -19,23 +19,23 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes18.dex */
 public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.e, a {
-    private PersonPostModel kWa;
-    private com.baidu.tieba.personPolymeric.tab.view.a kYg;
-    private User kYi;
-    private b kYl;
+    private PersonPostModel kWc;
+    private com.baidu.tieba.personPolymeric.tab.view.a kYi;
+    private User kYk;
+    private b kYn;
     private long mUserId;
-    private static boolean kYm = true;
+    private static boolean kYo = true;
     private static CustomMessageListener dYu = new CustomMessageListener(2921440) { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                boolean unused = PersonCenterThreadTabFragment.kYm = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                boolean unused = PersonCenterThreadTabFragment.kYo = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
     private boolean isHost = false;
-    private boolean kYj = false;
+    private boolean kYl = false;
     private boolean mHasInit = false;
     private boolean mHasMore = false;
     private PersonPostModel.b mOnResult = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.2
@@ -44,7 +44,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             PersonCenterThreadTabFragment.this.c(personPostModel, z);
         }
     };
-    private PersonPostModel.a kYs = new PersonPostModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.3
+    private PersonPostModel.a kYu = new PersonPostModel.a() { // from class: com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragment.3
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             PersonCenterThreadTabFragment.this.c(personPostModel, z);
@@ -65,32 +65,32 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.kWa = new PersonPostModel(getPageContext(), getUniqueId(), this.mOnResult, isHost(), PersonPostModel.FROM_PERSON_POST);
-        this.kYl = new b(getPageContext(), getUniqueId(), this, getTabType());
+        this.kWc = new PersonPostModel(getPageContext(), getUniqueId(), this.mOnResult, isHost(), PersonPostModel.FROM_PERSON_POST);
+        this.kYn = new b(getPageContext(), getUniqueId(), this, getTabType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(PersonPostModel personPostModel, boolean z) {
-        this.kYj = false;
-        hideLoadingView(this.kYg.getRootView());
-        hideNetRefreshView(this.kYg.getRootView());
-        if (personPostModel != null && this.kWa != null) {
+        this.kYl = false;
+        hideLoadingView(this.kYi.getRootView());
+        hideNetRefreshView(this.kYi.getRootView());
+        if (personPostModel != null && this.kWc != null) {
             if (z) {
-                this.kWa.threadList.clear();
+                this.kWc.threadList.clear();
             }
-            this.kWa.threadList.addAll(com.baidu.tieba.personPolymeric.tab.b.a.eG(personPostModel.threadList));
+            this.kWc.threadList.addAll(com.baidu.tieba.personPolymeric.tab.b.a.eG(personPostModel.threadList));
         }
         this.mHasMore = d(personPostModel, z);
-        if (x.isEmpty(this.kWa.threadList) && !j.isNetWorkAvailable()) {
-            showNetRefreshView(this.kYg.getRootView(), null, false);
+        if (x.isEmpty(this.kWc.threadList) && !j.isNetWorkAvailable()) {
+            showNetRefreshView(this.kYi.getRootView(), null, false);
             return;
         }
         if (this.mHasMore) {
-            this.kYg.bxS();
+            this.kYi.bxS();
         } else {
-            this.kYg.bxT();
+            this.kYi.bxT();
         }
-        setData(this.kWa.threadList);
+        setData(this.kWc.threadList);
     }
 
     private boolean d(PersonPostModel personPostModel, boolean z) {
@@ -102,7 +102,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void d(User user) {
-        this.kYi = user;
+        this.kYk = user;
         clr();
     }
 
@@ -110,8 +110,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.kYg = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.kYg.b(this);
+        this.kYi = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.kYi.b(this);
         return inflate;
     }
 
@@ -122,7 +122,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     private void clr() {
-        if (isAdded() && isPrimary() && this.kYi != null && !this.mHasInit) {
+        if (isAdded() && isPrimary() && this.kYk != null && !this.mHasInit) {
             this.mHasInit = true;
             tZ(true);
         }
@@ -142,8 +142,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void setData(List<q> list) {
-        if (this.kYg != null) {
-            this.kYg.eJ(list);
+        if (this.kYi != null) {
+            this.kYi.eJ(list);
         }
     }
 
@@ -159,24 +159,24 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void tZ(boolean z) {
-        if (this.kWa != null && this.kYg != null && this.mHasInit) {
-            hideNetRefreshView(this.kYg.getRootView());
+        if (this.kWc != null && this.kYi != null && this.mHasInit) {
+            hideNetRefreshView(this.kYi.getRootView());
             if (j.isNetWorkAvailable()) {
-                if (z && kYm) {
-                    showLoadingView(this.kYg.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
+                if (z && kYo) {
+                    showLoadingView(this.kYi.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds250));
                 }
                 ub(true);
                 cbd();
                 return;
             }
-            showNetRefreshView(this.kYg.getRootView(), null, false);
+            showNetRefreshView(this.kYi.getRootView(), null, false);
         }
     }
 
     private void ub(boolean z) {
-        if (!this.kYj) {
-            this.kYj = true;
-            this.kWa.fetchPost(getPageContext(), this.kYs, z, String.valueOf(this.mUserId), true, 0, false, true, this.kYi);
+        if (!this.kYl) {
+            this.kYl = true;
+            this.kWc.fetchPost(getPageContext(), this.kYu, z, String.valueOf(this.mUserId), true, 0, false, true, this.kYk);
         }
     }
 
@@ -188,14 +188,14 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void cbd() {
-        if (this.kYg != null && this.mHasInit) {
-            this.kYg.cbd();
+        if (this.kYi != null && this.mHasInit) {
+            this.kYi.cbd();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.kWa != null && this.mHasInit && j.isNetWorkAvailable() && this.mHasMore) {
+        if (this.kWc != null && this.mHasInit && j.isNetWorkAvailable() && this.mHasMore) {
             ub(false);
         }
     }
@@ -203,8 +203,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kYg != null) {
-            this.kYg.onChangeSkinType(i);
+        if (this.kYi != null) {
+            this.kYi.onChangeSkinType(i);
         }
     }
 
@@ -220,27 +220,27 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         super.onDestroy();
         this.mHasMore = false;
         this.mHasInit = false;
-        this.kYj = false;
-        if (this.kYg != null) {
-            this.kYg.onDestroy();
+        this.kYl = false;
+        if (this.kYi != null) {
+            this.kYi.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
     public com.baidu.tieba.personPolymeric.tab.view.a cYf() {
-        return this.kYg;
+        return this.kYi;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
     public List<q> cnZ() {
-        if (this.kWa != null) {
-            return this.kWa.threadList;
+        if (this.kWc != null) {
+            return this.kWc.threadList;
         }
         return null;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.a
     public boolean cYg() {
-        return this.isHost && isPrimary() && !this.kYj;
+        return this.isHost && isPrimary() && !this.kYl;
     }
 }

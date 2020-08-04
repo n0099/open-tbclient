@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> ngj = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> ngl = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int aj(@Nullable Bitmap bitmap) {
@@ -35,7 +35,7 @@ public final class a {
     public static Pair<Integer, Integer> v(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = ngj.acquire();
+        ByteBuffer acquire = ngl.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,7 +49,7 @@ public final class a {
             }
             return pair;
         } finally {
-            ngj.release(acquire);
+            ngl.release(acquire);
         }
     }
 
@@ -57,30 +57,30 @@ public final class a {
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
     /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] ngk = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] ngm = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                ngk[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                ngm[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                ngk[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                ngm[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                ngk[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                ngm[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                ngk[Bitmap.Config.RGB_565.ordinal()] = 4;
+                ngm[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
     public static int e(Bitmap.Config config) {
-        switch (AnonymousClass1.ngk[config.ordinal()]) {
+        switch (AnonymousClass1.ngm[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:

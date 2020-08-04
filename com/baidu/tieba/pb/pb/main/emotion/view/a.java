@@ -22,10 +22,10 @@ import java.util.Set;
 /* loaded from: classes16.dex */
 public class a extends BaseAdapter {
     private List<EmotionImageData> hrK;
-    private Set<String> jZU = new HashSet();
-    private EmotionView.a kyK;
-    private int kzP;
-    private PbEmotionBar.a kzQ;
+    private Set<String> jZW = new HashSet();
+    private EmotionView.a kyM;
+    private int kzR;
+    private PbEmotionBar.a kzS;
 
     @Override // android.widget.Adapter
     public int getCount() {
@@ -55,24 +55,24 @@ public class a extends BaseAdapter {
         if (view == null) {
             c0722a = new C0722a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0722a.kac = (EmotionView) view.findViewById(R.id.iv_emotion);
-            c0722a.kac.bXl();
-            c0722a.kac.setController(this.kyK);
-            c0722a.kac.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0722a.kae = (EmotionView) view.findViewById(R.id.iv_emotion);
+            c0722a.kae.bXl();
+            c0722a.kae.setController(this.kyM);
+            c0722a.kae.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.kzQ != null && (view2 instanceof EmotionView)) {
-                        a.this.kzQ.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
+                    if (a.this.kzS != null && (view2 instanceof EmotionView)) {
+                        a.this.kzS.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
                         TiebaStatic.log("c12176");
                     }
                 }
             });
-            c0722a.hSJ = (TextView) view.findViewById(R.id.tv_more);
-            ao.setViewTextColor(c0722a.hSJ, R.color.cp_cont_d);
-            c0722a.hSJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
+            c0722a.hSL = (TextView) view.findViewById(R.id.tv_more);
+            ao.setViewTextColor(c0722a.hSL, R.color.cp_cont_d);
+            c0722a.hSL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.kzQ != null) {
+                    if (a.this.kzS != null) {
                         ArrayList arrayList = new ArrayList();
                         if (!x.isEmpty(a.this.hrK)) {
                             for (EmotionImageData emotionImageData : a.this.hrK) {
@@ -81,7 +81,7 @@ public class a extends BaseAdapter {
                                 }
                             }
                         }
-                        a.this.kzQ.b(null, null, arrayList);
+                        a.this.kzS.b(null, null, arrayList);
                     }
                 }
             });
@@ -91,49 +91,49 @@ public class a extends BaseAdapter {
         }
         if (i >= 0) {
             if (i < this.hrK.size()) {
-                c0722a.kac.getLayoutParams().width = this.kzP;
-                c0722a.kac.getLayoutParams().height = this.kzP;
-                c0722a.kac.reset();
-                c0722a.kac.setTag(R.id.iv_emotion, null);
+                c0722a.kae.getLayoutParams().width = this.kzR;
+                c0722a.kae.getLayoutParams().height = this.kzR;
+                c0722a.kae.reset();
+                c0722a.kae.setTag(R.id.iv_emotion, null);
                 EmotionImageData emotionImageData = this.hrK.get(i);
                 if (emotionImageData != null) {
-                    c0722a.kac.a(emotionImageData);
-                    if (this.jZU != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.jZU.add(emotionImageData.getThumbUrl() + c0722a.kac.getLoadProcType());
+                    c0722a.kae.a(emotionImageData);
+                    if (this.jZW != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                        this.jZW.add(emotionImageData.getThumbUrl() + c0722a.kae.getLoadProcType());
                     }
                 }
-                c0722a.kac.setVisibility(0);
-                c0722a.hSJ.setVisibility(8);
+                c0722a.kae.setVisibility(0);
+                c0722a.hSL.setVisibility(8);
             } else if (i == this.hrK.size()) {
-                c0722a.hSJ.getLayoutParams().width = this.kzP;
-                c0722a.hSJ.getLayoutParams().height = this.kzP;
-                c0722a.kac.setVisibility(8);
-                c0722a.hSJ.setVisibility(0);
+                c0722a.hSL.getLayoutParams().width = this.kzR;
+                c0722a.hSL.getLayoutParams().height = this.kzR;
+                c0722a.kae.setVisibility(8);
+                c0722a.hSL.setVisibility(0);
             }
         }
         return view;
     }
 
     public void Cg(int i) {
-        if (this.kzP != i) {
-            this.kzP = i;
+        if (this.kzR != i) {
+            this.kzR = i;
             notifyDataSetChanged();
         }
     }
 
     public void a(EmotionView.a aVar) {
-        this.kyK = aVar;
+        this.kyM = aVar;
     }
 
     public void a(PbEmotionBar.a aVar) {
-        this.kzQ = aVar;
+        this.kzS = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     static class C0722a {
-        TextView hSJ;
-        EmotionView kac;
+        TextView hSL;
+        EmotionView kae;
 
         C0722a() {
         }
@@ -145,8 +145,8 @@ public class a extends BaseAdapter {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (a.this.jZU != null) {
-                    for (String str : a.this.jZU) {
+                if (a.this.jZW != null) {
+                    for (String str : a.this.jZW) {
                         if (!TextUtils.isEmpty(str)) {
                             c.bkk().deletePic(str);
                         }

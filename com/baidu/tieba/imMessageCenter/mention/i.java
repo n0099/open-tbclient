@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes16.dex */
 public class i {
-    private static i jqd = null;
+    private static i jqf = null;
     private final HttpMessageListener eaN = new HttpMessageListener(1002500) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -36,13 +36,13 @@ public class i {
             }
         }
     };
-    private long jqe = 0;
+    private long jqg = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.jqe = System.currentTimeMillis();
+                i.this.jqg = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.isNetWorkAvailable())) {
                     i.this.cza();
@@ -62,10 +62,10 @@ public class i {
     public static synchronized i cyZ() {
         i iVar;
         synchronized (i.class) {
-            if (jqd == null) {
-                jqd = new i();
+            if (jqf == null) {
+                jqf = new i();
             }
-            iVar = jqd;
+            iVar = jqf;
         }
         return iVar;
     }
@@ -80,7 +80,7 @@ public class i {
     }
 
     public void restart() {
-        this.jqe = 0L;
+        this.jqg = 0L;
         destroy();
         start();
     }
@@ -88,7 +88,7 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.jqe;
+        long currentTimeMillis = System.currentTimeMillis() - this.jqg;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= 600000) {
             i = 2;
@@ -98,7 +98,7 @@ public class i {
             j = 600000 - j2;
         }
         z(i, j);
-        this.jqe = System.currentTimeMillis();
+        this.jqg = System.currentTimeMillis();
     }
 
     public void destroy() {

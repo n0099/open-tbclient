@@ -221,7 +221,7 @@ public class z extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.k, a
         com.baidu.tieba.a.d.brD().a("page_recommend", "show_", kVar.bSj());
         akVar.sg().setPage(this.afx);
         akVar.aK(true).a(this.far);
-        akVar.a(kVar.aTY(), this.irx);
+        akVar.a(kVar.aTY(), this.irz);
         akVar.b((ak<com.baidu.tieba.card.data.k>) kVar);
         akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         akVar.sg().a(this.adN);

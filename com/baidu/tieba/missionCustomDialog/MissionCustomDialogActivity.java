@@ -31,23 +31,23 @@ import com.baidu.tieba.view.RoundRelativeLayout;
 public class MissionCustomDialogActivity extends BaseActivity {
     private ActiveCenterData dGJ;
     private ImageView fbc;
-    private RoundRelativeLayout iBZ;
-    private TextView iCa;
-    private TextView iCb;
-    private TBSpecificationBtn iCc;
+    private RoundRelativeLayout iCb;
+    private TextView iCc;
     private TextView iCd;
-    private RoundRelativeLayout jRb;
-    private ImageView jRc;
-    private TextView jRd;
-    private TextView jRe;
-    private SignItemView jRf;
-    private View.OnClickListener jRg = new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.1
+    private TBSpecificationBtn iCe;
+    private TextView iCf;
+    private RoundRelativeLayout jRd;
+    private ImageView jRe;
+    private TextView jRf;
+    private TextView jRg;
+    private SignItemView jRh;
+    private View.OnClickListener jRi = new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MissionCustomDialogActivity.this.cFX();
         }
     };
-    SignItemView.a jRh = new SignItemView.a() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.3
+    SignItemView.a jRj = new SignItemView.a() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.3
         @Override // com.baidu.tbadk.widget.mission.SignItemView.a
         public void b(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
             MissionCustomDialogActivity.this.d(activeCenterStatusData);
@@ -72,20 +72,20 @@ public class MissionCustomDialogActivity extends BaseActivity {
     }
 
     private void initView() {
-        this.jRb = (RoundRelativeLayout) findViewById(R.id.content_background);
-        this.jRb.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.jRc = (ImageView) findViewById(R.id.dialog_background);
+        this.jRd = (RoundRelativeLayout) findViewById(R.id.content_background);
+        this.jRd.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.jRe = (ImageView) findViewById(R.id.dialog_background);
         this.fbc = (ImageView) findViewById(R.id.img_close);
-        this.jRd = (TextView) findViewById(R.id.dialog_title);
-        this.jRe = (TextView) findViewById(R.id.dialog_detail);
-        this.jRf = (SignItemView) findViewById(R.id.sign_view);
-        this.iBZ = (RoundRelativeLayout) findViewById(R.id.bottom_action_layout);
-        this.iCa = (TextView) findViewById(R.id.bottom_title);
-        this.iCb = (TextView) findViewById(R.id.bottom_detail);
-        this.iCc = (TBSpecificationBtn) findViewById(R.id.bottom_btn);
-        this.iCd = (TextView) findViewById(R.id.bottom_btn_text);
-        this.jRf.setItemClickListener(this.jRh);
-        this.iCc.setOnClickListener(this.jRg);
+        this.jRf = (TextView) findViewById(R.id.dialog_title);
+        this.jRg = (TextView) findViewById(R.id.dialog_detail);
+        this.jRh = (SignItemView) findViewById(R.id.sign_view);
+        this.iCb = (RoundRelativeLayout) findViewById(R.id.bottom_action_layout);
+        this.iCc = (TextView) findViewById(R.id.bottom_title);
+        this.iCd = (TextView) findViewById(R.id.bottom_detail);
+        this.iCe = (TBSpecificationBtn) findViewById(R.id.bottom_btn);
+        this.iCf = (TextView) findViewById(R.id.bottom_btn_text);
+        this.jRh.setItemClickListener(this.jRj);
+        this.iCe.setOnClickListener(this.jRi);
         this.fbc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -104,52 +104,52 @@ public class MissionCustomDialogActivity extends BaseActivity {
         }
         q.aQI().hb(true);
         this.dGJ = aQL;
-        this.jRd.setText(as.cutChineseAndEnglishWithSuffix(this.dGJ.win_title, 14, StringHelper.STRING_MORE));
-        this.jRe.setText(as.cutChineseAndEnglishWithSuffix(this.dGJ.win_desc, 30, StringHelper.STRING_MORE));
-        this.jRf.setData(aQL);
+        this.jRf.setText(as.cutChineseAndEnglishWithSuffix(this.dGJ.win_title, 14, StringHelper.STRING_MORE));
+        this.jRg.setText(as.cutChineseAndEnglishWithSuffix(this.dGJ.win_desc, 30, StringHelper.STRING_MORE));
+        this.jRh.setData(aQL);
         d(this.dGJ.getTodayMissionStatus());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
         if (this.dGJ != null && this.dGJ.mission != null && activeCenterStatusData != null) {
-            this.iBZ.setAllCornerRound(l.getDimens(this, R.dimen.tbds21));
+            this.iCb.setAllCornerRound(l.getDimens(this, R.dimen.tbds21));
             String str = activeCenterStatusData.mission;
-            TextView textView = this.iCa;
+            TextView textView = this.iCc;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
             String str2 = activeCenterStatusData.desc;
-            TextView textView2 = this.iCb;
+            TextView textView2 = this.iCd;
             if (str2 == null) {
                 str2 = "";
             }
             textView2.setText(str2);
             if (activeCenterStatusData.is_today_mission == 0) {
-                this.iCc.setVisibility(0);
-                this.iCd.setVisibility(8);
+                this.iCe.setVisibility(0);
+                this.iCf.setVisibility(8);
                 if (activeCenterStatusData.is_completed) {
-                    this.iCc.setText("已完成");
-                    this.iCc.setClickable(false);
-                    this.iCc.setEnabled(false);
+                    this.iCe.setText("已完成");
+                    this.iCe.setClickable(false);
+                    this.iCe.setEnabled(false);
                 } else {
-                    this.iCc.setText("已过期");
-                    this.iCc.setClickable(false);
-                    this.iCc.setEnabled(false);
+                    this.iCe.setText("已过期");
+                    this.iCe.setClickable(false);
+                    this.iCe.setEnabled(false);
                 }
             } else if (activeCenterStatusData.is_today_mission == 1) {
-                this.iCc.setVisibility(0);
-                this.iCd.setVisibility(8);
+                this.iCe.setVisibility(0);
+                this.iCf.setVisibility(8);
                 if (this.dGJ.mission.task_type == 13) {
                     if (activeCenterStatusData.is_completed) {
-                        this.iCc.setText("去领取");
-                        this.iCc.setClickable(true);
-                        this.iCc.setEnabled(true);
+                        this.iCe.setText("去领取");
+                        this.iCe.setClickable(true);
+                        this.iCe.setEnabled(true);
                     } else {
-                        this.iCc.setText("未达标");
-                        this.iCc.setClickable(false);
-                        this.iCc.setEnabled(false);
+                        this.iCe.setText("未达标");
+                        this.iCe.setClickable(false);
+                        this.iCe.setEnabled(false);
                     }
                 } else {
                     if (this.dGJ.mission.task_type == 6) {
@@ -160,25 +160,25 @@ public class MissionCustomDialogActivity extends BaseActivity {
                         }
                     }
                     if (activeCenterStatusData.is_completed) {
-                        this.iCc.setText("已完成");
-                        this.iCc.setClickable(false);
-                        this.iCc.setEnabled(false);
+                        this.iCe.setText("已完成");
+                        this.iCe.setClickable(false);
+                        this.iCe.setEnabled(false);
                     } else {
-                        this.iCc.setText("去完成");
-                        this.iCc.setClickable(true);
-                        this.iCc.setEnabled(true);
+                        this.iCe.setText("去完成");
+                        this.iCe.setClickable(true);
+                        this.iCe.setEnabled(true);
                     }
                 }
             } else {
-                this.iCc.setVisibility(8);
-                this.iCd.setVisibility(0);
-                this.iCd.setText("未开始");
+                this.iCe.setVisibility(8);
+                this.iCf.setVisibility(0);
+                this.iCf.setText("未开始");
             }
             b bVar = new b();
             bVar.mV(R.color.cp_cont_h);
             bVar.mT(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
-            this.iCc.setConfig(bVar);
-            this.iCc.setTextSize(R.dimen.tbds34);
+            this.iCe.setConfig(bVar);
+            this.iCe.setTextSize(R.dimen.tbds34);
         }
     }
 
@@ -186,21 +186,21 @@ public class MissionCustomDialogActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ao.setBackgroundColor(this.jRb, R.color.cp_bg_line_k);
-        SvgManager.baR().a(this.jRc, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
-        ao.setViewTextColor(this.jRd, R.color.cp_other_e);
-        ao.setViewTextColor(this.jRe, R.color.cp_cont_h);
-        ao.setBackgroundColor(this.iBZ, R.color.cp_bg_line_c);
-        ao.setViewTextColor(this.iCa, R.color.cp_cont_b);
-        ao.setViewTextColor(this.iCb, R.color.cp_cont_d);
+        ao.setBackgroundColor(this.jRd, R.color.cp_bg_line_k);
+        SvgManager.baR().a(this.jRe, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
+        ao.setViewTextColor(this.jRf, R.color.cp_other_e);
+        ao.setViewTextColor(this.jRg, R.color.cp_cont_h);
+        ao.setBackgroundColor(this.iCb, R.color.cp_bg_line_c);
+        ao.setViewTextColor(this.iCc, R.color.cp_cont_b);
         ao.setViewTextColor(this.iCd, R.color.cp_cont_d);
-        if (this.iCc != null) {
+        ao.setViewTextColor(this.iCf, R.color.cp_cont_d);
+        if (this.iCe != null) {
             b bVar = new b();
             bVar.mV(R.color.cp_cont_h);
             bVar.mT(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
-            this.iCc.setConfig(bVar);
+            this.iCe.setConfig(bVar);
         }
-        this.jRf.onChangeSkinType(i);
+        this.jRh.onChangeSkinType(i);
         ao.setImageResource(this.fbc, R.drawable.ic_icon_popup_close_n);
     }
 

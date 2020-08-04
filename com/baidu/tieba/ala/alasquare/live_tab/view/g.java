@@ -292,7 +292,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
             if (this.fwT == null) {
                 this.fwT = new com.baidu.tieba.ueg.d(getTbPageContext());
             }
-            if (!this.fwT.doU()) {
+            if (!this.fwT.doV()) {
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
                     com.baidu.adp.lib.util.l.showToast(getTbPageContext().getPageActivity(), R.string.plugin_config_not_found);
                     return;

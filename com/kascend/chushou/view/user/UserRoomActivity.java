@@ -17,9 +17,9 @@ public class UserRoomActivity extends BaseActivity {
     private TextView e;
     private String h;
     private String i;
-    private FrameLayout nCs;
-    private AnimationImageView nEA;
-    private b nEB;
+    private FrameLayout nCu;
+    private AnimationImageView nEC;
+    private b nED;
 
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -31,10 +31,10 @@ public class UserRoomActivity extends BaseActivity {
     public void a() {
         setContentView(a.h.activity_my_room);
         this.a = findViewById(a.f.title_view);
-        this.nCs = (FrameLayout) findViewById(a.f.fragment_container);
+        this.nCu = (FrameLayout) findViewById(a.f.fragment_container);
         this.b = findViewById(a.f.rl_empty);
         this.c = (ImageView) findViewById(a.f.iv_empty);
-        this.nEA = (AnimationImageView) findViewById(a.f.iv_loading);
+        this.nEC = (AnimationImageView) findViewById(a.f.iv_loading);
         this.e = (TextView) findViewById(a.f.tv_empty);
     }
 
@@ -44,13 +44,13 @@ public class UserRoomActivity extends BaseActivity {
         this.h = intent.getStringExtra("uid");
         this.i = intent.getStringExtra("dataInfo");
         boolean booleanExtra = intent.getBooleanExtra("scrollto", false);
-        if (!tv.chushou.zues.utils.a.ead()) {
+        if (!tv.chushou.zues.utils.a.eae()) {
             a_(3);
             return;
         }
         a_(1);
-        this.nEB = b.b(this.h, null, booleanExtra, this.i);
-        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.nEB).commitAllowingStateLoss();
+        this.nED = b.b(this.h, null, booleanExtra, this.i);
+        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.nED).commitAllowingStateLoss();
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
@@ -64,9 +64,9 @@ public class UserRoomActivity extends BaseActivity {
         switch (i) {
             case 1:
                 this.a.setVisibility(0);
-                this.nCs.setVisibility(8);
+                this.nCu.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nEA.setVisibility(0);
+                this.nEC.setVisibility(0);
                 this.c.setVisibility(8);
                 this.e.setVisibility(8);
                 return;
@@ -75,18 +75,18 @@ public class UserRoomActivity extends BaseActivity {
                 return;
             case 3:
                 this.a.setVisibility(0);
-                this.nCs.setVisibility(8);
+                this.nCu.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nEA.setVisibility(8);
+                this.nEC.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_net_error);
                 this.e.setVisibility(8);
                 return;
             case 4:
                 this.a.setVisibility(0);
-                this.nCs.setVisibility(8);
+                this.nCu.setVisibility(8);
                 this.b.setVisibility(0);
-                this.nEA.setVisibility(8);
+                this.nEC.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_unknown_error);
                 this.e.setVisibility(8);
@@ -97,6 +97,6 @@ public class UserRoomActivity extends BaseActivity {
     public void c() {
         this.a.setVisibility(8);
         this.b.setVisibility(8);
-        this.nCs.setVisibility(0);
+        this.nCu.setVisibility(0);
     }
 }

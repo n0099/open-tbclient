@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String iWT = "tb_oficial_msg_";
-    private static a iXr;
+    public static String iWV = "tb_oficial_msg_";
+    private static a iXt;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
@@ -20,10 +20,10 @@ public class l extends a {
     public static synchronized l ctw() {
         l lVar;
         synchronized (l.class) {
-            if (iXr == null) {
-                iXr = new l();
+            if (iXt == null) {
+                iXt = new l();
             }
-            lVar = (l) iXr;
+            lVar = (l) iXt;
         }
         return lVar;
     }
@@ -107,7 +107,7 @@ public class l extends a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("read_count", Integer.valueOf(i));
-            BdLog.d("updateReadCount result = " + h.ctm().a(iWT + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
+            BdLog.d("updateReadCount result = " + h.ctm().a(iWV + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
         } catch (Exception e) {
             e.printStackTrace();
         }
