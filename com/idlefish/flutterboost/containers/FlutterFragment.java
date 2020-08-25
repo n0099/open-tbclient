@@ -25,7 +25,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -59,7 +59,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
         private boolean isUseTabHost;
@@ -94,6 +94,11 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
         public NewEngineFragmentBuilder url(@NonNull String str) {
             this.url = str;
+            return this;
+        }
+
+        public NewEngineFragmentBuilder isTabHost(@NonNull boolean z) {
+            this.isUseTabHost = z;
             return this;
         }
 
@@ -233,7 +238,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.i.a.a.InterfaceC0153a
+    @Override // android.support.v4.app.Fragment, com.baidu.m.a.a.InterfaceC0210a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -292,7 +297,6 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return FlutterView.TransparencyMode.valueOf(getArguments().getString(ARG_FLUTTERVIEW_TRANSPARENCY_MODE, FlutterView.TransparencyMode.transparent.name()));
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
         FragmentActivity activity = getActivity();
@@ -344,12 +348,10 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return getArguments().getString("url");
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public Map getContainerUrlParams() {
         return ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void setSwipeBackEnable(boolean z) {
     }
 }

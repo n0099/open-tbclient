@@ -2,31 +2,31 @@ package com.baidu.live.data;
 
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h {
-    private String aye;
+    private String aDg;
     private String text;
 
-    public static h u(JSONObject jSONObject) {
+    public static h v(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         h hVar = new h();
         hVar.text = jSONObject.optString("text");
-        hVar.aye = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+        hVar.aDg = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
         return hVar;
     }
 
-    public String wX() {
-        return this.aye;
+    public String Cv() {
+        return this.aDg;
     }
 
     public String getText() {
         return this.text;
     }
 
-    public void ev(String str) {
-        this.aye = str;
+    public void fN(String str) {
+        this.aDg = str;
     }
 
     public void setText(String str) {

@@ -12,12 +12,12 @@ import com.baidu.swan.games.network.websocket.e;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected SocketTaskState dll;
+    protected SocketTaskState dvq;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     protected enum SocketTaskState {
         IDLE,
         OPEN,
@@ -27,10 +27,10 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.dll = SocketTaskState.IDLE;
+        this.dvq = SocketTaskState.IDLE;
     }
 
-    private void w(String str, Object obj) {
+    private void v(String str, Object obj) {
         if (DEBUG) {
             Log.i("WebSocket", "dispatchEvent:" + str);
         }
@@ -39,32 +39,32 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.dll = SocketTaskState.OPEN;
-        w("open", new e.C0451e(new JSONObject(map)));
+        this.dvq = SocketTaskState.OPEN;
+        v("open", new e.C0499e(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onMessage(String str) {
-        w("message", new e.d(str));
+        v("message", new e.d(str));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onMessage(ByteBuffer byteBuffer) {
         byte[] bArr = new byte[byteBuffer.remaining()];
         byteBuffer.get(bArr);
-        w("message", new e.d(new JsArrayBuffer(bArr, bArr.length)));
+        v("message", new e.d(new JsArrayBuffer(bArr, bArr.length)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.dll = SocketTaskState.CLOSE;
-        w("close", new e.a(jSONObject == null ? 0 : jSONObject.optInt("code", 0), jSONObject == null ? "" : jSONObject.optString(TiebaInitialize.LogFields.REASON)));
+        this.dvq = SocketTaskState.CLOSE;
+        v("close", new e.a(jSONObject == null ? 0 : jSONObject.optInt("code", 0), jSONObject == null ? "" : jSONObject.optString(TiebaInitialize.LogFields.REASON)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.dll == SocketTaskState.IDLE) {
-            w(BdStatsConstant.StatsType.ERROR, new e.b(th.getMessage()));
+        if (this.dvq == SocketTaskState.IDLE) {
+            v(BdStatsConstant.StatsType.ERROR, new e.b(th.getMessage()));
         }
     }
 }

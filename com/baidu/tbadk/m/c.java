@@ -2,13 +2,13 @@ package com.baidu.tbadk.m;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static String toSourceTraceString(List<String> list) {
-        if (x.getCount(list) <= 0) {
+        if (y.getCount(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -35,9 +35,9 @@ public class c {
     }
 
     public static List<String> trimToSize(List<String> list, int i) {
-        int count = x.getCount(list);
+        int count = y.getCount(list);
         if (count > 0 && i >= 0 && count > i) {
-            return x.subList(list, count - i, count);
+            return y.subList(list, count - i, count);
         }
         return list;
     }

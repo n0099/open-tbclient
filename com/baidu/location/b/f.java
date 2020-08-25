@@ -1,20 +1,26 @@
 package com.baidu.location.b;
 
-import android.location.OnNmeaMessageListener;
+import com.baidu.location.b.d;
+import java.util.Timer;
+import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class f implements OnNmeaMessageListener {
-    final /* synthetic */ e a;
+/* loaded from: classes20.dex */
+public class f extends TimerTask {
+    final /* synthetic */ Timer a;
+    final /* synthetic */ d.b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.a = eVar;
+    public f(d.b bVar, Timer timer) {
+        this.b = bVar;
+        this.a = timer;
     }
 
-    @Override // android.location.OnNmeaMessageListener
-    public void onNmeaMessage(String str, long j) {
-        if (this.a.b(str)) {
-            this.a.a(str);
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        if (!this.b.d) {
+            this.b.c();
         }
+        this.a.cancel();
+        this.a.purge();
     }
 }

@@ -4,7 +4,7 @@ import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import com.baidu.ar.f.q;
+import com.baidu.ar.g.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IHttpResponse;
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    private String y(int i) {
+    private String v(int i) {
         switch (i) {
             case -90:
                 return "HR";
@@ -56,14 +56,14 @@ public class b {
     }
 
     public void a(byte[] bArr, int i, final a aVar) {
-        String fG = q.fG();
+        String gV = s.gV();
         HashMap hashMap = new HashMap();
         String encodeToString = Base64.encodeToString(bArr, 0);
-        String y = y(i);
+        String v = v(i);
         hashMap.put("image", encodeToString);
         hashMap.put("svc_name", "child-face");
-        hashMap.put("vid", y);
-        com.baidu.ar.child.b.a.a(fG, hashMap, new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.child.b.b.1
+        hashMap.put("vid", v);
+        com.baidu.ar.child.b.a.a(gV, hashMap, new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.child.b.b.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
                 Log.e("ChildRequestController", httpException.getMessage());

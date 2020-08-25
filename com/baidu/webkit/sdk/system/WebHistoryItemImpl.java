@@ -1,10 +1,9 @@
 package com.baidu.webkit.sdk.system;
 
 import android.graphics.Bitmap;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     private static Method cloneMethod;
     private final android.webkit.WebHistoryItem mItem;
@@ -13,7 +12,7 @@ final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
         try {
             cloneMethod = android.webkit.WebHistoryItem.class.getDeclaredMethod("clone", null);
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -38,7 +37,7 @@ final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
                 return from((android.webkit.WebHistoryItem) cloneMethod.invoke(this.mItem, null));
             }
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
         return null;
     }

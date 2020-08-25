@@ -1,7 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class NullMediaHeaderBox extends AbstractMediaHeaderBox {
     public static String TYPE = "nmhd";
 

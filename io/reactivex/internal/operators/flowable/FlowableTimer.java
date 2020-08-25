@@ -14,30 +14,30 @@ public final class FlowableTimer extends io.reactivex.g<Long> {
     final TimeUnit unit;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super Long> cVar) {
+    public void a(org.b.c<? super Long> cVar) {
         TimerSubscriber timerSubscriber = new TimerSubscriber(cVar);
         cVar.onSubscribe(timerSubscriber);
         timerSubscriber.setResource(this.scheduler.b(timerSubscriber, this.delay, this.unit));
     }
 
     /* loaded from: classes7.dex */
-    static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, org.a.d {
+    static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, org.b.d {
         private static final long serialVersionUID = -2809475196591179431L;
-        final org.a.c<? super Long> actual;
+        final org.b.c<? super Long> actual;
         volatile boolean requested;
 
-        TimerSubscriber(org.a.c<? super Long> cVar) {
+        TimerSubscriber(org.b.c<? super Long> cVar) {
             this.actual = cVar;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 this.requested = true;
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             DisposableHelper.dispose(this);
         }

@@ -3,46 +3,46 @@ package com.baidu.tieba.t;
 import android.app.Application;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static b lVf;
+    private static b mmS;
     private boolean mInited = false;
-    private a lVg = dnR();
+    private a mmT = dzm();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void initSdk(Application application);
     }
 
-    private boolean dnQ() {
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getInt("pref_key_jpush_sdk_enable", 0) == 1;
+    private boolean dzl() {
+        return com.baidu.tbadk.core.sharedPref.b.bik().getInt("pref_key_jpush_sdk_enable", 0) == 1;
     }
 
     private b() {
     }
 
-    private a dnR() {
+    private a dzm() {
         CustomResponsedMessage runTask;
-        if (!dnQ() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+        if (!dzl() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static b dnS() {
-        if (lVf == null) {
+    public static b dzn() {
+        if (mmS == null) {
             synchronized (b.class) {
-                if (lVf == null) {
-                    lVf = new b();
+                if (mmS == null) {
+                    mmS = new b();
                 }
             }
         }
-        return lVf;
+        return mmS;
     }
 
     public void initSdk(Application application) {
-        if (!this.mInited && this.lVg != null) {
-            this.lVg.initSdk(application);
+        if (!this.mInited && this.mmT != null) {
+            this.mmT.initSdk(application);
             this.mInited = true;
         }
     }

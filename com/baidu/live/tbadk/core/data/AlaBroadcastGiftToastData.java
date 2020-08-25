@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaBroadcastGiftToastData extends BaseData {
     public static final int BROAD_TYPE_CHELLENGE_MVP = 7;
     public static final int BROAD_TYPE_NOBLE_OPEN = 6;
@@ -36,6 +36,7 @@ public class AlaBroadcastGiftToastData extends BaseData {
     public int rightIconWidth;
     public String sender;
     public String sender_portrait;
+    public boolean showPortrait;
     public String startBgColor;
     public String subjectName;
     public String[] textArray;
@@ -62,6 +63,7 @@ public class AlaBroadcastGiftToastData extends BaseData {
                 this.keywords = optJSONObject.optString("keywords");
             }
             this.isJump = jSONObject.optInt("is_jump") == 1;
+            this.showPortrait = jSONObject.optInt("show_portrait", 0) == 1;
             this.leftIcon = jSONObject.optString("left_icon");
             this.leftIconWidth = jSONObject.optInt("left_icon_width");
             this.leftIconHeight = jSONObject.optInt("left_icon_height");

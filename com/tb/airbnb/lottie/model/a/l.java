@@ -3,63 +3,63 @@ package com.tb.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nPk;
-    private final m<PointF, PointF> nPl;
-    private final g nPm;
-    private final b nPn;
-    private final d nPo;
+    private final e oje;
+    private final m<PointF, PointF> ojf;
+    private final g ojg;
+    private final b ojh;
+    private final d oji;
     @Nullable
-    private final b nPp;
+    private final b ojj;
     @Nullable
-    private final b nPq;
+    private final b ojk;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nPk = eVar;
-        this.nPl = mVar;
-        this.nPm = gVar;
-        this.nPn = bVar;
-        this.nPo = dVar;
-        this.nPp = bVar2;
-        this.nPq = bVar3;
+        this.oje = eVar;
+        this.ojf = mVar;
+        this.ojg = gVar;
+        this.ojh = bVar;
+        this.oji = dVar;
+        this.ojj = bVar2;
+        this.ojk = bVar3;
     }
 
-    public e dRf() {
-        return this.nPk;
+    public e edh() {
+        return this.oje;
     }
 
-    public m<PointF, PointF> dRg() {
-        return this.nPl;
+    public m<PointF, PointF> edi() {
+        return this.ojf;
     }
 
-    public g dRh() {
-        return this.nPm;
+    public g edj() {
+        return this.ojg;
     }
 
-    public b dRi() {
-        return this.nPn;
+    public b edk() {
+        return this.ojh;
     }
 
-    public d dRj() {
-        return this.nPo;
-    }
-
-    @Nullable
-    public b dRk() {
-        return this.nPp;
+    public d edl() {
+        return this.oji;
     }
 
     @Nullable
-    public b dRl() {
-        return this.nPq;
+    public b edm() {
+        return this.ojj;
     }
 
-    public o dRm() {
+    @Nullable
+    public b edn() {
+        return this.ojk;
+    }
+
+    public o edo() {
         return new o(this);
     }
 

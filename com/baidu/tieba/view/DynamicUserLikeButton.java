@@ -7,15 +7,17 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean ahP;
-    private a mpj;
+    private boolean ajd;
+    private a mGX;
+    private boolean mGY;
 
     /* loaded from: classes15.dex */
     public interface a {
-        void bX(View view);
+        void bZ(View view);
     }
 
     public DynamicUserLikeButton(Context context) {
@@ -28,27 +30,44 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     public DynamicUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.mV(R.color.cp_link_tip_a);
-        setConfig(cVar);
+        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+        bVar.pb(R.color.cp_link_tip_a);
+        setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
 
-    public void aM(boolean z) {
-        if (z) {
-            com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.mX(R.color.cp_cont_d);
-            setConfig(cVar);
+    public void aN(boolean z) {
+        if (this.mGY) {
+            if (z) {
+                com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+                bVar.blo();
+                setConfig(bVar);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+            } else {
+                com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
+                bVar2.pc(R.color.cp_cont_b);
+                bVar2.oX(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                bVar2.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                bVar2.oY(R.color.cp_cont_b);
+                setConfig(bVar2);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+            }
+        } else if (z) {
+            com.baidu.tbadk.core.view.commonBtn.b bVar3 = new com.baidu.tbadk.core.view.commonBtn.b();
+            bVar3.pd(R.color.cp_cont_d);
+            setConfig(bVar3);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
-            com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar2.mV(R.color.cp_link_tip_a);
-            if (this.ahP) {
-                cVar2.mR(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
-                cVar2.k(R.drawable.icon_pure_add12_svg, 0, true);
+            com.baidu.tbadk.core.view.commonBtn.b bVar4 = new com.baidu.tbadk.core.view.commonBtn.b();
+            bVar4.pb(R.color.cp_link_tip_a);
+            if (this.ajd) {
+                bVar4.oX(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+                bVar4.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             }
-            setConfig(cVar2);
+            setConfig(bVar4);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
         }
@@ -57,9 +76,9 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     public void r(boolean z, int i) {
         if (z) {
-            aM(true);
+            aN(true);
         } else {
-            aM(false);
+            aN(false);
         }
     }
 
@@ -69,13 +88,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void nc(int i) {
+    public void pk(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bi(View view) {
-        if (this.mpj != null) {
-            this.mpj.bX(view);
+    public void bk(View view) {
+        if (this.mGX != null) {
+            this.mGX.bZ(view);
         }
     }
 
@@ -85,14 +104,18 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void onChangeSkinType(int i) {
-        bci();
+        bkF();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.mpj = aVar;
+        this.mGX = aVar;
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ahP = z;
+        this.ajd = z;
+    }
+
+    public void setGodRecommendStyle(boolean z) {
+        this.mGY = z;
     }
 }

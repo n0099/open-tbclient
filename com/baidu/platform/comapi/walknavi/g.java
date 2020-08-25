@@ -1,15 +1,25 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes10.dex */
-class g implements com.baidu.platform.comapi.wnplatform.c.c {
-    final /* synthetic */ f a;
+
+import com.baidu.platform.comapi.walknavi.g.a;
+import com.baidu.platform.comapi.walknavi.widget.a;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes20.dex */
+public class g implements a.InterfaceC0254a {
+    final /* synthetic */ a.b a;
+    final /* synthetic */ int b;
+    final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.a = fVar;
+    public g(b bVar, a.b bVar2, int i) {
+        this.c = bVar;
+        this.a = bVar2;
+        this.b = i;
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.c.c
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0254a
     public void a() {
-        this.a.a.s();
+        if (this.a != null) {
+            this.a.b(this.b);
+        }
     }
 }

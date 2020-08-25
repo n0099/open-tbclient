@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
     public abstract void a(com.baidu.tbadk.a.e eVar);
 
-    public abstract BdUniqueId aRS();
+    public abstract BdUniqueId baj();
 
-    public abstract ArrayList<String> aRT();
+    public abstract ArrayList<String> bak();
 
-    public abstract com.baidu.tbadk.a.e aRU();
+    public abstract com.baidu.tbadk.a.e bal();
 
     public static void aG(List<q> list) {
         if (list != null) {
-            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.aRx());
+            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.aZO());
             for (q qVar : list) {
                 if (qVar instanceof AbsThreadDataSupport) {
                     AbsThreadDataSupport absThreadDataSupport = (AbsThreadDataSupport) qVar;
@@ -31,13 +31,13 @@ public abstract class a {
         }
     }
 
-    public static void a(c... cVarArr) {
-        if (cVarArr != null) {
-            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.aRx());
-            for (c cVar : cVarArr) {
-                if (cVar != null) {
+    public static void a(d... dVarArr) {
+        if (dVarArr != null) {
+            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.aZO());
+            for (d dVar : dVarArr) {
+                if (dVar != null) {
                     for (Map.Entry entry : hashMap.entrySet()) {
-                        cVar.a((BdUniqueId) entry.getKey(), (com.baidu.tbadk.a.e) entry.getValue());
+                        dVar.a((BdUniqueId) entry.getKey(), (com.baidu.tbadk.a.e) entry.getValue());
                     }
                 }
             }

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import java.io.Serializable;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
     public static final int IMAGE_TYPE_CHUDIAN = 1;
     private static final long serialVersionUID = 2037469186418617574L;
@@ -23,11 +23,14 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public String qrInfo;
     public String richTextArray;
     public int urlType;
+    public String userId;
+    public String userNameShow;
     public boolean mIsShowOrigonButton = true;
     public boolean isLongPic = false;
     public long originalSize = 0;
     public int originalProcess = -1;
     public String forumId = null;
+    public String forumName = null;
     public long threadId = -1;
     public long postId = -1;
     public boolean mIsReserver = true;

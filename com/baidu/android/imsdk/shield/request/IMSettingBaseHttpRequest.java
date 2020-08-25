@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class IMSettingBaseHttpRequest extends BaseHttpRequest {
     public abstract String getHostUrlParam();
 

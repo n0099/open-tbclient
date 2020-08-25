@@ -3,9 +3,9 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class Arc extends Overlay {
     private static final String f = Arc.class.getSimpleName();
     int a;
@@ -16,7 +16,7 @@ public final class Arc extends Overlay {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Arc() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.arc;
+        this.type = com.baidu.mapsdkplatform.comapi.map.i.arc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -64,10 +64,10 @@ public final class Arc extends Overlay {
 
     public void setPoints(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         if (latLng == null || latLng2 == null || latLng3 == null) {
-            throw new IllegalArgumentException("start and middle and end points can not be null");
+            throw new IllegalArgumentException("BDMapSDKException:start and middle and end points can not be null");
         }
         if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
-            throw new IllegalArgumentException("start and middle and end points can not be same");
+            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
         }
         this.c = latLng;
         this.d = latLng2;

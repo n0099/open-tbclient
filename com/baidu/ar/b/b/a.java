@@ -1,28 +1,36 @@
 package com.baidu.ar.b.b;
 /* loaded from: classes11.dex */
-public abstract class a extends d {
-    public a(int i) {
-        super(i);
-        this.level = 1;
-    }
+public abstract class a extends com.baidu.ar.c.a<C0078a> {
+    private int cD;
 
-    public abstract boolean az();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.ar.b.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public static class C0078a {
+        int cE;
+        int type;
 
-    @Override // com.baidu.ar.b.b.d
-    public void execute() {
-        if (com.baidu.ar.b.a.aq().d(this.cX)) {
-            com.baidu.ar.b.a.aq().f(this.cX);
-            az();
+        C0078a(int i, int i2) {
+            this.type = i;
+            this.cE = i2;
         }
-        com.baidu.ar.b.a.aq().a(new Runnable() { // from class: com.baidu.ar.b.b.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.ar.b.a.a aVar;
-                if (a.this.cY == null || (aVar = a.this.cY.get()) == null) {
-                    return;
-                }
-                aVar.as();
-            }
-        });
     }
+
+    public a(int i) {
+        this.cD = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.ar.c.a
+    /* renamed from: av */
+    public C0078a ax() {
+        int i = 0;
+        if (com.baidu.ar.b.a.ar().b(this.cD)) {
+            com.baidu.ar.b.a.ar().d(this.cD);
+            i = aw();
+        }
+        return new C0078a(this.cD, i);
+    }
+
+    public abstract int aw();
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PaymentConfirmActivityConfig extends IntentConfig {
     public static final String BOOK_ID = "book_id";
     public static final String BOOK_TYPE = "book_type";

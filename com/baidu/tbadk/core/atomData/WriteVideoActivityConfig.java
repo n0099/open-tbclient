@@ -7,7 +7,7 @@ import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteVideoActivityConfig extends IntentConfig {
     public static final String ALL_VIDEO_TITLE = "all_video_title";
     public static final String FORUM_ID = "forum_id";

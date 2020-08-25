@@ -7,13 +7,13 @@ import java.io.InputStream;
 import java.util.Stack;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ZipUtils implements INoProGuard {
     private static ZipUtils singleton;
     private ZipEntry nextEntry;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class a extends ZipInputStream {
         public a(InputStream inputStream) {
             super(inputStream);
@@ -94,7 +94,7 @@ public class ZipUtils implements INoProGuard {
             try {
                 zipInputStream.close();
             } catch (IOException e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
         }
     }
@@ -140,7 +140,7 @@ public class ZipUtils implements INoProGuard {
             r0 = move-exception
             r2 = r3
         L37:
-            com.a.a.a.a.a.a.a.a(r0)     // Catch: java.lang.Throwable -> Lea
+            r0.printStackTrace()     // Catch: java.lang.Throwable -> Lea
             r0 = 0
             if (r2 == 0) goto L40
             r1.close()     // Catch: java.lang.Throwable -> Le0
@@ -195,7 +195,7 @@ public class ZipUtils implements INoProGuard {
             goto L1b
         Lac:
             r0 = move-exception
-            com.a.a.a.a.a.a.a.a(r0)     // Catch: java.lang.Throwable -> Lf0
+            r0.printStackTrace()     // Catch: java.lang.Throwable -> Lf0
             r1 = r2
             goto L1b
         Lb3:
@@ -209,14 +209,14 @@ public class ZipUtils implements INoProGuard {
             goto L45
         Lbf:
             r1 = move-exception
-            com.a.a.a.a.a.a.a.a(r1)
+            r1.printStackTrace()
             goto L45
         Lc4:
             r0 = 0
             goto Lb6
         Lc6:
             r1 = move-exception
-            com.a.a.a.a.a.a.a.a(r1)
+            r1.printStackTrace()
             goto L45
         Lcc:
             r0 = move-exception
@@ -231,7 +231,7 @@ public class ZipUtils implements INoProGuard {
             throw r0
         Ld9:
             r1 = move-exception
-            com.a.a.a.a.a.a.a.a(r1)
+            r1.printStackTrace()
             goto Ld8
         Lde:
             r2 = move-exception
@@ -367,7 +367,7 @@ public class ZipUtils implements INoProGuard {
             r1 = r0
         Lbd:
             r0 = 0
-            com.a.a.a.a.a.a.a.a(r1)     // Catch: java.lang.Throwable -> L127
+            r1.printStackTrace()     // Catch: java.lang.Throwable -> L127
             if (r3 == 0) goto Lc6
             r3.close()     // Catch: java.lang.Throwable -> L11b
         Lc6:

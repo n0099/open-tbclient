@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ubcprocessor;
-/* loaded from: classes4.dex */
+/* loaded from: classes18.dex */
 public interface UBCCloudConfigObserver {
     void onReceiveUbcCloudConfig(String str);
 }

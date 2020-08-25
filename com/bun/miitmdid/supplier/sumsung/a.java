@@ -3,14 +3,14 @@ package com.bun.miitmdid.supplier.sumsung;
 import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     public SupplierListener a;
-    private SumsungCore mPc;
+    private SumsungCore nhU;
 
     public a(Context context, SupplierListener supplierListener) {
         this.a = supplierListener;
-        this.mPc = new SumsungCore(context, this);
+        this.nhU = new SumsungCore(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
@@ -39,39 +39,39 @@ public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         String aaid;
-        return (isSupported() && (aaid = this.mPc.getAAID()) != null) ? aaid : "";
+        return (isSupported() && (aaid = this.nhU.getAAID()) != null) ? aaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         String oaid;
-        return (isSupported() && (oaid = this.mPc.getOAID()) != null) ? oaid : "";
+        return (isSupported() && (oaid = this.nhU.getOAID()) != null) ? oaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         String udid;
-        return (isSupported() && (udid = this.mPc.getUDID()) != null) ? udid : "";
+        return (isSupported() && (udid = this.nhU.getUDID()) != null) ? udid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         String vaid;
-        return (isSupported() && (vaid = this.mPc.getVAID()) != null) ? vaid : "";
+        return (isSupported() && (vaid = this.nhU.getVAID()) != null) ? vaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        if (this.mPc != null) {
-            return this.mPc.isSupported();
+        if (this.nhU != null) {
+            return this.nhU.isSupported();
         }
         return false;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
-        if (this.mPc != null) {
-            this.mPc.shutdown();
+        if (this.nhU != null) {
+            this.nhU.shutdown();
         }
     }
 }

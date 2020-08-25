@@ -9,71 +9,71 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g extends BdBaseModel<GuardClubMemberListActivity> {
-    private boolean eZg;
-    private a fOY;
-    private boolean fPa;
-    private com.baidu.tieba.ala.guardclub.k fQw;
-    private long fQx;
+    private boolean fky;
+    private a gaX;
+    private boolean gaZ;
+    private com.baidu.tieba.ala.guardclub.k gcu;
+    private long gcv;
     private boolean hasMore;
-    private int fQq = 1;
-    private HttpMessageListener fQy = new HttpMessageListener(1021138) { // from class: com.baidu.tieba.ala.guardclub.model.g.1
+    private int gco = 1;
+    private HttpMessageListener gcw = new HttpMessageListener(1021138) { // from class: com.baidu.tieba.ala.guardclub.model.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (!(httpResponsedMessage instanceof GuardClubMemberListHttpResponseMessage)) {
-                if (g.this.fQw != null) {
-                    g.this.fQw.buK();
+                if (g.this.gcu != null) {
+                    g.this.gcu.bDF();
                     return;
                 }
                 return;
             }
             GuardClubMemberListHttpResponseMessage guardClubMemberListHttpResponseMessage = (GuardClubMemberListHttpResponseMessage) httpResponsedMessage;
             if (guardClubMemberListHttpResponseMessage.getError() != 0) {
-                if (g.this.fQw != null) {
-                    g.this.fQw.buK();
+                if (g.this.gcu != null) {
+                    g.this.gcu.bDF();
                     return;
                 }
                 return;
             }
-            if (guardClubMemberListHttpResponseMessage.memberCount >= 0 && g.this.fOY != null) {
-                g.this.fOY.re(guardClubMemberListHttpResponseMessage.memberCount);
+            if (guardClubMemberListHttpResponseMessage.memberCount >= 0 && g.this.gaX != null) {
+                g.this.gaX.tq(guardClubMemberListHttpResponseMessage.memberCount);
             }
             g.this.hasMore = guardClubMemberListHttpResponseMessage.hasMore;
-            if (g.this.fQw != null) {
-                g.this.fQw.a(guardClubMemberListHttpResponseMessage.aSI, guardClubMemberListHttpResponseMessage.aSL);
-                if (!g.this.eZg || guardClubMemberListHttpResponseMessage.fQo != 1) {
-                    g.this.fQw.bO(guardClubMemberListHttpResponseMessage.fQv);
+            if (g.this.gcu != null) {
+                g.this.gcu.a(guardClubMemberListHttpResponseMessage.aXW, guardClubMemberListHttpResponseMessage.aXZ);
+                if (!g.this.fky || guardClubMemberListHttpResponseMessage.gcm != 1) {
+                    g.this.gcu.bP(guardClubMemberListHttpResponseMessage.gct);
                 } else {
-                    g.this.fQw.bN(guardClubMemberListHttpResponseMessage.fQv);
-                    g.this.fQw.completePullRefresh();
+                    g.this.gcu.bO(guardClubMemberListHttpResponseMessage.gct);
+                    g.this.gcu.completePullRefresh();
                 }
                 if (guardClubMemberListHttpResponseMessage.hasMore) {
-                    g.this.fQw.bAM();
+                    g.this.gcu.bKh();
                 } else {
-                    g.this.fQw.kR(g.this.fQq == 1);
+                    g.this.gcu.lr(g.this.gco == 1);
                 }
-                g.this.fQq++;
+                g.this.gco++;
             }
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void re(int i);
+        void tq(int i);
     }
 
     public g(long j, boolean z, a aVar) {
-        this.fQx = j;
-        this.fPa = z;
-        this.fOY = aVar;
-        bAV();
-        MessageManager.getInstance().registerListener(this.fQy);
+        this.gcv = j;
+        this.gaZ = z;
+        this.gaX = aVar;
+        bKp();
+        MessageManager.getInstance().registerListener(this.gcw);
     }
 
     public void k(com.baidu.tieba.ala.guardclub.k kVar) {
-        this.fQw = kVar;
+        this.gcu = kVar;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -86,39 +86,39 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         return false;
     }
 
-    public boolean bAR() {
+    public boolean bKl() {
         return this.hasMore;
     }
 
-    public void bAS() {
-        kS(true);
+    public void bKm() {
+        ls(true);
     }
 
-    public void kS(boolean z) {
-        this.eZg = z;
+    public void ls(boolean z) {
+        this.fky = z;
         if (z) {
-            this.fQq = 1;
+            this.gco = 1;
         }
-        bAX();
+        bKr();
     }
 
-    public void bAT() {
-        this.eZg = false;
-        if (this.fQw != null) {
-            this.fQw.bwT();
-            bAX();
+    public void bKn() {
+        this.fky = false;
+        if (this.gcu != null) {
+            this.gcu.bFS();
+            bKr();
         }
     }
 
-    private void bAX() {
-        if (!BdNetTypeUtil.isNetWorkAvailable() && this.fQw != null) {
-            this.fQw.bAN();
+    private void bKr() {
+        if (!BdNetTypeUtil.isNetWorkAvailable() && this.gcu != null) {
+            this.gcu.bKi();
             return;
         }
         h hVar = new h();
-        hVar.af(this.fQx);
-        hVar.setPn(this.fQq);
-        if (this.fPa) {
+        hVar.ag(this.gcv);
+        hVar.setPn(this.gco);
+        if (this.gaZ) {
             hVar.setPs(20);
         } else {
             hVar.setPs(10);
@@ -127,7 +127,7 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         MessageManager.getInstance().sendMessage(hVar);
     }
 
-    private void bAV() {
+    private void bKp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021138, TbConfig.SERVER_HOST + "liveserver/guardClub/memberlist");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -138,8 +138,8 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
     }
 
     public void onDestory() {
-        if (this.fQy != null) {
-            MessageManager.getInstance().unRegisterListener(this.fQy);
+        if (this.gcw != null) {
+            MessageManager.getInstance().unRegisterListener(this.gcw);
         }
         MessageManager.getInstance().unRegisterTask(1021138);
     }

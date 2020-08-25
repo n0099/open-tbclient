@@ -9,11 +9,11 @@ import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
-    final io.reactivex.parallel.a<? extends T> nUL;
+    final io.reactivex.parallel.a<? extends T> ooH;
     final int prefetch;
     final v scheduler;
 
@@ -26,10 +26,10 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                 ((h) this.scheduler).a(length, new a(cVarArr, cVarArr2));
             } else {
                 for (int i = 0; i < length; i++) {
-                    a(i, cVarArr, cVarArr2, this.scheduler.dSS());
+                    a(i, cVarArr, cVarArr2, this.scheduler.eeU());
                 }
             }
-            this.nUL.a(cVarArr2);
+            this.ooH.a(cVarArr2);
         }
     }
 
@@ -45,23 +45,23 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
 
     /* loaded from: classes7.dex */
     final class a implements h.a {
-        final c<T>[] nUP;
+        final c<T>[] ooL;
         final c<? super T>[] subscribers;
 
         a(c<? super T>[] cVarArr, c<T>[] cVarArr2) {
             this.subscribers = cVarArr;
-            this.nUP = cVarArr2;
+            this.ooL = cVarArr2;
         }
 
         @Override // io.reactivex.internal.schedulers.h.a
         public void a(int i, v.c cVar) {
-            ParallelRunOn.this.a(i, this.subscribers, this.nUP, cVar);
+            ParallelRunOn.this.a(i, this.subscribers, this.ooL, cVar);
         }
     }
 
     @Override // io.reactivex.parallel.a
-    public int dTd() {
-        return this.nUL.dTd();
+    public int eff() {
+        return this.ooH.eff();
     }
 
     /* loaded from: classes7.dex */
@@ -85,7 +85,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             this.worker = cVar;
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public final void onNext(T t) {
             if (!this.done) {
                 if (!this.queue.offer(t)) {
@@ -97,7 +97,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public final void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -108,7 +108,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             schedule();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public final void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -116,7 +116,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
@@ -124,7 +124,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public final void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -138,7 +138,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
 
         final void schedule() {
             if (getAndIncrement() == 0) {
-                this.worker.J(this);
+                this.worker.G(this);
             }
         }
     }
@@ -154,7 +154,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             this.actual = cVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -252,7 +252,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             this.actual = aVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;

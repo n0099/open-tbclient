@@ -6,7 +6,7 @@ import android.util.Log;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
 
@@ -109,7 +109,7 @@ public class a {
         }
     }
 
-    public static int ei(int i) {
+    public static int gf(int i) {
         int[] iArr = new int[1];
         GLES30.glGenTextures(1, iArr, 0);
         checkGlError("glGenTextures");
@@ -124,7 +124,7 @@ public class a {
         return i2;
     }
 
-    public static int Rk() {
-        return ei(36197);
+    public static int Xf() {
+        return gf(36197);
     }
 }

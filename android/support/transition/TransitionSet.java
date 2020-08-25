@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class TransitionSet extends Transition {
     public static final int ORDERING_SEQUENTIAL = 1;
     public static final int ORDERING_TOGETHER = 0;
@@ -349,7 +349,7 @@ public class TransitionSet extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class TransitionSetListener extends TransitionListenerAdapter {
         TransitionSet mTransitionSet;
 

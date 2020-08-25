@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     private List<c> mEmotionList;
 
@@ -29,7 +29,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
             this.mEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    this.mEmotionList.add(c.cU(jSONArray.getJSONObject(i)));
+                    this.mEmotionList.add(c.db(jSONArray.getJSONObject(i)));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -8,11 +8,12 @@ import com.baidu.cesium.e.a;
 import com.baidu.cesium.f;
 import com.baidu.cesium.g;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class DeviceId {
     private static final String a = "DeviceId";
     private static final boolean b = false;
     private static g.a d;
+    private static volatile DeviceId g;
     public static boolean sDataCuidInfoShable = true;
     private final Context c;
     private g e;
@@ -25,35 +26,16 @@ public final class DeviceId {
         this.f = new f(this.c, cVar);
     }
 
-    private g.a a() {
-        this.e.b();
-        try {
-            g.a b2 = b();
-            if (b2 == null) {
-                b2 = a((String) null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static DeviceId a(Context context) {
+        DeviceId deviceId;
+        synchronized (e.class) {
+            if (g == null) {
+                g = new DeviceId(context);
             }
-            if (b2 == null) {
-                b2 = c((String) null);
-            }
-            a(b2);
-            return b2;
-        } catch (Throwable th) {
-            this.e.c();
-            throw th;
+            deviceId = g;
         }
-    }
-
-    private static g.a a(Context context) {
-        if (d == null) {
-            synchronized (e.class) {
-                if (d == null) {
-                    SystemClock.uptimeMillis();
-                    d = new DeviceId(context).a();
-                    SystemClock.uptimeMillis();
-                }
-            }
-        }
-        return d;
+        return deviceId;
     }
 
     private g.a a(String str) {
@@ -66,14 +48,40 @@ public final class DeviceId {
     }
 
     private g.a b() {
-        g.a c = c();
-        return c == null ? d() : c;
+        this.e.b();
+        try {
+            g.a c = c();
+            if (c == null) {
+                c = a((String) null);
+            }
+            if (c == null) {
+                c = c((String) null);
+            }
+            a(c);
+            return c;
+        } catch (Throwable th) {
+            this.e.c();
+            throw th;
+        }
+    }
+
+    private static g.a b(Context context) {
+        if (d == null) {
+            synchronized (e.class) {
+                if (d == null) {
+                    SystemClock.uptimeMillis();
+                    d = a(context).b();
+                    SystemClock.uptimeMillis();
+                }
+            }
+        }
+        return d;
     }
 
     private g.a b(String str) {
-        e dd = this.f.dd(str);
-        if (dd != null) {
-            return this.e.b(dd);
+        e m21do = this.f.m21do(str);
+        if (m21do != null) {
+            return this.e.b(m21do);
         }
         return null;
     }
@@ -92,7 +100,8 @@ public final class DeviceId {
     }
 
     private g.a c() {
-        return this.e.a();
+        g.a d2 = d();
+        return d2 == null ? e() : d2;
     }
 
     private g.a c(String str) {
@@ -104,30 +113,39 @@ public final class DeviceId {
         if (aVar == null) {
             throw new NullPointerException("cuidV270Info should not be null");
         }
-        e sM = aVar.sM();
+        e uu = aVar.uu();
         this.e.a(aVar, true, false);
-        this.f.a(sM);
+        this.f.a(uu);
         this.e.a(aVar);
     }
 
     private g.a d() {
-        e db;
+        return this.e.uo();
+    }
+
+    private g.a e() {
+        e dm;
         File file = new File(this.c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (db = e.db(com.baidu.cesium.f.c.a(file))) == null) {
+        if (!file.exists() || (dm = e.dm(com.baidu.cesium.f.c.a(file))) == null) {
             return null;
         }
-        return this.e.b(db);
+        return this.e.b(dm);
     }
 
     public static String getCUID(Context context) {
-        return a(context).g();
+        return b(context).g();
     }
 
     public static String getDeviceID(Context context) {
-        return a(context).b();
+        return b(context).b();
     }
 
     @Deprecated
     public static void setCuidDataShable(Context context, boolean z) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g a() {
+        return this.e;
     }
 }

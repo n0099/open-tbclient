@@ -2,7 +2,7 @@ package com.baidu.swan.apps.storage.c;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class d extends ProviderDelegation {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -13,6 +13,6 @@ public abstract class d extends ProviderDelegation {
         if (bundle.isEmpty()) {
             return Bundle.EMPTY;
         }
-        return a(c.W(bundle));
+        return a(c.U(bundle));
     }
 }

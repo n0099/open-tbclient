@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.hybrid;
 
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface j {
-    void aT(List<Long> list);
+    void aU(List<Long> list);
 }

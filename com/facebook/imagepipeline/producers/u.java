@@ -11,10 +11,10 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int nbv;
+    private int nvl;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.nbv = i;
+        this.nvl = i;
     }
 
     u(ExecutorService executorService) {
@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dJC().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.dVB().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dFH() {
+            public void dRG() {
                 if (submit.cancel(false)) {
-                    aVar.dCu();
+                    aVar.dOu();
                 }
             }
         });
@@ -78,11 +78,11 @@ public class u extends c<t> {
                 if (httpURLConnection != null) {
                     try {
                         r1 = httpURLConnection.getInputStream();
-                        aVar.g(r1, -1);
+                        aVar.f(r1, -1);
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.F(e);
+                        aVar.E(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -133,10 +133,10 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection W = W(uri);
-        W.setConnectTimeout(this.nbv);
+        W.setConnectTimeout(this.nvl);
         int responseCode = W.getResponseCode();
-        if (!JK(responseCode)) {
-            if (JL(responseCode)) {
+        if (!Mo(responseCode)) {
+            if (Mp(responseCode)) {
                 String headerField = W.getHeaderField(Headers.LOCATION);
                 W.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -156,11 +156,11 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.H(uri).openConnection();
     }
 
-    private static boolean JK(int i) {
+    private static boolean Mo(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean JL(int i) {
+    private static boolean Mp(int i) {
         switch (i) {
             case 300:
             case 301:

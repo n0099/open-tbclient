@@ -1,13 +1,13 @@
 package com.baidu.tieba.write.model;
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.tieba.write.a.b mwO = null;
+    private com.baidu.tieba.write.a.b mPb = null;
 
-    public com.baidu.tieba.write.a.b duT() {
-        return this.mwO;
+    public com.baidu.tieba.write.a.b dGp() {
+        return this.mPb;
     }
 
     public void a(com.baidu.tieba.write.a.b bVar) {
-        this.mwO = bVar;
+        this.mPb = bVar;
     }
 }

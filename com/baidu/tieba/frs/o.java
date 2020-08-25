@@ -1,37 +1,60 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 /* loaded from: classes16.dex */
 public class o {
-    private com.baidu.tieba.frs.mc.l hHT;
+    private View hVd;
+    private int hVe = -1;
+    private int hVf = -1;
 
-    public o(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.l lVar) {
-        this.hHT = lVar;
+    public o(View view) {
+        this.hVd = view;
     }
 
-    public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.hHT != null && this.hHT.cbr() != null && this.hHT.cbr().cgN() != null && this.hHT.cbw() != null && bVar != null && this.hHT.cbw().getListView() != null && this.hHT.cbt() != null) {
-            BdTypeRecyclerView listView = this.hHT.cbw().getListView();
-            switch (bVar.what) {
-                case 2:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.hHT.cbt().ww(8);
-                        return;
-                    }
-                    return;
-                case 3:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        this.hHT.cbt().ww(0);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
+    public int getOriginHeight() {
+        return this.hVe;
+    }
+
+    public void setOriginHeight(int i) {
+        this.hVe = i;
+    }
+
+    public void wX(int i) {
+        this.hVf = i;
+    }
+
+    public void setHeight(int i) {
+        ViewGroup.LayoutParams layoutParams;
+        if (this.hVd != null && (layoutParams = this.hVd.getLayoutParams()) != null) {
+            layoutParams.height = i;
+            this.hVf = i;
+            this.hVd.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void x(double d) {
+        if (this.hVd != null) {
+            int i = (int) (this.hVe + (PullRefreshFrameLayout.esm * d));
+            ViewGroup.LayoutParams layoutParams = this.hVd.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.height = i;
+                this.hVf = layoutParams.height;
+                this.hVd.setLayoutParams(layoutParams);
             }
         }
+    }
+
+    public int getHeight() {
+        ViewGroup.LayoutParams layoutParams;
+        if (this.hVd == null || (layoutParams = this.hVd.getLayoutParams()) == null) {
+            return 0;
+        }
+        return layoutParams.height;
+    }
+
+    public int cmJ() {
+        return this.hVf;
     }
 }

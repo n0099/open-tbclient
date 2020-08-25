@@ -3,7 +3,7 @@ package com.baidu.platform.core.a;
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(DistrictSearchOption districtSearchOption) {

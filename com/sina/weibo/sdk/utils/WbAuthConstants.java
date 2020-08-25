@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.utils;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class WbAuthConstants {
     public static final String AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE = "8001";
     public static final String AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE = "your install weibo app is counterfeit";

@@ -35,8 +35,8 @@ import com.baidu.tbadk.core.a;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.af;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.f.b;
 import com.baidu.tbadk.core.view.GuidPageView;
@@ -51,7 +51,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -109,7 +109,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.aZX();
+        this.customToast = e.bis();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -122,7 +122,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bb.setCurrentActivity(getClass().getName());
+        bc.setCurrentActivity(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -194,7 +194,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            d.ad(getPageContext().getPageActivity());
+            d.ac(getPageContext().getPageActivity());
         }
     }
 
@@ -362,19 +362,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aYR();
+        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).bhm();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).aYR();
+        BdToast.a(getActivity(), str, i, i2, false).bhm();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).aYR();
+        BdToast.a(getActivity(), str, defaultIcon).bhm();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).aYR();
+        BdToast.a(getActivity(), str, defaultIcon, i).bhm();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -492,7 +492,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        bb.setCurrentActivity(getClass().getName());
+        bc.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -544,7 +544,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         UtilHelper.quitDialog(getActivity());
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     class DelayRunnable implements Runnable {
         private View mView;
 
@@ -561,7 +561,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public abstract class LoadDataCallBack {
         public abstract void callback(Object... objArr);
 
@@ -591,7 +591,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
     public void onPreLoad(t tVar) {
         super.onPreLoad(tVar);
-        af.a(tVar, getUniqueId());
+        ag.a(tVar, getUniqueId());
         com.baidu.tbadk.core.util.f.c.a(tVar, getUniqueId(), this);
     }
 
@@ -839,7 +839,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d {
-    public static void ao(String str, String str2) {
-        UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(str, str2, "liveroom", null));
+    public static void as(String str, String str2) {
+        UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(str, str2, "liveroom", ""));
     }
 
     public static void a(HttpResponsedMessage httpResponsedMessage, String str, String str2, String str3, String str4, String str5, String str6, boolean z) {
@@ -25,6 +25,6 @@ public class d {
         } catch (JSONException e) {
             BdLog.e(e);
         }
-        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(str, str2, "liveroom", null).setContentExt(jSONObject), httpResponsedMessage, z);
+        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(str, str2, "liveroom", "").setContentExt(jSONObject), httpResponsedMessage, z);
     }
 }

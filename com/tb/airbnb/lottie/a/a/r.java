@@ -4,36 +4,36 @@ import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class r implements b, a.InterfaceC0874a {
-    private final List<a.InterfaceC0874a> listeners = new ArrayList();
-    private final ShapeTrimPath.Type nOG;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOH;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOI;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> nOJ;
+/* loaded from: classes7.dex */
+public class r implements b, a.InterfaceC0932a {
+    private final List<a.InterfaceC0932a> listeners = new ArrayList();
     private final String name;
+    private final ShapeTrimPath.Type oiA;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiB;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiC;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiD;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.nOG = shapeTrimPath.dQT();
-        this.nOH = shapeTrimPath.dRM().dRd();
-        this.nOI = shapeTrimPath.dRL().dRd();
-        this.nOJ = shapeTrimPath.dRH().dRd();
-        aVar.a(this.nOH);
-        aVar.a(this.nOI);
-        aVar.a(this.nOJ);
-        this.nOH.b(this);
-        this.nOI.b(this);
-        this.nOJ.b(this);
+        this.oiA = shapeTrimPath.ecV();
+        this.oiB = shapeTrimPath.edO().edf();
+        this.oiC = shapeTrimPath.edN().edf();
+        this.oiD = shapeTrimPath.edJ().edf();
+        aVar.a(this.oiB);
+        aVar.a(this.oiC);
+        aVar.a(this.oiD);
+        this.oiB.b(this);
+        this.oiC.b(this);
+        this.oiD.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0874a
-    public void hq() {
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0932a
+    public void iR() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).hq();
+                this.listeners.get(i2).iR();
                 i = i2 + 1;
             } else {
                 return;
@@ -51,24 +51,24 @@ public class r implements b, a.InterfaceC0874a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0874a interfaceC0874a) {
-        this.listeners.add(interfaceC0874a);
+    public void a(a.InterfaceC0932a interfaceC0932a) {
+        this.listeners.add(interfaceC0932a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dQT() {
-        return this.nOG;
+    public ShapeTrimPath.Type ecV() {
+        return this.oiA;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dQU() {
-        return this.nOH;
+    public com.tb.airbnb.lottie.a.b.a<?, Float> ecW() {
+        return this.oiB;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dQV() {
-        return this.nOI;
+    public com.tb.airbnb.lottie.a.b.a<?, Float> ecX() {
+        return this.oiC;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dQW() {
-        return this.nOJ;
+    public com.tb.airbnb.lottie.a.b.a<?, Float> ecY() {
+        return this.oiD;
     }
 }

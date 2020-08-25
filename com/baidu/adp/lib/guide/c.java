@@ -11,10 +11,10 @@ import com.baidu.adp.lib.guide.d;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener, View.OnKeyListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private Configuration Kc;
-    private MaskView Kd;
-    private b[] Ke;
-    private d.a Kf;
+    private Configuration KG;
+    private MaskView KH;
+    private b[] KI;
+    private d.a KJ;
     private boolean mShouldCheckLocInWindow = true;
     private boolean mUseDirectOffset = false;
 
@@ -24,17 +24,17 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Configuration configuration) {
-        this.Kc = configuration;
+        this.KG = configuration;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b[] bVarArr) {
-        this.Ke = bVarArr;
+        this.KI = bVarArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d.a aVar) {
-        this.Kf = aVar;
+        this.KJ = aVar;
     }
 
     public void show(Activity activity) {
@@ -46,19 +46,19 @@ public class c implements View.OnClickListener, View.OnKeyListener {
     }
 
     private void a(ViewGroup viewGroup, Activity activity, boolean z) {
-        if (this.Kd == null) {
-            this.Kd = n(activity);
-            this.Kd.setUseDirectOffset(this.mUseDirectOffset);
+        if (this.KH == null) {
+            this.KH = n(activity);
+            this.KH.setUseDirectOffset(this.mUseDirectOffset);
             if (!z) {
-                this.Kd.setFocusable(false);
-                this.Kd.setFocusableInTouchMode(false);
-                this.Kd.clearFocus();
+                this.KH.setFocusable(false);
+                this.KH.setFocusableInTouchMode(false);
+                this.KH.clearFocus();
             }
         }
-        if (this.Kd.getParent() == null) {
-            viewGroup.addView(this.Kd);
-            if (this.Kc.mEnterAnimationId != -1) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.Kc.mEnterAnimationId);
+        if (this.KH.getParent() == null) {
+            viewGroup.addView(this.KH);
+            if (this.KG.mEnterAnimationId != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.KG.mEnterAnimationId);
                 if (!$assertionsDisabled && loadAnimation == null) {
                     throw new AssertionError();
                 }
@@ -69,8 +69,8 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        if (c.this.Kf != null) {
-                            c.this.Kf.onShown();
+                        if (c.this.KJ != null) {
+                            c.this.KJ.onShown();
                         }
                     }
 
@@ -78,9 +78,9 @@ public class c implements View.OnClickListener, View.OnKeyListener {
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.Kd.startAnimation(loadAnimation);
-            } else if (this.Kf != null) {
-                this.Kf.onShown();
+                this.KH.startAnimation(loadAnimation);
+            } else if (this.KJ != null) {
+                this.KJ.onShown();
             }
         }
     }
@@ -90,14 +90,14 @@ public class c implements View.OnClickListener, View.OnKeyListener {
     }
 
     public void dismiss() {
-        if (this.Kd != null && (this.Kd.getParent() instanceof ViewGroup)) {
-            final ViewGroup viewGroup = (ViewGroup) this.Kd.getParent();
-            if (this.Kc.mExitAnimationId != -1) {
-                Context context = this.Kd.getContext();
+        if (this.KH != null && (this.KH.getParent() instanceof ViewGroup)) {
+            final ViewGroup viewGroup = (ViewGroup) this.KH.getParent();
+            if (this.KG.mExitAnimationId != -1) {
+                Context context = this.KH.getContext();
                 if (!$assertionsDisabled && context == null) {
                     throw new AssertionError();
                 }
-                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.Kc.mExitAnimationId);
+                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.KG.mExitAnimationId);
                 if (!$assertionsDisabled && loadAnimation == null) {
                     throw new AssertionError();
                 }
@@ -108,9 +108,9 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        viewGroup.removeView(c.this.Kd);
-                        if (c.this.Kf != null) {
-                            c.this.Kf.onDismiss();
+                        viewGroup.removeView(c.this.KH);
+                        if (c.this.KJ != null) {
+                            c.this.KJ.onDismiss();
                         }
                         c.this.onDestroy();
                     }
@@ -119,12 +119,12 @@ public class c implements View.OnClickListener, View.OnKeyListener {
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.Kd.startAnimation(loadAnimation);
+                this.KH.startAnimation(loadAnimation);
                 return;
             }
-            viewGroup.removeView(this.Kd);
-            if (this.Kf != null) {
-                this.Kf.onDismiss();
+            viewGroup.removeView(this.KH);
+            if (this.KJ != null) {
+                this.KJ.onDismiss();
             }
             onDestroy();
         }
@@ -136,9 +136,9 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     private MaskView n(Activity activity) {
         MaskView maskView = new MaskView(activity);
-        maskView.setFullingColor(activity.getResources().getColor(this.Kc.mFullingColorId));
-        maskView.setFullingAlpha(this.Kc.mAlpha);
-        maskView.setOverlayTarget(this.Kc.mOverlayTarget);
+        maskView.setFullingColor(activity.getResources().getColor(this.KG.mFullingColorId));
+        maskView.setFullingAlpha(this.KG.mAlpha);
+        maskView.setOverlayTarget(this.KG.mOverlayTarget);
         maskView.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
@@ -163,24 +163,24 @@ public class c implements View.OnClickListener, View.OnKeyListener {
                 e7.printStackTrace();
             }
         }
-        if (this.Kc.mTargetView != null) {
-            maskView.setTargetRect(a.getViewAbsRect(this.Kc.mTargetView, 0, i));
+        if (this.KG.mTargetView != null) {
+            maskView.setTargetRect(a.getViewAbsRect(this.KG.mTargetView, 0, i));
         } else {
-            View findViewById = activity.findViewById(this.Kc.mTargetViewId);
+            View findViewById = activity.findViewById(this.KG.mTargetViewId);
             if (findViewById != null) {
                 maskView.setTargetRect(a.getViewAbsRect(findViewById, 0, i));
             }
         }
-        View findViewById2 = activity.findViewById(this.Kc.mFullingViewId);
+        View findViewById2 = activity.findViewById(this.KG.mFullingViewId);
         if (findViewById2 != null) {
             maskView.setFullingRect(a.getViewAbsRect(findViewById2, 0, i));
         }
-        if (this.Kc.mOutsideTouchable) {
+        if (this.KG.mOutsideTouchable) {
             maskView.setClickable(false);
         } else {
             maskView.setOnClickListener(this);
         }
-        for (b bVar : this.Ke) {
+        for (b bVar : this.KI) {
             maskView.addView(a.a(activity.getLayoutInflater(), bVar));
         }
         return maskView;
@@ -188,15 +188,15 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onDestroy() {
-        this.Kc = null;
-        this.Ke = null;
-        this.Kf = null;
+        this.KG = null;
+        this.KI = null;
+        this.KJ = null;
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getAction() == 1) {
-            if (this.Kc == null || !this.Kc.mAutoDismiss) {
+            if (this.KG == null || !this.KG.mAutoDismiss) {
                 return false;
             }
             dismiss();
@@ -207,7 +207,7 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.Kc != null && this.Kc.mAutoDismiss) {
+        if (this.KG != null && this.KG.mAutoDismiss) {
             dismiss();
         }
     }

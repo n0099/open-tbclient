@@ -4,7 +4,7 @@ import java.util.HashMap;
 /* loaded from: classes20.dex */
 public class g {
     private static HashMap<String, String> b = new HashMap<>();
-    private static g bxS;
+    private static g bDA;
 
     private g() {
     }
@@ -12,10 +12,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (bxS == null) {
-                bxS = new g();
+            if (bDA == null) {
+                bDA = new g();
             }
-            gVar = bxS;
+            gVar = bDA;
         }
         return gVar;
     }

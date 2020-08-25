@@ -14,18 +14,18 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes15.dex */
 public class FrameOverlayView extends View {
-    private int eMy;
-    private GestureDetector.SimpleOnGestureListener gRV;
-    private int gRW;
-    int gRX;
-    int gRY;
-    int gRZ;
-    private Paint gSa;
-    private RectF gSb;
-    private RectF gSc;
-    private a gSd;
-    private int gSe;
+    private int eXe;
     private GestureDetector gestureDetector;
+    private GestureDetector.SimpleOnGestureListener heO;
+    private int heP;
+    int heQ;
+    int heR;
+    int heS;
+    private Paint heT;
+    private RectF heU;
+    private RectF heV;
+    private a heW;
+    private int heX;
     private Paint paint;
 
     /* loaded from: classes15.dex */
@@ -34,166 +34,166 @@ public class FrameOverlayView extends View {
 
     public Rect getFrameRect() {
         Rect rect = new Rect();
-        rect.left = (int) this.gSc.left;
-        rect.top = (int) this.gSc.top;
-        rect.right = (int) this.gSc.right;
-        rect.bottom = (int) this.gSc.bottom;
+        rect.left = (int) this.heV.left;
+        rect.top = (int) this.heV.top;
+        rect.right = (int) this.heV.right;
+        rect.bottom = (int) this.heV.bottom;
         return rect;
     }
 
     public FrameOverlayView(Context context) {
         super(context);
-        this.gRV = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.FrameOverlayView.1
+        this.heO = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.FrameOverlayView.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                FrameOverlayView.this.v(f, f2);
+                FrameOverlayView.this.z(f, f2);
                 return true;
             }
         };
-        this.gRW = -1;
-        this.gRX = 20;
-        this.gRY = 100;
-        this.gRZ = 6;
-        this.eMy = Color.argb(180, 0, 0, 0);
+        this.heP = -1;
+        this.heQ = 20;
+        this.heR = 100;
+        this.heS = 6;
+        this.eXe = Color.argb(180, 0, 0, 0);
         this.paint = new Paint(1);
-        this.gSa = new Paint(1);
-        this.gSb = new RectF();
-        this.gSc = new RectF();
+        this.heT = new Paint(1);
+        this.heU = new RectF();
+        this.heV = new RectF();
         setLayerType(1, null);
         this.paint.setColor(-1);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(6.0f);
-        this.gSa.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.gSe = 0;
+        this.heT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.heX = 0;
         init();
     }
 
     public FrameOverlayView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gRV = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.FrameOverlayView.1
+        this.heO = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.FrameOverlayView.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                FrameOverlayView.this.v(f, f2);
+                FrameOverlayView.this.z(f, f2);
                 return true;
             }
         };
-        this.gRW = -1;
-        this.gRX = 20;
-        this.gRY = 100;
-        this.gRZ = 6;
-        this.eMy = Color.argb(180, 0, 0, 0);
+        this.heP = -1;
+        this.heQ = 20;
+        this.heR = 100;
+        this.heS = 6;
+        this.eXe = Color.argb(180, 0, 0, 0);
         this.paint = new Paint(1);
-        this.gSa = new Paint(1);
-        this.gSb = new RectF();
-        this.gSc = new RectF();
+        this.heT = new Paint(1);
+        this.heU = new RectF();
+        this.heV = new RectF();
         setLayerType(1, null);
         this.paint.setColor(-1);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(6.0f);
-        this.gSa.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.gSe = 0;
+        this.heT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.heX = 0;
         init();
     }
 
     public FrameOverlayView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gRV = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.FrameOverlayView.1
+        this.heO = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.FrameOverlayView.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                FrameOverlayView.this.v(f, f2);
+                FrameOverlayView.this.z(f, f2);
                 return true;
             }
         };
-        this.gRW = -1;
-        this.gRX = 20;
-        this.gRY = 100;
-        this.gRZ = 6;
-        this.eMy = Color.argb(180, 0, 0, 0);
+        this.heP = -1;
+        this.heQ = 20;
+        this.heR = 100;
+        this.heS = 6;
+        this.eXe = Color.argb(180, 0, 0, 0);
         this.paint = new Paint(1);
-        this.gSa = new Paint(1);
-        this.gSb = new RectF();
-        this.gSc = new RectF();
+        this.heT = new Paint(1);
+        this.heU = new RectF();
+        this.heV = new RectF();
         setLayerType(1, null);
         this.paint.setColor(-1);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(6.0f);
-        this.gSa.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.gSe = 0;
+        this.heT.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.heX = 0;
         init();
     }
 
     public void setOnFrameChangeListener(a aVar) {
-        this.gSd = aVar;
+        this.heW = aVar;
     }
 
     private void init() {
-        this.gestureDetector = new GestureDetector(getContext(), this.gRV);
-        this.gRY = com.baidu.tieba.barselect.a.b.dpToPx(18);
-        this.gRZ = com.baidu.tieba.barselect.a.b.dpToPx(3);
+        this.gestureDetector = new GestureDetector(getContext(), this.heO);
+        this.heR = com.baidu.tieba.barselect.a.b.dpToPx(18);
+        this.heS = com.baidu.tieba.barselect.a.b.dpToPx(3);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        bO(i, i2);
+        bW(i, i2);
     }
 
-    private void bO(int i, int i2) {
-        if (this.gSe == 1) {
-            this.gSc.left = (int) (i * 0.05d);
-            this.gSc.top = (int) (i2 * 0.25d);
+    private void bW(int i, int i2) {
+        if (this.heX == 1) {
+            this.heV.left = (int) (i * 0.05d);
+            this.heV.top = (int) (i2 * 0.25d);
         } else {
-            this.gSc.left = (int) (i * 0.2d);
-            this.gSc.top = (int) (i2 * 0.2d);
+            this.heV.left = (int) (i * 0.2d);
+            this.heV.top = (int) (i2 * 0.2d);
         }
-        this.gSc.right = i - this.gSc.left;
-        this.gSc.bottom = i2 - this.gSc.top;
+        this.heV.right = i - this.heV.left;
+        this.heV.bottom = i2 - this.heV.top;
     }
 
     public void setTypeWide() {
-        this.gSe = 1;
+        this.heX = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void v(float f, float f2) {
+    public void z(float f, float f2) {
         if (f > 0.0f) {
-            if (this.gSc.left - f < this.gRX) {
-                f = this.gSc.left - this.gRX;
+            if (this.heV.left - f < this.heQ) {
+                f = this.heV.left - this.heQ;
             }
-        } else if (this.gSc.right - f > getWidth() - this.gRX) {
-            f = (this.gSc.right - getWidth()) + this.gRX;
+        } else if (this.heV.right - f > getWidth() - this.heQ) {
+            f = (this.heV.right - getWidth()) + this.heQ;
         }
         if (f2 > 0.0f) {
-            if (this.gSc.top - f2 < this.gRX) {
-                f2 = this.gSc.top - this.gRX;
+            if (this.heV.top - f2 < this.heQ) {
+                f2 = this.heV.top - this.heQ;
             }
-        } else if (this.gSc.bottom - f2 > getHeight() - this.gRX) {
-            f2 = (this.gSc.bottom - getHeight()) + this.gRX;
+        } else if (this.heV.bottom - f2 > getHeight() - this.heQ) {
+            f2 = (this.heV.bottom - getHeight()) + this.heQ;
         }
-        this.gSc.offset(-f, -f2);
+        this.heV.offset(-f, -f2);
         invalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(this.eMy);
+        canvas.drawColor(this.eXe);
         this.paint.setStrokeWidth(com.baidu.tieba.barselect.a.b.dpToPx(1));
-        canvas.drawRect(this.gSc, this.paint);
-        canvas.drawRect(this.gSc, this.gSa);
-        I(canvas);
+        canvas.drawRect(this.heV, this.paint);
+        canvas.drawRect(this.heV, this.heT);
+        P(canvas);
     }
 
-    private void I(Canvas canvas) {
-        this.paint.setStrokeWidth(this.gRZ);
-        a(canvas, this.gSc.left - (this.gRZ / 2), this.gSc.top, this.gRY, 0);
-        a(canvas, this.gSc.left, this.gSc.top, 0, this.gRY);
-        a(canvas, this.gSc.right + (this.gRZ / 2), this.gSc.top, -this.gRY, 0);
-        a(canvas, this.gSc.right, this.gSc.top, 0, this.gRY);
-        a(canvas, this.gSc.right, this.gSc.bottom, 0, -this.gRY);
-        a(canvas, this.gSc.right + (this.gRZ / 2), this.gSc.bottom, -this.gRY, 0);
-        a(canvas, this.gSc.left - (this.gRZ / 2), this.gSc.bottom, this.gRY, 0);
-        a(canvas, this.gSc.left, this.gSc.bottom, 0, -this.gRY);
+    private void P(Canvas canvas) {
+        this.paint.setStrokeWidth(this.heS);
+        a(canvas, this.heV.left - (this.heS / 2), this.heV.top, this.heR, 0);
+        a(canvas, this.heV.left, this.heV.top, 0, this.heR);
+        a(canvas, this.heV.right + (this.heS / 2), this.heV.top, -this.heR, 0);
+        a(canvas, this.heV.right, this.heV.top, 0, this.heR);
+        a(canvas, this.heV.right, this.heV.bottom, 0, -this.heR);
+        a(canvas, this.heV.right + (this.heS / 2), this.heV.bottom, -this.heR, 0);
+        a(canvas, this.heV.left - (this.heS / 2), this.heV.bottom, this.heR, 0);
+        a(canvas, this.heV.left, this.heV.bottom, 0, -this.heR);
     }
 
     private void a(Canvas canvas, float f, float f2, int i, int i2) {
@@ -202,59 +202,59 @@ public class FrameOverlayView extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean F = F(motionEvent);
-        RectF rectF = new RectF(this.gSc.left - 60.0f, this.gSc.top - 60.0f, this.gSc.right + 60.0f, 60.0f + this.gSc.bottom);
-        if (!F && rectF.contains(motionEvent.getX(), motionEvent.getY())) {
+        boolean W = W(motionEvent);
+        RectF rectF = new RectF(this.heV.left - 60.0f, this.heV.top - 60.0f, this.heV.right + 60.0f, 60.0f + this.heV.bottom);
+        if (!W && rectF.contains(motionEvent.getX(), motionEvent.getY())) {
             this.gestureDetector.onTouchEvent(motionEvent);
             return true;
         }
-        return F;
+        return W;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private boolean F(MotionEvent motionEvent) {
+    private boolean W(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                float f = this.gRY;
-                this.gSb.set(motionEvent.getX() - f, motionEvent.getY() - f, motionEvent.getX() + f, f + motionEvent.getY());
-                if (this.gSb.contains(this.gSc.left, this.gSc.top)) {
-                    this.gRW = 1;
+                float f = this.heR;
+                this.heU.set(motionEvent.getX() - f, motionEvent.getY() - f, motionEvent.getX() + f, f + motionEvent.getY());
+                if (this.heU.contains(this.heV.left, this.heV.top)) {
+                    this.heP = 1;
                     return true;
-                } else if (this.gSb.contains(this.gSc.right, this.gSc.top)) {
-                    this.gRW = 2;
+                } else if (this.heU.contains(this.heV.right, this.heV.top)) {
+                    this.heP = 2;
                     return true;
-                } else if (this.gSb.contains(this.gSc.right, this.gSc.bottom)) {
-                    this.gRW = 3;
+                } else if (this.heU.contains(this.heV.right, this.heV.bottom)) {
+                    this.heP = 3;
                     return true;
-                } else if (this.gSb.contains(this.gSc.left, this.gSc.bottom)) {
-                    this.gRW = 4;
+                } else if (this.heU.contains(this.heV.left, this.heV.bottom)) {
+                    this.heP = 4;
                     return true;
                 } else {
                     return false;
                 }
             case 1:
             case 3:
-                this.gRW = -1;
+                this.heP = -1;
                 break;
             case 2:
-                return G(motionEvent);
+                return X(motionEvent);
         }
         return false;
     }
 
-    private boolean G(MotionEvent motionEvent) {
-        switch (this.gRW) {
+    private boolean X(MotionEvent motionEvent) {
+        switch (this.heP) {
             case 1:
-                f(motionEvent.getX(), motionEvent.getY(), this.gSc.right, this.gSc.bottom);
+                f(motionEvent.getX(), motionEvent.getY(), this.heV.right, this.heV.bottom);
                 return true;
             case 2:
-                f(this.gSc.left, motionEvent.getY(), motionEvent.getX(), this.gSc.bottom);
+                f(this.heV.left, motionEvent.getY(), motionEvent.getX(), this.heV.bottom);
                 return true;
             case 3:
-                f(this.gSc.left, this.gSc.top, motionEvent.getX(), motionEvent.getY());
+                f(this.heV.left, this.heV.top, motionEvent.getX(), motionEvent.getY());
                 return true;
             case 4:
-                f(motionEvent.getX(), this.gSc.top, this.gSc.right, motionEvent.getY());
+                f(motionEvent.getX(), this.heV.top, this.heV.right, motionEvent.getY());
                 return true;
             default:
                 return false;
@@ -263,22 +263,22 @@ public class FrameOverlayView extends View {
 
     private void f(float f, float f2, float f3, float f4) {
         if (f4 - f2 < getMinimumFrameHeight()) {
-            f2 = this.gSc.top;
-            f4 = this.gSc.bottom;
+            f2 = this.heV.top;
+            f4 = this.heV.bottom;
         }
         if (f3 - f < getMinimumFrameWidth()) {
-            f = this.gSc.left;
-            f3 = this.gSc.right;
+            f = this.heV.left;
+            f3 = this.heV.right;
         }
-        this.gSc.set(Math.max(this.gRX, f), Math.max(this.gRX, f2), Math.min(getWidth() - this.gRX, f3), Math.min(getHeight() - this.gRX, f4));
+        this.heV.set(Math.max(this.heQ, f), Math.max(this.heQ, f2), Math.min(getWidth() - this.heQ, f3), Math.min(getHeight() - this.heQ, f4));
         invalidate();
     }
 
     private float getMinimumFrameWidth() {
-        return 2.4f * this.gRY;
+        return 2.4f * this.heR;
     }
 
     private float getMinimumFrameHeight() {
-        return 2.4f * this.gRY;
+        return 2.4f * this.heR;
     }
 }

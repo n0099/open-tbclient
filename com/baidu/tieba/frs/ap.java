@@ -1,11 +1,18 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes15.dex */
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.af;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+/* loaded from: classes16.dex */
 public interface ap {
-    void a(int i, int i2, ay ayVar);
+    com.baidu.adp.widget.ListView.a<? extends bw, ? extends af.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
 
-    void a(at atVar);
+    com.baidu.adp.widget.ListView.a<? extends bv, ? extends af.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
 
-    void bCu();
+    k<ICardInfo, ? extends af.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 
-    void init();
+    com.baidu.adp.widget.ListView.a<? extends bw, ? extends af.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 }

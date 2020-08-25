@@ -12,7 +12,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/setBackgroundColor");
@@ -29,19 +29,19 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("backgroundColor", optParamsAsJo.toString());
         }
-        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
-        if (Sc == null) {
+        f XX = com.baidu.swan.apps.v.f.arY().XX();
+        if (XX == null) {
             c.e("backgroundColor", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = optParamsAsJo.optString("backgroundColor");
-        com.baidu.swan.apps.core.d.e aba = Sc.aba();
-        if (aba == null) {
+        com.baidu.swan.apps.core.d.e ahn = XX.ahn();
+        if (ahn == null) {
             c.e("backgroundColor", "slave container is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!aba.a(aba.getWebViewContainer(), SwanAppConfigData.dU(optString))) {
+        } else if (!ahn.a(ahn.getWebViewContainer(), SwanAppConfigData.fn(optString))) {
             c.e("backgroundColor", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

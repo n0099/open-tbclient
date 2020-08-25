@@ -2,11 +2,11 @@ package kotlin.reflect;
 
 import kotlin.reflect.j;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public interface k<R> extends kotlin.jvm.a.a<R>, j<R> {
 
     @kotlin.h
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public interface a<R> extends kotlin.jvm.a.a<R>, j.a<R> {
     }
 

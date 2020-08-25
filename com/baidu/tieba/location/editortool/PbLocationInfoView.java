@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.i;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect jFL;
+    private Rect jVc;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.jFL = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.jVc = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        setTextColor(ao.getColor(R.color.cp_cont_c));
-        cDl();
+        setTextColor(ap.getColor(R.color.cp_cont_c));
+        cOc();
     }
 
     public void setState(int i, String str) {
@@ -48,26 +48,26 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        cDl();
+        cOc();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void cDl() {
+    public void cOc() {
         if (this.mState == 1) {
-            Drawable drawable = ao.getDrawable(R.drawable.icon_posts_pin_loading_anim);
+            Drawable drawable = ap.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.jFL);
+                drawable.setBounds(this.jVc);
             }
             setCompoundDrawables(drawable, null, null, null);
-            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.F(getContext()), (Animatable) drawable);
+            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.H(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = ao.getDrawable(R.drawable.icon_tips_site);
+        Drawable drawable2 = ap.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.jFL);
+            drawable2.setBounds(this.jVc);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

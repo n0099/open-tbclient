@@ -16,33 +16,33 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.util.ae;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private static String fMv;
-    private com.baidu.tieba.ala.e fLb;
-    private a fMt;
-    private String fMu;
-    private bv frb;
+    private static String fYt;
+    private bw fCx;
+    private com.baidu.tieba.ala.e fWZ;
+    private a fYr;
+    private String fYs;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
-    View.OnClickListener fBi = new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.c.d.1
+    View.OnClickListener fMA = new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.c.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.frb != null && d.this.frb.aWl() != null && !StringUtils.isNull(d.this.frb.aWl().getUserId())) {
-                long j = com.baidu.adp.lib.f.b.toLong(d.this.frb.aWl().getUserId(), 0L);
+            if (d.this.fCx != null && d.this.fCx.beE() != null && !StringUtils.isNull(d.this.fCx.beE().getUserId())) {
+                long j = com.baidu.adp.lib.f.b.toLong(d.this.fCx.beE().getUserId(), 0L);
                 boolean z = j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                com.baidu.tieba.ala.c.buZ().bva();
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(d.this.mTbPageContext.getPageActivity()).createNormalConfig(j, z, d.this.frb.aWl().isBigV())));
+                com.baidu.tieba.ala.c.bDU().bDV();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(d.this.mTbPageContext.getPageActivity()).createNormalConfig(j, z, d.this.fCx.beE().isBigV())));
             }
         }
     };
@@ -50,9 +50,9 @@ public class d implements View.OnClickListener {
     public d(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.ala_game_frs_game_live_view, (ViewGroup) null, false);
-        this.fMt = new a(this.mRootView);
+        this.fYr = new a(this.mRootView);
         getView().setOnClickListener(this);
-        fMv = this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_live_entry_name_yanzhi);
+        fYt = this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_live_entry_name_yanzhi);
     }
 
     public View getView() {
@@ -60,43 +60,43 @@ public class d implements View.OnClickListener {
     }
 
     public void d(com.baidu.tieba.ala.e eVar) {
-        this.fLb = eVar;
+        this.fWZ = eVar;
     }
 
-    public void a(bv bvVar) {
-        if (bvVar == null) {
+    public void a(bw bwVar) {
+        if (bwVar == null) {
             getView().setVisibility(4);
             return;
         }
         getView().setVisibility(0);
-        this.frb = bvVar;
-        this.fMt.fBk.setDrawerType(0);
-        this.fMt.fBk.setBorderSurroundContent(true);
-        this.fMt.fBk.setDrawBorder(true);
-        this.fMt.fBk.startLoad(this.frb.aWF().cover, 10, false);
-        this.fMt.fBm.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, as.numberUniformFormatExtra(this.frb.aWF().audience_count)));
-        this.fMt.fBo.setData(this.frb);
-        this.fMt.fBo.setIsRound(true);
-        this.fMt.fBo.setBorderSurroundContent(true);
-        this.fMt.fBp.setText(this.frb.getTitle());
-        if (this.frb.aWl() != null) {
-            String name_show = this.frb.aWl().getName_show();
+        this.fCx = bwVar;
+        this.fYr.fMC.setDrawerType(0);
+        this.fYr.fMC.setBorderSurroundContent(true);
+        this.fYr.fMC.setDrawBorder(true);
+        this.fYr.fMC.startLoad(this.fCx.beY().cover, 10, false);
+        this.fYr.fME.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.fCx.beY().audience_count)));
+        this.fYr.fMG.setData(this.fCx);
+        this.fYr.fMG.setIsRound(true);
+        this.fYr.fMG.setBorderSurroundContent(true);
+        this.fYr.fMH.setText(this.fCx.getTitle());
+        if (this.fCx.beE() != null) {
+            String name_show = this.fCx.beE().getName_show();
             if (ae.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ae.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
-            this.fMt.aJJ.setText(name_show);
+            this.fYr.aOU.setText(name_show);
         }
-        this.fMt.fMA.setVisibility(0);
-        this.fMt.fBl.setBackgroundResource(R.drawable.transparent_bg);
-        this.fMt.fBl.setText(this.frb.aWF().label_name);
-        this.fMt.fBl.setVisibility(0);
-        if (this.frb.aWl() == null || this.frb.aWl().getAlaUserData() == null || as.isEmpty(this.frb.aWl().getAlaUserData().great_anchor_icon)) {
-            this.fMt.fMx.setVisibility(8);
+        this.fYr.fYy.setVisibility(0);
+        this.fYr.fMD.setBackgroundResource(R.drawable.transparent_bg);
+        this.fYr.fMD.setText(this.fCx.beY().label_name);
+        this.fYr.fMD.setVisibility(0);
+        if (this.fCx.beE() == null || this.fCx.beE().getAlaUserData() == null || at.isEmpty(this.fCx.beE().getAlaUserData().great_anchor_icon)) {
+            this.fYr.fYv.setVisibility(8);
         } else {
-            this.fMt.fMx.setVisibility(0);
-            this.fMt.fMx.startLoad(this.frb.aWl().getAlaUserData().great_anchor_icon, 10, false);
+            this.fYr.fYv.setVisibility(0);
+            this.fYr.fYv.startLoad(this.fCx.beE().getAlaUserData().great_anchor_icon, 10, false);
         }
-        this.fMt.aJJ.setOnClickListener(this.fBi);
+        this.fYr.aOU.setOnClickListener(this.fMA);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -104,82 +104,82 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
-        } else if (this.frb != null && this.frb.aWF() != null) {
-            if (this.fLb != null) {
-                this.fLb.O(this.frb);
+        } else if (this.fCx != null && this.fCx.beY() != null) {
+            if (this.fWZ != null) {
+                this.fWZ.O(this.fCx);
             }
-            com.baidu.tieba.ala.c.buZ().bva();
-            TiebaStatic.log(new ap("c12116").t("obj_id", this.frb.aWF().live_id));
+            com.baidu.tieba.ala.c.bDU().bDV();
+            TiebaStatic.log(new aq("c12116").u("obj_id", this.fCx.beY().live_id));
         }
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.fMt.fBn, R.drawable.addresslist_item_bg);
-            ao.setViewTextColor(this.fMt.fBl, R.color.cp_cont_g);
-            ao.setViewTextColor(this.fMt.fBm, R.color.cp_cont_a);
-            ao.setViewTextColor(this.fMt.aJJ, R.color.cp_cont_d);
-            ao.setViewTextColor(this.fMt.fBp, R.color.cp_cont_b);
-            ao.setViewTextColor(this.fMt.fMB, R.color.cp_cont_a);
+            ap.setBackgroundResource(this.fYr.fMF, R.drawable.addresslist_item_bg);
+            ap.setViewTextColor(this.fYr.fMD, (int) R.color.cp_cont_g);
+            ap.setViewTextColor(this.fYr.fME, (int) R.color.cp_cont_a);
+            ap.setViewTextColor(this.fYr.aOU, (int) R.color.cp_cont_d);
+            ap.setViewTextColor(this.fYr.fMH, (int) R.color.cp_cont_b);
+            ap.setViewTextColor(this.fYr.fYz, (int) R.color.cp_cont_a);
             this.mSkinType = i;
         }
     }
 
     public void setLabelName(String str) {
-        this.fMu = str;
+        this.fYs = str;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TextView aJJ;
-        public TbImageView fBk;
-        public TextView fBl;
-        public TextView fBm;
-        public RelativeLayout fBn;
-        public ClickableHeaderImageView fBo;
-        public TextView fBp;
-        public View fMA;
-        public TextView fMB;
-        private LinearLayout.LayoutParams fMC;
-        private LinearLayout.LayoutParams fMD;
-        public TbImageView fMx;
-        public RelativeLayout fMy;
-        public LinearLayout fMz;
+        public TextView aOU;
+        public TbImageView fMC;
+        public TextView fMD;
+        public TextView fME;
+        public RelativeLayout fMF;
+        public ClickableHeaderImageView fMG;
+        public TextView fMH;
+        private LinearLayout.LayoutParams fYA;
+        private LinearLayout.LayoutParams fYB;
+        public TbImageView fYv;
+        public RelativeLayout fYw;
+        public LinearLayout fYx;
+        public View fYy;
+        public TextView fYz;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.fBk = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.fBl = (TextView) view.findViewById(R.id.tvLiveFrom);
-            this.fBm = (TextView) view.findViewById(R.id.tvLiveCount);
-            this.fBn = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.fBo = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
-            this.aJJ = (TextView) view.findViewById(R.id.tvUserName);
-            this.fMy = (RelativeLayout) view.findViewById(R.id.rlSquareUserInfo);
-            this.fBp = (TextView) view.findViewById(R.id.tvSquareTitle);
-            this.fMz = (LinearLayout) view.findViewById(R.id.llSquareTitlePanel);
-            this.fMx = (TbImageView) view.findViewById(R.id.imgUserGameLabel);
-            this.fMA = view.findViewById(R.id.living_logo);
-            this.fMB = (TextView) view.findViewById(R.id.tvAlaLivingLogView);
-            this.fMB.setTextSize(0, view.getContext().getResources().getDimension(R.dimen.fontsize20));
-            this.fMC = (LinearLayout.LayoutParams) this.fBp.getLayoutParams();
-            this.fMD = (LinearLayout.LayoutParams) this.fMz.getLayoutParams();
-            this.fMx.setDefaultErrorResource(0);
-            this.fMx.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.fBk.setDefaultErrorResource(0);
-            this.fBk.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fBn.getLayoutParams();
+            this.fMC = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.fMD = (TextView) view.findViewById(R.id.tvLiveFrom);
+            this.fME = (TextView) view.findViewById(R.id.tvLiveCount);
+            this.fMF = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.fMG = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
+            this.aOU = (TextView) view.findViewById(R.id.tvUserName);
+            this.fYw = (RelativeLayout) view.findViewById(R.id.rlSquareUserInfo);
+            this.fMH = (TextView) view.findViewById(R.id.tvSquareTitle);
+            this.fYx = (LinearLayout) view.findViewById(R.id.llSquareTitlePanel);
+            this.fYv = (TbImageView) view.findViewById(R.id.imgUserGameLabel);
+            this.fYy = view.findViewById(R.id.living_logo);
+            this.fYz = (TextView) view.findViewById(R.id.tvAlaLivingLogView);
+            this.fYz.setTextSize(0, view.getContext().getResources().getDimension(R.dimen.fontsize20));
+            this.fYA = (LinearLayout.LayoutParams) this.fMH.getLayoutParams();
+            this.fYB = (LinearLayout.LayoutParams) this.fYx.getLayoutParams();
+            this.fYv.setDefaultErrorResource(0);
+            this.fYv.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.fMC.setDefaultErrorResource(0);
+            this.fMC.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fMF.getLayoutParams();
             layoutParams.width = (l.getEquipmentWidth(view.getContext()) - view.getContext().getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
-            this.fMD.leftMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds40);
-            this.fMD.rightMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds40);
-            this.fMC.bottomMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds40);
-            this.fMC.topMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds16);
-            this.fBp.setTextSize(0, view.getContext().getResources().getDimension(R.dimen.fontsize32));
+            this.fYB.leftMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds40);
+            this.fYB.rightMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds40);
+            this.fYA.bottomMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds40);
+            this.fYA.topMargin = (int) view.getContext().getResources().getDimension(R.dimen.ds16);
+            this.fMH.setTextSize(0, view.getContext().getResources().getDimension(R.dimen.fontsize32));
             layoutParams.height = (layoutParams.width * 9) / 16;
-            this.fMy.setVisibility(0);
-            this.fMz.setLayoutParams(this.fMD);
-            this.fBp.setLayoutParams(this.fMC);
-            this.fBn.setLayoutParams(layoutParams);
+            this.fYw.setVisibility(0);
+            this.fYx.setLayoutParams(this.fYB);
+            this.fMH.setLayoutParams(this.fYA);
+            this.fMF.setLayoutParams(layoutParams);
         }
     }
 }

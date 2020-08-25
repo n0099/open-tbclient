@@ -5,14 +5,14 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import tbclient.CommonReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long audience_count;
     @ProtoField(tag = 1)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f956common;
+    public final CommonReq f953common;
     @ProtoField(label = Message.Label.REPEATED, tag = 2, type = Message.Datatype.INT64)
     public final List<Long> live_ids;
     public static final List<Long> DEFAULT_LIVE_IDS = Collections.emptyList();
@@ -21,7 +21,7 @@ public final class DataReq extends Message {
     private DataReq(Builder builder, boolean z) {
         super(builder);
         if (z) {
-            this.f956common = builder.f957common;
+            this.f953common = builder.f954common;
             if (builder.live_ids == null) {
                 this.live_ids = DEFAULT_LIVE_IDS;
             } else {
@@ -35,17 +35,17 @@ public final class DataReq extends Message {
                 return;
             }
         }
-        this.f956common = builder.f957common;
+        this.f953common = builder.f954common;
         this.live_ids = immutableCopyOf(builder.live_ids);
         this.audience_count = builder.audience_count;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long audience_count;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f957common;
+        public CommonReq f954common;
         public List<Long> live_ids;
 
         public Builder() {
@@ -54,7 +54,7 @@ public final class DataReq extends Message {
         public Builder(DataReq dataReq) {
             super(dataReq);
             if (dataReq != null) {
-                this.f957common = dataReq.f956common;
+                this.f954common = dataReq.f953common;
                 this.live_ids = DataReq.copyOf(dataReq.live_ids);
                 this.audience_count = dataReq.audience_count;
             }

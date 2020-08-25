@@ -1,35 +1,41 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.ap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes15.dex */
-public class j extends k {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
+public class j extends a {
+    public static final BdUniqueId hmI = BdUniqueId.gen();
+    private String hjd;
+    private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
+    private String stType;
 
-    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return TYPE;
+        return hmI;
     }
 
-    public j(bv bvVar) {
-        this.dLK = bvVar;
+    public void b(com.baidu.tieba.horizonalList.widget.c cVar) {
+        this.mList.add(cVar);
     }
 
-    public static boolean aa(bv bvVar) {
-        return bvVar != null && bvVar.getThreadType() == 49;
+    public List<com.baidu.tieba.horizonalList.widget.c> getDataList() {
+        return this.mList;
     }
 
-    public ap EE(String str) {
-        ap EF = EF(str);
-        EF.delete("obj_type");
-        EF.delete("obj_type");
-        EF.ah("obj_type", 3);
-        return EF;
+    public String getStType() {
+        return this.stType;
     }
 
-    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bv aTN() {
-        return this.dLK;
+    public void setStType(String str) {
+        this.stType = str;
+    }
+
+    public String ccs() {
+        return this.hjd;
+    }
+
+    public void setYuelaouLocate(String str) {
+        this.hjd = str;
     }
 }

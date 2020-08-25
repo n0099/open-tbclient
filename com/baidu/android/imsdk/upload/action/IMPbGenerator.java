@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
@@ -18,22 +19,21 @@ import com.baidu.android.imsdk.upload.action.track.Msg;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.sapi2.outsdk.c;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class IMPbGenerator {
-    private static final int MAX_ALL_LENGTH = 1000;
+    private static final int MAX_ALL_LENGTH = 800;
     private static final int MAX_CRASH_LENGTH = 300;
     private static final String SDK_NAME = "im";
     private static final List<IMPushPb.Action> actionList = new CopyOnWriteArrayList();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public byte[] generateInitIMClient(Context context) {
+    public byte[] generateIMRealClient(Context context, @NonNull IMPushPb.Action action) {
         try {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(generateRequestAction(c.l, "", System.currentTimeMillis(), -1L, -1L, "", 501100L));
+            arrayList.add(action);
             return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName("im").setSdkVersion(IMConfigInternal.getInstance().getSDKVersionValue(context)).addAllActions(arrayList).build().toByteArray();
         } catch (Exception e) {
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -48,10 +48,10 @@ public final class IMPbGenerator {
             long crashCount = IMTrackDatabase.getInstance(context).getCrashCount();
             long requestCount = IMTrackDatabase.getInstance(context).getRequestCount();
             long connectionCount = IMTrackDatabase.getInstance(context).getConnectionCount();
-            if (crashCount >= 300) {
-                IMTrackDatabase.getInstance(context).clearCrashTable();
+            if (crashCount >= 300 || requestCount >= 300 || connectionCount >= 300) {
+                IMTrackDatabase.getInstance(context).clearAllTables();
             }
-            if (crashCount + requestCount + connectionCount > 1000) {
+            if (crashCount + requestCount + connectionCount > 800) {
                 IMTrackDatabase.getInstance(context).clearAllTables();
                 return null;
             }

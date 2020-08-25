@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -41,7 +41,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     private int mNetres = -1;
     private ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class a {
         public long a;
         public int b = -1;
@@ -163,7 +163,7 @@ public class CloudSettings implements INoProGuard, INetListener {
                 }
             }
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -176,7 +176,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             }
             WebSettingsGlobalBlink.setCloudSettings(new String(str.getBytes("utf-8"), "utf-8"));
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -198,7 +198,7 @@ public class CloudSettings implements INoProGuard, INetListener {
                 ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, "utf-8"));
             }
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -222,7 +222,7 @@ public class CloudSettings implements INoProGuard, INetListener {
                 bdNetTask.setUrl(getUrl(context));
                 bdNet.start(bdNetTask, false);
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
         }
     }
@@ -322,7 +322,7 @@ public class CloudSettings implements INoProGuard, INetListener {
                 VideoCloudSetting.saveVideoSettingToCfg();
             } catch (Exception e2) {
                 e = e2;
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
                 saveLastSentTimeToCfg(bArr);
                 mReady = true;
             }

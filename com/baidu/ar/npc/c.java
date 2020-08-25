@@ -1,6 +1,6 @@
 package com.baidu.ar.npc;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c implements Runnable {
     final /* synthetic */ float a;
     final /* synthetic */ float b;

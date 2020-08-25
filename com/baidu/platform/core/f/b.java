@@ -3,7 +3,7 @@ package com.baidu.platform.core.f;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.platform.base.a implements a {
     private OnGetSuggestionResultListener b = null;
 

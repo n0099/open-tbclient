@@ -3,7 +3,7 @@ package com.baidu.live.adp.widget.listview;
 import android.view.ViewGroup;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ITypeListView<V extends ViewGroup> {
     void addAdapter(AbsDelegateAdapter<IAdapterData, TypeAdapter.ViewHolder> absDelegateAdapter);
 

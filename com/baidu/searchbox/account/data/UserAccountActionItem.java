@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
@@ -37,7 +37,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
 
     /* loaded from: classes9.dex */
     public enum UserAccountAction {
-        LOGIN(c.k),
+        LOGIN(OneKeyLoginSdkCall.k),
         LOGOUT("logout"),
         BIND("bind");
         
@@ -124,8 +124,8 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             if (jSONObject.has("type")) {
                 this.mType = jSONObject.getString("type");
             }
-            if (jSONObject.has(KEY_SRC)) {
-                this.mSrc = jSONObject.getString(KEY_SRC);
+            if (jSONObject.has("src")) {
+                this.mSrc = jSONObject.getString("src");
             }
             if (jSONObject.has(KEY_SUB_SRC)) {
                 this.mSubSrc = jSONObject.getString(KEY_SUB_SRC);
@@ -145,10 +145,10 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
             if (!TextUtils.isEmpty(this.mSrc)) {
                 if (!TextUtils.isEmpty(this.mSubSrc)) {
-                    jSONObject.put(KEY_SRC, this.mSrc + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mSubSrc);
+                    jSONObject.put("src", this.mSrc + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mSubSrc);
                     return jSONObject;
                 }
-                jSONObject.put(KEY_SRC, this.mSrc);
+                jSONObject.put("src", this.mSrc);
                 return jSONObject;
             }
             return jSONObject;

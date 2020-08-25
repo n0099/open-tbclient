@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.core.turbo;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.aq.aj;
+import com.baidu.swan.apps.ap.ai;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.k.j;
 import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public String appConfig;
     public String appPath;
-    public String cgR;
-    public String cgS;
-    public String cgT;
-    public String cgU;
-    public boolean cgV;
-    public boolean cgW;
-    public String cgX;
+    public String cng;
+    public String cnh;
+    public String cni;
+    public String cnj;
+    public boolean cnk;
+    public boolean cnl;
+    public String cnm;
     public String pageType;
     public String pageUrl;
 
@@ -24,20 +24,20 @@ public class a {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appConfig", aVar.appConfig);
         treeMap.put("appPath", aVar.appPath);
-        treeMap.put("wvID", aVar.cgR);
+        treeMap.put("wvID", aVar.cng);
         treeMap.put("pageUrl", aVar.pageUrl);
-        treeMap.put("devhook", aVar.cgT);
-        treeMap.put("root", aVar.cgU);
-        if (!TextUtils.isEmpty(aVar.cgS)) {
-            treeMap.put("extraData", aVar.cgS);
+        treeMap.put("devhook", aVar.cni);
+        treeMap.put("root", aVar.cnj);
+        if (!TextUtils.isEmpty(aVar.cnh)) {
+            treeMap.put("extraData", aVar.cnh);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.cgV));
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.cnk));
         treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.pageType);
-        treeMap.put("isT7Available", String.valueOf(aVar.cgW));
-        if (!TextUtils.isEmpty(aVar.cgX)) {
-            treeMap.put("masterPreload", aVar.cgX);
+        treeMap.put("isT7Available", String.valueOf(aVar.cnl));
+        if (!TextUtils.isEmpty(aVar.cnm)) {
+            treeMap.put("masterPreload", aVar.cnm);
         }
-        com.baidu.swan.apps.ad.g.b.b(treeMap, "app ready event");
+        com.baidu.swan.apps.ac.g.b.c(treeMap, "app ready event");
         j.g(aVar.pageUrl, treeMap);
         return new com.baidu.swan.apps.event.a.b("AppReady", treeMap);
     }
@@ -45,7 +45,7 @@ public class a {
     public static String b(e eVar, String str) {
         String str2 = null;
         if (eVar != null) {
-            str2 = eVar.hq(aj.delAllParamsFromUrl(str));
+            str2 = eVar.iM(ai.delAllParamsFromUrl(str));
         }
         return str2 == null ? "" : str2;
     }

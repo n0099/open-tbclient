@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class StatFsHelper {
-    private static StatFsHelper mRm;
-    private static final long mRn = TimeUnit.MINUTES.toMillis(2);
-    private volatile File mRp;
-    private volatile File mRr;
+    private static StatFsHelper nlg;
+    private static final long nlh = TimeUnit.MINUTES.toMillis(2);
+    private volatile File nlj;
+    private volatile File nll;
     @GuardedBy("lock")
-    private long mRs;
-    private volatile StatFs mRo = null;
-    private volatile StatFs mRq = null;
+    private long nlm;
+    private volatile StatFs nli = null;
+    private volatile StatFs nlk = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes9.dex */
     public enum StorageType {
         INTERNAL,
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper dCP() {
+    public static synchronized StatFsHelper dOP() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (mRm == null) {
-                mRm = new StatFsHelper();
+            if (nlg == null) {
+                nlg = new StatFsHelper();
             }
-            statFsHelper = mRm;
+            statFsHelper = nlg;
         }
         return statFsHelper;
     }
@@ -52,9 +52,9 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.mRp = Environment.getDataDirectory();
-                    this.mRr = Environment.getExternalStorageDirectory();
-                    dCR();
+                    this.nlj = Environment.getDataDirectory();
+                    this.nll = Environment.getExternalStorageDirectory();
+                    dOR();
                     this.mInitialized = true;
                 }
             } finally {
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        dCQ();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.mRo : this.mRq;
+        dOQ();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.nli : this.nlk;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void dCQ() {
+    private void dOQ() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.mRs > mRn) {
-                    dCR();
+                if (SystemClock.uptimeMillis() - this.nlm > nlh) {
+                    dOR();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,10 +102,10 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void dCR() {
-        this.mRo = a(this.mRo, this.mRp);
-        this.mRq = a(this.mRq, this.mRr);
-        this.mRs = SystemClock.uptimeMillis();
+    private void dOR() {
+        this.nli = a(this.nli, this.nlj);
+        this.nlk = a(this.nlk, this.nll);
+        this.nlm = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = Rr(file.getAbsolutePath());
+                statFs = Uv(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -122,11 +122,11 @@ public class StatFsHelper {
         } catch (IllegalArgumentException e) {
             return null;
         } catch (Throwable th) {
-            throw l.x(th);
+            throw l.v(th);
         }
     }
 
-    protected static StatFs Rr(String str) {
+    protected static StatFs Uv(String str) {
         return new StatFs(str);
     }
 }

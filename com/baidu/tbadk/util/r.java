@@ -1,8 +1,6 @@
 package com.baidu.tbadk.util;
 
-import android.app.ActivityManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Looper;
 import android.os.Message;
@@ -10,11 +8,10 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.aq;
+/* loaded from: classes2.dex */
 public class r {
-    public static final boolean bmL() {
+    public static final boolean bvy() {
         Message message;
         int i = 0;
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
@@ -25,7 +22,7 @@ public class r {
         boolean z = false;
         while (message2 != null && message2.obj != null && !z && i < 10) {
             i++;
-            boolean P = P(message2);
+            boolean Q = Q(message2);
             Object valueForField2 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (valueForField2 != null && (valueForField2 instanceof Message)) {
                 message = (Message) valueForField2;
@@ -33,12 +30,12 @@ public class r {
                 message = null;
             }
             message2 = message;
-            z = P;
+            z = Q;
         }
         return z;
     }
 
-    private static final boolean P(Message message) {
+    private static final boolean Q(Message message) {
         Object valueForField;
         ComponentName component;
         if (message == null) {
@@ -48,16 +45,7 @@ public class r {
         return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 
-    public static boolean eg(Context context) {
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(100)) {
-            if ("com.baidu.tieba.LogoActivity".equals(runningTaskInfo.baseActivity.getClassName()) && "com.baidu.tieba.LogoActivity".equals(runningTaskInfo.topActivity.getClassName())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static final boolean jp(boolean z) {
+    public static final boolean jN(boolean z) {
         Message message;
         Object valueForField;
         Intent intent;
@@ -73,7 +61,7 @@ public class r {
                     try {
                         Class.forName(component.getClassName());
                     } catch (Throwable th) {
-                        TiebaStatic.log(new ap("check_change_intent_tologo").dn("obj_param1", (i2 == 1) + "").dn(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
+                        TiebaStatic.log(new aq("check_change_intent_tologo").dD("obj_param1", (i2 == 1) + "").dD(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
                         if (z && i2 == 1) {
                             intent.setClassName(TbadkCoreApplication.getInst(), "com.baidu.tieba.LogoActivity");
                             return false;

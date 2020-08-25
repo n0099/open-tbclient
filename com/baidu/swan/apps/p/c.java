@@ -1,68 +1,44 @@
 package com.baidu.swan.apps.p;
 
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.p.d;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public final class c<W extends d> {
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.storage.c.g;
+/* loaded from: classes8.dex */
+public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, a<W>> cmg = new HashMap<>();
+    private g csL;
+    private SharedPreferences.Editor mEditor;
 
-    public void a(a<W> aVar) {
-        if (DEBUG) {
-            Log.v("CommandDispatcher", aVar.agB() + " command added to supported command list");
-        }
-        this.cmg.put(aVar.agB(), aVar);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void agO();
     }
 
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
-        if (command == null || TextUtils.isEmpty(command.what)) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
-            }
-        } else if (w == null) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-            }
-        } else {
-            a<W> aVar = this.cmg.get(command.what);
-            if (aVar == null) {
-                if (DEBUG) {
-                    Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                    return;
-                }
-                return;
-            }
-            if (DEBUG) {
-                Log.d("CommandDispatcher", command.what + " command dispatched");
-            }
-            aVar.a(command, w);
-        }
+    private c() {
+        this.csL = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.csL.edit();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(@Nullable ZeusPlugin.Command command) {
-        if (command == null || TextUtils.isEmpty(command.what)) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
-                return;
-            }
-            return;
+    /* loaded from: classes8.dex */
+    private static final class b {
+        private static final c csM = new c();
+    }
+
+    public static c anB() {
+        return b.csM;
+    }
+
+    public void a(@NonNull Activity activity, String str, String str2, a aVar) {
+        com.baidu.swan.apps.t.a.apO().a(activity, str, str2, aVar);
+    }
+
+    public boolean anC() {
+        e azI = e.azI();
+        if (azI == null) {
+            return false;
         }
-        a<W> aVar = this.cmg.get(command.what);
-        if (aVar == null) {
-            if (DEBUG) {
-                Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                return;
-            }
-            return;
-        }
-        if (DEBUG) {
-            Log.d("CommandDispatcher", command.what + " cached command return value processed");
-        }
-        aVar.a(command);
+        return azI.aAa().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.settings;
 
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TimeOutData {
     private int[] mTimeOut;
 

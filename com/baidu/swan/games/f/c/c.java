@@ -10,35 +10,35 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dev;
-    private com.baidu.swan.games.network.b dew;
-    private a dhi;
+    private String doD;
+    private com.baidu.swan.games.network.b doE;
+    private a drr;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.dev = "";
-        this.dew = bVar;
-        this.dev = str;
+        this.doD = "";
+        this.doE = bVar;
+        this.doD = str;
         this.mSrc = str2;
-        this.dhi = aVar;
+        this.drr = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.dew.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.f.c.c.1
+        this.doE.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.f.c.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("ImageDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.dhi != null) {
-                    c.this.dhi.ae(-1, c.this.mSrc);
+                if (c.this.drr != null) {
+                    c.this.drr.ac(-1, c.this.mSrc);
                 }
             }
 
@@ -55,13 +55,13 @@ class c {
                     inputStream = response.body().byteStream();
                     try {
                         try {
-                            String sf = f.sf(c.this.mSrc);
-                            String str = c.this.dev + sf.substring(0, sf.lastIndexOf("/"));
+                            String ux = f.ux(c.this.mSrc);
+                            String str = c.this.doD + ux.substring(0, ux.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
                             }
-                            String substring = sf.substring(sf.lastIndexOf("/") + 1);
+                            String substring = ux.substring(ux.lastIndexOf("/") + 1);
                             File file3 = new File(str, substring + ".bddownload");
                             try {
                                 fileOutputStream = new FileOutputStream(file3);
@@ -84,27 +84,27 @@ class c {
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.dhi != null) {
-                                                c.this.dhi.ae(-1, c.this.mSrc);
+                                            if (c.this.drr != null) {
+                                                c.this.drr.ac(-1, c.this.mSrc);
                                             }
-                                            com.baidu.swan.d.d.closeSafely(inputStream2);
-                                            com.baidu.swan.d.d.closeSafely(fileOutputStream2);
-                                            com.baidu.swan.d.d.closeSafely(response);
+                                            com.baidu.swan.c.d.closeSafely(inputStream2);
+                                            com.baidu.swan.c.d.closeSafely(fileOutputStream2);
+                                            com.baidu.swan.c.d.closeSafely(response);
                                             return;
                                         } catch (Throwable th) {
                                             th = th;
                                             inputStream = inputStream2;
                                             fileOutputStream = fileOutputStream2;
-                                            com.baidu.swan.d.d.closeSafely(inputStream);
-                                            com.baidu.swan.d.d.closeSafely(fileOutputStream);
-                                            com.baidu.swan.d.d.closeSafely(response);
+                                            com.baidu.swan.c.d.closeSafely(inputStream);
+                                            com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                                            com.baidu.swan.c.d.closeSafely(response);
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
                                         th = th2;
-                                        com.baidu.swan.d.d.closeSafely(inputStream);
-                                        com.baidu.swan.d.d.closeSafely(fileOutputStream);
-                                        com.baidu.swan.d.d.closeSafely(response);
+                                        com.baidu.swan.c.d.closeSafely(inputStream);
+                                        com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                                        com.baidu.swan.c.d.closeSafely(response);
                                         throw th;
                                     }
                                 }
@@ -118,21 +118,21 @@ class c {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.dhi != null) {
-                                        c.this.dhi.ch(c.this.mSrc, absolutePath);
+                                    if (c.this.drr != null) {
+                                        c.this.drr.cA(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
                                     file3.delete();
-                                    if (c.this.dhi != null) {
-                                        c.this.dhi.ae(-1, absolutePath);
+                                    if (c.this.drr != null) {
+                                        c.this.drr.ac(-1, absolutePath);
                                     }
                                 }
-                                com.baidu.swan.d.d.closeSafely(inputStream);
-                                com.baidu.swan.d.d.closeSafely(fileOutputStream);
-                                com.baidu.swan.d.d.closeSafely(response);
+                                com.baidu.swan.c.d.closeSafely(inputStream);
+                                com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                                com.baidu.swan.c.d.closeSafely(response);
                             } catch (Exception e2) {
                                 e = e2;
                                 inputStream2 = inputStream;

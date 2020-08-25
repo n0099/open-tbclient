@@ -10,12 +10,12 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 class c implements l {
     private Object mLock;
-    private com.baidu.ar.ihttp.a pK;
-    private volatile boolean pM;
-    private g pP;
-    private HttpURLConnection pQ;
-    private i pR;
-    private IProgressCallback pS;
+    private com.baidu.ar.ihttp.a qp;
+    private volatile boolean qr;
+    private g qu;
+    private HttpURLConnection qv;
+    private i qw;
+    private IProgressCallback qx;
 
     public c(g gVar) {
         this(gVar, null);
@@ -23,23 +23,28 @@ class c implements l {
 
     public c(g gVar, com.baidu.ar.ihttp.a aVar) {
         this.mLock = new Object();
-        this.pM = false;
-        this.pP = gVar;
-        this.pK = aVar;
-        this.pQ = null;
-        this.pR = null;
+        this.qr = false;
+        this.qu = gVar;
+        this.qp = aVar;
+        this.qv = null;
+        this.qw = null;
     }
 
     @Override // com.baidu.ar.http.l
     public void cancel() {
-        if (this.pM) {
+        if (this.qr) {
             return;
         }
-        this.pK = null;
-        this.pS = null;
+        this.qp = null;
+        this.qx = null;
         synchronized (this.mLock) {
-            this.pM = true;
+            this.qr = true;
         }
+    }
+
+    @Override // com.baidu.ar.http.l
+    public i eI() {
+        return this.qw;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0084 */
@@ -53,63 +58,63 @@ class c implements l {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public i dA() {
+    public i eK() {
         OutputStream outputStream;
         InputStream[] inputStreamArr = null;
         ?? r1 = this.mLock;
         synchronized (r1) {
-            if (this.pM) {
+            if (this.qr) {
                 return null;
             }
             try {
                 try {
-                    this.pQ = (HttpURLConnection) this.pP.url.openConnection();
-                    this.pQ.setConnectTimeout(this.pP.qh.ql);
-                    this.pQ.setReadTimeout(this.pP.qh.qm);
-                    this.pQ.setUseCaches(this.pP.qh.qn);
-                    this.pQ.setRequestMethod(this.pP.method);
-                    if (this.pP.qi != null) {
-                        for (Map.Entry<String, String> entry : this.pP.qi.entrySet()) {
-                            this.pQ.setRequestProperty(entry.getKey(), entry.getValue());
+                    this.qv = (HttpURLConnection) this.qu.url.openConnection();
+                    this.qv.setConnectTimeout(this.qu.qM.qQ);
+                    this.qv.setReadTimeout(this.qu.qM.qR);
+                    this.qv.setUseCaches(this.qu.qM.qS);
+                    this.qv.setRequestMethod(this.qu.method);
+                    if (this.qu.qN != null) {
+                        for (Map.Entry<String, String> entry : this.qu.qN.entrySet()) {
+                            this.qv.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
-                    if (!"POST".equals(this.pP.method) || this.pP.qj == null) {
+                    if (!"POST".equals(this.qu.method) || this.qu.qO == null) {
                         outputStream = null;
                     } else {
-                        int size = this.pP.qj.getSize();
-                        InputStream[] dz = this.pP.qj.dz();
-                        if (dz != null) {
+                        int size = this.qu.qO.getSize();
+                        InputStream[] eJ = this.qu.qO.eJ();
+                        if (eJ != null) {
                             try {
-                                if (dz.length > 0) {
-                                    this.pQ.setDoOutput(true);
-                                    OutputStream outputStream2 = this.pQ.getOutputStream();
+                                if (eJ.length > 0) {
+                                    this.qv.setDoOutput(true);
+                                    OutputStream outputStream2 = this.qv.getOutputStream();
                                     try {
                                         byte[] bArr = new byte[1024];
                                         int i = 0;
-                                        for (InputStream inputStream : dz) {
+                                        for (InputStream inputStream : eJ) {
                                             while (true) {
                                                 int read = inputStream.read(bArr);
                                                 if (read != -1) {
                                                     outputStream2.write(bArr, 0, read);
-                                                    if (this.pS != null) {
+                                                    if (this.qx != null) {
                                                         i += read;
-                                                        this.pS.onProgress(i, size);
+                                                        this.qx.onProgress(i, size);
                                                     }
                                                 }
                                             }
                                         }
                                         outputStream2.flush();
                                         outputStream = outputStream2;
-                                        inputStreamArr = dz;
+                                        inputStreamArr = eJ;
                                     } catch (IOException e) {
                                         e = e;
-                                        if (this.pQ != null) {
+                                        if (this.qv != null) {
                                         }
                                         throw new HttpException(e);
                                     } catch (Throwable th) {
                                         th = th;
                                         r1 = outputStream2;
-                                        inputStreamArr = dz;
+                                        inputStreamArr = eJ;
                                         if (r1 != 0) {
                                             j.closeQuietly(r1);
                                         }
@@ -126,15 +131,15 @@ class c implements l {
                             } catch (Throwable th2) {
                                 th = th2;
                                 r1 = 0;
-                                inputStreamArr = dz;
+                                inputStreamArr = eJ;
                             }
                         }
                         outputStream = null;
-                        inputStreamArr = dz;
+                        inputStreamArr = eJ;
                     }
                     try {
-                        this.pR = new i(this.pQ, this.pP.qg);
-                        i iVar = this.pR;
+                        this.qw = new i(this.qv, this.qu.qL);
+                        i iVar = this.qw;
                         if (outputStream != null) {
                             j.closeQuietly(outputStream);
                         }
@@ -147,8 +152,8 @@ class c implements l {
                         return iVar;
                     } catch (IOException e3) {
                         e = e3;
-                        if (this.pQ != null) {
-                            this.pQ.disconnect();
+                        if (this.qv != null) {
+                            this.qv.disconnect();
                         }
                         throw new HttpException(e);
                     }
@@ -164,24 +169,19 @@ class c implements l {
         }
     }
 
-    @Override // com.baidu.ar.http.l
-    public i dy() {
-        return this.pR;
-    }
-
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
     @Override // java.lang.Runnable
     public void run() {
         try {
             try {
-                i dA = dA();
+                i eK = eK();
                 try {
                     try {
                         synchronized (this.mLock) {
                             try {
-                                boolean z = this.pM;
-                                if (!z && this.pK != null) {
-                                    this.pK.a(dA);
+                                boolean z = this.qr;
+                                if (!z && this.qp != null) {
+                                    this.qp.a(eK);
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -190,11 +190,11 @@ class c implements l {
                         }
                     } catch (HttpException e) {
                         e = e;
-                        if (0 == 0 && 0 == 0 && this.pK != null) {
-                            this.pK.a(e);
+                        if (0 == 0 && 0 == 0 && this.qp != null) {
+                            this.qp.a(e);
                         }
-                        if (this.pQ != null) {
-                            this.pQ.disconnect();
+                        if (this.qv != null) {
+                            this.qv.disconnect();
                         }
                     }
                 } catch (Throwable th2) {
@@ -204,13 +204,13 @@ class c implements l {
                 e = e2;
             }
         } finally {
-            if (this.pQ != null) {
-                this.pQ.disconnect();
+            if (this.qv != null) {
+                this.qv.disconnect();
             }
         }
     }
 
     public void setProgressCallback(IProgressCallback iProgressCallback) {
-        this.pS = iProgressCallback;
+        this.qx = iProgressCallback;
     }
 }

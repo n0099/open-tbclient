@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import tbclient.Personal.PersonalResIdl;
 import tbclient.Profile.ProfileResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
     void a(PersonalResIdl personalResIdl);
 

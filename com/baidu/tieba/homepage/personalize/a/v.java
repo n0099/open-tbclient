@@ -3,18 +3,18 @@ package com.baidu.tieba.homepage.personalize.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ai;
-import com.baidu.card.ak;
+import com.baidu.card.aj;
+import com.baidu.card.al;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes16.dex */
-public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, ak<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String afx;
-    public BdUniqueId eEU;
-    private NEGFeedBackView.a far;
+public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, al<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
+    private String agH;
+    public BdUniqueId ePv;
+    private NEGFeedBackView.a flJ;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,45 +26,45 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
-    public ak<com.baidu.tieba.homepage.topic.topictab.b.a> b(ViewGroup viewGroup) {
-        ai.a aVar = new ai.a(this.mPageContext.getPageActivity(), false);
+    /* renamed from: aQ */
+    public al<com.baidu.tieba.homepage.topic.topictab.b.a> b(ViewGroup viewGroup) {
+        aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
         com.baidu.tieba.homepage.personalize.view.g gVar = new com.baidu.tieba.homepage.personalize.view.g(this.mContext, this.mPageContext);
         gVar.setTag(this.mPageId);
         aVar.c(gVar);
-        aVar.se().bq(0);
-        aVar.se().br(0);
-        aVar.se().bs(0);
-        aVar.se().bp(0);
-        aVar.se().bm(0);
-        ai sf = aVar.sf();
-        sf.setSourceForPb(2);
-        ak<com.baidu.tieba.homepage.topic.topictab.b.a> akVar = new ak<>(sf);
-        akVar.setPageId(this.eEU);
-        return akVar;
+        aVar.tP().bv(0);
+        aVar.tP().bw(0);
+        aVar.tP().bx(0);
+        aVar.tP().bu(0);
+        aVar.tP().br(0);
+        aj tQ = aVar.tQ();
+        tQ.setSourceForPb(2);
+        al<com.baidu.tieba.homepage.topic.topictab.b.a> alVar = new al<>(tQ);
+        alVar.setPageId(this.ePv);
+        return alVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topictab.b.a aVar, ak<com.baidu.tieba.homepage.topic.topictab.b.a> akVar) {
-        if (aVar == null || akVar == null || akVar.getView() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topictab.b.a aVar, al<com.baidu.tieba.homepage.topic.topictab.b.a> alVar) {
+        if (aVar == null || alVar == null || alVar.getView() == null) {
             return null;
         }
-        TiebaStatic.log(new ap("c13448").t("topic_id", aVar.topicId));
-        akVar.sg().setPage(this.afx);
-        akVar.aK(false).a(this.far);
-        akVar.b((ak<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
-        akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return akVar.getView();
+        TiebaStatic.log(new aq("c13448").u("topic_id", aVar.topicId));
+        alVar.tR().setPage(this.agH);
+        alVar.aL(false).a(this.flJ);
+        alVar.b((al<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
+        alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return alVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void AP(String str) {
-        this.afx = str;
+    public void Dj(String str) {
+        this.agH = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.far = aVar;
+        this.flJ = aVar;
     }
 }

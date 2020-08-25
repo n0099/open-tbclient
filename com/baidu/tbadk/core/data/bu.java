@@ -1,170 +1,121 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
-public class bu extends AbsThreadDataSupport implements com.baidu.adp.widget.ListView.q {
-    public bv dLK;
-    public boolean dRe = false;
-    public boolean dRf = false;
-    public boolean dRg = false;
-    public boolean dRh = false;
-    public boolean dRi = false;
-    public boolean dRj = false;
-    public boolean dRk = false;
-    public boolean dRl = false;
-    public boolean dRm = false;
-    public boolean dRn = false;
-    public boolean dRo = false;
-    public boolean dRp = false;
-    public boolean dRq = false;
-    public boolean dRr = false;
-    public boolean dRs = false;
-    public boolean dRt = false;
-    public int dRu = 0;
-    public int dRv = 0;
+import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
+/* loaded from: classes2.dex */
+public class bu {
+    private long eav;
+    private String eaw;
+    private String eax;
+    private long endTime;
+    private long forumId;
+    private String forumName;
+    private int mHeight;
+    private int mWidth;
+    private String obj_id;
+    private long taskId;
+    private long threadId;
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        if (this.dLK == null) {
-            return null;
-        }
-        if (this.dLK.aYa()) {
-            if (this.dLK.aWD() != null) {
-                return bv.dRS;
-            }
-            return bv.dRx;
-        }
-        int aWg = this.dLK.aWg();
-        if (this.dLK.threadType == 63) {
-            bv bvVar = this.dLK;
-            return bv.dSd;
-        } else if (this.dLK.threadType == 64) {
-            bv bvVar2 = this.dLK;
-            return bv.dSe;
-        } else if (this.dLK.threadType == 65) {
-            bv bvVar3 = this.dLK;
-            return bv.dRK;
-        } else if (this.dLK.aWF() != null && this.dLK.threadType == 60) {
-            return bv.dRV;
-        } else {
-            if (this.dLK.aWF() != null && this.dLK.threadType == 49) {
-                return bv.dRT;
-            }
-            if (this.dLK.threadType == 51) {
-                return bv.dRU;
-            }
-            if (aWg == 2 || aWg == 1) {
-                return bv.dRw;
-            }
-            if (this.dLK.aWD() != null && this.dLK.aXy() && !this.dLK.aXq()) {
-                return bv.dSj;
-            }
-            if (this.dLK.isShareThread && this.dLK.dUi != null) {
-                if (this.dLK.dUi.dPP) {
-                    if (this.dLK.dUi.videoInfo != null) {
-                        return bv.dRZ;
-                    }
-                    if (this.dLK.dUi.aUT()) {
-                        return bv.dRY;
-                    }
-                    return bv.dRX;
-                }
-                return bv.dRW;
-            } else if (this.dLK.aXs()) {
-                bv bvVar4 = this.dLK;
-                return bv.dSg.get() ? bv.dTv : bv.dRx;
-            } else if (this.dLK.aWZ() && this.dLK.aWY() == 1) {
-                bv bvVar5 = this.dLK;
-                return bv.dSg.get() ? bv.dTD : bv.dRx;
-            } else if (this.dLK.isLinkThread()) {
-                return bv.dRQ;
-            } else {
-                if (this.dLK.aXS()) {
-                    return this.dLK.aVT() != null ? bv.dSc : bv.dSb;
-                } else if (this.dRe) {
-                    return bv.dRB;
-                } else {
-                    if (this.dRf) {
-                        return bv.dRC;
-                    }
-                    if (this.dRg) {
-                        return bv.dRD;
-                    }
-                    if (this.dRh) {
-                        return bv.dRE;
-                    }
-                    if (this.dRi) {
-                        return bv.dRF;
-                    }
-                    if (this.dRj) {
-                        return bv.dRG;
-                    }
-                    if (this.dRk) {
-                        return bv.dRH;
-                    }
-                    if (this.dRl) {
-                        return bv.dRI;
-                    }
-                    if (this.dRm) {
-                        return bv.dRS;
-                    }
-                    if (this.dLK.aWo()) {
-                        if (this.dRn) {
-                            return bv.dSa;
-                        }
-                        return bv.dRR;
-                    } else if (this.dRo) {
-                        return bv.dSf;
-                    } else {
-                        if (this.dRp) {
-                            return bv.dRL;
-                        }
-                        if (this.dRq) {
-                            return bv.dRM;
-                        }
-                        if (this.dRr) {
-                            return bv.dRN;
-                        }
-                        if (this.dRs) {
-                            return bv.dRO;
-                        }
-                        if (this.dRt) {
-                            return bv.dRP;
-                        }
-                        return bv.dRx;
-                    }
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public String getForumId() {
+        return this.forumId + "";
+    }
+
+    public long bdW() {
+        return this.eav;
+    }
+
+    public long bdX() {
+        return this.endTime;
+    }
+
+    public String getTaskId() {
+        return this.taskId + "";
+    }
+
+    public String getThreadId() {
+        return this.threadId + "";
+    }
+
+    public String getThreadImgUrl() {
+        return this.eax;
+    }
+
+    public int bdY() {
+        return this.mWidth;
+    }
+
+    public int bdZ() {
+        return this.mHeight;
+    }
+
+    public String bea() {
+        return this.obj_id;
+    }
+
+    public void a(TaskInfo taskInfo) {
+        if (taskInfo != null) {
+            this.forumName = taskInfo.forum_name;
+            this.forumId = taskInfo.forum_id.longValue();
+            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
+            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
+            this.eaw = taskInfo.bgimg;
+            this.eax = taskInfo.thread_img;
+            this.eav = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
+            String str = taskInfo.thread_img_size;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.mWidth = com.baidu.adp.lib.f.b.toInt(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.f.b.toInt(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
+            }
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
+            }
+            this.obj_id = taskInfo.obj_id;
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bv aTN() {
-        return this.dLK;
-    }
-
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public aq aTP() {
-        if (this.dLK == null || this.dLK.feedBackReasonMap == null || this.dLK.feedBackReasonMap.size() <= 0) {
-            return null;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumName = jSONObject.optString("forum_name");
+                this.forumId = jSONObject.optLong("forum_id");
+                this.taskId = jSONObject.optLong("task_id");
+                this.threadId = jSONObject.optLong("thread_id");
+                this.eaw = jSONObject.optString("bgimg");
+                this.eav = jSONObject.optLong("start_time");
+                this.endTime = jSONObject.optLong("end_time");
+                this.eax = jSONObject.optString("thread_img");
+                String optString = jSONObject.optString("thread_img_size");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
-        aq aqVar = new aq();
-        aqVar.setTid(aTN().getTid());
-        aqVar.setFid(aTN().getFid());
-        aqVar.setNid(aTN().getNid());
-        aqVar.setFeedBackReasonMap(this.dLK.feedBackReasonMap);
-        aqVar.dPE = this.dLK.dPE;
-        aqVar.abTag = this.dLK.mRecomAbTag;
-        aqVar.weight = this.dLK.mRecomWeight;
-        aqVar.extra = this.dLK.mRecomExtra;
-        aqVar.source = this.dLK.mRecomSource;
-        aqVar.dPI = this.dLK.dPI;
-        aqVar.cardType = this.dLK.aYk();
-        return aqVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String aTO() {
-        return this.dLK.dTO;
     }
 }

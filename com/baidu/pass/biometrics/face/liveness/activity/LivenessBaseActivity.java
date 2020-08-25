@@ -8,30 +8,13 @@ import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
 import com.baidu.pass.biometrics.base.activity.BaseActivity;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
-import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LivenessBaseActivity extends BaseActivity {
     public PassBiometricConfiguration configuration;
     protected PassFaceRecogDTO passFaceRecogDTO;
-
-    @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (bundle != null) {
-            Serializable serializable = bundle.getSerializable("PassFaceRecogDTO");
-            if (serializable != null && (serializable instanceof PassFaceRecogDTO)) {
-                this.passFaceRecogDTO = (PassFaceRecogDTO) serializable;
-                BeanDataCache.getInstance().addToCache("request_data", this.passFaceRecogDTO);
-            }
-        } else {
-            this.passFaceRecogDTO = (PassFaceRecogDTO) BeanDataCache.getInstance().getCacheData("request_data");
-        }
-        this.configuration = PassFaceRecogManager.getInstance().getConfiguration();
-        customLiuHai();
-    }
 
     @TargetApi(27)
     public void customLiuHai() {
@@ -47,13 +30,6 @@ public class LivenessBaseActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putSerializable("PassFaceRecogDTO", this.passFaceRecogDTO);
-    }
-
     public String getAtbc(PassFaceRecogDTO passFaceRecogDTO) {
         StringBuilder sb = new StringBuilder();
         if (passFaceRecogDTO != null) {
@@ -63,11 +39,34 @@ public class LivenessBaseActivity extends BaseActivity {
         return sb.toString();
     }
 
+    public String getFaceDetectUrl() {
+        return this.configuration.passDomain + PassBioEnv.FACE_DETECT_URI;
+    }
+
     public String getPortraitContrastUrl() {
         return this.configuration.passDomain + PassBioEnv.GET_UPLOAD_PHOTO_CONTRAST_URI;
     }
 
-    public String getFaceDetectUrl() {
-        return this.configuration.passDomain + PassBioEnv.FACE_DETECT_URI;
+    @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        if (bundle != null) {
+            Serializable serializable = bundle.getSerializable("PassFaceRecogDTO");
+            if (serializable != null && (serializable instanceof PassFaceRecogDTO)) {
+                this.passFaceRecogDTO = (PassFaceRecogDTO) serializable;
+                com.baidu.pass.biometrics.face.liveness.a.a.a().a("request_data", this.passFaceRecogDTO);
+            }
+        } else {
+            this.passFaceRecogDTO = (PassFaceRecogDTO) com.baidu.pass.biometrics.face.liveness.a.a.a().a("request_data");
+        }
+        this.configuration = PassFaceRecogManager.getInstance().getConfiguration();
+        customLiuHai();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putSerializable("PassFaceRecogDTO", this.passFaceRecogDTO);
     }
 }

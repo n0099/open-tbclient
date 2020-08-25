@@ -10,18 +10,18 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ClassificationBox extends AbstractFullBox {
     public static final String TYPE = "clsf";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_8 = null;
     private String classificationEntity;
     private String classificationInfo;
     private int classificationTableIndex;
@@ -33,15 +33,15 @@ public class ClassificationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ClassificationBox.java", ClassificationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 44);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 48);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "int"), 52);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 56);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", FieldUtil.TYPE_STRING, "classificationEntity", "", "void"), 60);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "int", "classificationTableIndex", "", "void"), 64);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.ClassificationBox", FieldUtil.TYPE_STRING, "language", "", "void"), 68);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", FieldUtil.TYPE_STRING, "classificationInfo", "", "void"), 72);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 101);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 44);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 48);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "int"), 52);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "getClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 56);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "setClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", FieldUtil.TYPE_STRING, "classificationEntity", "", "void"), 60);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "int", "classificationTableIndex", "", "void"), 64);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.ClassificationBox", FieldUtil.TYPE_STRING, "language", "", "void"), 68);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.d("1", "setClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", FieldUtil.TYPE_STRING, "classificationInfo", "", "void"), 72);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", FieldUtil.TYPE_STRING), 101);
     }
 
     public ClassificationBox() {
@@ -74,7 +74,7 @@ public class ClassificationBox extends AbstractFullBox {
     }
 
     public void setClassificationTableIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Og(i)));
         this.classificationTableIndex = i;
     }
 

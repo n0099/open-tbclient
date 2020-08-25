@@ -1,32 +1,32 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.searchbox.account.contants.LoginConstants;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public enum BindType {
     EXPLICIT("explicit", "afterauth", "finishbind"),
     SMS(LoginConstants.SMS_LOGIN, "afterauth", "finishbind"),
     BIND_MOBILE("bind_mobile", "afterauth", "afterauth");
     
+    private String a;
     private String b;
     private String c;
-    private String d;
 
     BindType(String str, String str2, String str3) {
-        this.b = "";
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
+        this.a = "";
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
     public String getCallbackPage() {
-        return this.c;
+        return this.b;
     }
 
     public String getFinishBindPage() {
-        return this.d;
+        return this.c;
     }
 
     public String getName() {
-        return this.b;
+        return this.a;
     }
 }

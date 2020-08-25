@@ -1,5 +1,5 @@
 package com.baidu.webkit.logsdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public interface b {
     String a();
 

@@ -4,13 +4,14 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.at;
 import java.lang.ref.WeakReference;
 /* loaded from: classes16.dex */
 public class a {
-    private static final String kfG = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String kuZ = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes16.dex */
     public interface b {
@@ -20,16 +21,16 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0712a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0763a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    private static class C0712a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String ets;
-        private String etw;
-        private String kfH;
-        private WeakReference<b> kfI;
+    private static class C0763a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String eDP;
+        private String eDT;
+        private String kva;
+        private WeakReference<b> kvb;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -37,39 +38,39 @@ public class a {
         private String mThreadId;
         private String mUserName;
 
-        public C0712a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0763a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.kfH = str6;
-            this.etw = str8;
-            this.ets = str9;
+            this.kva = str6;
+            this.eDT = str8;
+            this.eDP = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.kfI = new WeakReference<>(bVar);
+            this.kvb = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: K */
+        /* renamed from: L */
         public ForbidResultData doInBackground(String... strArr) {
-            z zVar = new z(a.kfG);
-            zVar.addPostData("day", this.kfH);
-            zVar.addPostData("un", this.mUserName);
-            zVar.addPostData("fid", this.mForumId);
-            zVar.addPostData("word", this.mForumName);
-            zVar.addPostData("z", this.mThreadId);
-            zVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
-            zVar.addPostData("ntn", "banid");
-            zVar.addPostData("post_id", this.mPostId);
-            zVar.addPostData("nick_name", this.etw);
-            zVar.addPostData("portrait", this.ets);
-            zVar.bav().baW().mIsNeedTbs = true;
-            String postNetData = zVar.postNetData();
-            if (zVar.bav().baX().isRequestSuccess()) {
+            aa aaVar = new aa(a.kuZ);
+            aaVar.addPostData("day", this.kva);
+            aaVar.addPostData("un", this.mUserName);
+            aaVar.addPostData("fid", this.mForumId);
+            aaVar.addPostData("word", this.mForumName);
+            aaVar.addPostData(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, this.mThreadId);
+            aaVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
+            aaVar.addPostData("ntn", "banid");
+            aaVar.addPostData("post_id", this.mPostId);
+            aaVar.addPostData("nick_name", this.eDT);
+            aaVar.addPostData("portrait", this.eDP);
+            aaVar.biQ().bjv().mIsNeedTbs = true;
+            String postNetData = aaVar.postNetData();
+            if (aaVar.biQ().bjw().isRequestSuccess()) {
                 try {
                     return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                 } catch (Exception e) {
@@ -80,8 +81,8 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = zVar.getServerErrorCode();
-            forbidResultData2.error_msg = zVar.getErrorString();
+            forbidResultData2.error_code = aaVar.getServerErrorCode();
+            forbidResultData2.error_msg = aaVar.getErrorString();
             return forbidResultData2;
         }
 
@@ -91,9 +92,9 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.kfI.get();
+            b bVar = this.kvb.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && as.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && at.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

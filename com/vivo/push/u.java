@@ -2,7 +2,7 @@ package com.vivo.push;
 
 import com.vivo.push.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class u implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ p b;

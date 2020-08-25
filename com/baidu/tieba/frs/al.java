@@ -1,56 +1,45 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes.dex */
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.view.FrsTopItemInfoView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import tbclient.ItemInfo;
+/* loaded from: classes16.dex */
 public class al {
-    private String forumGameLabel;
-    private String forumId;
-    private String forumName;
-    private final List<com.baidu.tbadk.mainTab.b> hEL = new LinkedList();
-    private Context mContext;
+    private BaseFragment hXy;
+    private FrsTopItemInfoView hXz;
 
-    public al(Context context) {
-        this.mContext = context;
-    }
-
-    public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hEL) {
-                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
-                    return;
-                }
+    public al(BaseFragment baseFragment) {
+        FrsViewData frsViewData;
+        if (baseFragment != null) {
+            this.hXy = baseFragment;
+            this.hXz = new FrsTopItemInfoView(baseFragment.getContext());
+            this.hXz.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            onChangeSkinType();
+            if ((this.hXy instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) this.hXy).ibJ) != null && frsViewData.getForum() != null) {
+                ForumData forum = frsViewData.getForum();
+                this.hXz.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
             }
-            this.hEL.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> cbb() {
-        return this.hEL;
+    public void setData(ItemInfo itemInfo) {
+        if (this.hXz != null) {
+            this.hXz.setData(itemInfo);
+        }
     }
 
-    public void setForumName(String str) {
-        this.forumName = str;
+    public View getView() {
+        return this.hXz;
     }
 
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumGameLabel(String str) {
-        this.forumGameLabel = str;
-    }
-
-    public String getForumGameLabel() {
-        return this.forumGameLabel;
+    public void onChangeSkinType() {
+        if (this.hXz != null) {
+            this.hXz.onChangeSkinType();
+        }
     }
 }

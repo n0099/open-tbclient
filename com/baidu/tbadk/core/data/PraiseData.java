@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.Zan;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PraiseData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 2658065756886586666L;
     private HashMap<String, MetaData> userMap;

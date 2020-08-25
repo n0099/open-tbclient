@@ -8,7 +8,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DeviceUtil {
     public static View inflate(Context context, int i) {
         return ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(i, (ViewGroup) null);

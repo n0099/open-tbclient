@@ -1,7 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
-
-import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ad {
-    void a(com.baidu.swan.apps.model.c cVar, Context context);
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
 }

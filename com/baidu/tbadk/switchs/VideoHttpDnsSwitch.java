@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VideoHttpDnsSwitch extends a {
     public static final int DEFAULT_TYPE = 1;
     public static final String HTTP_DNS_SWITCH_KEY = "android_video_http_dns_open";

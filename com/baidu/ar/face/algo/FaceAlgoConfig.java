@@ -33,8 +33,8 @@ public class FaceAlgoConfig {
         this.minDetectionWidth = 100.0f;
         this.trackingSmoothAlpha = 0.1f;
         this.trackingSmoothThreshold = 1.0f;
-        this.trackingMouthThreshold = 1.0f;
-        this.trackingMouthSmoothAlpha = 0.018f;
+        this.trackingMouthThreshold = -1.0f;
+        this.trackingMouthSmoothAlpha = 0.0075f;
         this.eyeCloseProbThreshold = -1.0f;
         this.mirror = true;
         this.isAnimojiMode = false;
@@ -58,8 +58,8 @@ public class FaceAlgoConfig {
         this.minDetectionWidth = 100.0f;
         this.trackingSmoothAlpha = 0.1f;
         this.trackingSmoothThreshold = 1.0f;
-        this.trackingMouthThreshold = 1.0f;
-        this.trackingMouthSmoothAlpha = 0.018f;
+        this.trackingMouthThreshold = -1.0f;
+        this.trackingMouthSmoothAlpha = 0.0075f;
         this.eyeCloseProbThreshold = -1.0f;
         this.mirror = true;
         this.isAnimojiMode = false;

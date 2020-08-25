@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveCloseData implements Serializable {
     public String actionScheme;
     public String actionText;

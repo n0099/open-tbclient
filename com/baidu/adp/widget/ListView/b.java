@@ -1,17 +1,17 @@
 package com.baidu.adp.widget.ListView;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.ad;
-/* loaded from: classes.dex */
-public class b<T extends View> extends ad.a {
-    protected T Ul;
+import com.baidu.adp.widget.ListView.af;
+/* loaded from: classes2.dex */
+public class b<T extends View> extends af.a {
+    protected T UR;
 
     public b(T t) {
         super(t);
-        this.Ul = t;
+        this.UR = t;
     }
 
-    public T pl() {
-        return this.Ul;
+    public T qK() {
+        return this.UR;
     }
 }

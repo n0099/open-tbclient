@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes18.dex */
 abstract class ModernAsyncTask<Params, Progress, Result> {
     private static final int CORE_POOL_SIZE = 5;
     private static final int KEEP_ALIVE = 1;
@@ -75,7 +75,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes18.dex */
     public enum Status {
         PENDING,
         RUNNING,
@@ -190,7 +190,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes18.dex */
     public static class InternalHandler extends Handler {
         InternalHandler() {
             super(Looper.getMainLooper());
@@ -215,7 +215,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes18.dex */
     public static abstract class WorkerRunnable<Params, Result> implements Callable<Result> {
         Params[] mParams;
 
@@ -224,7 +224,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes18.dex */
     public static class AsyncTaskResult<Data> {
         final Data[] mData;
         final ModernAsyncTask mTask;

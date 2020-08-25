@@ -8,8 +8,8 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.newdetail.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC0700a {
-        void AU(int i);
+    public interface InterfaceC0751a {
+        void Dn(int i);
 
         void a(int i, long j, long j2, int i2);
 
@@ -22,33 +22,33 @@ public interface a {
 
     /* loaded from: classes15.dex */
     public interface b {
-        void AX(int i);
-
-        void AY(int i);
-
-        void AZ(int i);
-
-        d Ba(int i);
-
         void C(boolean z, int i);
+
+        void Dq(int i);
+
+        void Dr(int i);
+
+        void Ds(int i);
+
+        d Dt(int i);
 
         void F(long j, long j2);
 
         void a(d dVar, boolean z, int i);
 
-        void bxe();
+        void bGd();
 
-        void cHB();
+        void cSq();
 
-        void cHC();
+        void cSr();
 
-        void cHD();
+        void cSs();
 
-        e cHE();
+        e cSt();
 
-        int cHF();
+        int cSu();
 
-        void cHG();
+        void cSv();
 
         void d(long j, long j2, int i);
 
@@ -64,8 +64,8 @@ public interface a {
 
         void pause();
 
-        void rC(boolean z);
-
         void resume();
+
+        void si(boolean z);
     }
 }

@@ -22,15 +22,15 @@ import java.util.zip.ZipFile;
 /* loaded from: classes6.dex */
 public final class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e orj = new e();
-    private static String ork = "";
-    private ExecutorService ori = Executors.newCachedThreadPool();
+    private static e oLc = new e();
+    private static String oLd = "";
+    private ExecutorService oLb = Executors.newCachedThreadPool();
 
     private e() {
     }
 
-    public static e dZv() {
-        return orj;
+    public static e elz() {
+        return oLc;
     }
 
     private String getCpuName() {
@@ -51,7 +51,7 @@ public final class e {
     }
 
     @SuppressLint({"DefaultLocale"})
-    private String TF(String str) {
+    private String WJ(String str) {
         if (str.toLowerCase().contains("arm")) {
             return "armeabi";
         }
@@ -65,9 +65,9 @@ public final class e {
     }
 
     public void v(Context context, String str, String str2) {
-        String TF = TF(getCpuName());
-        ork = str2;
-        tv.chushou.a.a.c.a.dZR().d(TAG, "cpuArchitect: " + TF);
+        String WJ = WJ(getCpuName());
+        oLd = str2;
+        tv.chushou.a.a.c.a.elU().d(TAG, "cpuArchitect: " + WJ);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             ZipFile zipFile = new ZipFile(str);
@@ -76,12 +76,12 @@ public final class e {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory()) {
                     String name = nextElement.getName();
-                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(TF)) {
+                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(WJ)) {
                         long time = nextElement.getTime();
-                        if (time == tv.chushou.basis.a.a.bg(context, name)) {
-                            tv.chushou.a.a.c.a.dZR().d(TAG, "skip copying, the so lib is exist and not change: " + name);
+                        if (time == tv.chushou.basis.a.a.bm(context, name)) {
+                            tv.chushou.a.a.c.a.elU().d(TAG, "skip copying, the so lib is exist and not change: " + name);
                         } else {
-                            this.ori.execute(new a(context, zipFile, nextElement, time));
+                            this.oLb.execute(new a(context, zipFile, nextElement, time));
                         }
                     }
                 }
@@ -89,42 +89,42 @@ public final class e {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tv.chushou.a.a.c.a.dZR().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        tv.chushou.a.a.c.a.elU().d(TAG, "### copy so time : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
     }
 
     /* loaded from: classes6.dex */
     private class a implements Runnable {
         private Context mContext;
-        private String orl;
-        private ZipFile orm;
-        private ZipEntry orn;
-        private long oro;
+        private String oLe;
+        private ZipFile oLf;
+        private ZipEntry oLg;
+        private long oLh;
 
         a(Context context, ZipFile zipFile, ZipEntry zipEntry, long j) {
-            this.orm = zipFile;
+            this.oLf = zipFile;
             this.mContext = context;
-            this.orn = zipEntry;
-            this.orl = TG(zipEntry.getName());
-            this.oro = j;
+            this.oLg = zipEntry;
+            this.oLe = WK(zipEntry.getName());
+            this.oLh = j;
         }
 
-        private final String TG(String str) {
+        private final String WK(String str) {
             return str.substring(str.lastIndexOf("/") + 1);
         }
 
-        private void dZw() throws IOException {
-            copy(this.orm.getInputStream(this.orn), new FileOutputStream(new File(e.ork, this.orl)));
-            this.orm.close();
+        private void elA() throws IOException {
+            copy(this.oLf.getInputStream(this.oLg), new FileOutputStream(new File(e.oLd, this.oLe)));
+            this.oLf.close();
         }
 
         public void copy(InputStream inputStream, OutputStream outputStream) throws IOException {
             if (inputStream != null && outputStream != null) {
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-                int K = K(bufferedInputStream);
-                byte[] bArr = new byte[K];
+                int L = L(bufferedInputStream);
+                byte[] bArr = new byte[L];
                 while (true) {
-                    int read = bufferedInputStream.read(bArr, 0, K);
+                    int read = bufferedInputStream.read(bArr, 0, L);
                     if (read != -1) {
                         bufferedOutputStream.write(bArr, 0, read);
                     } else {
@@ -137,7 +137,7 @@ public final class e {
             }
         }
 
-        private int K(InputStream inputStream) throws IOException {
+        private int L(InputStream inputStream) throws IOException {
             if (inputStream == null) {
                 return 0;
             }
@@ -151,11 +151,11 @@ public final class e {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                dZw();
-                tv.chushou.basis.a.a.d(this.mContext, this.orn.getName(), this.oro);
-                tv.chushou.a.a.c.a.dZR().d(e.TAG, "copy so lib success: " + this.orn.getName());
+                elA();
+                tv.chushou.basis.a.a.d(this.mContext, this.oLg.getName(), this.oLh);
+                tv.chushou.a.a.c.a.elU().d(e.TAG, "copy so lib success: " + this.oLg.getName());
             } catch (IOException e) {
-                tv.chushou.a.a.c.a.dZR().e(e.TAG, "copy so lib failed: " + e.toString());
+                tv.chushou.a.a.c.a.elU().e(e.TAG, "copy so lib failed: " + e.toString());
                 e.printStackTrace();
             }
         }

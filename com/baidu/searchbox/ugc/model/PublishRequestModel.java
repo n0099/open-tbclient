@@ -4,7 +4,7 @@ import com.baidu.searchbox.ugc.model.HttpRequestPublishModule;
 import com.baidu.searchbox.ugc.model.PublishModels;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class PublishRequestModel {
     public JSONObject data;
     public JSONObject extObject;

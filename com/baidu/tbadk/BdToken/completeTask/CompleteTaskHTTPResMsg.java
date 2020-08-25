@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.CompleteTask.CompleteTaskResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
     public a mData;
 
@@ -24,11 +24,11 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
             if (completeTaskResIdl.data != null) {
                 this.mData = new a();
                 this.mData.showType = completeTaskResIdl.data.show_type.intValue();
-                this.mData.dHG = completeTaskResIdl.data.ahead_type.intValue();
+                this.mData.dQN = completeTaskResIdl.data.ahead_type.intValue();
                 this.mData.message = completeTaskResIdl.data.message;
                 this.mData.btnText = completeTaskResIdl.data.btn_text;
-                this.mData.dGv = completeTaskResIdl.data.btn_confirm;
-                this.mData.dGw = completeTaskResIdl.data.btn_cancel;
+                this.mData.dPD = completeTaskResIdl.data.btn_confirm;
+                this.mData.dPE = completeTaskResIdl.data.btn_cancel;
                 this.mData.duration = completeTaskResIdl.data.toast_duration.intValue();
                 this.mData.imgUrl = completeTaskResIdl.data.img_url;
                 this.mData.url = completeTaskResIdl.data.url;
@@ -39,9 +39,9 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
                 this.mData.btn_color = completeTaskResIdl.data.btn_color;
                 this.mData.message_color = completeTaskResIdl.data.message_color;
                 this.mData.btn_text_color = completeTaskResIdl.data.btn_text_color;
-                this.mData.dHH = completeTaskResIdl.data.interface_type.intValue();
+                this.mData.dQO = completeTaskResIdl.data.interface_type.intValue();
                 this.mData.opacity = completeTaskResIdl.data.opacity.doubleValue();
-                this.mData.dHM = completeTaskResIdl.data.is_not_complete.intValue();
+                this.mData.dQT = completeTaskResIdl.data.is_not_complete.intValue();
             }
         }
     }

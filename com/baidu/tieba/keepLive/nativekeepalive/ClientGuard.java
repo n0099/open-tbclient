@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ClientGuard implements IGuardClient {
     private final String DAEMON_PERMITTING_SP_FILENAME = "d_permit";
     private final String DAEMON_PERMITTING_SP_KEY = "permitted";

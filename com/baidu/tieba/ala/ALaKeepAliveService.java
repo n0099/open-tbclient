@@ -8,7 +8,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_CONTENT_TEXT = "content_text";
     public static final String KEY_CONTENT_TITLE = "content_title";

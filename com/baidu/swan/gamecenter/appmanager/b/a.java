@@ -1,5 +1,5 @@
 package com.baidu.swan.gamecenter.appmanager.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface a extends b {
     void setFilePath(String str);
 

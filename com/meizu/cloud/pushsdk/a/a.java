@@ -4,7 +4,7 @@ import android.content.Context;
 import com.meizu.cloud.pushsdk.a.c;
 import com.meizu.cloud.pushsdk.base.f;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static final String a = a.class.getSimpleName();
 

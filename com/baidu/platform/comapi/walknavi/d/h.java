@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.d;
 
 import com.baidu.platform.comapi.walknavi.d.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
     final /* synthetic */ c a;
     final /* synthetic */ g b;

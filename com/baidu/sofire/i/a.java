@@ -3,11 +3,11 @@ package com.baidu.sofire.i;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -15,20 +15,20 @@ public final class a {
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
-            byte[] b = o.b(bArr2);
+            byte[] b = p.b(bArr2);
             byte[] bArr4 = new byte[doFinal.length + b.length];
             System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
             System.arraycopy(b, 0, bArr4, doFinal.length, b.length);
             return bArr4;
         } catch (Throwable th) {
-            d.a();
+            e.a();
             return null;
         }
     }
 
     public static byte[] b(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -37,26 +37,26 @@ public final class a {
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             return cipher.doFinal(bArr2);
         } catch (Throwable th) {
-            d.a();
+            e.a();
             return null;
         }
     }
 
     public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.h.q);
-            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.h.p);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.e.q);
+            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.e.p);
             cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
-            d.a();
+            e.a();
             return null;
         }
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -70,7 +70,7 @@ public final class a {
             }
             return cipher.doFinal(bArr2);
         } catch (Throwable th) {
-            d.a();
+            e.a();
             return null;
         }
     }
@@ -130,7 +130,7 @@ public final class a {
             r0 = r2
             r3 = r4
         L4f:
-            com.baidu.sofire.i.d.a()     // Catch: java.lang.Throwable -> L87
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L87
             if (r3 == 0) goto L57
             r3.close()     // Catch: java.lang.Throwable -> L7c
         L57:

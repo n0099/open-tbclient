@@ -1,10 +1,25 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+import android.content.Context;
+/* loaded from: classes8.dex */
 public interface ar {
-    @Nullable
-    com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar);
+    void a(com.baidu.swan.apps.media.c.c cVar, Context context);
+
+    void a(com.baidu.swan.apps.media.c.c cVar, boolean z);
+
+    ar aad();
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void onBackground();
+
+    void onForeground();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

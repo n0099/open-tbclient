@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a hqF;
-    private b hqH;
+    private a hDw;
+    private b hDy;
     private int mScrollState = -1;
-    private int hqG = 0;
+    private int hDx = 0;
 
     /* loaded from: classes16.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.hqG != 0 && this.hqH != null) {
-                    this.hqH.a(absListView, 0, -this.hqG);
+                if (this.hDx != 0 && this.hDy != null) {
+                    this.hDy.a(absListView, 0, -this.hDx);
                 }
-                this.hqG = 0;
-                this.hqF = null;
+                this.hDx = 0;
+                this.hDw = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.hqF == null) {
-                this.hqF = aVar;
-                this.hqG = absListView.getPaddingTop() - childAt.getTop();
-                if (this.hqH != null) {
-                    this.hqH.a(absListView, this.hqG, 0);
+            if (this.hDw == null) {
+                this.hDw = aVar;
+                this.hDx = absListView.getPaddingTop() - childAt.getTop();
+                if (this.hDy != null) {
+                    this.hDy.a(absListView, this.hDx, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.hqF.a(aVar);
-            this.hqF = aVar;
-            this.hqG += a2;
-            if (this.hqH != null) {
-                this.hqH.a(absListView, this.hqG, a2);
+            int a2 = this.hDw.a(aVar);
+            this.hDw = aVar;
+            this.hDx += a2;
+            if (this.hDy != null) {
+                this.hDy.a(absListView, this.hDx, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.hqH = bVar;
+        this.hDy = bVar;
     }
 
     /* loaded from: classes16.dex */

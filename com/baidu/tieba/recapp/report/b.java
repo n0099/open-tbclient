@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.report;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,39 +10,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Abstract;
 import tbclient.ThreadInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static b lqU;
-    private List<JSONObject> lqV;
-    private List<JSONObject> lqW;
-    private List<JSONObject> lqX;
+    private static b lHp;
+    private List<JSONObject> lHq;
+    private List<JSONObject> lHr;
+    private List<JSONObject> lHs;
 
-    public static b dcS() {
-        if (lqU == null) {
+    public static b doc() {
+        if (lHp == null) {
             synchronized (b.class) {
-                if (lqU == null) {
-                    lqU = new b();
+                if (lHp == null) {
+                    lHp = new b();
                 }
             }
         }
-        return lqU;
+        return lHp;
     }
 
-    public synchronized void eO(List<JSONObject> list) {
-        if (this.lqV == null) {
-            this.lqV = new ArrayList();
+    public synchronized void eW(List<JSONObject> list) {
+        if (this.lHq == null) {
+            this.lHq = new ArrayList();
         }
-        this.lqV.clear();
-        this.lqV.addAll(list);
+        this.lHq.clear();
+        this.lHq.addAll(list);
     }
 
-    public String dcT() {
+    public String dod() {
         synchronized (this) {
-            if (x.isEmpty(this.lqV)) {
+            if (y.isEmpty(this.lHq)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.lqV) {
+            for (JSONObject jSONObject : this.lHq) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -56,21 +56,21 @@ public class b {
         }
     }
 
-    public synchronized void eP(List<JSONObject> list) {
-        if (this.lqW == null) {
-            this.lqW = new ArrayList();
+    public synchronized void eX(List<JSONObject> list) {
+        if (this.lHr == null) {
+            this.lHr = new ArrayList();
         }
-        this.lqW.clear();
-        this.lqW.addAll(list);
+        this.lHr.clear();
+        this.lHr.addAll(list);
     }
 
-    public String dcU() {
+    public String doe() {
         synchronized (this) {
-            if (x.isEmpty(this.lqW)) {
+            if (y.isEmpty(this.lHr)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.lqW) {
+            for (JSONObject jSONObject : this.lHr) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -84,21 +84,21 @@ public class b {
         }
     }
 
-    public synchronized void eQ(List<JSONObject> list) {
-        if (this.lqX == null) {
-            this.lqX = new ArrayList();
+    public synchronized void eY(List<JSONObject> list) {
+        if (this.lHs == null) {
+            this.lHs = new ArrayList();
         }
-        this.lqX.clear();
-        this.lqX.addAll(list);
+        this.lHs.clear();
+        this.lHs.addAll(list);
     }
 
-    public String dcV() {
+    public String dof() {
         synchronized (this) {
-            if (x.isEmpty(this.lqX)) {
+            if (y.isEmpty(this.lHs)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.lqX) {
+            for (JSONObject jSONObject : this.lHs) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -112,10 +112,10 @@ public class b {
         }
     }
 
-    public synchronized void dcW() {
-        if (this.lqX != null) {
-            this.lqX.clear();
-            this.lqX = null;
+    public synchronized void dog() {
+        if (this.lHs != null) {
+            this.lHs.clear();
+            this.lHs = null;
         }
     }
 

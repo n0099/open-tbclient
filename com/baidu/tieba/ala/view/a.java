@@ -9,14 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements TextWatcher, View.OnClickListener {
-    private long aZc;
-    private InterfaceC0611a fHw;
-    private TextView fiT;
-    private long fjn;
-    private EditText gNa;
-    private TextView gNb;
+    private long bew;
+    private InterfaceC0661a fSN;
+    private long fuJ;
+    private TextView fup;
+    private EditText gZR;
+    private TextView gZS;
     private boolean mIsHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -24,32 +24,32 @@ public class a implements TextWatcher, View.OnClickListener {
     private View mView;
 
     /* renamed from: com.baidu.tieba.ala.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0611a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0661a {
         void afterTextChanged(Editable editable);
     }
 
-    public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0611a interfaceC0611a) {
+    public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0661a interfaceC0661a) {
         this.mPageContext = tbPageContext;
         this.mOnClickListener = onClickListener;
-        this.fHw = interfaceC0611a;
+        this.fSN = interfaceC0661a;
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_activity_edit_feedback_reason_layout, (ViewGroup) null);
-        this.fiT = (TextView) this.mView.findViewById(a.g.id_feenback_edit_confirm_btn);
-        this.gNa = (EditText) this.mView.findViewById(a.g.id_feedback_edit_text);
-        this.gNb = (TextView) this.mView.findViewById(a.g.id_feedback_real_textnum);
-        this.gNa.setCursorVisible(false);
-        this.fiT.setEnabled(false);
-        this.gNa.addTextChangedListener(this);
-        this.fiT.setOnClickListener(this);
+        this.fup = (TextView) this.mView.findViewById(a.g.id_feenback_edit_confirm_btn);
+        this.gZR = (EditText) this.mView.findViewById(a.g.id_feedback_edit_text);
+        this.gZS = (TextView) this.mView.findViewById(a.g.id_feedback_real_textnum);
+        this.gZR.setCursorVisible(false);
+        this.fup.setEnabled(false);
+        this.gZR.addTextChangedListener(this);
+        this.fup.setOnClickListener(this);
     }
 
     public void b(long j, long j2, long j3, boolean z) {
-        this.aZc = j;
-        this.fjn = j2;
+        this.bew = j;
+        this.fuJ = j2;
         this.mUserId = j3;
         this.mIsHost = z;
     }
@@ -80,36 +80,36 @@ public class a implements TextWatcher, View.OnClickListener {
     public void afterTextChanged(Editable editable) {
         if (editable != null) {
             int length = editable.toString().length();
-            this.gNb.setText(String.valueOf(length));
+            this.gZS.setText(String.valueOf(length));
             if (length > 20) {
-                this.gNb.setTextColor(this.mPageContext.getResources().getColor(a.d.sdk_color_FF1E66));
-                this.fiT.setEnabled(false);
+                this.gZS.setTextColor(this.mPageContext.getResources().getColor(a.d.sdk_color_FF1E66));
+                this.fup.setEnabled(false);
             } else {
-                this.gNb.setTextColor(this.mPageContext.getResources().getColor(a.d.sdk_white_alpha30));
+                this.gZS.setTextColor(this.mPageContext.getResources().getColor(a.d.sdk_white_alpha30));
                 if (length == 0) {
-                    this.fiT.setEnabled(false);
+                    this.fup.setEnabled(false);
                 } else {
-                    this.fiT.setEnabled(true);
+                    this.fup.setEnabled(true);
                 }
             }
         }
-        if (this.fHw != null) {
-            this.fHw.afterTextChanged(editable);
+        if (this.fSN != null) {
+            this.fSN.afterTextChanged(editable);
         }
     }
 
-    public String bQa() {
-        if (this.gNa.getText() != null) {
-            return this.gNa.getText().toString();
+    public String cal() {
+        if (this.gZR.getText() != null) {
+            return this.gZR.getText().toString();
         }
         return null;
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
         if (z) {
-            this.gNa.setCursorVisible(true);
+            this.gZR.setCursorVisible(true);
         } else {
-            this.gNa.setCursorVisible(false);
+            this.gZR.setCursorVisible(false);
         }
     }
 }

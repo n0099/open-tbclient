@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.DecryptCode.DataReq;
 import tbclient.DecryptCode.DecryptCodeReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DecryptCodeReqMsg extends NetMessage {
     private String code;
 

@@ -19,6 +19,8 @@ public interface IRenderer {
 
     void setCameraSwitchListener(f fVar);
 
+    void setDefaultPipeLine(String str);
+
     void setRenderFinishedListener(OnRenderFinishedListener onRenderFinishedListener);
 
     void setRenderStartedListener(OnRenderStartedListener onRenderStartedListener);

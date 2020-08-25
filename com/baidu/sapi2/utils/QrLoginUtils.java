@@ -1,13 +1,14 @@
 package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes5.dex */
-public class QrLoginUtils {
+/* loaded from: classes12.dex */
+public class QrLoginUtils implements NoProguard {
     public static String getJoinQrLoginPromptInfo(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;

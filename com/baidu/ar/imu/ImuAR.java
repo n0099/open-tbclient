@@ -8,6 +8,7 @@ import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
 import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arplay.representation.Vector4f;
+import com.baidu.ar.arrender.l;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
@@ -17,24 +18,26 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class ImuAR extends com.baidu.ar.c implements g {
     private static final String TAG = ImuAR.class.getSimpleName();
-    private com.baidu.ar.lua.c qR;
-    private i qS;
-    private Matrixf4x4 qT = new Matrixf4x4();
-    private Matrixf4x4 qU = new Matrixf4x4();
-    private Matrixf4x4 qV = new Matrixf4x4();
-    private Matrixf4x4 qW = new Matrixf4x4();
-    private boolean qX = true;
-    private float[] qY = new float[16];
-    private boolean qZ = false;
-    private int ra = 0;
-    private boolean rb = false;
-    private boolean rc = false;
-    private boolean rd = false;
-    private boolean re = false;
+    private com.baidu.ar.lua.c rw;
+
+    /* renamed from: rx  reason: collision with root package name */
+    private i f963rx;
+    private Matrixf4x4 ry = new Matrixf4x4();
+    private Matrixf4x4 rz = new Matrixf4x4();
+    private Matrixf4x4 rA = new Matrixf4x4();
+    private Matrixf4x4 rB = new Matrixf4x4();
+    private boolean rC = true;
+    private float[] rD = new float[16];
+    private boolean rE = false;
+    private int rF = 0;
+    private boolean rG = false;
+    private boolean rH = false;
+    private boolean rI = false;
+    private boolean rJ = false;
 
     private Matrixf4x4 a(Matrixf4x4 matrixf4x4, Matrixf4x4 matrixf4x42, Vector3f vector3f) {
         Matrixf4x4 matrixf4x43 = new Matrixf4x4();
-        if (this.ra != 1) {
+        if (this.rF != 1) {
             Matrixf4x4 matrixf4x44 = new Matrixf4x4();
             matrixf4x44.setW0(vector3f.x());
             matrixf4x44.setW1(vector3f.y());
@@ -44,27 +47,27 @@ public class ImuAR extends com.baidu.ar.c implements g {
             float[] fArr2 = new float[16];
             Matrix.invertM(fArr2, 0, fArr, 0);
             matrixf4x43.setMatrixValues(fArr2);
-        } else if (this.qX) {
-            this.qX = false;
-            this.qU.setMatrixValues(matrixf4x4.getMatrix());
-            this.qV.loadIndentity();
-            Matrix.translateM(this.qV.getMatrix(), 0, vector3f.getX(), vector3f.getY(), vector3f.getZ());
+        } else if (this.rC) {
+            this.rC = false;
+            this.rz.setMatrixValues(matrixf4x4.getMatrix());
+            this.rA.loadIndentity();
+            Matrix.translateM(this.rA.getMatrix(), 0, vector3f.getX(), vector3f.getY(), vector3f.getZ());
             float[] fArr3 = new float[16];
-            Matrix.multiplyMM(fArr3, matrixf4x4.getMatrix(), this.qV.getMatrix());
+            Matrix.multiplyMM(fArr3, matrixf4x4.getMatrix(), this.rA.getMatrix());
             float[] fArr4 = new float[16];
             Matrix.invertM(fArr4, 0, fArr3, 0);
-            this.qV.setMatrixValues(fArr4);
+            this.rA.setMatrixValues(fArr4);
             matrixf4x43.setMatrixValues(matrixf4x42.getMatrix());
         } else {
             Matrixf4x4 matrixf4x45 = new Matrixf4x4();
             float[] fArr5 = new float[16];
-            Matrix.transposeM(fArr5, 0, this.qU.getMatrix(), 0);
+            Matrix.transposeM(fArr5, 0, this.rz.getMatrix(), 0);
             float[] fArr6 = new float[16];
             Matrix.multiplyMM(fArr6, fArr5, matrixf4x4.getMatrix());
             matrixf4x45.setMatrixValues(fArr6);
             Matrix.transposeM(fArr6, 0, matrixf4x45.getMatrix(), 0);
             float[] fArr7 = new float[16];
-            Matrix.multiplyMM(fArr7, fArr6, this.qV.getMatrix());
+            Matrix.multiplyMM(fArr7, fArr6, this.rA.getMatrix());
             matrixf4x43.setMatrixValues(fArr7);
         }
         return matrixf4x43;
@@ -87,14 +90,14 @@ public class ImuAR extends com.baidu.ar.c implements g {
     }
 
     private void a(Matrixf4x4 matrixf4x4, Vector3f vector3f) {
-        this.rd = false;
-        if (this.ra != 1) {
+        this.rI = false;
+        if (this.rF != 1) {
             float[] fArr = new float[16];
             Matrix.transposeM(fArr, 0, matrixf4x4.getMatrix(), 0);
-            this.qW.setMatrixValues(fArr);
+            this.rB.setMatrixValues(fArr);
             return;
         }
-        this.qU.setMatrixValues(matrixf4x4.getMatrix());
+        this.rz.setMatrixValues(matrixf4x4.getMatrix());
         Matrixf4x4 matrixf4x42 = new Matrixf4x4();
         matrixf4x42.setW0(vector3f.x());
         matrixf4x42.setW1(vector3f.y());
@@ -103,26 +106,26 @@ public class ImuAR extends com.baidu.ar.c implements g {
         Matrix.multiplyMM(fArr2, matrixf4x4.getMatrix(), matrixf4x42.getMatrix());
         float[] fArr3 = new float[16];
         Matrix.invertM(fArr3, 0, fArr2, 0);
-        this.qV.setMatrixValues(fArr3);
+        this.rA.setMatrixValues(fArr3);
     }
 
     private void a(float[] fArr, int i) {
         if (fArr == null || fArr.length != 16) {
             return;
         }
-        System.arraycopy(fArr, 0, this.qY, 0, 16);
-        this.qT.setMatrixValues(this.qY);
-        this.qZ = true;
-        this.ra = i;
-        System.arraycopy(fArr, 0, this.qY, 0, 16);
-        this.qT.setMatrixValues(this.qY);
-        com.baidu.ar.arrender.j r = r();
+        System.arraycopy(fArr, 0, this.rD, 0, 16);
+        this.ry.setMatrixValues(this.rD);
+        this.rE = true;
+        this.rF = i;
+        System.arraycopy(fArr, 0, this.rD, 0, 16);
+        this.ry.setMatrixValues(this.rD);
+        com.baidu.ar.arrender.k r = r();
         if (r != null) {
-            r.b(ARPScriptEnvironment.KEY_DATA_PIP_IMU, this.qT);
+            r.b(ARPScriptEnvironment.KEY_DATA_PIP_IMU, this.ry);
         }
-        this.qZ = true;
-        this.ra = i;
-        dK();
+        this.rE = true;
+        this.rF = i;
+        eU();
     }
 
     private void b(Matrixf4x4 matrixf4x4) {
@@ -165,20 +168,20 @@ public class ImuAR extends com.baidu.ar.c implements g {
 
     private Matrixf4x4 c(Vector3f vector3f) {
         Matrixf4x4 matrixf4x4 = new Matrixf4x4();
-        matrixf4x4.setMatrixValues(this.qT.getMatrix());
+        matrixf4x4.setMatrixValues(this.ry.getMatrix());
         matrixf4x4.transpose();
-        if (this.rd) {
+        if (this.rI) {
             a(matrixf4x4, vector3f);
         }
         float[] fArr = new float[16];
-        Matrix.multiplyMM(fArr, this.qW.getMatrix(), matrixf4x4.getMatrix());
+        Matrix.multiplyMM(fArr, this.rB.getMatrix(), matrixf4x4.getMatrix());
         matrixf4x4.setMatrixValues(fArr);
         return matrixf4x4;
     }
 
-    private void dJ() {
-        if (this.qR == null) {
-            this.qR = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.imu.ImuAR.1
+    private void eT() {
+        if (this.rw == null) {
+            this.rw = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.imu.ImuAR.1
                 @Override // com.baidu.ar.lua.c
                 public void a(int i, int i2, HashMap<String, Object> hashMap) {
                     boolean z = false;
@@ -187,15 +190,15 @@ public class ImuAR extends com.baidu.ar.c implements g {
                             if (hashMap != null && hashMap.containsKey("with_interaction") && ((Integer) hashMap.get("with_interaction")).intValue() != 0) {
                                 z = true;
                             }
-                            ImuAR.this.rd = true;
+                            ImuAR.this.rI = true;
                             if (z || ImuAR.this.r() == null) {
                                 return;
                             }
-                            ImuAR.this.r().bt();
+                            ImuAR.this.r().bB();
                             return;
                         case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
                             if (hashMap.get("is_mirrored") instanceof Integer) {
-                                ImuAR.this.re = ((Integer) hashMap.get("is_mirrored")).intValue() == 1;
+                                ImuAR.this.rJ = ((Integer) hashMap.get("is_mirrored")).intValue() == 1;
                                 return;
                             }
                             return;
@@ -210,52 +213,52 @@ public class ImuAR extends com.baidu.ar.c implements g {
                 }
             };
         }
-        a(this.qR);
+        a(this.rw);
     }
 
-    private void dK() {
-        com.baidu.ar.arrender.j r = r();
-        if (this.qZ && !this.rb) {
-            this.rb = true;
+    private void eU() {
+        com.baidu.ar.arrender.k r = r();
+        if (this.rE && !this.rG) {
+            this.rG = true;
             b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, (HashMap<String, Object>) null);
             if (r != null) {
-                this.rc = r.isDriverdByARPVersion();
+                this.rH = r.isDriverdByARPVersion();
             }
         }
         if (r != null) {
-            Matrixf4x4 aW = r.aW();
-            Vector3f a = a(aW);
-            Matrixf4x4 a2 = a(c(a), aW, a);
-            if (this.re) {
+            Matrixf4x4 aT = r.aT();
+            Vector3f a = a(aT);
+            Matrixf4x4 a2 = a(c(a), aT, a);
+            if (this.rJ) {
                 b(a2);
             }
-            if (this.qS != null && this.qS.dN() == b.WORLD && this.rc) {
+            if (this.f963rx != null && this.f963rx.eX() == b.WORLD && this.rH) {
                 a2 = c(a2);
             }
-            com.baidu.ar.arrender.k kVar = new com.baidu.ar.arrender.k();
-            kVar.o("ability_imu");
-            kVar.setMatrix(a2.getMatrix());
-            r.h(true);
-            r.a(kVar);
+            l lVar = new l();
+            lVar.p("ability_imu");
+            lVar.setMatrix(a2.getMatrix());
+            r.i(true);
+            r.a(lVar);
         }
     }
 
     @Override // com.baidu.ar.imu.g
     public void onImuUpdate(f fVar) {
         if (fVar != null) {
-            a(fVar.getMatrix(), fVar.dL());
+            a(fVar.getMatrix(), fVar.eV());
         }
     }
 
     @Override // com.baidu.ar.c
     public void release() {
-        com.baidu.ar.f.b.c(TAG, "release()");
+        com.baidu.ar.g.b.c(TAG, "release()");
         a((g) this);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("succeeded", 1);
         b(304, hashMap);
-        b(this.qR);
-        this.qS = null;
+        b(this.rw);
+        this.f963rx = null;
         super.release();
     }
 
@@ -264,7 +267,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
         int i = 0;
         super.setup(hashMap);
         if (hashMap != null && hashMap.containsKey("type")) {
-            com.baidu.ar.f.b.c(TAG, "setup() luaParams = " + hashMap.toString());
+            com.baidu.ar.g.b.c(TAG, "setup() luaParams = " + hashMap.toString());
             Object obj = hashMap.get("type");
             int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : obj instanceof Float ? (int) ((Float) obj).floatValue() : 0;
             if (hashMap.containsKey("init_pos")) {
@@ -275,18 +278,18 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     i = (int) ((Float) obj2).floatValue();
                 }
             }
-            this.qS = new i();
-            this.qS.b(b.H(intValue));
-            this.qS.J(i);
-            a(this.qS, this);
-            dJ();
-            com.baidu.ar.arrender.j r = r();
+            this.f963rx = new i();
+            this.f963rx.b(b.J(intValue));
+            this.f963rx.L(i);
+            a(this.f963rx, this);
+            eT();
+            com.baidu.ar.arrender.k r = r();
             if (r != null) {
-                r.br();
-                if (this.qS.dN() == b.RELATIVE) {
-                    r.aK();
+                r.bz();
+                if (this.f963rx.eX() == b.RELATIVE) {
+                    r.aI();
                 }
-                r.a(this.qS.dN());
+                r.a(this.f963rx.eX());
             }
             HashMap<String, Object> hashMap2 = new HashMap<>();
             hashMap2.put("succeeded", 1);

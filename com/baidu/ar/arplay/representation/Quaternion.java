@@ -52,31 +52,29 @@ public class Quaternion extends Vector4f {
         if (this.matrix.size() >= 9) {
             float f5 = matrix[i] + matrix[i5] + matrix[i9];
             if (f5 > 0.0f) {
-                float sqrt = 2.0f * ((float) Math.sqrt(f5 + 1.0d));
+                float sqrt = ((float) Math.sqrt(f5 + 1.0d)) * 2.0f;
                 f = 0.25f * sqrt;
                 f2 = (matrix[i8] - matrix[i6]) / sqrt;
                 f3 = (matrix[i3] - matrix[i7]) / sqrt;
                 f4 = (matrix[i4] - matrix[i2]) / sqrt;
+            } else if (matrix[i] > matrix[i5] && matrix[i] > matrix[i9]) {
+                float sqrt2 = ((float) Math.sqrt(((1.0d + matrix[i]) - matrix[i5]) - matrix[i9])) * 2.0f;
+                f = (matrix[i8] - matrix[i6]) / sqrt2;
+                f2 = 0.25f * sqrt2;
+                f3 = (matrix[i2] + matrix[i4]) / sqrt2;
+                f4 = (matrix[i7] + matrix[i3]) / sqrt2;
+            } else if (matrix[i5] > matrix[i9]) {
+                float sqrt3 = ((float) Math.sqrt(((1.0d + matrix[i5]) - matrix[i]) - matrix[i9])) * 2.0f;
+                f = (matrix[i3] - matrix[i7]) / sqrt3;
+                f2 = (matrix[i2] + matrix[i4]) / sqrt3;
+                f3 = 0.25f * sqrt3;
+                f4 = (matrix[i8] + matrix[i6]) / sqrt3;
             } else {
-                if ((matrix[i] > matrix[i5]) && (matrix[i] > matrix[i9])) {
-                    float sqrt2 = 2.0f * ((float) Math.sqrt(((1.0d + matrix[i]) - matrix[i5]) - matrix[i9]));
-                    f = (matrix[i8] - matrix[i6]) / sqrt2;
-                    f2 = 0.25f * sqrt2;
-                    f3 = (matrix[i2] + matrix[i4]) / sqrt2;
-                    f4 = (matrix[i7] + matrix[i3]) / sqrt2;
-                } else if (matrix[i5] > matrix[i9]) {
-                    float sqrt3 = 2.0f * ((float) Math.sqrt(((1.0d + matrix[i5]) - matrix[i]) - matrix[i9]));
-                    f = (matrix[i3] - matrix[i7]) / sqrt3;
-                    f2 = (matrix[i2] + matrix[i4]) / sqrt3;
-                    f3 = 0.25f * sqrt3;
-                    f4 = (matrix[i8] + matrix[i6]) / sqrt3;
-                } else {
-                    float sqrt4 = 2.0f * ((float) Math.sqrt(((1.0d + matrix[i9]) - matrix[i]) - matrix[i5]));
-                    f = (matrix[i4] - matrix[i2]) / sqrt4;
-                    f2 = (matrix[i3] + matrix[i7]) / sqrt4;
-                    f3 = (matrix[i6] + matrix[i8]) / sqrt4;
-                    f4 = sqrt4 * 0.25f;
-                }
+                float sqrt4 = ((float) Math.sqrt(((1.0d + matrix[i9]) - matrix[i]) - matrix[i5])) * 2.0f;
+                f = (matrix[i4] - matrix[i2]) / sqrt4;
+                f2 = (matrix[i3] + matrix[i7]) / sqrt4;
+                f3 = (matrix[i8] + matrix[i6]) / sqrt4;
+                f4 = 0.25f * sqrt4;
             }
             setX(f2);
             setY(f3);
@@ -99,7 +97,7 @@ public class Quaternion extends Vector4f {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Quaternion m17clone() {
+    public Quaternion m18clone() {
         Quaternion quaternion = new Quaternion();
         quaternion.copyVec4(this);
         return quaternion;

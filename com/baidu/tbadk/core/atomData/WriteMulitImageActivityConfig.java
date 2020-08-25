@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteMulitImageActivityConfig extends IntentConfig {
     public static final int ENTRANCE_ALBUM = 2;
     public static final int ENTRANCE_CHOOSE_TAB = 1;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static Map<String, String> a = a();
     private static final List<String> b = new ArrayList(a.keySet());

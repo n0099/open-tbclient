@@ -1,35 +1,32 @@
 package com.baidu.m.a;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.share.m;
-import java.util.ArrayList;
-/* loaded from: classes12.dex */
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+/* JADX WARN: Classes with same name are omitted:
+  classes10.dex
+ */
+@SuppressLint({"NewApi"})
+@TargetApi(23)
+/* loaded from: classes18.dex */
 public class b {
-    static ArrayList<Integer> mOl = new ArrayList<>(4);
-    static String mOm;
 
-    static {
-        mOl.add(10000);
-        mOl.add(10001);
-        mOl.add(10002);
-        mOl.add(Integer.valueOf((int) m.g));
-        mOl.add(-1);
+    /* JADX WARN: Classes with same name are omitted:
+      classes10.dex
+     */
+    /* loaded from: classes18.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int dBb() {
-        if (TextUtils.isEmpty(mOm)) {
-            mOm = com.baidu.m.a.c.d.getManufacturer();
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        if (activity instanceof a) {
+            ((a) activity).validateRequestPermissionsRequestCode(i);
         }
-        if (TextUtils.isEmpty(mOm)) {
-            return m.g;
-        }
-        if (mOm.toUpperCase().contains("HUAWEI")) {
-            return 10001;
-        }
-        if (mOm.toUpperCase().contains("XIAOMI")) {
-            return 10002;
-        }
-        return m.g;
+        activity.requestPermissions(strArr, i);
+    }
+
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+        return activity.shouldShowRequestPermissionRationale(str);
     }
 }

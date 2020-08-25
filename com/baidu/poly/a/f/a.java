@@ -22,40 +22,40 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public final class a implements Closeable {
-    static final Pattern bzE = Pattern.compile("[a-z0-9_-]{1,120}");
-    private static final OutputStream bzF = new b();
+    static final Pattern bFk = Pattern.compile("[a-z0-9_-]{1,120}");
+    private static final OutputStream bFl = new b();
     private int ad;
-    private final File bzG;
-    private final File bzH;
-    private final File bzI;
-    private final File bzJ;
-    private final int bzK;
-    private long bzL;
-    private final int bzM;
-    private Writer bzN;
+    private final File bFm;
+    private final File bFn;
+    private final File bFo;
+    private final File bFp;
+    private final int bFq;
+    private long bFr;
+    private final int bFs;
+    private Writer bFt;
     private long size = 0;
-    private final LinkedHashMap<String, d> bzO = new LinkedHashMap<>(0, 0.75f, true);
-    private long ami = 0;
-    final ThreadPoolExecutor bzP = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
-    private final Callable<Void> bzQ = new CallableC0244a();
+    private final LinkedHashMap<String, d> bFu = new LinkedHashMap<>(0, 0.75f, true);
+    private long ank = 0;
+    final ThreadPoolExecutor bFv = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    private final Callable<Void> bFw = new CallableC0265a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class CallableC0244a implements Callable<Void> {
-        CallableC0244a() {
+    /* loaded from: classes6.dex */
+    public class CallableC0265a implements Callable<Void> {
+        CallableC0265a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         public Void call() {
             synchronized (a.this) {
-                if (a.this.bzN != null) {
+                if (a.this.bFt != null) {
                     a.this.trimToSize();
-                    if (a.this.Ok()) {
-                        a.this.Oj();
+                    if (a.this.Ud()) {
+                        a.this.Uc();
                         a.this.ad = 0;
                     }
                 }
@@ -64,7 +64,7 @@ public final class a implements Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     static class b extends OutputStream {
         b() {
         }
@@ -74,17 +74,17 @@ public final class a implements Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public final class c {
-        private final d bzR;
-        private boolean bzS;
-        private boolean bzT;
+        private final d bFx;
+        private boolean bFy;
+        private boolean bFz;
         private final boolean[] written;
 
         /* renamed from: com.baidu.poly.a.f.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        private class C0245a extends FilterOutputStream {
-            /* synthetic */ C0245a(c cVar, OutputStream outputStream, CallableC0244a callableC0244a) {
+        /* loaded from: classes6.dex */
+        private class C0266a extends FilterOutputStream {
+            /* synthetic */ C0266a(c cVar, OutputStream outputStream, CallableC0265a callableC0265a) {
                 this(outputStream);
             }
 
@@ -93,7 +93,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.close();
                 } catch (IOException e) {
-                    c.this.bzS = true;
+                    c.this.bFy = true;
                 }
             }
 
@@ -102,7 +102,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.flush();
                 } catch (IOException e) {
-                    c.this.bzS = true;
+                    c.this.bFy = true;
                 }
             }
 
@@ -111,11 +111,11 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(i);
                 } catch (IOException e) {
-                    c.this.bzS = true;
+                    c.this.bFy = true;
                 }
             }
 
-            private C0245a(OutputStream outputStream) {
+            private C0266a(OutputStream outputStream) {
                 super(outputStream);
             }
 
@@ -124,12 +124,12 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(bArr, i, i2);
                 } catch (IOException e) {
-                    c.this.bzS = true;
+                    c.this.bFy = true;
                 }
             }
         }
 
-        /* synthetic */ c(a aVar, d dVar, CallableC0244a callableC0244a) {
+        /* synthetic */ c(a aVar, d dVar, CallableC0265a callableC0265a) {
             this(dVar);
         }
 
@@ -138,67 +138,67 @@ public final class a implements Closeable {
         }
 
         public void commit() {
-            if (this.bzS) {
+            if (this.bFy) {
                 a.this.a(this, false);
-                a.this.remove(this.bzR.key);
+                a.this.remove(this.bFx.key);
             } else {
                 a.this.a(this, true);
             }
-            this.bzT = true;
+            this.bFz = true;
         }
 
-        public OutputStream dS(int i) {
+        public OutputStream fO(int i) {
             OutputStream outputStream;
             FileOutputStream fileOutputStream;
-            if (i >= 0 && i < a.this.bzM) {
+            if (i >= 0 && i < a.this.bFs) {
                 synchronized (a.this) {
-                    if (this.bzR.bzX == this) {
-                        if (!this.bzR.bzW) {
+                    if (this.bFx.bFD == this) {
+                        if (!this.bFx.bFC) {
                             this.written[i] = true;
                         }
-                        File dU = this.bzR.dU(i);
+                        File fQ = this.bFx.fQ(i);
                         try {
-                            fileOutputStream = new FileOutputStream(dU);
+                            fileOutputStream = new FileOutputStream(fQ);
                         } catch (FileNotFoundException e) {
-                            a.this.bzG.mkdirs();
+                            a.this.bFm.mkdirs();
                             try {
-                                fileOutputStream = new FileOutputStream(dU);
+                                fileOutputStream = new FileOutputStream(fQ);
                             } catch (FileNotFoundException e2) {
-                                outputStream = a.bzF;
+                                outputStream = a.bFl;
                             }
                         }
-                        outputStream = new C0245a(this, fileOutputStream, null);
+                        outputStream = new C0266a(this, fileOutputStream, null);
                     } else {
                         throw new IllegalStateException();
                     }
                 }
                 return outputStream;
             }
-            throw new IllegalArgumentException("Expected index " + i + " to be greater than 0 and less than the maximum value count of " + a.this.bzM);
+            throw new IllegalArgumentException("Expected index " + i + " to be greater than 0 and less than the maximum value count of " + a.this.bFs);
         }
 
         private c(d dVar) {
-            this.bzR = dVar;
-            this.written = dVar.bzW ? null : new boolean[a.this.bzM];
+            this.bFx = dVar;
+            this.written = dVar.bFC ? null : new boolean[a.this.bFs];
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public final class d {
-        private final long[] bzV;
-        private boolean bzW;
-        private c bzX;
-        private long bzY;
+        private final long[] bFB;
+        private boolean bFC;
+        private c bFD;
+        private long bFE;
         private final String key;
 
-        /* synthetic */ d(a aVar, String str, CallableC0244a callableC0244a) {
+        /* synthetic */ d(a aVar, String str, CallableC0265a callableC0265a) {
             this(str);
         }
 
-        public String A() {
+        public String B() {
             StringBuilder sb = new StringBuilder();
-            for (long j : this.bzV) {
+            for (long j : this.bFB) {
                 sb.append(' ').append(j);
             }
             return sb.toString();
@@ -206,15 +206,15 @@ public final class a implements Closeable {
 
         private d(String str) {
             this.key = str;
-            this.bzV = new long[a.this.bzM];
+            this.bFB = new long[a.this.bFs];
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(String[] strArr) {
-            if (strArr.length == a.this.bzM) {
+            if (strArr.length == a.this.bFs) {
                 for (int i = 0; i < strArr.length; i++) {
                     try {
-                        this.bzV[i] = Long.parseLong(strArr[i]);
+                        this.bFB[i] = Long.parseLong(strArr[i]);
                     } catch (NumberFormatException e) {
                         n(strArr);
                         throw null;
@@ -226,12 +226,12 @@ public final class a implements Closeable {
             throw null;
         }
 
-        public File dT(int i) {
-            return new File(a.this.bzG, this.key + "." + i);
+        public File fP(int i) {
+            return new File(a.this.bFm, this.key + "." + i);
         }
 
-        public File dU(int i) {
-            return new File(a.this.bzG, this.key + "." + i + ".tmp");
+        public File fQ(int i) {
+            return new File(a.this.bFm, this.key + "." + i + ".tmp");
         }
 
         private IOException n(String[] strArr) {
@@ -239,55 +239,55 @@ public final class a implements Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public final class e implements Closeable {
-        private final long[] bzV;
-        private final long bzY;
-        private final InputStream[] bzZ;
+        private final long[] bFB;
+        private final long bFE;
+        private final InputStream[] bFF;
         private final String key;
 
-        /* synthetic */ e(a aVar, String str, long j, InputStream[] inputStreamArr, long[] jArr, CallableC0244a callableC0244a) {
+        /* synthetic */ e(a aVar, String str, long j, InputStream[] inputStreamArr, long[] jArr, CallableC0265a callableC0265a) {
             this(str, j, inputStreamArr, jArr);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            for (InputStream inputStream : this.bzZ) {
+            for (InputStream inputStream : this.bFF) {
                 com.baidu.poly.a.f.c.a(inputStream);
             }
         }
 
-        public InputStream dV(int i) {
-            return this.bzZ[i];
+        public InputStream fR(int i) {
+            return this.bFF[i];
         }
 
         private e(String str, long j, InputStream[] inputStreamArr, long[] jArr) {
             this.key = str;
-            this.bzY = j;
-            this.bzZ = inputStreamArr;
-            this.bzV = jArr;
+            this.bFE = j;
+            this.bFF = inputStreamArr;
+            this.bFB = jArr;
         }
     }
 
     private a(File file, int i, int i2, long j) {
-        this.bzG = file;
-        this.bzK = i;
-        this.bzH = new File(file, "journal");
-        this.bzI = new File(file, "journal.tmp");
-        this.bzJ = new File(file, "journal.bkp");
-        this.bzM = i2;
-        this.bzL = j;
+        this.bFm = file;
+        this.bFq = i;
+        this.bFn = new File(file, "journal");
+        this.bFo = new File(file, "journal.tmp");
+        this.bFp = new File(file, "journal.bkp");
+        this.bFs = i2;
+        this.bFr = j;
     }
 
-    private void Oh() {
-        com.baidu.poly.a.f.b bVar = new com.baidu.poly.a.f.b(new FileInputStream(this.bzH), com.baidu.poly.a.f.c.US_ASCII);
+    private void Ua() {
+        com.baidu.poly.a.f.b bVar = new com.baidu.poly.a.f.b(new FileInputStream(this.bFn), com.baidu.poly.a.f.c.US_ASCII);
         try {
             String readLine = bVar.readLine();
             String readLine2 = bVar.readLine();
             String readLine3 = bVar.readLine();
             String readLine4 = bVar.readLine();
             String readLine5 = bVar.readLine();
-            if (!"libcore.io.DiskLruCache".equals(readLine) || !"1".equals(readLine2) || !Integer.toString(this.bzK).equals(readLine3) || !Integer.toString(this.bzM).equals(readLine4) || !"".equals(readLine5)) {
+            if (!"libcore.io.DiskLruCache".equals(readLine) || !"1".equals(readLine2) || !Integer.toString(this.bFq).equals(readLine3) || !Integer.toString(this.bFs).equals(readLine4) || !"".equals(readLine5)) {
                 throw new IOException("unexpected journal header: [" + readLine + ", " + readLine2 + ", " + readLine4 + ", " + readLine5 + "]");
             }
             int i = 0;
@@ -296,11 +296,11 @@ public final class a implements Closeable {
                     q(bVar.readLine());
                     i++;
                 } catch (EOFException e2) {
-                    this.ad = i - this.bzO.size();
-                    if (bVar.C()) {
-                        Oj();
+                    this.ad = i - this.bFu.size();
+                    if (bVar.Uh()) {
+                        Uc();
                     } else {
-                        this.bzN = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.bzH, true), com.baidu.poly.a.f.c.US_ASCII));
+                        this.bFt = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.bFn, true), com.baidu.poly.a.f.c.US_ASCII));
                     }
                     com.baidu.poly.a.f.c.a(bVar);
                     return;
@@ -312,66 +312,66 @@ public final class a implements Closeable {
         }
     }
 
-    private void Oi() {
-        c(this.bzI);
-        Iterator<d> it = this.bzO.values().iterator();
+    private void Ub() {
+        c(this.bFo);
+        Iterator<d> it = this.bFu.values().iterator();
         while (it.hasNext()) {
             d next = it.next();
-            if (next.bzX != null) {
-                next.bzX = null;
-                for (int i = 0; i < this.bzM; i++) {
-                    c(next.dT(i));
-                    c(next.dU(i));
+            if (next.bFD != null) {
+                next.bFD = null;
+                for (int i = 0; i < this.bFs; i++) {
+                    c(next.fP(i));
+                    c(next.fQ(i));
                 }
                 it.remove();
             } else {
-                for (int i2 = 0; i2 < this.bzM; i2++) {
-                    this.size += next.bzV[i2];
+                for (int i2 = 0; i2 < this.bFs; i2++) {
+                    this.size += next.bFB[i2];
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Oj() {
-        Writer writer = this.bzN;
+    public synchronized void Uc() {
+        Writer writer = this.bFt;
         if (writer != null) {
             writer.close();
         }
-        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.bzI), com.baidu.poly.a.f.c.US_ASCII));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.bFo), com.baidu.poly.a.f.c.US_ASCII));
         bufferedWriter.write("libcore.io.DiskLruCache");
         bufferedWriter.write("\n");
         bufferedWriter.write("1");
         bufferedWriter.write("\n");
-        bufferedWriter.write(Integer.toString(this.bzK));
+        bufferedWriter.write(Integer.toString(this.bFq));
         bufferedWriter.write("\n");
-        bufferedWriter.write(Integer.toString(this.bzM));
+        bufferedWriter.write(Integer.toString(this.bFs));
         bufferedWriter.write("\n");
         bufferedWriter.write("\n");
-        for (d dVar : this.bzO.values()) {
-            if (dVar.bzX != null) {
+        for (d dVar : this.bFu.values()) {
+            if (dVar.bFD != null) {
                 bufferedWriter.write("DIRTY " + dVar.key + '\n');
             } else {
-                bufferedWriter.write("CLEAN " + dVar.key + dVar.A() + '\n');
+                bufferedWriter.write("CLEAN " + dVar.key + dVar.B() + '\n');
             }
         }
         bufferedWriter.close();
-        if (this.bzH.exists()) {
-            a(this.bzH, this.bzJ, true);
+        if (this.bFn.exists()) {
+            a(this.bFn, this.bFp, true);
         }
-        a(this.bzI, this.bzH, false);
-        this.bzJ.delete();
-        this.bzN = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.bzH, true), com.baidu.poly.a.f.c.US_ASCII));
+        a(this.bFo, this.bFn, false);
+        this.bFp.delete();
+        this.bFt = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.bFn, true), com.baidu.poly.a.f.c.US_ASCII));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Ok() {
+    public boolean Ud() {
         int i = this.ad;
-        return i >= 2000 && i >= this.bzO.size();
+        return i >= 2000 && i >= this.bFu.size();
     }
 
-    private void Ol() {
-        if (this.bzN == null) {
+    private void Ue() {
+        if (this.bFt == null) {
             throw new IllegalStateException("cache is closed");
         }
     }
@@ -385,26 +385,26 @@ public final class a implements Closeable {
             if (indexOf2 == -1) {
                 String substring2 = str.substring(i);
                 if (indexOf == 6 && str.startsWith("REMOVE")) {
-                    this.bzO.remove(substring2);
+                    this.bFu.remove(substring2);
                     return;
                 }
                 substring = substring2;
             } else {
                 substring = str.substring(i, indexOf2);
             }
-            d dVar = this.bzO.get(substring);
+            d dVar = this.bFu.get(substring);
             if (dVar == null) {
                 dVar = new d(this, substring, null);
-                this.bzO.put(substring, dVar);
+                this.bFu.put(substring, dVar);
             }
             if (indexOf2 != -1 && indexOf == 5 && str.startsWith("CLEAN")) {
                 String[] split = str.substring(indexOf2 + 1).split(" ");
-                dVar.bzW = true;
-                dVar.bzX = null;
+                dVar.bFC = true;
+                dVar.bFD = null;
                 dVar.b(split);
                 return;
             } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
-                dVar.bzX = new c(this, dVar, null);
+                dVar.bFD = new c(this, dVar, null);
                 return;
             } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
                 return;
@@ -416,68 +416,68 @@ public final class a implements Closeable {
     }
 
     private void r(String str) {
-        if (!bzE.matcher(str).matches()) {
+        if (!bFk.matcher(str).matches()) {
             throw new IllegalArgumentException("keys must match regex [a-z0-9_-]{1,120}: \"" + str + "\"");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void trimToSize() {
-        while (this.size > this.bzL) {
-            remove(this.bzO.entrySet().iterator().next().getKey());
+        while (this.size > this.bFr) {
+            remove(this.bFu.entrySet().iterator().next().getKey());
         }
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        if (this.bzN != null) {
-            Iterator it = new ArrayList(this.bzO.values()).iterator();
+        if (this.bFt != null) {
+            Iterator it = new ArrayList(this.bFu.values()).iterator();
             while (it.hasNext()) {
                 d dVar = (d) it.next();
-                if (dVar.bzX != null) {
-                    dVar.bzX.abort();
+                if (dVar.bFD != null) {
+                    dVar.bFD.abort();
                 }
             }
             trimToSize();
-            this.bzN.close();
-            this.bzN = null;
+            this.bFt.close();
+            this.bFt = null;
         }
     }
 
     public void delete() {
         close();
-        com.baidu.poly.a.f.c.a(this.bzG);
+        com.baidu.poly.a.f.c.a(this.bFm);
     }
 
     public synchronized void flush() {
-        Ol();
+        Ue();
         trimToSize();
-        this.bzN.flush();
+        this.bFt.flush();
     }
 
-    public synchronized e gC(String str) {
+    public synchronized e hW(String str) {
         e eVar = null;
         synchronized (this) {
-            Ol();
+            Ue();
             r(str);
-            d dVar = this.bzO.get(str);
-            if (dVar != null && dVar.bzW) {
-                InputStream[] inputStreamArr = new InputStream[this.bzM];
-                for (int i = 0; i < this.bzM; i++) {
+            d dVar = this.bFu.get(str);
+            if (dVar != null && dVar.bFC) {
+                InputStream[] inputStreamArr = new InputStream[this.bFs];
+                for (int i = 0; i < this.bFs; i++) {
                     try {
-                        inputStreamArr[i] = new FileInputStream(dVar.dT(i));
+                        inputStreamArr[i] = new FileInputStream(dVar.fP(i));
                     } catch (FileNotFoundException e2) {
-                        for (int i2 = 0; i2 < this.bzM && inputStreamArr[i2] != null; i2++) {
+                        for (int i2 = 0; i2 < this.bFs && inputStreamArr[i2] != null; i2++) {
                             com.baidu.poly.a.f.c.a(inputStreamArr[i2]);
                         }
                     }
                 }
                 this.ad++;
-                this.bzN.append((CharSequence) ("READ " + str + '\n'));
-                if (Ok()) {
-                    this.bzP.submit(this.bzQ);
+                this.bFt.append((CharSequence) ("READ " + str + '\n'));
+                if (Ud()) {
+                    this.bFv.submit(this.bFw);
                 }
-                eVar = new e(this, str, dVar.bzY, inputStreamArr, dVar.bzV, null);
+                eVar = new e(this, str, dVar.bFE, inputStreamArr, dVar.bFB, null);
             }
         }
         return eVar;
@@ -486,26 +486,26 @@ public final class a implements Closeable {
     public synchronized boolean remove(String str) {
         boolean z;
         synchronized (this) {
-            Ol();
+            Ue();
             r(str);
-            d dVar = this.bzO.get(str);
-            if (dVar == null || dVar.bzX != null) {
+            d dVar = this.bFu.get(str);
+            if (dVar == null || dVar.bFD != null) {
                 z = false;
             } else {
-                for (int i = 0; i < this.bzM; i++) {
-                    File dT = dVar.dT(i);
-                    if (!dT.exists() || dT.delete()) {
-                        this.size -= dVar.bzV[i];
-                        dVar.bzV[i] = 0;
+                for (int i = 0; i < this.bFs; i++) {
+                    File fP = dVar.fP(i);
+                    if (!fP.exists() || fP.delete()) {
+                        this.size -= dVar.bFB[i];
+                        dVar.bFB[i] = 0;
                     } else {
-                        throw new IOException("failed to delete " + dT);
+                        throw new IOException("failed to delete " + fP);
                     }
                 }
                 this.ad++;
-                this.bzN.append((CharSequence) ("REMOVE " + str + '\n'));
-                this.bzO.remove(str);
-                if (Ok()) {
-                    this.bzP.submit(this.bzQ);
+                this.bFt.append((CharSequence) ("REMOVE " + str + '\n'));
+                this.bFu.remove(str);
+                if (Ud()) {
+                    this.bFv.submit(this.bFw);
                 }
                 z = true;
             }
@@ -516,12 +516,12 @@ public final class a implements Closeable {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(c cVar, boolean z) {
         synchronized (this) {
-            d dVar = cVar.bzR;
-            if (dVar.bzX == cVar) {
-                if (z && !dVar.bzW) {
-                    for (int i = 0; i < this.bzM; i++) {
+            d dVar = cVar.bFx;
+            if (dVar.bFD == cVar) {
+                if (z && !dVar.bFC) {
+                    for (int i = 0; i < this.bFs; i++) {
                         if (cVar.written[i]) {
-                            if (!dVar.dU(i).exists()) {
+                            if (!dVar.fQ(i).exists()) {
                                 cVar.abort();
                                 break;
                             }
@@ -531,36 +531,36 @@ public final class a implements Closeable {
                         }
                     }
                 }
-                for (int i2 = 0; i2 < this.bzM; i2++) {
-                    File dU = dVar.dU(i2);
+                for (int i2 = 0; i2 < this.bFs; i2++) {
+                    File fQ = dVar.fQ(i2);
                     if (!z) {
-                        c(dU);
-                    } else if (dU.exists()) {
-                        File dT = dVar.dT(i2);
-                        dU.renameTo(dT);
-                        long j = dVar.bzV[i2];
-                        long length = dT.length();
-                        dVar.bzV[i2] = length;
+                        c(fQ);
+                    } else if (fQ.exists()) {
+                        File fP = dVar.fP(i2);
+                        fQ.renameTo(fP);
+                        long j = dVar.bFB[i2];
+                        long length = fP.length();
+                        dVar.bFB[i2] = length;
                         this.size = (this.size - j) + length;
                     }
                 }
                 this.ad++;
-                dVar.bzX = null;
-                if (!dVar.bzW && !z) {
-                    this.bzO.remove(dVar.key);
-                    this.bzN.write("REMOVE " + dVar.key + '\n');
+                dVar.bFD = null;
+                if (!dVar.bFC && !z) {
+                    this.bFu.remove(dVar.key);
+                    this.bFt.write("REMOVE " + dVar.key + '\n');
                 } else {
-                    dVar.bzW = true;
-                    this.bzN.write("CLEAN " + dVar.key + dVar.A() + '\n');
+                    dVar.bFC = true;
+                    this.bFt.write("CLEAN " + dVar.key + dVar.B() + '\n');
                     if (z) {
-                        long j2 = this.ami;
-                        this.ami = 1 + j2;
-                        dVar.bzY = j2;
+                        long j2 = this.ank;
+                        this.ank = 1 + j2;
+                        dVar.bFE = j2;
                     }
                 }
-                this.bzN.flush();
-                if (this.size > this.bzL || Ok()) {
-                    this.bzP.submit(this.bzQ);
+                this.bFt.flush();
+                if (this.size > this.bFr || Ud()) {
+                    this.bFv.submit(this.bFw);
                 }
             } else {
                 throw new IllegalStateException();
@@ -574,8 +574,8 @@ public final class a implements Closeable {
         }
     }
 
-    public c gD(String str) {
-        return g(str, -1L);
+    public c hX(String str) {
+        return f(str, -1L);
     }
 
     public static a a(File file, int i, int i2, long j) {
@@ -591,19 +591,19 @@ public final class a implements Closeable {
                     }
                 }
                 a aVar = new a(file, i, i2, j);
-                if (aVar.bzH.exists()) {
+                if (aVar.bFn.exists()) {
                     try {
-                        aVar.Oh();
-                        aVar.Oi();
+                        aVar.Ua();
+                        aVar.Ub();
                         return aVar;
                     } catch (IOException e2) {
-                        com.baidu.poly.util.d.l("DiskLruCache " + file + " is corrupt: " + e2.getMessage() + ", removing");
+                        com.baidu.poly.util.d.a("DiskLruCache " + file + " is corrupt: " + e2.getMessage() + ", removing");
                         aVar.delete();
                     }
                 }
                 file.mkdirs();
                 a aVar2 = new a(file, i, i2, j);
-                aVar2.Oj();
+                aVar2.Uc();
                 return aVar2;
             }
             throw new IllegalArgumentException("valueCount <= 0");
@@ -620,28 +620,28 @@ public final class a implements Closeable {
         }
     }
 
-    private synchronized c g(String str, long j) {
+    private synchronized c f(String str, long j) {
         d dVar;
         c cVar;
-        Ol();
+        Ue();
         r(str);
-        d dVar2 = this.bzO.get(str);
-        if (j == -1 || (dVar2 != null && dVar2.bzY == j)) {
+        d dVar2 = this.bFu.get(str);
+        if (j == -1 || (dVar2 != null && dVar2.bFE == j)) {
             if (dVar2 != null) {
-                if (dVar2.bzX != null) {
+                if (dVar2.bFD != null) {
                     cVar = null;
                 } else {
                     dVar = dVar2;
                 }
             } else {
                 d dVar3 = new d(this, str, null);
-                this.bzO.put(str, dVar3);
+                this.bFu.put(str, dVar3);
                 dVar = dVar3;
             }
             cVar = new c(this, dVar, null);
-            dVar.bzX = cVar;
-            this.bzN.write("DIRTY " + str + '\n');
-            this.bzN.flush();
+            dVar.bFD = cVar;
+            this.bFt.write("DIRTY " + str + '\n');
+            this.bFt.flush();
         } else {
             cVar = null;
         }

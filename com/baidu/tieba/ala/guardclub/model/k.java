@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class k {
-    public String aEX;
+    public String aKh;
     public String avatar;
-    public String fQG;
-    public boolean fQH;
+    public String gcE;
+    public boolean gcF;
     public String id;
     public int level;
     public String liveId;
@@ -17,23 +17,23 @@ public class k {
     public String name;
     public String score;
 
-    public k dd(JSONObject jSONObject) {
+    public k dm(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         this.id = jSONObject.optString("id");
         String optString = jSONObject.optString("anchor_id");
         if (!TextUtils.isEmpty(optString)) {
-            this.aEX = EncryptionHelper.getDecryptUserId(optString);
+            this.aKh = EncryptionHelper.getDecryptUserId(optString);
         }
         this.name = jSONObject.optString("regiment_name");
         this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
-        this.fQG = jSONObject.optString("week_score");
+        this.gcE = jSONObject.optString("week_score");
         this.avatar = jSONObject.optString("guard_club_portrait");
         this.level = jSONObject.optInt("guard_level");
         this.liveStatus = jSONObject.optInt("live_status");
         this.liveId = jSONObject.optString("live_id");
-        this.fQH = jSONObject.optInt("is_join") == 1;
+        this.gcF = jSONObject.optInt("is_join") == 1;
         return this;
     }
 }

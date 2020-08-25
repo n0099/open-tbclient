@@ -1,4 +1,4 @@
 package kascend.core;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public interface a {
 }

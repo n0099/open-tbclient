@@ -3,9 +3,7 @@ package com.baidu.live.c;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-import com.baidu.sapi2.dto.FaceBaseDTO;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class i extends IntentConfig {
     public i(Context context, String str, String str2, String str3, String str4, int i, String str5, String str6, boolean z, int i2, int i3, int i4, boolean z2, int i5, String str7, String str8, boolean z3, int i6) {
         super(context);
@@ -14,7 +12,7 @@ public class i extends IntentConfig {
         getIntent().putExtra("live_Id", str3);
         getIntent().putExtra("room_id", str4);
         getIntent().putExtra("is_block", i);
-        getIntent().putExtra(FaceBaseDTO.KEY_BUSINESS_SCENE, str5);
+        getIntent().putExtra("scene", str5);
         getIntent().putExtra("app_id", str6);
         getIntent().putExtra("can_graffiti", z);
         getIntent().putExtra("custom_tab_id", i2);
@@ -25,35 +23,35 @@ public class i extends IntentConfig {
         getIntent().putExtra("feed_id", str7);
         getIntent().putExtra(IntentConfig.OTHER_PARAMS, str8);
         getIntent().putExtra("isJoinGuardClub", z3);
-        getIntent().putExtra(VideoPlayActivityConfig.PAGE_FROM, i6);
+        getIntent().putExtra("page_from", i6);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void aQ(boolean z) {
+    public void aV(boolean z) {
         getIntent().putExtra("is_new_user", z);
     }
 
-    public void aR(boolean z) {
+    public void aW(boolean z) {
         getIntent().putExtra("entry_super_customer", z);
     }
 
-    public void bL(int i) {
+    public void dx(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
-    public void aS(boolean z) {
+    public void aX(boolean z) {
         getIntent().putExtra("is_redpkg_unable", z);
     }
 
-    public void aT(boolean z) {
+    public void aY(boolean z) {
         getIntent().putExtra("throne_enabled", z);
     }
 
-    public void aU(boolean z) {
+    public void aZ(boolean z) {
         getIntent().putExtra("noble_enabled", z);
     }
 
-    public void en(String str) {
+    public void fF(String str) {
         getIntent().putExtra("bg_info", str);
     }
 }

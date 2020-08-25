@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public TbPageContext<MsglistActivity<?>> context;
-        public List<e> iQJ;
+        public List<e> jfG;
     }
 
     public MsgAdapterScanMessage(a aVar) {

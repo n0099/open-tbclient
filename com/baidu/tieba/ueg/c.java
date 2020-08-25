@@ -2,41 +2,41 @@ package com.baidu.tieba.ueg;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String mbj;
-    private a mbk;
+    private String msU;
+    private a msV;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void cAg();
+        void cKW();
 
-        void cAh();
+        void cKX();
 
-        void cAi();
+        void cKY();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.mbj = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.mbk = aVar;
+        this.msU = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.msV = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: Q */
+    /* renamed from: R */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            z zVar = new z(this.mbj);
-            zVar.bav().baW().mIsNeedAddCommenParam = false;
-            zVar.bav().baW().mIsUseCurrentBDUSS = false;
-            JSONArray optJSONArray = new JSONObject(new String(zVar.getNetData())).optJSONArray("result");
+            aa aaVar = new aa(this.msU);
+            aaVar.biQ().bjv().mIsNeedAddCommenParam = false;
+            aaVar.biQ().bjv().mIsUseCurrentBDUSS = false;
+            JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
             }
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.mbk != null && num != null) {
+        if (this.msV != null && num != null) {
             if (num.intValue() == -1) {
-                this.mbk.onError(null);
+                this.msV.onError(null);
             } else if (num.intValue() == 1) {
-                this.mbk.cAg();
+                this.msV.cKW();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.mbk.cAh();
+                this.msV.cKX();
             } else {
-                this.mbk.cAi();
+                this.msV.cKY();
             }
         }
     }

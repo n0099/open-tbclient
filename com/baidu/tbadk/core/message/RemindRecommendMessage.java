@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RemindRecommendMessage extends CustomResponsedMessage<Boolean> {
     public boolean isLocal;
     public String name;

@@ -2,10 +2,10 @@ package com.baidu.sapi2.callback;
 
 import android.content.Context;
 import android.net.Uri;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public abstract class ImageCropCallback {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static abstract class ImageCropResult {
         public abstract void onImageResult(String str);
     }

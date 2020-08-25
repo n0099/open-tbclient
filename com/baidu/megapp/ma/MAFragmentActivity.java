@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes20.dex */
 public abstract class MAFragmentActivity extends FragmentActivity {
     public static final String TAG = "MAFragmentActivity";
 

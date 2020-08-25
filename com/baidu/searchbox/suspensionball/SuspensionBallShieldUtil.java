@@ -1,7 +1,7 @@
 package com.baidu.searchbox.suspensionball;
 
 import android.app.Activity;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class SuspensionBallShieldUtil {
     public static void hideSuspensionBall(Activity activity) {
         setActivityHideAllMark(activity);

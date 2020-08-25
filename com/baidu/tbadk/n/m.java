@@ -5,52 +5,52 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m {
-    private static String eHM = "tb_perfor_samllflow_time";
-    private static volatile m eHP;
-    private long eHO;
-    private boolean isSmallFlow = false;
-    private long eHN = 86400;
-    private long eHL = com.baidu.tbadk.core.sharedPref.b.aZP().getLong(eHM, 0);
+    private static String eSs = "tb_perfor_samllflow_time";
+    private static volatile m eSv;
+    private long eSu;
+    private boolean ayn = false;
+    private long eSt = 86400;
+    private long eSr = com.baidu.tbadk.core.sharedPref.b.bik().getLong(eSs, 0);
 
-    public static m blA() {
-        if (eHP == null) {
+    public static m bun() {
+        if (eSv == null) {
             synchronized (m.class) {
-                if (eHP == null) {
-                    eHP = new m();
+                if (eSv == null) {
+                    eSv = new m();
                 }
             }
         }
-        return eHP;
+        return eSv;
     }
 
     private m() {
-        this.eHO = 0L;
-        this.eHO = this.eHN;
+        this.eSu = 0L;
+        this.eSu = this.eSt;
     }
 
-    public boolean blB() {
-        if (!this.isSmallFlow || (System.currentTimeMillis() - this.eHL) / 1000 <= this.eHO) {
-            return this.isSmallFlow;
+    public boolean buo() {
+        if (!this.ayn || (System.currentTimeMillis() - this.eSr) / 1000 <= this.eSu) {
+            return this.ayn;
         }
         return false;
     }
 
-    public void jd(boolean z) {
+    public void jB(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.eHL || currentTimeMillis - this.eHL >= this.eHO) {
-                this.eHL = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.aZP().putLong(eHM, this.eHL);
+            if (0 == this.eSr || currentTimeMillis - this.eSr >= this.eSu) {
+                this.eSr = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSs, this.eSr);
             }
         } else {
-            this.eHL = 0L;
-            com.baidu.tbadk.core.sharedPref.b.aZP().putLong(eHM, this.eHL);
+            this.eSr = 0L;
+            com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSs, this.eSr);
         }
-        this.isSmallFlow = z;
+        this.ayn = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.blF().blG();
+            n.bus().but();
         }
     }
 
@@ -73,7 +73,7 @@ public class m {
         return "2G";
     }
 
-    public static String oq(int i) {
+    public static String qB(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long blC() {
+    public long bup() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -96,8 +96,8 @@ public class m {
         }
     }
 
-    public l or(int i) {
-        if (blB()) {
+    public l qC(int i) {
+        if (buo()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -132,14 +132,30 @@ public class m {
                     o oVar5 = new o();
                     oVar5.subType = "sign_all";
                     return oVar5;
+                case 1010:
+                    o oVar6 = new o();
+                    oVar6.subType = "person_center";
+                    return oVar6;
+                case 1011:
+                    o oVar7 = new o();
+                    oVar7.subType = "person_center_home";
+                    return oVar7;
+                case 1012:
+                    o oVar8 = new o();
+                    oVar8.subType = "person_center_post";
+                    return oVar8;
+                case 1013:
+                    o oVar9 = new o();
+                    oVar9.subType = "person_center_dynamic";
+                    return oVar9;
             }
         }
         return null;
     }
 
-    public void cP(long j) {
+    public void da(long j) {
         if (j > 0) {
-            this.eHO = j;
+            this.eSu = j;
         }
     }
 

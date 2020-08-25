@@ -34,7 +34,7 @@ public class UBC {
     private static volatile IRemoteUBCService sProxy;
 
     public static final q getUBCContext() {
-        return com.baidu.tieba.q.h.dhZ();
+        return com.baidu.tieba.q.h.dtu();
     }
 
     public static final void onEvent(String str) {
@@ -70,11 +70,11 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String QL = com.baidu.l.a.QL(str3);
+        String TK = com.baidu.p.a.TK(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + QL);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + TK);
         }
-        d.dzY().g(str, str2, QL, 8);
+        d.dLL().g(str, str2, TK, 8);
     }
 
     public static final Flow beginFlow(String str) {
@@ -119,12 +119,12 @@ public class UBC {
         if (sProxy == null) {
             synchronized (UBC.class) {
                 if (sProxy == null) {
-                    IBinder z = IPCServiceManager.z(UBC_REMOTE_SERVICE_NAME, true);
-                    if (z == null) {
+                    IBinder E = IPCServiceManager.E(UBC_REMOTE_SERVICE_NAME, true);
+                    if (E == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
-                    if (z != null) {
-                        sProxy = IRemoteUBCService.Stub.asInterface(z);
+                    if (E != null) {
+                        sProxy = IRemoteUBCService.Stub.asInterface(E);
                     }
                 }
             }

@@ -6,7 +6,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public final class b extends c {
     @Override // com.heytap.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {

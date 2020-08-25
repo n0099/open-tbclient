@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class OfficialChatMessage extends ChatMessage {
     public OfficialChatMessage() {
         super(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG);

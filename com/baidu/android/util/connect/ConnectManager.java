@@ -4,9 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes19.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";
@@ -171,6 +170,6 @@ public class ConnectManager {
             }
             return activeNetworkInfo.getTypeName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + activeNetworkInfo.getSubtypeName();
         }
-        return NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
+        return "no";
     }
 }

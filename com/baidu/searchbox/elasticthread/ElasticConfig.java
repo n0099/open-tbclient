@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ElasticConfig {
     public static final boolean DEBUG = false;
     private static final String ELASTIC_CONFIG_FILE_DIR = "elastic_config";
@@ -43,7 +44,7 @@ public class ElasticConfig {
     public static double DREDGE_CONFIG_UPGRADE_RIGHT_AWAY_THRESHOLD = 30.0d;
     public static double DREDGE_CONFIG_DOWNGRADE_THRESHOLD = 2.0d;
     public static long DREDGE_CONFIG_UPGRADE_STRATEGY_PROTECTION_TIME = 500;
-    public static long DREDGE_CONFIG_DOWNGRADE_STRATEGY_PROTECTION_TIME = 3000;
+    public static long DREDGE_CONFIG_DOWNGRADE_STRATEGY_PROTECTION_TIME = IMConnection.RETRY_DELAY_TIMES;
     public static double QUEUE_CONFIG_IMMEDIATE_PRIORITY_TASK_WEIGHT = 999.0d;
     public static double QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = 8.0d;
     public static double QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = 3.0d;

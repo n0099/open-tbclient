@@ -4,19 +4,19 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.common.Logger;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteResult;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c extends k {
     private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
         int length;
@@ -100,7 +100,7 @@ public class c extends k {
                 drivingStep.setDistance(optJSONObject.optInt("distance"));
                 drivingStep.setDirection(optJSONObject.optInt("direction") * 30);
                 String optString = optJSONObject.optString("instructions");
-                if (optString != null || optString.length() >= 4) {
+                if (optString != null && optString.length() >= 4) {
                     optString = optString.replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
                 }
                 drivingStep.setInstructions(optString);
@@ -115,6 +115,7 @@ public class c extends k {
                 drivingStep.setEntranceInstructions(optString2);
                 drivingStep.setExitInstructions(optJSONObject.optString("end_instructions"));
                 drivingStep.setNumTurns(optJSONObject.optInt("turn"));
+                drivingStep.setRoadLevel(optJSONObject.optInt("road_level"));
                 List<LatLng> a = a(optJSONObject.optJSONArray("spath"));
                 drivingStep.setPathList(a);
                 if (a != null) {
@@ -255,6 +256,7 @@ public class c extends k {
                             drivingRouteLine.setDuration(i2);
                             drivingRouteLine.setCongestionDistance(optJSONObject5.optInt("congestion_length"));
                             drivingRouteLine.setLightNum(optJSONObject5.optInt("light_num"));
+                            drivingRouteLine.setToll(optJSONObject5.optInt("toll"));
                             if (arrayList3.size() == 0) {
                                 drivingRouteLine.setSteps(null);
                             } else {
@@ -264,7 +266,7 @@ public class c extends k {
                         }
                     }
                     drivingRouteResult.setRouteLines(arrayList2);
-                    drivingRouteResult.setTaxiInfos(b(optJSONObject2.optString("taxis")));
+                    drivingRouteResult.setTaxiInfos(b(optJSONObject4.optString("taxis")));
                     return true;
                 case 4:
                     drivingRouteResult.error = SearchResult.ERRORNO.ST_EN_TOO_NEAR;

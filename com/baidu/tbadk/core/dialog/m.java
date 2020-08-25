@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.dialog;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m {
     private boolean checked;
     private String desc;
@@ -22,7 +22,7 @@ public class m {
         this.tag = str3;
     }
 
-    public String aZc() {
+    public String bhx() {
         return this.tip;
     }
 

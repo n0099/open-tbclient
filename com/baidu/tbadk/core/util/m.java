@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m {
     private StringBuilder builder;
 
@@ -12,7 +12,7 @@ public class m {
     }
 
     public void append(String str, Object obj) {
-        if (!as.isEmpty(str) && obj != null) {
+        if (!at.isEmpty(str) && obj != null) {
             try {
                 if (this.builder == null) {
                     this.builder = new StringBuilder();

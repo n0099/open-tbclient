@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
-    private List<bv> liveList;
+    private List<bw> liveList;
     private List<String> sortType;
 
     public AlaNewSquareSubListResponseMessage() {
@@ -33,9 +33,9 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        bv bvVar = new bv();
-                        bvVar.parserJson(optJSONObject);
-                        this.liveList.add(bvVar);
+                        bw bwVar = new bw();
+                        bwVar.parserJson(optJSONObject);
+                        this.liveList.add(bwVar);
                     }
                 }
             } else {
@@ -54,7 +54,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
         }
     }
 
-    public List<bv> getLiveList() {
+    public List<bw> getLiveList() {
         return this.liveList;
     }
 

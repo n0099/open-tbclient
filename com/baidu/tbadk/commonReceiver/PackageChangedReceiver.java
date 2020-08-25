@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.util.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PackageChangedReceiver extends BroadcastReceiver {
     private static final String ACTION_INSTALL = "android.intent.action.PACKAGE_ADDED";
     private static final String ACTION_UNINSTALL = "android.intent.action.PACKAGE_REMOVED";
@@ -20,7 +20,7 @@ public class PackageChangedReceiver extends BroadcastReceiver {
             } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PACKAGE_REMOVED, intent));
             }
-            c.I(intent);
+            c.K(intent);
         }
     }
 }

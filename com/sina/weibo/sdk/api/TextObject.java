@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.api;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class TextObject extends BaseMediaObject {
     public static final Parcelable.Creator<TextObject> CREATOR = new Parcelable.Creator<TextObject>() { // from class: com.sina.weibo.sdk.api.TextObject.1
         /* JADX DEBUG: Method merged with bridge method */

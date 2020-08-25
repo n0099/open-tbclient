@@ -1,31 +1,20 @@
 package com.baidu.mapsdkplatform.comapi;
 
-import com.baidu.mapsdkplatform.comapi.NativeLoader;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public /* synthetic */ class d {
-    static final /* synthetic */ int[] a = new int[NativeLoader.a.values().length];
+import java.io.File;
+import java.io.FilenameFilter;
+/* loaded from: classes20.dex */
+class d implements FilenameFilter {
+    final /* synthetic */ String a;
+    final /* synthetic */ NativeLoader b;
 
-    static {
-        try {
-            a[NativeLoader.a.ARM64.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[NativeLoader.a.ARMV7.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[NativeLoader.a.ARMEABI.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            a[NativeLoader.a.X86_64.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        try {
-            a[NativeLoader.a.X86.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(NativeLoader nativeLoader, String str) {
+        this.b = nativeLoader;
+        this.a = str;
+    }
+
+    @Override // java.io.FilenameFilter
+    public boolean accept(File file, String str) {
+        return (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.a)) ? false : true;
     }
 }

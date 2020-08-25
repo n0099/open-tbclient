@@ -1,14 +1,13 @@
 package com.baidu.swan.apps.storage.a;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m extends aa {
     public m(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/setStorageSync");
@@ -25,28 +24,32 @@ public class m extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString("key");
-        if (TextUtils.isEmpty(optString)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
+        String aA = com.baidu.swan.apps.api.module.i.a.aA(optParamsAsJo);
+        if (aA == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.c.pP(optString)) {
+        } else if (com.baidu.swan.apps.storage.c.rP(aA)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
-            String optString2 = optParamsAsJo.optString("data");
-            if (com.baidu.swan.apps.storage.c.pQ(optString2)) {
+            String az = com.baidu.swan.apps.api.module.i.a.az(optParamsAsJo);
+            if (az == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (com.baidu.swan.apps.storage.c.rQ(az)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
+            } else {
+                com.baidu.swan.apps.storage.c azT = eVar.azT();
+                if (azT.cs(aA, az)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
+                    return false;
+                }
+                azT.aCP().putString(aA, az);
+                com.baidu.swan.apps.am.e.dai.update();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
             }
-            com.baidu.swan.apps.storage.c arG = eVar.arG();
-            if (!arG.available() && arG.auG().getString(optString, "").length() < optString2.length()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
-                return false;
-            }
-            arG.auG().putString(optString, optString2);
-            com.baidu.swan.apps.an.e.cRi.update();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-            return true;
         }
     }
 }

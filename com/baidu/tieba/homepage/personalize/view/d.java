@@ -5,39 +5,39 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class d extends com.baidu.card.b<AbsThreadDataSupport> {
-    private e iBT;
+    private e iQL;
 
     public d(Context context, TbPageContext<?> tbPageContext) {
         super(context);
-        this.iBT = new e(tbPageContext);
+        this.iQL = new e(tbPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.iBT.getView();
+        return this.iQL.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.n
+    @Override // com.baidu.card.o
     /* renamed from: b */
-    public void D(AbsThreadDataSupport absThreadDataSupport) {
+    public void F(AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport instanceof com.baidu.tieba.homepage.personalize.data.g) {
-            this.iBT.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
+            this.iQL.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
         }
     }
 
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ao.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        this.iBT.onChangeSkinType(tbPageContext, i);
+        ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
+        this.iQL.onChangeSkinType(tbPageContext, i);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.iBT.setTag(bdUniqueId);
+        this.iQL.setTag(bdUniqueId);
     }
 }

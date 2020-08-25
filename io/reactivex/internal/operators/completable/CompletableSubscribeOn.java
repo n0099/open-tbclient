@@ -17,7 +17,7 @@ public final class CompletableSubscribeOn extends a {
     protected void b(c cVar) {
         SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(cVar, this.source);
         cVar.onSubscribe(subscribeOnObserver);
-        subscribeOnObserver.task.replace(this.scheduler.I(subscribeOnObserver));
+        subscribeOnObserver.task.replace(this.scheduler.F(subscribeOnObserver));
     }
 
     /* loaded from: classes7.dex */

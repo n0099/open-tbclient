@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class StatSdkSwitch extends a {
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;

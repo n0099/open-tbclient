@@ -13,16 +13,16 @@ import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public final class StatService {
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
-    public static final String TAG = StatService.class.getSimpleName();
-    private static final Map<String, String> commonParams = new HashMap();
+    public static final String TAG = "StatService";
+    private static final Map<String, String> a = new HashMap();
 
     static {
-        commonParams.put("pid", "111");
-        commonParams.put("type", "1023");
-        commonParams.put(Config.DEVICE_PART, "android");
+        a.put("pid", "111");
+        a.put("type", "1023");
+        a.put(Config.DEVICE_PART, "android");
     }
 
     private StatService() {
@@ -33,7 +33,7 @@ public final class StatService {
             try {
                 if (NetworkUtils.isNetworkAvailable(context)) {
                     HashMap hashMap = new HashMap();
-                    hashMap.putAll(commonParams);
+                    hashMap.putAll(a);
                     map.put("v", String.valueOf(System.currentTimeMillis()));
                     hashMap.put("name", str);
                     hashMap.put("model", Build.MODEL);
@@ -55,11 +55,11 @@ public final class StatService {
                     passHttpParamDTO.paramsMap.putAll(hashMap);
                     new PassHttpClient().get(context.getApplicationContext(), passHttpParamDTO, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.StatService.1
                         @Override // com.baidu.pass.http.HttpResponseHandler
-                        protected void onSuccess(int i, String str2) {
+                        protected void onFailure(Throwable th, String str2) {
                         }
 
                         @Override // com.baidu.pass.http.HttpResponseHandler
-                        protected void onFailure(Throwable th, String str2) {
+                        protected void onSuccess(int i, String str2) {
                         }
                     });
                 }

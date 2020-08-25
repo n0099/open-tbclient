@@ -3,39 +3,39 @@ package com.baidu.ar.child.a;
 import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
-import com.baidu.ar.c.j;
+import com.baidu.ar.d.j;
 import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes11.dex */
 public class b extends j {
     public b() {
-        this.mm = new PixelReadParams(PixelType.BGR);
-        this.mm.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
-        this.mm.setOutputHeight(720);
+        this.mU = new PixelReadParams(PixelType.BGR);
+        this.mU.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        this.mU.setOutputHeight(720);
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void al() {
+    @Override // com.baidu.ar.d.j
+    protected void am() {
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void an() {
+    @Override // com.baidu.ar.d.j
+    protected void ao() {
     }
 
-    @Override // com.baidu.ar.c.j
+    @Override // com.baidu.ar.d.j
     protected boolean c(FramePixels framePixels) {
-        if (this.ly != null) {
+        if (this.mg != null) {
             a aVar = new a();
             aVar.setTimestamp(framePixels.getTimestamp());
             aVar.g(framePixels.getPixelData());
             aVar.setDegree(framePixels.getOrientation().getDegree());
-            aVar.v(framePixels.isFrontCamera());
-            this.ly.a(aVar);
+            aVar.w(framePixels.isFrontCamera());
+            this.mg.a(aVar);
             return false;
         }
         return false;
     }
 
-    @Override // com.baidu.ar.c.k
+    @Override // com.baidu.ar.d.k
     public String getName() {
         return "ChildCameraDetector";
     }

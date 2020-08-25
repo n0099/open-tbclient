@@ -1,11 +1,11 @@
 package kascend.core.utils;
 
-import com.baidu.sapi2.utils.h;
+import com.baidu.sapi2.utils.e;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class KSUtils {
     public static String decrypt(String str, String str2) {
         byte[] bArr = new byte[str2.length() / 2];
@@ -27,21 +27,21 @@ public class KSUtils {
     }
 
     private static byte[] encrypt(byte[] bArr, byte[] bArr2) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, h.q);
-        Cipher cipher = Cipher.getInstance(h.q);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, e.q);
+        Cipher cipher = Cipher.getInstance(e.q);
         cipher.init(1, secretKeySpec);
         return cipher.doFinal(bArr2);
     }
 
     private static byte[] decrypt(byte[] bArr, byte[] bArr2) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, h.q);
-        Cipher cipher = Cipher.getInstance(h.q);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, e.q);
+        Cipher cipher = Cipher.getInstance(e.q);
         cipher.init(2, secretKeySpec);
         return cipher.doFinal(bArr2);
     }
 
     private static byte[] getRawKey(byte[] bArr) throws Exception {
-        KeyGenerator keyGenerator = KeyGenerator.getInstance(h.q);
+        KeyGenerator keyGenerator = KeyGenerator.getInstance(e.q);
         SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG", new CryptoProvider());
         secureRandom.setSeed(bArr);
         keyGenerator.init(128, secureRandom);

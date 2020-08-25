@@ -9,22 +9,22 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class BaseMediaInfoAtom extends AbstractFullBox {
     public static final String TYPE = "gmin";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_9 = null;
     short balance;
     short graphicsMode;
     int opColorB;
@@ -38,19 +38,19 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("BaseMediaInfoAtom.java", BaseMediaInfoAtom.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 54);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "graphicsMode", "", "void"), 58);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 94);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "", "void"), 98);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", FieldUtil.TYPE_STRING), 103);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 62);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorR", "", "void"), 66);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 70);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorG", "", "void"), 74);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 78);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorB", "", "void"), 82);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 86);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "balance", "", "void"), 90);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 54);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "graphicsMode", "", "void"), 58);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.d("1", "getReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 94);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.d("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "", "void"), 98);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.d("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", FieldUtil.TYPE_STRING), 103);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 62);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorR", "", "void"), 66);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 70);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorG", "", "void"), 74);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "getOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 78);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.d("1", "setOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorB", "", "void"), 82);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.d("1", "getBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 86);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.d("1", "setBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "balance", "", "void"), 90);
     }
 
     public BaseMediaInfoAtom() {
@@ -104,7 +104,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorR(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Og(i)));
         this.opColorR = i;
     }
 
@@ -114,7 +114,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorG(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Og(i)));
         this.opColorG = i;
     }
 
@@ -124,7 +124,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Og(i)));
         this.opColorB = i;
     }
 

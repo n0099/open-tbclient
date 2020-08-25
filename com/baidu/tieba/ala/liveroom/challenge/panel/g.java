@@ -10,10 +10,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class g {
-    private final int gfR = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
-    protected m gfS;
+    private final int grZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
+    protected m gsa;
     protected Context mContext;
     protected View mRootView;
 
@@ -21,7 +21,7 @@ public abstract class g {
 
     public g(Context context, m mVar) {
         this.mContext = context;
-        this.gfS = mVar;
+        this.gsa = mVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -36,8 +36,8 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int bGk() {
-        return this.gfR;
+    public int bPP() {
+        return this.grZ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,14 +47,14 @@ public abstract class g {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bGk());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bPP());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
                 frameLayout.addView(this.mRootView);
             }
             if (i <= 0) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0178a.sdk_push_up_in);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0185a.sdk_push_up_in);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
@@ -62,7 +62,7 @@ public abstract class g {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        g.this.GF();
+                        g.this.Mr();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -70,8 +70,8 @@ public abstract class g {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != bGk()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, bGk());
+            } else if (i != bPP()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bPP());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -90,7 +90,7 @@ public abstract class g {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        g.this.GF();
+                        g.this.Mr();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -103,17 +103,17 @@ public abstract class g {
                 });
                 ofInt.start();
             } else {
-                GF();
+                Mr();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void GF() {
+    public void Mr() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bGB() {
+    public void bQg() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

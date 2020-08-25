@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private com.baidu.tieba.ala.guardclub.view.d fOM;
-    private e.a fOO = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
+    private com.baidu.tieba.ala.guardclub.view.d gaL;
+    private e.a gaN = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
     };
-    private BdUniqueId aZB = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e fON = new com.baidu.tieba.ala.guardclub.model.e(this.aZB, this.fOO);
+    private BdUniqueId beV = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e gaM = new com.baidu.tieba.ala.guardclub.model.e(this.beV, this.gaN);
 
     public g(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.fOM = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.fOM.setOtherParams(str);
-        this.fON.a(this.fOM);
-        this.fOM.f(this.fON);
+        this.gaL = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.gaL.setOtherParams(str);
+        this.gaM.a(this.gaL);
+        this.gaL.f(this.gaM);
     }
 
     public View getView() {
-        return this.fOM.getView();
+        return this.gaL.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.fOM != null) {
-            this.fOM.notifyDataSetInvalidated();
+        if (this.gaL != null) {
+            this.gaL.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aHB() {
-        if (this.fON != null) {
-            this.fON.onDestory();
+    public void aQr() {
+        if (this.gaM != null) {
+            this.gaM.onDestory();
         }
-        if (this.fOM != null) {
-            this.fOM.bAK();
+        if (this.gaL != null) {
+            this.gaL.bKf();
         }
     }
 }

@@ -5,9 +5,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CompletableOnSubscribeConcat implements b.a {
-    final rx.d<rx.b> okf;
+    final rx.d<rx.b> oEb;
     final int prefetch;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,24 +16,24 @@ public final class CompletableOnSubscribeConcat implements b.a {
     public void call(rx.c cVar) {
         CompletableConcatSubscriber completableConcatSubscriber = new CompletableConcatSubscriber(cVar, this.prefetch);
         cVar.onSubscribe(completableConcatSubscriber);
-        this.okf.a((rx.j<? super rx.b>) completableConcatSubscriber);
+        this.oEb.a((rx.j<? super rx.b>) completableConcatSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class CompletableConcatSubscriber extends rx.j<rx.b> {
         volatile boolean active;
         final rx.c actual;
         volatile boolean done;
-        final rx.internal.util.a.q<rx.b> okh;
-        final SequentialSubscription okg = new SequentialSubscription();
-        final ConcatInnerSubscriber oki = new ConcatInnerSubscriber();
+        final rx.internal.util.a.q<rx.b> oEd;
+        final SequentialSubscription oEc = new SequentialSubscription();
+        final ConcatInnerSubscriber oEe = new ConcatInnerSubscriber();
         final AtomicBoolean once = new AtomicBoolean();
 
         public CompletableConcatSubscriber(rx.c cVar, int i) {
             this.actual = cVar;
-            this.okh = new rx.internal.util.a.q<>(i);
-            add(this.okg);
+            this.oEd = new rx.internal.util.a.q<>(i);
+            add(this.oEc);
             request(i);
         }
 
@@ -41,7 +41,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         @Override // rx.e
         /* renamed from: a */
         public void onNext(rx.b bVar) {
-            if (!this.okh.offer(bVar)) {
+            if (!this.oEd.offer(bVar)) {
                 onError(new MissingBackpressureException());
             } else {
                 drain();
@@ -76,12 +76,12 @@ public final class CompletableOnSubscribeConcat implements b.a {
         }
 
         void drain() {
-            ConcatInnerSubscriber concatInnerSubscriber = this.oki;
+            ConcatInnerSubscriber concatInnerSubscriber = this.oEe;
             if (concatInnerSubscriber.getAndIncrement() == 0) {
                 while (!isUnsubscribed()) {
                     if (!this.active) {
                         boolean z = this.done;
-                        rx.b poll = this.okh.poll();
+                        rx.b poll = this.oEd.poll();
                         boolean z2 = poll == null;
                         if (z && z2) {
                             this.actual.onCompleted();
@@ -100,7 +100,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public final class ConcatInnerSubscriber extends AtomicInteger implements rx.c {
             private static final long serialVersionUID = 7233503139645205620L;
 
@@ -109,7 +109,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onSubscribe(rx.k kVar) {
-                CompletableConcatSubscriber.this.okg.set(kVar);
+                CompletableConcatSubscriber.this.oEc.set(kVar);
             }
 
             @Override // rx.c

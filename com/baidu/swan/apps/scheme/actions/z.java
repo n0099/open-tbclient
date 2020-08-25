@@ -7,15 +7,14 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ai;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.t.b.i;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class z extends aa {
     public z(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/share");
@@ -27,7 +26,7 @@ public class z extends aa {
             com.baidu.swan.apps.console.c.e("Share", "context or swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "system error");
             return false;
-        } else if (eVar.VF()) {
+        } else if (eVar.abL()) {
             if (DEBUG) {
                 Log.d("ShareAction", "ShareAction does not supported when app is invisible.");
             }
@@ -53,14 +52,14 @@ public class z extends aa {
                     Log.d("ShareAction", e.toString());
                 }
             }
-            eVar.arH().d("mapp_i_share_update_weburl", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.z.1
+            eVar.azU().e("mapp_i_share_update_weburl", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.z.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.aq.e.b
+                @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: c */
-                public void H(com.baidu.swan.apps.setting.oauth.e eVar2) {
+                public void I(com.baidu.swan.apps.setting.oauth.e eVar2) {
                     String str = "";
-                    if (eVar2 != null && !eVar2.forbidden && eVar2.cMo == 1 && !TextUtils.isEmpty(eVar2.cMs.optString("web_url"))) {
-                        String optString2 = eVar2.cMs.optString("web_url");
+                    if (eVar2 != null && !eVar2.forbidden && eVar2.cVk == 1 && !TextUtils.isEmpty(eVar2.cVo.optString("web_url"))) {
+                        String optString2 = eVar2.cVo.optString("web_url");
                         String optString3 = b.optString("path");
                         if (!TextUtils.isEmpty(optString3)) {
                             if (!optString2.endsWith("/")) {
@@ -71,9 +70,9 @@ public class z extends aa {
                             }
                             optString2 = optString2 + optString3;
                         }
-                        str = aj.addParam(aj.addParam(optString2, "_swebfr", "1"), "hostname", com.baidu.swan.apps.t.a.ahU().getHostName());
+                        str = ai.addParam(ai.addParam(optString2, "_swebfr", "1"), "hostname", com.baidu.swan.apps.t.a.apw().getHostName());
                     }
-                    String h = (al.axe() || !TextUtils.isEmpty(str)) ? str : com.baidu.swan.config.c.c.ayT().h(eVar.getAppKey(), eVar.RU(), b.optString("path"));
+                    String h = (ak.aFn() || !TextUtils.isEmpty(str)) ? str : com.baidu.swan.config.c.c.aHc().h(eVar.getAppKey(), eVar.XP(), b.optString("path"));
                     if (aa.DEBUG) {
                         Log.d("ShareAction", "final share url is " + h);
                     }
@@ -108,17 +107,17 @@ public class z extends aa {
             if (TextUtils.isEmpty(optString)) {
                 a(context, callbackHandler, str2, jSONObject);
                 return;
-            } else if (aj.isBaiduDomain(optString)) {
+            } else if (ai.isBaiduDomain(optString)) {
                 jSONObject.put("linkUrl", optString);
                 a(context, callbackHandler, str2, jSONObject);
                 return;
             }
         }
-        eVar.arH().b(context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.z.2
+        eVar.azU().b(context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.z.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
+            @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void H(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 z.this.a(context, callbackHandler, str2, jSONObject, com.baidu.swan.apps.setting.oauth.c.b(hVar), str);
             }
         });
@@ -132,7 +131,7 @@ public class z extends aa {
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("linkUrl", str2);
             }
-            if (!TextUtils.isEmpty(optString) && (aj.isBaiduDomain(optString) || z)) {
+            if (!TextUtils.isEmpty(optString) && (ai.isBaiduDomain(optString) || z)) {
                 jSONObject.put("linkUrl", optString);
             }
             if (optJSONArray != null && optJSONArray.length() > 0 && !z) {
@@ -149,15 +148,24 @@ public class z extends aa {
     private void a(@NonNull Context context, final CallbackHandler callbackHandler, final String str, JSONObject jSONObject) {
         jSONObject.remove("defaultPannel");
         jSONObject.remove("shareUrl");
-        cj(context);
-        com.baidu.swan.apps.t.a.ahk().a(context, jSONObject, new i.a() { // from class: com.baidu.swan.apps.scheme.actions.z.3
+        com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
+        if (azJ != null) {
+            String aqN = azJ.azM().aqN();
+            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
+            if (optJSONObject != null) {
+                com.baidu.swan.apps.ap.v.b(optJSONObject, "source", aqN);
+            } else {
+                com.baidu.swan.apps.ap.v.b(jSONObject, "categoryInfo", com.baidu.swan.apps.ap.v.b(null, "source", aqN));
+            }
+        }
+        com.baidu.swan.apps.t.a.aoK().a(context, jSONObject, new i.a() { // from class: com.baidu.swan.apps.scheme.actions.z.3
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aiI() {
+            public void aqo() {
                 z.this.a(callbackHandler, str, true);
             }
 
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aiJ() {
+            public void aqp() {
                 z.this.a(callbackHandler, str, false);
             }
         });
@@ -177,14 +185,6 @@ public class z extends aa {
             int i = z ? 0 : 1001;
             com.baidu.swan.apps.console.c.i("Share", "result=" + z);
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
-        }
-    }
-
-    private void cj(@NonNull Context context) {
-        if (context instanceof SwanAppActivity) {
-            com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-            fVar.mValue = "openshare";
-            ((SwanAppActivity) context).a(fVar);
         }
     }
 }

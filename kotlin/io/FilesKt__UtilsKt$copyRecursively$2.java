@@ -7,7 +7,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File, IOException, l> {
     final /* synthetic */ m $onError;
 
@@ -22,7 +22,7 @@ final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements m<File,
     @Override // kotlin.jvm.a.m
     public /* bridge */ /* synthetic */ l invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return l.nXP;
+        return l.orN;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

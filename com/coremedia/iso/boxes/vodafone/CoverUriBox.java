@@ -8,12 +8,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class CoverUriBox extends AbstractFullBox {
     public static final String TYPE = "cvru";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     private String coverUri;
 
     static {
@@ -22,9 +22,9 @@ public class CoverUriBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("CoverUriBox.java", CoverUriBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getCoverUri", "com.coremedia.iso.boxes.vodafone.CoverUriBox", "", "", "", FieldUtil.TYPE_STRING), 38);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setCoverUri", "com.coremedia.iso.boxes.vodafone.CoverUriBox", FieldUtil.TYPE_STRING, "coverUri", "", "void"), 42);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.vodafone.CoverUriBox", "", "", "", FieldUtil.TYPE_STRING), 64);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getCoverUri", "com.coremedia.iso.boxes.vodafone.CoverUriBox", "", "", "", FieldUtil.TYPE_STRING), 38);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setCoverUri", "com.coremedia.iso.boxes.vodafone.CoverUriBox", FieldUtil.TYPE_STRING, "coverUri", "", "void"), 42);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.vodafone.CoverUriBox", "", "", "", FieldUtil.TYPE_STRING), 64);
     }
 
     public CoverUriBox() {

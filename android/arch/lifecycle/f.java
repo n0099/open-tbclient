@@ -2,35 +2,35 @@ package android.arch.lifecycle;
 
 import android.arch.lifecycle.Lifecycle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class f implements h {
-    private final e yr;
+    private final e yQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.yr = eVar;
+        this.yQ = eVar;
     }
 
     @Override // android.arch.lifecycle.h
     public void a(j jVar, Lifecycle.Event event) {
         switch (event) {
             case ON_CREATE:
-                this.yr.a(jVar);
+                this.yQ.a(jVar);
                 return;
             case ON_START:
-                this.yr.b(jVar);
+                this.yQ.b(jVar);
                 return;
             case ON_RESUME:
-                this.yr.c(jVar);
+                this.yQ.c(jVar);
                 return;
             case ON_PAUSE:
-                this.yr.d(jVar);
+                this.yQ.d(jVar);
                 return;
             case ON_STOP:
-                this.yr.e(jVar);
+                this.yQ.e(jVar);
                 return;
             case ON_DESTROY:
-                this.yr.f(jVar);
+                this.yQ.f(jVar);
                 return;
             case ON_ANY:
                 throw new IllegalArgumentException("ON_ANY must not been send by anybody");

@@ -7,41 +7,41 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static final float eTv = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-    protected TbImageView.c aik;
-    protected boolean eTJ;
-    public int eTU;
-    public int eTV;
-    public int eTW;
+    public static final float fec = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+    protected TbImageView.c ajz;
+    public int feB;
+    public int feC;
+    public int feD;
+    protected boolean feq;
     public boolean mIsFromCDN;
-    protected float eTw = 0.0f;
-    protected float eTx = 0.0f;
-    protected int efu = 0;
-    protected int eTy = 0;
+    protected float fed = 0.0f;
+    protected float fee = 0.0f;
+    protected int cLR = 0;
+    protected int fef = 0;
     protected float mTextSize = 15.0f;
-    protected int eTz = -1;
-    protected int eTA = -1;
+    protected int feg = -1;
+    protected int feh = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int eTB = 200;
-    protected int eTC = 200;
-    protected int eTD = 0;
-    protected int eTE = 0;
-    protected boolean eTF = false;
-    protected int eTG = -9989158;
-    protected ImageView.ScaleType eTH = ImageView.ScaleType.CENTER_CROP;
-    public boolean eTI = false;
-    public int eTK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
-    public int eTL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    public int eTM = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-    protected int eTN = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    protected int eTO = 0;
-    protected int eTP = -1;
-    protected int eTQ = -1;
-    protected int eTR = -1;
-    protected int eTS = 0;
-    protected boolean eTT = false;
+    protected int fei = 200;
+    protected int fej = 200;
+    protected int fek = 0;
+    protected int fel = 0;
+    protected boolean fem = false;
+    protected int fen = -9989158;
+    protected ImageView.ScaleType feo = ImageView.ScaleType.CENTER_CROP;
+    public boolean fep = false;
+    public int fer = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
+    public int fes = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    public int fet = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+    protected int feu = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int fev = 0;
+    protected int few = -1;
+    protected int fex = -1;
+    protected int fey = -1;
+    protected int fez = 0;
+    protected boolean feA = false;
 
     public a() {
     }
@@ -53,105 +53,105 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.eTy = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_segmentMargin, 0);
-        this.efu = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_textPadding, 0);
-        this.eTw = typedArray.getFloat(R.styleable.TbRichTextView_lineSpacing, 1.12f);
+        this.fef = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_segmentMargin, 0);
+        this.cLR = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_textPadding, 0);
+        this.fed = typedArray.getFloat(R.styleable.TbRichTextView_lineSpacing, 1.12f);
         this.mTextSize = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_textSize, (int) this.mTextSize);
         this.mTextColor = typedArray.getColor(R.styleable.TbRichTextView_textColor, this.mTextColor);
-        this.eTB = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_maxImageWidth, this.eTB);
-        this.eTC = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_maxImageHeight, this.eTC);
-        this.eTD = typedArray.getResourceId(R.styleable.TbRichTextView_defaultImage, 0);
-        this.eTz = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_faceWidth, this.eTz);
-        this.eTA = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_faceHeight, this.eTA);
-        this.eTE = typedArray.getResourceId(R.styleable.TbRichTextView_videoImage, 0);
-        this.eTF = typedArray.getBoolean(R.styleable.TbRichTextView_singleLine, false);
-        this.eTQ = this.eTy;
+        this.fei = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_maxImageWidth, this.fei);
+        this.fej = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_maxImageHeight, this.fej);
+        this.fek = typedArray.getResourceId(R.styleable.TbRichTextView_defaultImage, 0);
+        this.feg = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_faceWidth, this.feg);
+        this.feh = typedArray.getDimensionPixelSize(R.styleable.TbRichTextView_faceHeight, this.feh);
+        this.fel = typedArray.getResourceId(R.styleable.TbRichTextView_videoImage, 0);
+        this.fem = typedArray.getBoolean(R.styleable.TbRichTextView_singleLine, false);
+        this.fex = this.fef;
     }
 
     public void release() {
     }
 
-    public void bi(int i, int i2) {
-        this.eTz = i;
-        this.eTA = i2;
+    public void br(int i, int i2) {
+        this.feg = i;
+        this.feh = i2;
     }
 
-    public void oQ(int i) {
-        this.eTE = i;
+    public void rc(int i) {
+        this.fel = i;
     }
 
-    public void oR(int i) {
-        this.eTB = i;
+    public void rd(int i) {
+        this.fei = i;
     }
 
-    public void oS(int i) {
-        this.eTC = i;
+    public void re(int i) {
+        this.fej = i;
     }
 
-    public void oT(int i) {
-        this.eTD = i;
+    public void rf(int i) {
+        this.fek = i;
     }
 
     public void setSupportNoImage() {
-        this.eTI = true;
+        this.fep = true;
     }
 
     public void setLineSpacing(float f, float f2) {
-        this.eTw = f2;
-        this.eTx = f;
+        this.fed = f2;
+        this.fee = f;
     }
 
-    public void bj(int i, int i2) {
-        this.eTK = i;
-        this.eTL = i2;
+    public void bs(int i, int i2) {
+        this.fer = i;
+        this.fes = i2;
     }
 
-    public void oU(int i) {
-        this.eTM = i;
+    public void rg(int i) {
+        this.fet = i;
     }
 
-    public void oV(int i) {
-        this.eTN = i;
+    public void rh(int i) {
+        this.feu = i;
     }
 
-    public void oW(int i) {
-        this.eTy = i;
+    public void ri(int i) {
+        this.fef = i;
     }
 
-    public void oX(int i) {
-        this.eTO = i;
+    public void rj(int i) {
+        this.fev = i;
     }
 
-    public void oY(int i) {
-        this.eTP = i;
+    public void rk(int i) {
+        this.few = i;
     }
 
-    public void oZ(int i) {
-        this.eTQ = i;
+    public void rl(int i) {
+        this.fex = i;
     }
 
-    public void pa(int i) {
-        this.eTR = i;
+    public void rm(int i) {
+        this.fey = i;
     }
 
     public void setTextSize(int i) {
         this.mTextSize = i;
     }
 
-    public boolean boI() {
-        return this.eTT;
+    public boolean bxv() {
+        return this.feA;
     }
 
-    public void jx(boolean z) {
-        this.eTT = z;
+    public void jV(boolean z) {
+        this.feA = z;
     }
 
-    public void jy(boolean z) {
-        this.eTJ = z;
+    public void jW(boolean z) {
+        this.feq = z;
     }
 
-    public void pb(int i) {
-        this.eTS = i;
+    public void rn(int i) {
+        this.fez = i;
     }
 
     public int[] v(int i, int i2, int i3, int i4) {
@@ -162,14 +162,14 @@ public class a {
         int[] iArr = {imageResize[0], imageResize[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.eTJ || i3 <= i5 || eTv <= 1.0f) {
+        if (!this.feq || i3 <= i5 || fec <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * eTv <= i3) {
-                if (i5 * eTv > i3 * 0.68f) {
+            if (i5 * fec <= i3) {
+                if (i5 * fec > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * eTv);
+                    i3 = (int) (i5 * fec);
                 }
             }
             if (iArr[0] > 0) {
@@ -180,30 +180,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.eTw = aVar.eTw;
-        this.eTx = aVar.eTx;
-        this.efu = aVar.efu;
-        this.eTy = aVar.eTy;
+        this.fed = aVar.fed;
+        this.fee = aVar.fee;
+        this.cLR = aVar.cLR;
+        this.fef = aVar.fef;
         this.mTextSize = aVar.mTextSize;
-        this.eTz = aVar.eTz;
-        this.eTA = aVar.eTA;
+        this.feg = aVar.feg;
+        this.feh = aVar.feh;
         this.mTextColor = aVar.mTextColor;
-        this.eTB = aVar.eTB;
-        this.eTC = aVar.eTC;
-        this.eTD = aVar.eTD;
-        this.eTE = aVar.eTE;
-        this.eTF = aVar.eTF;
+        this.fei = aVar.fei;
+        this.fej = aVar.fej;
+        this.fek = aVar.fek;
+        this.fel = aVar.fel;
+        this.fem = aVar.fem;
         this.mIsFromCDN = aVar.mIsFromCDN;
-        this.eTG = aVar.eTG;
-        this.eTI = aVar.eTI;
-        this.eTJ = aVar.eTJ;
-        this.eTK = aVar.eTK;
-        this.eTL = aVar.eTL;
-        this.eTN = aVar.eTN;
-        this.eTO = aVar.eTO;
-        this.eTP = aVar.eTP;
-        this.eTQ = aVar.eTy;
-        this.eTR = aVar.eTR;
-        this.eTT = aVar.eTT;
+        this.fen = aVar.fen;
+        this.fep = aVar.fep;
+        this.feq = aVar.feq;
+        this.fer = aVar.fer;
+        this.fes = aVar.fes;
+        this.feu = aVar.feu;
+        this.fev = aVar.fev;
+        this.few = aVar.few;
+        this.fex = aVar.fef;
+        this.fey = aVar.fey;
+        this.feA = aVar.feA;
     }
 }

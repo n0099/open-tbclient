@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EmptyView extends View {
     private int height;
     private int width;

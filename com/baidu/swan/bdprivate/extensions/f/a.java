@@ -2,35 +2,34 @@ package com.baidu.swan.bdprivate.extensions.f;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.adaptation.a.ag;
-import com.baidu.swan.apps.ai.c;
+import com.baidu.swan.apps.adaptation.a.ak;
+import com.baidu.swan.apps.ah.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.u.c.b;
-import com.baidu.swan.d.d;
+import com.baidu.swan.c.d;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class a implements ag {
+/* loaded from: classes3.dex */
+public class a implements ak {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.h.a cxQ = new com.baidu.h.a();
+    private com.baidu.l.a cFK = new com.baidu.l.a();
 
-    @Override // com.baidu.swan.apps.adaptation.a.ag
-    public boolean s(String str, String str2, String str3) {
-        e arw;
-        b.a arz;
-        if (!c.asY() || (arw = e.arw()) == null || (arz = arw.arz()) == null) {
+    @Override // com.baidu.swan.apps.adaptation.a.ak
+    public boolean t(String str, String str2, String str3) {
+        e azJ;
+        b.a azM;
+        if (!c.aBg() || (azJ = e.azJ()) == null || (azM = azJ.azM()) == null) {
             return false;
         }
-        b(str, com.baidu.swan.ubc.e.aNf().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.aho().bf(com.baidu.swan.apps.t.a.ahj()), com.baidu.swan.bdprivate.a.a.cN(arw.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.ahU().getHostName(), arz.ajg());
+        b(str, com.baidu.swan.ubc.e.aVF().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.aoO().bl(com.baidu.swan.apps.t.a.aoJ()), com.baidu.swan.bdprivate.a.a.cT(azJ.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.apw().getHostName(), azM.aqN());
         return true;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ag
-    public void UA() {
-        String readFileData = d.readFileData(ayH());
+    @Override // com.baidu.swan.apps.adaptation.a.ak
+    public void aaC() {
+        String readFileData = d.readFileData(aGQ());
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (!TextUtils.isEmpty(readFileData)) {
             try {
@@ -49,14 +48,14 @@ public class a implements ag {
                 return;
             }
         }
-        this.cxQ.a(new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.1
+        this.cFK.a(new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.1
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
                 if (a.DEBUG) {
                     Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
                 }
-                d.deleteFile(a.ayH());
-                d.saveFile(String.valueOf(currentTimeMillis), a.ayH());
+                d.deleteFile(a.aGQ());
+                d.saveFile(String.valueOf(currentTimeMillis), a.aGQ());
             }
         });
     }
@@ -73,8 +72,8 @@ public class a implements ag {
             jSONObject.put("itemId", str5);
             jSONObject.put("businessId", str6);
             jSONObject.put("naid", str7);
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, str8);
-            this.cxQ.a(jSONObject, new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.2
+            jSONObject.put("scene", str8);
+            this.cFK.a(jSONObject, new com.baidu.poly.b.a() { // from class: com.baidu.swan.bdprivate.extensions.f.a.2
                 @Override // com.baidu.poly.b.a
                 public void onResult(int i, String str9) {
                     if (a.DEBUG) {
@@ -90,7 +89,7 @@ public class a implements ag {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File ayH() {
+    public static File aGQ() {
         return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
     }
 }

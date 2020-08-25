@@ -10,23 +10,23 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.tieba.R;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g extends a {
-    private boolean aib;
-    private boolean ecS;
+    private boolean ajr;
+    private boolean emB;
     private int procType;
 
     public g(boolean z, int i, boolean z2) {
-        this.aib = true;
+        this.ajr = true;
         this.procType = 0;
-        this.ecS = true;
-        this.aib = z;
+        this.emB = true;
+        this.ajr = z;
         this.procType = i;
-        this.ecS = z2;
+        this.emB = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -41,21 +41,21 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.aib;
+        return this.ajr;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbj() {
+    public boolean bjI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbk() {
+    public boolean bjJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bbl() {
+    public int bjK() {
         return this.procType;
     }
 
@@ -71,27 +71,27 @@ public class g extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.a aVar, Object... objArr) {
         com.baidu.adp.widget.ImageView.a aVar2;
-        com.baidu.adp.lib.stats.a lo = com.baidu.tbadk.core.util.u.lo();
-        lo.startTimer();
+        com.baidu.adp.lib.stats.a mN = com.baidu.tbadk.core.util.u.mN();
+        mN.startTimer();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c yc = yc(au.getNameMd5FromUrl(str2));
-        if (yc == null) {
+        com.baidu.adp.lib.Disk.ops.c Aq = Aq(av.getNameMd5FromUrl(str2));
+        if (Aq == null) {
             return null;
         }
-        yc.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        yc.setSdCard(false);
-        yc.setSubFolder(true);
-        yc.setSavedCache(true);
-        yc.setIsFormatData(false);
-        yc.setLock(bArr);
+        Aq.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        Aq.setSdCard(false);
+        Aq.setSubFolder(true);
+        Aq.setSavedCache(true);
+        Aq.setIsFormatData(false);
+        Aq.setLock(bArr);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(yc);
-            aVar.LH = eVar;
+            eVar.f(Aq);
+            aVar.Mn = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (!com.baidu.adp.lib.Disk.d.kh().c(yc)) {
-            com.baidu.tbadk.core.util.u.a(lo, str2, false, lo.getTimeCost(), isWifiNet);
+        if (!com.baidu.adp.lib.Disk.d.lG().c(Aq)) {
+            com.baidu.tbadk.core.util.u.a(mN, str2, false, mN.getTimeCost(), isWifiNet);
             return null;
         }
         int i3 = 2000;
@@ -104,20 +104,20 @@ public class g extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (!yc.isSuccess()) {
+        if (!Aq.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = b(yc, str2, i, i2);
+            aVar2 = b(Aq, str2, i, i2);
         }
         if (aVar2 != null) {
-            com.baidu.tbadk.core.util.u.a(lo, str2, true, lo.getTimeCost(), isWifiNet);
+            com.baidu.tbadk.core.util.u.a(mN, str2, true, mN.getTimeCost(), isWifiNet);
         } else {
-            com.baidu.tbadk.core.util.u.a(lo, str2, false, lo.getTimeCost(), isWifiNet);
+            com.baidu.tbadk.core.util.u.a(mN, str2, false, mN.getTimeCost(), isWifiNet);
         }
         if (aVar2 != null) {
-            aVar2.TY.resourceFromType = "disk";
-            aVar2.TY.costTime = lo.getTimeCost();
-            aVar2.TY.isScuess = true;
+            aVar2.UB.resourceFromType = "disk";
+            aVar2.UB.costTime = mN.getTimeCost();
+            aVar2.UB.isScuess = true;
             return aVar2;
         }
         return aVar2;
@@ -152,13 +152,13 @@ public class g extends a {
         boolean z;
         String str3;
         com.baidu.tbadk.core.util.a.i iVar;
-        byte[] am;
+        byte[] aq;
         int lastIndexOf;
         if (StringUtils.isNull(str)) {
             return null;
         }
-        com.baidu.adp.lib.stats.a lo = com.baidu.tbadk.core.util.u.lo();
-        lo.startTimer();
+        com.baidu.adp.lib.stats.a mN = com.baidu.tbadk.core.util.u.mN();
+        mN.startTimer();
         int width = i == 0 ? getWidth() : i;
         int height = i2 == 0 ? getHeight() : i2;
         if (width == 0) {
@@ -168,36 +168,36 @@ public class g extends a {
             height = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
         boolean isFromCDN = isFromCDN();
-        String o = isFromCDN ? str : o(str, width, height);
+        String n = isFromCDN ? str : n(str, width, height);
         if (TbadkCoreApplication.getInst().getCapabilityOfWebp() && SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
-            int indexOf = o.indexOf("hiphotos.baidu.com");
+            int indexOf = n.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0) {
-                indexOf = o.indexOf("tiebapic.baidu.com");
+                indexOf = n.indexOf("tiebapic.baidu.com");
             }
-            if (indexOf > 0 && (lastIndexOf = o.lastIndexOf(".jpg")) > 0) {
+            if (indexOf > 0 && (lastIndexOf = n.lastIndexOf(".jpg")) > 0) {
                 z = true;
-                str3 = o.substring(0, lastIndexOf) + ".webp" + o.substring(lastIndexOf + 4, o.length());
+                str3 = n.substring(0, lastIndexOf) + ".webp" + n.substring(lastIndexOf + 4, n.length());
                 iVar = new com.baidu.tbadk.core.util.a.i();
                 if (aVar != null) {
-                    aVar.LH = iVar;
+                    aVar.Mn = iVar;
                 }
-                am = iVar.am(str3, isFromCDN);
-                boolean bbf = iVar.bbf();
+                aq = iVar.aq(str3, isFromCDN);
+                boolean bjE = iVar.bjE();
                 Rect rect = new Rect();
                 StringBuilder sb = new StringBuilder(100);
-                if (!iVar.bbe()) {
-                    if (iVar.responseCode == 302 && (17 == bbl() || 18 == bbl() || 13 == bbl() || 14 == bbl())) {
-                        if (iVar.eco != null) {
-                            com.baidu.tbadk.core.util.u.a(lo, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eco, "redirect", lo.getTimeCost(), iVar.bbh(), 0L, bbl());
+                if (!iVar.bjD()) {
+                    if (iVar.responseCode == 302 && (17 == bjK() || 18 == bjK() || 13 == bjK() || 14 == bjK())) {
+                        if (iVar.elX != null) {
+                            com.baidu.tbadk.core.util.u.a(mN, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.elX, "redirect", mN.getTimeCost(), iVar.bjG(), 0L, bjK());
                         }
                         try {
                             InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
                             byte[] f = com.baidu.adp.lib.network.a.b.f(openRawResource);
-                            com.baidu.adp.widget.ImageView.a a = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(f), iVar, f, rect, bbf);
+                            com.baidu.adp.widget.ImageView.a a = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(f), iVar, f, rect, bjE);
                             if (a != null) {
-                                a.TY.resourceFromType = "net";
-                                a.TY.costTime = lo.getTimeCost();
-                                a.TY.isScuess = true;
+                                a.UB.resourceFromType = "net";
+                                a.UB.costTime = mN.getTimeCost();
+                                a.UB.isScuess = true;
                             }
                             com.baidu.adp.lib.f.a.close(openRawResource);
                             return a;
@@ -205,55 +205,55 @@ public class g extends a {
                             BdLog.e(th);
                             return null;
                         }
-                    } else if (!iVar.kU().Le) {
+                    } else if (!iVar.mt().LJ) {
                         long j = 0;
-                        if (am != null) {
-                            j = am.length;
+                        if (aq != null) {
+                            j = aq.length;
                         }
-                        com.baidu.tbadk.core.util.u.a(lo, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eco, "NetworkError", lo.getTimeCost(), iVar.bbh(), j, bbl());
+                        com.baidu.tbadk.core.util.u.a(mN, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.elX, "NetworkError", mN.getTimeCost(), iVar.bjG(), j, bjK());
                         return null;
                     }
                 }
-                if (am != null) {
-                    if (!iVar.kU().Le) {
-                        com.baidu.tbadk.core.util.u.a(lo, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eco, "ByteIsNull", lo.getTimeCost(), iVar.bbh(), 0L, bbl());
+                if (aq != null) {
+                    if (!iVar.mt().LJ) {
+                        com.baidu.tbadk.core.util.u.a(mN, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.elX, "ByteIsNull", mN.getTimeCost(), iVar.bjG(), 0L, bjK());
                     }
                     return null;
                 }
-                if (am.length > 1) {
-                    k.bbn().t(am.length, lo.getTimeCost());
-                    com.baidu.tbadk.core.util.u.a(lo, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.eco, "InputToByteSucc", lo.getTimeCost(), iVar.bbh(), am.length, bbl());
+                if (aq.length > 1) {
+                    k.bjM().t(aq.length, mN.getTimeCost());
+                    com.baidu.tbadk.core.util.u.a(mN, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.elX, "InputToByteSucc", mN.getTimeCost(), iVar.bjG(), aq.length, bjK());
                 } else {
-                    com.baidu.tbadk.core.util.u.a(lo, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.eco, "bytes<1", lo.getTimeCost(), iVar.bbh(), am.length, bbl());
+                    com.baidu.tbadk.core.util.u.a(mN, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.elX, "bytes<1", mN.getTimeCost(), iVar.bjG(), aq.length, bjK());
                 }
-                com.baidu.adp.lib.stats.a lo2 = com.baidu.tbadk.core.util.u.lo();
-                lo2.startTimer();
-                com.baidu.tbadk.imageManager.c.bkk().freePicCache(TbConfig.getPbImageSize() + am.length);
-                if (am == null) {
-                    com.baidu.tbadk.core.util.u.a(lo2, str, str3, false, isFromCDN, z, 0, "TmpIsNull", lo2.getTimeCost(), sb.toString(), iVar.eco);
+                com.baidu.adp.lib.stats.a mN2 = com.baidu.tbadk.core.util.u.mN();
+                mN2.startTimer();
+                com.baidu.tbadk.imageManager.c.bsW().freePicCache(TbConfig.getPbImageSize() + aq.length);
+                if (aq == null) {
+                    com.baidu.tbadk.core.util.u.a(mN2, str, str3, false, isFromCDN, z, 0, "TmpIsNull", mN2.getTimeCost(), sb.toString(), iVar.elX);
                     return null;
                 }
-                com.baidu.adp.widget.ImageView.a a2 = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(am), iVar, am, rect, bbf);
+                com.baidu.adp.widget.ImageView.a a2 = a(str, str2, aVar, null, iVar.isGif || com.baidu.adp.lib.util.l.isGif(aq), iVar, aq, rect, bjE);
                 if (a2 != null) {
-                    a2.TY.resourceFromType = "net";
-                    a2.TY.costTime = lo.getTimeCost();
-                    a2.TY.isScuess = true;
+                    a2.UB.resourceFromType = "net";
+                    a2.UB.costTime = mN.getTimeCost();
+                    a2.UB.isScuess = true;
                 }
                 return a2;
             }
         }
         z = false;
-        str3 = o;
+        str3 = n;
         iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
         }
-        am = iVar.am(str3, isFromCDN);
-        boolean bbf2 = iVar.bbf();
+        aq = iVar.aq(str3, isFromCDN);
+        boolean bjE2 = iVar.bjE();
         Rect rect2 = new Rect();
         StringBuilder sb2 = new StringBuilder(100);
-        if (!iVar.bbe()) {
+        if (!iVar.bjD()) {
         }
-        if (am != null) {
+        if (aq != null) {
         }
     }
 
@@ -261,20 +261,20 @@ public class g extends a {
         if (bArr != null) {
             aVar2 = new com.baidu.adp.widget.ImageView.a((Bitmap) null, z, str, bArr);
             aVar2.setNeedCache(z2);
-            if (z2 && !iVar.ect) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, au.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
+            if (z2 && !iVar.emc) {
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setSubFolder(true);
                 cVar.setData(bArr);
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(z);
-                cVar.ac(this.ecS);
-                com.baidu.adp.lib.Disk.d.kh().c(cVar);
+                cVar.ad(this.emB);
+                com.baidu.adp.lib.Disk.d.lG().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.LH = eVar;
+                    aVar.Mn = eVar;
                 }
             }
         }

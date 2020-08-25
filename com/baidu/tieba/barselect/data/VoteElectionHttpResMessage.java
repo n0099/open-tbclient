@@ -30,7 +30,7 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
                         arrayList.add(d.a(electionList));
                     }
-                    this.mVoteData.ae(arrayList);
+                    this.mVoteData.ak(arrayList);
                 }
                 if (electionInfoResIdl.data.basic != null) {
                     this.mVoteData.a(e.a(electionInfoResIdl.data.basic));

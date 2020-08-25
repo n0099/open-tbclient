@@ -8,22 +8,22 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
 /* loaded from: classes15.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.jWF);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kmb);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cb */
+    /* renamed from: bX */
     public a b(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
@@ -59,30 +59,30 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
-    public static class a extends ad.a {
-        private TextView dJr;
-        private View dWz;
-        private int iwV;
+    public static class a extends af.a {
+        private TextView dSz;
+        private View efZ;
+        private int iLR;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.iwV = 3;
-            this.dJr = textView;
-            this.dWz = view2;
+            this.iLR = 3;
+            this.dSz = textView;
+            this.efZ = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.dJr.setText(cVar.title);
-                this.dWz.setVisibility(cVar.jJU ? 0 : 8);
+                this.dSz.setText(cVar.title);
+                this.efZ.setVisibility(cVar.jZl ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.iwV != i) {
-                ao.setViewTextColor(this.dJr, R.color.cp_cont_b);
-                ao.setBackgroundColor(this.dWz, R.color.cp_bg_line_c);
-                this.iwV = i;
+            if (this.iLR != i) {
+                ap.setViewTextColor(this.dSz, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.efZ, R.color.cp_bg_line_c);
+                this.iLR = i;
             }
         }
     }

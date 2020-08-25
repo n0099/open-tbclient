@@ -21,8 +21,6 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class EggacheDisplayView extends ViewGroup {
     private boolean A;
-    private List<View> B;
-    private List<View> C;
     private ArrayList<Animator> a;
     private ArrayList<Animator> b;
     private int e;
@@ -30,17 +28,19 @@ public class EggacheDisplayView extends ViewGroup {
     private ImageView h;
     private boolean i;
     private int j;
-    private AnimatorSet nFQ;
-    private AnimatorListenerAdapter nGM;
-    private AnimatorListenerAdapter nGN;
-    private b nGO;
-    private c nGP;
-    private d nGQ;
-    private com.kascend.chushou.widget.dispalymenu.b nGR;
-    private AnimatorSet nGS;
-    private AnimatorSet nGT;
-    private AnimatorSet nGU;
-    private a nGV;
+    private AnimatorSet nZH;
+    private AnimatorListenerAdapter oaD;
+    private AnimatorListenerAdapter oaE;
+    private b oaF;
+    private c oaG;
+    private d oaH;
+    private com.kascend.chushou.widget.dispalymenu.b oaI;
+    private AnimatorSet oaJ;
+    private AnimatorSet oaK;
+    private AnimatorSet oaL;
+    private List<View> oaM;
+    private List<View> oaN;
+    private a oaO;
     private int r;
     private int s;
     private boolean t;
@@ -81,18 +81,18 @@ public class EggacheDisplayView extends ViewGroup {
 
     public EggacheDisplayView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nGO = b.LIST;
-        this.nGP = c.BOTTOM;
-        this.nGQ = d.RIGHT_TO_LEFT;
-        this.nGS = new AnimatorSet().setDuration(250L);
-        this.nGT = new AnimatorSet().setDuration(250L);
-        this.nGU = new AnimatorSet();
+        this.oaF = b.LIST;
+        this.oaG = c.BOTTOM;
+        this.oaH = d.RIGHT_TO_LEFT;
+        this.oaJ = new AnimatorSet().setDuration(250L);
+        this.oaK = new AnimatorSet().setDuration(250L);
+        this.oaL = new AnimatorSet();
         this.r = 2000;
         this.s = 250;
         this.A = true;
-        this.B = new ArrayList();
-        this.C = new ArrayList();
-        this.nGV = new a();
+        this.oaM = new ArrayList();
+        this.oaN = new ArrayList();
+        this.oaO = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.EggacheDisplayView, 0, 0);
         this.x = obtainStyledAttributes.getDimensionPixelSize(a.k.EggacheDisplayView_btn_spacing, a(context, 12.0f));
         int resourceId = obtainStyledAttributes.getResourceId(a.k.EggacheDisplayView_collapse_layout, a.h.layout_collapse_button);
@@ -100,9 +100,9 @@ public class EggacheDisplayView extends ViewGroup {
         this.i = obtainStyledAttributes.getBoolean(a.k.EggacheDisplayView_click_loop_to_expand, false);
         this.y = a(getContext(), 4.0f);
         if (obtainStyledAttributes.getInt(a.k.EggacheDisplayView_list_direction, 0) == 0) {
-            this.nGP = c.BOTTOM;
+            this.oaG = c.BOTTOM;
         } else {
-            this.nGP = c.TOP;
+            this.oaG = c.TOP;
         }
         obtainStyledAttributes.recycle();
         c(context, resourceId, resourceId2);
@@ -132,7 +132,7 @@ public class EggacheDisplayView extends ViewGroup {
         setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (EggacheDisplayView.this.i && EggacheDisplayView.this.nGO == b.LOOP) {
+                if (EggacheDisplayView.this.i && EggacheDisplayView.this.oaF == b.LOOP) {
                     EggacheDisplayView.this.a();
                 }
             }
@@ -141,33 +141,33 @@ public class EggacheDisplayView extends ViewGroup {
     }
 
     public void setListDirection(c cVar) {
-        this.nGP = cVar;
+        this.oaG = cVar;
         g();
         requestLayout();
     }
 
     public void setListStrategy(com.kascend.chushou.widget.dispalymenu.b bVar) {
         if (bVar != null) {
-            this.nGR = bVar;
-            this.nGR.a(this, this.z, this.w, this.x, this.y);
+            this.oaI = bVar;
+            this.oaI.a(this, this.z, this.w, this.x, this.y);
             requestLayout();
         }
     }
 
     private void g() {
-        if (this.nGP == c.TOP) {
-            this.nGR = new com.kascend.chushou.widget.dispalymenu.c();
+        if (this.oaG == c.TOP) {
+            this.oaI = new com.kascend.chushou.widget.dispalymenu.c();
         } else {
-            this.nGR = new com.kascend.chushou.widget.dispalymenu.a();
+            this.oaI = new com.kascend.chushou.widget.dispalymenu.a();
         }
-        this.nGR.a(this, this.z, this.w, this.x, this.y);
+        this.oaI.a(this, this.z, this.w, this.x, this.y);
     }
 
     public void setMenuViews(List<View> list) {
         if (list != null && !list.isEmpty()) {
             d();
-            this.B.clear();
-            this.B.addAll(list);
+            this.oaM.clear();
+            this.oaM.addAll(list);
             removeAllViews();
             addView(this.w);
             addView(this.z);
@@ -183,11 +183,11 @@ public class EggacheDisplayView extends ViewGroup {
             if (getChildCount() - 2 >= i) {
                 ArrayList arrayList = new ArrayList();
                 for (int i2 = 0; i2 < i; i2++) {
-                    arrayList.add(this.B.get(i2));
+                    arrayList.add(this.oaM.get(i2));
                 }
-                this.B.clear();
-                this.B.addAll(arrayList);
-                this.B.addAll(list);
+                this.oaM.clear();
+                this.oaM.addAll(arrayList);
+                this.oaM.addAll(list);
                 int i3 = i + 2;
                 removeViews(i3, getChildCount() - i3);
                 for (View view : list) {
@@ -200,11 +200,11 @@ public class EggacheDisplayView extends ViewGroup {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.B.clear();
+        this.oaM.clear();
         for (int i = 0; i < getChildCount(); i++) {
             View childAt = getChildAt(i);
             if (childAt != this.w && childAt != this.z) {
-                this.B.add(childAt);
+                this.oaM.add(childAt);
             }
         }
     }
@@ -223,12 +223,12 @@ public class EggacheDisplayView extends ViewGroup {
                 this.j = Math.max(this.j, childAt.getMeasuredHeight());
             }
         }
-        if (this.nGO == b.LIST) {
-            i4 = this.nGR.a(this.j, this.e);
-            i3 = this.nGR.b(this.j, this.e);
-        } else if (this.nGO == b.LOOP) {
-            i4 = this.nGR.c(this.j, this.e);
-            i3 = this.nGR.dM(this.j, this.e);
+        if (this.oaF == b.LIST) {
+            i4 = this.oaI.a(this.j, this.e);
+            i3 = this.oaI.b(this.j, this.e);
+        } else if (this.oaF == b.LOOP) {
+            i4 = this.oaI.c(this.j, this.e);
+            i3 = this.oaI.dU(this.j, this.e);
         } else {
             i3 = 0;
         }
@@ -245,10 +245,10 @@ public class EggacheDisplayView extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.nGO == b.LIST) {
-            this.nGR.b(z, i, i2, i3, i4);
-        } else if (this.nGO == b.LOOP) {
-            this.nGR.a(this.j, this.e, z, i, i2, i3, i4);
+        if (this.oaF == b.LIST) {
+            this.oaI.b(z, i, i2, i3, i4);
+        } else if (this.oaF == b.LOOP) {
+            this.oaI.a(this.j, this.e, z, i, i2, i3, i4);
         }
     }
 
@@ -259,9 +259,9 @@ public class EggacheDisplayView extends ViewGroup {
     }
 
     private void h() {
-        if (this.nGO == b.LIST) {
+        if (this.oaF == b.LIST) {
             i();
-        } else if (this.nGO == b.LOOP) {
+        } else if (this.oaF == b.LOOP) {
             j();
         }
     }
@@ -269,9 +269,9 @@ public class EggacheDisplayView extends ViewGroup {
     private void i() {
         this.a = new ArrayList<>();
         this.b = new ArrayList<>();
-        this.nGR.a(this.a, this.b, this.nGU, this.j, this.e);
-        if (this.nGM == null) {
-            this.nGM = new AnimatorListenerAdapter() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.4
+        this.oaI.a(this.a, this.b, this.oaL, this.j, this.e);
+        if (this.oaD == null) {
+            this.oaD = new AnimatorListenerAdapter() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.4
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
@@ -280,7 +280,7 @@ public class EggacheDisplayView extends ViewGroup {
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    EggacheDisplayView.this.nGO = b.LIST;
+                    EggacheDisplayView.this.oaF = b.LIST;
                     if (EggacheDisplayView.this.z != null) {
                         EggacheDisplayView.this.z.setVisibility(8);
                     }
@@ -289,25 +289,25 @@ public class EggacheDisplayView extends ViewGroup {
                     }
                 }
             };
-            this.nGS.addListener(this.nGM);
+            this.oaJ.addListener(this.oaD);
         }
-        if (this.nGN == null) {
-            this.nGN = new AnimatorListenerAdapter() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.5
+        if (this.oaE == null) {
+            this.oaE = new AnimatorListenerAdapter() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.5
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
                     if (EggacheDisplayView.this.z != null) {
                         EggacheDisplayView.this.z.setAlpha(0.0f);
                     }
-                    EggacheDisplayView.this.nGO = b.LOOP;
+                    EggacheDisplayView.this.oaF = b.LOOP;
                     if (EggacheDisplayView.this.z != null) {
                         EggacheDisplayView.this.z.setVisibility(0);
                     }
                     if (EggacheDisplayView.this.w != null) {
                         EggacheDisplayView.this.w.setVisibility(4);
                     }
-                    if (EggacheDisplayView.this.nGU != null) {
-                        EggacheDisplayView.this.nGU.start();
+                    if (EggacheDisplayView.this.oaL != null) {
+                        EggacheDisplayView.this.oaL.start();
                     }
                 }
 
@@ -316,7 +316,7 @@ public class EggacheDisplayView extends ViewGroup {
                     super.onAnimationStart(animator);
                 }
             };
-            this.nGT.addListener(this.nGN);
+            this.oaK.addListener(this.oaE);
         }
     }
 
@@ -328,29 +328,29 @@ public class EggacheDisplayView extends ViewGroup {
         if (!this.A) {
             this.A = true;
             d();
-            this.nGT.cancel();
-            this.nGS.playTogether(this.a);
-            this.nGS.start();
+            this.oaK.cancel();
+            this.oaJ.playTogether(this.a);
+            this.oaJ.start();
         }
     }
 
     public void b() {
         if (this.A) {
             this.A = false;
-            this.nGS.cancel();
-            this.nGT.playTogether(this.b);
-            this.nGT.start();
+            this.oaJ.cancel();
+            this.oaK.playTogether(this.b);
+            this.oaK.start();
         }
     }
 
     public void a(int i) {
         if (!this.t) {
             l();
-            if (this.C.size() > 1 && this.nGO == b.LOOP) {
+            if (this.oaN.size() > 1 && this.oaF == b.LOOP) {
                 this.t = true;
-                this.u = this.C.get(0);
-                this.v = this.C.get(1);
-                postDelayed(this.nGV, i);
+                this.u = this.oaN.get(0);
+                this.v = this.oaN.get(1);
+                postDelayed(this.oaO, i);
             }
         }
     }
@@ -361,17 +361,17 @@ public class EggacheDisplayView extends ViewGroup {
 
     public void d() {
         this.t = false;
-        removeCallbacks(this.nGV);
-        if (this.nFQ != null) {
-            this.nFQ.cancel();
+        removeCallbacks(this.oaO);
+        if (this.nZH != null) {
+            this.nZH.cancel();
         }
     }
 
     public void e() {
         View view;
-        if (this.nGO == b.LOOP) {
+        if (this.oaF == b.LOOP) {
             d();
-            if (this.B.size() > 1 && (view = this.B.get(0)) != null && view != this.u) {
+            if (this.oaM.size() > 1 && (view = this.oaM.get(0)) != null && view != this.u) {
                 if (this.u != null) {
                     this.u.setTranslationX(this.e);
                 }
@@ -385,8 +385,8 @@ public class EggacheDisplayView extends ViewGroup {
         if (this.t) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.u, "translationX", -this.e);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.v, "translationX", 0.0f);
-            this.nFQ = new AnimatorSet();
-            this.nFQ.addListener(new AnimatorListenerAdapter() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.6
+            this.nZH = new AnimatorSet();
+            this.nZH.addListener(new AnimatorListenerAdapter() { // from class: com.kascend.chushou.widget.dispalymenu.EggacheDisplayView.6
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     if (EggacheDisplayView.this.u != null) {
@@ -403,19 +403,19 @@ public class EggacheDisplayView extends ViewGroup {
                         EggacheDisplayView.this.u.setTranslationX(EggacheDisplayView.this.e);
                     }
                     EggacheDisplayView.this.u = EggacheDisplayView.this.v;
-                    int indexOf = EggacheDisplayView.this.C.indexOf(EggacheDisplayView.this.u);
-                    EggacheDisplayView.this.v = indexOf == EggacheDisplayView.this.C.size() + (-1) ? (View) EggacheDisplayView.this.C.get(0) : (View) EggacheDisplayView.this.C.get(indexOf + 1);
+                    int indexOf = EggacheDisplayView.this.oaN.indexOf(EggacheDisplayView.this.u);
+                    EggacheDisplayView.this.v = indexOf == EggacheDisplayView.this.oaN.size() + (-1) ? (View) EggacheDisplayView.this.oaN.get(0) : (View) EggacheDisplayView.this.oaN.get(indexOf + 1);
                 }
             });
-            this.nFQ.setDuration(this.s);
-            this.nFQ.playTogether(ofFloat, ofFloat2);
-            this.nFQ.start();
+            this.nZH.setDuration(this.s);
+            this.nZH.playTogether(ofFloat, ofFloat2);
+            this.nZH.start();
         }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return (this.i && this.nGO == b.LOOP) || super.onInterceptTouchEvent(motionEvent);
+        return (this.i && this.oaF == b.LOOP) || super.onInterceptTouchEvent(motionEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -427,13 +427,13 @@ public class EggacheDisplayView extends ViewGroup {
         @Override // java.lang.Runnable
         public void run() {
             EggacheDisplayView.this.k();
-            EggacheDisplayView.this.postDelayed(EggacheDisplayView.this.nGV, EggacheDisplayView.this.r + EggacheDisplayView.this.s);
+            EggacheDisplayView.this.postDelayed(EggacheDisplayView.this.oaO, EggacheDisplayView.this.r + EggacheDisplayView.this.s);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        removeCallbacks(this.nGV);
+        removeCallbacks(this.oaO);
         super.onDetachedFromWindow();
     }
 
@@ -455,7 +455,7 @@ public class EggacheDisplayView extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: dOM */
+    /* renamed from: eaO */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }
@@ -470,14 +470,14 @@ public class EggacheDisplayView extends ViewGroup {
     }
 
     private void l() {
-        this.C.clear();
+        this.oaN.clear();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.B.size()) {
-                View view = this.B.get(i2);
+            if (i2 < this.oaM.size()) {
+                View view = this.oaM.get(i2);
                 if (view.getVisibility() == 0) {
-                    this.C.add(view);
+                    this.oaN.add(view);
                 }
                 i = i2 + 1;
             } else {

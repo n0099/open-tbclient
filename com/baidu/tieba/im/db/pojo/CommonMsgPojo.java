@@ -14,7 +14,7 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.util.e;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
     public static final int DELETEED = 1;
     public static final int READED = 0;
@@ -90,9 +90,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jjw);
+                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jyv);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jjx);
+                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jyw);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

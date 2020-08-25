@@ -3,7 +3,7 @@ package com.baidu.poly.widget;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class o implements Serializable {
     private String Wd;
     private String Xd;
@@ -23,7 +23,7 @@ public class o implements Serializable {
     private String icon;
     private String ie;
     private String pay_text;
-    private int ua;
+    private int va;
 
     public o(JSONObject jSONObject) {
         this.Wd = jSONObject.optString("display_name");
@@ -36,7 +36,7 @@ public class o implements Serializable {
         this._d = jSONObject.optInt("is_selected");
         this.ae = jSONObject.optInt("is_private");
         this.be = jSONObject.optInt("free_pay");
-        this.ua = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l);
+        this.va = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l);
         this.f971de = jSONObject.optString("display_color");
         this.ee = jSONObject.optBoolean("flow");
         this.fe = jSONObject.optInt("parasitifer");
@@ -45,35 +45,35 @@ public class o implements Serializable {
         this.ie = jSONObject.optString("loading_icon");
     }
 
-    public long K() {
+    public long L() {
         return this.ge;
     }
 
-    public String L() {
+    public String M() {
         return this.f971de;
     }
 
-    public int M() {
-        return this.ua;
+    public int N() {
+        return this.va;
     }
 
-    public String N() {
+    public String O() {
         return this.he;
     }
 
-    public int O() {
+    public int P() {
         return this._d;
     }
 
-    public String P() {
+    public String Q() {
         return this.ie;
     }
 
-    public String Q() {
+    public String R() {
         return this.Xd;
     }
 
-    public String R() {
+    public String S() {
         return this.pay_text;
     }
 
@@ -94,6 +94,6 @@ public class o implements Serializable {
     }
 
     public String toString() {
-        return "PayChannelEntity{display_name='" + this.Wd + "', pay_channel='" + this.Xd + "', pay_text='" + this.pay_text + "', error_text='" + this.Yd + "', icon='" + this.icon + "', is_fold=" + this.Zd + ", is_selected=" + this._d + ", is_private=" + this.ae + ", free_pay=" + this.be + ", pre_pay_money=" + this.ce + ", enable=" + this.ua + ", display_color='" + this.f971de + "', flow=" + this.ee + ", parasitifer=" + this.fe + '}';
+        return "PayChannelEntity{display_name='" + this.Wd + "', pay_channel='" + this.Xd + "', pay_text='" + this.pay_text + "', error_text='" + this.Yd + "', icon='" + this.icon + "', is_fold=" + this.Zd + ", is_selected=" + this._d + ", is_private=" + this.ae + ", free_pay=" + this.be + ", pre_pay_money=" + this.ce + ", enable=" + this.va + ", display_color='" + this.f971de + "', flow=" + this.ee + ", parasitifer=" + this.fe + '}';
     }
 }

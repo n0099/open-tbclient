@@ -22,17 +22,17 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int sortType = 0;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bkF() {
+    public HashMap<String, Object> btr() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bkG() {
+    public HashMap<String, String> bts() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object iW(boolean z) {
+    public Object ju(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
         builder.tab_type = Integer.valueOf(this.tabType);

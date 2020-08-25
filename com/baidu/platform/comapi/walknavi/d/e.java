@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.platform.comapi.walknavi.d.g;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e {
     private static Handler b = new Handler();
     private static final String c = e.class.getSimpleName();
@@ -12,7 +12,7 @@ public class e {
     private g d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         static final e a = new e(null);
     }

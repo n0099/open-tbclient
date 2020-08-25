@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bp;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
@@ -9,7 +9,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PostWriteCallBackData implements Serializable {
     public static final int COPY_TW_ZHIBO_TAG = 3;
     public static final int ERROR_ANTI_USER = 340016;
@@ -29,7 +29,7 @@ public class PostWriteCallBackData implements Serializable {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     public int mFrom;
-    private bo mReplyPrivacyTip;
+    private bp mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -173,11 +173,11 @@ public class PostWriteCallBackData implements Serializable {
         return sb.toString();
     }
 
-    public void setReplyPrivacyTip(bo boVar) {
-        this.mReplyPrivacyTip = boVar;
+    public void setReplyPrivacyTip(bp bpVar) {
+        this.mReplyPrivacyTip = bpVar;
     }
 
-    public bo getReplyPrivacyTip() {
+    public bp getReplyPrivacyTip() {
         return this.mReplyPrivacyTip;
     }
 

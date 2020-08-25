@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.FlutterEngine;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface FlutterEngineProvider {
     @Nullable
     FlutterEngine provideFlutterEngine(@NonNull Context context);

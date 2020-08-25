@@ -22,19 +22,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.n.m;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static int requestId = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public enum ImageLoadingError {
         Invalid,
         Succeed,
@@ -60,22 +60,23 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, final MethodChannel.Result result) {
-        Drawable a;
         int i;
-        boolean z;
+        Drawable a;
         int i2;
+        boolean z;
         if ("loadImage".equals(methodCall.method)) {
             int intValue = ((Integer) methodCall.argument("type")).intValue();
             String str = (String) methodCall.argument("key");
             String str2 = (String) methodCall.argument("themeStr");
+            boolean booleanValue = ((Boolean) methodCall.argument("isSvg")).booleanValue();
             ((Boolean) methodCall.argument("cache")).booleanValue();
-            if (as.isEmpty(str)) {
+            if (at.isEmpty(str)) {
                 result.error("key is empty", "", "");
                 return;
             }
             final long currentTimeMillis = System.currentTimeMillis();
             if (intValue == 1) {
-                Resources resources = g.jE().getResources();
+                Resources resources = g.ld().getResources();
                 if (resources != null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("key", str);
@@ -83,7 +84,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     String androidNameFromIos = ResNameTransform.getAndroidNameFromIos(str);
                     int identifier = resources.getIdentifier(androidNameFromIos, "drawable", BdBaseApplication.getInst().getPackageName());
                     boolean z2 = false;
-                    if (androidNameFromIos.endsWith("_svg") || androidNameFromIos.contains("_pure_")) {
+                    if (booleanValue && (androidNameFromIos.contains("_mask_") || androidNameFromIos.contains("_pure_"))) {
                         if (methodCall.hasArgument("patternColor")) {
                             int i3 = 0;
                             if (methodCall.argument("patternColor") instanceof Integer) {
@@ -91,9 +92,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             } else if (methodCall.argument("patternColor") instanceof Long) {
                                 i3 = ((Long) methodCall.argument("patternColor")).intValue();
                             }
-                            a = SvgManager.baR().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                            a = SvgManager.bjq().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
                         } else {
-                            a = SvgManager.baR().a(identifier, null);
+                            a = SvgManager.bjq().a(identifier, null);
                         }
                         int i4 = 1;
                         if (a != null) {
@@ -106,33 +107,33 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                                 hashMap.put("step", String.valueOf(3));
                                 onResult(ImageLoadingError.Succeed, result, new a(createBitmap, false), hashMap, null);
                                 z = true;
-                                i = 3;
+                                i2 = 3;
                                 boolean z3 = z;
-                                i2 = i;
+                                i = i2;
                                 z2 = z3;
                             }
                         }
-                        i = i4;
+                        i2 = i4;
                         z = false;
                         boolean z32 = z;
-                        i2 = i;
+                        i = i2;
                         z2 = z32;
                     } else {
                         int resIdBySkin = getResIdBySkin(str2, identifier);
-                        i2 = 4;
+                        i = 4;
                         if (resIdBySkin != 0) {
-                            i2 = 5;
+                            i = 5;
                             Bitmap bitMap = getBitMap(resources, resIdBySkin);
                             if (bitMap != null) {
                                 hashMap.put("step", String.valueOf(6));
                                 onResult(ImageLoadingError.Succeed, result, new a(bitMap, false), hashMap, null);
                                 z2 = true;
-                                i2 = 6;
+                                i = 6;
                             }
                         }
                     }
                     if (!z2) {
-                        hashMap.put("step", String.valueOf(i2));
+                        hashMap.put("step", String.valueOf(i));
                         onResult(ImageLoadingError.NoSuchFile, result, null, hashMap, null);
                         if (BdBaseApplication.getInst().isDebugMode()) {
                             UtilHelper.showToast(TbadkCoreApplication.getInst(), "图片找不到:" + str);
@@ -144,7 +145,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 final HashMap hashMap2 = new HashMap();
                 hashMap2.put("key", str);
                 hashMap2.put("startTime", Long.valueOf(currentTimeMillis));
-                c.ln().a(str, 44, new b<a>() { // from class: com.example.image_loader_plugin.ImageLoaderPlugin.1
+                c.mM().a(str, 44, new b<a>() { // from class: com.example.image_loader_plugin.ImageLoaderPlugin.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
@@ -164,7 +165,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             ImageLoaderPlugin.access$108();
                             hashMap2.put("requestId", Integer.valueOf(ImageLoaderPlugin.requestId));
                             hashMap3 = new HashMap();
-                            hashMap3.put("codecCost", Long.valueOf(aVar.TY.costTime));
+                            hashMap3.put("codecCost", Long.valueOf(aVar.UB.costTime));
                             hashMap3.put("isBundleFile", false);
                             hashMap3.put("netType", j.netTypeNameInLowerCase());
                             hashMap3.put(CameraActivityConfig.KEY_CONTENT_TYPE, String.valueOf(i5));
@@ -190,7 +191,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 }, 0, 0, BdUniqueId.gen(), new Object[0]);
             }
         } else if ("cancel".equals(methodCall.method)) {
-            c.ln().k((String) methodCall.arguments(), 44);
+            c.mM().l((String) methodCall.arguments(), 44);
         } else {
             result.notImplemented();
         }
@@ -199,13 +200,13 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     private int getResIdBySkin(String str, int i) {
         int d;
         int c;
-        if (as.isEmpty(str)) {
+        if (at.isEmpty(str)) {
             return 0;
         }
-        if (ComboPraiseProvider.DIR_PREFIX_NIGHT.equals(str) && (c = ao.c(TbadkCoreApplication.getInst().getResources(), i)) > 0) {
+        if (ComboPraiseProvider.DIR_PREFIX_NIGHT.equals(str) && (c = ap.c(TbadkCoreApplication.getInst().getResources(), i)) > 0) {
             i = c;
         }
-        return (!"dark".equals(str) || (d = ao.d(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : d;
+        return (!"dark".equals(str) || (d = ap.d(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : d;
     }
 
     private Bitmap getBitMap(Resources resources, int i) {
@@ -221,7 +222,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.blA().blB() && i % 100 == 0;
+        return m.bun().buo() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -12,7 +12,7 @@ import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Static {
     static {
         CustomMessageListener customMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.tbadkCore.tiebaStatMsg.Static.1

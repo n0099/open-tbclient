@@ -4,17 +4,17 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class i extends f<PointF> {
-    private final PointF CX;
-    private final float[] CY;
-    private PathMeasure Da;
-    private h nON;
+    private final PointF DC;
+    private final float[] DD;
+    private PathMeasure DG;
+    private h oiH;
 
     public i(List<? extends com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
-        this.CX = new PointF();
-        this.CY = new float[2];
+        this.DC = new PointF();
+        this.DD = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,18 +26,18 @@ public class i extends f<PointF> {
     public PointF a(com.tb.airbnb.lottie.e.a<PointF> aVar, float f) {
         PointF pointF;
         h hVar = (h) aVar;
-        Path ht = hVar.ht();
-        if (ht == null) {
-            return aVar.Gp;
+        Path iU = hVar.iU();
+        if (iU == null) {
+            return aVar.GX;
         }
-        if (this.nOK == null || (pointF = (PointF) this.nOK.b(hVar.Aq, hVar.Gs.floatValue(), hVar.Gp, hVar.Gq, hG(), f, getProgress())) == null) {
-            if (this.nON != hVar) {
-                this.Da = new PathMeasure(ht, false);
-                this.nON = hVar;
+        if (this.oiE == null || (pointF = (PointF) this.oiE.b(hVar.AX, hVar.Ha.floatValue(), hVar.GX, hVar.GY, jh(), f, getProgress())) == null) {
+            if (this.oiH != hVar) {
+                this.DG = new PathMeasure(iU, false);
+                this.oiH = hVar;
             }
-            this.Da.getPosTan(this.Da.getLength() * f, this.CY, null);
-            this.CX.set(this.CY[0], this.CY[1]);
-            return this.CX;
+            this.DG.getPosTan(this.DG.getLength() * f, this.DD, null);
+            this.DC.set(this.DD[0], this.DD[1]);
+            return this.DC;
         }
         return pointF;
     }

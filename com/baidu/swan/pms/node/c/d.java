@@ -1,15 +1,16 @@
 package com.baidu.swan.pms.node.c;
 
+import android.support.annotation.Nullable;
 import com.baidu.swan.pms.a.g;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class d extends com.baidu.swan.pms.node.a {
-    @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.c
-    public void a(JSONObject jSONObject, g gVar, g gVar2) {
+    @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.d
+    public void a(JSONObject jSONObject, g gVar, @Nullable g gVar2, @Nullable g gVar3) {
         JSONObject optJSONObject;
-        a cw;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (cw = a.cw(optJSONObject)) != null) {
-            b.aMi().a(cw);
+        a cB;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (cB = a.cB(optJSONObject)) != null) {
+            b.aUH().a(cB);
         }
     }
 }

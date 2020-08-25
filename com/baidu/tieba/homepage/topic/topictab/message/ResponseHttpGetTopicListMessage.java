@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topictab.message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.a;
@@ -32,7 +32,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         if (newTopicListResIdl != null) {
             setError(newTopicListResIdl.error.errorno.intValue());
             setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && newTopicListResIdl.data != null && !x.isEmpty(newTopicListResIdl.data.topic_list)) {
+            if (getError() == 0 && newTopicListResIdl.data != null && !y.isEmpty(newTopicListResIdl.data.topic_list)) {
                 this.mTopicDataList = new ArrayList();
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
@@ -42,13 +42,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.hlU = R.dimen.tbds1;
-                        cVar.iFU = R.color.cp_bg_line_b;
+                        cVar.hyL = R.dimen.tbds1;
+                        cVar.iUS = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) x.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).hlU = 0;
+                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).hyL = 0;
             }
         }
     }

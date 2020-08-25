@@ -10,16 +10,16 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b gaQ;
-    private TextView gcW;
-    private ImageView gcX;
+    private com.baidu.tieba.ala.liveroom.operation.b gmS;
+    private TextView gpe;
+    private ImageView gpf;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean fCW = true;
+    private boolean fOn = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,26 +32,18 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.gcW = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.gcX = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.gpe = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.gpf = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gcX.setVisibility(0);
-            this.gcX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (b.this.gaQ != null) {
-                        b.this.gaQ.m(view, 8);
-                    }
-                }
-            });
+            this.gpf.setVisibility(4);
         } else {
-            this.gcX.setVisibility(8);
+            this.gpf.setVisibility(8);
         }
-        this.gcW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
+        this.gpe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.gaQ != null) {
-                    b.this.gaQ.m(view, 14);
+                if (b.this.gmS != null) {
+                    b.this.gmS.m(view, 14);
                 }
             }
         });
@@ -61,7 +53,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        dD(j);
+        dO(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -70,27 +62,27 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.fCW) {
+        if (this.fOn) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void lp(boolean z) {
+    public void lQ(boolean z) {
         if (z) {
-            this.gcX.setVisibility(0);
+            this.gpf.setVisibility(4);
         } else {
-            this.gcX.setVisibility(8);
+            this.gpf.setVisibility(8);
         }
     }
 
-    public void dD(long j) {
+    public void dO(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.gcW.setText(i.numFormatOverWanNaForAudienceNum(j));
+        this.gpe.setText(i.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -98,12 +90,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.gaQ = bVar;
+        this.gmS = bVar;
     }
 
-    public void lq(boolean z) {
-        if (this.gcW != null) {
-            this.gcW.setEnabled(z);
+    public void lR(boolean z) {
+        if (this.gpe != null) {
+            this.gpe.setEnabled(z);
         }
     }
 }

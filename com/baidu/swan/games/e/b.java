@@ -1,29 +1,29 @@
 package com.baidu.swan.games.e;
 
-import com.baidu.swan.d.d;
+import com.baidu.swan.c.d;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static File afh() {
-        return com.baidu.swan.games.l.a.td("aigames_debug_dashboard");
+    public static File amo() {
+        return com.baidu.swan.games.l.a.vt("aigames_debug_dashboard");
     }
 
-    public static void afi() {
-        File afh = afh();
-        if (afh.exists()) {
-            d.deleteFile(afh);
+    public static void amp() {
+        File amo = amo();
+        if (amo.exists()) {
+            d.deleteFile(amo);
         }
     }
 
-    public static File afj() {
-        File afh = afh();
-        if (!afh.exists()) {
-            afh.mkdirs();
+    public static File amq() {
+        File amo = amo();
+        if (!amo.exists()) {
+            amo.mkdirs();
         }
-        return new File(afh, "debugDashboard.zip");
+        return new File(amo, "debugDashboard.zip");
     }
 
-    public static String aEe() {
+    public static String aMT() {
         return "meter.js";
     }
 }

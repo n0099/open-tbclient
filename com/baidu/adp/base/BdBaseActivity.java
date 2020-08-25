@@ -34,7 +34,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.jC().pushActivity(getPageContext().getPageActivity());
+        a.lb().pushActivity(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -143,8 +143,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.e.c.ln().d(this.mId);
-        a.jC().popActivity(getPageContext().getPageActivity());
+        com.baidu.adp.lib.e.c.mM().d(this.mId);
+        a.lb().popActivity(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -152,7 +152,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.e.c.ln().e(this.mId);
+        com.baidu.adp.lib.e.c.mM().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -223,7 +223,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.jE().getResources();
+        Resources resources = g.ld().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

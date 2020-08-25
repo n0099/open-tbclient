@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.constant;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class WBConstants {
     public static final String ACTION_WEIBO_REGISTER = "com.sina.weibo.sdk.Intent.ACTION_WEIBO_REGISTER";
     public static final String ACTION_WEIBO_SDK_PERMISSION = "com.sina.weibo.permission.WEIBO_SDK_PERMISSION";
@@ -40,21 +40,21 @@ public class WBConstants {
     public static final int WEIBO_FLAG_SDK = 538116905;
     public static final String WEIBO_SIGN = "18da2bf10352443a00a5e046d9fca6bd";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public interface Base {
         public static final String APP_KEY = "_weibo_appKey";
         public static final String APP_PKG = "_weibo_appPackage";
         public static final String SDK_VER = "_weibo_sdkVersion";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public interface ErrorCode {
         public static final int ERR_CANCEL = 1;
         public static final int ERR_FAIL = 2;
         public static final int ERR_OK = 0;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public interface Msg {
         public static final String IDENTIFY = "_weibo_message_identify";
         public static final String IMAGE = "_weibo_message_image";
@@ -69,13 +69,13 @@ public class WBConstants {
         public static final String VIDEO_SOURCE = "_weibo_message_video_source";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public interface Response {
         public static final String ERRCODE = "_weibo_resp_errcode";
         public static final String ERRMSG = "_weibo_resp_errstr";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes14.dex */
     public interface SDK {
         public static final String FLAG = "_weibo_flag";
     }

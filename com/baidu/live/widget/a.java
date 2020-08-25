@@ -8,29 +8,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.d.a.d.a;
+import com.baidu.h.a.d.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.widget.HeartSurfaceView;
-import com.baidu.live.y.a;
+import com.baidu.live.z.a;
 import com.tb.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class a implements com.baidu.d.a.d.a {
-    private int bqp;
-    private int bqq;
+/* loaded from: classes7.dex */
+public class a implements com.baidu.h.a.d.a {
+    private int bwf;
+    private int bwg;
 
-    @Override // com.baidu.d.a.d.a
-    public void a(final Activity activity, a.InterfaceC0114a interfaceC0114a) {
+    @Override // com.baidu.h.a.d.a
+    public void a(final Activity activity, a.InterfaceC0132a interfaceC0132a) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        this.bqp = inst.getResources().getDimensionPixelSize(a.C0196a.like_explosion_size);
-        this.bqq = inst.getResources().getDimensionPixelSize(a.C0196a.like_heart_size);
+        this.bwf = inst.getResources().getDimensionPixelSize(a.C0203a.like_explosion_size);
+        this.bwg = inst.getResources().getDimensionPixelSize(a.C0203a.like_heart_size);
         final HeartSurfaceView heartSurfaceView = new HeartSurfaceView(inst);
         heartSurfaceView.setZOrderOnTop(true);
         heartSurfaceView.getHolder().setFormat(-3);
-        interfaceC0114a.b(0, heartSurfaceView);
+        interfaceC0132a.b(0, heartSurfaceView);
         final a.b bVar = new a.b() { // from class: com.baidu.live.widget.a.1
-            @Override // com.baidu.d.a.d.a.b
-            public void N(final int i, final int i2) {
+            @Override // com.baidu.h.a.d.a.b
+            public void R(final int i, final int i2) {
                 if (a.isDestroyed(activity)) {
                     activity.runOnUiThread(new Runnable() { // from class: com.baidu.live.widget.a.1.1
                         @Override // java.lang.Runnable
@@ -43,13 +43,13 @@ public class a implements com.baidu.d.a.d.a {
         };
         heartSurfaceView.setAnimateEndListener(new HeartSurfaceView.b() { // from class: com.baidu.live.widget.a.2
             @Override // com.baidu.live.widget.HeartSurfaceView.b
-            public void M(int i, int i2) {
-                bVar.N(i, i2);
+            public void Q(int i, int i2) {
+                bVar.R(i, i2);
             }
         });
     }
 
-    @Override // com.baidu.d.a.d.a
+    @Override // com.baidu.h.a.d.a
     public void e(View view, int i) {
         if (view instanceof HeartSurfaceView) {
             view.setVisibility(0);
@@ -57,11 +57,11 @@ public class a implements com.baidu.d.a.d.a {
         }
     }
 
-    private void a(a.InterfaceC0114a interfaceC0114a) {
+    private void a(a.InterfaceC0132a interfaceC0132a) {
         LottieAnimationView lottieAnimationView = new LottieAnimationView(TbadkCoreApplication.getInst());
         lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         lottieAnimationView.setAnimation("live/liveshow_video_like_explosion.json");
-        interfaceC0114a.b(0, lottieAnimationView);
+        interfaceC0132a.b(0, lottieAnimationView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -72,7 +72,7 @@ public class a implements com.baidu.d.a.d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ab(View view) {
+    public void ac(View view) {
         if (view instanceof LottieAnimationView) {
             ((LottieAnimationView) view).playAnimation();
         }
@@ -80,30 +80,30 @@ public class a implements com.baidu.d.a.d.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelativeLayout.LayoutParams a(ViewGroup viewGroup, View view, int i, int i2) {
-        int i3 = (this.bqp - this.bqq) / 2;
+        int i3 = (this.bwf - this.bwg) / 2;
         int left = (view.getLeft() + i) - i3;
         int top = (view.getTop() + i2) - i3;
-        int width = viewGroup.getWidth() - (this.bqp + left);
-        int height = viewGroup.getHeight() - (this.bqp + top);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bqp, this.bqp);
+        int width = viewGroup.getWidth() - (this.bwf + left);
+        int height = viewGroup.getHeight() - (this.bwf + top);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bwf, this.bwf);
         layoutParams.setMargins(left, top, width, height);
         return layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Activity activity, final View view, final int i, final int i2) {
-        a(new a.InterfaceC0114a() { // from class: com.baidu.live.widget.a.3
-            @Override // com.baidu.d.a.d.a.InterfaceC0114a
+        a(new a.InterfaceC0132a() { // from class: com.baidu.live.widget.a.3
+            @Override // com.baidu.h.a.d.a.InterfaceC0132a
             public void b(int i3, final View view2) {
                 if (i3 == 0 && view != null && view.getParent() != null && view2 != null) {
                     view2.setTag("LottieAnimationView");
                     final ViewGroup viewGroup = (ViewGroup) view.getParent();
-                    a.this.s(viewGroup);
+                    a.this.t(viewGroup);
                     RelativeLayout.LayoutParams a = a.this.a(viewGroup, view, i, i2);
                     view2.setLayoutParams(a);
                     viewGroup.addView(view2, a);
                     view2.setVisibility(0);
-                    a.this.ab(view2);
+                    a.this.ac(view2);
                     a.this.a(view2, new AnimatorListenerAdapter() { // from class: com.baidu.live.widget.a.3.1
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
@@ -118,7 +118,7 @@ public class a implements com.baidu.d.a.d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void s(ViewGroup viewGroup) {
+    public void t(ViewGroup viewGroup) {
         if (viewGroup != null) {
             int childCount = viewGroup.getChildCount();
             ArrayList arrayList = new ArrayList();

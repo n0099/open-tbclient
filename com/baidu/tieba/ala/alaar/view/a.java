@@ -13,44 +13,42 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alaar.sticker.a.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private ViewGroup fqj;
-    private InterfaceC0541a fqk;
-    public List<f> auy = new ArrayList();
-    private int foq = -1;
-
-    /* renamed from: for  reason: not valid java name */
-    private int f4for = -1;
-    private int fql = 0;
+    private ViewGroup fBF;
+    private InterfaceC0587a fBG;
+    public List<f> azA = new ArrayList();
+    private int fzN = -1;
+    private int fzO = -1;
+    private int fBH = 0;
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0541a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0587a {
         void b(int i, int[] iArr);
     }
 
     public a(ViewGroup viewGroup) {
-        this.fqj = viewGroup;
+        this.fBF = viewGroup;
     }
 
-    public void a(InterfaceC0541a interfaceC0541a) {
-        this.fqk = interfaceC0541a;
+    public void a(InterfaceC0587a interfaceC0587a) {
+        this.fBG = interfaceC0587a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.auy == null) {
+        if (this.azA == null) {
             return 0;
         }
-        return this.auy.size();
+        return this.azA.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qk */
+    /* renamed from: sw */
     public f getItem(int i) {
-        return (f) ListUtils.getItem(this.auy, i);
+        return (f) ListUtils.getItem(this.azA, i);
     }
 
     @Override // android.widget.Adapter
@@ -60,21 +58,21 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<f> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.auy.clear();
-            this.auy.addAll(list);
+            this.azA.clear();
+            this.azA.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public List<f> getDatas() {
-        return this.auy;
+        return this.azA;
     }
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final e eVar;
         if (view == null) {
-            view = LayoutInflater.from(this.fqj.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.fBF.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
             eVar = new e(view);
             view.setTag(eVar);
         } else {
@@ -92,14 +90,14 @@ public class a extends BaseAdapter {
         });
         if (eVar != null) {
             eVar.b(getItem(i));
-            if (this.foq == i) {
-                eVar.bwp();
+            if (this.fzN == i) {
+                eVar.bFo();
             } else {
-                eVar.bwo();
+                eVar.bFn();
             }
         }
-        if (i == 0 && this.fql != 0) {
-            view.setPadding(this.fql, 0, 0, 0);
+        if (i == 0 && this.fBH != 0) {
+            view.setPadding(this.fBH, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -109,14 +107,14 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(f fVar, int i, e eVar, int[] iArr) {
         if (fVar != null) {
-            this.f4for = i;
-            if (com.baidu.tieba.ala.alaar.sticker.a.e.BL(fVar.vr())) {
-                if (this.fqk != null) {
-                    this.fqk.b(i, iArr);
+            this.fzO = i;
+            if (com.baidu.tieba.ala.alaar.sticker.a.e.Ef(fVar.AP())) {
+                if (this.fBG != null) {
+                    this.fBG.b(i, iArr);
                 }
-                this.foq = i;
+                this.fzN = i;
                 notifyDataSetChanged();
-            } else if (TextUtils.isEmpty(fVar.vr()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cy(fVar.vr())) {
+            } else if (TextUtils.isEmpty(fVar.AP()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cD(fVar.AP())) {
                 a(fVar, eVar, i, iArr);
             }
         }
@@ -124,13 +122,13 @@ public class a extends BaseAdapter {
 
     private void a(f fVar, final e eVar, final int i, final int[] iArr) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            BdUtilHelper.showToast(this.fqj.getContext(), a.i.sdk_network_not_available);
-        } else if (fVar != null && !TextUtils.isEmpty(fVar.vr())) {
-            com.baidu.tieba.ala.alaar.sticker.a.e.a(fVar.vr(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
+            BdUtilHelper.showToast(this.fBF.getContext(), a.i.sdk_network_not_available);
+        } else if (fVar != null && !TextUtils.isEmpty(fVar.AP())) {
+            com.baidu.tieba.ala.alaar.sticker.a.e.a(fVar.AP(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onStarted() {
                     if (eVar != null) {
-                        eVar.startLoadingAnim();
+                        eVar.bFb();
                     }
                 }
 
@@ -140,14 +138,14 @@ public class a extends BaseAdapter {
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onCompleted(String str) {
-                    if (a.this.f4for != i) {
+                    if (a.this.fzO != i) {
                         a.this.notifyDataSetChanged();
                         return;
                     }
-                    a.this.foq = i;
+                    a.this.fzN = i;
                     a.this.notifyDataSetChanged();
-                    if (a.this.fqk != null) {
-                        a.this.fqk.b(i, iArr);
+                    if (a.this.fBG != null) {
+                        a.this.fBG.b(i, iArr);
                     }
                 }
 
@@ -159,37 +157,37 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void BX(String str) {
-        String BK;
-        if (this.auy != null && this.auy.size() > 0 && !TextUtils.isEmpty(str)) {
+    public void Er(String str) {
+        String Ee;
+        if (this.azA != null && this.azA.size() > 0 && !TextUtils.isEmpty(str)) {
             int i = 0;
             int i2 = -1;
             while (true) {
                 int i3 = i;
-                if (i3 < this.auy.size()) {
-                    if (this.fqj.getContext().getString(a.i.beauty_yuantu).equals(this.auy.get(i3).getName())) {
-                        com.baidu.minivideo.arface.b.Ne();
-                        BK = com.baidu.minivideo.arface.c.Nj();
+                if (i3 < this.azA.size()) {
+                    if (this.fBF.getContext().getString(a.i.beauty_yuantu).equals(this.azA.get(i3).getName())) {
+                        com.baidu.minivideo.arface.b.SY();
+                        Ee = com.baidu.minivideo.arface.c.Td();
                         i2 = i3;
                     } else {
-                        BK = com.baidu.tieba.ala.alaar.sticker.a.e.BK(this.auy.get(i3).vr());
+                        Ee = com.baidu.tieba.ala.alaar.sticker.a.e.Ee(this.azA.get(i3).AP());
                     }
-                    if (!str.equals(BK)) {
+                    if (!str.equals(Ee)) {
                         i = i3 + 1;
                     } else {
-                        this.foq = i3;
+                        this.fzN = i3;
                         notifyDataSetChanged();
-                        if (this.fqk != null) {
-                            this.fqk.b(i3, null);
+                        if (this.fBG != null) {
+                            this.fBG.b(i3, null);
                             return;
                         }
                         return;
                     }
                 } else if (i2 >= 0) {
-                    this.foq = i2;
+                    this.fzN = i2;
                     notifyDataSetChanged();
-                    if (this.fqk != null) {
-                        this.fqk.b(i2, null);
+                    if (this.fBG != null) {
+                        this.fBG.b(i2, null);
                         return;
                     }
                     return;
@@ -200,7 +198,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void ql(int i) {
-        this.fql = i;
+    public void sx(int i) {
+        this.fBH = i;
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.http.client.CookieStore;
 import org.apache.http.cookie.Cookie;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class BasicCookieStore implements CookieStore {
     public BasicCookieStore() {
         throw new RuntimeException("Stub!");

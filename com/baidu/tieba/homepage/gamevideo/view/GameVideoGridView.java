@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation iwx;
-    private GridLayoutAnimationController iwy;
+    private Animation iKM;
+    private GridLayoutAnimationController iKN;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.iwx == null) {
-            this.iwx = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.iKM == null) {
+            this.iKM = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.iwy == null) {
-            this.iwy = new GridLayoutAnimationController(this.iwx);
-            this.iwy.setColumnDelay(0.4f);
-            this.iwy.setRowDelay(0.2f);
-            this.iwy.setDirection(0);
-            this.iwy.setDirectionPriority(0);
+        if (this.iKN == null) {
+            this.iKN = new GridLayoutAnimationController(this.iKM);
+            this.iKN.setColumnDelay(0.4f);
+            this.iKN.setRowDelay(0.2f);
+            this.iKN.setDirection(0);
+            this.iKN.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void cmD() {
-        if (this.iwy != null) {
-            setLayoutAnimation(this.iwy);
-            this.iwy.start();
+    public void cxm() {
+        if (this.iKN != null) {
+            setLayoutAnimation(this.iKN);
+            this.iKN.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.iwx != null) {
-            this.iwx.cancel();
+        if (this.iKM != null) {
+            this.iKM.cancel();
         }
     }
 }

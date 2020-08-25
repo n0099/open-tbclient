@@ -4,41 +4,41 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class j {
-    private k fPo;
-    private com.baidu.tieba.ala.guardclub.model.g fPp;
+    private k gbn;
+    private com.baidu.tieba.ala.guardclub.model.g gbo;
 
     public j(BaseActivity baseActivity, long j, long j2, long j3, String str, boolean z, boolean z2, boolean z3, boolean z4, String str2, BdUniqueId bdUniqueId, g.a aVar) {
-        this.fPo = new k(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
-        this.fPp = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
-        this.fPo.setOtherParams(str2);
-        this.fPo.setFeedId(str);
-        this.fPp.k(this.fPo);
-        this.fPo.a(this.fPp);
+        this.gbn = new k(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
+        this.gbo = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
+        this.gbn.setOtherParams(str2);
+        this.gbn.setFeedId(str);
+        this.gbo.k(this.gbn);
+        this.gbn.a(this.gbo);
     }
 
-    public void kQ(boolean z) {
-        this.fPo.kQ(z);
+    public void lq(boolean z) {
+        this.gbn.lq(z);
     }
 
-    public void zN() {
-        if (this.fPo != null) {
-            this.fPo.zN();
+    public void Fq() {
+        if (this.gbn != null) {
+            this.gbn.Fq();
         }
     }
 
     public View getView() {
-        return this.fPo.getView();
+        return this.gbn.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aHB() {
-        if (this.fPp != null) {
-            this.fPp.onDestory();
+    public void aQr() {
+        if (this.gbo != null) {
+            this.gbo.onDestory();
         }
-        if (this.fPo != null) {
-            this.fPo.bAK();
+        if (this.gbn != null) {
+            this.gbn.bKf();
         }
     }
 }

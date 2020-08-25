@@ -14,35 +14,35 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask mOH;
+    private AsyncTask nhz;
     private String a = null;
-    private a mOG = null;
+    private a nhy = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
     private Map<String, String> g = new HashMap();
     private String h = "GET";
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(Exception exc, int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
-    public class C0801b {
+    /* loaded from: classes11.dex */
+    public class C0854b {
         private String b;
         private int c;
-        private Exception mOK;
+        private Exception nhC;
 
-        public C0801b(String str, Exception exc, int i) {
+        public C0854b(String str, Exception exc, int i) {
             this.b = str;
-            this.mOK = exc;
+            this.nhC = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0801b dBk() {
+    public C0854b dMY() {
         try {
             String b = b();
             if (j) {
@@ -113,7 +113,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0801b(sb.toString(), null, responseCode);
+                    return new C0854b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -121,12 +121,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0801b(null, e, -1);
+            return new C0854b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0801b dBl() {
+    public C0854b dMZ() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -173,7 +173,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0801b(sb4, null, responseCode);
+                    return new C0854b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -181,55 +181,55 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0801b(null, e, -1);
+            return new C0854b(null, e, -1);
         }
     }
 
-    public static b fU(@NonNull Context context) {
+    public static b gi(@NonNull Context context) {
         return new b(context);
     }
 
-    public b Rd(@NonNull String str) {
+    public b Ud(@NonNull String str) {
         this.a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.mOG = aVar;
+        this.nhy = aVar;
         return this;
     }
 
-    public b aL(Object obj) {
+    public b aN(Object obj) {
         this.d = obj;
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dBj() {
-        this.mOH = new AsyncTask<Void, Void, C0801b>() { // from class: com.bun.miitmdid.b.b.1
-            b mOI;
+    public b dMX() {
+        this.nhz = new AsyncTask<Void, Void, C0854b>() { // from class: com.bun.miitmdid.b.b.1
+            b nhA;
 
             {
-                this.mOI = b.this;
+                this.nhA = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0801b c0801b) {
-                super.onPostExecute(c0801b);
-                if (b.this.mOG != null) {
-                    if (c0801b == null) {
-                        b.this.mOG.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0801b.mOK != null) {
-                        b.this.mOG.a(c0801b.mOK, -1, null);
+            public void onPostExecute(C0854b c0854b) {
+                super.onPostExecute(c0854b);
+                if (b.this.nhy != null) {
+                    if (c0854b == null) {
+                        b.this.nhy.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0854b.nhC != null) {
+                        b.this.nhy.a(c0854b.nhC, -1, null);
                     } else {
                         try {
-                            b.this.mOG.a(null, c0801b.c, c0801b.b);
+                            b.this.nhy.a(null, c0854b.c, c0854b.b);
                         } catch (Exception e) {
-                            b.this.mOG.a(e, -1, null);
+                            b.this.nhy.a(e, -1, null);
                         }
                     }
                 }
@@ -239,14 +239,14 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: q */
-            public C0801b doInBackground(Void... voidArr) {
-                return this.mOI.h.equalsIgnoreCase("GET") ? b.this.dBk() : b.this.dBl();
+            public C0854b doInBackground(Void... voidArr) {
+                return this.nhA.h.equalsIgnoreCase("GET") ? b.this.dMY() : b.this.dMZ();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;
     }
 
-    public b fS(@NonNull String str, @NonNull String str2) {
+    public b gj(@NonNull String str, @NonNull String str2) {
         this.g.put(str, str2);
         return this;
     }

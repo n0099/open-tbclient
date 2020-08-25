@@ -11,21 +11,20 @@ import com.baidu.mapapi.bikenavi.adapter.IBRoutePlanListener;
 import com.baidu.mapapi.bikenavi.adapter.IBTTSPlayer;
 import com.baidu.mapapi.bikenavi.controllers.BNavigatorWrapper;
 import com.baidu.mapapi.bikenavi.controllers.UnsupportedBikeNaviException;
+import com.baidu.mapapi.bikenavi.controllers.a.a;
 import com.baidu.mapapi.bikenavi.params.BikeNaviLaunchParam;
-import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapsdkplatform.comapi.NativeLoader;
-import com.baidu.mapsdkplatform.comapi.map.VersionInfo;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
+import com.baidu.platform.comapi.wnplatform.model.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
     boolean a;
     Activity b;
-    private com.baidu.mapapi.bikenavi.controllers.a.a c = new com.baidu.mapapi.bikenavi.controllers.a.a();
+    private a c = new a();
 
     private BikeNavigateHelper() {
     }
@@ -43,13 +42,27 @@ public class BikeNavigateHelper {
         }
     }
 
+    public void unInitNaviEngine() {
+        b.a().z();
+        b.a().k();
+        if (this.c != null) {
+            this.c.d();
+            this.c = null;
+        }
+        this.a = false;
+        this.b = null;
+        if (d != null) {
+            d = null;
+        }
+    }
+
     public void routePlanWithParams(BikeNaviLaunchParam bikeNaviLaunchParam, IBRoutePlanListener iBRoutePlanListener) {
         if (this.c != null) {
             if (!this.c.a()) {
-                throw new UnsupportedBikeNaviException("naviengine init failed, please init naviengine first");
+                throw new UnsupportedBikeNaviException("BDMapSDKException: naviengine init failed, please init naviengine first");
             }
             if (bikeNaviLaunchParam == null || bikeNaviLaunchParam.getStartPt() == null || bikeNaviLaunchParam.getEndPt() == null) {
-                throw new UnsupportedBikeNaviException("launch param or startPt or endPt cannot be null");
+                throw new UnsupportedBikeNaviException("BDMapSDKException: launch param or startPt or endPt cannot be null");
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(bikeNaviLaunchParam.getStartPt());
             GeoPoint ll2mc2 = CoordUtil.ll2mc(bikeNaviLaunchParam.getEndPt());
@@ -58,9 +71,43 @@ public class BikeNavigateHelper {
                 create.a(bikeNaviLaunchParam.getVehicle());
             }
             create.b(1);
-            BNavigatorWrapper.getWNavigator().c(1);
+            BNavigatorWrapper.getWNavigator().d(1);
             b.a().a(bikeNaviLaunchParam.getStartPt());
             b.a().b(bikeNaviLaunchParam.getEndPt());
+            create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
+            create.c(0);
+            create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
+            this.c.a(create, iBRoutePlanListener);
+        }
+    }
+
+    public void routePlanWithRouteNode(BikeNaviLaunchParam bikeNaviLaunchParam, IBRoutePlanListener iBRoutePlanListener) {
+        if (this.c != null) {
+            if (!this.c.a()) {
+                throw new UnsupportedBikeNaviException("BDMapSDKException: naviengine init failed, please init naviengine first");
+            }
+            if (bikeNaviLaunchParam == null) {
+                throw new UnsupportedBikeNaviException("BDMapSDKException: launch param cannot be null");
+            }
+            if (bikeNaviLaunchParam.getStartNodeInfo() == null || bikeNaviLaunchParam.getEndNodeInfo() == null) {
+                throw new UnsupportedBikeNaviException("BDMapSDKException: startNode or endNodeInfo cannot be null");
+            }
+            if (bikeNaviLaunchParam.getStartNodeInfo().getLocation() == null || bikeNaviLaunchParam.getEndNodeInfo().getLocation() == null) {
+                throw new UnsupportedBikeNaviException("BDMapSDKException: the start and end location cannot be null");
+            }
+            c cVar = new c();
+            cVar.a(bikeNaviLaunchParam.getStartNodeInfo().getLocation());
+            b.a().a(cVar);
+            GeoPoint ll2mc = CoordUtil.ll2mc(bikeNaviLaunchParam.getStartNodeInfo().getLocation());
+            GeoPoint ll2mc2 = CoordUtil.ll2mc(bikeNaviLaunchParam.getEndNodeInfo().getLocation());
+            com.baidu.platform.comapi.walknavi.e.a create = BikeNaviLaunchParam.create();
+            if (bikeNaviLaunchParam.getVehicle() == 1) {
+                create.a(bikeNaviLaunchParam.getVehicle());
+            }
+            create.b(1);
+            BNavigatorWrapper.getWNavigator().d(1);
+            b.a().a(bikeNaviLaunchParam.getStartNodeInfo().getLocation());
+            b.a().b(bikeNaviLaunchParam.getEndNodeInfo().getLocation());
             create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
             create.c(0);
             create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
@@ -87,7 +134,7 @@ public class BikeNavigateHelper {
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
             if (!this.a) {
-                if (!b.a().p()) {
+                if (!b.a().s()) {
                     return false;
                 }
                 this.a = true;
@@ -120,8 +167,15 @@ public class BikeNavigateHelper {
         return false;
     }
 
+    public MapView getNaviMap() {
+        if (this.c != null) {
+            return this.c.f();
+        }
+        return null;
+    }
+
     public void pause() {
-        b.a().h();
+        b.a().j();
         if (this.c != null) {
             this.c.b();
         }
@@ -129,7 +183,7 @@ public class BikeNavigateHelper {
 
     public void resume() {
         if (this.b != null && !this.b.isFinishing()) {
-            b.a().g();
+            b.a().i();
             if (this.c != null) {
                 this.c.c();
             }
@@ -137,12 +191,12 @@ public class BikeNavigateHelper {
     }
 
     public void quit() {
-        if (b.a().Q() != null) {
-            b.a().Q().q();
+        if (b.a().T() != null) {
+            b.a().T().q();
         }
+        b.a().m();
+        b.a().z();
         b.a().k();
-        b.a().w();
-        b.a().i();
         if (this.c != null) {
             this.c.d();
             this.c = null;
@@ -156,15 +210,5 @@ public class BikeNavigateHelper {
 
     public void showUIDebuggable(String str) {
         this.c.a(str);
-    }
-
-    static {
-        if (!a.a().equals(VersionInfo.getApiVersion())) {
-            throw new BaiduMapSDKException("the version of bikenavi is not match with map");
-        }
-        if (VersionInfo.KIT_NAME.compareToIgnoreCase(VersionInfo.KIT_NAME) != 0) {
-            throw new BaiduMapSDKException("sdk of bikenavi is not match the correct map sdk, please integrate baidumapapi_map_for_bikenavi jar and so, instead of baidumapapi_map jar and so");
-        }
-        NativeLoader.getInstance().loadLibrary(a.b());
     }
 }

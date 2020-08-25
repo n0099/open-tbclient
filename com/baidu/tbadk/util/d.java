@@ -1,15 +1,15 @@
 package com.baidu.tbadk.util;
 
 import com.baidu.adp.base.BdBaseApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private static d eKk;
+    private static d eUP;
 
-    public static d bmv() {
-        if (eKk == null) {
-            eKk = new d();
+    public static d bvi() {
+        if (eUP == null) {
+            eUP = new d();
         }
-        return eKk;
+        return eUP;
     }
 
     public String getUrlByNet(String str) {

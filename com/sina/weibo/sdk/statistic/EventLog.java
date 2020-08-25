@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.statistic;
 
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 class EventLog extends PageLog {
     private String mEvent_id;
     private Map<String, String> mExtend;

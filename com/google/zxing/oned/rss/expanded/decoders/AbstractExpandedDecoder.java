@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public abstract class AbstractExpandedDecoder {
     private final GeneralAppIdDecoder generalDecoder;
     private final BitArray information;

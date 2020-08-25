@@ -1,12 +1,12 @@
 package com.baidu.ar.vo.c;
 /* loaded from: classes11.dex */
 public class f extends a implements c {
-    private com.baidu.ar.vo.a.b xN;
-    private com.baidu.ar.vo.b.a xO;
+    private com.baidu.ar.vo.a.b ym;
+    private com.baidu.ar.vo.b.a yn;
 
     public f(d dVar, com.baidu.ar.vo.a.b bVar, int i, int i2) {
         super(dVar, i, i2);
-        this.xN = bVar;
+        this.ym = bVar;
     }
 
     private int b(float[] fArr, int i) {
@@ -14,27 +14,27 @@ public class f extends a implements c {
     }
 
     public void a(com.baidu.ar.vo.b.a aVar) {
-        this.xO = aVar;
+        this.yn = aVar;
     }
 
     @Override // com.baidu.ar.vo.c.a, com.baidu.ar.vo.c.c
-    public boolean q(float[] fArr) {
-        float[] a = this.xO.a(this.xN.fR(), fArr);
+    public boolean r(float[] fArr) {
+        float[] a = this.yn.a(this.ym.hg(), fArr);
         if (a != null) {
-            String a2 = this.xi.a(this.xN);
+            String a2 = this.xH.a(this.ym);
             int i = (int) a[0];
             if (i == 0) {
-                int b = b(fArr, this.xN.fR());
+                int b = b(fArr, this.ym.hg());
                 if (b == 0) {
-                    this.xi.fW();
+                    this.xH.hl();
                 } else if (b == 1) {
-                    this.xi.fX();
+                    this.xH.hm();
                 }
-                this.xi.r(new float[16]);
+                this.xH.s(new float[16]);
                 return false;
             } else if (i == 1) {
-                this.xi.a(a2, (int) a[1], (int) a[2], xK, this.xN.fQ());
-                this.xi.fY();
+                this.xH.a(a2, (int) a[1], (int) a[2], yj, this.ym.hf());
+                this.xH.hn();
                 return true;
             } else {
                 return false;

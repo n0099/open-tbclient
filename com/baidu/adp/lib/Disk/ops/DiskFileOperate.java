@@ -6,9 +6,9 @@ import java.io.File;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
-    private OperateType IP;
-    protected Action IQ;
-    private e.a IR;
+    private OperateType Jt;
+    protected Action Ju;
+    private e.a Jv;
     protected volatile byte[] mData;
     private String mDesName;
     private String mDesPath;
@@ -45,9 +45,9 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.IP = OperateType.MUST_SUCCESS;
+        this.Jt = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
-        this.IQ = Action.READ;
+        this.Ju = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
@@ -61,16 +61,16 @@ public class DiskFileOperate {
         this.mTrySuccessWeight = 0;
         this.mDesPath = null;
         this.mDesName = null;
-        this.IR = null;
+        this.Jv = null;
         this.mPath = str;
         this.mName = str2;
-        this.IQ = action;
+        this.Ju = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.IP = OperateType.MUST_SUCCESS;
+        this.Jt = OperateType.MUST_SUCCESS;
         this.mIsSubFolder = false;
-        this.IQ = Action.READ;
+        this.Ju = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
@@ -84,12 +84,12 @@ public class DiskFileOperate {
         this.mTrySuccessWeight = 0;
         this.mDesPath = null;
         this.mDesName = null;
-        this.IR = null;
+        this.Jv = null;
         this.mPath = str;
         this.mName = str2;
         this.mDesPath = str3;
         this.mDesName = str4;
-        this.IQ = action;
+        this.Ju = action;
     }
 
     public void setLock(Object obj) {
@@ -124,8 +124,8 @@ public class DiskFileOperate {
         return this.mPath;
     }
 
-    public Action ki() {
-        return this.IQ;
+    public Action lH() {
+        return this.Ju;
     }
 
     public boolean formatData(byte[] bArr) {
@@ -178,12 +178,12 @@ public class DiskFileOperate {
         return this.mDesPath;
     }
 
-    public OperateType kj() {
-        return this.IP;
+    public OperateType lI() {
+        return this.Jt;
     }
 
     public void a(OperateType operateType) {
-        this.IP = operateType;
+        this.Jt = operateType;
     }
 
     public void callback(boolean z) {
@@ -253,7 +253,7 @@ public class DiskFileOperate {
     }
 
     public boolean call() {
-        return com.baidu.adp.lib.Disk.d.kh().b(this);
+        return com.baidu.adp.lib.Disk.d.lG().b(this);
     }
 
     public int getTrySuccessWeight() {
@@ -272,7 +272,7 @@ public class DiskFileOperate {
         return this.mDesName;
     }
 
-    public e.a kk() {
-        return this.IR;
+    public e.a lJ() {
+        return this.Jv;
     }
 }

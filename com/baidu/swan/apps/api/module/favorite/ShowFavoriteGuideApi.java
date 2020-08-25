@@ -9,45 +9,45 @@ import android.util.Pair;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.api.a.b;
 import com.baidu.swan.apps.api.a.d;
 import com.baidu.swan.apps.api.module.favorite.a;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.p;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
-    private long bPW;
-    private long bPX;
-    private long bPY;
+/* loaded from: classes8.dex */
+public class ShowFavoriteGuideApi extends d implements a.InterfaceC0355a {
+    private long bVw;
+    private long bVx;
+    private long bVy;
     private String mCallbackKey;
 
     public ShowFavoriteGuideApi(@NonNull b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b hy(String str) {
+    public com.baidu.swan.apps.api.c.b iV(String str) {
         if (DEBUG) {
             Log.d("Api-showFavoriteGuide", "handle: " + str);
         }
-        final e arw = e.arw();
-        if (arw == null) {
+        final e azJ = e.azJ();
+        if (azJ == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
-        final SwanAppActivity arp = arw.arp();
-        if (arp == null) {
+        final SwanAppActivity azC = azJ.azC();
+        if (azC == null) {
             c.e("Api-showFavoriteGuide", "null activity");
             return new com.baidu.swan.apps.api.c.b(1001, "null activity");
-        } else if (!al.axe()) {
+        } else if (!ak.aFn()) {
             c.i("Api-showFavoriteGuide", "not support outside baiduboxapp");
             return new com.baidu.swan.apps.api.c.b(1001, "not support outside baiduboxapp");
         } else {
-            Pair<com.baidu.swan.apps.api.c.b, JSONObject> aS = com.baidu.swan.apps.api.d.b.aS("Api-showFavoriteGuide", str);
-            com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aS.first;
+            Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-showFavoriteGuide", str);
+            com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
             if (!bVar.isSuccess()) {
                 if (DEBUG) {
                     c.e("Api-showFavoriteGuide", "parse fail");
@@ -55,26 +55,26 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
                 }
                 return bVar;
             }
-            final JSONObject jSONObject = (JSONObject) aS.second;
+            final JSONObject jSONObject = (JSONObject) aX.second;
             final String optString = jSONObject.optString("type");
-            if (a.VH().hx(optString)) {
+            if (a.abN().iU(optString)) {
                 return new com.baidu.swan.apps.api.c.b(202);
             }
-            p.awC().execute(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1
+            p.aEM().execute(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.storage.c.b auW = h.auW();
+                    com.baidu.swan.apps.storage.c.b aDf = h.aDf();
                     final GuideType parse = GuideType.parse(optString);
                     final String string = ShowFavoriteGuideApi.this.getContext().getString(parse.defaultText);
                     ShowFavoriteGuideApi.this.mCallbackKey = jSONObject.optString("cb");
-                    String str2 = arw.id;
+                    String str2 = azJ.id;
                     String str3 = "favorite_guide_count_" + str2;
-                    if (com.baidu.swan.apps.database.favorite.a.ky(str2)) {
+                    if (com.baidu.swan.apps.database.favorite.a.mb(str2)) {
                         c.i("Api-showFavoriteGuide", "favorite already");
-                        h.auW().putString(str3, "-1");
+                        h.aDf().putString(str3, "-1");
                         return;
                     }
-                    String string2 = h.auW().getString(str3, "");
+                    String string2 = h.aDf().getString(str3, "");
                     if (TextUtils.equals("-1", string2)) {
                         c.i("Api-showFavoriteGuide", "favorite at one time");
                         return;
@@ -87,16 +87,16 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
                         j = Long.parseLong(split[1]);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
-                    ShowFavoriteGuideApi.this.bPW = auW.getLong("swan_favorite_guide_duration", 3L);
-                    ShowFavoriteGuideApi.this.bPX = auW.getLong("swan_favorite_guide_intervalDays", 3L);
-                    ShowFavoriteGuideApi.this.bPY = auW.getLong("swan_favorite_guide_maxTimes", 3L);
-                    c.i("Api-showFavoriteGuide", "duration=" + ShowFavoriteGuideApi.this.bPW + ", mIntervalDays=" + ShowFavoriteGuideApi.this.bPX + ", mMaxTimes=" + ShowFavoriteGuideApi.this.bPY + " ,storageValue=" + string2);
-                    if (i < ShowFavoriteGuideApi.this.bPY && currentTimeMillis - j > ShowFavoriteGuideApi.this.bPX * 86400000) {
-                        h.auW().putString(str3, (i + 1) + "#" + currentTimeMillis);
-                        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1.1
+                    ShowFavoriteGuideApi.this.bVw = aDf.getLong("swan_favorite_guide_duration", 3L);
+                    ShowFavoriteGuideApi.this.bVx = aDf.getLong("swan_favorite_guide_intervalDays", 3L);
+                    ShowFavoriteGuideApi.this.bVy = aDf.getLong("swan_favorite_guide_maxTimes", 3L);
+                    c.i("Api-showFavoriteGuide", "duration=" + ShowFavoriteGuideApi.this.bVw + ", mIntervalDays=" + ShowFavoriteGuideApi.this.bVx + ", mMaxTimes=" + ShowFavoriteGuideApi.this.bVy + " ,storageValue=" + string2);
+                    if (i < ShowFavoriteGuideApi.this.bVy && currentTimeMillis - j > ShowFavoriteGuideApi.this.bVx * 86400000) {
+                        h.aDf().putString(str3, (i + 1) + "#" + currentTimeMillis);
+                        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.VH().a(ShowFavoriteGuideApi.this, arp, arw, parse, string, arw.arz().getIconUrl(), ShowFavoriteGuideApi.this.bPW);
+                                a.abN().a(ShowFavoriteGuideApi.this, azC, azJ, parse, string, azJ.azM().getIconUrl(), ShowFavoriteGuideApi.this.bVw);
                             }
                         });
                         return;
@@ -108,9 +108,9 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
         }
     }
 
-    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0310a
+    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0355a
     @AnyThread
-    public void ds(boolean z) {
+    public void dB(boolean z) {
         if (this.mCallbackKey != null) {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -122,7 +122,7 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum GuideType {
         NORMAL("bar", -1, 992, a.h.aiapps_favorite_guide_default_hint),
         WEAK("bar-autohide", -1, 865, a.h.aiapps_favorite_guide_default_hint),
@@ -156,7 +156,7 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
 
     public static void a(GuideType guideType, String str, String str2) {
         String str3;
-        String arx = e.arx();
+        String azK = e.azK();
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         if (guideType == null) {
             str3 = "window";
@@ -176,7 +176,7 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0310a {
         eVar.mType = str3;
         eVar.mSource = str;
         eVar.mValue = str2;
-        eVar.v("appkey", arx);
+        eVar.u("appkey", azK);
         com.baidu.swan.apps.statistic.h.a("923", eVar);
     }
 }

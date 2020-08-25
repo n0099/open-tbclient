@@ -2,7 +2,7 @@ package com.baidu.tbadk.k;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     protected View attachedView;
     private boolean isAttached;
@@ -16,10 +16,14 @@ public class a {
         return this.isAttached;
     }
 
+    public View getView() {
+        return this.attachedView;
+    }
+
     public void attachView(View view, boolean z) {
         if (view != null && this.attachedView != null && this.attachedView.getParent() == null) {
             this.isAttached = true;
-            e.g(view, this.isWrapStyle).attachView(view, this.attachedView, z);
+            e.f(view, this.isWrapStyle).attachView(view, this.attachedView, z);
             onViewAttached();
         }
     }

@@ -1,4 +1,4 @@
 package android.arch.lifecycle;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends w {
 }

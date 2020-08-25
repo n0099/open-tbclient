@@ -17,17 +17,17 @@ public final class a implements SharedPreferences {
     private final ContentResolver a;
     private final String[] b = {IMConstants.MSG_ROW_ID, "key", "type", "value"};
     private final HashMap<String, Object> c = new HashMap<>();
-    private SharedPreferences$EditorC0878a d = null;
+    private SharedPreferences$EditorC0936a d = null;
 
     /* renamed from: com.tencent.mm.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static class SharedPreferences$EditorC0878a implements SharedPreferences.Editor {
+    private static class SharedPreferences$EditorC0936a implements SharedPreferences.Editor {
         private ContentResolver a;
         private Map<String, Object> e = new HashMap();
         private Set<String> f = new HashSet();
         private boolean g = false;
 
-        public SharedPreferences$EditorC0878a(ContentResolver contentResolver) {
+        public SharedPreferences$EditorC0936a(ContentResolver contentResolver) {
             this.a = contentResolver;
         }
 
@@ -146,7 +146,7 @@ public final class a implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            Object a = query.moveToFirst() ? a.C0882a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
+            Object a = query.moveToFirst() ? a.C0940a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
             query.close();
             return a;
         } catch (Exception e) {
@@ -163,7 +163,7 @@ public final class a implements SharedPreferences {
     @Override // android.content.SharedPreferences
     public final SharedPreferences.Editor edit() {
         if (this.d == null) {
-            this.d = new SharedPreferences$EditorC0878a(this.a);
+            this.d = new SharedPreferences$EditorC0936a(this.a);
         }
         return this.d;
     }
@@ -179,7 +179,7 @@ public final class a implements SharedPreferences {
             int columnIndex2 = query.getColumnIndex("type");
             int columnIndex3 = query.getColumnIndex("value");
             while (query.moveToNext()) {
-                this.c.put(query.getString(columnIndex), a.C0882a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
+                this.c.put(query.getString(columnIndex), a.C0940a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
             }
             query.close();
             return this.c;

@@ -1,6 +1,8 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes5.dex */
-public class QrLoginStatusCheckResult extends SapiResult {
+
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public class QrLoginStatusCheckResult extends SapiResult implements NoProguard {
     public static final int QR_LOGIN_STATUS_LOGIN_DONE = 0;
     public static final int QR_LOGIN_STATUS_SCAN_DONE = 1;
     public static final int QR_LOGIN_STATUS_UEER_CANCEL = 2;

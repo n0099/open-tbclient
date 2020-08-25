@@ -19,7 +19,7 @@ public class c implements com.baidu.swan.facade.a.b {
             jVar.a(new g(jVar));
             jVar.a(new com.baidu.swan.apps.scheme.actions.c.a(jVar));
             jVar.a(new com.baidu.swan.apps.scheme.actions.c.b(jVar));
-            jVar.a(new com.baidu.swan.bdprivate.extensions.c.a(jVar));
+            jVar.a(new com.baidu.swan.bdprivate.extensions.c.b(jVar));
             jVar.a(new i(jVar));
             jVar.a(new com.baidu.swan.apps.adlanding.a(jVar));
             jVar.a(new b(jVar));

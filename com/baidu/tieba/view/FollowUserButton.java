@@ -7,12 +7,13 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a mpx;
-    private int mpy;
-    private boolean mpz;
+    private a mHl;
+    private int mHm;
+    private boolean mHn;
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -29,32 +30,32 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
 
     public FollowUserButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mpy = R.drawable.icon_pure_add12_svg;
-        this.mpz = true;
-        com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.mR(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-        cVar.k(this.mpy, 0, true);
-        cVar.mV(R.color.cp_link_tip_a);
-        setConfig(cVar);
+        this.mHm = R.drawable.icon_pure_add12_svg;
+        this.mHn = true;
+        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+        bVar.oX(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+        bVar.a(this.mHm, 0, TBSpecificationButtonConfig.IconType.SVG);
+        bVar.pb(R.color.cp_link_tip_a);
+        setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
 
-    public void aM(boolean z) {
+    public void aN(boolean z) {
         if (z) {
             setVisibility(0);
-            setClickable(this.mpz);
-            com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.mX(R.color.cp_cont_d);
-            cVar.k(0, 0, true);
-            setConfig(cVar);
+            setClickable(this.mHn);
+            com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+            bVar.pd(R.color.cp_cont_d);
+            bVar.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+            setConfig(bVar);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
             setVisibility(0);
-            com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar2.mR(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-            cVar2.k(this.mpy, 0, true);
-            cVar2.mV(R.color.cp_link_tip_a);
-            setConfig(cVar2);
+            com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
+            bVar2.oX(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+            bVar2.a(this.mHm, 0, TBSpecificationButtonConfig.IconType.SVG);
+            bVar2.pb(R.color.cp_link_tip_a);
+            setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
         }
@@ -64,9 +65,9 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void r(boolean z, int i) {
         if (z) {
-            aM(true);
+            aN(true);
         } else {
-            aM(false);
+            aN(false);
         }
     }
 
@@ -76,13 +77,13 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void nc(int i) {
+    public void pk(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bi(View view) {
-        if (this.mpx != null) {
-            this.mpx.onClick(view);
+    public void bk(View view) {
+        if (this.mHl != null) {
+            this.mHl.onClick(view);
         }
     }
 
@@ -92,19 +93,19 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
     }
 
     public void onChangeSkinType(int i) {
-        bci();
+        bkF();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.mpx = aVar;
+        this.mHl = aVar;
     }
 
     public void setSvgIconResId(int i) {
-        this.mpy = i;
-        bci();
+        this.mHm = i;
+        bkF();
     }
 
     public void setClickableUnLike(boolean z) {
-        this.mpz = z;
+        this.mHn = z;
     }
 }

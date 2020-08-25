@@ -13,7 +13,7 @@ import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class BdWebkitManager implements INoProGuard {
     private boolean mIsWebkitBuiltin = true;
     private List<IWebkitLoaderListener> mListenerLst = new ArrayList();
@@ -24,7 +24,7 @@ public class BdWebkitManager implements INoProGuard {
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static final class a {
         public static final int a = 1;
         public static final int b = 2;

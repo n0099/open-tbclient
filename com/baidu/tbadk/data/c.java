@@ -2,10 +2,10 @@ package com.baidu.tbadk.data;
 
 import org.json.JSONObject;
 import tbclient.TailInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     private String content;
-    private int eyQ;
+    private int eJo;
     private String icon_link;
     private String icon_url;
 
@@ -14,7 +14,7 @@ public class c {
             this.icon_url = jSONObject.optString("icon_url");
             this.icon_link = jSONObject.optString("icon_link");
             this.content = jSONObject.optString("content");
-            this.eyQ = jSONObject.optInt("tail_type");
+            this.eJo = jSONObject.optInt("tail_type");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ public class c {
             this.icon_url = tailInfo.icon_url;
             this.icon_link = tailInfo.icon_link;
             this.content = tailInfo.content;
-            this.eyQ = tailInfo.tail_type.intValue();
+            this.eJo = tailInfo.tail_type.intValue();
         } catch (Exception e) {
             e.printStackTrace();
         }

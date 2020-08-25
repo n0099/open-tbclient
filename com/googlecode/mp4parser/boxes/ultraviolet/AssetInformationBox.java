@@ -8,23 +8,23 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class AssetInformationBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "ainf";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
     String apid;
     String profileVersion;
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AssetInformationBox.java", AssetInformationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", FieldUtil.TYPE_STRING), 62);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", FieldUtil.TYPE_STRING, "apid", "", "void"), 66);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", FieldUtil.TYPE_STRING), 70);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", FieldUtil.TYPE_STRING, "profileVersion", "", "void"), 74);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", FieldUtil.TYPE_STRING), 62);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", FieldUtil.TYPE_STRING, "apid", "", "void"), 66);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", FieldUtil.TYPE_STRING), 70);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", FieldUtil.TYPE_STRING, "profileVersion", "", "void"), 74);
     }
 
     static {

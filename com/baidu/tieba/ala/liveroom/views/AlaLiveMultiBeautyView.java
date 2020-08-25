@@ -23,46 +23,46 @@ import com.baidu.live.ar.j;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
 import com.baidu.tieba.ala.liveroom.h.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View.OnClickListener {
-    private BdPageContext aXY;
-    private LinearLayout fpR;
-    private Button fpV;
-    private Button fpW;
-    private Button fpX;
-    private View fpY;
-    private boolean fpZ;
-    private j fqb;
-    private HListView gyV;
-    private com.baidu.tieba.ala.liveroom.h.c gyW;
-    private LinearLayout gyX;
-    private GridView gyY;
-    private com.baidu.tieba.ala.liveroom.data.d gyZ;
-    private SeekBar gza;
-    private SeekBar gzb;
-    private SeekBar gzc;
-    private SeekBar gzd;
-    private SeekBar gze;
+    private BdPageContext bdo;
+    private LinearLayout fBn;
+    private Button fBr;
+    private Button fBs;
+    private Button fBt;
+    private View fBu;
+    private boolean fBv;
+    private j fBx;
+    private SeekBar gLA;
+    private SeekBar gLB;
+    private HListView gLs;
+    private com.baidu.tieba.ala.liveroom.h.c gLt;
+    private LinearLayout gLu;
+    private GridView gLv;
+    private com.baidu.tieba.ala.liveroom.data.d gLw;
+    private SeekBar gLx;
+    private SeekBar gLy;
+    private SeekBar gLz;
     private TextView mTitle;
 
     public AlaLiveMultiBeautyView(Context context) {
         super(context);
-        this.fpZ = true;
-        this.gyZ = new com.baidu.tieba.ala.liveroom.data.d();
+        this.fBv = true;
+        this.gLw = new com.baidu.tieba.ala.liveroom.data.d();
         initViews();
     }
 
     public AlaLiveMultiBeautyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fpZ = true;
-        this.gyZ = new com.baidu.tieba.ala.liveroom.data.d();
+        this.fBv = true;
+        this.gLw = new com.baidu.tieba.ala.liveroom.data.d();
         initViews();
     }
 
     public AlaLiveMultiBeautyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fpZ = true;
-        this.gyZ = new com.baidu.tieba.ala.liveroom.data.d();
+        this.fBv = true;
+        this.gLw = new com.baidu.tieba.ala.liveroom.data.d();
         initViews();
     }
 
@@ -78,44 +78,44 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
         } else {
             View.inflate(getContext(), a.h.ala_live_beauty_new_ver_layout, this);
         }
-        this.gyV = (HListView) findViewById(a.g.filter_list_view);
-        if (this.gyV != null) {
-            this.gyW = new com.baidu.tieba.ala.liveroom.h.c(this.gyV);
-            this.gyW.ql(getResources().getDimensionPixelSize(a.e.sdk_ds34));
-            this.gyV.setDividerWidth(getResources().getDimensionPixelSize(a.e.sdk_ds34));
-            this.gyV.setAdapter((ListAdapter) this.gyW);
-            this.gyV.setSelector(getResources().getDrawable(a.f.sdk_transparent_bg));
+        this.gLs = (HListView) findViewById(a.g.filter_list_view);
+        if (this.gLs != null) {
+            this.gLt = new com.baidu.tieba.ala.liveroom.h.c(this.gLs);
+            this.gLt.sx(getResources().getDimensionPixelSize(a.e.sdk_ds34));
+            this.gLs.setDividerWidth(getResources().getDimensionPixelSize(a.e.sdk_ds34));
+            this.gLs.setAdapter((ListAdapter) this.gLt);
+            this.gLs.setSelector(getResources().getDrawable(a.f.sdk_transparent_bg));
         }
-        this.gyY = (GridView) findViewById(a.g.filter_grid_view);
-        if (this.gyY != null) {
-            this.gyW = new com.baidu.tieba.ala.liveroom.h.c(this.gyY);
-            this.gyY.setAdapter((ListAdapter) this.gyW);
+        this.gLv = (GridView) findViewById(a.g.filter_grid_view);
+        if (this.gLv != null) {
+            this.gLt = new com.baidu.tieba.ala.liveroom.h.c(this.gLv);
+            this.gLv.setAdapter((ListAdapter) this.gLt);
         }
-        this.gyW.a(new c.b() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.1
+        this.gLt.a(new c.b() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.1
             @Override // com.baidu.tieba.ala.liveroom.h.c.b
             public void onItemSelected(int i) {
-                AlaLiveMultiBeautyView.this.gyZ.mFilterName = AlaLiveMultiBeautyView.this.gyW.gkN[i].mFilterName;
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.onFilterSelected(AlaLiveMultiBeautyView.this.gyW.gkN[i].mShowName, AlaLiveMultiBeautyView.this.gyW.gkN[i].mFilterName, 0.0f);
+                AlaLiveMultiBeautyView.this.gLw.mFilterName = AlaLiveMultiBeautyView.this.gLt.gwR[i].mFilterName;
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.onFilterSelected(AlaLiveMultiBeautyView.this.gLt.gwR[i].mShowName, AlaLiveMultiBeautyView.this.gLt.gwR[i].mFilterName, 0.0f);
                 }
             }
         });
         this.mTitle = (TextView) findViewById(a.g.beauty_title_text);
-        this.fpX = (Button) findViewById(a.g.btn_choose_beauty_level);
-        this.fpX.setOnClickListener(this);
-        this.fpV = (Button) findViewById(a.g.btn_choose_filter);
-        this.fpV.setOnClickListener(this);
-        this.fpW = (Button) findViewById(a.g.btn_choose_face_shape);
-        this.fpW.setOnClickListener(this);
-        this.gyX = (LinearLayout) findViewById(a.g.live_face_shape);
-        this.fpR = (LinearLayout) findViewById(a.g.face_beauty_level_select_layout);
-        this.gza = (SeekBar) findViewById(a.g.face_level_white_seekbar);
-        this.gza.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.2
+        this.fBt = (Button) findViewById(a.g.btn_choose_beauty_level);
+        this.fBt.setOnClickListener(this);
+        this.fBr = (Button) findViewById(a.g.btn_choose_filter);
+        this.fBr.setOnClickListener(this);
+        this.fBs = (Button) findViewById(a.g.btn_choose_face_shape);
+        this.fBs.setOnClickListener(this);
+        this.gLu = (LinearLayout) findViewById(a.g.live_face_shape);
+        this.fBn = (LinearLayout) findViewById(a.g.face_beauty_level_select_layout);
+        this.gLx = (SeekBar) findViewById(a.g.face_level_white_seekbar);
+        this.gLx.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                AlaLiveMultiBeautyView.this.gyZ.gll = i;
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.p(i, 100);
+                AlaLiveMultiBeautyView.this.gLw.gxp = i;
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.s(i, 100);
                 }
             }
 
@@ -127,13 +127,13 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        this.gzb = (SeekBar) findViewById(a.g.face_level_red_seekbar);
-        this.gzb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.3
+        this.gLy = (SeekBar) findViewById(a.g.face_level_red_seekbar);
+        this.gLy.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.3
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                AlaLiveMultiBeautyView.this.gyZ.glm = i;
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.s(i, 100);
+                AlaLiveMultiBeautyView.this.gLw.gxq = i;
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.v(i, 100);
                 }
             }
 
@@ -145,13 +145,13 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        this.gzc = (SeekBar) findViewById(a.g.face_level_skin_seekbar);
-        this.gzc.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.4
+        this.gLz = (SeekBar) findViewById(a.g.face_level_skin_seekbar);
+        this.gLz.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.4
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                AlaLiveMultiBeautyView.this.gyZ.gln = i;
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.onBlurLevelSelected(i);
+                AlaLiveMultiBeautyView.this.gLw.gxr = i;
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.onBlurLevelSelected(i);
                 }
             }
 
@@ -163,13 +163,13 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        this.gzd = (SeekBar) findViewById(a.g.face_shape_thin_level_seekbar);
-        this.gzd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.5
+        this.gLA = (SeekBar) findViewById(a.g.face_shape_thin_level_seekbar);
+        this.gLA.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.5
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                AlaLiveMultiBeautyView.this.gyZ.glp = i;
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.q(i, 100);
+                AlaLiveMultiBeautyView.this.gLw.gxt = i;
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.t(i, 100);
                 }
             }
 
@@ -181,13 +181,13 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        this.gze = (SeekBar) findViewById(a.g.face_shape_eye_level_seekbar);
-        this.gze.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.6
+        this.gLB = (SeekBar) findViewById(a.g.face_shape_eye_level_seekbar);
+        this.gLB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.6
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                AlaLiveMultiBeautyView.this.gyZ.glo = i;
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.r(i, 100);
+                AlaLiveMultiBeautyView.this.gLw.gxs = i;
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.u(i, 100);
                 }
             }
 
@@ -199,7 +199,7 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        this.fpY = findViewById(a.g.ala_live_new_beauty_nav_view);
+        this.fBu = findViewById(a.g.ala_live_new_beauty_nav_view);
         findViewById(a.g.beauty_viewStub).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyView.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -207,9 +207,9 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
                 if (parent != null && (parent instanceof ViewGroup)) {
                     ((ViewGroup) parent).removeView(AlaLiveMultiBeautyView.this);
                 }
-                AlaLiveMultiBeautyView.this.vx();
-                if (AlaLiveMultiBeautyView.this.fqb != null) {
-                    AlaLiveMultiBeautyView.this.fqb.vy();
+                AlaLiveMultiBeautyView.this.AV();
+                if (AlaLiveMultiBeautyView.this.fBx != null) {
+                    AlaLiveMultiBeautyView.this.fBx.AW();
                     return true;
                 }
                 return true;
@@ -222,13 +222,13 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
-    public void vw() {
+    public void AU() {
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
-    public void vx() {
-        if (this.gyZ != null) {
-            com.baidu.live.c.vf().putString("ala_beauty_5.4_config_str", this.gyZ.toJsonString());
+    public void AV() {
+        if (this.gLw != null) {
+            com.baidu.live.c.AD().putString("ala_beauty_5.4_config_str", this.gLw.toJsonString());
         }
     }
 
@@ -238,42 +238,42 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void setBdPageContext(BdPageContext bdPageContext) {
-        this.aXY = bdPageContext;
+        this.bdo = bdPageContext;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.fpZ && this.fpV.getWidth() != 0) {
-            h(this.fpV, false);
-            this.fpZ = false;
+        if (this.fBv && this.fBr.getWidth() != 0) {
+            g(this.fBr, false);
+            this.fBv = false;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fpV) {
-            h(this.fpV, true);
-            setEffectFilterBeautyChooseBtnTextColor(this.fpV);
-            if (this.gyV != null) {
-                setEffectFilterBeautyChooseBlock(this.gyV);
-            } else if (this.gyY != null) {
-                setEffectFilterBeautyChooseBlock(this.gyY);
+        if (view == this.fBr) {
+            g(this.fBr, true);
+            setEffectFilterBeautyChooseBtnTextColor(this.fBr);
+            if (this.gLs != null) {
+                setEffectFilterBeautyChooseBlock(this.gLs);
+            } else if (this.gLv != null) {
+                setEffectFilterBeautyChooseBlock(this.gLv);
             }
             if (this.mTitle != null) {
                 this.mTitle.setText(getResources().getString(a.i.ala_live_new_beauty_filter));
             }
-        } else if (view == this.fpW) {
-            h(this.fpW, true);
-            setEffectFilterBeautyChooseBtnTextColor(this.fpW);
-            setEffectFilterBeautyChooseBlock(this.gyX);
+        } else if (view == this.fBs) {
+            g(this.fBs, true);
+            setEffectFilterBeautyChooseBtnTextColor(this.fBs);
+            setEffectFilterBeautyChooseBlock(this.gLu);
             if (this.mTitle != null) {
                 this.mTitle.setText(getResources().getString(a.i.ala_live_new_beauty_face_shape));
             }
-        } else if (view == this.fpX) {
-            h(this.fpX, true);
-            setEffectFilterBeautyChooseBtnTextColor(this.fpX);
-            setEffectFilterBeautyChooseBlock(this.fpR);
+        } else if (view == this.fBt) {
+            g(this.fBt, true);
+            setEffectFilterBeautyChooseBtnTextColor(this.fBt);
+            setEffectFilterBeautyChooseBlock(this.fBn);
             if (this.mTitle != null) {
                 this.mTitle.setText(getResources().getString(a.i.ala_live_new_beauty_beauty));
             }
@@ -281,59 +281,59 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
     }
 
     private void setEffectFilterBeautyChooseBlock(View view) {
-        if (this.gyV != null) {
-            this.gyV.setVisibility(4);
+        if (this.gLs != null) {
+            this.gLs.setVisibility(4);
         }
-        if (this.gyY != null) {
-            this.gyY.setVisibility(4);
+        if (this.gLv != null) {
+            this.gLv.setVisibility(4);
         }
-        this.gyX.setVisibility(4);
-        this.fpR.setVisibility(4);
+        this.gLu.setVisibility(4);
+        this.fBn.setVisibility(4);
         view.setVisibility(0);
     }
 
     private void setEffectFilterBeautyChooseBtnTextColor(Button button) {
-        this.fpV.setTextColor(getResources().getColor(a.d.sdk_cp_cont_g));
-        this.fpW.setTextColor(getResources().getColor(a.d.sdk_cp_cont_g));
-        this.fpX.setTextColor(getResources().getColor(a.d.sdk_cp_cont_g));
+        this.fBr.setTextColor(getResources().getColor(a.d.sdk_cp_cont_g));
+        this.fBs.setTextColor(getResources().getColor(a.d.sdk_cp_cont_g));
+        this.fBt.setTextColor(getResources().getColor(a.d.sdk_cp_cont_g));
         button.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void setOnEffectSelectedListener(j jVar) {
-        this.fqb = jVar;
+        this.fBx = jVar;
     }
 
-    private void h(View view, boolean z) {
-        this.fpY.clearAnimation();
-        int width = (this.fpY.getWidth() / 2) + this.fpY.getLeft();
+    private void g(View view, boolean z) {
+        this.fBu.clearAnimation();
+        int width = (this.fBu.getWidth() / 2) + this.fBu.getLeft();
         int width2 = (view.getWidth() / 2) + view.getLeft();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fpY.getLayoutParams();
-        layoutParams.leftMargin = width2 - (this.fpY.getWidth() / 2);
-        this.fpY.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fBu.getLayoutParams();
+        layoutParams.leftMargin = width2 - (this.fBu.getWidth() / 2);
+        this.fBu.setLayoutParams(layoutParams);
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(width - width2, 0.0f, 0.0f, 0.0f);
             translateAnimation.setDuration(200L);
             translateAnimation.setFillAfter(true);
-            this.fpY.startAnimation(translateAnimation);
+            this.fBu.startAnimation(translateAnimation);
         }
     }
 
     public void setViewData(i iVar, AlaLiveVideoConfig alaLiveVideoConfig) {
         if (iVar != null && alaLiveVideoConfig != null) {
             com.baidu.tieba.ala.liveroom.data.d dVar = (com.baidu.tieba.ala.liveroom.data.d) iVar;
-            this.gza.setProgress(dVar.gll);
-            this.gzb.setProgress(dVar.glm);
-            this.gzc.setProgress(dVar.gln);
-            this.gzd.setProgress(dVar.glp);
-            this.gze.setProgress(dVar.glo);
-            this.gyW.BX(dVar.mFilterName);
-            this.gyW.notifyDataSetChanged();
-            this.gyZ = dVar;
+            this.gLx.setProgress(dVar.gxp);
+            this.gLy.setProgress(dVar.gxq);
+            this.gLz.setProgress(dVar.gxr);
+            this.gLA.setProgress(dVar.gxt);
+            this.gLB.setProgress(dVar.gxs);
+            this.gLt.Er(dVar.mFilterName);
+            this.gLt.notifyDataSetChanged();
+            this.gLw = dVar;
             if (alaLiveVideoConfig.isSupportFaceStyle()) {
-                this.fpW.setVisibility(0);
+                this.fBs.setVisibility(0);
             } else {
-                this.fpW.setVisibility(8);
+                this.fBs.setVisibility(8);
             }
         }
     }

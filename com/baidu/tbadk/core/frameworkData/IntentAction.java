@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.frameworkData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public enum IntentAction {
     Activity,
     ActivityForResult,

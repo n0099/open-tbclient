@@ -10,54 +10,54 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
 class e {
-    private ExecutorService pV;
-    private int pW;
-    private int pX;
-    private int pY;
-    private long pZ;
+    private ExecutorService qA;
+    private int qB;
+    private int qC;
+    private int qD;
+    private long qE;
 
     public e(int i, int i2, int i3, long j) {
-        this.pW = i;
-        this.pX = i2;
-        this.pY = i3;
-        this.pZ = j;
+        this.qB = i;
+        this.qC = i2;
+        this.qD = i3;
+        this.qE = j;
     }
 
-    private ExecutorService dB() {
-        if (this.pV == null) {
-            this.pV = new ThreadPoolExecutor(this.pW, this.pX, this.pZ, TimeUnit.SECONDS, new LinkedBlockingQueue(this.pY), Executors.defaultThreadFactory(), new RejectedExecutionHandler() { // from class: com.baidu.ar.http.e.1
+    private ExecutorService eL() {
+        if (this.qA == null) {
+            this.qA = new ThreadPoolExecutor(this.qB, this.qC, this.qE, TimeUnit.SECONDS, new LinkedBlockingQueue(this.qD), Executors.defaultThreadFactory(), new RejectedExecutionHandler() { // from class: com.baidu.ar.http.e.1
                 @Override // java.util.concurrent.RejectedExecutionHandler
                 public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-                    com.baidu.ar.f.b.b("HttpRequestExecutor", "请求队列已满，请求被丢弃");
+                    com.baidu.ar.g.b.b("HttpRequestExecutor", "请求队列已满，请求被丢弃");
                 }
             });
         }
-        return this.pV;
+        return this.qA;
     }
 
     public l a(g gVar, IProgressCallback iProgressCallback) {
         c cVar = new c(gVar);
         cVar.setProgressCallback(iProgressCallback);
-        cVar.dA();
+        cVar.eK();
         return cVar;
     }
 
     public l a(g gVar, com.baidu.ar.ihttp.a aVar, IProgressCallback iProgressCallback) {
         c cVar = new c(gVar, aVar);
         cVar.setProgressCallback(iProgressCallback);
-        dB().submit(cVar);
+        eL().submit(cVar);
         return cVar;
     }
 
     public l a(HttpException httpException, com.baidu.ar.ihttp.a aVar) {
         a aVar2 = new a(httpException, aVar);
-        dB().submit(aVar2);
+        eL().submit(aVar2);
         return aVar2;
     }
 
     public void shutdown() {
-        if (this.pV != null) {
-            this.pV.shutdown();
+        if (this.qA != null) {
+            this.qA.shutdown();
         }
     }
 }

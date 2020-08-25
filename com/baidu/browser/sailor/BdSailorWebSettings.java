@@ -8,13 +8,13 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class BdSailorWebSettings implements INoProGuard {
     private static boolean lastNightModeEnabled = false;
     private static BdJsCheckPolicy sDefaultJsCheckPolicy;
     private WebSettings mWebSettings;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     protected class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         private static final String ENABLE_LOG_RECORD = "enable_log_record";
 
@@ -255,6 +255,11 @@ public class BdSailorWebSettings implements INoProGuard {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
+        public synchronized void setPageFreezeDisableExt(boolean z) {
+            BdSailorWebSettings.this.mWebSettings.setPageFreezeDisable(z);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
@@ -558,6 +563,13 @@ public class BdSailorWebSettings implements INoProGuard {
         return WebSettings.ZoomDensity.MEDIUM;
     }
 
+    public int getDisabledActionModeMenuItems() {
+        if (this.mWebSettings != null) {
+            return this.mWebSettings.getDisabledActionModeMenuItems();
+        }
+        return 0;
+    }
+
     public boolean getDisplayZoomControls() {
         if (this.mWebSettings != null) {
             return this.mWebSettings.getDisplayZoomControls();
@@ -777,6 +789,12 @@ public class BdSailorWebSettings implements INoProGuard {
 
     public void setDefaultZoom(WebSettings.ZoomDensity zoomDensity) {
         this.mWebSettings.setDefaultZoom(zoomDensity);
+    }
+
+    public void setDisabledActionModeMenuItems(int i) {
+        if (this.mWebSettings != null) {
+            this.mWebSettings.setDisabledActionModeMenuItems(i);
+        }
     }
 
     public void setDisplayZoomControls(boolean z) {

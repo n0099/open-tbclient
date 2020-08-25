@@ -4,7 +4,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -52,7 +52,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aVar.time = as.getDateStringMouth(date);
+                    aVar.time = at.getDateStringMouth(date);
                     aVar.type = msgInfo.type.intValue();
                     aVar.content = msgInfo.content;
                     aVar.id = msgInfo.id.intValue();
@@ -61,10 +61,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            l<byte[]> xi = com.baidu.tbadk.core.c.a.aYG().xi("tb.im_official_history");
+            l<byte[]> zw = com.baidu.tbadk.core.c.a.bhb().zw("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                xi.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                zw.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

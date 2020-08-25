@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aK */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personCenter.view.a(this.mPageContext));
     }
@@ -25,11 +25,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a> aVar) {
-        aVar.bSs().a(dVar);
+        aVar.ccE().a(dVar);
         return aVar.getView();
     }
 
-    public void cVC() {
+    public void dgz() {
     }
 
     public void destroy() {

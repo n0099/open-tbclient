@@ -2,12 +2,12 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     private final rx.functions.b<? super Resource> dispose;
-    private final rx.functions.e<Resource> olt;
-    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> olu;
-    private final boolean olv;
+    private final rx.functions.e<Resource> oFp;
+    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> oFq;
+    private final boolean oFr;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,11 +17,11 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     public void call(rx.j<? super T> jVar) {
         rx.d<? extends T> b;
         try {
-            Resource call = this.olt.call();
+            Resource call = this.oFp.call();
             DisposeAction disposeAction = new DisposeAction(this.dispose, call);
             jVar.add(disposeAction);
-            rx.d<? extends T> call2 = this.olu.call(call);
-            if (this.olv) {
+            rx.d<? extends T> call2 = this.oFq.call(call);
+            if (this.oFr) {
                 b = call2.a(disposeAction);
             } else {
                 b = call2.b(disposeAction);
@@ -42,7 +42,7 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class DisposeAction<Resource> extends AtomicBoolean implements rx.functions.a, rx.k {
         private static final long serialVersionUID = 4262875056400218316L;
         private rx.functions.b<? super Resource> dispose;

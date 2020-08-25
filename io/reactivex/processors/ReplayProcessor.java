@@ -4,15 +4,15 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
-    private static final Object[] nWX = new Object[0];
-    static final ReplaySubscription[] nXg = new ReplaySubscription[0];
-    static final ReplaySubscription[] nXh = new ReplaySubscription[0];
+    private static final Object[] oqU = new Object[0];
+    static final ReplaySubscription[] ord = new ReplaySubscription[0];
+    static final ReplaySubscription[] ore = new ReplaySubscription[0];
     boolean done;
-    final a<T> nXf;
+    final a<T> orc;
     final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
     /* loaded from: classes7.dex */
@@ -33,11 +33,11 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         if (a(replaySubscription) && replaySubscription.cancelled) {
             b(replaySubscription);
         } else {
-            this.nXf.c(replaySubscription);
+            this.orc.c(replaySubscription);
         }
     }
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
         if (this.done) {
             dVar.cancel();
@@ -46,11 +46,11 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.k(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.nXf;
+            a<T> aVar = this.orc;
             aVar.next(t);
             for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                 aVar.c(replaySubscription);
@@ -58,7 +58,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.done) {
@@ -66,20 +66,20 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
             return;
         }
         this.done = true;
-        a<T> aVar = this.nXf;
+        a<T> aVar = this.orc;
         aVar.error(th);
-        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(nXh)) {
+        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(ore)) {
             aVar.c(replaySubscription);
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         if (!this.done) {
             this.done = true;
-            a<T> aVar = this.nXf;
+            a<T> aVar = this.orc;
             aVar.complete();
-            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(nXh)) {
+            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(ore)) {
                 aVar.c(replaySubscription);
             }
         }
@@ -90,7 +90,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr == nXh) {
+            if (replaySubscriptionArr == ore) {
                 return false;
             }
             int length = replaySubscriptionArr.length;
@@ -106,7 +106,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr != nXh && replaySubscriptionArr != nXg) {
+            if (replaySubscriptionArr != ore && replaySubscriptionArr != ord) {
                 int length = replaySubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -122,7 +122,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replaySubscriptionArr2 = nXg;
+                        replaySubscriptionArr2 = ord;
                     } else {
                         replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                         System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -153,15 +153,15 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
             this.state = replayProcessor;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
-                this.state.nXf.c(this);
+                this.state.orc.c(this);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;

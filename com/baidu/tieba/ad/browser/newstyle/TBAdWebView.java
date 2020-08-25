@@ -5,7 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 /* loaded from: classes15.dex */
@@ -29,10 +29,10 @@ public class TBAdWebView extends BaseAdWebView {
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
     protected void a(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
-        if (!ad.checkWriteExternalStorage(getContext())) {
-            ad.requestWriteExternalStorage((Activity) getContext(), 0);
+        if (!ae.checkWriteExternalStorage(getContext())) {
+            ae.requestWriteExternalStorage((Activity) getContext(), 0);
         } else {
-            com.baidu.tieba.ad.download.d.bsi().c(downloadCacheKey, null);
+            com.baidu.tieba.ad.download.d.bBf().c(downloadCacheKey, null);
         }
     }
 }

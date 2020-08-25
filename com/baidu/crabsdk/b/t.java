@@ -6,77 +6,77 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import java.util.HashMap;
 import java.util.UUID;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class t {
-    private static SharedPreferences amq;
-    private static HashMap<String, String> amy = null;
+    private static HashMap<String, String> anA = null;
+    private static SharedPreferences ans;
     private static Context mContext;
 
     public static String R() {
         if (!TextUtils.isEmpty(com.baidu.crabsdk.a.c)) {
-            com.baidu.crabsdk.c.a.dh("uid is which user setted " + com.baidu.crabsdk.a.c);
+            com.baidu.crabsdk.c.a.ds("uid is which user setted " + com.baidu.crabsdk.a.c);
             return com.baidu.crabsdk.a.c;
         } else if (mContext == null) {
             com.baidu.crabsdk.c.a.w("get SharedPreferences error because context is null for unknown reasons!!!");
             return "N/A";
         } else {
-            if (amq == null) {
-                amq = mContext.getSharedPreferences("crab_user_info", 0);
+            if (ans == null) {
+                ans = mContext.getSharedPreferences("crab_user_info", 0);
             }
-            String string = amq.getString(TbEnum.SystemMessage.KEY_USER_ID, "");
+            String string = ans.getString(TbEnum.SystemMessage.KEY_USER_ID, "");
             if (TextUtils.isEmpty(string)) {
                 string = UUID.randomUUID().toString();
-                com.baidu.crabsdk.c.c.a(amq.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, string), false);
+                com.baidu.crabsdk.c.c.a(ans.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, string), false);
             }
-            com.baidu.crabsdk.c.a.dh("uid is UUID " + string);
+            com.baidu.crabsdk.c.a.ds("uid is UUID " + string);
             return string;
         }
     }
 
     public static String T() {
-        return amy != null ? com.baidu.crabsdk.sender.i.c(amy) : "";
+        return anA != null ? com.baidu.crabsdk.sender.i.c(anA) : "";
     }
 
     public static void a(HashMap<String, String> hashMap) {
-        if (amy == null) {
-            amy = hashMap;
+        if (anA == null) {
+            anA = hashMap;
         } else if (hashMap != null) {
-            amy.putAll(hashMap);
+            anA.putAll(hashMap);
         }
     }
 
     public static void d(String str) {
         com.baidu.crabsdk.a.c = str;
-        if (amq == null && mContext != null) {
-            amq = mContext.getSharedPreferences("crab_user_info", 0);
+        if (ans == null && mContext != null) {
+            ans = mContext.getSharedPreferences("crab_user_info", 0);
         }
-        if (amq == null || TextUtils.isEmpty(str)) {
+        if (ans == null || TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.c.c.a(amq.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, str), false);
+        com.baidu.crabsdk.c.c.a(ans.edit().putString(TbEnum.SystemMessage.KEY_USER_ID, str), false);
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            amq = context.getSharedPreferences("crab_user_info", 0);
+            ans = context.getSharedPreferences("crab_user_info", 0);
         }
     }
 
     public static String getUserName() {
-        return amq != null ? amq.getString(TbEnum.SystemMessage.KEY_USER_NAME, "") : "";
+        return ans != null ? ans.getString(TbEnum.SystemMessage.KEY_USER_NAME, "") : "";
     }
 
     public static void setUserName(String str) {
-        if (amq != null) {
-            com.baidu.crabsdk.c.c.a(amq.edit().putString(TbEnum.SystemMessage.KEY_USER_NAME, str), false);
+        if (ans != null) {
+            com.baidu.crabsdk.c.c.a(ans.edit().putString(TbEnum.SystemMessage.KEY_USER_NAME, str), false);
         }
     }
 
-    public static HashMap<String, String> tl() {
-        if (amy == null) {
-            amy = new HashMap<>();
+    public static HashMap<String, String> uT() {
+        if (anA == null) {
+            anA = new HashMap<>();
         }
-        return amy;
+        return anA;
     }
 }

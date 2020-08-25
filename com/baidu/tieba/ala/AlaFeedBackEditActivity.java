@@ -23,39 +23,39 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.utils.h;
 import com.baidu.live.utils.q;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouchListener {
-    private long aZc;
     private int availableHeight;
-    private com.baidu.tieba.ala.c.a fjm;
-    private long fjn;
-    private int fjp;
+    private long bew;
+    private com.baidu.tieba.ala.c.a fuI;
+    private long fuJ;
+    private int fuL;
     private boolean mIsHost;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private View mRootView;
     private int mScreenWidth;
     private long mUserId;
-    private boolean aIs = false;
-    private boolean aLL = false;
-    private boolean aLM = false;
+    private boolean aND = false;
+    private boolean aQY = false;
+    private boolean aQZ = false;
     private boolean mIsKeyboardOpen = false;
-    private boolean fjo = true;
-    private final CustomMessageListener aII = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.3
+    private boolean fuK = true;
+    private final CustomMessageListener aNT = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaFeedBackEditActivity.this.closeActivity();
         }
     };
-    private final CustomMessageListener fjq = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.4
+    private final CustomMessageListener fuM = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaFeedBackEditActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener aLH = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.5
+    private ViewTreeObserver.OnGlobalLayoutListener aQU = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.5
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaFeedBackEditActivity.this.getPageContext().getPageActivity());
@@ -66,7 +66,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
                         @Override // java.lang.Runnable
                         public void run() {
                             if (AlaFeedBackEditActivity.this.mRootView != null) {
-                                h.X(AlaFeedBackEditActivity.this.mRootView);
+                                h.Y(AlaFeedBackEditActivity.this.mRootView);
                                 q.e(AlaFeedBackEditActivity.this.getActivity(), false);
                             }
                         }
@@ -84,9 +84,9 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
             } else if (AlaFeedBackEditActivity.this.mLastScreenWidth != screenFullSize[0]) {
                 AlaFeedBackEditActivity.this.mLastScreenWidth = screenFullSize[0];
             }
-            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaFeedBackEditActivity.this.mIsKeyboardOpen || z) && AlaFeedBackEditActivity.this.fjo)) {
+            if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!AlaFeedBackEditActivity.this.mIsKeyboardOpen || z) && AlaFeedBackEditActivity.this.fuK)) {
                 AlaFeedBackEditActivity.this.mIsKeyboardOpen = true;
-                AlaFeedBackEditActivity.this.fjp = screenFullSize[1] - rect.bottom;
+                AlaFeedBackEditActivity.this.fuL = screenFullSize[1] - rect.bottom;
                 AlaFeedBackEditActivity.this.onKeyboardVisibilityChanged(true);
             } else if (screenFullSize[1] - rect.height() <= statusBarHeight && AlaFeedBackEditActivity.this.mIsKeyboardOpen) {
                 AlaFeedBackEditActivity.this.mIsKeyboardOpen = false;
@@ -103,32 +103,32 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
         if (bundle != null) {
-            this.aZc = bundle.getLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
-            this.fjn = bundle.getLong("ala_live_cur_anchor_id");
+            this.bew = bundle.getLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
+            this.fuJ = bundle.getLong("ala_live_cur_anchor_id");
             this.mUserId = bundle.getLong("ala_live_cur_user_id");
             this.mIsHost = bundle.getBoolean("ala_live_cur_is_host", false);
         } else {
-            this.aZc = getIntent().getLongExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, 0L);
-            this.fjn = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
+            this.bew = getIntent().getLongExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, 0L);
+            this.fuJ = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
             this.mUserId = getIntent().getLongExtra("ala_live_cur_user_id", 0L);
             this.mIsHost = getIntent().getBooleanExtra("ala_live_cur_is_host", false);
         }
-        registerListener(this.fjq);
-        registerListener(this.aII);
-        this.fjm = new com.baidu.tieba.ala.c.a(getPageContext(), this.aZc, this.fjn, this.mUserId, this.mIsHost);
-        this.mRootView = this.fjm.getView();
+        registerListener(this.fuM);
+        registerListener(this.aNT);
+        this.fuI = new com.baidu.tieba.ala.c.a(getPageContext(), this.bew, this.fuJ, this.mUserId, this.mIsHost);
+        this.mRootView = this.fuI.getView();
         if (this.mRootView == null) {
             super.finish();
             return;
         }
-        buA();
+        bDv();
         setContentView(this.mRootView);
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            h.X(this.mRootView);
+            h.Y(this.mRootView);
             q.e(getActivity(), false);
         }
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        this.aLL = false;
+        this.aQY = false;
         this.mRootView.setVisibility(4);
     }
 
@@ -136,20 +136,20 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aIs) {
+        if (!this.aND) {
             this.mRootView.setVisibility(0);
-            Aa();
-            this.aIs = true;
+            FD();
+            this.aND = true;
         }
     }
 
-    private void Aa() {
+    private void FD() {
         Animation loadAnimation;
-        this.aLL = true;
+        this.aQY = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0185a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0185a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -158,7 +158,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaFeedBackEditActivity.this.aLL = false;
+                AlaFeedBackEditActivity.this.aQY = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -168,13 +168,13 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Ab() {
+    private void FE() {
         Animation loadAnimation;
-        if (!this.aLM && !this.aLL) {
+        if (!this.aQZ && !this.aQY) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0185a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0178a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0185a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaFeedBackEditActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
@@ -191,17 +191,17 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aLM = true;
+            this.aQZ = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        if (!this.aLM) {
-            this.fjm.onDestroy();
+        if (!this.aQZ) {
+            this.fuI.onDestroy();
         }
-        Ab();
+        FE();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -209,18 +209,18 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
         super.onConfigurationChanged(configuration);
         if (this.mRootView != null) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                h.X(this.mRootView);
+                h.Y(this.mRootView);
                 q.e(getActivity(), false);
             } else {
-                h.Y(this.mRootView);
+                h.Z(this.mRootView);
                 q.e(getActivity(), true);
             }
-            buA();
-            buz();
+            bDv();
+            bDu();
         }
     }
 
-    private void buA() {
+    private void bDv() {
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
             this.mRootView.setBackgroundResource(a.f.ala_choose_feedback_act_bg_land);
         } else {
@@ -231,8 +231,8 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, this.aZc);
-        bundle.putLong("ala_live_cur_anchor_id", this.fjn);
+        bundle.putLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, this.bew);
+        bundle.putLong("ala_live_cur_anchor_id", this.fuJ);
         bundle.putLong("ala_live_cur_user_id", this.mUserId);
         bundle.putBoolean("ala_live_cur_is_host", this.mIsHost);
     }
@@ -240,10 +240,10 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        buz();
+        bDu();
     }
 
-    private void buz() {
+    private void bDu() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -262,7 +262,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aLH);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aQU);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -283,14 +283,14 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.fjo = true;
+        this.fuK = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.fjo = false;
+        this.fuK = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -300,14 +300,14 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
         if (this.mRootView != null && (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
             if (z) {
-                layoutParams.bottomMargin = this.fjp;
+                layoutParams.bottomMargin = this.fuL;
             } else {
                 layoutParams.bottomMargin = 0;
             }
             this.mRootView.setLayoutParams(layoutParams);
         }
-        if (this.fjm != null) {
-            this.fjm.onKeyboardVisibilityChanged(z);
+        if (this.fuI != null) {
+            this.fuI.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -348,7 +348,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aLH);
-        this.aLH = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aQU);
+        this.aQU = null;
     }
 }

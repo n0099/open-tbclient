@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.live.tbadk.img.effect.ResizeImageAction;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.Iterator;
@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImageFileInfo extends MediaFileInfo {
     public static final int IMAGE_TYPE_EMOTION = 1;
     public static final int IMAGE_TYPE_NORMAL = 0;
@@ -47,14 +47,14 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public String toCachedKey(boolean z) {
         if (getImageType() == 1) {
-            return com.baidu.adp.lib.e.c.ln().genCacheKey(this.filePath, 20);
+            return com.baidu.adp.lib.e.c.mM().genCacheKey(this.filePath, 20);
         }
         if (z) {
             if (this._cacheKey_all == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (x.getCount(this.persistActionsList) > 0) {
+                if (y.getCount(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -63,7 +63,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (x.getCount(this.pageActionsList) > 0) {
+                if (y.getCount(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();

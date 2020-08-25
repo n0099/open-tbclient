@@ -9,15 +9,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> nTA;
-    final org.a.b<? extends T> nTz;
+    final org.b.b<? extends T> onv;
+    final org.b.b<? extends T> onw;
     final int prefetch;
 
     @Override // io.reactivex.w
     public void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.prefetch, this.comparer);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.nTz, this.nTA);
+        equalCoordinator.subscribe(this.onv, this.onw);
     }
 
     /* loaded from: classes7.dex */
@@ -38,7 +38,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
             this.second = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
         }
 
-        void subscribe(org.a.b<? extends T> bVar, org.a.b<? extends T> bVar2) {
+        void subscribe(org.b.b<? extends T> bVar, org.b.b<? extends T> bVar2) {
             bVar.subscribe(this.first);
             bVar2.subscribe(this.second);
         }
@@ -88,7 +88,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                                 t = gVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.K(th);
+                                io.reactivex.exceptions.a.J(th);
                                 cancelAndClear();
                                 this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
@@ -104,7 +104,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                                 t3 = gVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.K(th2);
+                                io.reactivex.exceptions.a.J(th2);
                                 cancelAndClear();
                                 this.error.addThrowable(th2);
                                 this.actual.onError(this.error.terminate());
@@ -132,7 +132,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
                                 this.first.request();
                                 this.second.request();
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.K(th3);
+                                io.reactivex.exceptions.a.J(th3);
                                 cancelAndClear();
                                 this.error.addThrowable(th3);
                                 this.actual.onError(this.error.terminate());

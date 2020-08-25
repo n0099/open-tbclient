@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.i;
 import com.meizu.cloud.pushsdk.b.c.k;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public final class a {
     public static String a = null;
 

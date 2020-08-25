@@ -2,53 +2,53 @@ package io.reactivex.processors;
 
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class AsyncProcessor<T> extends a<T> {
-    static final AsyncSubscription[] nWV = new AsyncSubscription[0];
-    static final AsyncSubscription[] nWW = new AsyncSubscription[0];
+    static final AsyncSubscription[] oqS = new AsyncSubscription[0];
+    static final AsyncSubscription[] oqT = new AsyncSubscription[0];
     Throwable error;
     final AtomicReference<AsyncSubscription<T>[]> subscribers;
     T value;
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == nWW) {
+        if (this.subscribers.get() == oqT) {
             dVar.cancel();
         } else {
             dVar.request(Long.MAX_VALUE);
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.k(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != nWW) {
+        if (this.subscribers.get() != oqT) {
             this.value = t;
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nWW) {
+        if (this.subscribers.get() == oqT) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(nWW)) {
+        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(oqT)) {
             asyncSubscription.onError(th);
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != nWW) {
+        if (this.subscribers.get() != oqT) {
             T t = this.value;
-            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(nWW);
+            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(oqT);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -94,7 +94,7 @@ public final class AsyncProcessor<T> extends a<T> {
         AsyncSubscription<T>[] asyncSubscriptionArr2;
         do {
             asyncSubscriptionArr = this.subscribers.get();
-            if (asyncSubscriptionArr == nWW) {
+            if (asyncSubscriptionArr == oqT) {
                 return false;
             }
             int length = asyncSubscriptionArr.length;
@@ -126,7 +126,7 @@ public final class AsyncProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncSubscriptionArr2 = nWV;
+                        asyncSubscriptionArr2 = oqS;
                     } else {
                         asyncSubscriptionArr2 = new AsyncSubscription[length - 1];
                         System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr2, 0, i);
@@ -152,7 +152,7 @@ public final class AsyncProcessor<T> extends a<T> {
             this.parent = asyncProcessor;
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
         public void cancel() {
             if (super.tryCancel()) {
                 this.parent.b(this);

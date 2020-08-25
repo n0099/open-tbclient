@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.editortools.m;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static m v(Context context, int i) {
+    public static n x(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(R.layout.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -32,13 +32,13 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        ao.setViewTextColor(multiImgToolView.getMutiImageTips(), R.color.cp_cont_c, 1);
+        ap.setViewTextColor(multiImgToolView.getMutiImageTips(), R.color.cp_cont_c, 1);
         return multiImgToolView;
     }
 
-    private static View a(Context context, final m mVar) {
+    private static View a(Context context, final n nVar) {
         ImageView imageView = new ImageView(context);
-        ao.setImageResource(imageView, R.drawable.btn_add_photo_selector);
+        ap.setImageResource(imageView, R.drawable.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(R.string.add));
@@ -47,8 +47,8 @@ public class c {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this != null) {
-                    m.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
+                if (n.this != null) {
+                    n.this.b(new com.baidu.tbadk.editortools.a(14, -1, true));
                 }
             }
         });

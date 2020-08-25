@@ -5,7 +5,7 @@ import android.location.LocationListener;
 import android.os.Bundle;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class f implements LocationListener {
     final /* synthetic */ d a;
 
@@ -16,28 +16,32 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
+        boolean z;
         Location location2;
         WLocData wLocData;
         Location location3;
         Location location4;
-        if (location != null) {
-            location2 = this.a.u;
-            if (location2 == null) {
-                this.a.a(location);
-            } else {
-                d dVar = this.a;
-                location3 = this.a.u;
-                if (dVar.a(location, location3)) {
-                    this.a.u = location;
+        if (location != null && !com.baidu.platform.comapi.wnplatform.a.a().d()) {
+            z = this.a.i;
+            if (!z) {
+                location2 = this.a.v;
+                if (location2 == null) {
+                    this.a.a(location);
+                } else {
+                    d dVar = this.a;
+                    location3 = this.a.v;
+                    if (dVar.a(location, location3)) {
+                        this.a.v = location;
+                    }
+                    d dVar2 = this.a;
+                    location4 = this.a.v;
+                    dVar2.a(location4);
                 }
-                d dVar2 = this.a;
-                location4 = this.a.u;
-                dVar2.a(location4);
+                d dVar3 = this.a;
+                wLocData = this.a.c;
+                dVar3.a(wLocData, "gps");
+                this.a.h = true;
             }
-            d dVar3 = this.a;
-            wLocData = this.a.c;
-            dVar3.a(wLocData, "gps");
-            this.a.h = true;
         }
     }
 

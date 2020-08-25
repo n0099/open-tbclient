@@ -20,13 +20,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private c akR;
+    private c alT;
     private Context l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         static boolean a(String str, int i) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -43,15 +43,15 @@ public class f {
 
     public f(Context context, c cVar) {
         this.l = context;
-        this.akR = cVar;
+        this.alT = cVar;
     }
 
-    private e V(Context context) {
+    private e X(Context context) {
         String str;
         e eVar;
         e eVar2 = null;
-        List<b> U = this.akR.U(context);
-        if (U != null) {
+        List<b> N = this.alT.N(context);
+        if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
                 str = com.baidu.fsg.face.base.b.c.g;
@@ -59,11 +59,11 @@ public class f {
                 Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                 str = filesDir.getName();
             }
-            for (b bVar : U) {
+            for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.a.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.ace.dataDir, str), "libcuid.so");
                     if (file.exists()) {
-                        eVar = e.db(com.baidu.cesium.f.c.a(file));
+                        eVar = e.dm(com.baidu.cesium.f.c.a(file));
                         if (eVar != null) {
                             return eVar;
                         }
@@ -204,7 +204,7 @@ public class f {
         }
     }
 
-    private e de(String str) {
+    private e dp(String str) {
         String str2 = "";
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
@@ -233,7 +233,7 @@ public class f {
         } catch (IOException e2) {
         } catch (Exception e3) {
         }
-        return e.P(str2, str3);
+        return e.S(str2, str3);
     }
 
     private static void e(String str) {
@@ -265,28 +265,28 @@ public class f {
         return "0";
     }
 
-    private e sK() {
+    private e us() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
-            return e.db(com.baidu.cesium.f.c.a(file));
+            return e.dm(com.baidu.cesium.f.c.a(file));
         }
         return null;
     }
 
-    private e sL() {
-        return e.P(d("com.baidu.deviceid"), d("bd_setting_i"));
+    private e ut() {
+        return e.S(d("com.baidu.deviceid"), d("bd_setting_i"));
     }
 
     public void a(e eVar) {
         File file = new File(this.l.getFilesDir(), "libcuid.so");
         String c = eVar.c();
         if (file.exists()) {
-            e db = e.db(com.baidu.cesium.f.c.a(file));
-            if (db != null) {
-                if (db.e()) {
-                    b(db.c());
+            e dm = e.dm(com.baidu.cesium.f.c.a(file));
+            if (dm != null) {
+                if (dm.e()) {
+                    b(dm.c());
                 }
-            } else if (db == null) {
+            } else if (dm == null) {
                 b(c);
             }
         } else {
@@ -298,12 +298,12 @@ public class f {
             if (TextUtils.isEmpty(d)) {
                 a("com.baidu.deviceid.v2", c);
             } else {
-                e db2 = e.db(d);
-                if (db2 != null) {
-                    if (db2.e()) {
-                        a("com.baidu.deviceid.v2", db2.c());
+                e dm2 = e.dm(d);
+                if (dm2 != null) {
+                    if (dm2.e()) {
+                        a("com.baidu.deviceid.v2", dm2.c());
                     }
-                } else if (db2 == null) {
+                } else if (dm2 == null) {
                     a("com.baidu.deviceid.v2", c);
                 }
             }
@@ -311,12 +311,12 @@ public class f {
         boolean c2 = c("android.permission.WRITE_EXTERNAL_STORAGE");
         if (c2) {
             if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
-                e sK = sK();
-                if (sK != null) {
-                    if (sK.e()) {
-                        e(sK.c());
+                e us = us();
+                if (us != null) {
+                    if (us.e()) {
+                        e(us.c());
                     }
-                } else if (sK == null) {
+                } else if (us == null) {
                     e(c);
                 }
             } else {
@@ -332,37 +332,38 @@ public class f {
             }
         }
         if (c2 && new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists()) {
-            e de2 = de(f(""));
-            if (de2 == null) {
-                if (de2 == null) {
+            e dp = dp(f(""));
+            if (dp == null) {
+                if (dp == null) {
                 }
-            } else if (de2.e()) {
-                b(de2.e, de2.d);
+            } else if (dp.e()) {
+                b(dp.e, dp.d);
             }
         }
     }
 
-    public e dd(String str) {
-        e V = 0 == 0 ? V(this.l) : null;
-        if (V == null) {
-            V = e.db(d("com.baidu.deviceid.v2"));
+    /* renamed from: do  reason: not valid java name */
+    public e m21do(String str) {
+        e X = 0 == 0 ? X(this.l) : null;
+        if (X == null) {
+            X = e.dm(d("com.baidu.deviceid.v2"));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
-        e sK = (V == null && c) ? sK() : V;
-        if (sK == null) {
-            sK = sL();
+        e us = (X == null && c) ? us() : X;
+        if (us == null) {
+            us = ut();
         }
         boolean z = false;
-        if (sK == null && c) {
+        if (us == null && c) {
             z = true;
-            sK = de(f(""));
+            us = dp(f(""));
         }
         if (!z) {
             f("");
         }
-        if (sK != null) {
-            sK.e();
+        if (us != null) {
+            us.e();
         }
-        return sK;
+        return us;
     }
 }

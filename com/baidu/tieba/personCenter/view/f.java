@@ -16,38 +16,38 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.c.g;
 /* loaded from: classes16.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> {
-    private ImageView ilE;
-    private LinearLayout kQA;
-    private com.baidu.tieba.personCenter.c.g kQB;
-    private View kQy;
-    private TextView kQz;
+    private ImageView izH;
+    private View lgo;
+    private TextView lgp;
+    private LinearLayout lgq;
+    private com.baidu.tieba.personCenter.c.g lgr;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.kQy = view.findViewById(R.id.create_center_container);
-        this.kQz = (TextView) view.findViewById(R.id.text_create_center);
-        this.ilE = (ImageView) view.findViewById(R.id.img_arrow);
-        this.ilE.setOnClickListener(this);
-        this.kQA = (LinearLayout) view.findViewById(R.id.func_entrance);
+        this.lgo = view.findViewById(R.id.create_center_container);
+        this.lgp = (TextView) view.findViewById(R.id.text_create_center);
+        this.izH = (ImageView) view.findViewById(R.id.img_arrow);
+        this.izH.setOnClickListener(this);
+        this.lgq = (LinearLayout) view.findViewById(R.id.func_entrance);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.kQz, R.color.cp_cont_b);
-        SvgManager.baR().a(this.ilE, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        for (int i2 = 0; i2 < this.kQA.getChildCount(); i2++) {
-            ao.setViewTextColor((TextView) this.kQA.getChildAt(i2).findViewById(R.id.create_center_item_text), R.color.cp_cont_b);
+        ap.setViewTextColor(this.lgp, R.color.cp_cont_b);
+        SvgManager.bjq().a(this.izH, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        for (int i2 = 0; i2 < this.lgq.getChildCount(); i2++) {
+            ap.setViewTextColor((TextView) this.lgq.getChildAt(i2).findViewById(R.id.create_center_item_text), R.color.cp_cont_b);
         }
-        com.baidu.tbadk.core.util.e.a.bbq().mj(1).ml(l.getDimens(this.mContext, R.dimen.tbds21)).mq(R.color.cp_bg_line_d).mm(R.color.cp_shadow_a_alpha33).mk(4369).mn(l.getDimens(this.mContext, R.dimen.tbds16)).mo(0).mp(l.getDimens(this.mContext, R.dimen.tbds5)).aX(this.kQy);
+        com.baidu.tbadk.core.util.e.a.bjP().on(1).op(l.getDimens(this.mContext, R.dimen.tbds21)).ou(R.color.cp_bg_line_d).oq(R.color.cp_shadow_a_alpha33).oo(4369).or(l.getDimens(this.mContext, R.dimen.tbds16)).os(0).ot(l.getDimens(this.mContext, R.dimen.tbds5)).aZ(this.lgo);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -58,16 +58,16 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personCenter.c.g gVar) {
-        if (gVar != null && !x.isEmpty(gVar.dAT)) {
-            if (gVar != this.kQB) {
-                this.kQA.removeAllViews();
-                int equipmentWidth = (l.getEquipmentWidth(this.mContext) - (l.getDimens(this.mContext, R.dimen.tbds44) * 2)) / gVar.dAT.size();
-                for (g.a aVar : gVar.dAT) {
+        if (gVar != null && !y.isEmpty(gVar.dKd)) {
+            if (gVar != this.lgr) {
+                this.lgq.removeAllViews();
+                int equipmentWidth = (l.getEquipmentWidth(this.mContext) - (l.getDimens(this.mContext, R.dimen.tbds44) * 2)) / gVar.dKd.size();
+                for (g.a aVar : gVar.dKd) {
                     if (aVar != null) {
-                        this.kQA.addView(a(this.mContext, aVar), new LinearLayout.LayoutParams(equipmentWidth, -2));
+                        this.lgq.addView(a(this.mContext, aVar), new LinearLayout.LayoutParams(equipmentWidth, -2));
                     }
                 }
-                this.kQB = gVar;
+                this.lgr = gVar;
             }
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
@@ -75,8 +75,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.ilE.getId()) {
-            bx(R.string.create_center, TbConfig.URL_CREATE_CENTER);
+        if (view.getId() == this.izH.getId()) {
+            bv(R.string.create_center, TbConfig.URL_CREATE_CENTER);
             TiebaStatic.log("c13842");
         }
     }
@@ -91,7 +91,7 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         tbImageView.setId(R.id.create_center_item_img);
-        tbImageView.setImageResource(aVar.kPr);
+        tbImageView.setImageResource(aVar.lfh);
         int dimens = l.getDimens(context, R.dimen.tbds126);
         linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(dimens, dimens));
         TextView textView = new TextView(context);
@@ -113,28 +113,28 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.g> 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(g.a aVar) {
-        if (aVar != null && this.kQB != null && this.kQB.mUserData != null) {
+        if (aVar != null && this.lgr != null && this.lgr.mUserData != null) {
             if (aVar.type == 1) {
-                TiebaStatic.log(new ap("c12523").ah("obj_locate", 8));
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mTbPageContext.getPageActivity(), this.kQB.mUserData.getUserId(), this.kQB.mUserData.getSex(), this.kQB.mUserData.getPortrait())));
+                TiebaStatic.log(new aq("c12523").ai("obj_locate", 8));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mTbPageContext.getPageActivity(), this.lgr.mUserData.getUserId(), this.lgr.mUserData.getSex(), this.lgr.mUserData.getPortrait())));
                 TiebaStatic.log("c13843");
             } else if (aVar.type == 2) {
-                bx(R.string.god_authentication, TbConfig.URL_GOD_AUTH);
-                TiebaStatic.log(new ap("c13844").ah("obj_type", 1));
+                bv(R.string.god_authentication, TbConfig.URL_GOD_AUTH);
+                TiebaStatic.log(new aq("c13844").ai("obj_type", 1));
             } else if (aVar.type == 5) {
-                bx(R.string.god_examination, TbConfig.URL_GOD_EXAMINE);
-                TiebaStatic.log(new ap("c13844").ah("obj_type", 2));
+                bv(R.string.god_examination, TbConfig.URL_GOD_EXAMINE);
+                TiebaStatic.log(new aq("c13844").ai("obj_type", 2));
             } else if (aVar.type == 3) {
-                bx(R.string.create_college, TbConfig.URL_CREATE_COLLEGE);
+                bv(R.string.create_college, TbConfig.URL_CREATE_COLLEGE);
                 TiebaStatic.log("c13845");
             } else if (aVar.type == 4) {
-                bx(R.string.hot_activities, TbConfig.URL_HOT_ACTIVITIES);
+                bv(R.string.hot_activities, TbConfig.URL_HOT_ACTIVITIES);
                 TiebaStatic.log("c13846");
             }
         }
     }
 
-    private void bx(int i, String str) {
+    private void bv(int i, String str) {
         this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(i), str, true)));
     }
 }

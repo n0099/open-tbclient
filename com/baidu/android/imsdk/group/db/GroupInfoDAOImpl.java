@@ -18,13 +18,13 @@ import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class GroupInfoDAOImpl {
     private static final String TAG = "GroupInfoDAOImpl";
     private static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         private GroupInfoParse() {
         }

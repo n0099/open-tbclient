@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     public JsonHttpResponsedMessage(int i) {
         super(i);

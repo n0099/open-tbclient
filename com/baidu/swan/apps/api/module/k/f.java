@@ -1,43 +1,51 @@
 package com.baidu.swan.apps.api.module.k;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends com.baidu.swan.apps.api.a.d {
+    private String bXF;
+    private com.baidu.swan.apps.ap.e.b<Integer> bXG;
+
     public f(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
+        this.bXG = new com.baidu.swan.apps.ap.e.b<Integer>() { // from class: com.baidu.swan.apps.api.module.k.f.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.ap.e.b
+            /* renamed from: b */
+            public void I(Integer num) {
+                if (num.intValue() == 1 || num.intValue() == 0) {
+                    f.this.acl();
+                }
+            }
+        };
     }
 
-    public com.baidu.swan.apps.api.c.b iA(String str) {
-        if (DEBUG) {
-            Log.d("Api-PhoneCallApi", "start make phone call");
-        }
-        if (VF()) {
-            com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "Api-PhoneCallApi does not supported when app is invisible.");
-            return new com.baidu.swan.apps.api.c.b(1001, "Api-PhoneCallApi does not supported when app is invisible.");
-        }
-        Intent intent = new Intent("android.intent.action.DIAL");
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aS = com.baidu.swan.apps.api.d.b.aS("Api-PhoneCallApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aS.first;
+    public com.baidu.swan.apps.api.c.b jX(String str) {
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ExitFullScreenApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
-            com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "parse fail");
+            if (DEBUG) {
+                com.baidu.swan.apps.console.c.e("Api-ExitFullScreenApi", "parse fail");
+                return bVar;
+            }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aS.second;
-        if (jSONObject != null) {
-            String optString = jSONObject.optString("phoneNumber");
-            if (!TextUtils.isEmpty(optString)) {
-                intent.setData(Uri.parse("tel:" + optString));
-            }
+        this.bXF = ((JSONObject) aX.second).optString("cb");
+        if (TextUtils.isEmpty(this.bXF)) {
+            return new com.baidu.swan.apps.api.c.b(201);
         }
-        if (com.baidu.swan.apps.aq.e.startActivitySafely(getContext(), intent)) {
-            return new com.baidu.swan.apps.api.c.b(0);
-        }
-        return new com.baidu.swan.apps.api.c.b(1001);
+        j.aco().b(this.bXG);
+        j.aco().act();
+        return new com.baidu.swan.apps.api.c.b(0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void acl() {
+        j.aco().acu();
+        j.aco().acr();
+        a(this.bXF, new com.baidu.swan.apps.api.c.b(0));
     }
 }

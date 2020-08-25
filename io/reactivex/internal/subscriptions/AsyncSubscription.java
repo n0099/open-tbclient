@@ -4,7 +4,7 @@ import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class AsyncSubscription extends AtomicLong implements b, d {
     private static final long serialVersionUID = 7028635084060361255L;
@@ -21,12 +21,12 @@ public final class AsyncSubscription extends AtomicLong implements b, d {
         this.resource.lazySet(bVar);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         SubscriptionHelper.deferredRequest(this.actual, this, j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         dispose();
     }

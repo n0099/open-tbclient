@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public static final int CANT_CHAT = 2230303;
     private String toUserId;
@@ -47,7 +47,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         }
         long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
         setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-        setMsgId(d.fe(longValue));
+        setMsgId(d.fq(longValue));
         setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
         setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
         setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

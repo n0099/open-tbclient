@@ -1,15 +1,10 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes7.dex */
+import android.content.Context;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface z {
-    void Uw();
+    void a(Context context, String[] strArr, int i);
 
-    void Ux();
-
-    void Uy();
-
-    void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.u.c.b bVar);
+    void j(Context context, JSONObject jSONObject);
 }

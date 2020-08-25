@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static int W = 2000;
     public static int X = 1;
-    static a alr = null;
-    private long Y;
+    static a amu = null;
     private long Z;
-    private long aln;
-    private long alo;
-    private StringBuilder alp = new StringBuilder();
-    public ArrayList<String> alq = new ArrayList<>();
+    private long aa;
+    private long ab;
+    private long amr;
+    private StringBuilder ams = new StringBuilder();
+    public ArrayList<String> amt = new ArrayList<>();
 
     private a() {
     }
 
     private String g() {
-        Iterator<String> it = this.alq.iterator();
+        Iterator<String> it = this.amt.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.alp.append(next);
+            this.ams.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -43,30 +43,30 @@ public final class a {
         return W * 0.6f;
     }
 
-    public static a sZ() {
-        if (alr == null) {
+    public static a uH() {
+        if (amu == null) {
             synchronized (a.class) {
-                if (alr == null) {
-                    alr = new a();
+                if (amu == null) {
+                    amu = new a();
                 }
             }
         }
-        return alr;
+        return amu;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.Y = j2 - j;
+        this.amr = j2 - j;
         this.Z = j4 - j3;
-        this.aln = j;
-        this.alo = j2;
+        this.aa = j;
+        this.ab = j2;
         return this;
     }
 
-    public final Map<String, Object> ta() {
+    public final Map<String, Object> uI() {
         HashMap hashMap = new HashMap();
-        long j = this.aln;
-        long j2 = this.alo;
-        long j3 = this.Y;
+        long j = this.aa;
+        long j2 = this.ab;
+        long j3 = this.amr;
         long j4 = this.Z;
         String g = g();
         if (TextUtils.isEmpty(g)) {
@@ -78,10 +78,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.alp.toString());
+        hashMap.put("errorTrace", this.ams.toString());
         hashMap.put("errorLine", g);
         hashMap.put("errorOriLine", g);
-        this.alp.setLength(0);
+        this.ams.setLength(0);
         return hashMap;
     }
 }

@@ -10,17 +10,17 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class p {
-    private static com.baidu.ar.lua.c vB;
-    private static final List<String> vC = Arrays.asList(StatisticConstants.EVENT_FILTER_ADJUST, StatisticConstants.EVENT_FILTER_SWITCH, StatisticConstants.EVENT_BEAUTIFY_ADJUST);
+    private static com.baidu.ar.lua.c we;
+    private static final List<String> wf = Arrays.asList(StatisticConstants.EVENT_FILTER_ADJUST, StatisticConstants.EVENT_FILTER_SWITCH, StatisticConstants.EVENT_BEAUTIFY_ADJUST);
 
     public static void b(com.baidu.ar.lua.b bVar) {
-        vB = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.statistic.p.1
+        we = new com.baidu.ar.lua.c() { // from class: com.baidu.ar.statistic.p.1
             @Override // com.baidu.ar.lua.c
             public void a(int i, int i2, HashMap<String, Object> hashMap) {
                 if (i == 1801) {
-                    p.q(hashMap);
+                    p.o(hashMap);
                 } else if (i == 1901) {
-                    p.p(hashMap);
+                    p.n(hashMap);
                 }
             }
 
@@ -32,20 +32,20 @@ public class p {
                 return arrayList;
             }
         };
-        bVar.c(vB);
+        bVar.c(we);
     }
 
     public static void c(com.baidu.ar.lua.b bVar) {
-        if (vB != null) {
+        if (we != null) {
             if (bVar != null) {
-                bVar.d(vB);
+                bVar.d(we);
             }
-            vB = null;
+            we = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void p(HashMap<String, Object> hashMap) {
+    public static void n(HashMap<String, Object> hashMap) {
         if (hashMap != null && hashMap.containsKey(LuaMessageHelper.KEY_EVENT_NAME) && hashMap.containsKey("event_id") && "statistic_lua_event".equals((String) hashMap.get(LuaMessageHelper.KEY_EVENT_NAME))) {
             String str = (String) hashMap.get("event_id");
             Object obj = hashMap.get("event_map");
@@ -58,7 +58,7 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void q(HashMap<String, Object> hashMap) {
+    public static void o(HashMap<String, Object> hashMap) {
         if (hashMap != null) {
             String str = (String) hashMap.get("id");
             String str2 = (String) hashMap.get("type");
@@ -78,7 +78,7 @@ public class p {
                     hashMap2.put("event_param", str);
                 }
             }
-            if (vC.contains(str2)) {
+            if (wf.contains(str2)) {
                 StatisticApi.onEventDebounce(str2, 200L, hashMap2);
             } else {
                 StatisticApi.onEvent(str2, hashMap2);

@@ -1,35 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class z extends com.baidu.tbadk.core.data.m {
-    private long mStartTime = Long.MAX_VALUE;
-    private long mEndTime = 0;
-    private String eqw = null;
+/* loaded from: classes2.dex */
+public class z {
+    private String link;
+    private int offline;
+    private String title;
 
-    @Override // com.baidu.tbadk.core.data.m
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mStartTime = jSONObject.optLong("start_time", Long.MAX_VALUE);
-                this.mEndTime = jSONObject.optLong("end_time", 0L);
-                this.eqw = jSONObject.optString("dest_url", "");
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if (jSONObject != null && jSONObject != null) {
+            this.offline = jSONObject.optInt("offline");
+            this.title = jSONObject.optString("title");
+            this.link = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.link)) {
+                this.link = this.link.replaceFirst("webview:", "http://");
             }
         }
-    }
-
-    public long getStartTime() {
-        return this.mStartTime;
-    }
-
-    public long getEndTime() {
-        return this.mEndTime;
-    }
-
-    public String bei() {
-        return this.eqw;
     }
 }

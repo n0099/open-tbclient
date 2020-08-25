@@ -1,23 +1,23 @@
 package com.baidu.ar.face;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.ar.arrender.j;
-import com.baidu.ar.arrender.l;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.ar.c;
-import com.baidu.ar.c.e;
+import com.baidu.ar.arrender.k;
+import com.baidu.ar.d.e;
 import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.AlgoHandleController;
-import com.baidu.ar.f.g;
-import com.baidu.ar.face.a.d;
-import com.baidu.ar.face.a.h;
+import com.baidu.ar.face.a.a;
 import com.baidu.ar.face.algo.FAUPoint2D;
 import com.baidu.ar.face.algo.FaceFrame;
-import com.baidu.ar.face.b.a;
+import com.baidu.ar.face.detector.FaceDetector;
+import com.baidu.ar.face.detector.j;
+import com.baidu.ar.face.detector.l;
+import com.baidu.ar.face.detector.m;
 import com.baidu.ar.filter.FilterNode;
 import com.baidu.ar.filter.FilterParam;
+import com.baidu.ar.g.i;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
@@ -28,62 +28,43 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class FaceAR extends c implements IFace {
+public class FaceAR extends com.baidu.ar.c implements IFace {
     private static final String TAG = FaceAR.class.getSimpleName();
-    private LuaMsgListener ci;
-    private e ly;
-    private com.baidu.ar.face.attributes.a mO;
-    private d mr;
-    private FaceListener ms;
-    private int[] mx;
-    private a.C0085a mz;
-    private List<String> mt = new ArrayList();
-    private String mu = null;
-    private String mv = null;
-    private int mw = 0;
-    private a.b my = null;
-    private int mA = 0;
-    private boolean mB = false;
-    private boolean mC = false;
-    private boolean mD = false;
-    private boolean mE = false;
-    private boolean mF = false;
-    private boolean mG = true;
-    private boolean mH = true;
-    private int mI = 4;
-    private int mJ = this.mI;
-    private boolean mK = false;
-    private int mL = 180;
-    private int mM = 320;
-    private AlgoHandleController ch = null;
-    private boolean mN = true;
-    private int mp = -1;
+    private LuaMsgListener bZ;
+    private FaceDetector mZ;
+    private e mg;
+    private FaceListener na;
+    private int[] nf;
+    private a.C0082a nj;
+    private com.baidu.ar.face.attributes.a nk;
+    private List<String> nb = new ArrayList();
+    private String nc = null;
+    private String nd = null;
+    private int ne = 0;
+    private int ng = 0;
+    b nh = new b();
+    private a.b ni = null;
+    private AlgoHandleController bY = null;
+    private int mX = -1;
+    private boolean nl = false;
+    private Object mLock = new Object();
 
-    private boolean U(String str) {
+    private boolean V(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         File file = new File(str);
         if (file.exists() && file.isDirectory()) {
-            String f = g.f(new File(com.baidu.ar.f.a.aI(str)));
+            String f = i.f(new File(com.baidu.ar.g.a.aM(str)));
             if (TextUtils.isEmpty(f)) {
                 return false;
             }
-            this.mB = b.b(f, false);
-            this.mC = b.c(f, false);
-            this.mD = b.d(f, false);
-            this.mE = b.e(f, false);
-            this.mF = b.f(f, false);
-            this.mG = b.g(f, this.mA != 0);
-            this.mJ = b.b(f, 1);
-            if (this.mJ > 1 && !com.baidu.ar.auth.a.checkFeatureAuth(FeatureCodes.FACE_MULTI)) {
-                this.mJ = 1;
-            }
+            this.nh.b(f, this.ng);
             try {
                 JSONObject jSONObject = new JSONObject(f);
                 if (jSONObject.has("mainTriggers")) {
-                    this.mt.clear();
-                    this.mt.add(jSONObject.getString("mainTriggers"));
+                    this.nb.clear();
+                    this.nb.add(jSONObject.getString("mainTriggers"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -94,19 +75,19 @@ public class FaceAR extends c implements IFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(h hVar) {
-        if (hVar.dc() == null || hVar.dc().getFaceFrame() == null) {
+    public void a(m mVar) {
+        if (mVar.eD() == null || mVar.eD().getFaceFrame() == null) {
             return;
         }
-        FaceFrame faceFrame = hVar.dc().getFaceFrame();
+        FaceFrame faceFrame = mVar.eD().getFaceFrame();
         if (faceFrame.getTriggersList() == null || faceFrame.getTriggersList().size() <= 0) {
             return;
         }
         for (String[] strArr : faceFrame.getTriggersList()) {
             if (strArr != null && strArr.length > 0) {
                 for (String str : strArr) {
-                    if (this.mu != null && this.mu.contains(str) && this.ms != null) {
-                        this.ms.onTriggerFired(str);
+                    if (this.nc != null && this.nc.contains(str) && this.na != null) {
+                        this.na.onTriggerFired(str);
                         StatisticApi.onEvent(StatisticConstants.EVENT_FACE_EXPRESSION);
                     }
                 }
@@ -114,79 +95,38 @@ public class FaceAR extends c implements IFace {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, boolean z2) {
-        if (this.mK != z && r() != null && this.mp >= 0) {
-            r().r(this.mp);
-            if (!z2) {
-                r().a(this.mp, z);
-            }
-        }
-        this.mK = z;
-        if (this.mr != null) {
-            this.mr.E(this.mK);
-        }
-        b(this.mK);
-        if (r() != null) {
-            r().l(this.mK);
-        }
-        this.mN = true;
-    }
-
     private void a(int[] iArr) {
         int[] iArr2 = null;
         try {
-            iArr2 = b.a(this.mx, iArr);
+            iArr2 = c.a(this.nf, iArr);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (iArr2 != null && iArr != null && iArr.length > this.mw) {
+        if (iArr2 != null && iArr != null && iArr.length > this.ne) {
             for (int i : iArr2) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("param_algo_faceid", String.valueOf(i));
                 StatisticApi.onEvent(StatisticConstants.EVENT_FACE_MASKS_ON, hashMap);
             }
-        } else if (iArr2 != null && (iArr == null || iArr.length < this.mw)) {
+        } else if (iArr2 != null && (iArr == null || iArr.length < this.ne)) {
             for (int i2 : iArr2) {
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put("param_algo_faceid", String.valueOf(i2));
                 StatisticApi.onEvent(StatisticConstants.EVENT_FACE_MASKS_OFF, hashMap2);
             }
         }
-        this.mx = iArr;
-    }
-
-    private void aj() {
-        if (this.ci == null) {
-            this.ci = new LuaMsgListener() { // from class: com.baidu.ar.face.FaceAR.2
-                @Override // com.baidu.ar.lua.LuaMsgListener
-                public List<String> getMsgKeyListened() {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(LuaMessageHelper.KEY_EVENT_NAME);
-                    return arrayList;
-                }
-
-                @Override // com.baidu.ar.lua.LuaMsgListener
-                public void onLuaMessage(HashMap<String, Object> hashMap) {
-                    int k = b.k(hashMap);
-                    if (k >= 0) {
-                        FaceAR.this.a(k == 2, false);
-                    }
-                }
-            };
-        }
-        a(this.ci);
+        this.nf = iArr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(h hVar) {
-        if (hVar.dc() == null || hVar.dc().getFaceFrame() == null) {
+    public void b(m mVar) {
+        if (mVar.eD() == null || mVar.eD().getFaceFrame() == null) {
             return;
         }
-        FaceFrame faceFrame = hVar.dc().getFaceFrame();
+        FaceFrame faceFrame = mVar.eD().getFaceFrame();
         if (faceFrame.getTrackedPointsList() == null || faceFrame.getTrackedPointsList().size() <= 0) {
-            this.mw = 0;
-            if (TextUtils.isEmpty(this.mv) || this.mx == null) {
+            this.ne = 0;
+            if (TextUtils.isEmpty(this.nd) || this.nf == null) {
                 return;
             }
             a((int[]) null);
@@ -194,63 +134,37 @@ public class FaceAR extends c implements IFace {
         }
         FAUPoint2D[] fAUPoint2DArr = faceFrame.getTrackedPointsList().get(0);
         int size = faceFrame.getTrackedPointsList().size();
-        if (TextUtils.isEmpty(this.mv) || fAUPoint2DArr.length <= 0) {
+        if (TextUtils.isEmpty(this.nd) || fAUPoint2DArr.length <= 0) {
             return;
         }
-        if (faceFrame.getFaceIDList() != null && this.mw != size) {
+        if (faceFrame.getFaceIDList() != null && this.ne != size) {
             a(faceFrame.getFaceIDList());
         }
-        this.mw = size;
+        this.ne = size;
     }
 
-    private void cM() {
-        if (this.mr != null) {
+    private void dm() {
+        if (this.mZ != null) {
             if (q().contains("ability_face_model")) {
-                this.mr.o("ability_face_model");
+                this.mZ.p("ability_face_model");
             } else if (q().contains("ability_makeup_filter")) {
-                this.mr.o("ability_makeup_filter");
+                this.mZ.p("ability_makeup_filter");
             }
         }
     }
 
-    private void cN() {
-        this.mB = false;
-        this.mC = false;
-        this.mD = false;
-        this.mE = false;
-        this.mF = false;
-        this.mJ = this.mI;
-        this.mG = this.mA != 0;
-        this.mH = true;
+    private boolean dn() {
+        return this.ng == 2 || this.ng == 1;
     }
 
-    private void cO() {
-        com.baidu.ar.face.a.a.cT().C(this.mA);
-        if (this.mz != null) {
-            com.baidu.ar.face.a.a.cT().a(Float.parseFloat(this.mz.oP), Float.parseFloat(this.mz.oQ));
-            com.baidu.ar.face.a.a.cT().e(Float.parseFloat(this.mz.oR));
-        }
-        com.baidu.ar.face.a.a.cT().y(this.mG);
-        com.baidu.ar.face.a.a.cT().A(this.mH);
-        com.baidu.ar.face.a.a.cT().z(this.mF);
-        com.baidu.ar.face.a.a.cT().a(this.mB, this.mC, this.mD);
-        com.baidu.ar.face.a.a.cT().B(this.mE);
-        int i = this.mJ;
-        if (!TextUtils.isEmpty(this.mv)) {
-            i = this.mI < this.mJ ? this.mI : this.mJ;
-        }
-        com.baidu.ar.face.a.a.cT().D(i);
-        com.baidu.ar.face.a.a.cT().b(this.my.nn);
-    }
-
-    private void cP() {
+    /* renamed from: do  reason: not valid java name */
+    private void m19do() {
         int i;
-        int i2 = 180;
         if (this.U) {
-            this.mL = 180;
-            this.mM = 320;
+            this.nh.ds();
             return;
         }
+        int i2 = 180;
         int i3 = this.R;
         int i4 = this.S;
         if (this.T == 90 || this.T == 270) {
@@ -265,70 +179,52 @@ public class FaceAR extends c implements IFace {
         } else {
             i = Math.round(i4 * (180 / i3));
         }
-        this.mL = i2;
-        this.mM = i;
+        this.nh.setAlgoImageWidth(i2);
+        this.nh.setAlgoImageHeight(i);
     }
 
-    private com.baidu.ar.face.a.e cQ() {
-        cP();
-        com.baidu.ar.face.a.e eVar = new com.baidu.ar.face.a.e();
-        eVar.E(this.mL);
-        eVar.F(this.mM);
-        if (this.my == null) {
-            return eVar;
+    private j dp() {
+        m19do();
+        j jVar = new j();
+        jVar.G(this.nh.getAlgoImageWidth());
+        jVar.H(this.nh.getAlgoImageHeight());
+        if (this.ni != null) {
+            jVar.Z(this.ni.pG);
+            jVar.aa(this.ni.pF);
+            jVar.ah(this.ni.pK);
+            jVar.ai(this.ni.pL);
+            String str = this.ni.pH;
+            String str2 = this.ni.pI;
+            String str3 = this.ni.pJ;
+            com.baidu.ar.g.b.c(TAG, "classification result：" + this.ni.pQ);
+            a.C0082a a = this.nh.a(this.ni);
+            if (a != null) {
+                this.nj = a;
+                this.ng = c.a(a.py, str, str2, str3);
+                com.baidu.ar.g.b.c(TAG, "createFaceParams() mDeviceModelLevel = " + this.ng);
+                jVar.ab(a.px);
+                jVar.ac(str);
+                jVar.ad(str2);
+                jVar.ae(str3);
+                jVar.af(a.pz);
+                jVar.ag(a.pA);
+                jVar.setTrackingSmoothAlpha(Float.parseFloat(a.pB));
+                jVar.setTrackingSmoothThreshold(Float.parseFloat(a.pC));
+                jVar.setTrackingMouthThreshold(Float.parseFloat(a.pD));
+            }
         }
-        eVar.V(this.my.oU);
-        eVar.W(this.my.oT);
-        eVar.ad(this.my.oY);
-        eVar.ae(this.my.oZ);
-        a.C0085a c0085a = null;
-        String str = this.my.oV;
-        String str2 = this.my.oW;
-        String str3 = this.my.oX;
-        com.baidu.ar.f.b.c(TAG, "classification result：" + this.my.pe);
-        switch (this.my.pe) {
-            case 0:
-                this.mI = 1;
-                c0085a = this.my.pb;
-                break;
-            case 1:
-                this.mI = 1;
-                c0085a = this.my.pc;
-                break;
-            case 2:
-                this.mI = 4;
-                c0085a = this.my.pd;
-                break;
-            default:
-                com.baidu.ar.f.b.b(TAG, "createFaceParams() device not support!!!");
-                break;
-        }
-        this.mJ = this.mI;
-        if (c0085a != null) {
-            this.mz = c0085a;
-            this.mA = b.a(c0085a.oM, str, str2, str3);
-            eVar.X(c0085a.oL);
-            eVar.Y(str);
-            eVar.Z(str2);
-            eVar.aa(str3);
-            eVar.ab(c0085a.oN);
-            eVar.ac(c0085a.oO);
-            eVar.setTrackingSmoothAlpha(Float.parseFloat(c0085a.oP));
-            eVar.setTrackingSmoothThreshold(Float.parseFloat(c0085a.oQ));
-            eVar.setTrackingMouthThreshold(Float.parseFloat(c0085a.oR));
-        }
-        return eVar;
+        return jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cR() {
-        if (this.mN) {
-            x(true);
-            this.mN = false;
+    public void dq() {
+        if (this.nh.dB()) {
+            y(true);
+            this.nh.z(false);
         }
     }
 
-    private float cS() {
+    private float dr() {
         if (this.R == 0 || this.S == 0) {
             return 56.144978f;
         }
@@ -338,21 +234,29 @@ public class FaceAR extends c implements IFace {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q(long j) {
-        j r = r();
-        if (j <= 0 || r == null || q() == null || q().size() <= 0) {
+        k r = r();
+        if (j <= 0 || r == null || q() == null) {
             return;
         }
-        r.a(j, q().get(0));
+        try {
+            if (q().size() > 0) {
+                r.a(j, q().get(0));
+            }
+        } catch (IndexOutOfBoundsException e) {
+            com.baidu.ar.g.b.b(TAG, "updateRenderFaceHandle IndexOutOfBoundsException!!!!");
+        } catch (NullPointerException e2) {
+            com.baidu.ar.g.b.b(TAG, "updateRenderFaceHandle NullPointerException!!!!");
+        }
         a(j);
     }
 
-    private void x(boolean z) {
+    private void y(boolean z) {
         com.baidu.ar.filter.a s = s();
         if (s != null) {
-            boolean z2 = z && this.mK && q().contains("ability_makeup_filter");
+            boolean z2 = z && this.nh.dC() && q().contains("ability_makeup_filter");
             s.a(FilterNode.makeupFilter, z2);
             s.a(FilterParam.MakeupFilter.beautyMakeupFilter, Integer.valueOf(z2 ? 1 : 0));
-            s.dw();
+            s.eG();
         }
     }
 
@@ -360,21 +264,21 @@ public class FaceAR extends c implements IFace {
     @Override // com.baidu.ar.c
     public void a(long j) {
         super.a(j);
-        if (j <= 0 || this.ch == null) {
+        if (j <= 0 || this.bY == null) {
             return;
         }
         try {
-            if (this.ch.getHandleType(j) != 10 || this.mr == null) {
+            if (this.bY.getHandleType(j) != 10 || this.mZ == null) {
                 return;
             }
             long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j);
             if (handleFaceHandle > 0) {
                 AlgoHandleAdapter.setHandleFaceHandle(j, 0L);
-                if (this.mr != null) {
-                    this.mr.b(handleFaceHandle);
+                if (this.mZ != null) {
+                    this.mZ.b(handleFaceHandle);
                 }
             }
-            this.mr.r(j);
+            this.mZ.s(j);
         } catch (Exception e) {
             Log.e("FaceAR", "Destory algoHandle failed.  " + e.getMessage());
         }
@@ -383,68 +287,76 @@ public class FaceAR extends c implements IFace {
     @Override // com.baidu.ar.c
     public void adjust(HashMap<String, Object> hashMap) {
         super.adjust(hashMap);
-        cM();
+        dm();
+    }
+
+    public void configSyncStatus(boolean z) {
+        this.nh.A(z);
+        if (this.mZ != null) {
+            this.mZ.F(z);
+        }
+        b(z);
+        if (r() != null) {
+            r().m(z);
+        }
+        this.nh.z(true);
     }
 
     @Override // com.baidu.ar.c
     public void onCaseCreate(String str) {
-        com.baidu.ar.f.b.c(TAG, "onCaseCreate start!!!");
-        this.mv = str;
-        boolean U = U(str);
-        if (!U) {
-            this.mv = null;
+        com.baidu.ar.g.b.c(TAG, "onCaseCreate start!!!");
+        this.nd = str;
+        boolean V = V(str);
+        if (!V) {
+            this.nd = null;
         }
-        j r = r();
+        k r = r();
         if (r != null) {
-            r.m(true);
-            r.a(cS());
+            r.n(true);
+            r.a(dr());
         }
-        if (TextUtils.isEmpty(this.mv)) {
-            cN();
+        if (TextUtils.isEmpty(this.nd)) {
+            this.nh.y(this.ng);
         } else {
-            this.mB = this.mB;
-            this.mC = this.mC;
-            this.mD = this.mD;
-            this.mE = this.mE;
-            this.mF = this.mF;
-            this.mG = this.mG || this.mA != 0;
-            if (!this.mH) {
-            }
-            this.mH = true;
+            this.nh.z(this.ng);
         }
-        if (!U) {
-            this.mJ = 1;
+        if (!V) {
+            this.nh.dt();
         }
-        cO();
-        if (this.mt != null && this.mt.size() > 0) {
-            this.mu = this.mt.get(this.mt.size() - 1);
+        this.mZ.a(this.nj, this.ng, this.nh, this.ni, this.nd);
+        if (this.nb != null && this.nb.size() > 0) {
+            this.nc = this.nb.get(this.nb.size() - 1);
         }
-        if (this.ms != null) {
-            this.ms.onStickerLoadingFinished(this.mt);
+        if (this.na != null) {
+            this.na.onStickerLoadingFinished(this.nb);
         }
-        if (this.mJ > 1) {
-            x(false);
+        if (this.nh.dE() > 1) {
+            y(false);
         } else {
-            x(true);
+            y(true);
         }
-        cM();
+        dm();
+        if (this.nk != null) {
+            this.nk.reset();
+        }
     }
 
     @Override // com.baidu.ar.c
     public void onCaseDestroy() {
-        boolean z = true;
-        com.baidu.ar.f.b.c(TAG, "onCaseDestroy!!!");
-        this.mv = null;
-        this.mu = null;
-        this.mw = 0;
-        if (this.mA != 2 && this.mA != 1) {
-            z = false;
-        }
-        a(z, false);
+        com.baidu.ar.g.b.c(TAG, "onCaseDestroy!!!");
+        this.nd = null;
+        this.nc = null;
+        this.ne = 0;
+        configSyncStatus(dn());
         a((int[]) null);
-        cN();
-        cO();
-        cM();
+        this.nh.y(this.ng);
+        this.mZ.a(this.nj, this.ng, this.nh, this.ni, this.nd);
+        dm();
+    }
+
+    @Override // com.baidu.ar.c, com.baidu.ar.arrender.c.a
+    public void onInputSizeChange(int i, int i2) {
+        super.onInputSizeChange(i, i2);
     }
 
     @Override // com.baidu.ar.c
@@ -454,26 +366,32 @@ public class FaceAR extends c implements IFace {
 
     @Override // com.baidu.ar.c
     public void release() {
-        com.baidu.ar.f.b.c(TAG, "release");
-        a(false, true);
-        a((int[]) null);
-        x(false);
-        this.mN = false;
-        if (this.mr != null) {
-            this.mr.a((AlgoHandleController) null);
+        com.baidu.ar.g.b.c(TAG, "release");
+        synchronized (this.mLock) {
+            if (this.nl) {
+                this.nl = false;
+                configSyncStatus(false);
+                a((int[]) null);
+                y(false);
+                this.nh.z(false);
+                if (this.mZ != null) {
+                    this.mZ.a((AlgoHandleController) null);
+                }
+                a(this.mZ);
+                if (this.bY != null) {
+                    this.bY.release();
+                    this.bY = null;
+                }
+                if (this.nk != null) {
+                    this.nk.release();
+                }
+                k r = r();
+                if (r != null) {
+                    r.o(10);
+                }
+                super.release();
+            }
         }
-        a(this.mr);
-        if (this.ch != null) {
-            this.ch.release();
-            this.ch = null;
-        }
-        if (this.mO != null) {
-            this.mO.release();
-        }
-        if (r() != null) {
-            r().r(10);
-        }
-        super.release();
     }
 
     @Override // com.baidu.ar.c
@@ -483,86 +401,113 @@ public class FaceAR extends c implements IFace {
 
     @Override // com.baidu.ar.face.IFace
     public void setFaceListener(FaceListener faceListener) {
-        this.ms = faceListener;
+        this.na = faceListener;
     }
 
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
-        boolean z = true;
-        com.baidu.ar.f.b.c(TAG, "setup");
-        super.setup(hashMap);
-        if (this.ch == null) {
-            this.ch = new AlgoHandleController();
-        }
-        JSONObject t = t();
-        com.baidu.ar.face.b.a aVar = new com.baidu.ar.face.b.a();
-        if (t == null || t.toString().trim().equals("{}")) {
-            com.baidu.ar.f.b.b(TAG, "abilityScheme is null, use default config!");
-            this.my = aVar.a(getFaceModelPath(), (JSONObject) null);
-        } else {
-            com.baidu.ar.f.b.c(TAG, "start parse abilityScheme config: " + t.toString());
-            this.my = aVar.a(getFaceModelPath(), t);
-        }
-        if (r() != null) {
-            this.mv = r().bs();
-        }
-        this.mr = new d();
-        this.mr.a(this.ch);
-        cM();
-        this.ly = new e() { // from class: com.baidu.ar.face.FaceAR.1
-            @Override // com.baidu.ar.c.e
-            public void a(com.baidu.ar.c.b bVar) {
-                h du;
-                if (bVar == null || !(bVar instanceof com.baidu.ar.face.a.g) || (du = ((com.baidu.ar.face.a.g) bVar).du()) == null) {
-                    return;
-                }
-                FaceResultData c = b.c(du);
-                l lVar = (l) bVar.cE();
-                if (lVar != null) {
-                    c.setAlgoImageWidth(lVar.bK());
-                    c.setAlgoImageHeight(lVar.bL());
-                }
-                FaceAR.this.mIsFrontCamera = du.isFrontCamera();
-                if (FaceAR.this.mO != null) {
-                    FaceAR.this.mO.a(du, c, FaceAR.this.mL, FaceAR.this.mM);
-                }
-                if (FaceAR.this.ms != null) {
-                    FaceAR.this.ms.onFaceResult(c);
-                }
-                FaceAR.this.q(du.de());
-                FaceAR.this.cR();
-                FaceAR.this.a(du);
-                FaceAR.this.b(du);
+        com.baidu.ar.g.b.c(TAG, "detect_frame setup");
+        synchronized (this.mLock) {
+            if (this.nl) {
+                return;
             }
+            this.nl = true;
+            boolean equals = (hashMap == null || TextUtils.isEmpty((String) hashMap.get("single_frame"))) ? false : ((String) hashMap.get("single_frame")).equals("true");
+            super.setup(hashMap);
+            if (this.bY == null) {
+                this.bY = new AlgoHandleController();
+            }
+            JSONObject t = t();
+            com.baidu.ar.face.a.a aVar = new com.baidu.ar.face.a.a();
+            if (t == null || t.toString().trim().equals("{}")) {
+                com.baidu.ar.g.b.k(TAG, "abilityScheme is null, use default config!");
+                this.ni = aVar.a(getFaceModelPath(), (JSONObject) null);
+            } else {
+                com.baidu.ar.g.b.c(TAG, "start parse abilityScheme config: " + t.toString());
+                this.ni = aVar.a(getFaceModelPath(), t);
+            }
+            if (r() != null) {
+                this.nd = r().bA();
+            }
+            this.mZ = new FaceDetector();
+            if (equals) {
+                this.mZ.ek();
+            } else {
+                this.mZ.el();
+            }
+            this.mZ.a(this.bY);
+            dm();
+            this.mg = new e() { // from class: com.baidu.ar.face.FaceAR.1
+                @Override // com.baidu.ar.d.e
+                public void a(com.baidu.ar.d.b bVar) {
+                    m eB;
+                    if (bVar == null || !(bVar instanceof l) || (eB = ((l) bVar).eB()) == null) {
+                        return;
+                    }
+                    FaceResultData c = c.c(eB);
+                    com.baidu.ar.arrender.m mVar = (com.baidu.ar.arrender.m) bVar.de();
+                    if (mVar != null && c != null) {
+                        c.setAlgoImageWidth(mVar.bY());
+                        c.setAlgoImageHeight(mVar.bZ());
+                    }
+                    FaceAR.this.mIsFrontCamera = eB.isFrontCamera();
+                    if (FaceAR.this.nk != null) {
+                        FaceAR.this.nk.a(eB, c, FaceAR.this.nh.getAlgoImageWidth(), FaceAR.this.nh.getAlgoImageHeight());
+                    }
+                    if (FaceAR.this.na != null) {
+                        FaceAR.this.na.onFaceResult(c);
+                    }
+                    FaceAR.this.q(eB.dO());
+                    FaceAR.this.dq();
+                    FaceAR.this.a(eB);
+                    FaceAR.this.b(eB);
+                }
 
-            @Override // com.baidu.ar.c.e
-            public void a(com.baidu.ar.c.l lVar) {
-                com.baidu.ar.f.b.c(FaceAR.TAG, "FaceDetector onSetup result = " + lVar.isSuccess());
-                FaceAR.this.mp = lVar.cL();
-                j r = FaceAR.this.r();
-                if (r != null) {
-                    r.a(FaceAR.this.mp, FaceAR.this.mK);
+                @Override // com.baidu.ar.d.e
+                public void a(com.baidu.ar.d.l lVar) {
+                    com.baidu.ar.g.b.c(FaceAR.TAG, "FaceDetector onSetup result = " + lVar.isSuccess());
+                    FaceAR.this.mX = lVar.dl();
+                    k r = FaceAR.this.r();
+                    if (r != null) {
+                        r.b(FaceAR.this.mX, FaceAR.this.nh.dC());
+                    }
                 }
-            }
 
-            @Override // com.baidu.ar.c.e
-            public void b(com.baidu.ar.c.l lVar) {
-                com.baidu.ar.f.b.c(FaceAR.TAG, "FaceDetector onRelease result = " + lVar.isSuccess());
+                @Override // com.baidu.ar.d.e
+                public void b(com.baidu.ar.d.l lVar) {
+                    com.baidu.ar.g.b.c(FaceAR.TAG, "FaceDetector onRelease result = " + lVar.isSuccess());
+                }
+            };
+            this.mZ.o(getContext());
+            j dp = dp();
+            this.nh.x(this.ng);
+            configSyncStatus(dn());
+            this.mZ.G(u());
+            this.mZ.b(dp);
+            a(this.mZ, this.mg);
+            this.nk = new com.baidu.ar.face.attributes.a(r());
+            this.nk.b(getContext(), this.ni.pM);
+            this.mZ.a(this.nj, this.ng, this.nh, this.ni, this.nd);
+            if (this.bZ == null) {
+                this.bZ = new LuaMsgListener() { // from class: com.baidu.ar.face.FaceAR.2
+                    @Override // com.baidu.ar.lua.LuaMsgListener
+                    public List<String> getMsgKeyListened() {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(LuaMessageHelper.KEY_EVENT_NAME);
+                        return arrayList;
+                    }
+
+                    @Override // com.baidu.ar.lua.LuaMsgListener
+                    public void onLuaMessage(HashMap<String, Object> hashMap2) {
+                        int a = c.a(hashMap2, FaceAR.this.mZ.en());
+                        if (a >= 0) {
+                            FaceAR.this.configSyncStatus(a == 2);
+                        }
+                    }
+                };
             }
-        };
-        com.baidu.ar.face.a.a.cT().setContext(getContext());
-        com.baidu.ar.face.a.e cQ = cQ();
-        this.mG = this.mA != 0;
-        if (this.mA != 2 && this.mA != 1) {
-            z = false;
+            a(this.bZ);
+            this.mZ.b((Bundle) null);
         }
-        a(z, false);
-        this.mr.F(u());
-        this.mr.a(cQ);
-        a(this.mr, this.ly);
-        this.mO = new com.baidu.ar.face.attributes.a();
-        this.mO.b(getContext(), this.my.pa);
-        cO();
-        aj();
     }
 }

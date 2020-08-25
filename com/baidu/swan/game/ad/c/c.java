@@ -1,21 +1,24 @@
 package com.baidu.swan.game.ad.c;
 
+import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ai;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.game.ad.d.e;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
+import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class c {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aAk()) {
-                a(n(str, 0, 0), bVar);
+            for (String str : adElementInfo.aIV()) {
+                a(m(str, 0, 0), bVar);
             }
             for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
-                a(n(str2, 0, 0), bVar);
+                a(m(str2, 0, 0), bVar);
             }
         }
     }
@@ -23,23 +26,52 @@ public class c {
     public static void b(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
             for (String str : adElementInfo.getThirdClickTrackingUrls()) {
-                a(n(str, 0, 0), bVar);
+                HashSet hashSet = new HashSet();
+                hashSet.add("da_page");
+                hashSet.add("da_type");
+                String deleteParam = ai.deleteParam(str, hashSet);
+                if (!TextUtils.isEmpty(adElementInfo.aIO())) {
+                    deleteParam = ai.addParam(deleteParam, "da_page", "NAVIDEO_TAIL_PLAYABLE");
+                } else if (!TextUtils.isEmpty(adElementInfo.aIU())) {
+                    deleteParam = ai.addParam(deleteParam, "da_page", "NAVIDEO_TAIL");
+                }
+                a(ai.addParam(deleteParam, "da_type", TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY).replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), bVar);
             }
         }
     }
 
     public static void c(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.getStartTrackers()) {
-                a(n(str, 0, 0), bVar);
+            for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+                HashSet hashSet = new HashSet();
+                hashSet.add("da_page");
+                hashSet.add("da_type");
+                a(ai.addParam(ai.addParam(ai.deleteParam(str, hashSet), "da_page", "NAVIDEO_TAIL_PLAYABLE"), "da_type", TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY).replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), bVar);
             }
+            a(adElementInfo.aIQ(), bVar);
         }
     }
 
     public static void d(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
+            for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+                a(m(str, 0, 0), bVar);
+            }
+        }
+    }
+
+    public static void e(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
+        if (adElementInfo != null) {
+            for (String str : adElementInfo.getStartTrackers()) {
+                a(m(str, 0, 0), bVar);
+            }
+        }
+    }
+
+    public static void f(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
+        if (adElementInfo != null) {
             for (String str : adElementInfo.getSkipTrackers()) {
-                a(n(str, 0, 0), bVar);
+                a(m(str, 0, 0), bVar);
             }
         }
     }
@@ -47,22 +79,22 @@ public class c {
     public static void a(int i, int i2, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
             for (String str : adElementInfo.getCloseTrackers()) {
-                a(n(str, i, i2), bVar);
+                a(m(str, i, i2), bVar);
             }
         }
     }
 
-    private static String n(String str, int i, int i2) {
+    private static String m(String str, int i, int i2) {
         return str.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()).replaceAll("%25%25play_mode%25%25", "0").replaceAll("%25%25cur_time%25%25", "" + i).replaceAll("%25%25start_time%25%25", "" + i2).replaceAll("%25%25area%25%25", "hot");
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.rx(str);
+        bVar.tQ(str);
     }
 
     public static void a(String str, String str2, String str3, com.baidu.swan.game.ad.a.b bVar) {
-        if (!al.axe()) {
-            String hostName = com.baidu.swan.apps.t.a.ahU().getHostName();
+        if (!ak.aFn()) {
+            String hostName = com.baidu.swan.apps.t.a.apw().getHostName();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("bizId", 10003);
@@ -75,11 +107,11 @@ public class c {
                 jSONObject2.put("media_id", str);
                 jSONObject2.put("PVID", str3);
                 jSONObject2.put("tuid", str2);
-                jSONObject2.put("time", e.aAG());
+                jSONObject2.put("time", e.aJp());
                 jSONObject2.put("page_type", 1);
                 jSONObject2.put("traffic_type", 1);
                 jSONObject.put("content", jSONObject2);
-                bVar.ry(jSONObject.toString());
+                bVar.tR(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

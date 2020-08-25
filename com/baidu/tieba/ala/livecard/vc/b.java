@@ -1,110 +1,110 @@
 package com.baidu.tieba.ala.livecard.vc;
 
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private int eol;
-    private List<bv> eor;
-    private List<bv> eos;
-    private boolean eot;
-    private boolean eou;
-    private int eov = 2;
-    private int eow = 1;
+    private List<bw> eyD;
+    private List<bw> eyE;
+    private boolean eyF;
+    private boolean eyG;
+    private int eyH = 2;
+    private int eyI = 1;
+    private int eyx;
 
-    public b(List<bv> list, boolean z, int i) {
-        this.eol = 2;
-        this.eou = z;
-        this.eol = i;
-        bR(list);
+    public b(List<bw> list, boolean z, int i) {
+        this.eyx = 2;
+        this.eyG = z;
+        this.eyx = i;
+        bS(list);
     }
 
-    public void bR(List<bv> list) {
+    public void bS(List<bw> list) {
         if (list != null) {
-            this.eor = list;
-            if (list != null && list.size() >= this.eov && list.size() <= this.eol) {
-                this.eot = true;
-            } else if (list.size() > this.eol && this.eou) {
-                this.eot = true;
+            this.eyD = list;
+            if (list != null && list.size() >= this.eyH && list.size() <= this.eyx) {
+                this.eyF = true;
+            } else if (list.size() > this.eyx && this.eyG) {
+                this.eyF = true;
             } else {
-                this.eot = false;
+                this.eyF = false;
             }
-            this.eos = bdl();
+            this.eyE = blR();
         }
     }
 
-    private List<bv> bdl() {
+    private List<bw> blR() {
         ArrayList arrayList = new ArrayList();
-        if (this.eor != null) {
-            if (this.eot) {
-                if (this.eor.size() > this.eol && this.eor.size() >= this.eow) {
-                    arrayList.addAll(this.eor.subList(0, this.eol));
-                    arrayList.addAll(0, this.eor.subList(this.eol - this.eow, this.eol));
-                    arrayList.addAll(this.eor.subList(0, this.eow));
+        if (this.eyD != null) {
+            if (this.eyF) {
+                if (this.eyD.size() > this.eyx && this.eyD.size() >= this.eyI) {
+                    arrayList.addAll(this.eyD.subList(0, this.eyx));
+                    arrayList.addAll(0, this.eyD.subList(this.eyx - this.eyI, this.eyx));
+                    arrayList.addAll(this.eyD.subList(0, this.eyI));
                 } else {
-                    arrayList.addAll(this.eor);
-                    arrayList.addAll(0, this.eor.subList(this.eor.size() - this.eow, this.eor.size()));
-                    arrayList.addAll(this.eor.subList(0, this.eow));
+                    arrayList.addAll(this.eyD);
+                    arrayList.addAll(0, this.eyD.subList(this.eyD.size() - this.eyI, this.eyD.size()));
+                    arrayList.addAll(this.eyD.subList(0, this.eyI));
                 }
-            } else if (this.eor != null && this.eor.size() > 0 && this.eor.size() >= this.eow) {
-                arrayList.addAll(this.eor.subList(0, this.eow));
+            } else if (this.eyD != null && this.eyD.size() > 0 && this.eyD.size() >= this.eyI) {
+                arrayList.addAll(this.eyD.subList(0, this.eyI));
             }
         }
         return arrayList;
     }
 
-    public int ng(int i) {
-        if (this.eot) {
-            int size = this.eos.size();
+    public int pp(int i) {
+        if (this.eyF) {
+            int size = this.eyE.size();
             if (i == 0) {
-                return (size - 1) - this.eow;
+                return (size - 1) - this.eyI;
             }
-            if (i == size - this.eow) {
-                return this.eow;
+            if (i == size - this.eyI) {
+                return this.eyI;
             }
             return i;
         }
         return i;
     }
 
-    public int nh(int i) {
-        if (this.eot) {
-            return i - this.eow;
+    public int pq(int i) {
+        if (this.eyF) {
+            return i - this.eyI;
         }
         return i;
     }
 
-    public int bdm() {
-        if (this.eor == null) {
+    public int blS() {
+        if (this.eyD == null) {
             return 0;
         }
-        return this.eor.size();
+        return this.eyD.size();
     }
 
-    public int bdn() {
-        if (this.eot) {
-            return this.eow;
+    public int blT() {
+        if (this.eyF) {
+            return this.eyI;
         }
         return 0;
     }
 
-    public void ni(int i) {
-        this.eol = i;
-        bR(this.eor);
+    public void pr(int i) {
+        this.eyx = i;
+        bS(this.eyD);
     }
 
-    public void nj(int i) {
-        this.eov = i;
-        bR(this.eor);
+    public void ps(int i) {
+        this.eyH = i;
+        bS(this.eyD);
     }
 
-    public List<bv> bdo() {
-        return this.eos;
+    public List<bw> blU() {
+        return this.eyE;
     }
 
-    public void nk(int i) {
-        this.eow = i;
-        bR(this.eor);
+    public void pt(int i) {
+        this.eyI = i;
+        bS(this.eyD);
     }
 }

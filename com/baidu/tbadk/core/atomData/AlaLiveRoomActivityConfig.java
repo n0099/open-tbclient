@@ -6,7 +6,7 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FREM_TYPE_LIVE_FRS_STAGE_LIVE = "frs_live_stage_live";
     public static final String FROM_TYPE_ALTER_PLAY = "alter_play";
@@ -105,7 +105,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     }
 
     public AlaLiveRoomActivityConfig setIsForbidVerticalChangeLiveRoom(boolean z) {
-        getIntent().putExtra("live_forbid_vertical_change_liveroom", z);
+        getIntent().putExtra(LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM, z);
         return this;
     }
 
@@ -120,8 +120,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra("live_is_host", z);
         getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
         getIntent().putExtra("live_from_type", str);
-        getIntent().putExtra("live_entry_name", str3);
-        getIntent().putExtra("live_from_forum_id", str4);
+        getIntent().putExtra(LIVE_ENTRY_NAME, str3);
+        getIntent().putExtra(LIVE_FROM_FORUM_ID, str4);
         isAlreadyEnterLiveRoom = true;
     }
 
@@ -131,8 +131,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra("live_is_host", z);
         getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
         getIntent().putExtra("live_from_type", str);
-        getIntent().putExtra("live_entry_name", str3);
-        getIntent().putExtra("live_from_forum_id", str4);
+        getIntent().putExtra(LIVE_ENTRY_NAME, str3);
+        getIntent().putExtra(LIVE_FROM_FORUM_ID, str4);
         getIntent().putExtra("live_forum_name", str5);
         isAlreadyEnterLiveRoom = true;
     }
@@ -148,7 +148,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2) {
         super(context);
         getIntent().putExtra("live_from_type", str);
-        getIntent().putExtra("live_from_forum_id", str2);
+        getIntent().putExtra(LIVE_FROM_FORUM_ID, str2);
         getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
         isAlreadyEnterLiveRoom = true;
     }

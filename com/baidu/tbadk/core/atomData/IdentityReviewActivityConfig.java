@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class IdentityReviewActivityConfig extends IntentConfig {
     public static final String FID = "fid";
     public static final String KEY_IS_START_FOR_RESULT = "key_is_start_for_result";

@@ -11,19 +11,19 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static boolean blh() {
+    private static boolean btU() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void g(Object obj, String str) {
-        if (blh()) {
+        if (btU()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -32,18 +32,18 @@ public class c {
     }
 
     public static final void printLog(String str) {
-        if (blh()) {
+        if (btU()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void c(FragmentManager fragmentManager) {
-        if (blh()) {
+        if (btU()) {
             List<Fragment> fragments = fragmentManager.getFragments();
-            if (!x.isEmpty(fragments)) {
+            if (!y.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
                 printLog("---------------------------Start---------------------------");
-                printLog("Print All ChildFragments=" + x.getCount(fragments));
+                printLog("Print All ChildFragments=" + y.getCount(fragments));
                 for (Fragment fragment : fragments) {
                     boolean isPrimary = fragment instanceof BaseFragment ? ((BaseFragment) fragment).isPrimary() : false;
                     g(fragment, "isUserVisible=" + fragment.getUserVisibleHint() + ",isVisible=" + fragment.isVisible() + ",isPrimary=" + isPrimary);
@@ -54,21 +54,21 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (blh() && bVar != null) {
+        if (btU() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            String blg = bVar.blg();
-            ArrayList<String> ble = bVar.ble();
-            ArrayList<String> blf = bVar.blf();
+            String btT = bVar.btT();
+            ArrayList<String> btR = bVar.btR();
+            ArrayList<String> btS = bVar.btS();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("prePageKey=").append(blg).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(ble.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(blf.toString());
+            sb.append("prePageKey=").append(btT).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("preList=").append(btR.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(btS.toString());
             g(bVar, sb.toString());
         }
     }
 
-    public static Activity dY(Context context) {
+    public static Activity eh(Context context) {
         g(context, "currentContext");
         Context context2 = context;
         while (context2 instanceof ContextWrapper) {
@@ -83,23 +83,23 @@ public class c {
         return null;
     }
 
-    public static b dZ(Context context) {
+    public static b ei(Context context) {
         printLog("======================Start==============================");
         printLog("context : " + context);
-        Activity dY = dY(context);
+        Activity eh = eh(context);
         if (!(context instanceof Activity)) {
             g(context, "context is not Activity, so getCurrentActivity()");
-            dY = TbadkCoreApplication.getInst().getCurrentActivity();
+            eh = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        b ae = ae(dY);
-        if (ae == null) {
+        b ad = ad(eh);
+        if (ad == null) {
             g(context, "------Not Activity，No TbPageExtra!------");
         }
         printLog("**************************End**************************");
-        return ae;
+        return ad;
     }
 
-    private static b ae(Activity activity) {
+    private static b ad(Activity activity) {
         if (activity instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
             g(baseFragmentActivity, "context is BaseFragmentActivity");
@@ -157,7 +157,7 @@ public class c {
             FragmentManager childFragmentManager = baseFragment.getChildFragmentManager();
             c(childFragmentManager);
             List<Fragment> fragments = childFragmentManager.getFragments();
-            if (!x.isEmpty(fragments)) {
+            if (!y.isEmpty(fragments)) {
                 for (Fragment fragment : fragments) {
                     if (fragment instanceof BaseFragment) {
                         BaseFragment baseFragment2 = (BaseFragment) fragment;
@@ -176,7 +176,7 @@ public class c {
 
     public static ArrayList<String> d(ArrayList<String> arrayList, String str) {
         ArrayList<String> arrayList2 = new ArrayList<>();
-        if (!x.isEmpty(arrayList)) {
+        if (!y.isEmpty(arrayList)) {
             arrayList2.addAll(arrayList);
         }
         if (!TextUtils.isEmpty(str)) {

@@ -1,33 +1,33 @@
 package com.baidu.tieba.face.data;
 
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private int fVG;
-    private int gEI;
-    private List<EmotionImageData> hrK;
+    private int gRi;
+    private int ghF;
+    private List<EmotionImageData> hFa;
 
     public int getPage() {
-        return this.fVG;
+        return this.ghF;
     }
 
     public void setPage(int i) {
-        this.fVG = i;
+        this.ghF = i;
     }
 
-    public int bXj() {
-        return this.gEI;
+    public int chF() {
+        return this.gRi;
     }
 
     public void setHasMore(int i) {
-        this.gEI = i;
+        this.gRi = i;
     }
 
-    public List<EmotionImageData> bXk() {
-        return this.hrK;
+    public List<EmotionImageData> chG() {
+        return this.hFa;
     }
 
-    public void cn(List<EmotionImageData> list) {
-        this.hrK = list;
+    public void cp(List<EmotionImageData> list) {
+        this.hFa = list;
     }
 }

@@ -11,33 +11,33 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes3.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel eBQ;
-    private WriteData hRW;
-    private b mux;
-    private a muy;
-    private AccessState muz;
+    private NewWriteModel eMp;
+    private WriteData ige;
+    private b mML;
+    private a mMM;
+    private AccessState mMN;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mux = new b(this);
+        this.mML = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.muz = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
-            this.hRW = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.hRW == null || this.muz == null) {
+            this.mMN = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.ige = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
+            if (this.ige == null || this.mMN == null) {
                 finish();
                 return;
             }
-            this.eBQ = new NewWriteModel(this);
-            this.eBQ.d(this.hRW);
-            if (this.hRW.getWriteImagesInfo() != null) {
-                this.eBQ.vr(this.hRW.getWriteImagesInfo().size() > 0);
+            this.eMp = new NewWriteModel(this);
+            this.eMp.d(this.ige);
+            if (this.ige.getWriteImagesInfo() != null) {
+                this.eMp.wg(this.ige.getWriteImagesInfo().size() > 0);
             }
-            this.muy = new a(this.mux, this.eBQ);
-            this.mux.c(this.muy);
-            this.muy.bl(duq());
+            this.mMM = new a(this.mML, this.eMp);
+            this.mML.c(this.mMM);
+            this.mMM.bq(dFM());
         }
     }
 
@@ -55,14 +55,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.mux.onDestory();
+        this.mML.onDestory();
     }
 
-    public String duq() {
-        if (this.muz == null || this.muz.getUserInfo() == null) {
+    public String dFM() {
+        if (this.mMN == null || this.mMN.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.muz.getToken(), this.muz.getType(), this.muz.getUserInfo().strMobile, this.muz.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.mMN.getToken(), this.mMN.getType(), this.mMN.getUserInfo().strMobile, this.mMN.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -7,32 +7,32 @@ import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.HttpStatus;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static int JQ(int i) {
-        return d.JQ(i);
+    public static int Mu(int i) {
+        return d.Mu(i);
     }
 
-    public static int w(InputStream inputStream) {
+    public static int x(InputStream inputStream) {
         try {
-            int x = x(inputStream);
-            if (x == 0) {
+            int y = y(inputStream);
+            if (y == 0) {
                 return 0;
             }
-            return d.i(inputStream, x);
+            return d.h(inputStream, y);
         } catch (IOException e) {
             return 0;
         }
     }
 
-    public static boolean h(InputStream inputStream, int i) throws IOException {
+    public static boolean g(InputStream inputStream, int i) throws IOException {
         g.checkNotNull(inputStream);
         while (c.a(inputStream, 1, false) == 255) {
             int i2 = 255;
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && JR(i2)) || i2 == i) {
+            if ((i == 192 && Mv(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -45,7 +45,7 @@ public class b {
         return false;
     }
 
-    private static boolean JR(int i) {
+    private static boolean Mv(int i) {
         switch (i) {
             case 192:
             case 193:
@@ -69,9 +69,9 @@ public class b {
         }
     }
 
-    private static int x(InputStream inputStream) throws IOException {
+    private static int y(InputStream inputStream) throws IOException {
         int a;
-        if (h(inputStream, 225) && c.a(inputStream, 2, false) - 2 > 6) {
+        if (g(inputStream, 225) && c.a(inputStream, 2, false) - 2 > 6) {
             int a2 = c.a(inputStream, 4, false);
             int a3 = c.a(inputStream, 2, false);
             int i = (a - 4) - 2;

@@ -9,16 +9,16 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SampleSizeBox extends AbstractFullBox {
     public static final String TYPE = "stsz";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
     int sampleCount;
     private long sampleSize;
     private long[] sampleSizes;
@@ -29,13 +29,13 @@ public class SampleSizeBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleSizeBox.java", SampleSizeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getSampleSize", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "long"), 50);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setSampleSize", "com.coremedia.iso.boxes.SampleSizeBox", "long", "sampleSize", "", "void"), 54);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getSampleSizeAtIndex", "com.coremedia.iso.boxes.SampleSizeBox", "int", "index", "", "long"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getSampleCount", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "long"), 67);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getSampleSizes", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "[J"), 76);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setSampleSizes", "com.coremedia.iso.boxes.SampleSizeBox", "[J", "sampleSizes", "", "void"), 80);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", FieldUtil.TYPE_STRING), 119);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getSampleSize", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "long"), 50);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setSampleSize", "com.coremedia.iso.boxes.SampleSizeBox", "long", "sampleSize", "", "void"), 54);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getSampleSizeAtIndex", "com.coremedia.iso.boxes.SampleSizeBox", "int", "index", "", "long"), 59);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "getSampleCount", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "long"), 67);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getSampleSizes", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "[J"), 76);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setSampleSizes", "com.coremedia.iso.boxes.SampleSizeBox", "[J", "sampleSizes", "", "void"), 80);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", FieldUtil.TYPE_STRING), 119);
     }
 
     public SampleSizeBox() {
@@ -49,12 +49,12 @@ public class SampleSizeBox extends AbstractFullBox {
     }
 
     public void setSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gY(j)));
         this.sampleSize = j;
     }
 
     public long getSampleSizeAtIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Og(i)));
         return this.sampleSize > 0 ? this.sampleSize : this.sampleSizes[i];
     }
 

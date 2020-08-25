@@ -1,47 +1,86 @@
 package com.baidu.tieba.model;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
+import com.baidu.tieba.personExtra.RecommendGodReqMsg;
+import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
+import com.baidu.tieba.personPolymeric.c.q;
+/* loaded from: classes18.dex */
 public class c {
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("config");
-                if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                        if (jSONObject2 != null) {
-                            String optString = jSONObject2.optString("name");
-                            Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                            if (LoginPassV6Switch.KEY.equals(optString)) {
-                                SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                                com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
-                            }
-                            if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                                SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                                com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
-                            }
+    private a kgR;
+    private boolean kgS;
+    private q recommendGodData;
+    private BdUniqueId uniqueId;
+    private int pageNum = 0;
+    private com.baidu.adp.framework.listener.a netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684) { // from class: com.baidu.tieba.model.c.1
+        @Override // com.baidu.adp.framework.listener.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            c.this.recommendGodData = null;
+            if (responsedMessage != null) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == c.this.uniqueId) {
+                    if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
+                        c.this.recommendGodData = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
+                    } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
+                        c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
+                    }
+                    if (c.this.recommendGodData != null) {
+                        c.this.pageNum = c.this.recommendGodData.gcm;
+                    }
+                    int error = responsedMessage.getError();
+                    if (error == 0 && c.this.recommendGodData != null) {
+                        if (y.isEmpty(c.this.recommendGodData.lmQ)) {
+                            error = c.this.kgS ? 3 : 2;
                         }
+                    } else {
+                        error = 1;
+                    }
+                    if (c.this.kgR != null) {
+                        c.this.kgR.a(c.this.recommendGodData, error);
                     }
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
         }
+    };
+
+    /* loaded from: classes18.dex */
+    public interface a {
+        void a(q qVar, int i);
+    }
+
+    public c(BdUniqueId bdUniqueId) {
+        this.uniqueId = bdUniqueId;
+        this.netMessageListener.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.netMessageListener);
+    }
+
+    public void request(String str) {
+        RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
+        recommendGodReqMsg.portrait = str;
+        if (this.pageNum == 0) {
+            this.kgS = false;
+        } else {
+            this.kgS = true;
+        }
+        recommendGodReqMsg.pageNum = this.pageNum + 1;
+        recommendGodReqMsg.setTag(this.uniqueId);
+        MessageManager.getInstance().sendMessage(recommendGodReqMsg);
+    }
+
+    public void br(String str, int i) {
+        this.pageNum = i;
+        request(str);
+    }
+
+    public void onDestory() {
+        MessageManager.getInstance().removeMessage(this.uniqueId);
+        MessageManager.getInstance().unRegisterListener(this.uniqueId);
+    }
+
+    public void a(a aVar) {
+        this.kgR = aVar;
     }
 }

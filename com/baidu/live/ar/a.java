@@ -1,7 +1,7 @@
 package com.baidu.live.ar;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public TbPageContext atU;
+    public TbPageContext ayW;
 }

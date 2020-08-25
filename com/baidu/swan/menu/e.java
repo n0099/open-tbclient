@@ -2,40 +2,40 @@ package com.baidu.swan.menu;
 
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class e implements Interpolator {
-    private int dtL = 0;
-    private final PointF dtM = new PointF();
-    private final PointF dtN = new PointF();
+    private int dDK = 0;
+    private final PointF dDL = new PointF();
+    private final PointF dDM = new PointF();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(float f, float f2, float f3, float f4) {
-        this.dtM.x = f;
-        this.dtM.y = f2;
-        this.dtN.x = f3;
-        this.dtN.y = f4;
+        this.dDL.x = f;
+        this.dDL.y = f2;
+        this.dDM.x = f3;
+        this.dDM.y = f4;
     }
 
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f) {
         double d = 1.0d;
-        int i = this.dtL;
+        int i = this.dDK;
         float f2 = f;
         while (true) {
             if (i >= 4096) {
                 break;
             }
             f2 = (1.0f * i) / 4096.0f;
-            if (a(f2, 0.0d, this.dtM.x, this.dtN.x, 1.0d) < f) {
+            if (a(f2, 0.0d, this.dDL.x, this.dDM.x, 1.0d) < f) {
                 i++;
             } else {
-                this.dtL = i;
+                this.dDK = i;
                 break;
             }
         }
-        double a = a(f2, 0.0d, this.dtM.y, this.dtN.y, 1.0d);
+        double a = a(f2, 0.0d, this.dDL.y, this.dDM.y, 1.0d);
         if (a > 0.999d) {
-            this.dtL = 0;
+            this.dDK = 0;
         } else {
             d = a;
         }

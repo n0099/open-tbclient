@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.message.k;
 import com.baidu.webkit.internal.GlobalConstants;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     protected Context a;
 

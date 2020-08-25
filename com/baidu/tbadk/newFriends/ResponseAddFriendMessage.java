@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.AddFriend.AddFriendResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseAddFriendMessage extends SocketResponsedMessage {
     private long friendId;
 

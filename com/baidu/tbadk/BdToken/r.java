@@ -9,20 +9,20 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class r {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.r.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> aRa;
+            TbPageContext<?> aZq;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aRa = r.aRa()) != null) {
-                    bd.baV().b(aRa, new String[]{completeTaskToastData.url});
-                    com.baidu.tbadk.BdToken.completeTask.c.aD(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aZq = r.aZq()) != null) {
+                    be.bju().b(aZq, new String[]{completeTaskToastData.url});
+                    com.baidu.tbadk.BdToken.completeTask.c.aK(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
         }
@@ -34,7 +34,7 @@ public class r {
 
     public static void n(int i, long j) {
         if (isMainProcess()) {
-            c.aQc().n(i, j);
+            c.aYs().n(i, j);
         } else {
             a(i, j, MissionEvent.MESSAGE_ACTIVITY);
         }
@@ -42,7 +42,7 @@ public class r {
 
     public static void a(int i, int i2, long j) {
         if (isMainProcess()) {
-            c.aQc().p(i, j);
+            c.aYs().p(i, j);
         } else {
             b(i, i2, j, MissionEvent.MESSAGE_RESUME);
         }
@@ -50,7 +50,7 @@ public class r {
 
     public static void r(int i, long j) {
         if (isMainProcess()) {
-            c.aQc().aQm();
+            c.aYs().aYC();
         } else {
             a(i, j, MissionEvent.MESSAGE_PAUSE);
         }
@@ -58,7 +58,7 @@ public class r {
 
     public static void s(int i, long j) {
         if (isMainProcess()) {
-            c.aQc().aQo();
+            c.aYs().aYE();
         } else {
             a(i, j, MissionEvent.MESSAGE_TOUCH);
         }
@@ -81,7 +81,7 @@ public class r {
         com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
-    public static TbPageContext aRa() {
+    public static TbPageContext aZq() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,16 +93,16 @@ public class r {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext aRa;
-        if (completeTaskToastData == null || (aRa = aRa()) == null || aRa.getUniqueId() == null || completeTaskToastData.pageId != aRa.getUniqueId().getId()) {
+        TbPageContext aZq;
+        if (completeTaskToastData == null || (aZq = aZq()) == null || aZq.getUniqueId() == null || completeTaskToastData.pageId != aZq.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aRa.getPageActivity(), completeTaskToastData.message);
-        d.ly(completeTaskToastData.duration);
-        d.setOnClickListener(mOnClickListener);
-        d.setTag(completeTaskToastData);
-        d.aYV();
-        return d;
+        com.baidu.tbadk.core.dialog.f c = com.baidu.tbadk.core.dialog.f.c(aZq.getPageActivity(), completeTaskToastData.message);
+        c.nE(completeTaskToastData.duration);
+        c.setOnClickListener(mOnClickListener);
+        c.setTag(completeTaskToastData);
+        c.bhq();
+        return c;
     }
 
     public static void a(MotionEvent motionEvent, int i, long j) {

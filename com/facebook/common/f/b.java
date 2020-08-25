@@ -3,11 +3,11 @@ package com.facebook.common.f;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class b extends FilterInputStream {
-    private final byte[] mRv;
-    private int mRw;
-    private int mRx;
+    private final byte[] nlp;
+    private int nlq;
+    private int nlr;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.mRv = bArr;
+        this.nlp = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : dCS();
+        return read != -1 ? read : dOS();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int dCS = dCS();
-                if (dCS == -1) {
+                int dOS = dOS();
+                if (dOS == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) dCS;
+                bArr[i + i3] = (byte) dOS;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.mRw = this.mRx;
+            this.nlq = this.nlr;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.mRx = this.mRw;
+            this.nlr = this.nlq;
         }
     }
 
-    private int dCS() {
-        if (this.mRw >= this.mRv.length) {
+    private int dOS() {
+        if (this.nlq >= this.nlp.length) {
             return -1;
         }
-        byte[] bArr = this.mRv;
-        int i = this.mRw;
-        this.mRw = i + 1;
+        byte[] bArr = this.nlp;
+        int i = this.nlq;
+        this.nlq = i + 1;
         return bArr[i] & 255;
     }
 }

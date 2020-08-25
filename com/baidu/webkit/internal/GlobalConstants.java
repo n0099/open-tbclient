@@ -1,5 +1,5 @@
 package com.baidu.webkit.internal;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class GlobalConstants implements INoProGuard {
     public static final boolean CLOUD_SETTINGS_DEBUG = false;
     public static final String DEFAULT_VERSION = "10.0.0.0";
@@ -20,7 +20,7 @@ public class GlobalConstants implements INoProGuard {
     public static final boolean USE_ZEUS_MANAGER = false;
     public static final boolean ZEUS_DEBUG_MODE = false;
     public static final String ZEUS_LIB_LOCAL_RELATIVE_PATH = "/zeus/libs/";
-    public static final String ZEUS_VERSION_NAME = "10.8.2.13";
+    public static final String ZEUS_VERSION_NAME = "10.10.2.16";
     public static final String LIB_ZEUS = "libcom.baidu.zeus.so";
     public static final String LIB_PLAT_SUPPORT = "libzeusplat_support.so";
     public static final String LIB_ZEUS_CHROMIUM = "libzeuswebviewchromium.so";

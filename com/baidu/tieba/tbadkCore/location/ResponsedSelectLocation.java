@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore.location;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
     private final String address;
     private final boolean isShowLocation;

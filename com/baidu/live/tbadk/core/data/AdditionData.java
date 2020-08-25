@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdditionData implements Serializable {
     private static final long serialVersionUID = -6760087984237848132L;
     private int alreadyCount;

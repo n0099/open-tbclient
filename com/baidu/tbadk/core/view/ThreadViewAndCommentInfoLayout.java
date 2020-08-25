@@ -7,127 +7,127 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    private TextView dKx;
-    public int ekb;
-    private TextView elo;
-    private boolean elp;
-    private boolean elq;
-    private boolean elr;
-    private boolean els;
-    private boolean elt;
+    private TextView dTF;
+    public int etW;
+    private TextView evj;
+    private boolean evk;
+    private boolean evl;
+    private boolean evm;
+    private boolean evn;
+    private boolean evo;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.elp = false;
-        this.elq = false;
-        this.elr = false;
-        this.els = false;
-        this.elt = false;
+        this.evk = false;
+        this.evl = false;
+        this.evm = false;
+        this.evn = false;
+        this.evo = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.elp = false;
-        this.elq = false;
-        this.elr = false;
-        this.els = false;
-        this.elt = false;
+        this.evk = false;
+        this.evl = false;
+        this.evm = false;
+        this.evn = false;
+        this.evo = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.elo = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.dKx = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.evj = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.dTF = (TextView) inflate.findViewById(R.id.thread_comment_num);
         this.mContext = context;
     }
 
-    public void setData(bv bvVar) {
-        if (bvVar == null) {
+    public void setData(bw bwVar) {
+        if (bwVar == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        J(bvVar);
-        K(bvVar);
-        L(bvVar);
-        M(bvVar);
-        y(bvVar);
+        J(bwVar);
+        K(bwVar);
+        L(bwVar);
+        M(bwVar);
+        y(bwVar);
     }
 
-    private void J(bv bvVar) {
-        if (this.elo != null && bvVar != null && this.elr && bvVar.aWF() != null && bvVar.aXF()) {
-            this.elo.setVisibility(0);
-            this.elo.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), as.numberUniformFormat(bvVar.aWF().audience_count)));
+    private void J(bw bwVar) {
+        if (this.evj != null && bwVar != null && this.evm && bwVar.beY() != null && bwVar.bfY()) {
+            this.evj.setVisibility(0);
+            this.evj.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bwVar.beY().audience_count)));
         }
     }
 
-    private void K(bv bvVar) {
-        if (this.elo != null && bvVar != null && this.elp) {
-            if (bvVar.aWd() >= 0) {
-                this.elo.setVisibility(0);
-                this.elo.setText(String.format(this.mContext.getString(R.string.person_view_num), as.numberUniformFormat(bvVar.aWd())));
+    private void K(bw bwVar) {
+        if (this.evj != null && bwVar != null && this.evk) {
+            if (bwVar.bew() >= 0) {
+                this.evj.setVisibility(0);
+                this.evj.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bwVar.bew())));
                 return;
             }
-            this.elo.setVisibility(8);
+            this.evj.setVisibility(8);
         }
     }
 
-    private void L(bv bvVar) {
-        if (this.dKx != null && bvVar != null && this.elq) {
-            if (bvVar.aWc() >= 0) {
-                this.dKx.setVisibility(0);
-                this.dKx.setText(String.format(this.mContext.getString(R.string.comment_num_tip), as.numberUniformFormat(bvVar.aWc())));
+    private void L(bw bwVar) {
+        if (this.dTF != null && bwVar != null && this.evl) {
+            if (bwVar.bev() >= 0) {
+                this.dTF.setVisibility(0);
+                this.dTF.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bwVar.bev())));
                 return;
             }
-            this.dKx.setVisibility(8);
+            this.dTF.setVisibility(8);
         }
     }
 
-    private void M(bv bvVar) {
-        if (this.dKx != null && bvVar != null && this.els && bvVar.aXF()) {
-            this.dKx.setVisibility(0);
-            this.dKx.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), as.numberUniformFormat(bvVar.aXJ())));
+    private void M(bw bwVar) {
+        if (this.dTF != null && bwVar != null && this.evn && bwVar.bfY()) {
+            this.dTF.setVisibility(0);
+            this.dTF.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bwVar.bgc())));
         }
     }
 
-    private void y(bv bvVar) {
-        if (this.dKx != null && bvVar != null && this.elt && bvVar.aXF()) {
-            this.dKx.setVisibility(0);
-            this.dKx.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), as.numberUniformFormat((bvVar.aWF() == null || bvVar.aWF().share_info == null) ? 0 : bvVar.aWF().share_info.share_count)));
+    private void y(bw bwVar) {
+        if (this.dTF != null && bwVar != null && this.evo && bwVar.bfY()) {
+            this.dTF.setVisibility(0);
+            this.dTF.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bwVar.beY() == null || bwVar.beY().share_info == null) ? 0 : bwVar.beY().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.elp = z;
+        this.evk = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.elq = z;
+        this.evl = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.elr = z;
+        this.evm = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.els = z;
+        this.evn = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.elt = z;
+        this.evo = z;
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.elo, R.color.cp_cont_d);
-        ao.setViewTextColor(this.dKx, R.color.cp_cont_d);
+        ap.setViewTextColor(this.evj, R.color.cp_cont_d);
+        ap.setViewTextColor(this.dTF, R.color.cp_cont_d);
     }
 }

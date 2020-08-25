@@ -19,9 +19,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BaseWebView extends WebView {
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
     private com.baidu.tbadk.browser.b mCommonJsBridge;
@@ -38,32 +38,32 @@ public class BaseWebView extends WebView {
     private h mWebChromeClient;
     private WebViewClient mWebViewClient;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         boolean shouldOverrideUrlLoading(WebView webView, String str);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void onPageFinished(WebView webView, String str);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface d {
-        void b(WebView webView, String str);
+        void onPageStarted(WebView webView, String str);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface e {
         void onProgressChanged(WebView webView, int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface f {
         void onReceivedError(WebView webView, int i, String str, String str2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface g {
         void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
     }
@@ -135,7 +135,7 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
-        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ao.baL());
+        getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + ap.bjk());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
@@ -185,7 +185,7 @@ public class BaseWebView extends WebView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class h extends WebChromeClient {
         private h() {
         }
@@ -231,7 +231,7 @@ public class BaseWebView extends WebView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends WebViewClient {
         public a() {
         }
@@ -240,7 +240,7 @@ public class BaseWebView extends WebView {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
             if (BaseWebView.this.mOnPageStartedListener != null) {
-                BaseWebView.this.mOnPageStartedListener.b(webView, str);
+                BaseWebView.this.mOnPageStartedListener.onPageStarted(webView, str);
             }
         }
 
@@ -357,7 +357,7 @@ public class BaseWebView extends WebView {
 
     public void onChangeSkinType() {
         if (this.mCommonJsBridge != null) {
-            this.mCommonJsBridge.aSN();
+            this.mCommonJsBridge.bbe();
         }
     }
 }

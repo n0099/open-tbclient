@@ -8,7 +8,7 @@ public interface b extends f.c {
 
     void a(com.baidu.tieba.enterForum.tabfeed.b.b bVar);
 
-    void bT(int i, int i2);
+    void cb(int i, int i2);
 
-    void bWk();
+    void cgx();
 }

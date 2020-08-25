@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.pms.b;
 
 import com.baidu.swan.pms.c.f;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface d extends f {
-    public static final long ceN = TimeUnit.MINUTES.toMillis(1);
+    public static final long clf = TimeUnit.MINUTES.toMillis(1);
 }

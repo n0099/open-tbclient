@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ShieldMsg extends NormalMsg {
     public static final Parcelable.Creator<ShieldMsg> CREATOR = new Parcelable.Creator<ShieldMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ShieldMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -33,13 +33,13 @@ public class ShieldMsg extends NormalMsg {
     }
 
     public ShieldMsg(String str, boolean z) {
-        setMsgType(z ? IMConstants.IM_MSG_TYPE_SHIELD_ME : IMConstants.IM_MSG_TYPE_SHIELD);
+        setMsgType(z ? 2012 : IMConstants.IM_MSG_TYPE_SHIELD);
         this.text = str;
         setText(this.text);
     }
 
     public ShieldMsg() {
-        setMsgType(IMConstants.IM_MSG_TYPE_SHIELD_ME);
+        setMsgType(2012);
         this.text = "";
         setText(this.text);
     }

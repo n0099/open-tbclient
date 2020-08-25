@@ -3,13 +3,13 @@ package com.baidu.platform.comapi.bikenavi.widget;
 import android.view.View;
 import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class i implements Animation.AnimationListener {
-    final /* synthetic */ g a;
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.a = gVar;
+    public i(h hVar) {
+        this.a = hVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,8 +19,8 @@ public class i implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.a.e;
-        view.setVisibility(8);
+        view = this.a.g;
+        view.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

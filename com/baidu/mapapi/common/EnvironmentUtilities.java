@@ -1,10 +1,10 @@
 package com.baidu.mapapi.common;
 
 import android.content.Context;
-import com.baidu.mapsdkplatform.comapi.util.e;
+import com.baidu.mapsdkplatform.comapi.util.g;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class EnvironmentUtilities {
     static String a;
     static String b;
@@ -12,7 +12,8 @@ public class EnvironmentUtilities {
     static int d;
     static int e;
     static int f;
-    private static e g = null;
+    static int g;
+    private static g h = null;
 
     public static String getAppCachePath() {
         return b;
@@ -49,21 +50,26 @@ public class EnvironmentUtilities {
         return a;
     }
 
+    public static int getSsgTmpStgMax() {
+        return g;
+    }
+
     public static void initAppDirectory(Context context) {
-        if (g == null) {
-            g = e.a();
-            g.a(context);
+        if (h == null) {
+            h = g.a();
+            h.a(context);
         }
         if (a == null || a.length() <= 0) {
-            a = g.b().a();
-            b = g.b().c();
+            a = h.b().a();
+            b = h.b().c();
         } else {
             b = a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
         }
-        c = g.b().d();
-        d = 20971520;
+        c = h.b().d();
+        d = 52428800;
         e = 52428800;
         f = BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE;
+        g = 52428800;
     }
 
     public static void setSDCardPath(String str) {

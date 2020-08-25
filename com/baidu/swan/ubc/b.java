@@ -3,6 +3,7 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,7 +11,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private Context mContext;
 
@@ -42,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(iVar.getContent())) {
                 jSONObject.put("content", iVar.getContent());
-            } else if (iVar.aNt() != null) {
-                jSONObject.put("content", iVar.aNt().toString());
+            } else if (iVar.aVT() != null) {
+                jSONObject.put("content", iVar.aVT().toString());
             }
-            if (!TextUtils.isEmpty(iVar.aNs())) {
-                jSONObject.put("abtest", iVar.aNs());
+            if (!TextUtils.isEmpty(iVar.aVS())) {
+                jSONObject.put("abtest", iVar.aVS());
             }
             if (!TextUtils.isEmpty(iVar.getCategory())) {
                 jSONObject.put("c", iVar.getCategory());
             }
-            if (iVar.aNo()) {
-                jSONObject.put("of", "1");
+            if (iVar.aVO()) {
+                jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", d.aNb().uV(iVar.getId()));
+            jSONObject.put("idtype", d.aVB().xg(iVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -65,15 +66,15 @@ public class b {
                     fileOutputStream.write(encode);
                     fileOutputStream.write("\n".getBytes());
                     fileOutputStream.flush();
-                    com.baidu.swan.d.d.closeSafely(fileOutputStream);
+                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
                 } catch (Exception e2) {
                     e = e2;
                     e.printStackTrace();
-                    com.baidu.swan.d.d.closeSafely(fileOutputStream);
+                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.swan.d.d.closeSafely(fileOutputStream);
+                com.baidu.swan.c.d.closeSafely(fileOutputStream);
                 throw th;
             }
         } catch (Exception e3) {
@@ -82,7 +83,7 @@ public class b {
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            com.baidu.swan.d.d.closeSafely(fileOutputStream);
+            com.baidu.swan.c.d.closeSafely(fileOutputStream);
             throw th;
         }
     }
@@ -112,7 +113,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.vg("1");
+                            vVar.xr("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -123,19 +124,19 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        vVar.cK(jSONObject);
+                        vVar.cQ(jSONObject);
                         z2 = true;
                     } catch (Exception e) {
-                        com.baidu.swan.d.d.closeSafely(bufferedReader);
+                        com.baidu.swan.c.d.closeSafely(bufferedReader);
                         return z2;
                     } catch (Throwable th) {
                         th = th;
-                        com.baidu.swan.d.d.closeSafely(bufferedReader);
+                        com.baidu.swan.c.d.closeSafely(bufferedReader);
                         throw th;
                     }
                 }
-                vVar.t(j, j2);
-                com.baidu.swan.d.d.closeSafely(bufferedReader);
+                vVar.u(j, j2);
+                com.baidu.swan.c.d.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 bufferedReader = null;
             } catch (Throwable th2) {
@@ -168,7 +169,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.vg("1");
+                                vVar.xr("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -179,21 +180,21 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            vVar.cK(jSONObject);
+                            vVar.cQ(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            com.baidu.swan.d.d.closeSafely(bufferedReader);
+                            com.baidu.swan.c.d.closeSafely(bufferedReader);
                         }
                     } catch (Throwable th) {
                         th = th;
-                        com.baidu.swan.d.d.closeSafely(bufferedReader);
+                        com.baidu.swan.c.d.closeSafely(bufferedReader);
                         throw th;
                     }
                 } while (i < 10);
-                vVar.t(j, j2);
-                com.baidu.swan.d.d.closeSafely(bufferedReader);
+                vVar.u(j, j2);
+                com.baidu.swan.c.d.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 e = e2;
                 bufferedReader = null;
@@ -206,7 +207,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void gL(boolean z) {
+    public void hf(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

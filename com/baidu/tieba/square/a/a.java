@@ -9,21 +9,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private InterfaceC0748a lGg = null;
-    private int lGh = 0;
+    private InterfaceC0801a lXM = null;
+    private int lXN = 0;
     private Context mContext;
     private List<String> mDataList;
 
     /* renamed from: com.baidu.tieba.square.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public interface InterfaceC0748a {
+    public interface InterfaceC0801a {
         void a(View view, int i, String str);
     }
 
@@ -45,33 +45,33 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.lGk.setText(str);
-        if (this.lGh == i) {
-            bVar.lGl.setVisibility(0);
-            ao.setBackgroundColor(bVar.lGl, R.color.cp_link_tip_e);
-            ao.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
-            ao.setViewTextColor(bVar.lGk, R.color.cp_cont_b);
+        bVar.lXQ.setText(str);
+        if (this.lXN == i) {
+            bVar.lXR.setVisibility(0);
+            ap.setBackgroundColor(bVar.lXR, R.color.cp_link_tip_e);
+            ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
+            ap.setViewTextColor(bVar.lXQ, (int) R.color.cp_cont_b);
         } else {
-            bVar.lGl.setVisibility(8);
-            ao.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
-            ao.setViewTextColor(bVar.lGk, R.color.cp_cont_j);
+            bVar.lXR.setVisibility(8);
+            ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
+            ap.setViewTextColor(bVar.lXQ, (int) R.color.cp_cont_j);
         }
-        if ("推荐".equals(dju())) {
-            ap apVar = new ap("c13641");
-            apVar.t("uid", TbadkApplication.getCurrentAccountId());
-            apVar.ah("obj_locate", 3);
-            TiebaStatic.log(apVar);
+        if ("推荐".equals(duR())) {
+            aq aqVar = new aq("c13641");
+            aqVar.u("uid", TbadkApplication.getCurrentAccountId());
+            aqVar.ai("obj_locate", 3);
+            TiebaStatic.log(aqVar);
         }
         bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.Fb(i);
-                if (a.this.lGg != null) {
-                    a.this.lGg.a(bVar.itemView, i, str);
+                a.this.Hy(i);
+                if (a.this.lXM != null) {
+                    a.this.lXM.a(bVar.itemView, i, str);
                 }
-                ap apVar2 = new ap("c13649");
-                apVar2.dn("resource_id", str);
-                TiebaStatic.log(apVar2);
+                aq aqVar2 = new aq("c13649");
+                aqVar2.dD("resource_id", str);
+                TiebaStatic.log(aqVar2);
             }
         });
     }
@@ -84,38 +84,42 @@ public class a extends RecyclerView.Adapter<b> {
         return this.mDataList.size();
     }
 
-    public void b(InterfaceC0748a interfaceC0748a) {
-        this.lGg = interfaceC0748a;
+    public void b(InterfaceC0801a interfaceC0801a) {
+        this.lXM = interfaceC0801a;
     }
 
     public void p(int i, List<String> list) {
-        this.lGh = i;
+        this.lXN = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
-    public void Fb(int i) {
-        this.lGh = i;
+    public void Hy(int i) {
+        this.lXN = i;
         notifyDataSetChanged();
     }
 
-    public String dju() {
-        return Fc(this.lGh);
+    public String duR() {
+        return Hz(this.lXN);
     }
 
-    public String Fc(int i) {
-        return (String) x.getItem(this.mDataList, i);
+    public String Hz(int i) {
+        return (String) y.getItem(this.mDataList, i);
+    }
+
+    public int Qr(String str) {
+        return y.getPosition(this.mDataList, str);
     }
 
     /* loaded from: classes16.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView lGk;
-        private View lGl;
+        private TextView lXQ;
+        private View lXR;
 
         public b(@NonNull View view) {
             super(view);
-            this.lGk = (TextView) view.findViewById(R.id.tv_class_name);
-            this.lGl = view.findViewById(R.id.tv_line);
+            this.lXQ = (TextView) view.findViewById(R.id.tv_class_name);
+            this.lXR = view.findViewById(R.id.tv_line);
         }
     }
 }

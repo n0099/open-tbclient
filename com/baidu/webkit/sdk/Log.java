@@ -1,8 +1,7 @@
 package com.baidu.webkit.sdk;
 
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class Log implements INoProGuard {
     private static boolean sDebugApk;
     public static String LOG_TAG = "ZeusLog";
@@ -122,7 +121,7 @@ public final class Log implements INoProGuard {
         if (sMinLogLevel < 6 || th == null) {
             return;
         }
-        a.a(th);
+        th.printStackTrace();
     }
 
     public static void setMinLogLevel(int i, boolean z) {

@@ -8,19 +8,11 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
-public class PassHttpClient {
-    private static final ThreadFactory a = new ThreadFactory() { // from class: com.baidu.pass.http.PassHttpClient.1
-        private final AtomicInteger a = new AtomicInteger(1);
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_net_work_request_thread # " + this.a.getAndIncrement());
-        }
-    };
+/* loaded from: classes4.dex */
+public class PassHttpClient implements com.baidu.pass.a {
+    private static final ThreadFactory a = new a();
     private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
-    private a c;
+    private d c;
 
     static {
         if (Build.VERSION.SDK_INT >= 9) {
@@ -29,18 +21,7 @@ public class PassHttpClient {
     }
 
     public void cancelRequests(boolean z) {
-        new Thread(new Runnable() { // from class: com.baidu.pass.http.PassHttpClient.2
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    if (PassHttpClient.this.c != null && PassHttpClient.this.c.b() != null) {
-                        PassHttpClient.this.c.b().disconnect();
-                        PassHttpClient.this.c.a();
-                    }
-                } catch (Exception e) {
-                }
-            }
-        }).start();
+        new Thread(new b(this)).start();
     }
 
     public void get(Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
@@ -49,7 +30,7 @@ public class PassHttpClient {
             a(Method.GET, context, passHttpParamDTO, httpResponseHandler);
         } catch (Exception e) {
             if (httpResponseHandler != null) {
-                httpResponseHandler.b(e, e.getMessage());
+                httpResponseHandler.a(e, e.getMessage());
             }
         }
     }
@@ -60,22 +41,23 @@ public class PassHttpClient {
             a(Method.POST, context, passHttpParamDTO, httpResponseHandler);
         } catch (Exception e) {
             if (httpResponseHandler != null) {
-                httpResponseHandler.b(e, e.getMessage());
+                httpResponseHandler.a(e, e.getMessage());
             }
         }
     }
 
     private void a(Context context, PassHttpParamDTO passHttpParamDTO) {
-        if (context == null) {
-            throw new IllegalArgumentException("Invalid context argument");
+        if (context != null) {
+            if (passHttpParamDTO == null || TextUtils.isEmpty(passHttpParamDTO.url)) {
+                throw new IllegalArgumentException("paramDTO can't be null or paramDTO.url can't be empty");
+            }
+            return;
         }
-        if (passHttpParamDTO == null || TextUtils.isEmpty(passHttpParamDTO.url)) {
-            throw new IllegalArgumentException("paramDTO can't be null or paramDTO.url can't be empty");
-        }
+        throw new IllegalArgumentException("Invalid context argument");
     }
 
     private void a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
-        this.c = new a(method, context, passHttpParamDTO, httpResponseHandler);
+        this.c = new d(method, context, passHttpParamDTO, httpResponseHandler);
         b.submit(this.c);
     }
 }

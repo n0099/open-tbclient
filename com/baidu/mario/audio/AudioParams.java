@@ -2,7 +2,7 @@ package com.baidu.mario.audio;
 
 import com.baidu.searchbox.v8engine.NotProguard;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class AudioParams {
     public static final int DEFAULT_AUDIO_BUFFER_SIZE = 32768;
     public static final int DEFAULT_AUDIO_FORMAT = 2;

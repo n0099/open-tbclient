@@ -3,11 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.NetWorkUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +40,7 @@ public class a implements Parcelable {
         a aVar = null;
         try {
             if (!TextUtils.isEmpty(messageV3.getNotificationMessage())) {
-                aVar = a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED));
+                aVar = a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no"));
             }
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("NotifyOption", "parse flyme NotifyOption setting error " + e.getMessage() + " so get from notificationMessage");
@@ -97,7 +96,7 @@ public class a implements Parcelable {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return b(new JSONObject(str).getString(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED));
+            return b(new JSONObject(str).getString("no"));
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("NotifyOption", "parse notificationMessage error " + e.getMessage());
             return null;

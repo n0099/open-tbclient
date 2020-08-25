@@ -1,22 +1,27 @@
 package com.baidu.tieba.recapp;
 
+import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.activity.newstyle.NewWebVideoActivity;
+import com.baidu.tieba.recapp.activity.newstyle.NewWebVideoActivityConfig;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.request.ShowStatisticUploadRequest;
 import com.baidu.tieba.tbadkCore.d.a;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.VideoInfo;
 /* loaded from: classes20.dex */
 public class t implements o {
-    private List<AppData> llN;
+    private List<AppData> lCo;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
-        if (nVar != null && bdUniqueId == AdvertAppInfo.dMF) {
+        if (nVar != null && bdUniqueId == AdvertAppInfo.dVO) {
             return new com.baidu.tieba.recapp.b.e(nVar, bdUniqueId);
         }
         return null;
@@ -27,10 +32,10 @@ public class t implements o {
         if (baseFragmentActivity == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.dMO) {
+        if (bdUniqueId == AdvertAppInfo.dVX) {
             return new com.baidu.tieba.recapp.b.k(baseFragmentActivity, bdUniqueId);
         }
-        if (bdUniqueId == AdvertAppInfo.dMK) {
+        if (bdUniqueId == AdvertAppInfo.dVT) {
             return new com.baidu.tieba.recapp.b.i(baseFragmentActivity, bdUniqueId);
         }
         return null;
@@ -38,7 +43,7 @@ public class t implements o {
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        if (bdUniqueId == AdvertAppInfo.dML) {
+        if (bdUniqueId == AdvertAppInfo.dVU) {
             return new com.baidu.tieba.recapp.b.a(tbPageContext, bdUniqueId);
         }
         if (bdUniqueId != null) {
@@ -58,35 +63,63 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j dbU() {
-        return a.dbL();
+    public j dnb() {
+        return a.dmS();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l dbV() {
-        return a.dbL();
+    public l dnc() {
+        return a.dmS();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.r.a dbW() {
-        return com.baidu.tieba.ad.statis.a.bsu();
+    public com.baidu.tieba.r.a dnd() {
+        return com.baidu.tieba.ad.statis.a.bBr();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public g dbX() {
-        return com.baidu.tieba.ad.a.brW();
+    public g dne() {
+        return com.baidu.tieba.ad.a.bAT();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> dbY() {
-        if (this.llN == null) {
-            this.llN = new ArrayList();
+    public List<AppData> dnf() {
+        if (this.lCo == null) {
+            this.lCo = new ArrayList();
         }
-        return this.llN;
+        return this.lCo;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void dbZ() {
-        AdDebugService.updateFloatView(this.llN != null ? StringUtils.string(Integer.valueOf(this.llN.size())) : "0");
+    public void dng() {
+        AdDebugService.updateFloatView(this.lCo != null ? StringUtils.string(Integer.valueOf(this.lCo.size())) : "0");
+    }
+
+    @Override // com.baidu.tieba.recapp.o
+    public void a(AdvertAppInfo advertAppInfo, Context context) {
+        VideoInfo videoInfo;
+        AdCard adCard;
+        if (advertAppInfo != null) {
+            if (advertAppInfo.legoCard instanceof AdCard) {
+                AdCard adCard2 = (AdCard) advertAppInfo.legoCard;
+                videoInfo = adCard2.videoInfo;
+                adCard = adCard2;
+            } else {
+                videoInfo = null;
+                adCard = null;
+            }
+            if (adCard != null && videoInfo != null) {
+                NewWebVideoActivity.a(advertAppInfo, 0, "DETAIL");
+                NewWebVideoActivityConfig newWebVideoActivityConfig = new NewWebVideoActivityConfig(context, "", s.Pl(adCard.getScheme()), true, true, true, videoInfo.video_url, videoInfo.thumbnail_url, videoInfo.video_width.intValue() / videoInfo.video_height.intValue(), videoInfo.video_duration.intValue(), advertAppInfo.dWf);
+                if (adCard.tailFrame != null) {
+                    adCard.tailFrame.buttonText = adCard.buttonText;
+                    newWebVideoActivityConfig.setTailFrame(adCard.tailFrame.toJsonString());
+                }
+                if (adCard != null) {
+                    newWebVideoActivityConfig.setGoodStyle(adCard.goodsStyle);
+                }
+                NewWebVideoActivity.a(newWebVideoActivityConfig);
+            }
+        }
     }
 }

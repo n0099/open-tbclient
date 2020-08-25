@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.person.a;
 
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
     public int has_more;
     public int pn;

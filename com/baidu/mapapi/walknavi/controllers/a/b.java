@@ -1,8 +1,9 @@
 package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWEngineInitListener;
-/* loaded from: classes10.dex */
-class b implements com.baidu.platform.comapi.walknavi.c.a {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes20.dex */
+public class b implements com.baidu.platform.comapi.walknavi.c.a {
     final /* synthetic */ IWEngineInitListener a;
     final /* synthetic */ a b;
 

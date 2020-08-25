@@ -2,9 +2,9 @@ package com.baidu.live.gift;
 
 import android.content.DialogInterface;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface z {
-    void d(com.baidu.live.data.q qVar);
+    void d(com.baidu.live.data.r rVar);
 
     void initView();
 

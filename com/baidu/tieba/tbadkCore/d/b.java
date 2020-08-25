@@ -2,63 +2,64 @@ package com.baidu.tieba.tbadkCore.d;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
-/* loaded from: classes.dex */
+import com.baidu.android.imsdk.internal.IMConnection;
+/* loaded from: classes2.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a lOB;
-    private final int lOC = 10;
-    private final int lOD = 3000;
+    private com.baidu.adp.lib.stats.a mgl;
+    private final int mgm = 10;
+    private final int mgn = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
     public b(String str) {
-        aT(str, false);
+        aX(str, false);
     }
 
-    public void aT(String str, boolean z) {
+    public void aX(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.lOB = new com.baidu.adp.lib.stats.a("dbg");
-        c.D(str, getNetType(), z);
+        this.mgl = new com.baidu.adp.lib.stats.a("dbg");
+        c.C(str, getNetType(), z);
     }
 
     public void start() {
-        this.lOB.startTimer();
+        this.mgl.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e dlA;
-        if (this.lOB != null && (dlA = dlA()) != null) {
+        e dwX;
+        if (this.mgl != null && (dwX = dwX()) != null) {
             if (z) {
-                if (dlA.lOI != null) {
-                    dlA.lOI.num++;
+                if (dwX.mgs != null) {
+                    dwX.mgs.num++;
                     if (z2) {
-                        dlA.lOI.lOF += j2;
-                        dlA.lOI.size += j;
+                        dwX.mgs.mgp += j2;
+                        dwX.mgs.size += j;
                     } else {
-                        dlA.lOI.lOG++;
+                        dwX.mgs.mgq++;
                     }
                 } else {
                     return;
                 }
-            } else if (dlA.lOJ != null) {
-                dlA.lOJ.num++;
+            } else if (dwX.mgt != null) {
+                dwX.mgt.num++;
                 if (z2) {
-                    dlA.lOJ.lOF += j3;
-                    dlA.lOJ.size += j;
+                    dwX.mgt.mgp += j3;
+                    dwX.mgt.size += j;
                     j2 = j3;
                 } else {
-                    dlA.lOJ.lOG++;
+                    dwX.mgt.mgq++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.lOB = null;
+            this.mgl = null;
             if (z2) {
-                c.a(dlA, 10);
+                c.a(dwX, 10);
             }
             if (this.mLogType == "frsStat") {
-                if (!z2 || j2 > 3000) {
+                if (!z2 || j2 > IMConnection.RETRY_DELAY_TIMES) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append("act", "frs");
                     aVar.append("result", z2 ? "0" : "1");
@@ -74,20 +75,20 @@ public class b {
     }
 
     public void destory() {
-        e dlA;
-        if (this.lOB != null && (dlA = dlA()) != null && dlA.lOK != null) {
-            long timeCost = this.lOB.getTimeCost();
-            if (timeCost > 3000) {
-                d dVar = dlA.lOK;
-                dVar.lOF = timeCost + dVar.lOF;
-                dlA.lOK.num++;
-                c.a(dlA, 10);
+        e dwX;
+        if (this.mgl != null && (dwX = dwX()) != null && dwX.mgu != null) {
+            long timeCost = this.mgl.getTimeCost();
+            if (timeCost > IMConnection.RETRY_DELAY_TIMES) {
+                d dVar = dwX.mgu;
+                dVar.mgp = timeCost + dVar.mgp;
+                dwX.mgu.num++;
+                c.a(dwX, 10);
             }
         }
     }
 
-    private e dlA() {
-        return c.E(this.mLogType, getNetType(), this.mIsJson);
+    private e dwX() {
+        return c.D(this.mLogType, getNetType(), this.mIsJson);
     }
 
     private String getNetType() {

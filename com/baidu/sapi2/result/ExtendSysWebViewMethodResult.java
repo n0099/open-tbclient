@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class ExtendSysWebViewMethodResult extends SapiResult {
     public Map<String, Object> params = new HashMap();
     public PassFaceRecogResult recogResult;

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.hybrid;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class n extends d {
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract String aSW();
+    public abstract String bbn();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public n(l lVar) {

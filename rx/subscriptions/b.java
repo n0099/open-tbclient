@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b implements k {
-    private volatile boolean ojS;
-    private Set<k> oqE;
+    private volatile boolean oDO;
+    private Set<k> oKy;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.ojS;
+        return this.oDO;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.ojS) {
+            if (!this.oDO) {
                 synchronized (this) {
-                    if (!this.ojS) {
-                        if (this.oqE == null) {
-                            this.oqE = new HashSet(4);
+                    if (!this.oDO) {
+                        if (this.oKy == null) {
+                            this.oKy = new HashSet(4);
                         }
-                        this.oqE.add(kVar);
+                        this.oKy.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.ojS) {
+        if (!this.oDO) {
             synchronized (this) {
-                if (!this.ojS && this.oqE != null) {
-                    boolean remove = this.oqE.remove(kVar);
+                if (!this.oDO && this.oKy != null) {
+                    boolean remove = this.oKy.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,19 +47,19 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.ojS) {
+        if (!this.oDO) {
             synchronized (this) {
-                if (!this.ojS) {
-                    this.ojS = true;
-                    Set<k> set = this.oqE;
-                    this.oqE = null;
-                    t(set);
+                if (!this.oDO) {
+                    this.oDO = true;
+                    Set<k> set = this.oKy;
+                    this.oKy = null;
+                    v(set);
                 }
             }
         }
     }
 
-    private static void t(Collection<k> collection) {
+    private static void v(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.fS(arrayList);
+            rx.exceptions.a.gc(arrayList);
         }
     }
 }

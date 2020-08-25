@@ -1,34 +1,33 @@
 package com.baidu.tieba.homepage.hotTopic.tab.a;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.ab;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.card.a.a;
+import com.baidu.card.aj;
+import com.baidu.card.al;
+import com.baidu.card.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
+import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.card.aa;
 /* loaded from: classes16.dex */
-public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.hotTopic.tab.b.e, a> {
-    private com.baidu.tbadk.h.f<com.baidu.tieba.homepage.hotTopic.tab.b.e> iwT;
+public class e extends a<bv, al<bw>> {
+    private aa<bw> aeT;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.ixc);
-        this.iwT = new com.baidu.tbadk.h.f<com.baidu.tieba.homepage.hotTopic.tab.b.e>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.e.1
+    public e(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, bw.eaY);
+        this.aeT = new aa<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void a(View view, com.baidu.tieba.homepage.hotTopic.tab.b.e eVar, int i, long j) {
-                if (eVar != null) {
-                    com.baidu.tieba.homepage.hotTopic.tab.a.b("c13738", eVar, i);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void b(View view, com.baidu.tieba.homepage.hotTopic.tab.b.e eVar, int i, long j) {
-                if (eVar != null) {
-                    com.baidu.tieba.homepage.hotTopic.tab.a.c("c13825", eVar, i);
-                }
+            @Override // com.baidu.tieba.card.aa
+            /* renamed from: b */
+            public void a(View view, bw bwVar) {
+                e.this.f(view, bwVar);
             }
         };
     }
@@ -36,46 +35,48 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bE */
-    public a b(ViewGroup viewGroup) {
-        HotTopicTabThreadItem hotTopicTabThreadItem = new HotTopicTabThreadItem(viewGroup.getContext());
-        hotTopicTabThreadItem.setOnItemCoverListener(this.iwT);
-        hotTopicTabThreadItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-        a aVar = new a(hotTopicTabThreadItem);
-        aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return aVar;
+    /* renamed from: aQ */
+    public al b(ViewGroup viewGroup) {
+        aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
+        y yVar = new y(this.mPageContext.getPageActivity());
+        yVar.setFrom("index");
+        yVar.setFromCDN(isFromCDN());
+        aVar.c(yVar);
+        aj a = aVar.a(false, viewGroup, this.akI);
+        a.setSourceForPb(0);
+        al alVar = new al(a);
+        alVar.setPageId(this.mPageId);
+        a(new ab() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.e.2
+            @Override // com.baidu.adp.widget.ListView.ab
+            public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
+                if ((qVar instanceof bv) && (view.getTag() instanceof al)) {
+                    al alVar2 = (al) view.getTag();
+                    bw bwVar = ((bv) qVar).dUS;
+                    bwVar.objType = 1;
+                    if (e.this.aeT != null) {
+                        e.this.aeT.a(alVar2.getView(), bwVar);
+                    }
+                    ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false);
+                    alVar2.tR().b(new a.C0095a(1));
+                }
+            }
+        });
+        return alVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.hotTopic.tab.b.e eVar, a aVar) {
-        if (eVar == null || aVar == null) {
+    @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, bv bvVar, al<bw> alVar) {
+        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUS == null) {
             return null;
         }
-        aVar.a(eVar);
-        aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return aVar.getView();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
-    public static class a extends ad.a {
-        private HotTopicTabThreadItem iwY;
-
-        a(HotTopicTabThreadItem hotTopicTabThreadItem) {
-            super(hotTopicTabThreadItem);
-            this.iwY = hotTopicTabThreadItem;
-        }
-
-        void a(com.baidu.tieba.homepage.hotTopic.tab.b.e eVar) {
-            if (eVar != null) {
-                this.iwY.a(eVar);
-            }
-        }
-
-        void onChangeSkinType(int i) {
-            this.iwY.onChangeSkinType(i);
-        }
+        bvVar.dUS.dZb = getPositionByType(i) + 1;
+        alVar.tR().setPosition(i);
+        alVar.b((al<bw>) bvVar.dUS);
+        alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        alVar.tR().a(this.aeT);
+        a(alVar.getView(), bvVar.dUS, i, i);
+        return alVar.getView();
     }
 }

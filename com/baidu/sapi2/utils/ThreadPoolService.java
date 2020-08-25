@@ -3,33 +3,66 @@ package com.baidu.sapi2.utils;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.support.v7.widget.ActivityChooserView;
+import com.baidu.sapi2.NoProguard;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes19.dex */
-public class ThreadPoolService implements com.baidu.sapi2.c {
-    private static final ThreadFactory a = new u();
-    private static final int b = 0;
-    private static final int c = 1;
-    private Handler d;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes12.dex */
+public class ThreadPoolService implements NoProguard {
+    private static final ThreadFactory b = new a();
+    private static final int c = 0;
+    private static final int d = 1;
+    private Handler a;
     public ThreadPoolExecutor poolService;
 
-    /* loaded from: classes19.dex */
-    private static class a {
-        static ThreadPoolService a = new ThreadPoolService(null);
+    /* loaded from: classes12.dex */
+    static class a implements ThreadFactory {
+        private final AtomicInteger a = new AtomicInteger(1);
 
-        private a() {
+        a() {
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            return new Thread(runnable, "pass_pool_thread # " + this.a.getAndIncrement());
         }
     }
 
-    /* synthetic */ ThreadPoolService(u uVar) {
+    /* loaded from: classes12.dex */
+    class b extends Handler {
+        b(Looper looper) {
+            super(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            int i = message.what;
+            if (i == 0) {
+                ((TPRunnable) message.obj).run();
+            } else if (i == 1) {
+                ThreadPoolService.this.poolService.submit(((TPRunnable) message.obj).runable);
+            }
+        }
+    }
+
+    /* loaded from: classes12.dex */
+    private static class c {
+        static ThreadPoolService a = new ThreadPoolService(null);
+
+        private c() {
+        }
+    }
+
+    /* synthetic */ ThreadPoolService(a aVar) {
         this();
     }
 
     public static ThreadPoolService getInstance() {
-        return a.a;
+        return c.a;
     }
 
     public void run(TPRunnable tPRunnable) {
@@ -37,12 +70,12 @@ public class ThreadPoolService implements com.baidu.sapi2.c {
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
-        this.d.sendMessage(this.d.obtainMessage(0, tPRunnable));
+        this.a.sendMessage(this.a.obtainMessage(0, tPRunnable));
     }
 
     private ThreadPoolService() {
-        this.d = new v(this, Looper.getMainLooper());
-        this.poolService = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
+        this.a = new b(Looper.getMainLooper());
+        this.poolService = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
         if (Build.VERSION.SDK_INT >= 9) {
             this.poolService.allowCoreThreadTimeOut(true);
         }

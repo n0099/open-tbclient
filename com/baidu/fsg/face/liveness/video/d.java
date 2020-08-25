@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.video;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public interface d {
     void a(Throwable th);
 }

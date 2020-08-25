@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -35,15 +35,6 @@ public final class NetworkUtils {
     private NetworkUtils() {
     }
 
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager;
-        if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
-        }
-        return false;
-    }
-
     @TargetApi(3)
     public static String getNetworkClass(Context context) {
         NetworkInfo activeNetworkInfo;
@@ -51,36 +42,45 @@ public final class NetworkUtils {
             activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Throwable th) {
         }
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return "UNCNCT";
-        }
-        if (activeNetworkInfo.getType() == 1) {
-            return "WIFI";
-        }
-        if (activeNetworkInfo.getType() == 0) {
-            switch (activeNetworkInfo.getSubtype()) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                    return "2G";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                    return "3G";
-                case 13:
-                    return "4G";
-                default:
-                    return RomUtils.UNKNOWN;
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+            if (activeNetworkInfo.getType() == 1) {
+                return "WIFI";
             }
+            if (activeNetworkInfo.getType() == 0) {
+                switch (activeNetworkInfo.getSubtype()) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return "2G";
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        return "3G";
+                    case 13:
+                        return "4G";
+                    default:
+                        return RomUtils.UNKNOWN;
+                }
+            }
+            return RomUtils.UNKNOWN;
         }
-        return RomUtils.UNKNOWN;
+        return "UNCNCT";
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager;
+        if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
+        }
+        return false;
     }
 }

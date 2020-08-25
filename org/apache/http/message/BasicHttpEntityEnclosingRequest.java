@@ -5,7 +5,7 @@ import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.RequestLine;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class BasicHttpEntityEnclosingRequest extends BasicHttpRequest implements HttpEntityEnclosingRequest {
     public BasicHttpEntityEnclosingRequest(String str, String str2) {
         super(null);

@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class g<T> implements Iterator<T> {
     private final T[] array;
     private int index;

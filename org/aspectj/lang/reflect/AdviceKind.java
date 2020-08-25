@@ -1,5 +1,5 @@
 package org.aspectj.lang.reflect;
-/* loaded from: classes20.dex */
+/* loaded from: classes10.dex */
 public enum AdviceKind {
     BEFORE,
     AFTER,

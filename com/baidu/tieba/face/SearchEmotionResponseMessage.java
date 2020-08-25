@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     private com.baidu.tieba.face.data.a mData;
 
@@ -26,7 +26,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
                 this.mData.setPage(optJSONObject.optInt("current_pn"));
                 this.mData.setHasMore(optJSONObject.optInt("has_more"));
             }
-            this.mData.cn(parseImageData(jSONObject.optJSONArray("list")));
+            this.mData.cp(parseImageData(jSONObject.optJSONArray("list")));
         }
     }
 

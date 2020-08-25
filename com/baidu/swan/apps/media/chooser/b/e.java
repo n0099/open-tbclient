@@ -2,42 +2,42 @@ package com.baidu.swan.apps.media.chooser.b;
 
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private static ArrayList<MediaModel> cti;
+    private static ArrayList<MediaModel> cAW;
 
-    public static ArrayList<MediaModel> alt() {
-        return cti;
+    public static ArrayList<MediaModel> ath() {
+        return cAW;
     }
 
     public static int getSelectedCount() {
-        if (cti == null) {
+        if (cAW == null) {
             return 0;
         }
-        return cti.size();
+        return cAW.size();
     }
 
-    public static String alu() {
-        if (cti == null || cti.size() == 0 || cti.get(0) == null) {
+    public static String ati() {
+        if (cAW == null || cAW.size() == 0 || cAW.get(0) == null) {
             return null;
         }
-        return cti.get(0).getType();
+        return cAW.get(0).getType();
     }
 
     public static boolean c(MediaModel mediaModel) {
-        if (cti == null || cti.size() == 0) {
+        if (cAW == null || cAW.size() == 0) {
             return false;
         }
-        return cti.contains(mediaModel);
+        return cAW.contains(mediaModel);
     }
 
     public static int d(MediaModel mediaModel) {
-        if (mediaModel == null || cti == null) {
+        if (mediaModel == null || cAW == null) {
             return -1;
         }
-        int size = cti.size();
+        int size = cAW.size();
         for (int i = 0; i < size; i++) {
-            if (mediaModel.equals(cti.get(i))) {
+            if (mediaModel.equals(cAW.get(i))) {
                 return i;
             }
         }
@@ -45,31 +45,31 @@ public class e {
     }
 
     public static void clear() {
-        if (cti != null) {
-            cti.clear();
-            cti = null;
+        if (cAW != null) {
+            cAW.clear();
+            cAW = null;
         }
     }
 
     public static void e(MediaModel mediaModel) {
         if (mediaModel != null) {
-            if (cti == null) {
-                cti = new ArrayList<>();
+            if (cAW == null) {
+                cAW = new ArrayList<>();
             }
-            cti.add(mediaModel);
+            cAW.add(mediaModel);
         }
     }
 
     public static void f(MediaModel mediaModel) {
-        if (cti != null) {
-            cti.remove(mediaModel);
+        if (cAW != null) {
+            cAW.remove(mediaModel);
         }
     }
 
     public static boolean g(MediaModel mediaModel) {
-        if (cti == null) {
+        if (cAW == null) {
             return false;
         }
-        return cti.contains(mediaModel);
+        return cAW.contains(mediaModel);
     }
 }

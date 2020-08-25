@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LegoListActivityConfig extends IntentConfig {
     public static final String AD_ID = "ad_id";
     public static final String ANIMATION_INFO = "animation_info";

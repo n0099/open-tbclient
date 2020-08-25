@@ -3,10 +3,10 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
-    public static String[] bmA() {
-        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+    public static String[] bvn() {
+        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
         }
@@ -14,9 +14,9 @@ public class f {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a Ap = a.Ap(str);
-                if (Ap != null && !StringUtils.isNull(Ap.forumName)) {
-                    arrayList.add(Ap.forumName);
+                a CF = a.CF(str);
+                if (CF != null && !StringUtils.isNull(CF.forumName)) {
+                    arrayList.add(CF.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -24,7 +24,7 @@ public class f {
         return null;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public String forumName;
         public int level;
@@ -44,7 +44,7 @@ public class f {
             return this.forumName + "#" + this.level;
         }
 
-        public static a Ap(String str) {
+        public static a CF(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

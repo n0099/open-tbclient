@@ -1,73 +1,30 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.as;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class aa {
-    private static final Map<ShareDialogConfig.From, Integer> eqx = new HashMap();
-    private List<Integer> bLp;
-    private int eqA;
-    private int eqy;
-    private int eqz;
-    private String mText;
+    public boolean eAH;
+    public boolean eAI;
+    public int eAJ;
+    public int eAK;
+    public String eAL;
+    public String eAM;
+    public String eAN;
+    public int eAO;
+    public String eAP;
 
-    static {
-        eqx.put(ShareDialogConfig.From.Recommend, 1);
-        eqx.put(ShareDialogConfig.From.Concern, 2);
-        eqx.put(ShareDialogConfig.From.PB, 3);
-        eqx.put(ShareDialogConfig.From.FRS, 4);
-        eqx.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        eqx.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        eqx.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        eqx.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        eqx.put(ShareDialogConfig.From.HomeGameTab, 9);
-    }
-
-    public void parseJson(JSONObject jSONObject) {
+    public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.eqy = jSONObject.optInt("begin_time");
-            this.eqz = jSONObject.optInt("end_time");
-            this.mText = jSONObject.optString("text");
-            this.eqA = jSONObject.optInt("icon_exp");
-            yI(jSONObject.optString("page_list"));
+            this.eAH = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+            this.eAI = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+            this.eAJ = jSONObject.optInt("downloadNaniShowPosition", 3);
+            this.eAK = jSONObject.optInt("downloadNaniShowRate", 2);
+            this.eAL = jSONObject.optString("downloadNaniLinkUrl", null);
+            this.eAM = jSONObject.optString("downloadNaniTxt", null);
+            this.eAN = jSONObject.optString("showNaniTailTxt", null);
+            this.eAO = jSONObject.optInt("showNaniTailVideoType", 0);
+            this.eAP = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
         }
-    }
-
-    private void yI(String str) {
-        String[] split;
-        if (!as.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
-            for (String str2 : split) {
-                int i = com.baidu.adp.lib.f.b.toInt(str2, -1);
-                if (i != -1) {
-                    if (this.bLp == null) {
-                        this.bLp = new ArrayList();
-                    }
-                    this.bLp.add(Integer.valueOf(i));
-                }
-            }
-        }
-    }
-
-    public boolean a(ShareDialogConfig.From from) {
-        Integer num;
-        return (this.bLp == null || (num = eqx.get(from)) == null || !this.bLp.contains(num)) ? false : true;
-    }
-
-    public boolean bej() {
-        return System.currentTimeMillis() / 1000 >= ((long) this.eqy) && System.currentTimeMillis() / 1000 <= ((long) this.eqz);
-    }
-
-    public String getText() {
-        return this.mText;
-    }
-
-    public int bek() {
-        return this.eqA;
     }
 }

@@ -14,22 +14,22 @@ import java.util.Collections;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public static final String TYPE = "tfra";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_9 = null;
     private List<Entry> entries;
     private int lengthSizeOfSampleNum;
     private int lengthSizeOfTrafNum;
@@ -43,19 +43,19 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackFragmentRandomAccessBox.java", TrackFragmentRandomAccessBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "long", "trackId", "", "void"), 145);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setLengthSizeOfTrafNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "int", "lengthSizeOfTrafNum", "", "void"), Opcodes.FCMPL);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "java.util.List"), 185);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "java.util.List", "entries", "", "void"), 189);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", FieldUtil.TYPE_STRING), 290);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLengthSizeOfTrunNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "int", "lengthSizeOfTrunNum", "", "void"), Opcodes.IFEQ);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setLengthSizeOfSampleNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "int", "lengthSizeOfSampleNum", "", "void"), 157);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "long"), 161);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), Opcodes.IF_ACMPEQ);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getLengthSizeOfTrafNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), Opcodes.RET);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getLengthSizeOfTrunNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), 173);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getLengthSizeOfSampleNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), Opcodes.RETURN);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "getNumberOfEntries", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "long"), Opcodes.PUTFIELD);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "long", "trackId", "", "void"), 145);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setLengthSizeOfTrafNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "int", "lengthSizeOfTrafNum", "", "void"), Opcodes.FCMPL);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "java.util.List"), 185);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "java.util.List", "entries", "", "void"), 189);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", FieldUtil.TYPE_STRING), 290);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setLengthSizeOfTrunNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "int", "lengthSizeOfTrunNum", "", "void"), Opcodes.IFEQ);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setLengthSizeOfSampleNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "int", "lengthSizeOfSampleNum", "", "void"), 157);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "long"), 161);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "getReserved", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), Opcodes.IF_ACMPEQ);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "getLengthSizeOfTrafNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), Opcodes.RET);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.d("1", "getLengthSizeOfTrunNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), 173);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.d("1", "getLengthSizeOfSampleNum", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "int"), Opcodes.RETURN);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.d("1", "getNumberOfEntries", "com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox", "", "", "", "long"), Opcodes.PUTFIELD);
     }
 
     public TrackFragmentRandomAccessBox() {
@@ -126,22 +126,22 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.gY(j)));
         this.trackId = j;
     }
 
     public void setLengthSizeOfTrafNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Og(i)));
         this.lengthSizeOfTrafNum = i;
     }
 
     public void setLengthSizeOfTrunNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Og(i)));
         this.lengthSizeOfTrunNum = i;
     }
 
     public void setLengthSizeOfSampleNum(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Og(i)));
         this.lengthSizeOfSampleNum = i;
     }
 
@@ -185,7 +185,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
         this.entries = list;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         private long moofOffset;
         private long sampleNumber;

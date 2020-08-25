@@ -4,7 +4,7 @@ import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<b, ZoneRightResIdl> {
     public ProPermissionHttpResponseMessage(int i) {
         super(i);

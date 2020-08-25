@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.base.d.f;
@@ -35,7 +36,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     private Button a;
     private ImageView b;
@@ -74,7 +75,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     }
                 });
             }
-        }, 3000L);
+        }, IMConnection.RETRY_DELAY_TIMES);
         try {
             Field declaredField = ViewPager.class.getDeclaredField("mScroller");
             declaredField.setAccessible(true);
@@ -257,7 +258,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         RimStatisticsUtil.getInstance().triggerSending();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class ViewPagerAdapter extends PagerAdapter {
         private List<View> b;
 
@@ -309,7 +310,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         imageView.setLayoutParams(layoutParams);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class a extends Scroller {
         private int b;
 

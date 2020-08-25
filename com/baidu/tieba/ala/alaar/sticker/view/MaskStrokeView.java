@@ -15,13 +15,13 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MaskStrokeView extends View {
-    private int avK;
-    private int fou;
-    private Bitmap fph;
-    private Canvas fpi;
-    private Paint fpj;
+    private int aAM;
+    private Bitmap fAE;
+    private Canvas fAF;
+    private Paint fAG;
+    private int fzR;
     private int height;
     private int width;
 
@@ -42,20 +42,20 @@ public class MaskStrokeView extends View {
             obtainStyledAttributes.recycle();
         }
         try {
-            this.fph = drawableToBitmap(getResources().getDrawable(a.f.sticker_selected_bg));
-            this.fpi = new Canvas(this.fph);
-            this.fpj = new Paint();
-            this.fpj.setColor(-1);
-            this.fpj.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-            this.fpj.setFlags(1);
+            this.fAE = drawableToBitmap(getResources().getDrawable(a.f.sticker_selected_bg));
+            this.fAF = new Canvas(this.fAE);
+            this.fAG = new Paint();
+            this.fAG.setColor(-1);
+            this.fAG.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+            this.fAG.setFlags(1);
             getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.MaskStrokeView.1
                 @Override // android.view.ViewTreeObserver.OnPreDrawListener
                 public boolean onPreDraw() {
                     MaskStrokeView.this.getViewTreeObserver().removeOnPreDrawListener(this);
-                    MaskStrokeView.this.avK = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.width);
-                    MaskStrokeView.this.fou = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.height);
-                    MaskStrokeView.this.fph = MaskStrokeView.this.drawableToBitmap(MaskStrokeView.this.getResources().getDrawable(a.f.sticker_selected_bg));
-                    MaskStrokeView.this.fpi = new Canvas(MaskStrokeView.this.fph);
+                    MaskStrokeView.this.aAM = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.width);
+                    MaskStrokeView.this.fzR = BdUtilHelper.dip2px(MaskStrokeView.this.getContext(), MaskStrokeView.this.height);
+                    MaskStrokeView.this.fAE = MaskStrokeView.this.drawableToBitmap(MaskStrokeView.this.getResources().getDrawable(a.f.sticker_selected_bg));
+                    MaskStrokeView.this.fAF = new Canvas(MaskStrokeView.this.fAE);
                     MaskStrokeView.this.invalidate();
                     return false;
                 }
@@ -67,8 +67,8 @@ public class MaskStrokeView extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.fpi.drawRoundRect(new RectF(e(getContext(), 3.0f), e(getContext(), 3.0f), getDefaultWidth() - e(getContext(), 3.0f), getDefaultHeight() - e(getContext(), 3.0f)), e(getContext(), 6.0f), e(getContext(), 6.0f), this.fpj);
-        canvas.drawBitmap(this.fph, 0.0f, 0.0f, (Paint) null);
+        this.fAF.drawRoundRect(new RectF(e(getContext(), 3.0f), e(getContext(), 3.0f), getDefaultWidth() - e(getContext(), 3.0f), getDefaultHeight() - e(getContext(), 3.0f)), e(getContext(), 6.0f), e(getContext(), 6.0f), this.fAG);
+        canvas.drawBitmap(this.fAE, 0.0f, 0.0f, (Paint) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -88,10 +88,10 @@ public class MaskStrokeView extends View {
     }
 
     private float getDefaultWidth() {
-        return this.avK <= 0 ? e(getContext(), 60.0f) : this.avK;
+        return this.aAM <= 0 ? e(getContext(), 60.0f) : this.aAM;
     }
 
     private float getDefaultHeight() {
-        return this.fou <= 0 ? e(getContext(), 60.0f) : this.fou;
+        return this.fzR <= 0 ? e(getContext(), 60.0f) : this.fzR;
     }
 }

@@ -4,56 +4,56 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import java.util.concurrent.Executor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a extends c {
-    private static volatile a xV;
+    private static volatile a yu;
     @NonNull
     private static final Executor sMainThreadExecutor = new Executor() { // from class: android.arch.a.a.a.1
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            a.gb().f(runnable);
+            a.hq().d(runnable);
         }
     };
     @NonNull
-    private static final Executor xY = new Executor() { // from class: android.arch.a.a.a.2
+    private static final Executor yx = new Executor() { // from class: android.arch.a.a.a.2
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            a.gb().e(runnable);
+            a.hq().c(runnable);
         }
     };
     @NonNull
-    private c xX = new b();
+    private c yw = new b();
     @NonNull
-    private c xW = this.xX;
+    private c yv = this.yw;
 
     private a() {
     }
 
     @NonNull
-    public static a gb() {
-        if (xV != null) {
-            return xV;
+    public static a hq() {
+        if (yu != null) {
+            return yu;
         }
         synchronized (a.class) {
-            if (xV == null) {
-                xV = new a();
+            if (yu == null) {
+                yu = new a();
             }
         }
-        return xV;
+        return yu;
     }
 
     @Override // android.arch.a.a.c
-    public void e(Runnable runnable) {
-        this.xW.e(runnable);
+    public void c(Runnable runnable) {
+        this.yv.c(runnable);
     }
 
     @Override // android.arch.a.a.c
-    public void f(Runnable runnable) {
-        this.xW.f(runnable);
+    public void d(Runnable runnable) {
+        this.yv.d(runnable);
     }
 
     @Override // android.arch.a.a.c
     public boolean isMainThread() {
-        return this.xW.isMainThread();
+        return this.yv.isMainThread();
     }
 }

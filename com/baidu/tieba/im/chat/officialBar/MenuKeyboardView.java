@@ -5,16 +5,16 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.m;
+import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 /* loaded from: classes20.dex */
-public class MenuKeyboardView extends LinearLayout implements m {
-    private EditorTools ZS;
-    private int ZT;
+public class MenuKeyboardView extends LinearLayout implements n {
+    private EditorTools aay;
+    private int aaz;
 
     public MenuKeyboardView(Context context) {
         super(context);
-        this.ZT = 0;
+        this.aaz = 0;
         inflate(context, R.layout.official_bar_menu_toggle, this);
         setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
@@ -29,43 +29,43 @@ public class MenuKeyboardView extends LinearLayout implements m {
     public void a(com.baidu.tbadk.editortools.a aVar) {
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.ZS = editorTools;
+        this.aay = editorTools;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.ZS != null) {
-            this.ZS.b(aVar);
+        if (this.aay != null) {
+            this.aay.b(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.ZT = i;
+        this.aaz = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.ZT;
+        return this.aaz;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void init() {
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void display() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
     }
 }

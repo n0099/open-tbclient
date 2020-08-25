@@ -10,7 +10,7 @@ import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
-    private BaseFragment hiK;
+    private BaseFragment hvI;
     private boolean isPrimary;
     private FragmentManager mFragmentManager;
     private List<a> mFragments;
@@ -19,7 +19,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     /* loaded from: classes16.dex */
     public static class a {
         public Fragment fragment;
-        public boolean hiL;
+        public boolean hvJ;
         public String tabName;
         public String title;
     }
@@ -66,11 +66,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     @Override // com.baidu.tbadk.widget.tab.a
-    public boolean pi(int i) {
+    public boolean ru(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.mFragments.get(i).hiL;
+        return this.mFragments.get(i).hvJ;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
@@ -84,7 +84,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.hiK = baseFragment;
+                this.hvI = baseFragment;
             }
         }
     }
@@ -94,8 +94,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     public String getCurrentPageKey() {
-        if (this.hiK instanceof BaseFragment) {
-            return this.hiK.getCurrentPageKey();
+        if (this.hvI instanceof BaseFragment) {
+            return this.hvI.getCurrentPageKey();
         }
         return null;
     }

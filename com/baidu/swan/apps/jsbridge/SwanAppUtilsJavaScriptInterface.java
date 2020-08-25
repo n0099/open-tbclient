@@ -7,15 +7,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.v;
+import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ap.v;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.performance.a.f;
 import com.baidu.swan.apps.t.b.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppUtilsJavaScriptInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
@@ -63,9 +62,7 @@ public class SwanAppUtilsJavaScriptInterface {
 
     @JavascriptInterface
     public void callShare(String str, String str2, boolean z, boolean z2, String str3) {
-        f.aoh().iI("callShare");
         realCallShare(this.mActivity, this.mSource, str, str2, z, z2, str3);
-        f.aoh().iJ("callShare");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,7 +72,7 @@ public class SwanAppUtilsJavaScriptInterface {
 
     protected void loadJavaScript(final String str) {
         if (this.mWebView != null) {
-            al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
+            ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
                 @Override // java.lang.Runnable
                 public void run() {
                     String str2 = str;
@@ -102,14 +99,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.t.a.ahk().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.t.a.aoK().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aiI() {
+            public void aqo() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aiJ() {
+            public void aqp() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -125,41 +122,19 @@ public class SwanAppUtilsJavaScriptInterface {
     @JavascriptInterface
     public void ubcEvent(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            f.aoh().iI("ubcEvent");
-            if (com.baidu.swan.apps.performance.b.b.aon()) {
-                ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.3
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (SwanAppUtilsJavaScriptInterface.DEBUG) {
-                            Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
-                        }
-                        SwanAppUtilsJavaScriptInterface.this.doUbcEvent(str);
+            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (SwanAppUtilsJavaScriptInterface.DEBUG) {
+                        Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
                     }
-                }, "ubcEvent", 3);
-            } else {
-                doUbcEvent(str);
-            }
-            f.aoh().iJ("ubcEvent");
+                    SwanAppUtilsJavaScriptInterface.this.doUbcEvent(str);
+                }
+            }, "ubcEvent", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doUbcEvent(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            long j = 0;
-            String optString = jSONObject.optString("min_v");
-            if (!TextUtils.isEmpty(optString)) {
-                j = Long.valueOf(optString).longValue();
-            }
-            if (j >= UBC_MIN_VERSION) {
-                jSONObject.optString("actionId");
-                jSONObject.optString("value");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } finally {
-            f.aoh().iJ("ubcEvent");
-        }
     }
 }

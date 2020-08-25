@@ -16,7 +16,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseBean extends NetworkBean {
     public static final int COMET_BEAN = 1;
     private static final String TAG = "BeasBean";

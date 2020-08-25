@@ -1,12 +1,12 @@
 package com.baidu.live.im.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public boolean aXn = false;
-    public boolean aXo = true;
+    public boolean bcD = false;
+    public boolean bcE = true;
     public boolean isNormal = true;
-    public boolean aXp = false;
-    public boolean aXq = false;
-    public boolean aXr = false;
-    public boolean aXs = false;
-    public boolean aXt = false;
+    public boolean bcF = false;
+    public boolean bcG = false;
+    public boolean bcH = false;
+    public boolean bcI = false;
+    public boolean bcJ = false;
 }

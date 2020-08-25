@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -14,7 +14,7 @@ public class e extends c {
 
     @Override // com.baidu.swan.apps.media.c.a.c
     public boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.d("vrvideo", "update, video id:" + cVar.cqu + " slave id: " + cVar.bVm);
+        com.baidu.swan.apps.console.c.d("vrvideo", "update, video id:" + cVar.cyk + " slave id: " + cVar.caU);
         c(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }

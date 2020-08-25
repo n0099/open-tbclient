@@ -3,15 +3,18 @@ package com.baidu.live.tbadk.ala;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLastLiveroomInfo {
     public static final String KEY_LAST_ANCHOR_ID = "key_last_anchor_id";
     public static final String KEY_LAST_ANCHOR_NAME = "key_last_anchor_name";
     public static final String KEY_LAST_ANCHOR_PORTRAIT = "key_last_anchor_portrait";
+    public static final String KEY_LAST_COVER_URL = "key_last_cover";
     public static final String KEY_LAST_FROM = "key_last_from";
     public static final String KEY_LAST_LIVE_ID = "key_last_live_id";
     public static final String KEY_LAST_ROOM_ID = "key_last_room_id";
+    public static final String KEY_LAST_VIDEO_URL = "key_last_video_url";
     public static final String TYPE_FROM_BROADCAST = "type_from_broadcast";
+    public static final String TYPE_FROM_FULL_SCREEN_WEBVIEW = "type_from_full_screen_webview";
     public static final String TYPE_FROM_GUARD_RANK = "type_from_guard_rank";
     public static final String TYPE_FROM_HALF_WEBVIEW = "type_from_half_webview";
     public static final String TYPE_FROM_HOUR_RANK = "type_from_hour_rank";
@@ -20,8 +23,10 @@ public class AlaLastLiveroomInfo {
     private String mLastAnchorPortrait;
     private String mLastAnchorUid;
     private String mLastAnchorUname;
+    private String mLastCover;
     private long mLastLiveId;
     private long mLastRoomId;
+    private String mLastVideoUrl;
 
     public long getLastLiveId() {
         return this.mLastLiveId;
@@ -71,6 +76,22 @@ public class AlaLastLiveroomInfo {
         this.mFrom = str;
     }
 
+    public String getLastCover() {
+        return this.mLastCover;
+    }
+
+    public void setLastCover(String str) {
+        this.mLastCover = str;
+    }
+
+    public String getLastVideoUrl() {
+        return this.mLastVideoUrl;
+    }
+
+    public void setLastVideoUrl(String str) {
+        this.mLastVideoUrl = str;
+    }
+
     public String toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -80,6 +101,8 @@ public class AlaLastLiveroomInfo {
             jSONObject.put(KEY_LAST_ANCHOR_ID, this.mLastAnchorUid);
             jSONObject.put(KEY_LAST_ANCHOR_NAME, this.mLastAnchorUname);
             jSONObject.put(KEY_LAST_ANCHOR_PORTRAIT, this.mLastAnchorPortrait);
+            jSONObject.put(KEY_LAST_COVER_URL, this.mLastCover);
+            jSONObject.put(KEY_LAST_VIDEO_URL, this.mLastVideoUrl);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -96,6 +119,8 @@ public class AlaLastLiveroomInfo {
                 this.mLastAnchorUid = jSONObject.optString(KEY_LAST_ANCHOR_ID);
                 this.mLastAnchorUname = jSONObject.optString(KEY_LAST_ANCHOR_NAME);
                 this.mLastAnchorPortrait = jSONObject.optString(KEY_LAST_ANCHOR_PORTRAIT);
+                this.mLastCover = jSONObject.optString(KEY_LAST_COVER_URL);
+                this.mLastVideoUrl = jSONObject.optString(KEY_LAST_VIDEO_URL);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

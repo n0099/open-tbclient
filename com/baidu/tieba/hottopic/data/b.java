@@ -7,10 +7,10 @@ import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes15.dex */
 public class b implements q {
-    public static final BdUniqueId iJT = BdUniqueId.gen();
-    private long iJQ;
-    private String iJR;
-    private String iJS;
+    public static final BdUniqueId iYR = BdUniqueId.gen();
+    private long iYO;
+    private String iYP;
+    private String iYQ;
     private long mId;
     private String mName;
     private int mTag;
@@ -18,12 +18,12 @@ public class b implements q {
     String rule_jump_url;
     String tips;
 
-    public String coZ() {
-        return this.iJS;
+    public String czS() {
+        return this.iYQ;
     }
 
-    public String cpa() {
-        return this.iJR;
+    public String czT() {
+        return this.iYP;
     }
 
     public long getId() {
@@ -34,7 +34,7 @@ public class b implements q {
         return this.mName;
     }
 
-    public String cpb() {
+    public String czU() {
         return this.module_title;
     }
 
@@ -43,9 +43,9 @@ public class b implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.iJQ = topicList.discuss_num.longValue();
-            this.iJR = topicList.topic_desc;
-            this.iJS = topicList.topic_pic;
+            this.iYO = topicList.discuss_num.longValue();
+            this.iYP = topicList.topic_desc;
+            this.iYQ = topicList.topic_pic;
         }
     }
 
@@ -61,6 +61,6 @@ public class b implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iJT;
+        return iYR;
     }
 }

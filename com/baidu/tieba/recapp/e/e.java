@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes20.dex */
 public class e {
-    public TbPageContext dVN;
-    protected final String lrM;
-    protected com.baidu.tieba.recapp.report.c lrN;
-    protected AdvertAppInfo lrO;
-    protected com.baidu.tieba.lego.card.b.b lrP;
+    public TbPageContext efn;
+    protected final String lIh;
+    protected com.baidu.tieba.recapp.report.c lIi;
+    protected AdvertAppInfo lIj;
+    protected com.baidu.tieba.lego.card.b.b lIk;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.lrM = str;
+        this.lIh = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,32 +26,32 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T DX(int i) {
+    public final <T> T Gs(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void ddf() {
+    public void dop() {
         this.mRootView.setVisibility(0);
-        if (this.lrN != null) {
-            this.lrN.DQ(303);
-            com.baidu.tieba.recapp.report.d.dcY().a(this.lrN);
+        if (this.lIi != null) {
+            this.lIi.Gl(303);
+            com.baidu.tieba.recapp.report.d.doi().a(this.lIi);
         }
     }
 
-    public void ddg() {
+    public void doq() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.c cVar) {
-        this.lrN = cVar;
+        this.lIi = cVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.lrP = bVar;
+        this.lIk = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.dVN = tbPageContext;
+        this.efn = tbPageContext;
     }
 
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void uC(boolean z) {
+    public void vp(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.lrO = advertAppInfo;
+        this.lIj = advertAppInfo;
     }
 }

@@ -2,13 +2,13 @@ package org.conscrypt.ct;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class DigitallySigned {
     private final HashAlgorithm hashAlgorithm;
     private final byte[] signature;
     private final SignatureAlgorithm signatureAlgorithm;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum HashAlgorithm {
         NONE,
         MD5,
@@ -29,7 +29,7 @@ public class DigitallySigned {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public enum SignatureAlgorithm {
         ANONYMOUS,
         RSA,

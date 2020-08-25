@@ -3,6 +3,7 @@ package com.baidu.searchbox.ugc.upload;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ugc.upload.HttpRequestTokenModule;
 import com.baidu.searchbox.ugc.upload.UploadFileTask;
@@ -24,7 +25,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class UploadManager {
     private static final String BOS_ENDPOINT = "bj.bcebos.com";
     private static final int RETRY_DELAY = 3000;
@@ -89,7 +90,7 @@ public class UploadManager {
     };
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public interface UploadCallback extends UploadFileTask.TaskCallback {
         void onError(String str);
     }
@@ -161,7 +162,7 @@ public class UploadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public class ProcessTasksCallable implements Callable<Void> {
         private Future mFuture;
         private List<UploadFileTask> mTasks;
@@ -295,7 +296,7 @@ public class UploadManager {
             BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
             bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(str, str2, str3));
             bosClientConfiguration.setEndpoint(UploadManager.BOS_ENDPOINT);
-            bosClientConfiguration.setRetryPolicy(new DefaultRetryPolicy(2, 3000L));
+            bosClientConfiguration.setRetryPolicy(new DefaultRetryPolicy(2, IMConnection.RETRY_DELAY_TIMES));
             return new BosClient(bosClientConfiguration);
         }
 

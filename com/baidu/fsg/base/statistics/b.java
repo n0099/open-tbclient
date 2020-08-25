@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class b {
     public static final String a = "wallet_stastics";
     public static final int b = 204800;

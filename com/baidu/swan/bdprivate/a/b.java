@@ -2,12 +2,12 @@ package com.baidu.swan.bdprivate.a;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-/* loaded from: classes11.dex */
-public class b extends ActivityDelegation implements com.baidu.swan.apps.aq.e.b<Bundle> {
+/* loaded from: classes3.dex */
+public class b extends ActivityDelegation implements com.baidu.swan.apps.ap.e.b<Bundle> {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
-        boolean c = com.baidu.swan.apps.aq.u.c(this.mParams, "isRealName", false);
-        String safeGetString = com.baidu.swan.apps.aq.u.safeGetString(this.mParams, "swanAppId");
+        boolean c = com.baidu.swan.apps.ap.u.c(this.mParams, "isRealName", false);
+        String safeGetString = com.baidu.swan.apps.ap.u.safeGetString(this.mParams, "swanAppId");
         if (c) {
             a.a(getAgent(), safeGetString, this);
         } else {
@@ -17,9 +17,9 @@ public class b extends ActivityDelegation implements com.baidu.swan.apps.aq.e.b<
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.aq.e.b
-    /* renamed from: D */
-    public void H(Bundle bundle) {
+    @Override // com.baidu.swan.apps.ap.e.b
+    /* renamed from: B */
+    public void I(Bundle bundle) {
         this.mResult.putBundle("result", bundle);
         finish();
     }

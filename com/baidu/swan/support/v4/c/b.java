@@ -9,20 +9,20 @@ class b {
 
     /* loaded from: classes9.dex */
     static class a implements LayoutInflater.Factory {
-        final e dzw;
+        final e dIF;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(e eVar) {
-            this.dzw = eVar;
+            this.dIF = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            return this.dzw.onCreateView(null, str, context, attributeSet);
+            return this.dIF.onCreateView(null, str, context, attributeSet);
         }
 
         public String toString() {
-            return getClass().getName() + "{" + this.dzw + "}";
+            return getClass().getName() + "{" + this.dIF + "}";
         }
     }
 

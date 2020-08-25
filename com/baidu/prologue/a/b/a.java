@@ -4,71 +4,71 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    public static final AtomicReference<a> bEI = new AtomicReference<>();
+    public static final AtomicReference<a> bKi = new AtomicReference<>();
 
     @NonNull
-    Context OO();
+    Context UK();
 
     @NonNull
-    String OP();
+    String UL();
 
     @NonNull
-    String OQ();
+    String UM();
 
     @NonNull
-    String OR();
+    String UN();
 
     @NonNull
-    String OS();
+    String UO();
 
     @NonNull
-    String OT();
+    String UP();
 
     @NonNull
-    String OU();
+    String UQ();
 
     @NonNull
-    String OV();
+    String UR();
 
     @NonNull
-    String OW();
+    String US();
 
     @NonNull
-    String OX();
+    String UT();
 
-    boolean OY();
+    boolean UU();
 
     @NonNull
-    String OZ();
+    String UV();
 
-    boolean Pa();
+    boolean UW();
 
-    String Pb();
+    String UX();
 
-    String Pc();
+    String UY();
 
-    String[] Pd();
+    String[] UZ();
 
-    String Pe();
+    String Va();
 
-    String Pf();
+    String Vb();
 
     @IdRes
-    int Pg();
+    int Vc();
 
     @IdRes
-    int Ph();
+    int Vd();
 
     @IdRes
-    int Pi();
+    int Ve();
 
-    String Pj();
+    String Vf();
 
-    int Pk();
+    int Vg();
 
-    String Pl();
+    String Vh();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
@@ -76,7 +76,7 @@ public interface a {
     String androidId();
 
     @NonNull
-    String pU();
+    String rt();
 
     @NonNull
     String userAgent();

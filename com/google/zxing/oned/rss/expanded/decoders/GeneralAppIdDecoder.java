@@ -1,11 +1,12 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.baidu.fsg.base.activity.BaseActivity;
+import com.baidu.sapi2.SapiAccountManager;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class GeneralAppIdDecoder {
     private final BitArray information;
     private final CurrentParsingState current = new CurrentParsingState();
@@ -245,7 +246,7 @@ public final class GeneralAppIdDecoder {
             case BaseActivity.DIALOG_PROMPT /* 241 */:
                 c = ',';
                 break;
-            case 242:
+            case BaseActivity.DIALOG_LOADING /* 242 */:
                 c = '-';
                 break;
             case 243:
@@ -266,7 +267,7 @@ public final class GeneralAppIdDecoder {
             case 248:
                 c = '=';
                 break;
-            case 249:
+            case SapiAccountManager.VERSION_CODE /* 249 */:
                 c = '>';
                 break;
             case 250:

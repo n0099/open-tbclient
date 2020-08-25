@@ -121,18 +121,6 @@ public class ARPMessage {
         sendMessageImpl(i, -1, hashMap, i2);
     }
 
-    protected void finalize() {
-        super.finalize();
-        synchronized (this) {
-            if (this.mIsInitNative) {
-                try {
-                    nativeFinalize();
-                } catch (Throwable th) {
-                }
-            }
-        }
-    }
-
     native int getMessageID();
 
     native void nativeFinalize();
@@ -163,6 +151,8 @@ public class ARPMessage {
                 }
             }
         });
+        nativeFinalize();
+        this.mIsInitNative = false;
     }
 
     public synchronized void removeMessageHandeler(final MessageHandler messageHandler) {

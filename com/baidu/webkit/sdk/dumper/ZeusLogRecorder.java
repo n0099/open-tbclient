@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk.dumper;
 
 import android.app.ActivityManager;
 import android.os.Process;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
@@ -22,7 +21,7 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
     private static String TAG = "ZeusLogRecorder";
     private static ZeusLogRecorder instance;
@@ -40,7 +39,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     private String recordPrefName;
     private AtomicInteger unUploadFileSize;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class LogRecordBean {
         private String upLoadFileName;
         private boolean uploadSuccess;
@@ -67,13 +66,13 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface OnFinishedUploadLogListener {
         void onFinishedUploadLog(List<LogRecordBean> list, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class WatchThread extends Thread {
         Process p;
         private final Writer writer;
@@ -183,7 +182,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                     }
                 } catch (InterruptedException e) {
                     e = e;
-                    a.a(e);
+                    e.printStackTrace();
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -241,7 +240,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         } catch (Throwable th3) {
             th = th3;
             try {
-                a.a(th);
+                th.printStackTrace();
                 return false;
             } finally {
                 if (bufferedWriter != null) {

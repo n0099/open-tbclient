@@ -30,43 +30,43 @@ import tv.chushou.zues.widget.fresco.b;
 /* loaded from: classes6.dex */
 public abstract class f extends e implements SurfaceHolder.Callback {
     protected ImageView Q;
+    protected TextView T;
     protected int ao;
-    protected TextView bDz;
-    protected RelativeLayout nwj;
-    protected FrescoThumbnailView nwk;
-    protected FrescoThumbnailView nwl;
-    protected TextView nwm;
-    protected ImageView nwq;
-    protected ProgressBar nws;
-    protected TextView nwt;
-    protected TextView nwu;
-    protected TextView nwv;
-    protected tv.chushou.zues.c nwy;
-    protected final io.reactivex.disposables.a nwh = new io.reactivex.disposables.a();
-    protected View nwi = null;
-    protected View N = null;
-    protected ImageButton nwn = null;
-    protected ImageButton nwo = null;
-    protected ImageButton nwp = null;
-    protected PlayerErrorView nwr = null;
-    protected b nww = null;
-    protected Context nwx = null;
-    protected AudioManager nwz = null;
+    protected TextView bJa;
+    protected RelativeLayout nPY;
+    protected FrescoThumbnailView nPZ;
+    protected FrescoThumbnailView nQa;
+    protected ImageView nQe;
+    protected ProgressBar nQg;
+    protected TextView nQh;
+    protected TextView nQi;
+    protected TextView nQj;
+    protected tv.chushou.zues.c nQm;
+    protected final io.reactivex.disposables.a nPV = new io.reactivex.disposables.a();
+    protected View nPW = null;
+    protected View nPX = null;
+    protected ImageButton nQb = null;
+    protected ImageButton nQc = null;
+    protected ImageButton nQd = null;
+    protected PlayerErrorView nQf = null;
+    protected b nQk = null;
+    protected Context nQl = null;
+    protected AudioManager nQn = null;
     protected boolean ah = false;
     protected boolean ai = false;
     protected boolean aj = false;
     protected boolean ak = false;
     protected boolean al = false;
-    protected boolean nwA = false;
-    protected long mNe = 0;
+    protected boolean nQo = false;
+    protected long nga = 0;
     protected int ap = -1;
     protected int aq = 0;
     protected int ar = 0;
-    protected int nwB = 1;
-    protected int at = 0;
+    protected int nQp = 1;
+    protected int nQq = 0;
     protected String au = "";
-    protected String nwC = "";
-    public String aw = "1";
+    protected String nQr = "";
+    public String nQs = "1";
     public String ax = "1";
     public String ay = "1";
 
@@ -75,7 +75,7 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
-        this.nwh.dispose();
+        this.nPV.dispose();
         super.onDestroy();
     }
 
@@ -87,8 +87,8 @@ public abstract class f extends e implements SurfaceHolder.Callback {
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", "surfaceCreated");
-        if (this.nsS != null) {
-            this.nsS.setDisplay(surfaceHolder);
+        if (this.nMD != null) {
+            this.nMD.setDisplay(surfaceHolder);
         }
         this.aj = true;
         Q();
@@ -112,10 +112,10 @@ public abstract class f extends e implements SurfaceHolder.Callback {
         int i5;
         int i6;
         tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", ">>>>>>>>>SetVideoViewLayout<<<<<<<<<<<<<<<<");
-        if (this.N != null && this.nsS != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.N.getLayoutParams();
-            int width = this.nsS.getWidth();
-            int height = this.nsS.getHeight();
+        if (this.nPX != null && this.nMD != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nPX.getLayoutParams();
+            int width = this.nMD.getWidth();
+            int height = this.nMD.getHeight();
             if (this.ap >= 0) {
                 if (width > height && this.ap == 1) {
                     d(0);
@@ -165,7 +165,7 @@ public abstract class f extends e implements SurfaceHolder.Callback {
                 i3 = width;
                 i4 = 0;
             }
-            int i10 = this.nwB;
+            int i10 = this.nQp;
             if (i10 == 0) {
                 if ((i8 * i3) / i >= i7) {
                     i7 = (i3 * i8) / i;
@@ -213,13 +213,13 @@ public abstract class f extends e implements SurfaceHolder.Callback {
                 i8 = this.aq;
             }
             tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", "SetVideoViewLayout out <<<< w:" + layoutParams.width + " h:" + layoutParams.height);
-            if (this.nsS != null) {
-                this.nsS.setDisplayRect(0, 0, i3, i);
+            if (this.nMD != null) {
+                this.nMD.setDisplayRect(0, 0, i3, i);
             }
             if (layoutParams.width != i7 || layoutParams.height != i8) {
                 layoutParams.width = i7;
                 layoutParams.height = i8;
-                this.N.setLayoutParams(layoutParams);
+                this.nPX.setLayoutParams(layoutParams);
             }
         }
     }
@@ -231,8 +231,8 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // com.kascend.chushou.player.e
     public void z() {
-        if (this.nww != null) {
-            this.nww.a(false);
+        if (this.nQk != null) {
+            this.nQk.a(false);
         }
         tv.chushou.zues.utils.e.i("lhh", "video complete");
         this.H = true;
@@ -241,15 +241,15 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // com.kascend.chushou.player.e
     public void i(boolean z) {
-        if (this.nwx != null) {
-            if (((VideoPlayer) this.nwx).d) {
-                b(((VideoPlayer) this.nwx).dMA());
-                ((VideoPlayer) this.nwx).a(((VideoPlayer) this.nwx).dMA());
-                this.nsS = ((VideoPlayer) this.nwx).dMA();
+        if (this.nQl != null) {
+            if (((VideoPlayer) this.nQl).d) {
+                b(((VideoPlayer) this.nQl).dYC());
+                ((VideoPlayer) this.nQl).a(((VideoPlayer) this.nQl).dYC());
+                this.nMD = ((VideoPlayer) this.nQl).dYC();
             } else {
-                b(((VideoPlayer) this.nwx).dMz());
-                ((VideoPlayer) this.nwx).a(((VideoPlayer) this.nwx).dMz());
-                this.nsS = ((VideoPlayer) this.nwx).dMz();
+                b(((VideoPlayer) this.nQl).dYB());
+                ((VideoPlayer) this.nQl).a(((VideoPlayer) this.nQl).dYB());
+                this.nMD = ((VideoPlayer) this.nQl).dYB();
             }
             U();
             A();
@@ -258,76 +258,76 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // com.kascend.chushou.player.e
     public void A() {
-        if (this.nsS != null) {
-            if (this.nww != null) {
-                this.nww.b = 0;
-                this.nww.c = 0;
+        if (this.nMD != null) {
+            if (this.nQk != null) {
+                this.nQk.b = 0;
+                this.nQk.c = 0;
             }
-            xE(false);
-            this.nww.a(true);
+            yv(false);
+            this.nQk.a(true);
             if (this.ap < 0) {
-                tv.chushou.zues.utils.e.d("VideoPlayer", "mPlayOnlyAudio=" + this.nww.d);
-                if (this.nww.d) {
+                tv.chushou.zues.utils.e.d("VideoPlayer", "mPlayOnlyAudio=" + this.nQk.d);
+                if (this.nQk.d) {
                     T();
-                    if (this.nwp != null) {
-                        this.nwp.setImageResource(a.e.ic_btn_room_video_n);
+                    if (this.nQd != null) {
+                        this.nQd.setImageResource(a.e.ic_btn_room_video_n);
                     }
                 } else {
                     U();
                     S();
-                    if (this.nwo != null) {
-                        this.nwo.setVisibility(0);
+                    if (this.nQc != null) {
+                        this.nQc.setVisibility(0);
                     }
-                    if (this.nwp != null) {
-                        this.nwp.setImageResource(a.e.ic_btn_room_audio_n);
+                    if (this.nQd != null) {
+                        this.nQd.setImageResource(a.e.ic_btn_room_audio_n);
                     }
-                    if (this.N != null) {
-                        this.N.setVisibility(0);
+                    if (this.nPX != null) {
+                        this.nPX.setVisibility(0);
                     }
                 }
             }
             if (!this.ah) {
-                if (((VideoPlayer) this.nwx).r != -1 && dNZ()) {
-                    this.mNe = ((VideoPlayer) this.nwx).r;
-                    ((VideoPlayer) this.nwx).r = -1L;
+                if (((VideoPlayer) this.nQl).r != -1 && dZZ()) {
+                    this.nga = ((VideoPlayer) this.nQl).r;
+                    ((VideoPlayer) this.nQl).r = -1L;
                 }
-                if (dNZ() && this.mNe > 0) {
-                    this.nwy.removeMessages(14);
-                    this.nsS.seekTo((int) this.mNe);
+                if (dZZ() && this.nga > 0) {
+                    this.nQm.removeMessages(14);
+                    this.nMD.seekTo((int) this.nga);
                 }
                 if (!this.ai) {
                     n(false);
-                    if (this.nww.d) {
+                    if (this.nQk.d) {
                         W();
                     }
-                    if (this.nsS.getDuration() > 60000) {
-                        if (this.nsS.getDuration() < 300000) {
-                            this.at = 60000;
+                    if (this.nMD.getDuration() > 60000) {
+                        if (this.nMD.getDuration() < 300000) {
+                            this.nQq = 60000;
                         } else {
-                            this.at = Math.min(this.nsS.getDuration(), 300000);
+                            this.nQq = Math.min(this.nMD.getDuration(), 300000);
                         }
                     } else {
-                        this.at = this.nsS.getDuration();
+                        this.nQq = this.nMD.getDuration();
                     }
                 } else {
                     a(false, true);
                 }
-                m(false);
+                yw(false);
                 return;
             }
-            this.nww.a(false);
+            this.nQk.a(false);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void E() {
-        if (!this.H && !this.nwA) {
-            m(true);
-            if (this.nwi != null) {
-                this.nwi.findViewById(a.f.LoadingPercent).setVisibility(0);
-                if (this.nwy != null) {
-                    this.nwy.LT(5);
-                    this.nwy.removeMessages(15);
+        if (!this.H && !this.nQo) {
+            yw(true);
+            if (this.nPW != null) {
+                this.nPW.findViewById(a.f.LoadingPercent).setVisibility(0);
+                if (this.nQm != null) {
+                    this.nQm.Ow(5);
+                    this.nQm.removeMessages(15);
                 }
             }
         }
@@ -335,22 +335,22 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // com.kascend.chushou.player.e
     public void a(boolean z, boolean z2, boolean z3) {
-        if (this.H || this.nwA) {
+        if (this.H || this.nQo) {
             h(false);
         } else if (z) {
             if (z2) {
-                m(false);
-                if (this.nwi != null) {
-                    this.nwi.findViewById(a.f.LoadingPercent).setVisibility(8);
-                    this.nwi.findViewById(a.f.LoadingBuffer).setVisibility(8);
-                    if (this.nwy != null) {
-                        this.nwy.removeMessages(5);
+                yw(false);
+                if (this.nPW != null) {
+                    this.nPW.findViewById(a.f.LoadingPercent).setVisibility(8);
+                    this.nPW.findViewById(a.f.LoadingBuffer).setVisibility(8);
+                    if (this.nQm != null) {
+                        this.nQm.removeMessages(5);
                     }
                 }
             }
-            if (this.nwy != null) {
-                this.nwy.removeMessages(15);
-                this.nwy.LT(15);
+            if (this.nQm != null) {
+                this.nQm.removeMessages(15);
+                this.nQm.Ow(15);
             }
             a(z2, z3);
         } else {
@@ -364,43 +364,43 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // com.kascend.chushou.player.e
     public void G() {
-        if ("2".equals(this.ay) && h.dMp().a && this.nww != null && !this.nww.d) {
+        if ("2".equals(this.ay) && h.dYr().a && this.nQk != null && !this.nQk.d) {
             o(false);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void a(int i, boolean z) {
-        if (this.nwx != null) {
+        if (this.nQl != null) {
             tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "onErrorAppeared error=" + i);
-            this.nwv.setVisibility(8);
+            this.nQj.setVisibility(8);
             switch (i) {
                 case 501:
-                    tv.chushou.zues.utils.g.Mc(a.i.str_storage_unenough_for_buffer);
+                    tv.chushou.zues.utils.g.OF(a.i.str_storage_unenough_for_buffer);
                     break;
                 case 502:
                 case 503:
                 default:
-                    if (this.nww != null) {
+                    if (this.nQk != null) {
                         if (z) {
-                            if (this.nww.c >= 3) {
+                            if (this.nQk.c >= 3) {
                                 tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "retryn time out!");
-                                if (!com.kascend.chushou.b.dMi().a && !com.kascend.chushou.b.dMi().b) {
+                                if (!com.kascend.chushou.b.dYj().a && !com.kascend.chushou.b.dYj().b) {
                                     g(true);
                                     break;
                                 }
                             } else {
-                                this.nww.c++;
-                                tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "retryn time=" + this.nww.c);
-                                if (!com.kascend.chushou.b.dMi().a && !com.kascend.chushou.b.dMi().b) {
+                                this.nQk.c++;
+                                tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "retryn time=" + this.nQk.c);
+                                if (!com.kascend.chushou.b.dYj().a && !com.kascend.chushou.b.dYj().b) {
                                     g(true);
                                     break;
                                 }
                             }
-                        } else if (this.nww.b >= 3) {
+                        } else if (this.nQk.b >= 3) {
                             tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "retry time out!");
-                            tv.chushou.zues.utils.g.Mc(a.i.str_play_failed);
-                            if (!com.kascend.chushou.b.dMi().a && !com.kascend.chushou.b.dMi().b) {
+                            tv.chushou.zues.utils.g.OF(a.i.str_play_failed);
+                            if (!com.kascend.chushou.b.dYj().a && !com.kascend.chushou.b.dYj().b) {
                                 g(true);
                                 break;
                             } else {
@@ -408,149 +408,149 @@ public abstract class f extends e implements SurfaceHolder.Callback {
                                 break;
                             }
                         } else {
-                            this.nww.b++;
-                            tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "retry time=" + this.nww.b);
-                            if (!com.kascend.chushou.b.dMi().a && !com.kascend.chushou.b.dMi().b) {
+                            this.nQk.b++;
+                            tv.chushou.zues.utils.e.e("VideoPlayerLiveBaseFragment", "retry time=" + this.nQk.b);
+                            if (!com.kascend.chushou.b.dYj().a && !com.kascend.chushou.b.dYj().b) {
                                 g(true);
                                 break;
                             }
                         }
                     }
                     if (z) {
-                        ((VideoPlayer) this.nwx).a(true, (Uri) null, true);
+                        ((VideoPlayer) this.nQl).a(true, (Uri) null, true);
                         return;
                     } else {
-                        ((VideoPlayer) this.nwx).a(true, (Uri) null, false);
+                        ((VideoPlayer) this.nQl).a(true, (Uri) null, false);
                         return;
                     }
                 case 504:
-                    tv.chushou.zues.utils.g.Mc(a.i.str_unsupport_file);
+                    tv.chushou.zues.utils.g.OF(a.i.str_unsupport_file);
                     break;
             }
-            xE(false);
-            m(false);
+            yv(false);
+            yw(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(tv.chushou.common.player.a aVar) {
-        if (this.N != null) {
-            this.N.setVisibility(0);
-            if (aVar != null && (this.N instanceof SurfaceView)) {
-                aVar.setDisplay(((SurfaceView) this.N).getHolder());
+        if (this.nPX != null) {
+            this.nPX.setVisibility(0);
+            if (aVar != null && (this.nPX instanceof SurfaceView)) {
+                aVar.setDisplay(((SurfaceView) this.nPX).getHolder());
             }
         }
     }
 
     private void b(tv.chushou.common.player.a aVar) {
-        if (this.N != null && (this.N instanceof SurfaceView)) {
-            aVar.setDisplay(((SurfaceView) this.N).getHolder());
+        if (this.nPX != null && (this.nPX instanceof SurfaceView)) {
+            aVar.setDisplay(((SurfaceView) this.nPX).getHolder());
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void B() {
-        if (this.N != null) {
-            if (((VideoPlayer) this.nwx).d) {
-                tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", "checkLines next: " + ((VideoPlayer) this.nwx).d);
-                ((VideoPlayer) this.nwx).a(((VideoPlayer) this.nwx).dMz());
-                this.nsS = ((VideoPlayer) this.nwx).dMz();
-                ((VideoPlayer) this.nwx).d = false;
-                if (!h.dMp().a) {
-                    RxExecutor.postDelayed(this.nwh, EventThread.MAIN_THREAD, 300L, TimeUnit.MILLISECONDS, new Runnable() { // from class: com.kascend.chushou.player.f.1
+        if (this.nPX != null) {
+            if (((VideoPlayer) this.nQl).d) {
+                tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", "checkLines next: " + ((VideoPlayer) this.nQl).d);
+                ((VideoPlayer) this.nQl).a(((VideoPlayer) this.nQl).dYB());
+                this.nMD = ((VideoPlayer) this.nQl).dYB();
+                ((VideoPlayer) this.nQl).d = false;
+                if (!h.dYr().a) {
+                    RxExecutor.postDelayed(this.nPV, EventThread.MAIN_THREAD, 300L, TimeUnit.MILLISECONDS, new Runnable() { // from class: com.kascend.chushou.player.f.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (f.this.getActivity() == null || !f.this.getActivity().isFinishing()) {
-                                if (!f.this.nww.d) {
-                                    f.this.a(((VideoPlayer) f.this.nwx).dMz());
-                                } else if (f.this.N != null) {
-                                    f.this.N.setVisibility(8);
+                                if (!f.this.nQk.d) {
+                                    f.this.a(((VideoPlayer) f.this.nQl).dYB());
+                                } else if (f.this.nPX != null) {
+                                    f.this.nPX.setVisibility(8);
                                 }
-                                ((VideoPlayer) f.this.nwx).dMA().setDisplay(null);
-                                ((VideoPlayer) f.this.nwx).dMA().stop();
-                                ((VideoPlayer) f.this.nwx).dMA().release();
+                                ((VideoPlayer) f.this.nQl).dYC().setDisplay(null);
+                                ((VideoPlayer) f.this.nQl).dYC().stop();
+                                ((VideoPlayer) f.this.nQl).dYC().release();
                             }
                         }
                     });
                 } else if (getActivity() == null || !getActivity().isFinishing()) {
-                    if (!this.nww.d) {
-                        a(((VideoPlayer) this.nwx).dMz());
-                    } else if (this.N != null) {
-                        this.N.setVisibility(8);
+                    if (!this.nQk.d) {
+                        a(((VideoPlayer) this.nQl).dYB());
+                    } else if (this.nPX != null) {
+                        this.nPX.setVisibility(8);
                     }
-                    ((VideoPlayer) this.nwx).dMA().setDisplay(null);
-                    ((VideoPlayer) this.nwx).dMA().stop();
-                    ((VideoPlayer) this.nwx).dMA().release();
+                    ((VideoPlayer) this.nQl).dYC().setDisplay(null);
+                    ((VideoPlayer) this.nQl).dYC().stop();
+                    ((VideoPlayer) this.nQl).dYC().release();
                 } else {
                     return;
                 }
             } else {
-                tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", "checkLines current: " + ((VideoPlayer) this.nwx).d);
-                ((VideoPlayer) this.nwx).a(((VideoPlayer) this.nwx).dMA());
-                this.nsS = ((VideoPlayer) this.nwx).dMA();
-                ((VideoPlayer) this.nwx).d = true;
-                if (!h.dMp().a) {
-                    RxExecutor.postDelayed(this.nwh, EventThread.MAIN_THREAD, 300L, TimeUnit.MILLISECONDS, new Runnable() { // from class: com.kascend.chushou.player.f.2
+                tv.chushou.zues.utils.e.d("VideoPlayerLiveBaseFragment", "checkLines current: " + ((VideoPlayer) this.nQl).d);
+                ((VideoPlayer) this.nQl).a(((VideoPlayer) this.nQl).dYC());
+                this.nMD = ((VideoPlayer) this.nQl).dYC();
+                ((VideoPlayer) this.nQl).d = true;
+                if (!h.dYr().a) {
+                    RxExecutor.postDelayed(this.nPV, EventThread.MAIN_THREAD, 300L, TimeUnit.MILLISECONDS, new Runnable() { // from class: com.kascend.chushou.player.f.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (f.this.getActivity() == null || !f.this.getActivity().isFinishing()) {
-                                if (!f.this.nww.d) {
-                                    f.this.a(((VideoPlayer) f.this.nwx).dMA());
-                                } else if (f.this.N != null) {
-                                    f.this.N.setVisibility(8);
+                                if (!f.this.nQk.d) {
+                                    f.this.a(((VideoPlayer) f.this.nQl).dYC());
+                                } else if (f.this.nPX != null) {
+                                    f.this.nPX.setVisibility(8);
                                 }
-                                ((VideoPlayer) f.this.nwx).dMz().setDisplay(null);
-                                ((VideoPlayer) f.this.nwx).dMz().stop();
-                                ((VideoPlayer) f.this.nwx).dMz().release();
+                                ((VideoPlayer) f.this.nQl).dYB().setDisplay(null);
+                                ((VideoPlayer) f.this.nQl).dYB().stop();
+                                ((VideoPlayer) f.this.nQl).dYB().release();
                             }
                         }
                     });
                 } else if (getActivity() == null || !getActivity().isFinishing()) {
-                    if (!this.nww.d) {
-                        a(((VideoPlayer) this.nwx).dMA());
-                    } else if (this.N != null) {
-                        this.N.setVisibility(8);
+                    if (!this.nQk.d) {
+                        a(((VideoPlayer) this.nQl).dYC());
+                    } else if (this.nPX != null) {
+                        this.nPX.setVisibility(8);
                     }
-                    ((VideoPlayer) this.nwx).dMz().setDisplay(null);
-                    ((VideoPlayer) this.nwx).dMz().stop();
-                    ((VideoPlayer) this.nwx).dMz().release();
+                    ((VideoPlayer) this.nQl).dYB().setDisplay(null);
+                    ((VideoPlayer) this.nQl).dYB().stop();
+                    ((VideoPlayer) this.nQl).dYB().release();
                 } else {
                     return;
                 }
             }
         }
-        b(this.au, this.nwC);
+        b(this.au, this.nQr);
         A();
     }
 
     @Override // com.kascend.chushou.player.e
     public void C() {
-        if (this.nwv != null) {
-            this.nwv.setVisibility(8);
+        if (this.nQj != null) {
+            this.nQj.setVisibility(8);
         }
     }
 
     private void d(int i) {
         if (1 == i) {
             this.ap = i;
-            ((VideoPlayer) this.nwx).setRequestedOrientation(1);
+            ((VideoPlayer) this.nQl).setRequestedOrientation(1);
         } else if (Build.VERSION.SDK_INT > 8) {
             this.ap = 6;
-            ((VideoPlayer) this.nwx).setRequestedOrientation(6);
+            ((VideoPlayer) this.nQl).setRequestedOrientation(6);
         } else {
             this.ap = 0;
-            ((VideoPlayer) this.nwx).setRequestedOrientation(0);
+            ((VideoPlayer) this.nQl).setRequestedOrientation(0);
         }
     }
 
     protected void h(int i) {
     }
 
-    public boolean xE(boolean z) {
-        if (this.nwi == null) {
+    public boolean yv(boolean z) {
+        if (this.nPW == null) {
             return this.ak;
         }
-        View findViewById = this.nwi.findViewById(a.f.loadingview);
+        View findViewById = this.nPW.findViewById(a.f.loadingview);
         if (z) {
             if (findViewById != null) {
                 findViewById.setVisibility(0);
@@ -559,9 +559,9 @@ public abstract class f extends e implements SurfaceHolder.Callback {
         } else {
             if (findViewById != null && findViewById.getVisibility() == 0) {
                 findViewById.setVisibility(8);
-                this.nws.setVisibility(0);
-                this.nwt.setVisibility(0);
-                this.nwt.setText(this.nwx.getString(a.i.str_get_video_info));
+                this.nQg.setVisibility(0);
+                this.nQh.setVisibility(0);
+                this.nQh.setText(this.nQl.getString(a.i.str_get_video_info));
             }
             this.ak = true;
         }
@@ -577,21 +577,21 @@ public abstract class f extends e implements SurfaceHolder.Callback {
     /* JADX INFO: Access modifiers changed from: protected */
     public void T() {
         tv.chushou.zues.utils.e.d("VideoPlayer", "showAudioView");
-        if (this.nwk != null && this.nwl != null && this.nwj != null) {
-            if (this.nww.dNb() != null && this.nww.dNb().mRoominfo != null && !tv.chushou.zues.utils.h.isEmpty(this.nww.dNb().mRoominfo.mCreatorAvatar)) {
-                this.nwk.i(this.nww.dNb().mRoominfo.mCreatorAvatar, 0, b.a.ouH, b.a.ouH);
-                this.nwl.i(this.nww.dNb().mRoominfo.mCreatorAvatar, com.kascend.chushou.view.a.a(null), b.a.ouH, b.a.ouH);
+        if (this.nPZ != null && this.nQa != null && this.nPY != null) {
+            if (this.nQk.dZc() != null && this.nQk.dZc().mRoominfo != null && !tv.chushou.zues.utils.h.isEmpty(this.nQk.dZc().mRoominfo.mCreatorAvatar)) {
+                this.nPZ.i(this.nQk.dZc().mRoominfo.mCreatorAvatar, 0, b.a.oOy, b.a.oOy);
+                this.nQa.i(this.nQk.dZc().mRoominfo.mCreatorAvatar, com.kascend.chushou.view.a.a(null), b.a.oOy, b.a.oOy);
             } else {
-                this.nwk.zR(com.kascend.chushou.view.a.a(null));
-                this.nwl.zR(com.kascend.chushou.view.a.a(null));
+                this.nPZ.Ck(com.kascend.chushou.view.a.a(null));
+                this.nQa.Ck(com.kascend.chushou.view.a.a(null));
             }
-            this.nwj.setVisibility(0);
-            if (this.nwn != null) {
-                this.nwn.setEnabled(false);
+            this.nPY.setVisibility(0);
+            if (this.nQb != null) {
+                this.nQb.setEnabled(false);
             }
             R();
-            if (this.nwo != null) {
-                this.nwo.setVisibility(8);
+            if (this.nQc != null) {
+                this.nQc.setVisibility(8);
             }
         }
     }
@@ -599,33 +599,33 @@ public abstract class f extends e implements SurfaceHolder.Callback {
     /* JADX INFO: Access modifiers changed from: protected */
     public void U() {
         tv.chushou.zues.utils.e.d("VideoPlayer", "hideAudioView");
-        if (this.nwj != null) {
-            this.nwj.setVisibility(8);
+        if (this.nPY != null) {
+            this.nPY.setVisibility(8);
         }
         V();
-        if (this.nwn != null) {
-            this.nwn.setEnabled(true);
+        if (this.nQb != null) {
+            this.nQb.setEnabled(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void V() {
-        if (this.nwl != null) {
-            this.nwl.clearAnimation();
+        if (this.nQa != null) {
+            this.nQa.clearAnimation();
         }
     }
 
     protected void W() {
-        if (this.nwl != null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.nwx, a.C0824a.ani_room_audio);
+        if (this.nQa != null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.nQl, a.C0882a.ani_room_audio);
             loadAnimation.setInterpolator(new LinearInterpolator());
-            this.nwl.startAnimation(loadAnimation);
+            this.nQa.startAnimation(loadAnimation);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean dNZ() {
-        return "3".equals(this.aw);
+    public boolean dZZ() {
+        return "3".equals(this.nQs);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -633,26 +633,26 @@ public abstract class f extends e implements SurfaceHolder.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean m(boolean z) {
-        if (this.nwi == null) {
+    public boolean yw(boolean z) {
+        if (this.nPW == null) {
             return false;
         }
-        if (this.nwq != null && this.nwq.getVisibility() == 0) {
+        if (this.nQe != null && this.nQe.getVisibility() == 0) {
             z = false;
         }
         if (this.ap >= 0) {
-            if (this.nwi.findViewById(a.f.loadingview) == null) {
+            if (this.nPW.findViewById(a.f.loadingview) == null) {
                 return false;
             }
-            if (this.nwi.findViewById(a.f.loadingview).getVisibility() == 0) {
+            if (this.nPW.findViewById(a.f.loadingview).getVisibility() == 0) {
                 return true;
             }
         }
         if (z) {
-            this.nws.setVisibility(0);
-            if (this.nww == null || !this.nww.d()) {
-                this.nwt.setText(this.nwx.getString(a.i.str_get_video_info));
-                this.nwt.setVisibility(0);
+            this.nQg.setVisibility(0);
+            if (this.nQk == null || !this.nQk.d()) {
+                this.nQh.setText(this.nQl.getString(a.i.str_get_video_info));
+                this.nQh.setVisibility(0);
             }
             a(false, false);
         } else {
@@ -664,20 +664,20 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void n(boolean z) {
-        if (!"2".equals(this.ay) || !h.dMp().a || this.nww == null || this.nww.d) {
+        if (!"2".equals(this.ay) || !h.dYr().a || this.nQk == null || this.nQk.d) {
             o(false);
         }
         if (this.ap < 0) {
             Y();
         }
-        this.nsS.play();
+        this.nMD.play();
         if (z) {
             this.ai = false;
         }
         a(true, false);
-        if (this.nwy != null) {
-            this.nwy.removeMessages(15);
-            this.nwy.LT(15);
+        if (this.nQm != null) {
+            this.nQm.removeMessages(15);
+            this.nQm.Ow(15);
         }
     }
 
@@ -689,47 +689,47 @@ public abstract class f extends e implements SurfaceHolder.Callback {
 
     @Override // com.kascend.chushou.player.e
     public void h(boolean z) {
-        if (this.nwi != null) {
+        if (this.nPW != null) {
             if (z) {
-                if (!this.H && !this.nwA) {
-                    this.nwu.setVisibility(0);
+                if (!this.H && !this.nQo) {
+                    this.nQi.setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.nwu.setVisibility(8);
+            this.nQi.setVisibility(8);
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void f(boolean z) {
         if (z) {
-            if (this.nws != null) {
-                this.nws.setVisibility(0);
+            if (this.nQg != null) {
+                this.nQg.setVisibility(0);
             }
-            if (this.nwt != null) {
-                this.nwt.setVisibility(0);
+            if (this.nQh != null) {
+                this.nQh.setVisibility(0);
             }
-            if (this.nwu != null) {
-                this.nwu.setVisibility(0);
+            if (this.nQi != null) {
+                this.nQi.setVisibility(0);
             }
-            if (this.nwv != null) {
-                this.nwv.setVisibility(0);
+            if (this.nQj != null) {
+                this.nQj.setVisibility(0);
                 return;
             }
             return;
         }
-        if (this.nws != null) {
-            this.nws.setVisibility(8);
+        if (this.nQg != null) {
+            this.nQg.setVisibility(8);
         }
-        if (this.nwt != null) {
-            this.nwt.setVisibility(8);
+        if (this.nQh != null) {
+            this.nQh.setVisibility(8);
         }
-        if (this.nwu != null) {
-            this.nwu.setVisibility(8);
+        if (this.nQi != null) {
+            this.nQi.setVisibility(8);
         }
-        if (this.nwv != null) {
-            this.nwv.setVisibility(8);
+        if (this.nQj != null) {
+            this.nQj.setVisibility(8);
         }
     }
 
@@ -737,20 +737,20 @@ public abstract class f extends e implements SurfaceHolder.Callback {
     public void g(boolean z) {
         f(false);
         a(false, true);
-        if (this.nwr != null) {
-            this.nwr.setVisibility(0);
+        if (this.nQf != null) {
+            this.nQf.setVisibility(0);
             if (z) {
-                this.nwr.setText(a.i.str_video_player_network_error);
+                this.nQf.setText(a.i.str_video_player_network_error);
             } else {
-                this.nwr.setText(a.i.str_video_player_other_error);
+                this.nQf.setText(a.i.str_video_player_other_error);
             }
         }
     }
 
     public void b(String str, String str2) {
         a(str, str2, true);
-        if (this.nwy != null) {
-            this.nwy.B(19, 2000L);
+        if (this.nQm != null) {
+            this.nQm.B(19, 2000L);
         }
     }
 
@@ -769,38 +769,38 @@ public abstract class f extends e implements SurfaceHolder.Callback {
             if (!z) {
                 spannableStringBuilder.append((CharSequence) getString(a.i.please_waiting));
             }
-            this.nwv.setText(spannableStringBuilder);
-            this.nwv.setVisibility(0);
+            this.nQj.setText(spannableStringBuilder);
+            this.nQj.setVisibility(0);
         }
     }
 
-    public void Z() {
-        if (this.nsS != null && this.nsS.getPlayState() == 4) {
-            this.nsS.stop();
+    public void Ut() {
+        if (this.nMD != null && this.nMD.getPlayState() == 4) {
+            this.nMD.stop();
         }
     }
 
     @Override // com.kascend.chushou.player.e
     public void e(boolean z) {
         if (!this.ai) {
-            if (this.nsS.getPlayState() == 4) {
-                this.nsS.pause();
+            if (this.nMD.getPlayState() == 4) {
+                this.nMD.pause();
             }
             if (z) {
                 this.ai = true;
             }
-            if (this.nwy != null) {
-                this.nwy.removeMessages(15);
+            if (this.nQm != null) {
+                this.nQm.removeMessages(15);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aa() {
-        return this.nwx == null || ((Activity) this.nwx).isFinishing();
+        return this.nQl == null || ((Activity) this.nQl).isFinishing();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dNC() {
+    public void ac() {
     }
 }

@@ -1,67 +1,74 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.ad;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.FeatureCardGod;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
-public class y extends j<bk, a> {
-    private com.baidu.tieba.frs.view.e hJu;
+import java.util.List;
+import tbclient.FrsPageUserExtend;
+import tbclient.User;
+/* loaded from: classes2.dex */
+public class y implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId hWN = BdUniqueId.gen();
+    private List<MetaData> hWK;
+    private int hWJ = 0;
+    private String hWL = "本吧都在关注";
+    private boolean hWM = false;
 
-    public y(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return hWN;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bg */
-    public a b(ViewGroup viewGroup) {
-        this.hJu = new com.baidu.tieba.frs.view.e(this.mPageContext, this.mPageId);
-        return new a(this.hJu);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bk bkVar, a aVar) {
-        super.a(i, view, viewGroup, (ViewGroup) bkVar, (bk) aVar);
-        this.hJu = aVar.hJv;
-        ArrayList<bm> aVs = bkVar.aVs();
-        if (aVs.size() <= 0) {
-            return null;
-        }
-        z zVar = new z();
-        zVar.showTopDivider = true;
-        zVar.mGroupTitle = bkVar.getTitle();
-        for (int i2 = 0; i2 != aVs.size(); i2++) {
-            bm bmVar = aVs.get(i2);
-            if (bmVar != null) {
-                az azVar = new az();
-                azVar.metaData.setUserId(bmVar.getUid());
-                azVar.metaData.setUserName(bmVar.aVw());
-                azVar.metaData.setPortrait(bmVar.getPortrait());
-                azVar.metaData.getGodUserData().setIsLike(bmVar.getIsLike() == 1);
-                azVar.metaData.getGodUserData().setIntro(bmVar.aVx());
-                zVar.a(azVar);
+    public void a(FrsPageUserExtend frsPageUserExtend) {
+        if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.y.isEmpty(frsPageUserExtend.data)) {
+            List<User> list = frsPageUserExtend.data;
+            this.hWJ = frsPageUserExtend.user_extend_storey.intValue();
+            this.hWK = new ArrayList(list.size());
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < list.size()) {
+                    User user = list.get(i2);
+                    if (user != null && user.id.longValue() != 0) {
+                        MetaData metaData = new MetaData();
+                        metaData.parserProtobuf(list.get(i2));
+                        this.hWK.add(metaData);
+                    }
+                    i = i2 + 1;
+                } else {
+                    this.hWL = frsPageUserExtend.tips;
+                    return;
+                }
             }
         }
-        this.hJu.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.hJv.a(zVar);
-        return aVar.getView();
     }
 
-    /* loaded from: classes16.dex */
-    public class a extends ad.a {
-        public com.baidu.tieba.frs.view.e hJv;
-
-        public a(com.baidu.tieba.frs.view.e eVar) {
-            super(eVar.getView());
-            this.hJv = eVar;
+    public void a(FeatureCardGod featureCardGod) {
+        if (featureCardGod != null && !com.baidu.tbadk.core.util.y.isEmpty(featureCardGod.sub_nodes)) {
+            this.hWJ = featureCardGod.floor.intValue();
+            this.hWK = featureCardGod.sub_nodes;
+            this.hWL = featureCardGod.title;
         }
+    }
+
+    public int bfS() {
+        return this.hWJ;
+    }
+
+    public List<MetaData> getUserInfo() {
+        return this.hWK;
+    }
+
+    public String cnI() {
+        return this.hWL;
+    }
+
+    public boolean cnJ() {
+        return this.hWM;
+    }
+
+    public void ot(boolean z) {
+        this.hWM = z;
     }
 }

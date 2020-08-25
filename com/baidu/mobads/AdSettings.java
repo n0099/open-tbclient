@@ -19,8 +19,8 @@ public class AdSettings {
     private static HashSet<String> a = new HashSet<>();
     private static JSONArray b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
-    private static HashSet<String> bxm = new HashSet<>();
-    private static JSONArray bxn = new JSONArray();
+    private static HashSet<String> bCV = new HashSet<>();
+    private static JSONArray bCW = new JSONArray();
     private static JSONObject m = new JSONObject();
 
     public static void setSupportHttps(boolean z) {
@@ -206,13 +206,13 @@ public class AdSettings {
     @Deprecated
     public static void setHob(String[] strArr) {
         for (String str : strArr) {
-            bxm.add(str);
+            bCV.add(str);
         }
     }
 
     @Deprecated
     public static void setHob(List<String> list) {
-        bxm.addAll(list);
+        bCV.addAll(list);
     }
 
     @Deprecated

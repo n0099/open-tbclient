@@ -16,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class ImageUtils {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x008f */
     private static void revitionImageSizeHD(String str, int i, int i2) throws IOException {

@@ -15,16 +15,16 @@ public interface g {
 
         void b(k.a aVar);
 
+        void c(int i, String str);
+
         void c(c cVar);
 
-        void d(int i, String str);
-
         void m(byte[] bArr);
-
-        void mX();
 
         void onOpen(Map<String, String> map);
 
         void onTextMessage(String str);
+
+        void ox();
     }
 }

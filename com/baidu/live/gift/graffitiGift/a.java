@@ -14,107 +14,107 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private k aJO;
-    private b aPX;
-    private AlaGiftGraffitiShowView aPY;
+    private k aOZ;
+    private b aVl;
+    private AlaGiftGraffitiShowView aVm;
     private Context mContext;
-    private boolean aPV = false;
-    private boolean aIY = false;
-    private b.a aPZ = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
+    private boolean aVj = false;
+    private boolean aOj = false;
+    private b.a aVn = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
         @Override // com.baidu.live.gift.graffitiGift.b.a
         public void onEnd() {
-            a.this.zJ();
+            a.this.Fm();
         }
     };
-    private ArrayList<c> aPW = new ArrayList<>();
+    private ArrayList<c> aVk = new ArrayList<>();
 
     public a(Context context, k kVar) {
         this.mContext = context;
-        this.aJO = kVar;
+        this.aOZ = kVar;
         initView();
     }
 
     private void initView() {
-        this.aPY = new AlaGiftGraffitiShowView(this.mContext);
-        this.aPX = new b(this.aPY, this.mContext);
-        this.aPX.a(this.aPZ);
+        this.aVm = new AlaGiftGraffitiShowView(this.mContext);
+        this.aVl = new b(this.aVm, this.mContext);
+        this.aVl.a(this.aVn);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         int i = 0;
-        if (this.aJO.aHx && (this.mContext instanceof Activity) && UtilHelper.canUseStyleImmersiveSticky()) {
+        if (this.aOZ.aMH && (this.mContext instanceof Activity) && UtilHelper.canUseStyleImmersiveSticky()) {
             i = BdUtilHelper.getStatusBarHeight((Activity) this.mContext) + ((int) this.mContext.getResources().getDimension(a.e.sdk_ds4));
         }
         layoutParams.topMargin = i + ((int) this.mContext.getResources().getDimension(a.e.sdk_ds112));
         layoutParams.addRule(10);
-        this.aPY.setLayoutParams(layoutParams);
-        this.aJO.M(this.aPY);
+        this.aVm.setLayoutParams(layoutParams);
+        this.aOZ.M(this.aVm);
     }
 
-    public void yX() {
-        this.aPV = false;
-        this.aJO.M(this.aPY);
-        zJ();
+    public void EA() {
+        this.aVj = false;
+        this.aOZ.M(this.aVm);
+        Fm();
     }
 
     public void e(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.aPW.add(0, cVar);
-            } else if (this.aPW.size() < com.baidu.live.v.a.Hs().aZn.aBV) {
-                this.aPW.add(cVar);
+                this.aVk.add(0, cVar);
+            } else if (this.aVk.size() < com.baidu.live.w.a.Nk().beH.aHf) {
+                this.aVk.add(cVar);
             }
-            if (cVar.aNJ) {
-                LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.ayO, cVar.ayP, cVar.giftId, "");
+            if (cVar.aSW) {
+                LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.aDW, cVar.aDX, cVar.giftId, "");
             }
-            zJ();
+            Fm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zJ() {
-        if (!this.aPW.isEmpty() && !this.aPV && this.aPX.isReady()) {
-            c remove = this.aPW.remove(0);
+    public void Fm() {
+        if (!this.aVk.isEmpty() && !this.aVj && this.aVl.isReady()) {
+            c remove = this.aVk.remove(0);
             if (remove != null) {
-                remove.ad(System.currentTimeMillis());
+                remove.ae(System.currentTimeMillis());
                 n(remove);
-                zJ();
+                Fm();
                 return;
             }
-            zJ();
+            Fm();
         }
     }
 
     private void n(c cVar) {
-        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aIY) && this.aPX.isReady()) {
-            this.aPX.o(cVar);
+        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aOj) && this.aVl.isReady()) {
+            this.aVl.o(cVar);
         }
     }
 
-    public void yW() {
-        this.aPV = true;
+    public void Ez() {
+        this.aVj = true;
     }
 
     public void onDestroy() {
-        if (this.aPX != null) {
-            this.aPX.destory();
+        if (this.aVl != null) {
+            this.aVl.destory();
         }
-        this.aPV = false;
+        this.aVj = false;
     }
 
-    public void Bq() {
-        if (this.aPX != null) {
-            this.aPX.Bq();
+    public void GT() {
+        if (this.aVl != null) {
+            this.aVl.GT();
         }
     }
 
-    public void bf(boolean z) {
-        this.aIY = z;
+    public void bj(boolean z) {
+        this.aOj = z;
     }
 
-    public void zd() {
-        if (this.aPX != null) {
-            this.aPX.zd();
+    public void EG() {
+        if (this.aVl != null) {
+            this.aVl.EG();
         }
     }
 }

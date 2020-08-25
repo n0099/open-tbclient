@@ -9,38 +9,38 @@ import com.baidu.rtc.ndk.AlaNDKPlayerAdapter;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class RtcVideoPlayController {
-    private AlaNDKPlayerAdapter bJh;
+    private AlaNDKPlayerAdapter bOF;
     private WeakReference<Context> mContext;
     private Map<Integer, RtcVideoPlayer> mPlayersMap = new ConcurrentHashMap();
     private RtcConfig mRtcConfig;
 
     public RtcVideoPlayController(Context context, AlaNDKPlayerAdapter alaNDKPlayerAdapter, RtcConfig rtcConfig) {
-        this.bJh = null;
+        this.bOF = null;
         this.mContext = null;
-        this.bJh = alaNDKPlayerAdapter;
+        this.bOF = alaNDKPlayerAdapter;
         this.mContext = new WeakReference<>(context);
         this.mRtcConfig = rtcConfig;
     }
 
-    public RtcVideoPlayer Rp() {
-        if (el(1) == null) {
+    public RtcVideoPlayer Xk() {
+        if (gi(1) == null) {
             this.mPlayersMap.put(1, new RtcVideoPlayer(this.mContext.get(), 1));
         }
-        return el(1);
+        return gi(1);
     }
 
     public int c(RtcConfig rtcConfig) {
         this.mRtcConfig = rtcConfig;
-        if (this.bJh != null && this.bJh.getNativeObject() != 0) {
-            this.bJh.setVideoFillModel(1, 2);
+        if (this.bOF != null && this.bOF.getNativeObject() != 0) {
+            this.bOF.setVideoFillModel(1, 2);
             return 0;
         }
         return 0;
     }
 
-    public RtcVideoPlayer el(int i) {
+    public RtcVideoPlayer gi(int i) {
         if (!this.mPlayersMap.containsKey(Integer.valueOf(i))) {
             return null;
         }
@@ -50,8 +50,8 @@ public class RtcVideoPlayController {
     public int stopPlay() {
         for (Map.Entry<Integer, RtcVideoPlayer> entry : this.mPlayersMap.entrySet()) {
             RtcVideoPlayer value = entry.getValue();
-            if (this.bJh.getNativeObject() != 0) {
-                this.bJh.stopNative(value.mIndex);
+            if (this.bOF.getNativeObject() != 0) {
+                this.bOF.stopNative(value.mIndex);
             }
             this.mPlayersMap.remove(entry.getKey());
             value.release();
@@ -59,11 +59,11 @@ public class RtcVideoPlayController {
         return 0;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class RtcVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
-        private boolean bJB;
-        private boolean bJC;
-        private boolean bJD;
+        private boolean bOZ;
+        private boolean bPa;
+        private boolean bPb;
         private int mHeight;
         private int mIndex;
         private Surface mSurface;
@@ -72,19 +72,19 @@ public class RtcVideoPlayController {
 
         public RtcVideoPlayer(Context context, int i) {
             super(context);
-            this.bJB = false;
-            this.bJC = false;
+            this.bOZ = false;
+            this.bPa = false;
             this.mWidth = 0;
             this.mHeight = 0;
-            this.bJD = false;
+            this.bPb = false;
             this.mIndex = i;
             setSurfaceTextureListener(this);
         }
 
-        public void Rq() {
-            this.bJD = true;
-            if (this.bJB) {
-                Rr();
+        public void Xl() {
+            this.bPb = true;
+            if (this.bOZ) {
+                Xm();
             }
         }
 
@@ -103,12 +103,12 @@ public class RtcVideoPlayController {
             }
         }
 
-        private void Rr() {
-            if (!this.bJC && RtcVideoPlayController.this.bJh.createSurfaceNative(this.mIndex, this.mSurface, RtcVideoPlayController.this.mRtcConfig.enableAudio, RtcVideoPlayController.this.mRtcConfig.enableVideo) == 0) {
-                this.bJC = true;
+        private void Xm() {
+            if (!this.bPa && RtcVideoPlayController.this.bOF.createSurfaceNative(this.mIndex, this.mSurface, RtcVideoPlayController.this.mRtcConfig.enableAudio, RtcVideoPlayController.this.mRtcConfig.enableVideo) == 0) {
+                this.bPa = true;
             }
-            if (this.bJC) {
-                RtcVideoPlayController.this.bJh.surfaceChangedNative(this.mIndex, this.mWidth, this.mHeight, this.mSurface);
+            if (this.bPa) {
+                RtcVideoPlayController.this.bOF.surfaceChangedNative(this.mIndex, this.mWidth, this.mHeight, this.mSurface);
             }
         }
 
@@ -123,11 +123,11 @@ public class RtcVideoPlayController {
                 this.mSurfaceTexture = surfaceTexture;
                 this.mSurface = new Surface(surfaceTexture);
             }
-            this.bJB = true;
+            this.bOZ = true;
             this.mWidth = i;
             this.mHeight = i2;
-            if (this.bJD) {
-                Rr();
+            if (this.bPb) {
+                Xm();
             }
         }
 
@@ -135,11 +135,11 @@ public class RtcVideoPlayController {
         public synchronized boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
             boolean z;
             synchronized (this) {
-                if (this.bJC) {
-                    RtcVideoPlayController.this.bJh.destroySurfaceNative(this.mIndex);
-                    this.bJC = false;
+                if (this.bPa) {
+                    RtcVideoPlayController.this.bOF.destroySurfaceNative(this.mIndex);
+                    this.bPa = false;
                 }
-                this.bJB = false;
+                this.bOZ = false;
                 z = this.mSurfaceTexture == null;
             }
             return z;
@@ -150,8 +150,8 @@ public class RtcVideoPlayController {
             if (this.mSurfaceTexture == surfaceTexture) {
                 this.mWidth = i;
                 this.mHeight = i2;
-                if (this.bJD) {
-                    Rr();
+                if (this.bPb) {
+                    Xm();
                 }
             }
         }

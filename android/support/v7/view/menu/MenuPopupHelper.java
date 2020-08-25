@@ -19,7 +19,7 @@ import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class MenuPopupHelper implements MenuHelper {
     private static final int TOUCH_EPICENTER_SIZE_DP = 48;
     private View mAnchorView;

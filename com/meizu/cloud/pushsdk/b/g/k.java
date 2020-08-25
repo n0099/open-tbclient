@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public final class k {
     static j a;
     static long b;

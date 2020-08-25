@@ -5,7 +5,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.tieba.flutter.util.OpenNative;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.idlefish.flutterboost.FlutterViewContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
@@ -19,7 +22,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class FlutterBoostPlugin implements FlutterPlugin {
     private static final Set<ActionAfterRegistered> sActions = new HashSet();
     private static FlutterBoostPlugin sInstance;
@@ -28,12 +31,12 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     private final MethodChannel mMethodChannel;
     private final EventListener splashEventListener;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public interface ActionAfterRegistered {
         void onChannelRegistered(FlutterBoostPlugin flutterBoostPlugin);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public interface EventListener {
         void onEvent(String str, Map map);
     }
@@ -228,7 +231,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
         this.mMethodChannel.invokeMethod("__event__", hashMap);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     class BoostMethodHandler implements MethodChannel.MethodCallHandler {
         BoostMethodHandler() {
         }
@@ -362,13 +365,21 @@ public class FlutterBoostPlugin implements FlutterPlugin {
 
         public Map<String, Object> parseNativeResult(String str, Map<String, Object> map) {
             HashMap hashMap = new HashMap();
-            if (str.contains("kNativePageKeyEditProfile")) {
+            if (str.contains(OpenNative.kNativePageKeyEditProfile)) {
                 if (map.containsKey("data") && (map.get("data") instanceof PersonChangeData)) {
                     hashMap.put("intro", ((PersonChangeData) map.get("data")).getIntro());
                 }
                 return hashMap;
+            } else if (str.contains(OpenNative.kNativePageKeyItemEvaluatePage)) {
+                if (map.containsKey("post_write_callback_data") && (map.get("post_write_callback_data") instanceof PostWriteCallBackData)) {
+                    PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) map.get("post_write_callback_data");
+                    hashMap.put(TiebaInitialize.LogFields.ERROR_CODE, Integer.valueOf(postWriteCallBackData.getErrorCode()));
+                    hashMap.put(TiebaInitialize.LogFields.ERROR_MESSAGE, postWriteCallBackData.getErrorString());
+                }
+                return hashMap;
+            } else {
+                return map;
             }
-            return map;
         }
     }
 }

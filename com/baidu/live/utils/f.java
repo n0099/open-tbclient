@@ -6,9 +6,9 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
-    public static SpannableStringBuilder D(String str, int i) {
+    public static SpannableStringBuilder E(String str, int i) {
         SpannableStringBuilder valueOf;
         try {
             valueOf = (SpannableStringBuilder) Html.fromHtml(str);
@@ -22,13 +22,13 @@ public class f {
             if ((parcelableSpanArr[i2] instanceof URLSpan) && i2 - 1 >= 0 && (parcelableSpanArr[i2 - 1] instanceof ForegroundColorSpan)) {
                 b bVar = new b((ForegroundColorSpan) parcelableSpanArr[i2 - 1]);
                 bVar.a((URLSpan) parcelableSpanArr[i2]);
-                bVar.bkF = valueOf.getSpanStart(parcelableSpanArr[i2]);
-                bVar.bkG = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                bVar.bqk = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                bVar.bql = valueOf.getSpanEnd(parcelableSpanArr[i2]);
                 arrayList.add(bVar);
             } else if ((parcelableSpanArr[i2] instanceof ForegroundColorSpan) && ((i2 + 1 < parcelableSpanArr.length && !(parcelableSpanArr[i2 + 1] instanceof URLSpan)) || i2 == parcelableSpanArr.length - 1)) {
                 b bVar2 = new b((ForegroundColorSpan) parcelableSpanArr[i2]);
-                bVar2.bkF = valueOf.getSpanStart(parcelableSpanArr[i2]);
-                bVar2.bkG = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                bVar2.bqk = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                bVar2.bql = valueOf.getSpanEnd(parcelableSpanArr[i2]);
                 arrayList.add(bVar2);
             }
         }
@@ -36,10 +36,10 @@ public class f {
         for (int i3 = 0; i3 < arrayList.size(); i3++) {
             b bVar3 = (b) arrayList.get(i3);
             if (bVar3 != null) {
-                if (bVar3.bkI) {
-                    valueOf2.setSpan(new a(bVar3.mUrl, bVar3.bkH), bVar3.bkF, bVar3.bkG, 33);
+                if (bVar3.bqn) {
+                    valueOf2.setSpan(new a(bVar3.mUrl, bVar3.bqm), bVar3.bqk, bVar3.bql, 33);
                 } else {
-                    valueOf2.setSpan(new ForegroundColorSpan(bVar3.bkH), bVar3.bkF, bVar3.bkG, 33);
+                    valueOf2.setSpan(new ForegroundColorSpan(bVar3.bqm), bVar3.bqk, bVar3.bql, 33);
                 }
             }
         }

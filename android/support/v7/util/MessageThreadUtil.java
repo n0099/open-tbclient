@@ -8,11 +8,11 @@ import android.support.v7.util.TileList;
 import android.util.Log;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes9.dex */
 class MessageThreadUtil<T> implements ThreadUtil<T> {
 
     /* renamed from: android.support.v7.util.MessageThreadUtil$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes9.dex */
     class AnonymousClass1 implements ThreadUtil.MainThreadCallback<T> {
         static final int ADD_TILE = 2;
         static final int REMOVE_TILE = 3;
@@ -75,7 +75,7 @@ class MessageThreadUtil<T> implements ThreadUtil<T> {
     }
 
     /* renamed from: android.support.v7.util.MessageThreadUtil$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes9.dex */
     class AnonymousClass2 implements ThreadUtil.BackgroundCallback<T> {
         static final int LOAD_TILE = 3;
         static final int RECYCLE_TILE = 4;
@@ -166,7 +166,7 @@ class MessageThreadUtil<T> implements ThreadUtil<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes9.dex */
     public static class SyncQueueItem {
         private static SyncQueueItem sPool;
         private static final Object sPoolLock = new Object();
@@ -230,7 +230,7 @@ class MessageThreadUtil<T> implements ThreadUtil<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes9.dex */
     public static class MessageQueue {
         private SyncQueueItem mRoot;
 

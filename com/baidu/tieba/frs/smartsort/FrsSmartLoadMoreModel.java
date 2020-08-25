@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.mc.c;
 import com.baidu.tieba.frs.mc.k;
-import com.baidu.tieba.frs.v;
+import com.baidu.tieba.frs.w;
 import com.baidu.tieba.tbadkCore.g;
 import com.baidu.tieba.tbadkCore.h;
-import com.baidu.tieba.tbadkCore.o;
+import com.baidu.tieba.tbadkCore.p;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
-    private int gEI;
-    private k hHg;
-    private c.a hZS;
-    private final FrsFragment iae;
+    private int gRi;
+    private k hUw;
+    private c.a ioa;
+    private final FrsFragment iom;
     private int mPn;
     private int mSortType;
     private final ArrayList<q> mThreadList;
@@ -30,10 +30,10 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         super(frsFragment.getPageContext());
         this.mThreadList = new ArrayList<>();
         this.mPn = 1;
-        this.gEI = -1;
-        this.iae = frsFragment;
-        setUniqueId(this.iae.getUniqueId());
-        this.hHg = kVar;
+        this.gRi = -1;
+        this.iom = frsFragment;
+        setUniqueId(this.iom.getUniqueId());
+        this.hUw = kVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,12 +50,12 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         this.mSortType = i;
     }
 
-    public int cbx() {
-        return this.gEI;
+    public int clT() {
+        return this.gRi;
     }
 
     public void setHasMore(int i) {
-        this.gEI = i;
+        this.gRi = i;
     }
 
     public int getPn() {
@@ -71,14 +71,14 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public ArrayList<q> a(boolean z, boolean z2, ArrayList<q> arrayList, boolean z3, boolean z4) {
         int i;
         if (!z3 && this.mThreadList.size() == 0) {
-            if (FrsFragment.hFD != null) {
-                this.mThreadList.addAll(FrsFragment.hFD.getThreadList());
+            if (FrsFragment.hST != null) {
+                this.mThreadList.addAll(FrsFragment.hST.getThreadList());
             }
-            FrsFragment.hFD = null;
+            FrsFragment.hST = null;
         }
-        if (x.isEmpty(arrayList)) {
-            if (this.hHg != null) {
-                this.hHg.a(this.mSortType, z2, 0, z, null, z3);
+        if (y.isEmpty(arrayList)) {
+            if (this.hUw != null) {
+                this.hUw.a(this.mSortType, z2, 0, z, null, z3);
             }
             return this.mThreadList;
         }
@@ -89,15 +89,15 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             int i2 = 0;
             while (it.hasNext()) {
                 q next = it.next();
-                if (!z4 || !(next instanceof com.baidu.tieba.frs.x)) {
-                    if (!(next instanceof v)) {
+                if (!z4 || !(next instanceof com.baidu.tieba.frs.y)) {
+                    if (!(next instanceof w)) {
                         if (e(next)) {
                             arrayList3.add(next);
-                        } else if (next instanceof bv) {
-                            bv bvVar = (bv) next;
-                            bvVar.hD(true);
-                            au(bvVar);
-                            if ((bvVar.aXH() == null || bvVar.aWJ()) && g(bvVar.getId(), this.mThreadList)) {
+                        } else if (next instanceof bw) {
+                            bw bwVar = (bw) next;
+                            bwVar.hZ(true);
+                            au(bwVar);
+                            if ((bwVar.bga() == null || bwVar.bfc()) && g(bwVar.getId(), this.mThreadList)) {
                                 i = i2;
                             } else {
                                 arrayList2.add(next);
@@ -112,17 +112,17 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
             if (z2) {
-                av(arrayList2);
+                aB(arrayList2);
             }
-            this.iae.cbZ().addRecommendAppToThreadList(this.iae, true, arrayList2, this.mThreadList, this.iae.cbr().chv());
+            this.iom.cmw().addRecommendAppToThreadList(this.iom, true, arrayList2, this.mThreadList, this.iom.clN().csa());
             if (z2) {
-                if (this.hHg != null) {
-                    this.hHg.a(this.mSortType, z2, i2, z, arrayList2, z3);
+                if (this.hUw != null) {
+                    this.hUw.a(this.mSortType, z2, i2, z, arrayList2, z3);
                 }
-                chL();
-                n(this.mThreadList, arrayList2);
-                cO(arrayList2);
-                au(arrayList3);
+                csp();
+                q(this.mThreadList, arrayList2);
+                cQ(arrayList2);
+                aA(arrayList3);
                 a(this.mThreadList, 300);
             } else {
                 this.mThreadList.addAll(arrayList2);
@@ -131,15 +131,15 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         return this.mThreadList;
     }
 
-    private void au(bv bvVar) {
-        if (bvVar != null && this.iae != null && this.iae.cbZ() != null && this.iae.cbZ().getForum() != null) {
-            bvVar.xe(this.iae.cbZ().getForum().getFirst_class());
-            bvVar.xf(this.iae.cbZ().getForum().getSecond_class());
+    private void au(bw bwVar) {
+        if (bwVar != null && this.iom != null && this.iom.cmw() != null && this.iom.cmw().getForum() != null) {
+            bwVar.zs(this.iom.cmw().getForum().getFirst_class());
+            bwVar.zt(this.iom.cmw().getForum().getSecond_class());
         }
     }
 
-    private void cO(List<q> list) {
-        if (!x.isEmpty(list)) {
+    private void cQ(List<q> list) {
+        if (!y.isEmpty(list)) {
             this.mThreadList.addAll(0, list);
         }
     }
@@ -148,10 +148,10 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         if (qVar == null) {
             return false;
         }
-        if (qVar instanceof com.baidu.tieba.tbadkCore.v) {
+        if (qVar instanceof com.baidu.tieba.tbadkCore.w) {
             return true;
         }
-        if ((!(qVar instanceof bv) || ((bv) qVar).aWg() != 2) && qVar.getType() != o.lLQ) {
+        if ((!(qVar instanceof bw) || ((bw) qVar).bez() != 2) && qVar.getType() != p.mdA) {
             return false;
         }
         return true;
@@ -159,49 +159,49 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     private void a(ArrayList<q> arrayList, int i) {
         int count;
-        if (arrayList != null && (count = x.getCount(arrayList)) > i) {
+        if (arrayList != null && (count = y.getCount(arrayList)) > i) {
             int max = Math.max(count - i, 30);
             int i2 = ((count - 20) - max) - 1;
-            x.removeSubList(arrayList, i2, max + i2);
+            y.removeSubList(arrayList, i2, max + i2);
         }
     }
 
-    public void chL() {
-        if (!x.isEmpty(this.mThreadList)) {
+    public void csp() {
+        if (!y.isEmpty(this.mThreadList)) {
             ArrayList arrayList = new ArrayList();
             Iterator<q> it = this.mThreadList.iterator();
             while (it.hasNext()) {
                 q next = it.next();
                 if (e(next)) {
                     arrayList.add(next);
-                } else if (next instanceof v) {
+                } else if (next instanceof w) {
                     arrayList.add(next);
                 }
             }
-            if (!x.isEmpty(arrayList)) {
+            if (!y.isEmpty(arrayList)) {
                 this.mThreadList.removeAll(arrayList);
             }
         }
     }
 
-    public void au(ArrayList<q> arrayList) {
-        if (!x.isEmpty(arrayList) && !x.isEmpty(this.mThreadList)) {
+    public void aA(ArrayList<q> arrayList) {
+        if (!y.isEmpty(arrayList) && !y.isEmpty(this.mThreadList)) {
             this.mThreadList.addAll(0, arrayList);
         }
     }
 
-    public void av(ArrayList<q> arrayList) {
-        if (!x.isEmpty(arrayList)) {
+    public void aB(ArrayList<q> arrayList) {
+        if (!y.isEmpty(arrayList)) {
             ArrayList arrayList2 = new ArrayList();
-            if (!x.isEmpty(arrayList)) {
+            if (!y.isEmpty(arrayList)) {
                 Iterator<q> it = arrayList.iterator();
                 while (it.hasNext()) {
                     q next = it.next();
                     if (next != null) {
-                        if (next.getType() == bv.dTv) {
+                        if (next.getType() == bw.ecR) {
                             it.remove();
                             arrayList2.add(next);
-                        } else if ((next instanceof bv) && ((bv) next).aWi() == 1) {
+                        } else if ((next instanceof bw) && ((bw) next).beB() == 1) {
                             it.remove();
                             arrayList2.add(next);
                         } else if ((next instanceof g) || (next instanceof h)) {
@@ -210,15 +210,15 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     }
                 }
             }
-            if (!x.isEmpty(arrayList2)) {
-                if (!x.isEmpty(this.mThreadList)) {
+            if (!y.isEmpty(arrayList2)) {
+                if (!y.isEmpty(this.mThreadList)) {
                     Iterator<q> it2 = this.mThreadList.iterator();
                     while (it2.hasNext()) {
                         q next2 = it2.next();
                         if (next2 != null) {
-                            if (next2.getType() == bv.dTv) {
+                            if (next2.getType() == bw.ecR) {
                                 it2.remove();
-                            } else if ((next2 instanceof bv) && ((bv) next2).aWi() == 1) {
+                            } else if ((next2 instanceof bw) && ((bw) next2).beB() == 1) {
                                 it2.remove();
                             } else if ((next2 instanceof g) || (next2 instanceof h)) {
                                 it2.remove();
@@ -226,7 +226,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                         }
                     }
                 }
-                if (!x.isEmpty(arrayList2)) {
+                if (!y.isEmpty(arrayList2)) {
                     Iterator it3 = arrayList2.iterator();
                     while (it3.hasNext()) {
                         q qVar = (q) it3.next();
@@ -247,7 +247,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         Iterator<q> it = arrayList.iterator();
         while (it.hasNext()) {
             q next = it.next();
-            if ((next instanceof bv) && str.equalsIgnoreCase(((bv) next).getTid())) {
+            if ((next instanceof bw) && str.equalsIgnoreCase(((bw) next).getTid())) {
                 return true;
             }
         }
@@ -258,7 +258,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         return this.mThreadList;
     }
 
-    public void aw(ArrayList<q> arrayList) {
+    public void aC(ArrayList<q> arrayList) {
         if (this.mThreadList.size() == 0) {
             this.mThreadList.addAll(arrayList);
         }
@@ -266,34 +266,34 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void resetData() {
         this.mThreadList.clear();
-        this.gEI = -1;
+        this.gRi = -1;
         this.mPn = 1;
     }
 
-    private void n(List<q> list, List<q> list2) {
-        if (!x.isEmpty(list) && !x.isEmpty(list2)) {
-            list2.add(new v());
+    private void q(List<q> list, List<q> list2) {
+        if (!y.isEmpty(list) && !y.isEmpty(list2)) {
+            list2.add(new w());
         }
     }
 
-    public void chb() {
+    public void crG() {
         ArrayList<q> arrayList;
-        int count = x.getCount(this.mThreadList) + 30;
+        int count = y.getCount(this.mThreadList) + 30;
         if (count > 300) {
             int i = count - 300;
             if (this.mThreadList.size() > i + 20) {
                 for (int i2 = 0; i2 < i; i2++) {
                     ArrayList<q> arrayList2 = new ArrayList<>();
                     arrayList2.add(this.mThreadList.remove(20));
-                    if (this.iae == null || this.iae.cbZ() == null) {
+                    if (this.iom == null || this.iom.cmw() == null) {
                         arrayList = null;
                     } else {
-                        arrayList = this.iae.cbZ().switchThreadDataToThreadCardInfo(arrayList2);
+                        arrayList = this.iom.cmw().switchThreadDataToThreadCardInfo(arrayList2);
                     }
                     if (arrayList != null) {
                         for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                            if (this.hZS != null) {
-                                this.hZS.removeItem(i3 + 20);
+                            if (this.ioa != null) {
+                                this.ioa.removeItem(i3 + 20);
                             }
                         }
                     }
@@ -309,6 +309,6 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void a(c.a aVar) {
-        this.hZS = aVar;
+        this.ioa = aVar;
     }
 }

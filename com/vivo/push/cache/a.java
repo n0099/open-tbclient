@@ -3,7 +3,6 @@ package com.vivo.push.cache;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.util.devices.NetWorkUtils;
 import com.vivo.push.util.g;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
@@ -11,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class a extends d<com.vivo.push.model.a> {
     public a(Context context) {
         super(context);
@@ -84,6 +83,6 @@ public final class a extends d<com.vivo.push.model.a> {
         if (i != -1) {
             return (i & 1) != 0;
         }
-        return z.b("persist.sys.log.ctrl", NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).equals("yes");
+        return z.b("persist.sys.log.ctrl", "no").equals("yes");
     }
 }

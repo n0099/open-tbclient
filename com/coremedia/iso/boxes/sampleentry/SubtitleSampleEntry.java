@@ -8,7 +8,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SubtitleSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "stpp";
     private String imageMimeType;

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.g;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsInstallService extends BdBaseService {
     private static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
     private static final String SCHEME_PACKAGE_ADDED = "package";
@@ -69,7 +69,7 @@ public class AsInstallService extends BdBaseService {
         return null;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class a extends BroadcastReceiver {
         private a() {
         }

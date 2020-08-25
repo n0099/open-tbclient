@@ -3,91 +3,91 @@ package com.facebook.imagepipeline.producers;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class b<T> implements k<T> {
-    private boolean ndW = false;
+    private boolean nxM = false;
 
-    protected abstract void E(Throwable th);
+    protected abstract void D(Throwable th);
 
-    protected abstract void dIa();
+    protected abstract void dTZ();
 
     protected abstract void g(T t, int i);
 
-    public static boolean JH(int i) {
+    public static boolean Ml(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean JI(int i) {
-        return !JH(i);
+    public static boolean Mm(int i) {
+        return !Ml(i);
     }
 
-    public static int dA(int i, int i2) {
+    public static int dI(int i, int i2) {
         return (i2 ^ (-1)) & i;
     }
 
-    public static boolean dB(int i, int i2) {
+    public static boolean dJ(int i, int i2) {
         return (i & i2) == i2;
     }
 
-    public static boolean dC(int i, int i2) {
+    public static boolean dK(int i, int i2) {
         return (i & i2) != 0;
     }
 
-    public static int xm(boolean z) {
+    public static int yd(boolean z) {
         return z ? 1 : 0;
     }
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void h(@Nullable T t, int i) {
-        if (!this.ndW) {
-            this.ndW = JH(i);
+        if (!this.nxM) {
+            this.nxM = Ml(i);
             try {
                 g(t, i);
             } catch (Exception e) {
-                x(e);
+                B(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void F(Throwable th) {
-        if (!this.ndW) {
-            this.ndW = true;
+    public synchronized void E(Throwable th) {
+        if (!this.nxM) {
+            this.nxM = true;
             try {
-                E(th);
+                D(th);
             } catch (Exception e) {
-                x(e);
+                B(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void dCu() {
-        if (!this.ndW) {
-            this.ndW = true;
+    public synchronized void dOu() {
+        if (!this.nxM) {
+            this.nxM = true;
             try {
-                dIa();
+                dTZ();
             } catch (Exception e) {
-                x(e);
+                B(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void ax(float f) {
-        if (!this.ndW) {
+    public synchronized void aD(float f) {
+        if (!this.nxM) {
             try {
-                aM(f);
+                aS(f);
             } catch (Exception e) {
-                x(e);
+                B(e);
             }
         }
     }
 
-    protected void aM(float f) {
+    protected void aS(float f) {
     }
 
-    protected void x(Exception exc) {
+    protected void B(Exception exc) {
         com.facebook.common.c.a.c(getClass(), "unhandled exception", exc);
     }
 }

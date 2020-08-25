@@ -1,21 +1,22 @@
 package com.baidu.sapi2.utils;
 
+import com.baidu.sapi2.NoProguard;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes19.dex */
-public class AES implements com.baidu.sapi2.c {
-    private static final String a = "UTF-8";
-    private static final String b = "AES/CBC/NoPadding";
-    private static final String c = "AES";
-    private String d;
-    private String e;
-    private String f;
+/* loaded from: classes12.dex */
+public class AES implements NoProguard {
+    private static final String d = "UTF-8";
+    private static final String e = "AES/CBC/NoPadding";
+    private static final String f = "AES";
+    private String a;
+    private String b;
+    private String c;
 
     public AES() {
-        this("AES", b, "UTF-8");
+        this("AES", e, "UTF-8");
     }
 
     private static String a(String str) {
@@ -30,9 +31,9 @@ public class AES implements com.baidu.sapi2.c {
         if (bArr != null && bArr.length != 0) {
             byte[] bArr2 = new byte[0];
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.d));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f);
-                Cipher cipher = Cipher.getInstance(this.e);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.c);
+                Cipher cipher = Cipher.getInstance(this.b);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
@@ -46,16 +47,16 @@ public class AES implements com.baidu.sapi2.c {
     public byte[] encrypt(String str, String str2, String str3) throws Exception {
         if (str != null && str.length() != 0) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.d));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f);
-                Cipher cipher = Cipher.getInstance(this.e);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.c);
+                Cipher cipher = Cipher.getInstance(this.b);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(a(str).getBytes());
-            } catch (NoSuchAlgorithmException e) {
-                Log.e(Log.TAG, e.toString());
-                return null;
-            } catch (NoSuchPaddingException e2) {
+            } catch (NoSuchAlgorithmException e2) {
                 Log.e(Log.TAG, e2.toString());
+                return null;
+            } catch (NoSuchPaddingException e3) {
+                Log.e(Log.TAG, e3.toString());
                 return null;
             }
         }
@@ -67,11 +68,11 @@ public class AES implements com.baidu.sapi2.c {
     }
 
     public AES(String str, String str2, String str3) {
-        this.d = "UTF-8";
-        this.e = b;
-        this.f = "AES";
-        this.f = str;
-        this.e = str2;
-        this.d = str3;
+        this.a = "UTF-8";
+        this.b = e;
+        this.c = "AES";
+        this.c = str;
+        this.b = str2;
+        this.a = str3;
     }
 }

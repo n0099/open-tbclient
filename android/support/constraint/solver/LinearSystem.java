@@ -3,10 +3,9 @@ package android.support.constraint.solver;
 import android.support.constraint.solver.SolverVariable;
 import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.constraint.solver.widgets.ConstraintWidget;
-import com.baidu.mobstat.Config;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LinearSystem {
     private static final boolean DEBUG = false;
     public static final boolean FULL_DEBUG = false;
@@ -30,7 +29,7 @@ public class LinearSystem {
     private ArrayRow[] tempClientsCopy = new ArrayRow[this.TABLE_SIZE];
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface Row {
         void addError(SolverVariable solverVariable);
 
@@ -626,7 +625,7 @@ public class LinearSystem {
     }
 
     private void displaySolverVariables() {
-        System.out.println("Display Rows (" + this.mNumRows + Config.EVENT_HEAT_X + this.mNumColumns + ")\n");
+        System.out.println("Display Rows (" + this.mNumRows + "x" + this.mNumColumns + ")\n");
     }
 
     private String getDisplaySize(int i) {

@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.liveroom.activeview;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface c {
     void onStart();
 

@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class CpuInfo implements INoProGuard {
     public static final int CPU_TYPE_ARM_AR = 2;
     public static final int CPU_TYPE_MIPS = 4;
@@ -61,12 +61,12 @@ public class CpuInfo implements INoProGuard {
                             }
                         } catch (IOException e) {
                             e = e;
-                            com.a.a.a.a.a.a.a.a(e);
+                            e.printStackTrace();
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
                                 } catch (IOException e2) {
-                                    com.a.a.a.a.a.a.a.a(e2);
+                                    e2.printStackTrace();
                                 }
                             }
                             return i;
@@ -76,7 +76,7 @@ public class CpuInfo implements INoProGuard {
                         bufferedReader.close();
                         break;
                     } catch (IOException e3) {
-                        com.a.a.a.a.a.a.a.a(e3);
+                        e3.printStackTrace();
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -84,7 +84,7 @@ public class CpuInfo implements INoProGuard {
                         try {
                             exists.close();
                         } catch (IOException e4) {
-                            com.a.a.a.a.a.a.a.a(e4);
+                            e4.printStackTrace();
                         }
                     }
                     throw th;
@@ -128,12 +128,12 @@ public class CpuInfo implements INoProGuard {
                                 break;
                             } catch (IOException e) {
                                 e = e;
-                                com.a.a.a.a.a.a.a.a(e);
+                                e.printStackTrace();
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
                                     } catch (IOException e2) {
-                                        com.a.a.a.a.a.a.a.a(e2);
+                                        e2.printStackTrace();
                                     }
                                 }
                                 return z;
@@ -142,7 +142,7 @@ public class CpuInfo implements INoProGuard {
                         break;
                         bufferedReader.close();
                     } catch (IOException e3) {
-                        com.a.a.a.a.a.a.a.a(e3);
+                        e3.printStackTrace();
                     }
                     z = true;
                 } catch (Throwable th) {
@@ -152,7 +152,7 @@ public class CpuInfo implements INoProGuard {
                         try {
                             bufferedReader2.close();
                         } catch (IOException e4) {
-                            com.a.a.a.a.a.a.a.a(e4);
+                            e4.printStackTrace();
                         }
                     }
                     throw th;
@@ -228,7 +228,7 @@ public class CpuInfo implements INoProGuard {
                     }
                 }
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
             return false;
         }

@@ -5,26 +5,26 @@ import com.baidu.poly.util.HttpSigner;
 import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static int byU = 1;
+    private static int bEB = 1;
 
     /* renamed from: com.baidu.poly.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C0240a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.b.a bzf;
-        final /* synthetic */ JSONObject bzg;
+    /* loaded from: classes6.dex */
+    public static final class C0261a extends com.baidu.poly.a.a.a<String> {
+        final /* synthetic */ com.baidu.poly.b.a bEM;
+        final /* synthetic */ JSONObject bEN;
 
-        C0240a(com.baidu.poly.b.a aVar, JSONObject jSONObject) {
-            this.bzf = aVar;
-            this.bzg = jSONObject;
+        C0261a(com.baidu.poly.b.a aVar, JSONObject jSONObject) {
+            this.bEM = aVar;
+            this.bEN = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            com.baidu.poly.b.a aVar = this.bzf;
+            com.baidu.poly.b.a aVar = this.bEM;
             if (aVar != null) {
                 aVar.onResult(0, "");
             }
@@ -32,27 +32,27 @@ public final class a {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            com.baidu.poly.b.a aVar = this.bzf;
+            com.baidu.poly.b.a aVar = this.bEM;
             if (aVar != null) {
                 aVar.onResult(1, str);
             }
-            com.baidu.poly.a.c.a.c(this.bzg);
+            com.baidu.poly.a.c.a.c(this.bEN);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class b extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.b.a bzf;
+        final /* synthetic */ com.baidu.poly.b.a bEM;
 
         b(com.baidu.poly.b.a aVar) {
-            this.bzf = aVar;
+            this.bEM = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            com.baidu.poly.b.a aVar = this.bzf;
+            com.baidu.poly.b.a aVar = this.bEM;
             if (aVar != null) {
                 aVar.onResult(0, "");
             }
@@ -60,7 +60,7 @@ public final class a {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            com.baidu.poly.b.a aVar = this.bzf;
+            com.baidu.poly.b.a aVar = this.bEM;
             if (aVar != null) {
                 aVar.onResult(1, str);
             }
@@ -68,21 +68,21 @@ public final class a {
     }
 
     public static final void b(int i) {
-        byU = i;
+        bEB = i;
     }
 
-    public static final int p() {
-        return byU;
+    public static final int q() {
+        return bEB;
     }
 
     public static final void b(JSONObject jSONObject, com.baidu.poly.b.a aVar) {
         if (jSONObject != null) {
             com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
             c.a(cVar);
-            com.baidu.poly.a.a.b ab = c.ab(jSONObject);
-            c.a(cVar, ab.get("bduss"));
-            HttpSigner.a(ab);
-            new f(false).a(d.u(), cVar, ab, new C0240a(aVar, jSONObject));
+            com.baidu.poly.a.a.b ad = c.ad(jSONObject);
+            c.a(cVar, ad.get("bduss"));
+            HttpSigner.a(ad);
+            new f(false).a(d.w(), cVar, ad, new C0261a(aVar, jSONObject));
         }
     }
 
@@ -95,7 +95,7 @@ public final class a {
             q.l((Object) jSONArray2, "params.toString()");
             bVar.g("batchData", jSONArray2);
             HttpSigner.a(bVar);
-            new f(false).a(d.q(), cVar, bVar, new b(aVar));
+            new f(false).a(d.r(), cVar, bVar, new b(aVar));
         }
     }
 }

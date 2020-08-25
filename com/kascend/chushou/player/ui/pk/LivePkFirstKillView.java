@@ -19,16 +19,16 @@ import java.util.Set;
 public class LivePkFirstKillView extends RelativeLayout {
     private ImageView a;
     private ImageView b;
+    private FrameLayout c;
     private TextView d;
     private TextView e;
     private TextView f;
     private ObjectAnimator i;
     private boolean l;
-    private AnimatorSet nCB;
-    private ObjectAnimator nCC;
-    private ObjectAnimator nCD;
-    private Set<Animator> nCE;
-    private FrameLayout nyX;
+    private AnimatorSet nWr;
+    private ObjectAnimator nWs;
+    private ObjectAnimator nWt;
+    private Set<Animator> nWu;
 
     public LivePkFirstKillView(Context context) {
         this(context, null);
@@ -49,7 +49,7 @@ public class LivePkFirstKillView extends RelativeLayout {
         setClickable(false);
         this.a = (ImageView) findViewById(a.f.iv_notice);
         this.b = (ImageView) findViewById(a.f.iv_addition);
-        this.nyX = (FrameLayout) findViewById(a.f.fl_addition);
+        this.c = (FrameLayout) findViewById(a.f.fl_addition);
         this.d = (TextView) findViewById(a.f.tv_addition);
         this.e = (TextView) findViewById(a.f.anchor_left);
         this.f = (TextView) findViewById(a.f.anchor_right);
@@ -69,10 +69,10 @@ public class LivePkFirstKillView extends RelativeLayout {
             c();
             setVisibility(0);
             this.a.setVisibility(0);
-            this.nyX.setVisibility(4);
+            this.c.setVisibility(4);
             this.d.setText(getContext().getResources().getString(a.i.str_live_pk_txt_first_blood_addition) + ((int) (100.0f * f)) + "%");
-            this.nCB = new AnimatorSet();
-            this.nCE = new HashSet();
+            this.nWr = new AnimatorSet();
+            this.nWu = new HashSet();
             post(new Runnable() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -80,24 +80,24 @@ public class LivePkFirstKillView extends RelativeLayout {
                     int i2;
                     PropertyValuesHolder ofKeyframe = PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(0.22222222f, 1.2f), Keyframe.ofFloat(0.31111112f, 1.0f), Keyframe.ofFloat(0.4f, 1.1f), Keyframe.ofFloat(0.4888889f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f));
                     PropertyValuesHolder ofKeyframe2 = PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(0.22222222f, 1.2f), Keyframe.ofFloat(0.31111112f, 1.0f), Keyframe.ofFloat(0.4f, 1.1f), Keyframe.ofFloat(0.4888889f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f));
-                    LivePkFirstKillView.this.nCC = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.a, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.22222222f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f)), ofKeyframe, ofKeyframe2);
-                    LivePkFirstKillView.this.nCC.setDuration(1800L);
-                    LivePkFirstKillView.this.nCC.setInterpolator(new LinearInterpolator());
-                    LivePkFirstKillView.this.nCC.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.1
+                    LivePkFirstKillView.this.nWs = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.a, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.22222222f, 1.0f), Keyframe.ofFloat(0.5777778f, 1.0f), Keyframe.ofFloat(1.0f, 0.3f)), ofKeyframe, ofKeyframe2);
+                    LivePkFirstKillView.this.nWs.setDuration(1800L);
+                    LivePkFirstKillView.this.nWs.setInterpolator(new LinearInterpolator());
+                    LivePkFirstKillView.this.nWs.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.1
                         @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
                             super.onAnimationEnd(animator);
                             LivePkFirstKillView.this.a.setVisibility(4);
-                            LivePkFirstKillView.this.nyX.setVisibility(0);
+                            LivePkFirstKillView.this.c.setVisibility(0);
                         }
                     });
-                    LivePkFirstKillView.this.nCE.add(LivePkFirstKillView.this.nCC);
+                    LivePkFirstKillView.this.nWu.add(LivePkFirstKillView.this.nWs);
                     PropertyValuesHolder ofKeyframe3 = PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(1.0f, 1.0f));
                     PropertyValuesHolder ofKeyframe4 = PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 0.3f), Keyframe.ofFloat(1.0f, 1.0f));
-                    LivePkFirstKillView.this.i = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.nyX, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(1.0f, 1.0f)), ofKeyframe3, ofKeyframe4);
+                    LivePkFirstKillView.this.i = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.c, PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(1.0f, 1.0f)), ofKeyframe3, ofKeyframe4);
                     LivePkFirstKillView.this.i.setDuration(560L);
                     LivePkFirstKillView.this.i.setInterpolator(new LinearInterpolator());
-                    LivePkFirstKillView.this.nCE.add(LivePkFirstKillView.this.i);
+                    LivePkFirstKillView.this.nWu.add(LivePkFirstKillView.this.i);
                     int[] iArr = new int[2];
                     int[] iArr2 = new int[2];
                     int[] iArr3 = new int[2];
@@ -111,12 +111,12 @@ public class LivePkFirstKillView extends RelativeLayout {
                         i = iArr2[0] - iArr3[0];
                         i2 = iArr2[1] - iArr3[1];
                     }
-                    LivePkFirstKillView.this.nCD = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.nyX, PropertyValuesHolder.ofKeyframe("translationX", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i), Keyframe.ofFloat(1.0f, i)), PropertyValuesHolder.ofKeyframe("translationY", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i2), Keyframe.ofFloat(1.0f, i2)), PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 1.0f), Keyframe.ofFloat(1.0f, 0.0f)), PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)), PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)));
-                    LivePkFirstKillView.this.nCD.setDuration(1160L);
-                    LivePkFirstKillView.this.nCD.setInterpolator(new LinearInterpolator());
-                    LivePkFirstKillView.this.nCE.add(LivePkFirstKillView.this.nCD);
-                    LivePkFirstKillView.this.nCB.playSequentially(LivePkFirstKillView.this.nCC, LivePkFirstKillView.this.i, LivePkFirstKillView.this.nCD);
-                    LivePkFirstKillView.this.nCB.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.2
+                    LivePkFirstKillView.this.nWt = ObjectAnimator.ofPropertyValuesHolder(LivePkFirstKillView.this.c, PropertyValuesHolder.ofKeyframe("translationX", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i), Keyframe.ofFloat(1.0f, i)), PropertyValuesHolder.ofKeyframe("translationY", Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.86206895f, i2), Keyframe.ofFloat(1.0f, i2)), PropertyValuesHolder.ofKeyframe("alpha", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 1.0f), Keyframe.ofFloat(1.0f, 0.0f)), PropertyValuesHolder.ofKeyframe("scaleX", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)), PropertyValuesHolder.ofKeyframe("scaleY", Keyframe.ofFloat(0.0f, 1.0f), Keyframe.ofFloat(0.86206895f, 0.4f), Keyframe.ofFloat(1.0f, 0.4f)));
+                    LivePkFirstKillView.this.nWt.setDuration(1160L);
+                    LivePkFirstKillView.this.nWt.setInterpolator(new LinearInterpolator());
+                    LivePkFirstKillView.this.nWu.add(LivePkFirstKillView.this.nWt);
+                    LivePkFirstKillView.this.nWr.playSequentially(LivePkFirstKillView.this.nWs, LivePkFirstKillView.this.i, LivePkFirstKillView.this.nWt);
+                    LivePkFirstKillView.this.nWr.addListener(new g() { // from class: com.kascend.chushou.player.ui.pk.LivePkFirstKillView.1.2
                         @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
                             super.onAnimationEnd(animator);
@@ -125,7 +125,7 @@ public class LivePkFirstKillView extends RelativeLayout {
                             LivePkFirstKillView.this.l = false;
                         }
                     });
-                    LivePkFirstKillView.this.nCB.start();
+                    LivePkFirstKillView.this.nWr.start();
                 }
             });
         }
@@ -134,11 +134,11 @@ public class LivePkFirstKillView extends RelativeLayout {
     @Override // android.view.View
     public void clearAnimation() {
         super.clearAnimation();
-        if (this.nCB != null) {
-            this.nCB.cancel();
+        if (this.nWr != null) {
+            this.nWr.cancel();
         }
-        if (this.nCE != null) {
-            for (Animator animator : this.nCE) {
+        if (this.nWu != null) {
+            for (Animator animator : this.nWu) {
                 animator.cancel();
             }
         }
@@ -153,12 +153,12 @@ public class LivePkFirstKillView extends RelativeLayout {
             this.a.setScaleX(1.0f);
             this.a.setScaleY(1.0f);
         }
-        if (this.nyX != null) {
-            this.nyX.setAlpha(1.0f);
-            this.nyX.setTranslationX(0.0f);
-            this.nyX.setTranslationY(0.0f);
-            this.nyX.setScaleX(1.0f);
-            this.nyX.setScaleY(1.0f);
+        if (this.c != null) {
+            this.c.setAlpha(1.0f);
+            this.c.setTranslationX(0.0f);
+            this.c.setTranslationY(0.0f);
+            this.c.setScaleX(1.0f);
+            this.c.setScaleY(1.0f);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.upload;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class Utils {
     public static <T> List<List<T>> splitList(List<T> list, int i) {
         if (list == null || list.size() < 1 || i < 1) {

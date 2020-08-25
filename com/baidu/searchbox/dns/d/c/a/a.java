@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.d.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a extends c {
     public a() {
     }

@@ -4,7 +4,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class g implements LocationListener {
     final /* synthetic */ d a;
 
@@ -19,17 +19,17 @@ public class g implements LocationListener {
         Location location3;
         Location location4;
         if (location != null) {
-            location2 = this.a.u;
+            location2 = this.a.v;
             if (location2 == null) {
                 this.a.a(location);
             } else {
                 d dVar = this.a;
-                location3 = this.a.u;
+                location3 = this.a.v;
                 if (dVar.a(location, location3)) {
-                    this.a.u = location;
+                    this.a.v = location;
                 }
                 d dVar2 = this.a;
-                location4 = this.a.u;
+                location4 = this.a.v;
                 dVar2.a(location4);
             }
             this.a.h = true;

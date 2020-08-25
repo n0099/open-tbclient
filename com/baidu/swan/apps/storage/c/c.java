@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.storage.c;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    final String cPj;
-    final String cPk;
-    final String cPl;
+    final String cYm;
+    final String cYn;
+    final String cYo;
     final int mDataType;
 
     c(String str, int i, String str2, String str3) {
-        this.cPj = str;
+        this.cYm = str;
         this.mDataType = i;
-        this.cPk = str2;
-        this.cPl = str3;
+        this.cYn = str2;
+        this.cYo = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c W(Bundle bundle) {
+    public static c U(Bundle bundle) {
         if (bundle.isEmpty()) {
             return null;
         }
@@ -33,6 +33,6 @@ public class c {
     }
 
     public String toString() {
-        return "SpMethodInfo{mDataType=" + this.mDataType + ", mPrefName='" + this.cPk + "', mDataValue='" + this.cPl + "'}";
+        return "SpMethodInfo{mDataType=" + this.mDataType + ", mPrefName='" + this.cYn + "', mDataValue='" + this.cYo + "'}";
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.pulltorefresh.library;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void setLastUpdatedLabel(CharSequence charSequence);
 

@@ -4,9 +4,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
-    public static List<String> Q(JSONArray jSONArray) {
+    public static List<String> S(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }
@@ -21,23 +21,23 @@ public class f {
         return arrayList;
     }
 
-    public static List<String> bdU() {
-        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("scheme_white_list", null);
+    public static List<String> bmA() {
+        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("scheme_white_list", null);
         if (StringUtils.isNull(string)) {
             return null;
         }
         try {
-            return Q(new JSONArray(string));
+            return S(new JSONArray(string));
         } catch (Exception e) {
             return null;
         }
     }
 
-    public static void R(JSONArray jSONArray) {
+    public static void T(JSONArray jSONArray) {
         if (jSONArray == null) {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putString("scheme_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.bik().putString("scheme_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putString("scheme_white_list", jSONArray.toString());
+            com.baidu.tbadk.core.sharedPref.b.bik().putString("scheme_white_list", jSONArray.toString());
         }
     }
 }

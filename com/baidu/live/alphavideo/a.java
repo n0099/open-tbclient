@@ -1,31 +1,31 @@
 package com.baidu.live.alphavideo;
 
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.bc;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.be;
+/* loaded from: classes7.dex */
 public class a {
-    private boolean atO;
+    private boolean ayQ;
 
-    public static a vj() {
-        return C0157a.atP;
+    public static a AH() {
+        return C0165a.ayR;
     }
 
-    public boolean vk() {
-        bc bcVar = com.baidu.live.v.a.Hs().beo;
-        if (bcVar == null || bcVar.aEr == null || bcVar.aEr.aGk) {
-            return this.atO;
+    public boolean AI() {
+        be beVar = com.baidu.live.w.a.Nk().bka;
+        if (beVar == null || beVar.aJB == null || beVar.aJB.aLu) {
+            return this.ayQ;
         }
         return false;
     }
 
     private a() {
-        this.atO = MessageManager.getInstance().findTask(2913180) != null;
+        this.ayQ = MessageManager.getInstance().findTask(2913180) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.alphavideo.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0157a {
-        private static a atP = new a();
+    /* loaded from: classes7.dex */
+    public static class C0165a {
+        private static a ayR = new a();
     }
 }

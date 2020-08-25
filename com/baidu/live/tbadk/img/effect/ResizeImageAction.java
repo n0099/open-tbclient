@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResizeImageAction extends ImageAction {
     public static final String ACTION_NAME = "resize";
     private int maxHeight;

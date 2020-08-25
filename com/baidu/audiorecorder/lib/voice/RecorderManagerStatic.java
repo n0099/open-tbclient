@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 /* loaded from: classes18.dex */
 public class RecorderManagerStatic {
     public static String Tag = "tag";
@@ -17,14 +17,14 @@ public class RecorderManagerStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.tbadkCore.voice.a> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, e.qO());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, e.sn());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<l> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
@@ -51,7 +51,7 @@ public class RecorderManagerStatic {
         MessageManager.getInstance().registerTask(customMessageTask4);
         CustomMessageTask customMessageTask5 = new CustomMessageTask(CmdConfigCustom.CMD_CHAT_SEND_VOICE_VIEW, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<l> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
@@ -62,7 +62,7 @@ public class RecorderManagerStatic {
         MessageManager.getInstance().registerTask(customMessageTask5);
         CustomMessageTask customMessageTask6 = new CustomMessageTask(CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<l> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }

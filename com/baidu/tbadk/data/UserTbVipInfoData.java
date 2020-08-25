@@ -3,7 +3,7 @@ package com.baidu.tbadk.data;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.TbVipInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UserTbVipInfoData implements Serializable {
     private static final long serialVersionUID = 1112312312312L;
     private String vipIntro;

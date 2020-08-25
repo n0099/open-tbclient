@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.UserMuteCheck.DataReq;
 import tbclient.UserMuteCheck.UserMuteCheckReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UserMuteCheckRequestMessage extends NetMessage {
     public BdUniqueId mTagId;
     private long userIdF;

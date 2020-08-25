@@ -5,7 +5,7 @@ import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.y;
-import org.a.c;
+import org.b.c;
 /* loaded from: classes7.dex */
 public final class SingleToFlowable<T> extends g<T> {
     final aa<? extends T> source;
@@ -46,7 +46,7 @@ public final class SingleToFlowable<T> extends g<T> {
             this.actual.onError(th);
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
         public void cancel() {
             super.cancel();
             this.d.dispose();

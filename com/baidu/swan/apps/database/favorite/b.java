@@ -11,45 +11,45 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private UriMatcher cim = new UriMatcher(-1);
-    public static final String cil = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + cil);
+    private UriMatcher coJ = new UriMatcher(-1);
+    public static final String coI = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + coI);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        this.cim.addURI(cil, "favorite", 0);
-        this.cim.addURI(cil, "favorite_and_aps", 1);
-        this.cim.addURI(cil, "history", 2);
-        this.cim.addURI(cil, "history_with_app", 3);
-        this.cim.addURI(cil, "favorite_with_aps_pms", 4);
-        this.cim.addURI(cil, "history_with_aps_pms", 5);
-        this.cim.addURI(cil, "user_behavior", 6);
+        this.coJ.addURI(coI, "favorite", 0);
+        this.coJ.addURI(coI, "favorite_and_aps", 1);
+        this.coJ.addURI(coI, "history", 2);
+        this.coJ.addURI(coI, "history_with_app", 3);
+        this.coJ.addURI(coI, "favorite_with_aps_pms", 4);
+        this.coJ.addURI(coI, "history_with_aps_pms", 5);
+        this.coJ.addURI(coI, "user_behavior", 6);
     }
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        int match = this.cim.match(uri);
+        int match = this.coJ.match(uri);
         switch (match) {
             case 0:
-                Cursor a = SwanAppDbControl.bR(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
+                Cursor a = SwanAppDbControl.bY(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
                 a.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return a;
             case 1:
-                Cursor b = SwanAppDbControl.bR(AppRuntime.getAppContext()).b(strArr, str, strArr2, str2);
+                Cursor b = SwanAppDbControl.bY(AppRuntime.getAppContext()).b(strArr, str, strArr2, str2);
                 b.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return b;
             case 2:
-                return SwanAppDbControl.bR(AppRuntime.getAppContext()).c(strArr, str, strArr2, str2);
+                return SwanAppDbControl.bY(AppRuntime.getAppContext()).c(strArr, str, strArr2, str2);
             case 3:
-                Cursor d = SwanAppDbControl.bR(AppRuntime.getAppContext()).d(strArr, str, strArr2, str2);
+                Cursor d = SwanAppDbControl.bY(AppRuntime.getAppContext()).d(strArr, str, strArr2, str2);
                 d.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return d;
             case 4:
-                Cursor aep = a.aep();
-                aep.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return aep;
+                Cursor akY = a.akY();
+                akY.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return akY;
             case 5:
                 int i = -1;
                 try {
@@ -63,13 +63,13 @@ public class b {
                 if (queryParameter == null) {
                     queryParameter = "";
                 }
-                Cursor L = com.baidu.swan.apps.database.a.b.L(queryParameter, i);
-                L.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return L;
+                Cursor N = com.baidu.swan.apps.database.a.b.N(queryParameter, i);
+                N.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return N;
             case 6:
-                SQLiteDatabase aec = SwanAppDbControl.bR(AppRuntime.getAppContext()).aec();
-                if (aec != null) {
-                    return aec.query(ft(match), strArr, str, strArr2, null, null, str2);
+                SQLiteDatabase akM = SwanAppDbControl.bY(AppRuntime.getAppContext()).akM();
+                if (akM != null) {
+                    return akM.query(hq(match), strArr, str, strArr2, null, null, str2);
                 }
                 return null;
             default:
@@ -79,25 +79,25 @@ public class b {
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        int match = this.cim.match(uri);
+        int match = this.coJ.match(uri);
         switch (match) {
             case 0:
-                long b = SwanAppDbControl.bR(AppRuntime.getAppContext()).b(contentValues);
+                long b = SwanAppDbControl.bY(AppRuntime.getAppContext()).b(contentValues);
                 if (b < 0) {
                     return null;
                 }
                 return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), b);
             case 2:
-                long c = SwanAppDbControl.bR(AppRuntime.getAppContext()).c(contentValues);
+                long c = SwanAppDbControl.bY(AppRuntime.getAppContext()).c(contentValues);
                 if (c < 0) {
                     return null;
                 }
-                aet();
+                alc();
                 return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), c);
             case 6:
-                SQLiteDatabase aec = SwanAppDbControl.bR(AppRuntime.getAppContext()).aec();
-                if (aec != null) {
-                    aec.insertWithOnConflict(ft(match), null, contentValues, 5);
+                SQLiteDatabase akM = SwanAppDbControl.bY(AppRuntime.getAppContext()).akM();
+                if (akM != null) {
+                    akM.insertWithOnConflict(hq(match), null, contentValues, 5);
                     return uri;
                 }
                 return null;
@@ -107,21 +107,21 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        int match = this.cim.match(uri);
+        int match = this.coJ.match(uri);
         switch (match) {
             case 0:
-                return SwanAppDbControl.bR(AppRuntime.getAppContext()).b(str, strArr);
+                return SwanAppDbControl.bY(AppRuntime.getAppContext()).b(str, strArr);
             case 2:
-                int c = SwanAppDbControl.bR(AppRuntime.getAppContext()).c(str, strArr);
+                int c = SwanAppDbControl.bY(AppRuntime.getAppContext()).c(str, strArr);
                 if (c > 0) {
-                    aet();
+                    alc();
                     return c;
                 }
                 return c;
             case 6:
-                SQLiteDatabase aec = SwanAppDbControl.bR(AppRuntime.getAppContext()).aec();
-                if (aec != null) {
-                    return aec.delete(ft(match), str, strArr);
+                SQLiteDatabase akM = SwanAppDbControl.bY(AppRuntime.getAppContext()).akM();
+                if (akM != null) {
+                    return akM.delete(hq(match), str, strArr);
                 }
                 return 0;
             default:
@@ -130,21 +130,21 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        int match = this.cim.match(uri);
+        int match = this.coJ.match(uri);
         switch (match) {
             case 0:
-                return SwanAppDbControl.bR(AppRuntime.getAppContext()).a(contentValues, str, strArr);
+                return SwanAppDbControl.bY(AppRuntime.getAppContext()).a(contentValues, str, strArr);
             case 2:
-                int b = SwanAppDbControl.bR(AppRuntime.getAppContext()).b(contentValues, str, strArr);
+                int b = SwanAppDbControl.bY(AppRuntime.getAppContext()).b(contentValues, str, strArr);
                 if (b > 0) {
-                    aet();
+                    alc();
                     return b;
                 }
                 return b;
             case 6:
-                SQLiteDatabase aec = SwanAppDbControl.bR(AppRuntime.getAppContext()).aec();
-                if (aec != null) {
-                    return aec.update(ft(match), contentValues, str, strArr);
+                SQLiteDatabase akM = SwanAppDbControl.bY(AppRuntime.getAppContext()).akM();
+                if (akM != null) {
+                    return akM.update(hq(match), contentValues, str, strArr);
                 }
                 return 0;
             default:
@@ -158,7 +158,7 @@ public class b {
     }
 
     @NonNull
-    private String ft(int i) {
+    private String hq(int i) {
         switch (i) {
             case 6:
                 return "user_behavior";
@@ -167,8 +167,8 @@ public class b {
         }
     }
 
-    private static void aet() {
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.aev(), (ContentObserver) null, false);
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.aew(), (ContentObserver) null, false);
+    private static void alc() {
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.ale(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.alf(), (ContentObserver) null, false);
     }
 }

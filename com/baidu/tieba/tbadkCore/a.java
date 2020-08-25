@@ -4,7 +4,7 @@ import android.graphics.drawable.Animatable;
 import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tbadk.TbPageContextSupport;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static final void a(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
         if (tbPageContextSupport != null) {

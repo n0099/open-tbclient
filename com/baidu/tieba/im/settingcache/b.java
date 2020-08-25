@@ -8,28 +8,28 @@ import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
 import com.baidu.tbadk.util.l;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b extends a {
-    private static b jjX = new b();
+    private static b jyW = new b();
 
     private b() {
     }
 
-    public static b cxq() {
-        return jjX;
+    public static b cIh() {
+        return jyW;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: eD */
-    public GroupSettingItemData eB(String str, String str2) {
+    /* renamed from: eU */
+    public GroupSettingItemData eS(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.jjV) {
-            ChatSetting chatSetting = this.jjV.get(str3);
+        synchronized (this.jyU) {
+            ChatSetting chatSetting = this.jyU.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -43,24 +43,24 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cte() {
+    public void cDV() {
         super.y(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, l<Void> lVar) {
-        GroupSettingItemData eB = eB(str, str2);
-        if (eB != null) {
-            eB.setAlreadyApply(z);
-            eB.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(eB, lVar);
+        GroupSettingItemData eS = eS(str, str2);
+        if (eS != null) {
+            eS.setAlreadyApply(z);
+            eS.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(eS, lVar);
         }
     }
 
     public void c(String str, String str2, boolean z, l<Void> lVar) {
-        GroupSettingItemData eB = eB(str, str2);
-        if (eB != null) {
-            eB.setInGroup(z);
-            a(eB, lVar);
+        GroupSettingItemData eS = eS(str, str2);
+        if (eS != null) {
+            eS.setInGroup(z);
+            a(eS, lVar);
         }
     }
 
@@ -70,9 +70,9 @@ public class b extends a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ac
             public Boolean doInBackground() {
-                GroupSettingItemData eB = b.this.eB(str, str2);
-                if (eB != null && eB.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - eB.getLastApplyTimeStamp() <= j) {
+                GroupSettingItemData eS = b.this.eS(str, str2);
+                if (eS != null && eS.isAlreadyApply()) {
+                    if (System.currentTimeMillis() - eS.getLastApplyTimeStamp() <= j) {
                         return false;
                     }
                 }
@@ -82,8 +82,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected com.baidu.adp.lib.cache.l<String> cxp() {
-        return com.baidu.tbadk.core.c.a.aYG().xj("tb.im_group_setting");
+    protected com.baidu.adp.lib.cache.l<String> cIg() {
+        return com.baidu.tbadk.core.c.a.bhb().zx("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -98,13 +98,13 @@ public class b extends a {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.l<String> cxp = cxp();
+            com.baidu.adp.lib.cache.l<String> cIg = cIg();
             String str = uid + UgcConstant.AT_RULE_TAG + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.jjV) {
-                this.jjV.put(str, groupSettingItemData);
+            synchronized (this.jyU) {
+                this.jyU.put(str, groupSettingItemData);
             }
-            cxp.setForever(str, jsonStrWithObject);
+            cIg.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -121,15 +121,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + UgcConstant.AT_RULE_TAG + gid;
-            synchronized (this.jjV) {
-                this.jjV.put(str, groupSettingItemData);
+            synchronized (this.jyU) {
+                this.jyU.put(str, groupSettingItemData);
             }
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bsE */
+                /* renamed from: bBB */
                 public Void doInBackground() {
-                    b.this.cxp().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.cIg().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, lVar);
@@ -139,15 +139,15 @@ public class b extends a {
     public void b(String str, String str2, l<Void> lVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-            synchronized (this.jjV) {
-                this.jjV.remove(str3);
+            synchronized (this.jyU) {
+                this.jyU.remove(str3);
             }
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bsE */
+                /* renamed from: bBB */
                 public Void doInBackground() {
-                    b.this.cxp().remove(str3);
+                    b.this.cIg().remove(str3);
                     return null;
                 }
             }, lVar);

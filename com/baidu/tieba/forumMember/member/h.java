@@ -1,28 +1,28 @@
 package com.baidu.tieba.forumMember.member;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.ad;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.adp.widget.ListView.af;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes17.dex */
-public class h extends ad.a {
-    public View hBJ;
+public class h extends af.a {
+    public View hOY;
 
     public h(View view) {
         super(view);
-        this.hBJ = view;
+        this.hOY = view;
     }
 
-    public void up(int i) {
+    public void wE(int i) {
         if (i < 0) {
-            this.hBJ.setMinimumHeight(0);
+            this.hOY.setMinimumHeight(0);
         } else {
-            this.hBJ.setMinimumHeight(i);
+            this.hOY.setMinimumHeight(i);
         }
     }
 
     public void setBackground(int i) {
         if (i != 0) {
-            ao.setBackgroundResource(this.hBJ, i);
+            ap.setBackgroundResource(this.hOY, i);
         }
     }
 }

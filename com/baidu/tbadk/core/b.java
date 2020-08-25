@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private StringBuffer TAG = new StringBuffer();
     private int backgroundResID;

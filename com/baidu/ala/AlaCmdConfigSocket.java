@@ -1,5 +1,5 @@
 package com.baidu.ala;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaCmdConfigSocket {
     public static final int ALA_SOCKET_GET_LIVE_STATUS2 = 602007;
     public static final int ALA_SOCKET_PUSH_ALERT = 601009;

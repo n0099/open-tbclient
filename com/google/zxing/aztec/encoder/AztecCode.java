@@ -1,7 +1,7 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class AztecCode {
     private int codeWords;
     private boolean compact;

@@ -8,114 +8,120 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class a {
-    private ImageViewerBottomLayout evL;
-    private AbsFloorImageTextView evM;
-    private LinearLayout evN;
-    private boolean evO = true;
-    private final ImageViewerBottomLayout.a evP = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private ImageViewerBottomLayout eGk;
+    private AbsFloorImageTextView eGl;
+    private LinearLayout eGm;
+    private boolean eGn = true;
+    private final ImageViewerBottomLayout.a eGo = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.evO = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.evO)));
-            a.this.iw(z);
+            a.this.eGn = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.eGn)));
+            a.this.iU(z);
         }
     };
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.evN = new LinearLayout(context);
-        this.evN.setOrientation(1);
-        this.evN.setVisibility(8);
-        ao.a(this.evN, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.eGm = new LinearLayout(context);
+        this.eGm.setOrientation(1);
+        this.eGm.setVisibility(8);
+        ap.a(this.eGm, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.evN, layoutParams);
-        bha();
-        bgZ();
+        relativeLayout.addView(this.eGm, layoutParams);
+        bpM();
+        bpL();
     }
 
-    private void bgZ() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.evR);
-        this.evL = new ImageViewerBottomLayout(this.mContext);
-        this.evN.addView(this.evL, layoutParams);
-        this.evL.setExpandButtonListener(this.evP);
+    private void bpL() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.eGq);
+        this.eGk = new ImageViewerBottomLayout(this.mContext);
+        this.eGm.addView(this.eGk, layoutParams);
+        this.eGk.setExpandButtonListener(this.eGo);
     }
 
-    private void bha() {
+    private void bpM() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.evM = new FloorImageTextViewNew(this.mContext);
-        this.evN.addView(this.evM, layoutParams);
+        this.eGl = new FloorImageTextViewNew(this.mContext);
+        this.eGm.addView(this.eGl, layoutParams);
     }
 
-    public void iw(boolean z) {
-        if (this.evM != null) {
-            this.evM.iw(z);
+    public void iU(boolean z) {
+        if (this.eGl != null) {
+            this.eGl.iU(z);
         }
-        if (this.evL != null) {
-            this.evL.ix(!z);
+        if (this.eGk != null) {
+            this.eGk.iV(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.evM != null) {
-            this.evM.setUserId(str);
+        if (this.eGl != null) {
+            this.eGl.setUserId(str);
         }
-        if (this.evL != null) {
-            this.evL.setUserId(str);
+        if (this.eGk != null) {
+            this.eGk.setUserId(str);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.evM != null) {
-            this.evM.a(imageUrlData);
+        if (this.eGl != null) {
+            this.eGl.a(imageUrlData);
         }
-        if (this.evL != null) {
-            this.evL.b(imageUrlData);
+        if (this.eGk != null) {
+            this.eGk.b(imageUrlData);
         }
     }
 
-    private boolean bl(View view) {
+    private boolean bn(View view) {
         return view != null && view.getVisibility() == 0;
     }
 
     public boolean isShown() {
-        return bl(this.evN);
+        return bn(this.eGm);
     }
 
-    public boolean bhb() {
-        return this.evO;
+    public boolean bpN() {
+        return this.eGn;
     }
 
     public void setVisibility(int i) {
-        if (this.evN != null) {
-            this.evN.clearAnimation();
-            this.evN.setVisibility(i);
+        if (this.eGm != null) {
+            this.eGm.clearAnimation();
+            this.eGm.setVisibility(i);
         }
     }
 
-    public void aV(int i, int i2) {
+    public void be(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.y(this.evN, i2);
+            com.baidu.tieba.v.a.y(this.eGm, i2);
         } else {
-            com.baidu.tieba.v.a.x(this.evN, i2);
+            com.baidu.tieba.v.a.x(this.eGm, i2);
         }
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        if (this.evL != null) {
-            this.evL.setOnShareImageListener(cVar);
+        if (this.eGk != null) {
+            this.eGk.setOnShareImageListener(cVar);
         }
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        if (this.evL != null) {
-            this.evL.setOnDownloadImageListener(bVar);
+        if (this.eGk != null) {
+            this.eGk.setOnDownloadImageListener(bVar);
+        }
+    }
+
+    public void setOnReplyClickListener(View.OnClickListener onClickListener) {
+        if (this.eGk != null) {
+            this.eGk.setOnReplyClickListener(onClickListener);
         }
     }
 }

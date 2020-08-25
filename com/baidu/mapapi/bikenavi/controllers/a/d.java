@@ -1,18 +1,18 @@
 package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBTTSPlayer;
-/* loaded from: classes10.dex */
-final class d implements com.baidu.platform.comapi.wnplatform.m.c {
-    @Override // com.baidu.platform.comapi.wnplatform.m.c
+/* loaded from: classes20.dex */
+final class d implements com.baidu.platform.comapi.wnplatform.n.c {
+    @Override // com.baidu.platform.comapi.wnplatform.n.c
     public void a() {
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.m.c
+    @Override // com.baidu.platform.comapi.wnplatform.n.c
     public int b() {
         return 1;
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.m.c
+    @Override // com.baidu.platform.comapi.wnplatform.n.c
     public int a(String str, boolean z) {
         IBTTSPlayer iBTTSPlayer;
         IBTTSPlayer iBTTSPlayer2;
@@ -24,7 +24,7 @@ final class d implements com.baidu.platform.comapi.wnplatform.m.c {
         return 0;
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.m.c
+    @Override // com.baidu.platform.comapi.wnplatform.n.c
     public void c() {
         throw new UnsupportedOperationException("release Unsupported");
     }

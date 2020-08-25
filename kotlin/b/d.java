@@ -2,27 +2,27 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class d {
-    private final double nYS;
-    private final double nYT;
+    private final double osQ;
+    private final double osR;
 
     public boolean isEmpty() {
-        return this.nYS > this.nYT;
+        return this.osQ > this.osR;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((isEmpty() && ((d) obj).isEmpty()) || (this.nYS == ((d) obj).nYS && this.nYT == ((d) obj).nYT));
+        return (obj instanceof d) && ((isEmpty() && ((d) obj).isEmpty()) || (this.osQ == ((d) obj).osQ && this.osR == ((d) obj).osR));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (Double.valueOf(this.nYS).hashCode() * 31) + Double.valueOf(this.nYT).hashCode();
+        return (Double.valueOf(this.osQ).hashCode() * 31) + Double.valueOf(this.osR).hashCode();
     }
 
     public String toString() {
-        return this.nYS + IStringUtil.TOP_PATH + this.nYT;
+        return this.osQ + IStringUtil.TOP_PATH + this.osR;
     }
 }

@@ -11,18 +11,18 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelSortedJoin<T> extends g<T> {
     final Comparator<? super T> comparator;
-    final a<List<T>> nUL;
+    final a<List<T>> ooH;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.nUL.dTd(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.ooH.eff(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
-        this.nUL.a(sortedJoinSubscription.subscribers);
+        this.ooH.a(sortedJoinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,7 +52,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
             this.remaining.lazySet(i);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
@@ -62,7 +62,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -217,7 +217,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
                                                 i3 = i4;
                                             }
                                         } catch (Throwable th2) {
-                                            io.reactivex.exceptions.a.K(th2);
+                                            io.reactivex.exceptions.a.J(th2);
                                             cancelAll();
                                             Arrays.fill(listArr, (Object) null);
                                             if (!this.error.compareAndSet(null, th2)) {
@@ -256,7 +256,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
         final int index;
         final SortedJoinSubscription<T> parent;
 
-        @Override // org.a.c
+        @Override // org.b.c
         public /* bridge */ /* synthetic */ void onNext(Object obj) {
             onNext((List) ((List) obj));
         }
@@ -266,7 +266,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
             this.index = i;
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
@@ -277,12 +277,12 @@ public final class ParallelSortedJoin<T> extends g<T> {
             this.parent.innerNext(list, this.index);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.parent.innerError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
         }
 

@@ -4,11 +4,11 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes16.dex */
 public class j {
     public boolean isShowRedTip = false;
-    public String kPA;
-    public Drawable kPB;
-    public Drawable kPC;
-    public Drawable kPD;
-    public boolean kPE;
+    public String lfq;
+    public Drawable lfr;
+    public Drawable lfs;
+    public Drawable lft;
+    public boolean lfu;
     public String linkUrl;
     public String text;
 }

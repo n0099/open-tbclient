@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
-    public static final SparseIntArray jyR = new SparseIntArray();
-    public static final SparseArray<BdUniqueId> jyS = new SparseArray<>();
+    public static final SparseIntArray jOl = new SparseIntArray();
+    public static final SparseArray<BdUniqueId> jOm = new SparseArray<>();
 
     public abstract <T> com.baidu.tieba.lego.card.view.e a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
 
-    protected abstract void cBc();
+    public abstract ICardInfo c(JSONObject jSONObject, int i) throws CardParseException;
 
-    public abstract ICardInfo d(JSONObject jSONObject, int i) throws CardParseException;
+    protected abstract void cLU();
 
     public abstract String key();
 
     public e() {
-        cBc();
+        cLU();
     }
 }

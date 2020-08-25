@@ -13,34 +13,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class d {
-    private static d muX;
-    private ContentObserver bjC;
+    private static d mNl;
+    private ContentObserver bph;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> mListeners = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable bjD = new Runnable() { // from class: com.baidu.tieba.write.album.d.1
+    private Runnable bpi = new Runnable() { // from class: com.baidu.tieba.write.album.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.cq(false);
+            d.this.cz(false);
         }
     };
 
     /* loaded from: classes3.dex */
     public interface a {
-        void cr(boolean z);
+        void cA(boolean z);
     }
 
-    public static d duB() {
-        if (muX == null) {
+    public static d dFX() {
+        if (mNl == null) {
             synchronized (d.class) {
-                if (muX == null) {
-                    muX = new d();
-                    muX.init(TbadkCoreApplication.getInst());
+                if (mNl == null) {
+                    mNl = new d();
+                    mNl.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return muX;
+        return mNl;
     }
 
     private d() {
@@ -50,14 +50,14 @@ public class d {
         this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.write.album.d.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                d.this.n(intent);
+                d.this.p(intent);
             }
         };
-        this.bjC = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.d.3
+        this.bph = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.d.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                d.this.handler.removeCallbacks(d.this.bjD);
-                d.this.handler.postDelayed(d.this.bjD, 2000L);
+                d.this.handler.removeCallbacks(d.this.bpi);
+                d.this.handler.postDelayed(d.this.bpi, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -68,23 +68,23 @@ public class d {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.bjC);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.bph);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n(Intent intent) {
+    public void p(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            cq(true);
+            cz(true);
             return;
         }
-        this.handler.removeCallbacks(this.bjD);
-        this.handler.postDelayed(this.bjD, 2000L);
+        this.handler.removeCallbacks(this.bpi);
+        this.handler.postDelayed(this.bpi, 2000L);
     }
 
-    public void cq(boolean z) {
+    public void cz(boolean z) {
         Iterator<a> it = this.mListeners.iterator();
         while (it.hasNext()) {
-            it.next().cr(z);
+            it.next().cA(z);
         }
     }
 
@@ -108,8 +108,8 @@ public class d {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.unregisterReceiver(this.mReceiver);
-        inst.getContentResolver().unregisterContentObserver(this.bjC);
-        this.handler.removeCallbacks(this.bjD);
-        muX = null;
+        inst.getContentResolver().unregisterContentObserver(this.bph);
+        this.handler.removeCallbacks(this.bpi);
+        mNl = null;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.controller.listener;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public interface PublishRequestListener {
     void onFailed(String str);
 

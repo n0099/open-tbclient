@@ -5,7 +5,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class HanziToPinyin {
     private static final boolean DEBUG = false;
     private static final String FIRST_PINYIN_UNIHAN = "吖";
@@ -28,7 +28,7 @@ public class HanziToPinyin {
     private short[] PINYIN_TABLE = new short[65535];
     private final boolean mHasChinaCollator;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public static class Token {
         public static final int DIGIT = 3;
         public static final int LATIN = 1;

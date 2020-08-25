@@ -1,5 +1,5 @@
 package com.baidu.swan.bdprivate.extensions.quicklogin;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public interface c {
-    void b(QuickLoginInfo quickLoginInfo);
+    void a(QuickLoginInfo quickLoginInfo);
 }

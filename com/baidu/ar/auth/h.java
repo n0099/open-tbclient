@@ -1,77 +1,38 @@
 package com.baidu.ar.auth;
 
 import android.content.Context;
-import com.baidu.ar.auth.l;
-import com.baidu.ar.f.p;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.util.TypedValue;
 /* loaded from: classes11.dex */
-class h implements l {
-    private l[] jK;
-    private volatile boolean jL = false;
-    private volatile boolean jM;
-
-    public h(l... lVarArr) {
-        this.jK = lVarArr;
-    }
-
-    @Override // com.baidu.ar.auth.l
-    public void a(l.a aVar) {
-        if (this.jK != null) {
-            for (l lVar : this.jK) {
-                lVar.a(aVar);
-            }
-        }
-    }
-
-    @Override // com.baidu.ar.auth.l
-    public void doAuth(Context context, final j jVar) {
-        synchronized (this) {
-            if (this.jL) {
-                return;
-            }
-            if (this.jK == null || this.jK.length <= 0) {
-                p.a(new Runnable() { // from class: com.baidu.ar.auth.h.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (jVar != null) {
-                            jVar.onError("无效的鉴权组合方式", 0);
-                        }
-                    }
-                }, 0L);
-                return;
-            }
-            this.jL = true;
-            final int[] iArr = {0, this.jK.length};
-            for (l lVar : this.jK) {
-                lVar.doAuth(context, new j() { // from class: com.baidu.ar.auth.h.1
-                    @Override // com.baidu.ar.auth.j
-                    public void onError(String str, int i) {
-                        synchronized (this) {
-                            boolean z = h.this.jL;
-                            h.this.jL = false;
-                            h.this.a((l.a) null);
-                            if (z && jVar != null) {
-                                jVar.onError(str, i);
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.ar.auth.j
-                    public void onSuccess() {
-                        synchronized (this) {
-                            if (!h.this.jM && h.this.jL) {
-                                int[] iArr2 = iArr;
-                                iArr2[0] = iArr2[0] + 1;
-                                if (iArr[0] == iArr[1]) {
-                                    h.this.jM = true;
-                                    if (jVar != null) {
-                                        jVar.onSuccess();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        }
+class h {
+    public static Bitmap n(Context context) {
+        Paint paint = new Paint();
+        paint.setColor(Color.parseColor("#ffffff"));
+        paint.setTextSize(TypedValue.applyDimension(1, 14.0f, context.getResources().getDisplayMetrics()));
+        paint.setStyle(Paint.Style.FILL);
+        paint.setAntiAlias(true);
+        paint.setDither(true);
+        float measureText = paint.measureText("您还没有获得功能授权", 0, "您还没有获得功能授权".length());
+        float measureText2 = paint.measureText("请联系百度：ar_business@baidu.com", 0, "请联系百度：ar_business@baidu.com".length());
+        float f = Float.compare(measureText, measureText2) == 1 ? measureText : measureText2;
+        float f2 = paint.getFontMetrics().top;
+        float f3 = paint.getFontMetrics().bottom - f2;
+        int i = (int) ((2.0f * 20.0f) + f);
+        int i2 = (int) ((2.0f * f3) + (2.0f * 20.0f));
+        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(createBitmap);
+        Path path = new Path();
+        path.addRoundRect(new RectF(0.0f, 0.0f, i, i2), new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, Path.Direction.CW);
+        canvas.clipPath(path);
+        canvas.drawColor(Color.parseColor("#88333333"));
+        canvas.drawText("您还没有获得功能授权", ((f - measureText) / 2.0f) + 20.0f, (-f2) + 20.0f, paint);
+        canvas.drawText("请联系百度：ar_business@baidu.com", ((f - measureText2) / 2.0f) + 20.0f, (-f2) + 20.0f + f3, paint);
+        com.baidu.ar.g.b.c("createBitmap", "w: " + createBitmap.getWidth() + " h: " + createBitmap.getHeight() + " bc: " + createBitmap.getByteCount());
+        return createBitmap;
     }
 }

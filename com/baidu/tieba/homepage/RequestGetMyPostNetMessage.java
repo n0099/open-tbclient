@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
     private String bFrom;
     private long mForumId;

@@ -5,21 +5,21 @@ import io.reactivex.u;
 /* loaded from: classes7.dex */
 public class a<T> {
     final int capacity;
-    final Object[] nWr;
-    Object[] nWs;
     int offset;
+    final Object[] oqo;
+    Object[] oqp;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0910a<T> extends j<T> {
+    public interface InterfaceC0968a<T> extends j<T> {
         @Override // io.reactivex.c.j
         boolean test(T t);
     }
 
     public a(int i) {
         this.capacity = i;
-        this.nWr = new Object[i + 1];
-        this.nWs = this.nWr;
+        this.oqo = new Object[i + 1];
+        this.oqp = this.oqo;
     }
 
     public void add(T t) {
@@ -27,26 +27,26 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.nWs[i] = objArr;
-            this.nWs = objArr;
+            this.oqp[i] = objArr;
+            this.oqp = objArr;
             i2 = 0;
         }
-        this.nWs[i2] = t;
+        this.oqp[i2] = t;
         this.offset = i2 + 1;
     }
 
-    public void bD(T t) {
-        this.nWr[0] = t;
+    public void bF(T t) {
+        this.oqo[0] = t;
     }
 
-    public void a(InterfaceC0910a<? super T> interfaceC0910a) {
+    public void a(InterfaceC0968a<? super T> interfaceC0968a) {
         int i;
-        Object[] objArr = this.nWr;
+        Object[] objArr = this.oqo;
         int i2 = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i2]) {
             while (i < i2) {
                 Object obj = objArr2[i];
-                i = (obj == null || interfaceC0910a.test(obj)) ? 0 : i + 1;
+                i = (obj == null || interfaceC0968a.test(obj)) ? 0 : i + 1;
             }
         }
     }
@@ -57,8 +57,8 @@ public class a<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.nWr;
+    public <U> boolean b(org.b.c<? super U> cVar) {
+        Object[] objArr = this.oqo;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -80,7 +80,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(u<? super U> uVar) {
-        Object[] objArr = this.nWr;
+        Object[] objArr = this.oqo;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

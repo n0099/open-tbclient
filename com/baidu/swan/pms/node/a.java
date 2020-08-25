@@ -1,15 +1,15 @@
 package com.baidu.swan.pms.node;
 
-import com.baidu.swan.pms.a.g;
+import android.support.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
-public abstract class a implements c {
-    @Override // com.baidu.swan.pms.node.c
-    public void a(JSONObject jSONObject, g gVar, g gVar2) {
+/* loaded from: classes14.dex */
+public abstract class a implements d {
+    @Override // com.baidu.swan.pms.node.d
+    public void a(JSONObject jSONObject, com.baidu.swan.pms.a.g gVar, @Nullable com.baidu.swan.pms.a.g gVar2, @Nullable com.baidu.swan.pms.a.g gVar3) {
     }
 
-    @Override // com.baidu.swan.pms.node.c
-    public void a(JSONArray jSONArray, g gVar, g gVar2) {
+    @Override // com.baidu.swan.pms.node.d
+    public void a(JSONArray jSONArray, com.baidu.swan.pms.a.g gVar, @Nullable com.baidu.swan.pms.a.g gVar2, @Nullable com.baidu.swan.pms.a.g gVar3) {
     }
 }

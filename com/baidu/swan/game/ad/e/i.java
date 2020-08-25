@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public interface i {
     void a(f fVar);
 

@@ -11,8 +11,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment;
 /* loaded from: classes16.dex */
 public class OfficialNotificationActivity extends BaseFragmentActivity {
-    private BaseFragment fNd;
-    private RelativeLayout jrM;
+    private BaseFragment fZb;
+    private RelativeLayout jGK;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
@@ -20,27 +20,27 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.base_fragment_activity);
-        czk();
-        II();
+        cKb();
+        OB();
     }
 
-    private void czk() {
+    private void cKb() {
         this.mRootView = (ViewGroup) findViewById(R.id.root_layout);
-        this.jrM = (RelativeLayout) findViewById(R.id.container_layout);
+        this.jGK = (RelativeLayout) findViewById(R.id.container_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getString(R.string.system_message));
     }
 
-    private void II() {
+    private void OB() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         BaseFragment baseFragment = (BaseFragment) supportFragmentManager.findFragmentByTag(a(OfficialNotificationFragment.class, 0L));
         if (baseFragment == null) {
             baseFragment = new OfficialNotificationFragment();
-            supportFragmentManager.beginTransaction().add(this.jrM.getId(), baseFragment).commit();
+            supportFragmentManager.beginTransaction().add(this.jGK.getId(), baseFragment).commit();
             baseFragment.setPrimary(true);
         }
-        this.fNd = baseFragment;
+        this.fZb = baseFragment;
     }
 
     private static String a(Class cls, long j) {
@@ -52,8 +52,8 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        if (this.fNd != null) {
-            this.fNd.onChangeSkinType(i);
+        if (this.fZb != null) {
+            this.fZb.onChangeSkinType(i);
         }
     }
 }

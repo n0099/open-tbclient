@@ -2,9 +2,9 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j<T, R> implements d.b<R, T> {
-    final Class<R> olC;
+    final Class<R> oFy;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -12,33 +12,33 @@ public class j<T, R> implements d.b<R, T> {
     }
 
     public j(Class<R> cls) {
-        this.olC = cls;
+        this.oFy = cls;
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.olC);
+        a aVar = new a(jVar, this.oFy);
         jVar.add(aVar);
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         boolean done;
-        final Class<R> olC;
+        final Class<R> oFy;
 
         public a(rx.j<? super R> jVar, Class<R> cls) {
             this.actual = jVar;
-            this.olC = cls;
+            this.oFy = cls;
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                this.actual.onNext(this.olC.cast(t));
+                this.actual.onNext(this.oFy.cast(t));
             } catch (Throwable th) {
-                rx.exceptions.a.K(th);
+                rx.exceptions.a.J(th);
                 unsubscribe();
                 onError(OnErrorThrowable.addValueAsLastCause(th, t));
             }

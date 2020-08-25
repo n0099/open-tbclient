@@ -11,7 +11,7 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class BdZeusDownloadHelper {
     protected static String d;
     protected static String e;
@@ -19,14 +19,14 @@ public final class BdZeusDownloadHelper {
     protected long c;
     private Context h;
     public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper adF = null;
+    private static BdZeusDownloadHelper aeL = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -35,14 +35,14 @@ public final class BdZeusDownloadHelper {
         @Keep
         public void onDownloadCancel(String str, long j, long j2, String str2) {
             BdZeusDownloadHelper.this.j = a.f;
-            Log.d(EngineManager.LOG_TAG, "onDownloadCancel");
+            Log.i(EngineManager.LOG_TAG, "onDownloadCancel");
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadFail(String str, long j, String str2, String str3) {
             BdZeusDownloadHelper.this.j = a.e;
-            Log.d(EngineManager.LOG_TAG, "onDownloadFail");
+            Log.i(EngineManager.LOG_TAG, "onDownloadFail");
             BdZeusDownloadHelper.this.a("");
         }
 
@@ -50,7 +50,7 @@ public final class BdZeusDownloadHelper {
         @Keep
         public void onDownloadPause(String str, long j, long j2, String str2) {
             BdZeusDownloadHelper.this.j = a.b;
-            Log.d(EngineManager.LOG_TAG, "onDownloadPause");
+            Log.i(EngineManager.LOG_TAG, "onDownloadPause");
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
@@ -63,8 +63,8 @@ public final class BdZeusDownloadHelper {
         @Keep
         public void onDownloadSuccess(String str, String str2, long j) {
             BdZeusDownloadHelper.this.j = a.d;
-            Log.d(EngineManager.LOG_TAG, "aKey:" + str + ", aFilelength:" + j);
-            Log.d(EngineManager.LOG_TAG, "onDownloadSuccess");
+            Log.i(EngineManager.LOG_TAG, "aKey:" + str + ", aFilelength:" + j);
+            Log.i(EngineManager.LOG_TAG, "onDownloadSuccess");
             if (TextUtils.isEmpty(BdZeusDownloadHelper.e)) {
                 return;
             }
@@ -84,13 +84,13 @@ public final class BdZeusDownloadHelper {
                 }
                 BdZeusDownloadHelper.this.a(BdZeusDownloadHelper.this.i, BdZeusDownloadHelper.this.k);
             } else {
-                Log.d(EngineManager.LOG_TAG, " begine check md5");
+                Log.i(EngineManager.LOG_TAG, " begine check md5");
                 String a = com.baidu.browser.sailor.util.b.a(BdZeusDownloadHelper.e);
                 if (a == null || !a.equalsIgnoreCase(BdZeusDownloadHelper.this.k)) {
-                    Log.d(EngineManager.LOG_TAG, " check md5 failed ");
+                    Log.i(EngineManager.LOG_TAG, " check md5 failed ");
                     return;
                 }
-                Log.d(EngineManager.LOG_TAG, " begine install");
+                Log.i(EngineManager.LOG_TAG, " begine install");
                 if (WebKitFactory.getCurEngine() != 1) {
                     BdSailorPlatform.getStatic().b("download-webkit-end", String.valueOf(System.currentTimeMillis()));
                     BdSailorPlatform.getStatic().a();
@@ -110,7 +110,7 @@ public final class BdZeusDownloadHelper {
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static final class a {
         public static final int a = 1;
         public static final int b = 2;
@@ -130,15 +130,15 @@ public final class BdZeusDownloadHelper {
         }
     }
 
-    public static BdZeusDownloadHelper Q(Context context) {
-        if (adF == null) {
+    public static BdZeusDownloadHelper T(Context context) {
+        if (aeL == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (adF == null) {
-                    adF = new BdZeusDownloadHelper(context);
+                if (aeL == null) {
+                    aeL = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return adF;
+        return aeL;
     }
 
     public static void a() {

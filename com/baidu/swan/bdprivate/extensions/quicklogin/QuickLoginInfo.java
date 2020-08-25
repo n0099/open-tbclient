@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
     public String encryptPhoneNum;
@@ -16,14 +16,14 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new Parcelable.Creator<QuickLoginInfo>() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: y */
+        /* renamed from: z */
         public QuickLoginInfo createFromParcel(Parcel parcel) {
             return new QuickLoginInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iu */
+        /* renamed from: kC */
         public QuickLoginInfo[] newArray(int i) {
             return new QuickLoginInfo[i];
         }
@@ -47,12 +47,12 @@ public class QuickLoginInfo extends SwanAppIPCData {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = aVar.ayC();
-        quickLoginInfo.encryptPhoneNum = aVar.ayD();
-        quickLoginInfo.serviceAgreement = aVar.ayF();
-        quickLoginInfo.hasHistory = aVar.ayE();
-        quickLoginInfo.loginMode = aVar.ayB();
-        quickLoginInfo.agreeText = aVar.ayG();
+        quickLoginInfo.supportQuickLogin = aVar.aGL();
+        quickLoginInfo.encryptPhoneNum = aVar.aGM();
+        quickLoginInfo.serviceAgreement = aVar.aGO();
+        quickLoginInfo.hasHistory = aVar.aGN();
+        quickLoginInfo.loginMode = aVar.aGK();
+        quickLoginInfo.agreeText = aVar.aGP();
         return quickLoginInfo;
     }
 

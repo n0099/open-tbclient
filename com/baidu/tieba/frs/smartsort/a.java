@@ -5,88 +5,88 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.bc;
-import com.baidu.tieba.frs.p;
+import com.baidu.tieba.frs.be;
+import com.baidu.tieba.frs.q;
 /* loaded from: classes16.dex */
 public class a {
-    private int bLP;
-    private TextView hUo;
-    private bc hZx;
-    private final FrsFragment iae;
-    private boolean icm;
-    private int icn = -1;
+    private int bRl;
+    private TextView iiv;
+    private be inF;
+    private final FrsFragment iom;
+    private boolean iqt;
+    private int iqu = -1;
 
     public a(FrsFragment frsFragment) {
-        this.bLP = 0;
+        this.bRl = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.iae = frsFragment;
+        this.iom = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bLP = UtilHelper.getStatusBarHeight();
+            this.bRl = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void chM() {
-        if (this.icm && this.icn >= 0) {
-            wa(this.icn);
+    public void csq() {
+        if (this.iqt && this.iqu >= 0) {
+            yt(this.iqu);
         }
-        this.icm = false;
+        this.iqt = false;
     }
 
-    public void vZ(int i) {
+    public void ys(int i) {
         if (i >= 0) {
-            ow(true);
-            wb(i);
+            pa(true);
+            yu(i);
             return;
         }
-        ow(false);
-        wb(i);
+        pa(false);
+        yu(i);
     }
 
-    private void wa(int i) {
+    private void yt(int i) {
         FrameLayout frameLayout;
         String string;
-        p cbw = this.iae.cbw();
-        if (cbw != null && cbw.getListView() != null && (frameLayout = (FrameLayout) cbw.ccV()) != null) {
-            if (this.hUo == null && this.iae.getPageContext() != null) {
-                this.hUo = new TextView(this.iae.getPageContext().getPageActivity());
-                this.hUo.setTextSize(0, this.iae.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.hUo.setGravity(17);
+        q clS = this.iom.clS();
+        if (clS != null && clS.getListView() != null && (frameLayout = (FrameLayout) clS.cns()) != null) {
+            if (this.iiv == null && this.iom.getPageContext() != null) {
+                this.iiv = new TextView(this.iom.getPageContext().getPageActivity());
+                this.iiv.setTextSize(0, this.iom.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.iiv.setGravity(17);
             }
-            if (this.hUo != null) {
+            if (this.iiv != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.hUo.setText(string);
+                this.iiv.setText(string);
             }
-            ao.setBackgroundResource(this.hUo, R.color.cp_link_tip_a);
-            ao.setViewTextColor(this.hUo, R.color.cp_cont_i);
+            ap.setBackgroundResource(this.iiv, R.color.cp_link_tip_a);
+            ap.setViewTextColor(this.iiv, R.color.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.hZx == null) {
-                this.hZx = new bc();
+            if (this.inF == null) {
+                this.inF = new be();
             }
-            this.hZx.a(this.hUo, frameLayout, layoutParams, 2000);
-            this.icn = -1;
+            this.inF.a(this.iiv, frameLayout, layoutParams, 2000);
+            this.iqu = -1;
         }
     }
 
-    public void ow(boolean z) {
-        this.icm = z;
+    public void pa(boolean z) {
+        this.iqt = z;
     }
 
-    public void wb(int i) {
-        this.icn = i;
+    public void yu(int i) {
+        this.iqu = i;
     }
 
     public void onDestroy() {
-        if (this.hZx != null) {
-            this.hZx.onDestroy();
+        if (this.inF != null) {
+            this.inF.onDestroy();
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMUserLogoutMsg extends Message {
     private int mClearAfterLogout;
     private Context mContext;

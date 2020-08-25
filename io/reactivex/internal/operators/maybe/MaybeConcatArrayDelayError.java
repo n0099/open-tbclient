@@ -10,8 +10,8 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class MaybeConcatArrayDelayError<T> extends g<T> {
     final o<? extends T>[] sources;
@@ -40,7 +40,7 @@ public final class MaybeConcatArrayDelayError<T> extends g<T> {
             this.sources = oVarArr;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -48,7 +48,7 @@ public final class MaybeConcatArrayDelayError<T> extends g<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.disposables.dispose();
         }

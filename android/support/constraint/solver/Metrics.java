@@ -1,7 +1,7 @@
 package android.support.constraint.solver;
 
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Metrics {
     public long additionalMeasures;
     public long barrierConnectionResolved;

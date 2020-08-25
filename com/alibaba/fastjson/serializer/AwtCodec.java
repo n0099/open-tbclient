@@ -7,15 +7,15 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.ParseContext;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.mobstat.Config;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.pass.biometrics.face.liveness.d.b;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
     public static final AwtCodec instance = new AwtCodec();
 
@@ -32,24 +32,24 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
         }
         if (obj instanceof Point) {
             Point point = (Point) obj;
-            serializeWriter.writeFieldValue(writeClassName(serializeWriter, Point.class, '{'), Config.EVENT_HEAT_X, point.x);
+            serializeWriter.writeFieldValue(writeClassName(serializeWriter, Point.class, '{'), "x", point.x);
             serializeWriter.writeFieldValue(',', "y", point.y);
         } else if (obj instanceof Font) {
             Font font = (Font) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Font.class, '{'), "name", font.getName());
             serializeWriter.writeFieldValue(',', "style", font.getStyle());
-            serializeWriter.writeFieldValue(',', TiebaInitialize.LogFields.SIZE, font.getSize());
+            serializeWriter.writeFieldValue(',', "size", font.getSize());
         } else if (obj instanceof Rectangle) {
             Rectangle rectangle = (Rectangle) obj;
-            serializeWriter.writeFieldValue(writeClassName(serializeWriter, Rectangle.class, '{'), Config.EVENT_HEAT_X, rectangle.x);
+            serializeWriter.writeFieldValue(writeClassName(serializeWriter, Rectangle.class, '{'), "x", rectangle.x);
             serializeWriter.writeFieldValue(',', "y", rectangle.y);
             serializeWriter.writeFieldValue(',', "width", rectangle.width);
             serializeWriter.writeFieldValue(',', "height", rectangle.height);
         } else if (obj instanceof Color) {
             Color color = (Color) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), "r", color.getRed());
-            serializeWriter.writeFieldValue(',', "g", color.getGreen());
-            serializeWriter.writeFieldValue(',', "b", color.getBlue());
+            serializeWriter.writeFieldValue(',', IXAdRequestInfo.GPS, color.getGreen());
+            serializeWriter.writeFieldValue(',', b.a, color.getBlue());
             if (color.getAlpha() > 0) {
                 serializeWriter.writeFieldValue(',', "alpha", color.getAlpha());
             }
@@ -61,7 +61,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
 
     protected char writeClassName(SerializeWriter serializeWriter, Class<?> cls, char c) {
         if (serializeWriter.isEnabled(SerializerFeature.WriteClassName)) {
-            serializeWriter.write(123);
+            serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
             serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
             serializeWriter.writeString(cls.getName());
             return ',';
@@ -121,7 +121,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                     } else {
                         throw new JSONException("syntax error");
                     }
-                } else if (stringVal.equalsIgnoreCase(TiebaInitialize.LogFields.SIZE)) {
+                } else if (stringVal.equalsIgnoreCase("size")) {
                     if (jSONLexer.token() == 2) {
                         i2 = jSONLexer.intValue();
                         jSONLexer.nextToken();
@@ -157,9 +157,9 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                     jSONLexer.nextToken();
                     if (stringVal.equalsIgnoreCase("r")) {
                         i4 = intValue;
-                    } else if (stringVal.equalsIgnoreCase("g")) {
+                    } else if (stringVal.equalsIgnoreCase(IXAdRequestInfo.GPS)) {
                         i3 = intValue;
-                    } else if (stringVal.equalsIgnoreCase("b")) {
+                    } else if (stringVal.equalsIgnoreCase(b.a)) {
                         i2 = intValue;
                     } else if (!stringVal.equalsIgnoreCase("alpha")) {
                         throw new JSONException("syntax error, " + stringVal);
@@ -201,7 +201,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                 } else {
                     throw new JSONException("syntax error");
                 }
-                if (stringVal.equalsIgnoreCase(Config.EVENT_HEAT_X)) {
+                if (stringVal.equalsIgnoreCase("x")) {
                     i4 = floatValue;
                 } else if (stringVal.equalsIgnoreCase("y")) {
                     i3 = floatValue;
@@ -247,7 +247,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                     } else {
                         throw new JSONException("syntax error : " + jSONLexer.tokenName());
                     }
-                    if (stringVal.equalsIgnoreCase(Config.EVENT_HEAT_X)) {
+                    if (stringVal.equalsIgnoreCase("x")) {
                         i2 = floatValue;
                     } else if (!stringVal.equalsIgnoreCase("y")) {
                         throw new JSONException("syntax error, " + stringVal);

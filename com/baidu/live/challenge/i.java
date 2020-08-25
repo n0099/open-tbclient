@@ -2,113 +2,137 @@ package com.baidu.live.challenge;
 
 import com.baidu.live.challenge.ChallenfeInfoData;
 import com.baidu.live.data.AlaPersonChallengeData;
-import com.baidu.live.data.ak;
-import com.baidu.live.data.an;
-import com.baidu.live.data.ar;
-import com.baidu.live.data.q;
+import com.baidu.live.data.am;
+import com.baidu.live.data.ap;
+import com.baidu.live.data.at;
+import com.baidu.live.data.r;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface i {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(boolean z, com.baidu.live.challenge.a aVar);
 
-        void h(int i, String str);
+        void g(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void bT(int i);
+        void dF(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface c {
-        void b(an anVar, ar arVar, ar arVar2);
+        void b(ap apVar, at atVar, at atVar2);
 
-        void c(an anVar, ar arVar, ar arVar2);
+        void c(ap apVar, at atVar, at atVar2);
 
-        void d(an anVar, ar arVar, ar arVar2);
+        void d(ap apVar, at atVar, at atVar2);
 
-        void e(an anVar, ar arVar, ar arVar2);
+        void e(ap apVar, at atVar, at atVar2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void c(boolean z, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(int i, String str, com.baidu.live.challenge.a aVar);
 
         void b(int i, String str, com.baidu.live.challenge.a aVar);
 
-        void i(int i, String str);
+        void h(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface f {
-        int ww();
+        int BU();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface g {
-        void j(int i, String str);
+        void i(int i, String str);
 
-        void u(List<com.baidu.live.challenge.d> list);
+        void v(List<com.baidu.live.challenge.d> list);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         void a(com.baidu.live.challenge.d dVar);
+
+        void j(int i, String str);
+    }
+
+    /* renamed from: com.baidu.live.challenge.i$i  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0166i {
+        void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
         void k(int i, String str);
     }
 
-    /* renamed from: com.baidu.live.challenge.i$i  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0158i {
-        void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
-
-        void l(int i, String str);
-    }
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface j {
         void a(boolean z, String str, com.baidu.live.challenge.a aVar);
 
         void c(int i, String str, com.baidu.live.challenge.a aVar);
 
-        void m(int i, String str);
+        void l(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface k {
-        void n(int i, String str);
+        void m(int i, String str);
 
-        void v(List<com.baidu.live.challenge.d> list);
+        void w(List<com.baidu.live.challenge.d> list);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface l {
-        void o(int i, String str);
+        void BV();
 
-        void wx();
+        void n(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface m {
         void d(boolean z, String str);
     }
 
-    void V(long j2);
+    void BB();
+
+    void BJ();
+
+    void BK();
+
+    void BL();
+
+    void BM();
+
+    void BN();
+
+    void BO();
+
+    ChallenfeInfoData.ChallengeStatus BP();
+
+    boolean BQ();
+
+    void BR();
+
+    long BS();
+
+    void BT();
 
     void W(long j2);
 
     void X(long j2);
 
     void Y(long j2);
+
+    void Z(long j2);
 
     void a(long j2, long j3, long j4, int i, String str);
 
@@ -128,7 +152,7 @@ public interface i {
 
     void a(h hVar);
 
-    void a(InterfaceC0158i interfaceC0158i);
+    void a(InterfaceC0166i interfaceC0166i);
 
     void a(j jVar);
 
@@ -140,49 +164,25 @@ public interface i {
 
     void a(AlaPersonChallengeData alaPersonChallengeData);
 
-    void a(ak akVar);
+    void a(am amVar);
 
-    void bS(int i);
+    void bf(boolean z);
 
-    void ba(boolean z);
+    void c(r rVar);
 
-    void c(q qVar);
+    void dE(int i);
 
     void e(int i, int i2, String str);
 
     void e(long j2, long j3);
 
-    void eq(String str);
+    void fI(String str);
 
-    void er(String str);
+    void fJ(String str);
 
     void onDestroy();
 
     void setIsHost(boolean z);
 
-    void t(int i, int i2);
-
-    void wd();
-
-    void wl();
-
-    void wm();
-
-    void wn();
-
-    void wo();
-
-    void wp();
-
-    void wq();
-
-    ChallenfeInfoData.ChallengeStatus wr();
-
-    boolean ws();
-
-    void wt();
-
-    long wu();
-
-    void wv();
+    void w(int i, int i2);
 }

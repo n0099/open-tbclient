@@ -8,17 +8,17 @@ import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aAk()) {
+            for (String str : adElementInfo.aIV()) {
                 a(a(str, (b) null), bVar);
             }
         }
     }
 
-    public static void b(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
+    public static void d(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
             for (String str : adElementInfo.getThirdClickTrackingUrls()) {
                 a(a(str, (b) null), bVar);
@@ -28,7 +28,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aAm()) {
+            for (String str : adElementInfo.aIX()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -44,18 +44,18 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dbb).replaceAll("\\{REQ_HEIGHT\\}", bVar.dbc).replaceAll("\\{WIDTH\\}", bVar.dbd).replaceAll("\\{HEIGHT\\}", bVar.dbe).replaceAll("\\{DOWN_X\\}", bVar.dbf).replaceAll("\\{DOWN_Y\\}", bVar.dbg).replaceAll("\\{UP_X\\}", bVar.dbh).replaceAll("\\{UP_Y\\}", bVar.dbi).replaceAll("\\{VIDEO_TIME\\}", bVar.dbj).replaceAll("\\{BEGIN_TIME\\}", bVar.dbk).replaceAll("\\{END_TIME\\}", bVar.dbl).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dbm).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dbn).replaceAll("\\{SCENE\\}", bVar.dbo).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dbp).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dbq).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dln).replaceAll("\\{REQ_HEIGHT\\}", bVar.dlo).replaceAll("\\{WIDTH\\}", bVar.dlp).replaceAll("\\{HEIGHT\\}", bVar.dlq).replaceAll("\\{DOWN_X\\}", bVar.dlr).replaceAll("\\{DOWN_Y\\}", bVar.dls).replaceAll("\\{UP_X\\}", bVar.dlt).replaceAll("\\{UP_Y\\}", bVar.dlu).replaceAll("\\{VIDEO_TIME\\}", bVar.dlv).replaceAll("\\{BEGIN_TIME\\}", bVar.dlw).replaceAll("\\{END_TIME\\}", bVar.dlx).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dly).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dlz).replaceAll("\\{SCENE\\}", bVar.dlA).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dlB).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dlC).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.rx(str);
+        bVar.tQ(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aAf())) {
-            String a = a(adElementInfo.aAf(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aIQ())) {
+            String a = a(adElementInfo.aIQ(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -78,7 +78,7 @@ public class d {
                                 }
                                 a aVar = new a();
                                 aVar.mClickId = optJSONObject.optString("clickid");
-                                aVar.dba = optJSONObject.optString("dstlink");
+                                aVar.dlm = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -97,7 +97,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.ci(aVar.mClickId, aVar.dba);
+                        a.d.this.cC(aVar.mClickId, aVar.dlm);
                     }
                 }
 

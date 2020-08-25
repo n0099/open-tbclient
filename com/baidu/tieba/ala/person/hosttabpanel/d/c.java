@@ -8,42 +8,42 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
-import com.baidu.live.data.v;
+import com.baidu.live.data.w;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.b> {
-    private RelativeLayout gDW;
-    private LinearLayout gDX;
-    private boolean gDY;
-    private com.baidu.tieba.ala.person.hosttabpanel.b.b gDZ;
-    private CustomMessageListener gEa;
-    private com.baidu.live.q.c gvi;
+    private com.baidu.live.q.c gIg;
+    private CustomMessageListener gQA;
+    private RelativeLayout gQw;
+    private LinearLayout gQx;
+    private boolean gQy;
+    private com.baidu.tieba.ala.person.hosttabpanel.b.b gQz;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gDY = false;
-        this.gEa = new CustomMessageListener(2913067) { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.c.1
+        this.gQy = false;
+        this.gQA = new CustomMessageListener(2913067) { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && c.this.gDX != null) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && c.this.gQx != null) {
                     if (((Integer) customResponsedMessage.getData()).intValue() <= 0) {
-                        c.this.gDX.setVisibility(8);
+                        c.this.gQx.setVisibility(8);
                     } else {
-                        c.this.gDX.setVisibility(0);
+                        c.this.gQx.setVisibility(0);
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.gDW = (RelativeLayout) this.mRootView.findViewById(a.g.rank_list_container);
+        this.gQw = (RelativeLayout) this.mRootView.findViewById(a.g.rank_list_container);
         this.mRootView.setOnClickListener(this);
-        this.gDX = (LinearLayout) this.mRootView.findViewById(a.g.rank_list_entry_layout);
-        MessageManager.getInstance().registerListener(this.gEa);
+        this.gQx = (LinearLayout) this.mRootView.findViewById(a.g.rank_list_entry_layout);
+        MessageManager.getInstance().registerListener(this.gQA);
     }
 
     @Override // com.baidu.live.tieba.b.a
@@ -55,29 +55,29 @@ public class c extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     @Override // com.baidu.live.tieba.b.a
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.ala.person.hosttabpanel.b.b bVar) {
-        if (!this.gDY) {
-            this.gDZ = bVar;
-            c(bVar.liveType, bVar.gDt, bVar.portrait);
-            this.gDY = true;
+        if (!this.gQy) {
+            this.gQz = bVar;
+            c(bVar.liveType, bVar.gPS, bVar.portrait);
+            this.gQy = true;
         }
     }
 
     private void c(int i, long j, String str) {
-        if (this.gvi == null) {
+        if (this.gIg == null) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, com.baidu.live.q.c.class, new com.baidu.live.q.a(this.mTbPageContext.getPageActivity(), i, j, false, str));
             if (runTask != null && runTask.getData() != null) {
-                this.gvi = (com.baidu.live.q.c) runTask.getData();
+                this.gIg = (com.baidu.live.q.c) runTask.getData();
             }
         }
-        if (this.gvi != null && this.gvi.GI() != null) {
-            View GI = this.gvi.GI();
-            GI.setBackgroundResource(0);
-            a(this.gvi.GJ());
-            a(this.gvi.GK());
+        if (this.gIg != null && this.gIg.Mu() != null) {
+            View Mu = this.gIg.Mu();
+            Mu.setBackgroundResource(0);
+            a(this.gIg.Mv());
+            a(this.gIg.Mw());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds40));
             layoutParams.addRule(15, 1);
             layoutParams.addRule(9, 1);
-            this.gDW.addView(GI, layoutParams);
+            this.gQw.addView(Mu, layoutParams);
         }
     }
 
@@ -107,14 +107,14 @@ public class c extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.mRootView || ((this.gvi.GJ() != null && view == this.gvi.GJ().getRankItemRootView()) || (this.gvi.GK() != null && view == this.gvi.GK().getRankItemRootView()))) && this.gDZ != null && this.gDZ.gDt != 0) {
-            v vVar = new v();
-            vVar.liveType = this.gDZ.liveType;
-            vVar.userId = this.gDZ.gDt;
-            vVar.portrait = this.gDZ.portrait;
+        if ((view == this.mRootView || ((this.gIg.Mv() != null && view == this.gIg.Mv().getRankItemRootView()) || (this.gIg.Mw() != null && view == this.gIg.Mw().getRankItemRootView()))) && this.gQz != null && this.gQz.gPS != 0) {
+            w wVar = new w();
+            wVar.liveType = this.gQz.liveType;
+            wVar.userId = this.gQz.gPS;
+            wVar.portrait = this.gQz.portrait;
             com.baidu.live.liveroom.d.c cVar = new com.baidu.live.liveroom.d.c();
-            cVar.aYJ = vVar;
-            cVar.aYK = (short) 5;
+            cVar.bea = wVar;
+            cVar.beb = (short) 5;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913042, cVar));
         }
     }
@@ -123,21 +123,21 @@ public class c extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public c gDq;
+        public c gPP;
 
         public a(c cVar) {
             super(cVar.getView());
-            this.gDq = cVar;
+            this.gPP = cVar;
         }
     }
 
     @Override // com.baidu.live.tieba.b.a
     public void onDestroy() {
-        if (this.gvi != null) {
-            this.gvi.destory();
+        if (this.gIg != null) {
+            this.gIg.destory();
         }
-        MessageManager.getInstance().unRegisterListener(this.gEa);
+        MessageManager.getInstance().unRegisterListener(this.gQA);
     }
 }

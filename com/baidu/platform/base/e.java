@@ -1,40 +1,47 @@
 package com.baidu.platform.base;
 
+import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.platform.comapi.basestruct.Point;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class e {
     private boolean b = true;
     private boolean c = true;
     protected com.baidu.platform.util.a a = new com.baidu.platform.util.a();
 
-    public String a() {
-        String a = a(com.baidu.platform.domain.d.a());
-        String authToken = HttpClient.getAuthToken();
-        if (authToken == null) {
-            Log.e("SearchRequest", "toUrlString get authtoken failed");
-            int permissionCheck = PermissionCheck.permissionCheck();
-            if (permissionCheck != 0) {
-                Log.e("SearchRequest", "try permissionCheck result is: " + permissionCheck);
-                return null;
-            }
-            authToken = HttpClient.getAuthToken();
+    private String a(SearchType searchType, String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        if (this.b) {
-            this.a.a("token", authToken);
+        return SearchType.REVERSE_GEO_CODER == searchType ? a(str) : str;
+    }
+
+    private String a(String str) {
+        String substring = str.substring(str.indexOf("location=") + "location=".length(), str.indexOf(ETAG.ITEM_SEPARATOR, str.indexOf("location=")));
+        if (TextUtils.isEmpty(substring)) {
+            return str;
         }
-        String str = this.a.a() + HttpClient.getPhoneInfo();
-        if (this.c) {
-            str = str + "&sign=" + AppMD5.getSignMD5String(str);
+        byte[] bArr = {0};
+        try {
+            bArr = AlgorithmUtil.setUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), substring.getBytes());
+        } catch (Exception e) {
+            Log.e("BaseSearch", "get location failed", e);
         }
-        return a + "?" + str;
+        return str.replace(substring, Base64.encodeToString(bArr, 0).trim());
+    }
+
+    private boolean b(SearchType searchType) {
+        return SearchType.REVERSE_GEO_CODER == searchType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,6 +60,32 @@ public abstract class e {
         } else {
             return str;
         }
+    }
+
+    public String a(SearchType searchType) {
+        String a = a(com.baidu.platform.domain.d.a());
+        String authToken = HttpClient.getAuthToken();
+        if (authToken == null) {
+            Log.e("SearchRequest", "toUrlString get authtoken failed");
+            int permissionCheck = PermissionCheck.permissionCheck();
+            if (permissionCheck != 0) {
+                Log.e("SearchRequest", "try permissionCheck result is: " + permissionCheck);
+                return null;
+            }
+            authToken = HttpClient.getAuthToken();
+        }
+        if (this.b) {
+            this.a.a("token", authToken);
+        }
+        String a2 = this.a.a();
+        if (b(searchType)) {
+            a2 = a(searchType, a2);
+        }
+        String str = a2 + HttpClient.getPhoneInfo();
+        if (this.c) {
+            str = str + "&sign=" + AppMD5.getSignMD5String(str);
+        }
+        return a + "?" + str;
     }
 
     public abstract String a(com.baidu.platform.domain.c cVar);

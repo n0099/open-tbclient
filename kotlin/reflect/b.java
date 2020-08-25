@@ -3,7 +3,7 @@ package kotlin.reflect;
 import java.util.List;
 import java.util.Map;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public interface b<R> extends a {
     R call(Object... objArr);
 

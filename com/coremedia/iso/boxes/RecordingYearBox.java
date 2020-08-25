@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class RecordingYearBox extends AbstractFullBox {
     public static final String TYPE = "yrrc";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     int recordingYear;
 
     static {
@@ -20,8 +20,8 @@ public class RecordingYearBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("RecordingYearBox.java", RecordingYearBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "", "", "", "int"), 42);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "int", "recordingYear", "", "void"), 46);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "", "", "", "int"), 42);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "int", "recordingYear", "", "void"), 46);
     }
 
     public RecordingYearBox() {
@@ -39,7 +39,7 @@ public class RecordingYearBox extends AbstractFullBox {
     }
 
     public void setRecordingYear(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Og(i)));
         this.recordingYear = i;
     }
 

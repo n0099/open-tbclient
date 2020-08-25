@@ -9,14 +9,14 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static boolean D(Context context, String str) {
-        return c(context, str, "BAIDUZID", aF(ExtraParamsManager.getBaiduzid(), gd(str)));
+        return c(context, str, "BAIDUZID", aJ(ExtraParamsManager.getBaiduzid(), hy(str)));
     }
 
     public static boolean E(Context context, String str) {
-        return c(context, str, "BAIDUCUID", aG(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), gd(str)));
+        return c(context, str, "BAIDUCUID", aK(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), hy(str)));
     }
 
     private static boolean c(Context context, String str, String str2, String str3) {
@@ -25,14 +25,14 @@ public class i {
             return false;
         }
         try {
-            String gd = gd(str);
-            if (TextUtils.isEmpty(gd)) {
+            String hy = hy(str);
+            if (TextUtils.isEmpty(hy)) {
                 return false;
             }
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String[] split = cookieManager.getCookie(gd).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = cookieManager.getCookie(hy).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split.length > 0) {
                 z = true;
                 for (String str4 : split) {
@@ -50,7 +50,7 @@ public class i {
                 z = true;
             }
             if (z) {
-                cookieManager.setCookie(gd, str2 + ETAG.EQUAL + str3);
+                cookieManager.setCookie(hy, str2 + ETAG.EQUAL + str3);
                 CookieSyncManager.getInstance().sync();
                 return true;
             }
@@ -60,7 +60,7 @@ public class i {
         }
     }
 
-    public static String gd(String str) {
+    public static String hy(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -71,11 +71,11 @@ public class i {
         }
     }
 
-    private static String aF(String str, String str2) {
+    private static String aJ(String str, String str2) {
         return (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) ? "" : str + ";domain=" + str2 + ";path=/";
     }
 
-    private static String aG(String str, String str2) {
+    private static String aK(String str, String str2) {
         return (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) ? "" : str + ";domain=" + str2 + ";path=/";
     }
 }

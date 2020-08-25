@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes6.dex */
 public final class b {
-    public static final b nIM = new b();
+    public static final b ocF = new b();
 
     private b() {
     }
@@ -42,11 +42,11 @@ public final class b {
             q.m(str, "responseString");
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
-                ShareInfo dX = com.kascend.chushou.c.a.dX(optJSONObject2);
-                b bVar = b.nIM;
+                ShareInfo ei = com.kascend.chushou.c.a.ei(optJSONObject2);
+                b bVar = b.ocF;
                 Context context = this.a;
-                q.l((Object) dX, "shareInfo");
-                bVar.a(context, dX, this.b);
+                q.l((Object) ei, "shareInfo");
+                bVar.a(context, ei, this.b);
                 return;
             }
             a(-1, "");
@@ -60,7 +60,7 @@ public final class b {
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
         q.m(context, "context");
-        c.dMl().c(new a(context, str3), str, str2);
+        c.dYm().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
@@ -72,27 +72,27 @@ public final class b {
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.dZH().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.elL().S(ThirdParty.class);
         if (thirdParty != null) {
-            thirdParty.share(context, shareParam, new C0860b(shareParam, str));
+            thirdParty.share(context, shareParam, new C0918b(shareParam, str));
         }
     }
 
     @h
     /* renamed from: com.kascend.cstvsdk.utils.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0860b implements ShareListener {
+    public static final class C0918b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam nIN;
+        final /* synthetic */ ShareParam ocG;
 
-        C0860b(ShareParam shareParam, String str) {
-            this.nIN = shareParam;
+        C0918b(ShareParam shareParam, String str) {
+            this.ocG = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.nIM.a(i), this.nIN.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.ocF.a(i), this.ocG.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

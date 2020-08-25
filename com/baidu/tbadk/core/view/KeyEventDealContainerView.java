@@ -4,22 +4,22 @@ import android.content.Context;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class KeyEventDealContainerView extends LinearLayout {
-    private a egU;
+    private a eqB;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void aTl();
+        void bbC();
 
-        void aTm();
+        void bbD();
     }
 
     public KeyEventDealContainerView(Context context, View view, a aVar) {
         super(context);
-        this.egU = null;
+        this.eqB = null;
         setFocusableInTouchMode(true);
-        this.egU = aVar;
+        this.eqB = aVar;
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         addView(view);
     }
@@ -27,11 +27,11 @@ public class KeyEventDealContainerView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            if (this.egU != null) {
-                this.egU.aTl();
+            if (this.eqB != null) {
+                this.eqB.bbC();
             }
-        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.egU != null) {
-            this.egU.aTm();
+        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.eqB != null) {
+            this.eqB.bbD();
         }
         return super.dispatchKeyEvent(keyEvent);
     }

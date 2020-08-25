@@ -1,51 +1,54 @@
 package com.baidu.poly.util;
 
 import android.util.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static String bBb = null;
-    private static String bBc = null;
-    private static int bBd = 0;
-    public static boolean bBe = true;
+    private static String bGF = null;
+    private static String bGG = null;
+    private static int bGH = 0;
+    public static boolean bGI = true;
 
     private static void a(StackTraceElement[] stackTraceElementArr) {
-        bBb = stackTraceElementArr[1].getFileName();
-        bBc = stackTraceElementArr[1].getMethodName();
-        bBd = stackTraceElementArr[1].getLineNumber();
+        bGF = stackTraceElementArr[1].getFileName();
+        bGG = stackTraceElementArr[1].getMethodName();
+        bGH = stackTraceElementArr[1].getLineNumber();
     }
 
-    private static String dC(String str) {
-        return Thread.currentThread().getName() + "[" + bBb + ":" + bBc + ":" + bBd + "]" + str;
+    private static String dO(String str) {
+        return Thread.currentThread().getName() + "[" + bGF + ":" + bGG + ":" + bGH + "]" + str;
     }
 
     public static void info(String str) {
-        if (!bBe) {
+        if (!bGI) {
             return;
         }
         Log.i("CashierSdk", str);
     }
 
-    private static String k(Object... objArr) {
+    public static void a(Object... objArr) {
+        if (bGI) {
+            a(new Throwable().getStackTrace());
+            Log.e("CashierSdk", l(objArr));
+        }
+    }
+
+    private static String l(Object... objArr) {
+        if (objArr == null) {
+            return "";
+        }
         StringBuilder sb = new StringBuilder();
         for (Object obj : objArr) {
             if (obj != null) {
                 sb.append(obj.toString());
             }
         }
-        return dC(sb.toString());
-    }
-
-    public static void l(Object... objArr) {
-        if (bBe) {
-            a(new Throwable().getStackTrace());
-            Log.e("CashierSdk", k(objArr));
-        }
+        return dO(sb.toString());
     }
 
     public static void a(String str, Throwable th) {
-        if (bBe) {
+        if (bGI) {
             a(new Throwable().getStackTrace());
-            Log.e("CashierSdk", k(str), th);
+            Log.e("CashierSdk", l(str), th);
         }
     }
 }

@@ -1,37 +1,28 @@
 package com.baidu.ar.b.b;
+
+import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 /* loaded from: classes11.dex */
-public abstract class c extends d {
-    public c(int i) {
-        super(i);
-        this.level = 1;
+public abstract class c<T> extends com.baidu.ar.c.a {
+    private int cD;
+    FramePixels cj;
+
+    public c(int i, FramePixels framePixels) {
+        this.cD = i;
+        this.cj = framePixels;
     }
 
-    public abstract int a(com.baidu.ar.mdl.a aVar);
-
-    @Override // com.baidu.ar.b.b.d
-    public void execute() {
-        if (!com.baidu.ar.b.a.aq().d(this.cX)) {
-            com.baidu.ar.mdl.a g = com.baidu.ar.b.a.aq().g(this.cX);
-            if (g == null) {
-                com.baidu.ar.f.b.b("MdlInitTask", "can not find configs by type = " + this.cX);
-                return;
+    @Override // com.baidu.ar.c.a
+    public T ax() {
+        if (com.baidu.ar.b.a.ar().b(this.cD)) {
+            try {
+                com.baidu.ar.b.a.ar().a(this.cD, true);
+                return f(this.cj);
+            } finally {
+                com.baidu.ar.b.a.ar().a(this.cD, false);
             }
-            int a = a(g);
-            if (a != 0) {
-                com.baidu.ar.f.b.b("MdlInitTask", "mdl init result =  " + a + ", mdlType = " + this.cX);
-                return;
-            }
-            com.baidu.ar.b.a.aq().e(this.cX);
         }
-        com.baidu.ar.b.a.aq().a(new Runnable() { // from class: com.baidu.ar.b.b.c.1
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.ar.b.a.a aVar;
-                if (c.this.cY == null || (aVar = c.this.cY.get()) == null) {
-                    return;
-                }
-                aVar.ar();
-            }
-        });
+        return null;
     }
+
+    public abstract T f(FramePixels framePixels);
 }

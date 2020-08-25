@@ -1,17 +1,17 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class j {
-    private String dAD;
+    private String dJM;
     private String mFileName;
     private String mState;
 
     public j(String str, String str2, String str3) {
         this.mFileName = str;
         this.mState = str2;
-        this.dAD = str3;
+        this.dJM = str3;
     }
 
-    public String aNw() {
+    public String aVW() {
         return this.mState;
     }
 }

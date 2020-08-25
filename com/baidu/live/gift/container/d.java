@@ -14,51 +14,51 @@ import com.baidu.live.tbadk.core.dialog.BdToast;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d implements View.OnClickListener {
-    private BubbleLayout aLs;
-    private PopupWindow aLt;
-    private BdAlertDialog aLu;
-    private Resources aLv;
+    private BubbleLayout aQF;
+    private PopupWindow aQG;
+    private BdAlertDialog aQH;
+    private Resources aQI;
     private TbPageContext mPageContext;
 
     public d(TbPageContext<AlaGiftTabActivity> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.aLv = this.mPageContext.getPageActivity().getResources();
+        this.aQI = this.mPageContext.getPageActivity().getResources();
     }
 
     public void O(View view) {
-        int dimensionPixelSize = this.aLv.getDimensionPixelSize(a.e.sdk_ds300);
-        if (this.aLs == null) {
-            this.aLs = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.h.ala_gift_official_tip, null);
-            this.aLs.setOnClickListener(this);
-            this.aLt = new PopupWindow((View) this.aLs, dimensionPixelSize, this.aLv.getDimensionPixelSize(a.e.sdk_ds86), true);
-            this.aLt.setTouchable(true);
-            this.aLt.setBackgroundDrawable(this.aLv.getDrawable(a.f.sdk_transparent_bg));
+        int dimensionPixelSize = this.aQI.getDimensionPixelSize(a.e.sdk_ds300);
+        if (this.aQF == null) {
+            this.aQF = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.h.ala_gift_official_tip, null);
+            this.aQF.setOnClickListener(this);
+            this.aQG = new PopupWindow((View) this.aQF, dimensionPixelSize, this.aQI.getDimensionPixelSize(a.e.sdk_ds86), true);
+            this.aQG.setTouchable(true);
+            this.aQG.setBackgroundDrawable(this.aQI.getDrawable(a.f.sdk_transparent_bg));
         }
-        int dimensionPixelSize2 = this.aLv.getDimensionPixelSize(a.e.sdk_ds8);
-        ShowUtil.showPopupWindowAsDropDown(this.aLt, view, ((-dimensionPixelSize) / 2) + (this.aLv.getDimensionPixelSize(a.e.sdk_ds52) / 2), -dimensionPixelSize2);
+        int dimensionPixelSize2 = this.aQI.getDimensionPixelSize(a.e.sdk_ds8);
+        ShowUtil.showPopupWindowAsDropDown(this.aQG, view, ((-dimensionPixelSize) / 2) + (this.aQI.getDimensionPixelSize(a.e.sdk_ds52) / 2), -dimensionPixelSize2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aLs == view) {
-            this.aLt.dismiss();
+        if (this.aQF == view) {
+            this.aQG.dismiss();
         }
     }
 
-    public void m(String str, String str2, final String str3) {
-        if (this.aLu == null) {
-            this.aLu = new BdAlertDialog(this.mPageContext.getPageActivity());
-            this.aLu.setCanceledOnTouchOutside(false);
+    public void n(String str, String str2, final String str3) {
+        if (this.aQH == null) {
+            this.aQH = new BdAlertDialog(this.mPageContext.getPageActivity());
+            this.aQH.setCanceledOnTouchOutside(false);
         }
-        this.aLu.setTitle(str);
-        this.aLu.setMessage(str2);
-        this.aLu.setTitleShowCenter(true);
-        this.aLu.setMessageShowCenter(true);
-        this.aLu.setMessageTextColor(this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_f));
-        this.aLu.isShowTitleAndMessage();
-        this.aLu.setPositiveButton("复制添加", new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.d.2
+        this.aQH.setTitle(str);
+        this.aQH.setMessage(str2);
+        this.aQH.setTitleShowCenter(true);
+        this.aQH.setMessageShowCenter(true);
+        this.aQH.setMessageTextColor(this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_f));
+        this.aQH.isShowTitleAndMessage();
+        this.aQH.setPositiveButton("复制添加", new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.gift.container.d.2
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "tycoon_copy_clk"));
@@ -72,7 +72,7 @@ public class d implements View.OnClickListener {
                 bdAlertDialog.dismiss();
             }
         }).create(this.mPageContext);
-        this.aLu.show();
+        this.aQH.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

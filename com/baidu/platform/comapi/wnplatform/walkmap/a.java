@@ -7,7 +7,7 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapView;
 import java.lang.ref.SoftReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     SoftReference<MapView> a = null;
     private BaiduMap b;
@@ -29,6 +29,7 @@ public class a {
     }
 
     public void b() {
+        this.a = null;
     }
 
     public void a(MapStatusUpdate mapStatusUpdate) {
@@ -49,7 +50,7 @@ public class a {
     }
 
     public void a(MapStatus mapStatus, int i) {
-        this.b.animateMapStatus(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus), i);
+        this.b.animateMapStatus(com.baidu.platform.comapi.wnplatform.p.f.a(mapStatus), i);
     }
 
     public void a(int i, int i2) {

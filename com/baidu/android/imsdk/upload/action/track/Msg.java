@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.upload.action.track;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class Msg {
     public long aliasId;
     public long duration;

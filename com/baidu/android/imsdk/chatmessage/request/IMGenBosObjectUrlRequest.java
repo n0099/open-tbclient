@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private String mContentType;
     private Context mContext;
@@ -76,8 +76,8 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                     hashMap2 = new HashMap();
                     hashMap2.put(AsyncChatTask.PUT_URL, jSONObject2.getString(AsyncChatTask.PUT_URL));
                     hashMap2.put(AsyncChatTask.GET_URL, jSONObject2.getString(AsyncChatTask.GET_URL));
-                    if (jSONObject2.has(AsyncChatTask.THUMB_URL)) {
-                        hashMap2.put(AsyncChatTask.THUMB_URL, jSONObject2.getString(AsyncChatTask.THUMB_URL));
+                    if (jSONObject2.has("thumb_url")) {
+                        hashMap2.put("thumb_url", jSONObject2.getString("thumb_url"));
                     }
                     if (jSONObject2.has("thumb_width")) {
                         hashMap2.put("thumb_width", jSONObject2.getString("thumb_width"));

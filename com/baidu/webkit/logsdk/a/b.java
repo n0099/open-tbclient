@@ -8,12 +8,13 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class b implements Handler.Callback {
     public static final List<Message> e = new ArrayList();
     @SuppressLint({"StaticFieldLeak"})
@@ -315,7 +316,7 @@ public class b implements Handler.Callback {
                 if (this.c != null) {
                     Message obtainMessage = this.c.obtainMessage(5);
                     obtainMessage.obj = fVar;
-                    this.c.sendMessageDelayed(obtainMessage, 3000L);
+                    this.c.sendMessageDelayed(obtainMessage, IMConnection.RETRY_DELAY_TIMES);
                     return true;
                 }
                 return true;

@@ -12,7 +12,7 @@ import com.google.zxing.datamatrix.encoder.SymbolInfo;
 import com.google.zxing.datamatrix.encoder.SymbolShapeHint;
 import com.google.zxing.qrcode.encoder.ByteMatrix;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class DataMatrixWriter implements Writer {
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {

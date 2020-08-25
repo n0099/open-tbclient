@@ -2,19 +2,40 @@ package com.baidu.mapapi.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes10.dex */
+import java.util.List;
+/* loaded from: classes20.dex */
 public final class LatLngBounds implements Parcelable {
     public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder {
         private double a;
         private double b;
         private double c;
         private double d;
         private boolean e = true;
+
+        private void a(LatLng latLng) {
+            if (latLng == null) {
+                return;
+            }
+            double d = latLng.latitude;
+            double d2 = latLng.longitude;
+            if (d < this.a) {
+                this.a = d;
+            }
+            if (d > this.b) {
+                this.b = d;
+            }
+            if (d2 < this.c) {
+                this.c = d2;
+            }
+            if (d2 > this.d) {
+                this.d = d2;
+            }
+        }
 
         public LatLngBounds build() {
             return new LatLngBounds(new LatLng(this.b, this.d), new LatLng(this.a, this.c));
@@ -31,19 +52,24 @@ public final class LatLngBounds implements Parcelable {
                     this.c = d2;
                     this.d = d2;
                 }
-                double d3 = latLng.latitude;
-                double d4 = latLng.longitude;
-                if (d3 < this.a) {
-                    this.a = d3;
+                a(latLng);
+            }
+            return this;
+        }
+
+        public Builder include(List<LatLng> list) {
+            if (list != null && list.size() != 0) {
+                if (list.get(0) != null && this.e) {
+                    this.e = false;
+                    double d = list.get(0).latitude;
+                    this.a = d;
+                    this.b = d;
+                    double d2 = list.get(0).longitude;
+                    this.c = d2;
+                    this.d = d2;
                 }
-                if (d3 > this.b) {
-                    this.b = d3;
-                }
-                if (d4 < this.c) {
-                    this.c = d4;
-                }
-                if (d4 > this.d) {
-                    this.d = d4;
+                for (LatLng latLng : list) {
+                    a(latLng);
                 }
             }
             return this;

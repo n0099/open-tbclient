@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.r.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public long cnA;
-    public byte[] cnB = new byte[48];
-    public int cnx;
-    public int cny;
-    public int cnz;
+    public int cuZ;
+    public int cva;
+    public int cvb;
+    public long cvc;
+    public byte[] cvd = new byte[48];
     public int versionCode;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public int cnC;
+        public int cve;
         public int offset;
         public String path;
         public int size;

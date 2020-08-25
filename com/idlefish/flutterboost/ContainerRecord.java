@@ -7,7 +7,7 @@ import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class ContainerRecord implements IContainerRecord {
     private final IFlutterViewContainer mContainer;
     private final FlutterViewContainerManager mManager;
@@ -93,7 +93,7 @@ public class ContainerRecord implements IContainerRecord {
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
     public void onDestroy() {
         Utils.assertCallOnMainThread();
-        if (this.mState != 3) {
+        if (this.mState != 3 && this.mState != 1) {
             Debuger.exception("state error");
         }
         this.mState = 4;
@@ -157,7 +157,7 @@ public class ContainerRecord implements IContainerRecord {
     public void onLowMemory() {
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     private class MethodChannelProxy {
         private int mState;
 

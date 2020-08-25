@@ -5,24 +5,24 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class q extends HttpMessage {
-    public long aIQ;
-    public Map<Long, Long> aIR;
-    public int aJv;
+    public int aOG;
+    public long aOb;
+    public Map<Long, Long> aOc;
     public String giftId;
     public String giftName;
     public String sceneFrom;
 
     public q() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        this.aIR = new HashMap();
+        this.aOc = new HashMap();
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         this.giftId = str;
-        this.sceneFrom = com.baidu.live.utils.p.Jx();
-        this.aJv = i;
+        this.sceneFrom = com.baidu.live.utils.p.Pp();
+        this.aOG = i;
         addParam("scene_from", this.sceneFrom);
         addParam(LegoListActivityConfig.ITEM_ID, str);
         addParam("item_type", str2);

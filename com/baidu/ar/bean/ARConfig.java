@@ -3,7 +3,7 @@ package com.baidu.ar.bean;
 import android.text.TextUtils;
 import com.baidu.ar.ARType;
 import com.baidu.ar.constants.ARConfigKey;
-import com.baidu.ar.f.j;
+import com.baidu.ar.g.l;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
@@ -67,12 +67,16 @@ public class ARConfig {
     }
 
     public static Object[] getSignatureAndTime() {
+        return getSignatureAndTime(DuMixARConfig.getAipAppId(), DuMixARConfig.getAPIKey());
+    }
+
+    public static Object[] getSignatureAndTime(String str, String str2) {
         Object[] objArr = new Object[2];
         long currentTimeMillis = System.currentTimeMillis();
-        if (isOpen()) {
-            objArr[0] = j.aN(DuMixARConfig.getAipAppId() + AR_SDK_SALT_FIGURE + currentTimeMillis);
+        if (isOpen(str)) {
+            objArr[0] = l.aR(str + AR_SDK_SALT_FIGURE + currentTimeMillis);
         } else {
-            objArr[0] = j.aN(DuMixARConfig.getAipAppId() + DuMixARConfig.getAPIKey() + AR_SDK_SALT_FIGURE + currentTimeMillis);
+            objArr[0] = l.aR(str + str2 + AR_SDK_SALT_FIGURE + currentTimeMillis);
         }
         objArr[1] = Long.valueOf(currentTimeMillis);
         return objArr;
@@ -129,11 +133,15 @@ public class ARConfig {
     }
 
     public static boolean isOpen() {
+        return isOpen(DuMixARConfig.getAipAppId());
+    }
+
+    public static boolean isOpen(String str) {
         try {
-            if (TextUtils.isEmpty(DuMixARConfig.getAipAppId())) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return Long.parseLong(DuMixARConfig.getAipAppId()) > 10000;
+            return Long.parseLong(str) > 10000;
         } catch (Exception e) {
             e.printStackTrace();
             return false;

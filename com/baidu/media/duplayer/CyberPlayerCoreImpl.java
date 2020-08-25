@@ -15,7 +15,7 @@ import com.baidu.media.recorder.DuAudioRecorder;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public long caculateFolderSize() {
@@ -52,7 +52,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public RTCRoomProvider createRTCRoom() {
-        return com.baidu.media.ext.a.MU();
+        return com.baidu.media.ext.a.SS();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

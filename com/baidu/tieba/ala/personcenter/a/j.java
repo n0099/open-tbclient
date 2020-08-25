@@ -12,14 +12,14 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.gHh);
+        super(tbPageContext.getPageActivity(), m.gTK);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aK */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.c(this.mPageContext));
     }
@@ -28,21 +28,21 @@ public class j extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.c> aVar) {
-        if (aVar.bSs() == null) {
+        if (aVar.ccE() == null) {
             return null;
         }
-        a(mVar, aVar.bSs());
-        return aVar.bSs().getView();
+        a(mVar, aVar.ccE());
+        return aVar.ccE().getView();
     }
 
     private void a(m mVar, com.baidu.tieba.ala.personcenter.e.c cVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = mVar.getPersonCenterData();
-        if (personCenterData == null || personCenterData.bOC() == null || TextUtils.isEmpty(personCenterData.bOC().bOB())) {
+        if (personCenterData == null || personCenterData.bYC() == null || TextUtils.isEmpty(personCenterData.bYC().bYB())) {
             cVar.setVisibility(8);
             notifyDataSetChanged();
             return;
         }
-        cVar.Ep(personCenterData.bOC().bOB());
+        cVar.GO(personCenterData.bYC().bYB());
         cVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         notifyDataSetChanged();
     }

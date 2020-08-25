@@ -15,9 +15,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.ActivityChooserView;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,54 +33,55 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapsdkplatform.comapi.map.ak;
+import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
 @TargetApi(20)
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsListener {
     public static final int BT_INVIEW = 1;
     private static String c;
-    private com.baidu.mapsdkplatform.comapi.map.l A;
+    private float A;
     private int B;
     private int C;
     private int D;
     private int E;
     private int F;
     private int G;
+    private boolean H;
     ScreenShape a;
-    private com.baidu.mapsdkplatform.comapi.map.j e;
-    private BaiduMap f;
-    private ImageView g;
-    private Bitmap h;
-    private ak i;
-    private boolean j;
-    private Point k;
+    private MapSurfaceView f;
+    private BaiduMap g;
+    private ImageView h;
+    private Bitmap i;
+    private com.baidu.mapsdkplatform.comapi.map.ab j;
+    private boolean k;
     private Point l;
-    private RelativeLayout m;
+    private Point m;
     public AnimationTask mTask;
     public Timer mTimer;
     public a mTimerHandler;
-    private SwipeDismissView n;
-    private TextView o;
+    private RelativeLayout n;
+    private SwipeDismissView o;
     private TextView p;
-    private ImageView q;
-    private boolean u;
-    private Context v;
-    private boolean x;
+    private TextView q;
+    private ImageView r;
+    private boolean v;
+    private Context w;
     private boolean y;
-    private float z;
+    private boolean z;
     private static final String b = MapView.class.getSimpleName();
     private static int d = 0;
-    private static int r = 0;
+    private static int e = 0;
     private static int s = 0;
-    private static int t = 10;
-    private static final SparseArray<Integer> w = new SparseArray<>();
+    private static int t = 0;
+    private static int u = 10;
+    private static final SparseArray<Integer> x = new SparseArray<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class AnimationTask extends TimerTask {
         public AnimationTask() {
         }
@@ -92,14 +94,14 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface OnDismissCallback {
         void onDismiss();
 
         void onNotify();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum ScreenShape {
         ROUND,
         RECTANGLE,
@@ -107,7 +109,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class a extends Handler {
         private final WeakReference<Context> b;
 
@@ -123,7 +125,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    if (WearMapView.this.i != null) {
+                    if (WearMapView.this.j != null) {
                         WearMapView.this.a(true);
                         return;
                     }
@@ -135,65 +137,69 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     static {
-        w.append(3, 2000000);
-        w.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
-        w.append(5, 500000);
-        w.append(6, 200000);
-        w.append(7, 100000);
-        w.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
-        w.append(9, Integer.valueOf((int) BdNetTask.TIMEOUT_READ));
-        w.append(10, 20000);
-        w.append(11, 10000);
-        w.append(12, 5000);
-        w.append(13, 2000);
-        w.append(14, 1000);
-        w.append(15, 500);
-        w.append(16, 200);
-        w.append(17, 100);
-        w.append(18, 50);
-        w.append(19, 20);
-        w.append(20, 10);
-        w.append(21, 5);
-        w.append(22, 2);
+        x.append(3, 2000000);
+        x.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
+        x.append(5, 500000);
+        x.append(6, 200000);
+        x.append(7, 100000);
+        x.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
+        x.append(9, Integer.valueOf((int) BdNetTask.TIMEOUT_READ));
+        x.append(10, 20000);
+        x.append(11, 10000);
+        x.append(12, 5000);
+        x.append(13, 2000);
+        x.append(14, 1000);
+        x.append(15, 500);
+        x.append(16, 200);
+        x.append(17, 100);
+        x.append(18, 50);
+        x.append(19, 20);
+        x.append(20, 10);
+        x.append(21, 5);
+        x.append(22, 2);
     }
 
     public WearMapView(Context context) {
         super(context);
-        this.j = true;
-        this.u = true;
+        this.k = true;
+        this.v = true;
         this.a = ScreenShape.ROUND;
-        this.x = true;
         this.y = true;
+        this.z = true;
+        this.H = false;
         a(context, (BaiduMapOptions) null);
     }
 
     public WearMapView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.j = true;
-        this.u = true;
+        this.k = true;
+        this.v = true;
         this.a = ScreenShape.ROUND;
-        this.x = true;
         this.y = true;
+        this.z = true;
+        this.H = false;
         a(context, (BaiduMapOptions) null);
     }
 
     public WearMapView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.j = true;
-        this.u = true;
+        this.k = true;
+        this.v = true;
         this.a = ScreenShape.ROUND;
-        this.x = true;
         this.y = true;
+        this.z = true;
+        this.H = false;
         a(context, (BaiduMapOptions) null);
     }
 
     public WearMapView(Context context, BaiduMapOptions baiduMapOptions) {
         super(context);
-        this.j = true;
-        this.u = true;
+        this.k = true;
+        this.v = true;
         this.a = ScreenShape.ROUND;
-        this.x = true;
         this.y = true;
+        this.z = true;
+        this.H = false;
         a(context, baiduMapOptions);
     }
 
@@ -202,16 +208,16 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     private void a(int i) {
-        if (this.e == null) {
+        if (this.f == null) {
             return;
         }
         switch (i) {
             case 0:
-                this.e.onPause();
+                this.f.onPause();
                 b();
                 return;
             case 1:
-                this.e.onResume();
+                this.f.onResume();
                 c();
                 return;
             default:
@@ -220,17 +226,13 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     private static void a(Context context) {
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-        Point point = new Point();
-        defaultDisplay.getSize(point);
-        r = point.x;
-        s = point.y;
+        ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
     }
 
     private void a(Context context, BaiduMapOptions baiduMapOptions) {
         a(context);
         setOnApplyWindowInsetsListener(this);
-        this.v = context;
+        this.w = context;
         this.mTimerHandler = new a(context);
         this.mTimer = new Timer();
         if (this.mTimer != null && this.mTask != null) {
@@ -238,40 +240,39 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         }
         this.mTask = new AnimationTask();
         this.mTimer.schedule(this.mTask, 5000L);
-        com.baidu.mapsdkplatform.comapi.map.i.a();
+        com.baidu.mapsdkplatform.comapi.map.j.a();
         BMapManager.init();
         a(context, baiduMapOptions, c);
-        this.f = new BaiduMap(this.e);
-        this.e.a().s(false);
-        this.e.a().r(false);
+        this.f.getController().set3DGestureEnable(false);
+        this.f.getController().setOverlookGestureEnable(false);
         c(context);
         d(context);
         b(context);
         if (baiduMapOptions != null && !baiduMapOptions.h) {
-            this.i.setVisibility(4);
+            this.j.setVisibility(4);
         }
         e(context);
         if (baiduMapOptions != null && !baiduMapOptions.i) {
-            this.m.setVisibility(4);
+            this.n.setVisibility(4);
         }
         if (baiduMapOptions != null && baiduMapOptions.l != null) {
-            this.l = baiduMapOptions.l;
+            this.m = baiduMapOptions.l;
         }
         if (baiduMapOptions == null || baiduMapOptions.k == null) {
             return;
         }
-        this.k = baiduMapOptions.k;
+        this.l = baiduMapOptions.k;
     }
 
     private void a(Context context, BaiduMapOptions baiduMapOptions, String str) {
-        if (baiduMapOptions == null) {
-            this.e = new com.baidu.mapsdkplatform.comapi.map.j(context, null, str, d);
+        this.f = new MapSurfaceView(context);
+        if (baiduMapOptions != null) {
+            this.g = new BaiduMap(context, this.f, baiduMapOptions.a());
         } else {
-            this.e = new com.baidu.mapsdkplatform.comapi.map.j(context, baiduMapOptions.a(), str, d);
+            this.g = new BaiduMap(context, this.f, (com.baidu.mapsdkplatform.comapi.map.u) null);
         }
-        addView(this.e);
-        this.A = new w(this);
-        this.e.a().a(this.A);
+        addView(this.f);
+        this.f.getBaseMap().a(new ae(this));
     }
 
     private void a(View view) {
@@ -289,7 +290,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (z) {
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(ObjectAnimator.ofFloat(view, "TranslationY", 0.0f, -50.0f), ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f));
-            animatorSet.addListener(new z(this, view));
+            animatorSet.addListener(new ah(this, view));
             animatorSet.setDuration(1200L);
             animatorSet.start();
             return;
@@ -302,32 +303,63 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, int i) {
+        if (this.f == null || this.f.getBaseMap() == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            Log.e(b, "customStyleFilePath is empty or null, please check!");
+        } else if (!str.endsWith(".sty")) {
+            Log.e(b, "customStyleFile format is incorrect , please check!");
+        } else if (new File(str).exists()) {
+            this.f.getBaseMap().a(str, i);
+        } else {
+            Log.e(b, "customStyleFile does not exist , please check!");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, MapCustomStyleOptions mapCustomStyleOptions) {
+        if (!TextUtils.isEmpty(str)) {
+            a(str, 1);
+            setMapCustomStyleEnable(true);
+            return;
+        }
+        String localCustomStyleFilePath = mapCustomStyleOptions.getLocalCustomStyleFilePath();
+        if (TextUtils.isEmpty(localCustomStyleFilePath)) {
+            return;
+        }
+        a(localCustomStyleFilePath, 0);
+        setMapCustomStyleEnable(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        if (this.j) {
-            a(this.i, z);
+        if (this.k) {
+            a(this.j, z);
         }
     }
 
     private void b() {
-        if (this.e == null || this.u) {
+        if (this.f == null || this.v) {
             return;
         }
         d();
-        this.u = true;
+        this.v = true;
     }
 
     private void b(Context context) {
-        this.n = new SwipeDismissView(context, this);
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams((int) ((context.getResources().getDisplayMetrics().density * 34.0f) + 0.5f), s);
-        this.n.setBackgroundColor(Color.argb(0, 0, 0, 0));
-        this.n.setLayoutParams(layoutParams);
-        addView(this.n);
+        this.o = new SwipeDismissView(context, this);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams((int) ((context.getResources().getDisplayMetrics().density * 34.0f) + 0.5f), t);
+        this.o.setBackgroundColor(Color.argb(0, 0, 0, 0));
+        this.o.setLayoutParams(layoutParams);
+        addView(this.o);
     }
 
     private void c() {
-        if (this.e != null && this.u) {
+        if (this.f != null && this.v) {
             e();
-            this.u = false;
+            this.v = false;
         }
     }
 
@@ -337,96 +369,104 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (densityDpi > 480) {
             Matrix matrix = new Matrix();
             matrix.postScale(2.0f, 2.0f);
-            this.h = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+            this.i = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
         } else if (densityDpi <= 320 || densityDpi > 480) {
-            this.h = a2;
+            this.i = a2;
         } else {
             Matrix matrix2 = new Matrix();
             matrix2.postScale(1.5f, 1.5f);
-            this.h = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix2, true);
+            this.i = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix2, true);
         }
-        if (this.h != null) {
-            this.g = new ImageView(context);
-            this.g.setImageBitmap(this.h);
-            addView(this.g);
+        if (this.i != null) {
+            this.h = new ImageView(context);
+            this.h.setImageBitmap(this.i);
+            addView(this.h);
         }
     }
 
     private void d() {
-        if (this.e == null) {
+        if (this.f == null) {
             return;
         }
-        this.e.b();
+        this.f.onBackground();
     }
 
     private void d(Context context) {
-        this.i = new ak(context, true);
-        if (this.i.a()) {
-            this.i.b(new x(this));
-            this.i.a(new y(this));
-            addView(this.i);
+        this.j = new com.baidu.mapsdkplatform.comapi.map.ab(context, true);
+        if (this.j.a()) {
+            this.j.b(new af(this));
+            this.j.a(new ag(this));
+            addView(this.j);
         }
     }
 
     private void e() {
-        if (this.e == null) {
+        if (this.f == null) {
             return;
         }
-        this.e.c();
+        this.f.onForeground();
     }
 
     private void e(Context context) {
-        this.m = new RelativeLayout(context);
-        this.m.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-        this.o = new TextView(context);
+        this.n = new RelativeLayout(context);
+        this.n.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+        this.p = new TextView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        this.o.setTextColor(Color.parseColor("#FFFFFF"));
-        this.o.setTextSize(2, 11.0f);
-        this.o.setTypeface(this.o.getTypeface(), 1);
-        this.o.setLayoutParams(layoutParams);
-        this.o.setId(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.m.addView(this.o);
-        this.p = new TextView(context);
+        this.p.setTextColor(Color.parseColor("#FFFFFF"));
+        this.p.setTextSize(2, 11.0f);
+        this.p.setTypeface(this.p.getTypeface(), 1);
+        this.p.setLayoutParams(layoutParams);
+        this.p.setId(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.n.addView(this.p);
+        this.q = new TextView(context);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.width = -2;
         layoutParams2.height = -2;
         layoutParams2.addRule(14);
-        this.p.setTextColor(Color.parseColor("#000000"));
-        this.p.setTextSize(2, 11.0f);
-        this.p.setLayoutParams(layoutParams2);
-        this.m.addView(this.p);
-        this.q = new ImageView(context);
+        this.q.setTextColor(Color.parseColor("#000000"));
+        this.q.setTextSize(2, 11.0f);
+        this.q.setLayoutParams(layoutParams2);
+        this.n.addView(this.q);
+        this.r = new ImageView(context);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams3.width = -2;
         layoutParams3.height = -2;
         layoutParams3.addRule(14);
-        layoutParams3.addRule(3, this.o.getId());
-        this.q.setLayoutParams(layoutParams3);
+        layoutParams3.addRule(3, this.p.getId());
+        this.r.setLayoutParams(layoutParams3);
         Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a("icon_scale.9.png", context);
         byte[] ninePatchChunk = a2.getNinePatchChunk();
         NinePatch.isNinePatchChunk(ninePatchChunk);
-        this.q.setBackgroundDrawable(new NinePatchDrawable(a2, ninePatchChunk, new Rect(), null));
-        this.m.addView(this.q);
-        addView(this.m);
+        this.r.setBackgroundDrawable(new NinePatchDrawable(a2, ninePatchChunk, new Rect(), null));
+        this.n.addView(this.r);
+        addView(this.n);
     }
 
+    @Deprecated
     public static void setCustomMapStylePath(String str) {
         if (str == null || str.length() == 0) {
-            throw new RuntimeException("customMapStylePath String is illegal");
+            throw new RuntimeException("BDMapSDKException: customMapStylePath String is illegal");
         }
         if (!new File(str).exists()) {
-            throw new RuntimeException("please check whether the customMapStylePath file exits");
+            throw new RuntimeException("BDMapSDKException: please check whether the customMapStylePath file exits");
         }
         c = str;
     }
 
+    @Deprecated
     public static void setIconCustom(int i) {
+        e = i;
+    }
+
+    @Deprecated
+    public static void setLoadCustomMapStyleFileMode(int i) {
         d = i;
     }
 
+    @Deprecated
     public static void setMapCustomEnable(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.i.a(z);
+        com.baidu.mapsdkplatform.comapi.map.j.a(z);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
@@ -437,12 +477,12 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     public final BaiduMap getMap() {
-        this.f.c = this;
-        return this.f;
+        this.g.c = this;
+        return this.g;
     }
 
     public final int getMapLevel() {
-        return w.get((int) this.e.a().E().a).intValue();
+        return x.get((int) this.f.getZoomLevel()).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -467,39 +507,34 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (bundle == null) {
             return;
         }
-        c = bundle.getString("customMapPath");
-        if (bundle == null) {
-            a(context, new BaiduMapOptions());
-            return;
-        }
         MapStatus mapStatus = (MapStatus) bundle.getParcelable("mapstatus");
-        if (this.k != null) {
-            this.k = (Point) bundle.getParcelable("scalePosition");
-        }
         if (this.l != null) {
-            this.l = (Point) bundle.getParcelable("zoomPosition");
+            this.l = (Point) bundle.getParcelable("scalePosition");
         }
-        this.x = bundle.getBoolean("mZoomControlEnabled");
-        this.y = bundle.getBoolean("mScaleControlEnabled");
+        if (this.m != null) {
+            this.m = (Point) bundle.getParcelable("zoomPosition");
+        }
+        this.y = bundle.getBoolean("mZoomControlEnabled");
+        this.z = bundle.getBoolean("mScaleControlEnabled");
         setPadding(bundle.getInt("paddingLeft"), bundle.getInt("paddingTop"), bundle.getInt("paddingRight"), bundle.getInt("paddingBottom"));
         a(context, new BaiduMapOptions().mapStatus(mapStatus));
     }
 
     public final void onDestroy() {
-        if (this.v != null) {
-            this.e.b(this.v.hashCode());
+        if (this.w != null) {
+            this.f.unInit();
         }
-        if (this.h != null && !this.h.isRecycled()) {
-            this.h.recycle();
-            this.h = null;
+        if (this.i != null && !this.i.isRecycled()) {
+            this.i.recycle();
+            this.i = null;
         }
-        this.i.b();
+        this.j.b();
         BMapManager.destroy();
-        com.baidu.mapsdkplatform.comapi.map.i.b();
+        com.baidu.mapsdkplatform.comapi.map.j.b();
         if (this.mTask != null) {
             this.mTask.cancel();
         }
-        this.v = null;
+        this.w = null;
     }
 
     public final void onDismiss() {
@@ -518,8 +553,8 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.i.getVisibility() != 0) {
-                    if (this.i.getVisibility() == 4) {
+                if (this.j.getVisibility() != 0) {
+                    if (this.j.getVisibility() == 4) {
                         if (this.mTimer != null) {
                             if (this.mTask != null) {
                                 this.mTask.cancel();
@@ -559,8 +594,8 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         float f;
         float f2;
         int childCount = getChildCount();
-        a(this.g);
-        if (((getWidth() - this.B) - this.C) - this.g.getMeasuredWidth() <= 0 || ((getHeight() - this.D) - this.E) - this.g.getMeasuredHeight() <= 0) {
+        a(this.h);
+        if (((getWidth() - this.B) - this.C) - this.h.getMeasuredWidth() <= 0 || ((getHeight() - this.D) - this.E) - this.h.getMeasuredHeight() <= 0) {
             this.B = 0;
             this.C = 0;
             this.E = 0;
@@ -573,59 +608,59 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         }
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
-            if (childAt == this.e) {
-                this.e.layout(0, 0, getWidth(), getHeight());
-            } else if (childAt == this.g) {
+            if (childAt == this.f) {
+                this.f.layout(0, 0, getWidth(), getHeight());
+            } else if (childAt == this.h) {
                 int i6 = (int) (this.E + (12.0f * f2));
                 int i7 = 0;
                 int i8 = 0;
                 if (this.a == ScreenShape.ROUND) {
-                    a(this.i);
-                    int i9 = r / 2;
-                    i8 = a(i9, this.i.getMeasuredWidth() / 2);
-                    i7 = ((r / 2) - a(i9, i9 - i8)) + t;
+                    a(this.j);
+                    int i9 = s / 2;
+                    i8 = a(i9, this.j.getMeasuredWidth() / 2);
+                    i7 = ((s / 2) - a(i9, i9 - i8)) + u;
                 }
-                int i10 = (s - i8) - i6;
-                int i11 = r - i7;
-                this.g.layout(i11 - this.g.getMeasuredWidth(), i10 - this.g.getMeasuredHeight(), i11, i10);
-            } else if (childAt == this.i) {
-                if (this.i.a()) {
-                    a(this.i);
-                    if (this.l == null) {
-                        int a2 = (int) ((this.a == ScreenShape.ROUND ? a(s / 2, this.i.getMeasuredWidth() / 2) : 0) + (12.0f * f2) + this.D);
-                        int measuredWidth = (r - this.i.getMeasuredWidth()) / 2;
-                        this.i.layout(measuredWidth, a2, this.i.getMeasuredWidth() + measuredWidth, this.i.getMeasuredHeight() + a2);
+                int i10 = (t - i8) - i6;
+                int i11 = s - i7;
+                this.h.layout(i11 - this.h.getMeasuredWidth(), i10 - this.h.getMeasuredHeight(), i11, i10);
+            } else if (childAt == this.j) {
+                if (this.j.a()) {
+                    a(this.j);
+                    if (this.m == null) {
+                        int a2 = (int) ((this.a == ScreenShape.ROUND ? a(t / 2, this.j.getMeasuredWidth() / 2) : 0) + (12.0f * f2) + this.D);
+                        int measuredWidth = (s - this.j.getMeasuredWidth()) / 2;
+                        this.j.layout(measuredWidth, a2, this.j.getMeasuredWidth() + measuredWidth, this.j.getMeasuredHeight() + a2);
                     } else {
-                        this.i.layout(this.l.x, this.l.y, this.l.x + this.i.getMeasuredWidth(), this.l.y + this.i.getMeasuredHeight());
+                        this.j.layout(this.m.x, this.m.y, this.m.x + this.j.getMeasuredWidth(), this.m.y + this.j.getMeasuredHeight());
                     }
                 }
-            } else if (childAt == this.m) {
+            } else if (childAt == this.n) {
                 int i12 = 0;
                 int i13 = 0;
                 if (this.a == ScreenShape.ROUND) {
-                    a(this.i);
-                    int i14 = r / 2;
-                    i13 = a(i14, this.i.getMeasuredWidth() / 2);
-                    i12 = ((r / 2) - a(i14, i14 - i13)) + t;
+                    a(this.j);
+                    int i14 = s / 2;
+                    i13 = a(i14, this.j.getMeasuredWidth() / 2);
+                    i12 = ((s / 2) - a(i14, i14 - i13)) + u;
                 }
-                a(this.m);
-                if (this.k == null) {
-                    this.G = this.m.getMeasuredWidth();
-                    this.F = this.m.getMeasuredHeight();
-                    int i15 = (int) (i12 + this.B + (5.0f * f));
-                    int i16 = (s - ((int) (this.E + (12.0f * f2)))) - i13;
-                    this.m.layout(i15, i16 - this.m.getMeasuredHeight(), this.G + i15, i16);
-                } else {
-                    this.m.layout(this.k.x, this.k.y, this.k.x + this.m.getMeasuredWidth(), this.k.y + this.m.getMeasuredHeight());
-                }
-            } else if (childAt == this.n) {
                 a(this.n);
-                this.n.layout(0, 0, this.n.getMeasuredWidth(), s);
+                if (this.l == null) {
+                    this.G = this.n.getMeasuredWidth();
+                    this.F = this.n.getMeasuredHeight();
+                    int i15 = (int) (i12 + this.B + (5.0f * f));
+                    int i16 = (t - ((int) (this.E + (12.0f * f2)))) - i13;
+                    this.n.layout(i15, i16 - this.n.getMeasuredHeight(), this.G + i15, i16);
+                } else {
+                    this.n.layout(this.l.x, this.l.y, this.l.x + this.n.getMeasuredWidth(), this.l.y + this.n.getMeasuredHeight());
+                }
+            } else if (childAt == this.o) {
+                a(this.o);
+                this.o.layout(0, 0, this.o.getMeasuredWidth(), t);
             } else {
                 ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                 if (layoutParams instanceof MapViewLayoutParams) {
                     MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                    Point a3 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.a().a(CoordUtil.ll2mc(mapViewLayoutParams.a));
+                    Point a3 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.f.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.a));
                     a(childAt);
                     int measuredWidth2 = childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight();
@@ -639,38 +674,64 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     public void onSaveInstanceState(Bundle bundle) {
-        if (bundle == null || this.f == null) {
+        if (bundle == null || this.g == null) {
             return;
         }
-        bundle.putParcelable("mapstatus", this.f.getMapStatus());
-        if (this.k != null) {
-            bundle.putParcelable("scalePosition", this.k);
-        }
+        bundle.putParcelable("mapstatus", this.g.getMapStatus());
         if (this.l != null) {
-            bundle.putParcelable("zoomPosition", this.l);
+            bundle.putParcelable("scalePosition", this.l);
         }
-        bundle.putBoolean("mZoomControlEnabled", this.x);
-        bundle.putBoolean("mScaleControlEnabled", this.y);
+        if (this.m != null) {
+            bundle.putParcelable("zoomPosition", this.m);
+        }
+        bundle.putBoolean("mZoomControlEnabled", this.y);
+        bundle.putBoolean("mScaleControlEnabled", this.z);
         bundle.putInt("paddingLeft", this.B);
         bundle.putInt("paddingTop", this.D);
         bundle.putInt("paddingRight", this.C);
         bundle.putInt("paddingBottom", this.E);
-        bundle.putString("customMapPath", c);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (view == this.g) {
+        if (view == this.h) {
             return;
         }
         super.removeView(view);
     }
 
-    public void setOnDismissCallbackListener(OnDismissCallback onDismissCallback) {
-        if (this.n == null) {
+    public void setCustomStyleFilePathAndMode(String str, int i) {
+        a(str, i);
+    }
+
+    public void setMapCustomStyle(MapCustomStyleOptions mapCustomStyleOptions, CustomMapStyleCallBack customMapStyleCallBack) {
+        if (mapCustomStyleOptions == null) {
             return;
         }
-        this.n.setCallback(onDismissCallback);
+        String customMapStyleId = mapCustomStyleOptions.getCustomMapStyleId();
+        if (customMapStyleId != null && !customMapStyleId.isEmpty()) {
+            com.baidu.mapsdkplatform.comapi.map.f.a().a(this.w, customMapStyleId, new ad(this, customMapStyleCallBack, mapCustomStyleOptions));
+            return;
+        }
+        String localCustomStyleFilePath = mapCustomStyleOptions.getLocalCustomStyleFilePath();
+        if (localCustomStyleFilePath == null || localCustomStyleFilePath.isEmpty()) {
+            return;
+        }
+        a(localCustomStyleFilePath, 0);
+    }
+
+    public void setMapCustomStyleEnable(boolean z) {
+    }
+
+    public void setMapCustomStylePath(String str) {
+        a(str, 0);
+    }
+
+    public void setOnDismissCallbackListener(OnDismissCallback onDismissCallback) {
+        if (this.o == null) {
+            return;
+        }
+        this.o.setCallback(onDismissCallback);
     }
 
     @Override // android.view.View
@@ -683,7 +744,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
 
     public void setScaleControlPosition(Point point) {
         if (point != null && point.x >= 0 && point.y >= 0 && point.x <= getWidth() && point.y <= getHeight()) {
-            this.k = point;
+            this.l = point;
             requestLayout();
         }
     }
@@ -693,25 +754,25 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     public void setViewAnimitionEnable(boolean z) {
-        this.j = z;
+        this.k = z;
     }
 
     public void setZoomControlsPosition(Point point) {
         if (point != null && point.x >= 0 && point.y >= 0 && point.x <= getWidth() && point.y <= getHeight()) {
-            this.l = point;
+            this.m = point;
             requestLayout();
         }
     }
 
     public void showScaleControl(boolean z) {
-        this.m.setVisibility(z ? 0 : 8);
-        this.y = z;
+        this.n.setVisibility(z ? 0 : 8);
+        this.z = z;
     }
 
     public void showZoomControls(boolean z) {
-        if (this.i.a()) {
-            this.i.setVisibility(z ? 0 : 8);
-            this.x = z;
+        if (this.j.a()) {
+            this.j.setVisibility(z ? 0 : 8);
+            this.y = z;
         }
     }
 }

@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
     private int offset;

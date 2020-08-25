@@ -4,23 +4,23 @@ import android.content.SharedPreferences;
 import com.baidu.ala.AlaSharedPrefConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends SharedPrefHelper {
-    private static volatile c atJ;
+    private static volatile c ayL;
 
     @Override // com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper
     public synchronized SharedPreferences getSharedPreferences() {
         return TbadkCoreApplication.getInst().getSharedPreferences(AlaSharedPrefConfig.ALA_SHARED_PRE_FILE_NAME, 0);
     }
 
-    public static c vf() {
-        if (atJ == null) {
+    public static c AD() {
+        if (ayL == null) {
             synchronized (c.class) {
-                if (atJ == null) {
-                    atJ = new c();
+                if (ayL == null) {
+                    ayL = new c();
                 }
             }
         }
-        return atJ;
+        return ayL;
     }
 }

@@ -8,33 +8,33 @@ import android.os.Message;
 public class a {
     private int R;
     private int S;
-    private CropAlgo kN;
-    private Handler kP;
-    private InterfaceC0082a kQ;
-    private boolean kS;
-    private d kT;
-    private boolean kR = true;
-    private HandlerThread kO = new HandlerThread("ChildAlgoController");
+    private boolean lB;
+    private d lC;
+    private CropAlgo lw;
+    private Handler ly;
+    private InterfaceC0080a lz;
+    private boolean lA = true;
+    private HandlerThread lx = new HandlerThread("ChildAlgoController");
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0082a {
+    public interface InterfaceC0080a {
         void a(long j, byte[] bArr, int i);
     }
 
     /* loaded from: classes11.dex */
     private static class b extends Handler {
-        private c kU;
+        private c lD;
 
         public b(Looper looper, c cVar) {
             super(looper);
-            this.kU = cVar;
+            this.lD = cVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (this.kU != null) {
-                this.kU.handleMessage(message);
+            if (this.lD != null) {
+                this.lD.handleMessage(message);
             }
         }
     }
@@ -55,22 +55,22 @@ public class a {
                 case 1002:
                     com.baidu.ar.child.b bVar = (com.baidu.ar.child.b) message.obj;
                     if (bVar != null) {
-                        com.baidu.ar.child.a.a cs = bVar.cs();
-                        long cz = bVar.cu().cz();
+                        com.baidu.ar.child.a.a cS = bVar.cS();
+                        long cZ = bVar.cU().cZ();
                         com.baidu.ar.child.c cVar = new com.baidu.ar.child.c();
-                        cVar.x(cs.getDegree());
-                        cVar.f(cs.cx());
-                        cVar.d(bVar.cu().cA());
-                        cVar.e(bVar.cu().cw());
-                        cVar.d(bVar.ct());
-                        cVar.setHandle(cz);
-                        cVar.v(bVar.cs().cy());
+                        cVar.u(cS.getDegree());
+                        cVar.f(cS.cX());
+                        cVar.d(bVar.cU().da());
+                        cVar.e(bVar.cU().cW());
+                        cVar.d(bVar.cT());
+                        cVar.setHandle(cZ);
+                        cVar.w(bVar.cS().cY());
                         cVar.setWidth(a.this.R);
                         cVar.setHeight(a.this.S);
                         byte[] a = a.this.a(cVar);
-                        a.this.kS = true;
-                        if (a.this.kQ != null) {
-                            a.this.kQ.a(cz, a, cs.getDegree());
+                        a.this.lB = true;
+                        if (a.this.lz != null) {
+                            a.this.lz.a(cZ, a, cS.getDegree());
                             return;
                         }
                         return;
@@ -78,8 +78,8 @@ public class a {
                     return;
                 case 1003:
                     a.this.clear();
-                    if (a.this.kP != null) {
-                        a.this.kP.removeCallbacksAndMessages(null);
+                    if (a.this.ly != null) {
+                        a.this.ly.removeCallbacksAndMessages(null);
                         return;
                     }
                     return;
@@ -92,22 +92,22 @@ public class a {
     public a(int i, int i2) {
         this.S = i2;
         this.R = i;
-        this.kO.start();
-        if (this.kT == null) {
-            this.kT = new d();
+        this.lx.start();
+        if (this.lC == null) {
+            this.lC = new d();
         }
-        this.kP = new b(this.kO.getLooper(), this.kT);
-        if (this.kN == null) {
-            this.kN = new CropAlgo();
+        this.ly = new b(this.lx.getLooper(), this.lC);
+        if (this.lw == null) {
+            this.lw = new CropAlgo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] a(com.baidu.ar.child.c cVar) {
-        if (cVar.getHandle() <= 0 || c(cVar.cv()) || c(cVar.cw())) {
+        if (cVar.getHandle() <= 0 || c(cVar.cV()) || c(cVar.cW())) {
             return null;
         }
-        return this.kN.nativeCorpFace(cVar);
+        return this.lw.nativeCorpFace(cVar);
     }
 
     private boolean c(float[] fArr) {
@@ -116,18 +116,18 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clear() {
-        if (this.kO != null) {
-            this.kO.getLooper().quit();
-            this.kO = null;
+        if (this.lx != null) {
+            this.lx.getLooper().quit();
+            this.lx = null;
         }
-        if (this.kS && this.kN != null) {
-            this.kN.nativeClear();
-            this.kN = null;
+        if (this.lB && this.lw != null) {
+            this.lw.nativeClear();
+            this.lw = null;
         }
-        this.kS = false;
-        this.kQ = null;
-        if (this.kP != null) {
-            this.kP = null;
+        this.lB = false;
+        this.lz = null;
+        if (this.ly != null) {
+            this.ly = null;
         }
     }
 
@@ -135,32 +135,32 @@ public class a {
         if (j <= 0) {
             return 0L;
         }
-        return this.kN.nativeWriteFaceDataToHandel(j, bArr);
+        return this.lw.nativeWriteFaceDataToHandel(j, bArr);
     }
 
     public long a(long j, byte[] bArr, int i, int i2, float f) {
         if (j <= 0) {
             return 0L;
         }
-        return this.kN.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
+        return this.lw.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
     }
 
-    public void a(InterfaceC0082a interfaceC0082a) {
-        this.kQ = interfaceC0082a;
+    public void a(InterfaceC0080a interfaceC0080a) {
+        this.lz = interfaceC0080a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {
-        if (this.kP == null || !this.kR) {
+        if (this.ly == null || !this.lA) {
             return;
         }
-        this.kP.removeMessages(1002);
-        this.kP.sendMessage(this.kP.obtainMessage(1002, bVar));
+        this.ly.removeMessages(1002);
+        this.ly.sendMessage(this.ly.obtainMessage(1002, bVar));
     }
 
-    public void cr() {
-        if (this.kP != null) {
-            this.kP.removeMessages(1003);
-            this.kP.sendMessage(this.kP.obtainMessage(1003));
+    public void cR() {
+        if (this.ly != null) {
+            this.ly.removeMessages(1003);
+            this.ly.sendMessage(this.ly.obtainMessage(1003));
         }
     }
 
@@ -168,20 +168,20 @@ public class a {
         if (j <= 0) {
             return null;
         }
-        return this.kN.nativeTrackingPoints(j);
+        return this.lw.nativeTrackingPoints(j);
     }
 
     public float[] l(long j) {
         if (j <= 0) {
             return null;
         }
-        return this.kN.nativeGetFaceBoxList(j);
+        return this.lw.nativeGetFaceBoxList(j);
     }
 
     public void m(long j) {
         if (j <= 0) {
             return;
         }
-        this.kN.nativeWriteTypeToHandle(j);
+        this.lw.nativeWriteTypeToHandle(j);
     }
 }

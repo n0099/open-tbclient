@@ -22,7 +22,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
     private static final int FRAGMENT_CONTAINER_ID = 609893468;
     private static final String TAG = "FlutterFragmentActivity";
@@ -40,7 +40,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return new NewEngineIntentBuilder(FlutterFragmentActivity.class);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends FlutterFragmentActivity> activityClass;
         private String initialRoute = "/";
@@ -73,7 +73,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return new CachedEngineIntentBuilder(FlutterFragmentActivity.class, str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class CachedEngineIntentBuilder {
         private final Class<? extends FlutterFragmentActivity> activityClass;
         private final String cachedEngineId;

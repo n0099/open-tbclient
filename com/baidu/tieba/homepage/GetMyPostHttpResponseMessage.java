@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetMyPost.GetMyPostResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetMyPostHttpResponseMessage extends TbHttpResponsedMessage {
     private GetMyPostResIdl mResponseData;
 

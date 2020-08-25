@@ -1,54 +1,47 @@
 package com.baidu.ar.arrender;
 
+import android.content.Context;
 import android.graphics.PointF;
+import android.opengl.Matrix;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
+import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
 import com.baidu.ar.arplay.core.filter.OutputFillMode;
+import com.baidu.ar.bean.MirriorType;
+import com.baidu.ar.bean.RotationType;
+import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Size;
+import com.baidu.ar.g.q;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PixelRotation a(DuMixOutput.b bVar, DuMixOutput.a aVar) {
+    public static PixelRotation a(RotationType rotationType, MirriorType mirriorType) {
         PixelRotation pixelRotation = PixelRotation.NoRotation;
-        switch (bVar) {
+        switch (rotationType) {
             case ROTATE_0:
-                return aVar == DuMixOutput.a.NO_MIRRIOR ? PixelRotation.NoRotation : aVar == DuMixOutput.a.MIRRIOR_VERTICAL ? PixelRotation.FlipVertical : aVar == DuMixOutput.a.MIRRIOR_HORIZONTAL ? PixelRotation.FlipHorizontal : pixelRotation;
+                return mirriorType == MirriorType.NO_MIRRIOR ? PixelRotation.NoRotation : mirriorType == MirriorType.VERTICAL_MIRRIOR ? PixelRotation.FlipVertical : mirriorType == MirriorType.HORIZONTAL_MIRRIOR ? PixelRotation.FlipHorizontal : pixelRotation;
             case ROTATE_90:
-                return aVar == DuMixOutput.a.NO_MIRRIOR ? PixelRotation.RotateRight : aVar == DuMixOutput.a.MIRRIOR_VERTICAL ? PixelRotation.RotateRightFlipVertical : aVar == DuMixOutput.a.MIRRIOR_HORIZONTAL ? PixelRotation.RotateRightFlipHorizontal : pixelRotation;
+                return mirriorType == MirriorType.NO_MIRRIOR ? PixelRotation.RotateRight : mirriorType == MirriorType.VERTICAL_MIRRIOR ? PixelRotation.RotateRightFlipVertical : mirriorType == MirriorType.HORIZONTAL_MIRRIOR ? PixelRotation.RotateRightFlipHorizontal : pixelRotation;
             case ROTATE_180:
-                return aVar == DuMixOutput.a.NO_MIRRIOR ? PixelRotation.Rotate180 : aVar == DuMixOutput.a.MIRRIOR_VERTICAL ? PixelRotation.FlipHorizontal : aVar == DuMixOutput.a.MIRRIOR_HORIZONTAL ? PixelRotation.FlipVertical : pixelRotation;
+                return mirriorType == MirriorType.NO_MIRRIOR ? PixelRotation.Rotate180 : mirriorType == MirriorType.VERTICAL_MIRRIOR ? PixelRotation.FlipHorizontal : mirriorType == MirriorType.HORIZONTAL_MIRRIOR ? PixelRotation.FlipVertical : pixelRotation;
             case ROTATE_270:
-                return aVar == DuMixOutput.a.NO_MIRRIOR ? PixelRotation.RotateLeft : aVar == DuMixOutput.a.MIRRIOR_VERTICAL ? PixelRotation.RotateRightFlipHorizontal : aVar == DuMixOutput.a.MIRRIOR_HORIZONTAL ? PixelRotation.RotateRightFlipVertical : pixelRotation;
+                return mirriorType == MirriorType.NO_MIRRIOR ? PixelRotation.RotateLeft : mirriorType == MirriorType.VERTICAL_MIRRIOR ? PixelRotation.RotateRightFlipHorizontal : mirriorType == MirriorType.HORIZONTAL_MIRRIOR ? PixelRotation.RotateRightFlipVertical : pixelRotation;
             default:
                 return pixelRotation;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PixelRotation a(boolean z, int i) {
-        if (z) {
-            return PixelRotation.FlipVertical;
-        }
-        switch (Math.abs(i % 360)) {
-            case 0:
-                return PixelRotation.FlipVertical;
-            case 90:
-                return PixelRotation.RotateRightFlipVertical;
-            case 180:
-                return PixelRotation.FlipHorizontal;
-            case 270:
-                return PixelRotation.RotateRightFlipHorizontal;
-            default:
-                return PixelRotation.FlipVertical;
-        }
+    public static PixelRotation a(boolean z, RotationType rotationType, MirriorType mirriorType) {
+        return z ? PixelRotation.FlipVertical : a(rotationType, mirriorType);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static OutputFillMode a(DuMixOutput.c cVar) {
-        switch (cVar) {
+    public static OutputFillMode a(ScaleType scaleType) {
+        switch (scaleType) {
             case CENTER_CROP:
                 return OutputFillMode.KeepRatioCrop;
             case CENTER_INSIDE:
@@ -98,50 +91,91 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(PointF pointF, boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-        float f;
-        float f2;
-        if (pointF == null || duMixInput == null || duMixOutput == null || duMixOutput.getScaleType() == DuMixOutput.c.FIT_XY) {
+    public static void a(Context context, boolean z, PixelReadParams pixelReadParams) {
+        if (q.gL()) {
+            if (pixelReadParams.getIsPortrait()) {
+                if (z) {
+                    pixelReadParams.setPixelRotate(PixelRotation.RotateRightFlipVertical);
+                } else {
+                    pixelReadParams.setPixelRotate(PixelRotation.RotateRight);
+                }
+            } else if (z) {
+                pixelReadParams.setPixelRotate(PixelRotation.Rotate180);
+            } else {
+                pixelReadParams.setPixelRotate(PixelRotation.NoRotation);
+            }
+        } else if (!q.gM()) {
+            if (q.D(context) && pixelReadParams.getIsPortrait() && z) {
+                pixelReadParams.setPixelRotate(PixelRotation.RotateRightFlipVertical);
+            }
+        } else if (pixelReadParams.getIsPortrait()) {
+            if (z) {
+                pixelReadParams.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
+            } else {
+                pixelReadParams.setPixelRotate(PixelRotation.RotateLeft);
+            }
+        } else if (z) {
+            pixelReadParams.setPixelRotate(PixelRotation.NoRotation);
+        } else {
+            pixelReadParams.setPixelRotate(PixelRotation.Rotate180);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void a(Context context, float[] fArr, boolean z) {
+        Matrix.setIdentityM(fArr, 0);
+        if (q.gL() || q.D(context)) {
+            Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
+            Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
+            if (z) {
+                return;
+            }
+            Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
+        } else if (q.gM()) {
+            Matrix.rotateM(fArr, 0, 270.0f, 0.0f, 0.0f, 1.0f);
+            Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
+            if (z) {
+                return;
+            }
+            Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
+        } else if (z) {
+            Matrix.rotateM(fArr, 0, 270.0f, 0.0f, 0.0f, 1.0f);
+            Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
+        } else {
+            Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
+            Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
+            Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void a(PointF pointF, boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput, boolean z2) {
+        if (pointF == null || duMixInput == null || duMixOutput == null || duMixOutput.getScaleType() == ScaleType.FIT_XY) {
             return;
         }
         float inputHeight = z ? duMixInput.getInputHeight() / duMixInput.getInputWidth() : duMixInput.getInputWidth() / duMixInput.getInputHeight();
-        float outputWidth = duMixOutput.getOutputWidth() / duMixOutput.getOutputHeight();
-        if (inputHeight != outputWidth) {
-            float f3 = pointF.x;
-            float f4 = pointF.y;
-            if (inputHeight >= outputWidth) {
+        float outputHeight = z2 ? duMixOutput.getOutputHeight() / duMixOutput.getOutputWidth() : duMixOutput.getOutputWidth() / duMixOutput.getOutputHeight();
+        if (inputHeight != outputHeight) {
+            float f = pointF.x;
+            float f2 = pointF.y;
+            if (inputHeight >= outputHeight) {
                 switch (duMixOutput.getScaleType()) {
                     case CENTER_CROP:
-                        f2 = ((inputHeight * ((f3 * 2.0f) - 1.0f)) + outputWidth) / (2.0f * outputWidth);
-                        f = f4;
-                        break;
-                    case CENTER_INSIDE:
-                        f = f4;
-                        f2 = f3;
-                        break;
-                    default:
-                        f = f4;
-                        f2 = f3;
+                        f = ((((f * 2.0f) - 1.0f) * inputHeight) + outputHeight) / (outputHeight * 2.0f);
                         break;
                 }
             } else {
                 switch (duMixOutput.getScaleType()) {
                     case CENTER_CROP:
-                        float f5 = 1.0f / outputWidth;
-                        f = (((1.0f / inputHeight) * ((f4 * 2.0f) - 1.0f)) + f5) / (2.0f * f5);
-                        f2 = f3;
-                        break;
-                    case CENTER_INSIDE:
-                        f = f4;
-                        f2 = f3;
-                        break;
-                    default:
-                        f = f4;
-                        f2 = f3;
+                        float f3 = 1.0f / outputHeight;
+                        f2 = ((((f2 * 2.0f) - 1.0f) * (1.0f / inputHeight)) + f3) / (f3 * 2.0f);
                         break;
                 }
             }
-            pointF.set(f2, f);
+            pointF.set(f, f2);
         }
     }
 

@@ -3,14 +3,15 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.g.a.a;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.PassportViewManager;
+import android.view.KeyEvent;
+import com.baidu.k.a.a;
+import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
@@ -19,80 +20,31 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.result.Web2NativeLoginResult;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class AccountCenterActivity extends SlideActiviy {
-    private static final String A = "AccountCenterActivity";
-    private static final String B = "AccountCenterActivity";
+    private static final String D = AccountCenterActivity.class.getSimpleName();
+    private static final String E = "AccountCenterActivity";
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
     public static final String EXTRA_WEIIXIN_BIND_URL = "extra_weixin_bind_url";
-    private List<PassNameValuePair> C;
-    private String D;
-    private String E;
-    AccountCenterResult F = new AccountCenterResult();
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.10
-            @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
-            public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.LoginStatusAware
-            public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
-            }
-
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFinish() {
-            }
-
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onStart() {
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
-                AccountCenterCallback accountCenterCallback = PassportSDK.getInstance().getAccountCenterCallback();
-                if (SapiUtils.isMethodOverWrited(accountCenterCallback, "onBdussChange", AccountCenterCallback.class, new Class[0])) {
-                    accountCenterCallback.onBdussChange();
-                }
-            }
-        }, true);
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void configTitle() {
-        setTitleText(a.g.sapi_sdk_title_account_center);
-        if (PassportViewManager.getInstance().getTitleViewModule() != null) {
-            configCustomTitle();
-            return;
-        }
-        switchDarkmode();
-        setBtnVisibility(4, 0, 4);
-        setTitleDrawable(null, null, null, null);
-        setLeftBtnDrawable(getResources().getDrawable(a.d.sapi_sdk_btn_back), null, null, null);
-        if (this.configuration.showBottomBack) {
-            setBtnVisibility(4, 4, 4);
-        }
-    }
+    private String A;
+    private String B;
+    AccountCenterResult C = new AccountCenterResult();
+    private List<PassNameValuePair> y;
+    private String z;
 
     @Override // com.baidu.sapi2.activity.SlideActiviy
     public void finishActivityAfterSlideOver() {
-        if ("AccountCenterActivity".equals(getClass().getSimpleName())) {
-            this.F.setResultCode(-301);
-            this.F.setResultMsg("您已取消操作");
-            a(this.F);
+        if (E.equals(getClass().getSimpleName())) {
+            this.C.setResultCode(-301);
+            this.C.setResultMsg("您已取消操作");
+            a(this.C);
             return;
         }
         super.finish();
@@ -101,24 +53,25 @@ public class AccountCenterActivity extends SlideActiviy {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
-        return PassportSDK.getInstance().getAccountCenterDTO();
+        return CoreViewRouter.getInstance().getAccountCenterDTO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+        AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
         if (accountCenterDTO == null) {
-            this.F.setResultCode(-204);
-            this.F.setResultMsg("参数错误，请稍后再试");
-            a(this.F);
+            this.C.setResultCode(-204);
+            this.C.setResultMsg("参数错误，请稍后再试");
+            a(this.C);
             return;
         }
-        this.D = accountCenterDTO.bduss;
-        this.E = accountCenterDTO.refer;
-        this.C = accountCenterDTO.paramsList;
-        List<PassNameValuePair> list = this.C;
+        this.z = accountCenterDTO.bduss;
+        this.A = accountCenterDTO.refer;
+        this.y = accountCenterDTO.paramsList;
+        this.B = accountCenterDTO.accountToolsUrl;
+        List<PassNameValuePair> list = this.y;
         if (list != null) {
             list.add(new PassNameValuePair("slidePage", "1"));
         }
@@ -128,7 +81,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (!TextUtils.isEmpty(str)) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.9
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onFinish() {
                 }
@@ -143,7 +96,7 @@ public class AccountCenterActivity extends SlideActiviy {
                     AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
                     SapiWebView sapiWebView = accountCenterActivity.sapiWebView;
                     if (sapiWebView != null) {
-                        sapiWebView.loadAccountCenter(accountCenterActivity.C, null, AccountCenterActivity.this.E);
+                        sapiWebView.loadAccountCenter(accountCenterActivity.y, null, AccountCenterActivity.this.A);
                     }
                 }
 
@@ -154,14 +107,24 @@ public class AccountCenterActivity extends SlideActiviy {
                         return;
                     }
                     AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
-                    accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.C, getTplStokenResult.tplStokenMap.get("pp"), AccountCenterActivity.this.E);
+                    accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.y, getTplStokenResult.tplStokenMap.get("pp"), AccountCenterActivity.this.A);
                 }
             }, str, arrayList);
             return;
         }
-        this.F.setResultCode(-204);
-        this.F.setResultMsg("参数错误，请稍后再试");
-        a(this.F);
+        this.C.setResultCode(-204);
+        this.C.setResultMsg("参数错误，请稍后再试");
+        a(this.C);
+    }
+
+    @Override // com.baidu.sapi2.activity.SlideActiviy
+    protected void loadSlideWebview(String str, String str2, String str3) {
+        if (!"accountCenter".equals(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        Intent intent = new Intent(this, AccountCenterExternalActivity.class);
+        intent.putExtra("extra_external_url", str2);
+        startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -169,8 +132,8 @@ public class AccountCenterActivity extends SlideActiviy {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 1004 && i2 == -1) {
-            this.D = intent.getStringExtra("bduss");
-            loadAccountCenter(this.D);
+            this.z = intent.getStringExtra("bduss");
+            loadAccountCenter(this.z);
             this.loginStatusChange = true;
         }
     }
@@ -179,16 +142,25 @@ public class AccountCenterActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
-        this.sapiWebView.back();
+        if (TextUtils.isEmpty(this.B)) {
+            this.sapiWebView.back();
+            return;
+        }
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+        } else {
+            onClose();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.F.setResultCode(-301);
-        this.F.setResultMsg("您已取消操作");
-        a(this.F);
+        this.C.setResultCode(-301);
+        this.C.setResultMsg("您已取消操作");
+        a(this.C);
     }
 
     @Override // com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -200,9 +172,9 @@ public class AccountCenterActivity extends SlideActiviy {
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.F.setResultCode(-202);
-            this.F.setResultMsg("网络连接失败，请检查网络设置");
-            a(this.F);
+            this.C.setResultCode(-202);
+            this.C.setResultMsg("网络连接失败，请检查网络设置");
+            a(this.C);
         }
     }
 
@@ -212,24 +184,50 @@ public class AccountCenterActivity extends SlideActiviy {
         super.onDestroy();
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i != 4) {
+            return super.onKeyDown(i, keyEvent);
+        }
+        if (TextUtils.isEmpty(this.B)) {
+            this.sapiWebView.onKeyUp(i);
+            return true;
+        }
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+            return true;
+        }
+        onClose();
+        return true;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            if (TextUtils.isEmpty(this.B)) {
+                this.sapiWebView.back();
+                return;
+            }
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+            } else {
+                onClose();
+            }
         }
-        this.sapiWebView.back();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        Log.d(A, this + " onNewintent");
+        Log.d(D, this + " onNewintent");
         if (AccountCenterActivity.class.getSimpleName().equals(getClass().getSimpleName())) {
             String stringExtra = intent == null ? "" : intent.getStringExtra("action");
-            Log.d(A, this + " slide action is " + stringExtra);
+            Log.d(D, this + " slide action is " + stringExtra);
             if ("quit".equals(stringExtra)) {
                 finishActivityAfterSlideOver();
             }
@@ -247,11 +245,12 @@ public class AccountCenterActivity extends SlideActiviy {
         super.onRightBtnClick();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    protected void setupViews() {
+    public void setupViews() {
         super.setupViews();
-        configTitle();
-        final AccountCenterCallback accountCenterCallback = PassportSDK.getInstance().getAccountCenterCallback();
+        setTitleText(a.g.sapi_sdk_title_account_center);
+        final AccountCenterCallback accountCenterCallback = CoreViewRouter.getInstance().getAccountCenterCallback();
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
@@ -271,15 +270,15 @@ public class AccountCenterActivity extends SlideActiviy {
         this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.3
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
-                AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+                AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
                 if (accountCenterDTO != null && accountCenterDTO.handleLogin && accountCenterCallback != null) {
                     AccountCenterResult accountCenterResult = new AccountCenterResult() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.3.1
                         @Override // com.baidu.sapi2.result.AccountCenterResult
                         public void loginSuc() {
                             super.loginSuc();
-                            AccountCenterActivity.this.D = SapiContext.getInstance().getCurrentAccount().bduss;
+                            AccountCenterActivity.this.z = SapiContext.getInstance().getCurrentAccount().bduss;
                             AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
-                            accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
+                            accountCenterActivity.loadAccountCenter(accountCenterActivity.z);
                             AccountCenterActivity.this.loginStatusChange = true;
                         }
                     };
@@ -318,16 +317,16 @@ public class AccountCenterActivity extends SlideActiviy {
         this.sapiWebView.setCoverWebBdussCallback(new SapiWebView.CoverWebBdussCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.4
             @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussCallback
             public void onCoverBduss(String str, SapiWebView.CoverWebBdussResult coverWebBdussResult) {
-                if (TextUtils.isEmpty(str) || str.equals(AccountCenterActivity.this.D)) {
+                if (TextUtils.isEmpty(str) || str.equals(AccountCenterActivity.this.z)) {
                     return;
                 }
-                coverWebBdussResult.setWebBduss(AccountCenterActivity.this.D);
+                coverWebBdussResult.setWebBduss(AccountCenterActivity.this.z);
             }
         });
         this.sapiWebView.setAccountDestoryCallback(new SapiWebView.AccountDestoryCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.5
             @Override // com.baidu.sapi2.SapiWebView.AccountDestoryCallback
             public void onAccountDestory(SapiWebView.AccountDestoryCallback.AccountDestoryResult accountDestoryResult) {
-                AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+                AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
                 if (accountCenterDTO != null && accountCenterDTO.logoutAfterBdussInvalid) {
                     SapiAccountManager.getInstance().logout();
                     SapiAccountManager.getInstance().getAccountService().preGetPhoneInfo();
@@ -349,7 +348,7 @@ public class AccountCenterActivity extends SlideActiviy {
         this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.7
             @Override // com.baidu.sapi2.SapiWebView.AccountFreezeCallback
             public void onAccountFreeze(SapiWebView.AccountFreezeCallback.AccountFreezeResult accountFreezeResult) {
-                AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+                AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
                 if (accountCenterDTO != null && accountCenterDTO.logoutAfterBdussInvalid) {
                     SapiAccountManager.getInstance().logout();
                     SapiAccountManager.getInstance().getAccountService().preGetPhoneInfo();
@@ -362,22 +361,88 @@ public class AccountCenterActivity extends SlideActiviy {
         this.sapiWebView.setBdussChangeCallback(new SapiWebView.BdussChangeCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.8
             @Override // com.baidu.sapi2.SapiWebView.BdussChangeCallback
             public void onBdussChange() {
-                AccountCenterActivity.this.g();
+                AccountCenterActivity.this.a();
             }
         });
-        loadAccountCenter(this.D);
+        this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.9
+            @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+            public void onFailed(int i, String str) {
+            }
+
+            @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+            public void onSuccess(AccountType accountType) {
+                super.onSuccess(accountType);
+                AccountCenterActivity.this.C.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
+                AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
+                accountCenterActivity.a(accountCenterActivity.C);
+                LoginStatusChangeCallback loginStatusChangeCallback = CoreViewRouter.getLoginStatusChangeCallback();
+                if (loginStatusChangeCallback != null) {
+                    loginStatusChangeCallback.onChange();
+                }
+            }
+        });
+        this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.10
+            @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
+            public void onSuccess() {
+                AccountCenterActivity.this.C.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
+                AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
+                accountCenterActivity.a(accountCenterActivity.C);
+            }
+        });
+        if (TextUtils.isEmpty(this.B)) {
+            setTitleText(a.g.sapi_sdk_title_account_center);
+            loadAccountCenter(this.z);
+            return;
+        }
+        this.sapiWebView.loadUrl(this.B);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountCenterResult accountCenterResult) {
         SocialLoginBase.setWXLoginCallback(null);
-        if (PassportSDK.getInstance().getAccountCenterCallback() != null) {
+        if (CoreViewRouter.getInstance().getAccountCenterCallback() != null) {
             if (accountCenterResult == null) {
                 accountCenterResult = new AccountCenterResult();
             }
-            PassportSDK.getInstance().getAccountCenterCallback().onFinish(accountCenterResult);
+            CoreViewRouter.getInstance().getAccountCenterCallback().onFinish(accountCenterResult);
         }
         finish();
-        PassportSDK.getInstance().release();
+        CoreViewRouter.getInstance().release();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.12
+            @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
+            public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.LoginStatusAware
+            public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFinish() {
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onStart() {
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
+                AccountCenterCallback accountCenterCallback = CoreViewRouter.getInstance().getAccountCenterCallback();
+                if (SapiUtils.isMethodOverWrited(accountCenterCallback, "onBdussChange", AccountCenterCallback.class, new Class[0])) {
+                    accountCenterCallback.onBdussChange();
+                }
+            }
+        }, true);
     }
 }

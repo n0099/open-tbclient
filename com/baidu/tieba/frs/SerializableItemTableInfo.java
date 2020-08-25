@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import java.io.Serializable;
 import tbclient.ItemTable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SerializableItemTableInfo implements Serializable {
     public int commentStar;
     public int isCommented;

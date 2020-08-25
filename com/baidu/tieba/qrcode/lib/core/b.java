@@ -5,6 +5,7 @@ import android.graphics.Point;
 import android.hardware.Camera;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.WindowManager;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
 import java.util.Iterator;
@@ -12,10 +13,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes17.dex */
 final class b {
-    private static final Pattern liQ = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point liR;
-    private Point liS;
-    private Point liT;
+    private static final Pattern lzj = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point lzk;
+    private Point lzl;
+    private Point lzm;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +28,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.liR = a.fk(this.mContext);
+        this.lzk = a.fx(this.mContext);
         Point point = new Point();
-        point.x = this.liR.x;
-        point.y = this.liR.y;
-        int fj = a.fj(this.mContext);
-        if (fj == 0) {
-            point.x = this.liR.y;
-            point.y = this.liR.x;
+        point.x = this.lzk.x;
+        point.y = this.lzk.y;
+        int fw = a.fw(this.mContext);
+        if (fw == 0) {
+            point.x = this.lzk.y;
+            point.y = this.lzk.x;
         }
-        this.liT = a(parameters, point);
-        if (fj == 0) {
-            this.liS = new Point(this.liT.y, this.liT.x);
+        this.lzm = a(parameters, point);
+        if (fw == 0) {
+            this.lzl = new Point(this.lzm.y, this.lzm.x);
         } else {
-            this.liS = this.liT;
+            this.lzl = this.lzm;
         }
     }
 
@@ -48,15 +49,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dbj() {
-        return this.liS;
+    public Point dmn() {
+        return this.lzl;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.liT.x, this.liT.y);
+        parameters.setPreviewSize(this.lzm.x, this.lzm.y);
         d(parameters);
-        camera.setDisplayOrientation(dbk());
+        camera.setDisplayOrientation(dmo());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +72,7 @@ final class b {
         return null;
     }
 
-    public int dbk() {
+    public int dmo() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -93,9 +94,9 @@ final class b {
                 break;
         }
         if (cameraInfo.facing == 1) {
-            return (360 - ((i + cameraInfo.orientation) % 360)) % 360;
+            return (360 - ((i + cameraInfo.orientation) % EncoderTextureDrawer.X264_WIDTH)) % EncoderTextureDrawer.X264_WIDTH;
         }
-        return ((cameraInfo.orientation - i) + 360) % 360;
+        return ((cameraInfo.orientation - i) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
     }
 
     private static Point a(Camera.Parameters parameters, Point point) {
@@ -147,7 +148,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = liQ.split(charSequence);
+        String[] split = lzj.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

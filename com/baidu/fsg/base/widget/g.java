@@ -4,7 +4,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g implements View.OnTouchListener {
     final /* synthetic */ SafeKeyBoardPopupWindow a;
 

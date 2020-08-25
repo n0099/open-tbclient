@@ -3,7 +3,7 @@ package com.baidu.browser.core;
 import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class d {
     private static HashMap<String, c> sCache;
 

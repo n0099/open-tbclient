@@ -1,5 +1,5 @@
 package com.baidu.cesium.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 final class h extends f {
     public h(int i, int i2) {
         this.c = 4294967295L;
@@ -10,7 +10,7 @@ final class h extends f {
     }
 
     @Override // com.baidu.cesium.a.f
-    public b i(byte[] bArr, int i, int i2) {
+    public b l(byte[] bArr, int i, int i2) {
         j jVar = new j();
         jVar.a(bArr, i, i2);
         return b.a(new long[]{jVar.b()});

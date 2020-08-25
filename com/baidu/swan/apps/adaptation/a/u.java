@@ -1,22 +1,14 @@
 package com.baidu.swan.apps.adaptation.a;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
+import android.net.Uri;
+import com.baidu.swan.apps.scheme.actions.p;
+/* loaded from: classes8.dex */
 public interface u {
+    boolean M(Context context, String str);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    boolean a(Activity activity, Uri uri, String str);
 
-    void a(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
-
-    void a(HashMap<String, String> hashMap, File file, a aVar);
-
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
-
-    void n(Context context, String str, String str2);
+    boolean a(Activity activity, String str, p.a aVar);
 }

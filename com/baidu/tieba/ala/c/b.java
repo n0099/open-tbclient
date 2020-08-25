@@ -9,20 +9,20 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.f.c;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private long aZc;
-    private boolean dDA;
-    private com.baidu.live.o.b fHu;
-    private com.baidu.tieba.ala.f.c fHy;
-    private com.baidu.tieba.ala.view.b fHz;
-    private long fjn;
+    private long bew;
+    private boolean dMJ;
+    private com.baidu.live.o.b fSL;
+    private com.baidu.tieba.ala.f.c fSP;
+    private com.baidu.tieba.ala.view.b fSQ;
+    private long fuJ;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private long mUserId;
-    private final b.a fHv = new b.a() { // from class: com.baidu.tieba.ala.c.b.1
+    private final b.a fSM = new b.a() { // from class: com.baidu.tieba.ala.c.b.1
         @Override // com.baidu.live.o.b.a
-        public void Gr() {
+        public void Mf() {
             BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_success);
             b.this.mTbPageContext.getPageActivity().finish();
         }
@@ -35,57 +35,57 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.fHz.bQb() != null && b.this.mUserId > 0) {
-                b.this.fHu.av(String.valueOf(b.this.mUserId), b.this.fHz.bQb().bzG());
+            if (b.this.fSQ.cam() != null && b.this.mUserId > 0) {
+                b.this.fSL.az(String.valueOf(b.this.mUserId), b.this.fSQ.cam().bIJ());
             }
         }
     };
-    private final c.a fHA = new c.a() { // from class: com.baidu.tieba.ala.c.b.3
+    private final c.a fSR = new c.a() { // from class: com.baidu.tieba.ala.c.b.3
         @Override // com.baidu.tieba.ala.f.c.a
         public void bd(List<com.baidu.tieba.ala.data.b> list) {
             if (ListUtils.isEmpty(list)) {
-                list = b.this.fHy.bNU();
+                list = b.this.fSP.bXU();
             }
             if (!ListUtils.isEmpty(list)) {
-                b.this.fHz.setData(list);
+                b.this.fSQ.setData(list);
             }
         }
 
         @Override // com.baidu.tieba.ala.f.c.a
         public void onFail(int i, String str) {
-            List<com.baidu.tieba.ala.data.b> bNU = b.this.fHy.bNU();
-            if (!ListUtils.isEmpty(bNU)) {
-                b.this.fHz.setData(bNU);
+            List<com.baidu.tieba.ala.data.b> bXU = b.this.fSP.bXU();
+            if (!ListUtils.isEmpty(bXU)) {
+                b.this.fSQ.setData(bXU);
             }
         }
     };
 
     public b(TbPageContext tbPageContext, long j, long j2, long j3, boolean z, boolean z2) {
         this.mTbPageContext = tbPageContext;
-        this.aZc = j;
-        this.fjn = j2;
+        this.bew = j;
+        this.fuJ = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.dDA = z2;
-        this.fHy = new com.baidu.tieba.ala.f.c(this.mTbPageContext, this.fHA);
-        this.fHy.b(this.aZc, this.fjn, this.mUserId, this.mIsHost, this.dDA);
-        this.fHz = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
-        this.fHz.b(this.aZc, this.fjn, this.mUserId, this.mIsHost, this.dDA);
-        this.fHy.bNT();
-        this.fHu = new com.baidu.live.o.b(this.mTbPageContext);
-        this.fHu.a(this.fHv);
+        this.dMJ = z2;
+        this.fSP = new com.baidu.tieba.ala.f.c(this.mTbPageContext, this.fSR);
+        this.fSP.b(this.bew, this.fuJ, this.mUserId, this.mIsHost, this.dMJ);
+        this.fSQ = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
+        this.fSQ.b(this.bew, this.fuJ, this.mUserId, this.mIsHost, this.dMJ);
+        this.fSP.bXT();
+        this.fSL = new com.baidu.live.o.b(this.mTbPageContext);
+        this.fSL.a(this.fSM);
     }
 
     public View getView() {
-        return this.fHz.getView();
+        return this.fSQ.getView();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
     }
 
     public void onDestroy() {
-        this.fHy.onDestroy();
-        this.fHu.onDestroy();
-        this.fHz.onDestroy();
+        this.fSP.onDestroy();
+        this.fSL.onDestroy();
+        this.fSQ.onDestroy();
     }
 }

@@ -17,35 +17,35 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes15.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    TextView lvd;
-    View lve;
-    View lvf;
-    TextView lvg;
-    TextView lvh;
-    TextView lvi;
-    private d lvj;
-    private TextView lvk;
-    private RelativeLayout lvl;
+    TextView lMq;
+    View lMr;
+    View lMs;
+    TextView lMt;
+    TextView lMu;
+    TextView lMv;
+    private d lMw;
+    private TextView lMx;
+    private RelativeLayout lMy;
     private EditText mEditText;
     View mLine;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.lvd = (TextView) findViewById(R.id.friend_name_show1);
-        this.lve = findViewById(R.id.friend_name_layout);
-        this.lvf = findViewById(R.id.msg_content_layout);
-        this.lvg = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.lvh = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.lvi = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.lMq = (TextView) findViewById(R.id.friend_name_show1);
+        this.lMr = findViewById(R.id.friend_name_layout);
+        this.lMs = findViewById(R.id.msg_content_layout);
+        this.lMt = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.lMu = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.lMv = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.mLine = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
-        this.lvl = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
-        this.lvk = (TextView) findViewById(R.id.screenlock_send_button);
+        this.lMy = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
+        this.lMx = (TextView) findViewById(R.id.screenlock_send_button);
         this.mEditText = (EditText) findViewById(R.id.screenlock_edit_view);
-        this.lvl.setVisibility(8);
+        this.lMy.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,28 +57,28 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.lvj = dVar;
-        this.lvd.setText(dVar.groupName);
-        this.lvg.setText(fD(dVar.lastTime));
-        this.lvh.setText(dVar.content);
-        this.lvi.setText(Eh(dVar.unreadCount));
+        this.lMw = dVar;
+        this.lMq.setText(dVar.groupName);
+        this.lMt.setText(fP(dVar.lastTime));
+        this.lMu.setText(dVar.content);
+        this.lMv.setText(GE(dVar.unreadCount));
     }
 
-    public void uI(boolean z) {
+    public void vx(boolean z) {
         if (z) {
-            this.lvl.setVisibility(0);
+            this.lMy.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.lvl.setVisibility(8);
+        this.lMy.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
-    public String fD(long j) {
+    public String fP(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String Eh(int i) {
+    public String GE(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
@@ -94,12 +94,12 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public d getData() {
-        return this.lvj;
+        return this.lMw;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.lvk.setOnClickListener(onClickListener);
-        this.lve.setOnClickListener(onClickListener2);
-        this.lvf.setOnClickListener(onClickListener2);
+        this.lMx.setOnClickListener(onClickListener);
+        this.lMr.setOnClickListener(onClickListener2);
+        this.lMs.setOnClickListener(onClickListener2);
     }
 }

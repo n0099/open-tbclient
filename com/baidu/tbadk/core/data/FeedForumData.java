@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
 import tbclient.FeedForumInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FeedForumData implements Serializable {
     private String avatar;
     private String forumId;

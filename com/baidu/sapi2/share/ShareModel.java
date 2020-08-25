@@ -9,14 +9,34 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class ShareModel implements Parcelable {
-    public static final Parcelable.Creator<ShareModel> CREATOR = new o();
+    public static final Parcelable.Creator<ShareModel> CREATOR = new a();
     private SapiAccount a;
     private List<SapiAccount> b;
     private ShareEvent c;
     private String d;
     private LoginShareStrategy e;
+
+    /* loaded from: classes12.dex */
+    static class a implements Parcelable.Creator<ShareModel> {
+        a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public ShareModel createFromParcel(Parcel parcel) {
+            return new ShareModel(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public ShareModel[] newArray(int i) {
+            return new ShareModel[i];
+        }
+    }
 
     ShareModel() {
         this.b = new ArrayList();
@@ -65,21 +85,20 @@ public class ShareModel implements Parcelable {
     public void b(Context context) {
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : c()) {
-            arrayList.add(n.b(context, sapiAccount));
+            arrayList.add(c.b(context, sapiAccount));
         }
         a(arrayList);
         SapiAccount sapiAccount2 = this.a;
         if (sapiAccount2 != null) {
-            this.a = n.b(context, sapiAccount2);
+            this.a = c.b(context, sapiAccount2);
         }
         if (TextUtils.isEmpty(this.d)) {
             return;
         }
-        this.d = n.b(context, this.d);
+        this.d = c.b(context, this.d);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareModel(Parcel parcel) {
+    ShareModel(Parcel parcel) {
         this.b = new ArrayList();
         a(parcel);
     }
@@ -99,12 +118,6 @@ public class ShareModel implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareModel(ShareEvent shareEvent) {
-        this.b = new ArrayList();
-        this.c = shareEvent;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str) {
         this.d = str;
     }
@@ -117,6 +130,29 @@ public class ShareModel implements Parcelable {
         this.d = parcel.readString();
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(Context context) {
+        ArrayList arrayList = new ArrayList();
+        for (SapiAccount sapiAccount : c()) {
+            arrayList.add(c.a(context, sapiAccount));
+        }
+        a(arrayList);
+        SapiAccount sapiAccount2 = this.a;
+        if (sapiAccount2 != null) {
+            this.a = c.a(context, sapiAccount2);
+        }
+        if (TextUtils.isEmpty(this.d)) {
+            return;
+        }
+        this.d = c.a(context, this.d);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ShareModel(ShareEvent shareEvent) {
+        this.b = new ArrayList();
+        this.c = shareEvent;
+    }
+
     ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount) {
         this(shareEvent);
         this.a = sapiAccount;
@@ -126,22 +162,5 @@ public class ShareModel implements Parcelable {
     public ShareModel(ShareEvent shareEvent, SapiAccount sapiAccount, List<SapiAccount> list) {
         this(shareEvent, sapiAccount);
         this.b = list;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Context context) {
-        ArrayList arrayList = new ArrayList();
-        for (SapiAccount sapiAccount : c()) {
-            arrayList.add(n.a(context, sapiAccount));
-        }
-        a(arrayList);
-        SapiAccount sapiAccount2 = this.a;
-        if (sapiAccount2 != null) {
-            this.a = n.a(context, sapiAccount2);
-        }
-        if (TextUtils.isEmpty(this.d)) {
-            return;
-        }
-        this.d = n.a(context, this.d);
     }
 }

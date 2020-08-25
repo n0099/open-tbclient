@@ -8,8 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class a extends ShareItem {
-    public void cX(JSONObject jSONObject) throws JSONException {
-        this.eui = true;
+    public void de(JSONObject jSONObject) throws JSONException {
+        this.eEI = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.euj = optJSONObject.optString("source2");
-            this.eul = optJSONObject.optString("source3");
+            this.eEJ = optJSONObject.optString("source2");
+            this.eEL = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.euk = 2;
-            this.eup = optJSONObject2.optJSONArray("cmd_pannel");
-            this.euq = optJSONObject2.optJSONObject("info");
-            if (this.euq != null) {
-                this.eun = this.euq.optString("key");
-                this.euo = this.euq.optString("content");
+            this.eEK = 2;
+            this.eEP = optJSONObject2.optJSONArray("cmd_pannel");
+            this.eEQ = optJSONObject2.optJSONObject("info");
+            if (this.eEQ != null) {
+                this.eEN = this.eEQ.optString("key");
+                this.eEO = this.eEQ.optString("content");
                 return;
             }
             return;
         }
-        this.euk = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.eEK = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray buj() {
-        return this.eup;
+    public JSONArray bDe() {
+        return this.eEP;
     }
 
-    public String buk() {
-        return this.eun;
+    public String bDf() {
+        return this.eEN;
     }
 
-    public String bul() {
-        return this.euo;
+    public String bDg() {
+        return this.eEO;
     }
 
     public String getMediaType() {

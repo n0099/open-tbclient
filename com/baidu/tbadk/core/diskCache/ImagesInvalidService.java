@@ -7,7 +7,7 @@ import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImagesInvalidService extends BdBaseService {
     public static final int DELAY_TIMES = 10000;
     private static final long FILE_VALID_TIME = 259200000;
@@ -27,17 +27,17 @@ public class ImagesInvalidService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mDiskFileOperate = new a(TbConfig.IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
-        d.kh().c(this.mDiskFileOperate);
+        d.lG().c(this.mDiskFileOperate);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        d.kh().d(this.mDiskFileOperate);
+        d.lG().d(this.mDiskFileOperate);
         this.mDiskFileOperate = null;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class a extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
         public a(String str, String str2, DiskFileOperate.Action action) {
             super(str, str2, action);

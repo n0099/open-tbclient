@@ -1,7 +1,7 @@
 package org.conscrypt;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 final class ByteArray {
     private final byte[] bytes;
     private final int hashCode;

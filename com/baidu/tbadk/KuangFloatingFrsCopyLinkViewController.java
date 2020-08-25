@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.v.c;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class KuangFloatingFrsCopyLinkViewController {
     private static KuangFloatingFrsCopyLinkViewController instance = null;
     private Activity bgTopActivity;
@@ -57,7 +57,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                 if (KuangFloatingFrsCopyLinkViewController.this.bgTopActivity != null) {
                     KuangFloatingFrsCopyLinkViewController.this.topActivity = KuangFloatingFrsCopyLinkViewController.this.bgTopActivity;
                     KuangFloatingFrsCopyLinkViewController.this.bgTopActivity = null;
-                    if (a.jC().m(KuangFloatingFrsCopyLinkViewController.this.topActivity) != -1) {
+                    if (a.lb().m(KuangFloatingFrsCopyLinkViewController.this.topActivity) != -1) {
                         KuangFloatingFrsCopyLinkViewController.this.init();
                         KuangFloatingFrsCopyLinkViewController.this.showFloatingView(false);
                     }
@@ -105,10 +105,10 @@ public class KuangFloatingFrsCopyLinkViewController {
                 public void onClick(View view) {
                     int m;
                     int size;
-                    if (KuangFloatingFrsCopyLinkViewController.this.topActivity != null && (m = a.jC().m(KuangFloatingFrsCopyLinkViewController.this.topActivity)) != -1 && m < a.jC().getSize() && (size = a.jC().getSize() - m) >= 0) {
-                        a.jC().V(size);
+                    if (KuangFloatingFrsCopyLinkViewController.this.topActivity != null && (m = a.lb().m(KuangFloatingFrsCopyLinkViewController.this.topActivity)) != -1 && m < a.lb().getSize() && (size = a.lb().getSize() - m) >= 0) {
+                        a.lb().X(size);
                     }
-                    TiebaStatic.log(new ap("c13881").t("uid", TbadkCoreApplication.getCurrentAccountId()));
+                    TiebaStatic.log(new aq("c13881").u("uid", TbadkCoreApplication.getCurrentAccountId()));
                     KuangFloatingFrsCopyLinkViewController.this.hideFloatingView(false);
                 }
             });
@@ -126,15 +126,15 @@ public class KuangFloatingFrsCopyLinkViewController {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void changeSkin() {
-        ao.setViewTextColor(this.floatingViewTitle, R.color.cp_cont_a);
-        ao.setImageResource(this.floatingViewIcon, R.drawable.pic_float_return_broadcast32);
-        SvgManager.baR().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.e.a.bbr().mb(R.color.cp_link_tip_d).ma(0).mi(211).S(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).U(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).aX(this.floatingViewMain);
+        ap.setViewTextColor(this.floatingViewTitle, R.color.cp_cont_a);
+        ap.setImageResource(this.floatingViewIcon, R.drawable.pic_float_return_broadcast32);
+        SvgManager.bjq().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.e.a.bjQ().of(R.color.cp_link_tip_d).oe(0).om(211).X(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).Z(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).aZ(this.floatingViewMain);
     }
 
     public void showFloatingView(boolean z) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Gk(2002);
+        layoutParams.type = c.IG(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
@@ -153,7 +153,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                 if (this.mFloatingView != null && this.mFloatingView.getParent() == null) {
                     this.wm.addView(this.mFloatingView, layoutParams);
                     if (z) {
-                        this.topActivity = a.jC().currentActivity();
+                        this.topActivity = a.lb().currentActivity();
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
@@ -191,7 +191,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 1));
                         }
                     };
-                    e.lt().postDelayed(this.runnable, 300L);
+                    e.mS().postDelayed(this.runnable, 300L);
                 }
             } catch (SecurityException e) {
                 this.wm = null;
@@ -210,7 +210,7 @@ public class KuangFloatingFrsCopyLinkViewController {
         this.topActivity = null;
         instance = null;
         if (this.runnable != null) {
-            e.lt().removeCallbacks(this.runnable);
+            e.mS().removeCallbacks(this.runnable);
         }
     }
 }

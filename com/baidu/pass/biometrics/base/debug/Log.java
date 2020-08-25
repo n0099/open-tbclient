@@ -1,61 +1,13 @@
 package com.baidu.pass.biometrics.base.debug;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public final class Log {
-    private static final String TAG = "SAPI_BIOMETRIC";
-    private static boolean enabled = false;
+    private static final String a = "SAPI_BIOMETRIC";
+    private static boolean b;
 
     private Log() {
     }
 
-    public static void enable(boolean z) {
-        enabled = z;
-    }
-
-    public static void d(String str, Object... objArr) {
-        if (enabled) {
-            android.util.Log.d(str, converArrayToString(str, objArr));
-        }
-    }
-
-    public static void d(Object... objArr) {
-        d(TAG, objArr);
-    }
-
-    public static void i(String str, Object... objArr) {
-        if (enabled) {
-            android.util.Log.i(str, converArrayToString(str, objArr));
-        }
-    }
-
-    public static void i(Object... objArr) {
-        i(TAG, objArr);
-    }
-
-    public static void w(String str, Object... objArr) {
-        if (enabled) {
-            android.util.Log.w(str, converArrayToString(str, objArr));
-        }
-    }
-
-    public static void w(Object... objArr) {
-        w(TAG, objArr);
-    }
-
-    public static void e(Throwable th) {
-        e(TAG, th);
-    }
-
-    public static void e(String str, Throwable th) {
-        e(str, th);
-    }
-
-    public static void e(String str, Object... objArr) {
-        if (enabled) {
-            android.util.Log.e(str, converArrayToString(str, objArr));
-        }
-    }
-
-    private static String converArrayToString(String str, Object[] objArr) {
+    private static String a(String str, Object[] objArr) {
         if (objArr != null) {
             try {
                 if (objArr.length != 0) {
@@ -85,5 +37,57 @@ public final class Log {
             }
         }
         return "";
+    }
+
+    public static void d(String str, Object... objArr) {
+        if (!b) {
+            return;
+        }
+        android.util.Log.d(str, a(str, objArr));
+    }
+
+    public static void e(Throwable th) {
+        e(a, th);
+    }
+
+    public static void enable(boolean z) {
+        b = z;
+    }
+
+    public static void i(String str, Object... objArr) {
+        if (!b) {
+            return;
+        }
+        android.util.Log.i(str, a(str, objArr));
+    }
+
+    public static void w(String str, Object... objArr) {
+        if (!b) {
+            return;
+        }
+        android.util.Log.w(str, a(str, objArr));
+    }
+
+    public static void e(String str, Throwable th) {
+        e(str, th);
+    }
+
+    public static void d(Object... objArr) {
+        d(a, objArr);
+    }
+
+    public static void e(String str, Object... objArr) {
+        if (!b) {
+            return;
+        }
+        android.util.Log.e(str, a(str, objArr));
+    }
+
+    public static void i(Object... objArr) {
+        i(a, objArr);
+    }
+
+    public static void w(Object... objArr) {
+        w(a, objArr);
     }
 }

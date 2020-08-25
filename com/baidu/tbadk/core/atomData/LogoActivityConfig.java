@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LogoActivityConfig extends IntentConfig {
     public static final String EXTRAINTENT = "extra_intent";
     public static boolean isFirst = true;

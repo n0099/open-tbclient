@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class b {
     public static int a = -1;
     private static int c = 0;
@@ -27,7 +27,7 @@ public final class b {
             }
             try {
             } catch (Throwable th3) {
-                com.baidu.sofire.i.d.a();
+                com.baidu.sofire.i.e.a();
                 return "";
             }
         }

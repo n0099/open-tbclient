@@ -8,67 +8,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes16.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hLa = BdUniqueId.gen();
-    private String dMX;
-    private String dMY;
-    private String hLb;
-    private String hLc;
-    private List<MediaData> hLd;
-    private int hLe;
-    public boolean isLast = false;
+    public static final BdUniqueId hZf = BdUniqueId.gen();
+    private String dWg;
+    private String dWh;
+    public boolean hNV = false;
+    private String hZg;
+    private String hZh;
+    private List<MediaData> hZi;
+    private int hZj;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.hLb = adInfo.portrait;
-            this.dMX = adInfo.ad_name;
-            this.hLc = adInfo.ad_desc;
-            this.dMY = adInfo.ad_url;
-            this.hLe = adInfo.show_rule.intValue();
+            this.hZg = adInfo.portrait;
+            this.dWg = adInfo.ad_name;
+            this.hZh = adInfo.ad_desc;
+            this.dWh = adInfo.ad_url;
+            this.hZj = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.hLd = new ArrayList();
+                this.hZi = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.hLd.add(mediaData);
+                    this.hZi.add(mediaData);
                 }
             }
         }
     }
 
-    public int cdR() {
-        return this.hLe;
+    public int cov() {
+        return this.hZj;
     }
 
-    public String cdS() {
-        return this.hLb;
+    public String cow() {
+        return this.hZg;
     }
 
-    public String cdT() {
-        return this.dMX;
+    public String cox() {
+        return this.dWg;
     }
 
-    public String cdU() {
-        return this.hLc;
+    public String coy() {
+        return this.hZh;
     }
 
-    public String bmn() {
-        return this.dMY;
+    public String bva() {
+        return this.dWh;
     }
 
-    public List<MediaData> cdV() {
-        return this.hLd;
+    public List<MediaData> coz() {
+        return this.hZi;
     }
 
-    public void nX(boolean z) {
-        this.isLast = z;
+    public void oB(boolean z) {
+        this.hNV = z;
     }
 
-    public boolean cdW() {
-        return this.isLast;
+    public boolean coA() {
+        return this.hNV;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hLa;
+        return hZf;
     }
 }

@@ -18,10 +18,10 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class IMPushPb {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -50,7 +50,7 @@ public final class IMPushPb {
         boolean hasValue();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
         Ack getAck();
 
@@ -85,7 +85,7 @@ public final class IMPushPb {
         boolean hasUi();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
         String getAppChannel();
 
@@ -106,7 +106,7 @@ public final class IMPushPb {
         boolean hasAppVersion();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
         AppInfo getAppInfo();
 
@@ -145,7 +145,7 @@ public final class IMPushPb {
         boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -180,7 +180,7 @@ public final class IMPushPb {
         boolean hasStopTime();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -203,7 +203,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
         String getAction();
 
@@ -252,7 +252,7 @@ public final class IMPushPb {
         boolean hasTable();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
         String getCuid();
 
@@ -261,7 +261,7 @@ public final class IMPushPb {
         boolean hasCuid();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
         int getLogModuleId();
 
@@ -280,7 +280,7 @@ public final class IMPushPb {
         boolean hasProductName();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -315,7 +315,7 @@ public final class IMPushPb {
         boolean hasStartMsgid();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
         String getNetApn();
 
@@ -330,7 +330,7 @@ public final class IMPushPb {
         boolean hasNetType();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
         Action getActions(int i);
 
@@ -357,7 +357,7 @@ public final class IMPushPb {
         boolean hasSdkVersion();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -394,7 +394,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
         String getManufacturer();
 
@@ -431,7 +431,7 @@ public final class IMPushPb {
         boolean hasTerminalType();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -474,7 +474,7 @@ public final class IMPushPb {
     public static void registerAllExtensions(ExtensionRegistryLite extensionRegistryLite) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public enum OSType implements Internal.EnumLite {
         OS_TYPE_UNKNWON(0, 0),
         IOS(1, 1),
@@ -524,7 +524,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public enum ActionType implements Internal.EnumLite {
         UI(0, 101),
         CRASH(1, 201),
@@ -586,7 +586,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static final int CUID_FIELD_NUMBER = 4;
         public static final Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
@@ -803,7 +803,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             private int bitField0;
             private Object cuid = "";
@@ -967,7 +967,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
         public static final int OS_FIELD_NUMBER = 1;
@@ -1361,7 +1361,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             private int bitField0;
             private int ppi;
@@ -1783,7 +1783,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
         public static final int APP_NAME_FIELD_NUMBER = 1;
@@ -2082,7 +2082,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             private int bitField0;
             private Object appName = "";
@@ -2373,7 +2373,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static final int NET_APN_FIELD_NUMBER = 2;
         public static final int NET_TYPE_FIELD_NUMBER = 1;
@@ -2629,7 +2629,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             private int bitField0;
             private Object netType = "";
@@ -2858,7 +2858,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static final int APP_INFO_FIELD_NUMBER = 21;
         public static final int DEVICE_ID_FIELD_NUMBER = 7;
@@ -3288,7 +3288,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             private int bitField0;
             private long timestamp;
@@ -3788,7 +3788,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static final int ACTIONS_FIELD_NUMBER = 132;
         public static final int COMMON_FIELD_NUMBER = 41;
@@ -3800,7 +3800,7 @@ public final class IMPushPb {
         private int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        private Common f959common;
+        private Common f956common;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private MetaData metadata;
@@ -3868,11 +3868,11 @@ public final class IMPushPb {
                                 z2 = z5;
                                 break;
                             case 330:
-                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f959common.toBuilder() : null;
-                                this.f959common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
+                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f956common.toBuilder() : null;
+                                this.f956common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
-                                    builder2.mergeFrom(this.f959common);
-                                    this.f959common = builder2.buildPartial();
+                                    builder2.mergeFrom(this.f956common);
+                                    this.f956common = builder2.buildPartial();
                                 }
                                 this.bitField0 |= 2;
                                 z3 = z4;
@@ -3972,7 +3972,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f959common;
+            return this.f956common;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -4040,7 +4040,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f959common = Common.getDefaultInstance();
+            this.f956common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -4070,7 +4070,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f959common);
+                codedOutputStream.writeMessage(41, this.f956common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -4097,7 +4097,7 @@ public final class IMPushPb {
             if (i2 == -1) {
                 int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
                 if ((this.bitField0 & 2) == 2) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f959common);
+                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f956common);
                 }
                 if ((this.bitField0 & 4) == 4) {
                     computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -4184,14 +4184,14 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             private int bitField0;
             private long sdkVersion;
             private MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            private Common f960common = Common.getDefaultInstance();
+            private Common f957common = Common.getDefaultInstance();
             private Object sdkName = "";
             private List<Action> actions = Collections.emptyList();
 
@@ -4213,7 +4213,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f960common = Common.getDefaultInstance();
+                this.f957common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 this.sdkName = "";
                 this.bitField0 &= -5;
@@ -4256,7 +4256,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f959common = this.f960common;
+                pushImClient.f956common = this.f957common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -4395,36 +4395,36 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f960common;
+                return this.f957common;
             }
 
             public Builder setCommon(Common common2) {
                 if (common2 == null) {
                     throw new NullPointerException();
                 }
-                this.f960common = common2;
+                this.f957common = common2;
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f960common = builder.build();
+                this.f957common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f960common != Common.getDefaultInstance()) {
-                    this.f960common = Common.newBuilder(this.f960common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f957common != Common.getDefaultInstance()) {
+                    this.f957common = Common.newBuilder(this.f957common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f960common = common2;
+                    this.f957common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder clearCommon() {
-                this.f960common = Common.getDefaultInstance();
+                this.f957common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 return this;
             }
@@ -4589,7 +4589,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static final int ACK_FIELD_NUMBER = 7;
         public static final int ACTION_TYPE_FIELD_NUMBER = 1;
@@ -5000,7 +5000,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             private int bitField0;
             private ActionType actionType = ActionType.UI;
@@ -5497,7 +5497,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int CATEGORY_FIELD_NUMBER = 1;
@@ -5888,7 +5888,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6307,7 +6307,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
         public static final int EXCEPTION_FIELD_NUMBER = 1;
@@ -6609,7 +6609,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6902,7 +6902,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static final int ACTION_FIELD_NUMBER = 4;
         public static final int ALIAS_ID_FIELD_NUMBER = 9;
@@ -7379,7 +7379,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -7922,7 +7922,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int EXT_FIELD_NUMBER = 6;
@@ -8293,7 +8293,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -8682,7 +8682,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int ERROR_CODE_FIELD_NUMBER = 5;
@@ -9073,7 +9073,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -9492,7 +9492,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 4;
@@ -9837,7 +9837,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -10192,7 +10192,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
         public static final int DURATION_FIELD_NUMBER = 3;
@@ -10563,7 +10563,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -10952,7 +10952,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
         public static final int LOG_NAME_FIELD_NUMBER = 2;
@@ -11231,7 +11231,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes9.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             private int bitField0;
             private int logModuleId = 7399;

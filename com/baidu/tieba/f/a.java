@@ -3,13 +3,13 @@ package com.baidu.tieba.f;
 import android.os.Handler;
 import android.os.Message;
 import android.view.MotionEvent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private float beZ;
-    private float bfa;
-    private float bfc;
-    private float bfd;
-    private InterfaceC0623a heG;
+    private float bkK;
+    private float bkL;
+    private float bkM;
+    private float bkN;
+    private InterfaceC0674a hrz;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.heG.D(i, i2);
+                    a.this.hrz.H(i, i2);
                     return true;
                 case 1:
-                    a.this.heG.E(i, i2);
+                    a.this.hrz.I(i, i2);
                     return true;
                 case 2:
-                    a.this.heG.bR(i, i2);
+                    a.this.hrz.bZ(i, i2);
                     return true;
                 case 3:
-                    a.this.heG.F(i, i2);
+                    a.this.hrz.J(i, i2);
                     return true;
                 default:
                     return false;
@@ -36,70 +36,70 @@ public class a {
     private Handler mHandler = new Handler(this.mHandlerCallback);
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0623a {
-        void D(int i, int i2);
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0674a {
+        void H(int i, int i2);
 
-        void E(int i, int i2);
+        void I(int i, int i2);
 
-        void F(int i, int i2);
+        void J(int i, int i2);
 
-        void bR(int i, int i2);
+        void bZ(int i, int i2);
     }
 
-    public void a(InterfaceC0623a interfaceC0623a) {
-        this.heG = interfaceC0623a;
+    public void a(InterfaceC0674a interfaceC0674a) {
+        this.hrz = interfaceC0674a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bfc = motionEvent.getRawX();
-                this.bfd = motionEvent.getRawY();
-                this.beZ = this.bfc;
-                this.bfa = this.bfd;
+                this.bkM = motionEvent.getRawX();
+                this.bkN = motionEvent.getRawY();
+                this.bkK = this.bkM;
+                this.bkL = this.bkN;
                 return true;
             case 1:
             case 3:
-                if (this.heG != null) {
-                    int i = (int) (this.beZ - this.bfc);
-                    int i2 = (int) (this.bfa - this.bfd);
+                if (this.hrz != null) {
+                    int i = (int) (this.bkK - this.bkM);
+                    int i2 = (int) (this.bkL - this.bkN);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        C(i, (int) this.bfc);
+                        G(i, (int) this.bkM);
                     } else {
-                        bQ(i, i2);
+                        bY(i, i2);
                     }
                 }
-                this.bfc = 0.0f;
-                this.bfd = 0.0f;
+                this.bkM = 0.0f;
+                this.bkN = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.bfc == 0.0f || this.bfd == 0.0f) {
-                    this.bfc = motionEvent.getRawX();
-                    this.bfd = motionEvent.getRawY();
-                    this.beZ = this.bfc;
-                    this.bfa = this.bfd;
+                if (this.bkM == 0.0f || this.bkN == 0.0f) {
+                    this.bkM = motionEvent.getRawX();
+                    this.bkN = motionEvent.getRawY();
+                    this.bkK = this.bkM;
+                    this.bkL = this.bkN;
                 }
-                int i3 = (int) (rawY - this.bfa);
-                int i4 = (int) (rawY - this.bfd);
-                if (this.heG != null) {
+                int i3 = (int) (rawY - this.bkL);
+                int i4 = (int) (rawY - this.bkN);
+                if (this.hrz != null) {
                     if (i3 > 0) {
-                        B(i4, i3);
+                        F(i4, i3);
                     } else {
-                        A(i4, i3);
+                        E(i4, i3);
                     }
                 }
-                this.beZ = rawX;
-                this.bfa = rawY;
+                this.bkK = rawX;
+                this.bkL = rawY;
                 return true;
             default:
                 return true;
         }
     }
 
-    private void A(int i, int i2) {
+    private void E(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -110,7 +110,7 @@ public class a {
         }
     }
 
-    private void B(int i, int i2) {
+    private void F(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();
@@ -121,7 +121,7 @@ public class a {
         }
     }
 
-    private void bQ(int i, int i2) {
+    private void bY(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    private void C(int i, int i2) {
+    private void G(int i, int i2) {
         this.mHandler.removeMessages(3);
         if (!this.mHandler.hasMessages(3)) {
             Message message = new Message();

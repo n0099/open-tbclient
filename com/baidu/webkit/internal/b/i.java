@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class i extends j {
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {
@@ -17,7 +17,7 @@ public final class i extends j {
                 try {
                     context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                 } catch (Exception e) {
-                    com.a.a.a.a.a.a.a.a(e);
+                    e.printStackTrace();
                 }
                 return true;
             } else if (str.startsWith("ftp://")) {
@@ -38,7 +38,7 @@ public final class i extends j {
         try {
             context.startActivity(intent2);
         } catch (Exception e2) {
-            com.a.a.a.a.a.a.a.a(e2);
+            e2.printStackTrace();
         }
         return true;
     }

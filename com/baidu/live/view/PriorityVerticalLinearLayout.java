@@ -6,34 +6,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PriorityVerticalLinearLayout extends LinearLayout {
-    private int bbg;
+    private int bgC;
 
     public PriorityVerticalLinearLayout(Context context) {
         super(context);
-        this.bbg = -1;
+        this.bgC = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bbg = -1;
+        this.bgC = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bbg = -1;
+        this.bgC = -1;
         setOrientation(1);
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        int T = T(view);
-        if (T >= 0) {
-            super.addView(view, T, layoutParams);
-            if (this.bbg >= 0) {
+        int U = U(view);
+        if (U >= 0) {
+            super.addView(view, U, layoutParams);
+            if (this.bgC >= 0) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view.getLayoutParams();
                 if (layoutParams2 != null) {
                     int i2 = -1;
@@ -43,7 +43,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
                     if (i2 == 20) {
                         layoutParams2.bottomMargin = 0;
                     } else {
-                        layoutParams2.bottomMargin = this.bbg;
+                        layoutParams2.bottomMargin = this.bgC;
                     }
                     layoutParams2.topMargin = 0;
                 }
@@ -53,10 +53,10 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.bbg = i;
+        this.bgC = i;
     }
 
-    private int T(View view) {
+    private int U(View view) {
         if (view == null || !(view.getTag(a.g.sdk_pvl_layout_priority_tag_key) instanceof Integer)) {
             return -1;
         }

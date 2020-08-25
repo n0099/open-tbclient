@@ -5,9 +5,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
-    private List<h> epO = new ArrayList();
+    private List<h> eAa = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -17,7 +17,7 @@ public class g {
                 if (jSONObject2 != null) {
                     h hVar = new h();
                     hVar.parserJson(jSONObject2);
-                    this.epO.add(hVar);
+                    this.eAa.add(hVar);
                 }
             }
         }

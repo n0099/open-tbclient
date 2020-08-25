@@ -5,8 +5,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.api.module.a.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
+    @NonNull
+    com.baidu.swan.apps.setting.oauth.a.c P(Context context, String str);
+
     @NonNull
     com.baidu.swan.apps.setting.oauth.a.a a(Activity activity, boolean z, String str, String str2);
 
@@ -14,14 +17,14 @@ public interface c {
     com.baidu.swan.apps.setting.oauth.a.b a(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.e a(Activity activity, b.a aVar, Bundle bundle);
+    com.baidu.swan.apps.setting.oauth.a.f a(Activity activity, b.a aVar, Bundle bundle);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.f a(Activity activity, String str, String str2, boolean z, boolean z2);
+    com.baidu.swan.apps.setting.oauth.a.g a(Activity activity, String str, String str2, boolean z, boolean z2);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.d bc(Context context);
+    com.baidu.swan.apps.setting.oauth.a.e bh(Context context);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.c c(Activity activity, String str);
+    com.baidu.swan.apps.setting.oauth.a.d bi(Context context);
 }

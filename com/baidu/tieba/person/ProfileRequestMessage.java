@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.util.t;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ProfileRequestMessage extends NetMessage {
     private boolean error_hint;
     private Long friend_uid;
@@ -156,7 +156,7 @@ public class ProfileRequestMessage extends NetMessage {
             double equipmentDensity = l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp());
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = k.aTv().getViewImageQuality();
+            int viewImageQuality = k.bbM().getViewImageQuality();
             builder.scr_w = Integer.valueOf(equipmentWidth);
             builder.scr_h = Integer.valueOf(equipmentHeight);
             builder.scr_dip = Double.valueOf(equipmentDensity);

@@ -10,42 +10,42 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static Activity alV;
-    private static long alY;
-    private static com.baidu.crabsdk.c.b<List> alW = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
-    private static boolean alX = false;
+    private static Activity amY;
+    private static long anb;
+    private static com.baidu.crabsdk.c.b<List> amZ = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
+    private static boolean ana = false;
     private static boolean aQ = true;
-    private static int aS = 0;
-    private static int alZ = 0;
-    private static int ama = 0;
-    private static boolean amb = false;
+    private static int anc = 0;
+    private static int aT = 0;
+    private static int and = 0;
+    private static boolean aV = false;
 
     public static void a(Activity activity) {
-        alX = true;
-        alV = activity;
+        ana = true;
+        amY = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        alW.add(arrayList);
-        int size = alW.size();
+        amZ.add(arrayList);
+        int size = amZ.size();
         if (size >= 2) {
-            List list = alW.get(size - 2);
-            if (list.size() == 3 && ((Date) alW.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
-                aS++;
+            List list = amZ.get(size - 2);
+            if (list.size() == 3 && ((Date) amZ.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
+                anc++;
             }
         } else {
-            aS++;
+            anc++;
         }
-        alZ = (alZ + 1) % 100;
+        aT = (aT + 1) % 100;
     }
 
     @SuppressLint({"NewApi"})
     public static void a(Application application) {
         if (aQ) {
             aQ = false;
-            alY = System.currentTimeMillis();
+            anb = System.currentTimeMillis();
             if (Build.VERSION.SDK_INT >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
             }
@@ -54,21 +54,21 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity) {
-        if (alV != null && activity != null && alV.hashCode() == activity.hashCode()) {
-            alV = null;
+        if (amY != null && activity != null && amY.hashCode() == activity.hashCode()) {
+            amY = null;
         }
-        int i = alZ - ama;
-        int size = alW.size();
+        int i = aT - and;
+        int size = amZ.size();
         if (i < 0) {
             i += 100;
         }
         if (i > 0 && size >= i) {
-            List list = alW.get(size - i);
+            List list = amZ.get(size - i);
             if (list.size() == 2) {
                 list.add(new Date());
             }
         }
-        ama = (ama + 1) % 100;
+        and = (and + 1) % 100;
     }
 
     public static void doActivityStart(Activity activity) {
@@ -84,14 +84,14 @@ public final class a {
     }
 
     public static long p() {
-        return alY;
+        return anb;
     }
 
     public static String q() {
         StringBuilder sb = new StringBuilder();
-        int size = alW.size();
+        int size = amZ.size();
         for (int i = 0; i < size; i++) {
-            List list = alW.get((size - i) - 1);
+            List list = amZ.get((size - i) - 1);
             if (list.size() == 3) {
                 sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.a((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.a((Date) list.get(2))).append("\n");
             } else if (list.size() == 2) {
@@ -102,30 +102,30 @@ public final class a {
     }
 
     public static String r() {
-        if (alV == null) {
-            com.baidu.crabsdk.c.a.dh("cur Page info is null!");
+        if (amY == null) {
+            com.baidu.crabsdk.c.a.ds("cur Page info is null!");
             return "N/A";
         }
-        return alV.getClass().getName();
+        return amY.getClass().getName();
     }
 
-    public static byte[] tg() {
-        if (alV == null) {
+    public static byte[] uO() {
+        if (amY == null) {
             return new byte[0];
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            View decorView = alV.getWindow().getDecorView();
+            View decorView = amY.getWindow().getDecorView();
             decorView.setDrawingCacheEnabled(true);
             Bitmap drawingCache = decorView.getDrawingCache();
             if (drawingCache != null) {
                 drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
             } else {
-                com.baidu.crabsdk.c.a.dh("getScreenshot failed, curActivity " + alV.getClass().getName());
+                com.baidu.crabsdk.c.a.ds("getScreenshot failed, curActivity " + amY.getClass().getName());
             }
             decorView.setDrawingCacheEnabled(false);
         } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.a("getScreenshot failed, curActivity " + alV.getClass().getName(), e);
+            com.baidu.crabsdk.c.a.a("getScreenshot failed, curActivity " + amY.getClass().getName(), e);
         }
         return byteArrayOutputStream.toByteArray();
     }

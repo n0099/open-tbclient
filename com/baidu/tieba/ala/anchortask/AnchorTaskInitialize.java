@@ -8,13 +8,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.b.a;
 import com.baidu.live.b.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AnchorTaskInitialize {
     static {
-        bye();
+        bHd();
     }
 
-    private static void bye() {
+    private static void bHd() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913139, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.anchortask.AnchorTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<a> run(CustomMessage<Context> customMessage) {

@@ -11,20 +11,20 @@ import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.u.c.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends c<a> {
         @Override // com.baidu.swan.apps.u.c.c, com.baidu.swan.apps.u.c.a.c
-        public /* synthetic */ com.baidu.swan.apps.u.c.a.c F(Bundle bundle) {
-            return super.F(bundle);
+        public /* synthetic */ com.baidu.swan.apps.u.c.a.c D(Bundle bundle) {
+            return super.D(bundle);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.aq.e.d
-        /* renamed from: ajd */
-        public a ajc() {
+        @Override // com.baidu.swan.apps.ap.e.d
+        /* renamed from: aqK */
+        public a aqJ() {
             return this;
         }
     }
@@ -43,26 +43,26 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         return intent;
     }
 
-    public static c G(Bundle bundle) {
+    public static c E(Bundle bundle) {
         a aVar = new a();
-        aVar.F(bundle);
+        aVar.D(bundle);
         return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.a.c
-    /* renamed from: H */
-    public SelfT F(Bundle bundle) {
-        com.baidu.swan.apps.console.debugger.b.p(bundle);
-        return (SelfT) super.F(bundle);
+    /* renamed from: F */
+    public SelfT D(Bundle bundle) {
+        com.baidu.swan.apps.console.debugger.b.n(bundle);
+        return (SelfT) super.D(bundle);
     }
 
     @Override // com.baidu.swan.apps.u.c.a.c
     public String toString() {
-        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + ajg() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + ajl() + ", clickId='" + ajn() + "', launchScheme='" + aji() + "', notInHistory='" + ajo() + "'}";
+        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + aqN() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + aqS() + ", clickId='" + aqU() + "', launchScheme='" + aqP() + "', notInHistory='" + aqV() + "'}";
     }
 
-    public static String c(String str, String str2, int i) {
+    public static String e(String str, String str2, int i) {
         String str3;
         if (i == 1) {
             str3 = "swangame";

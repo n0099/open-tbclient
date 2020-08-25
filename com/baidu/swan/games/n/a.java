@@ -3,169 +3,169 @@ package com.baidu.swan.games.n;
 import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private com.baidu.swan.games.f.b deo;
-    private b dgc;
-    private com.baidu.swan.games.binding.model.c djY;
-    private com.baidu.swan.games.binding.model.c djZ;
-    private com.baidu.swan.games.binding.model.c dka;
-    private c dkb;
-    private com.baidu.swan.games.n.b.b dkc;
-    private com.baidu.swan.games.n.b.a dkd;
-    private com.baidu.swan.games.n.b.a dke;
-    private InterfaceC0450a dkf = new InterfaceC0450a() { // from class: com.baidu.swan.games.n.a.1
-        @Override // com.baidu.swan.games.n.a.InterfaceC0450a
-        public void iV(int i) {
+    private com.baidu.swan.games.f.b dox;
+    private b dql;
+    private com.baidu.swan.games.binding.model.c dug;
+    private com.baidu.swan.games.binding.model.c duh;
+    private com.baidu.swan.games.binding.model.c dui;
+    private c duj;
+    private com.baidu.swan.games.n.b.b duk;
+    private com.baidu.swan.games.n.b.a dul;
+    private com.baidu.swan.games.n.b.a dum;
+    private InterfaceC0498a dun = new InterfaceC0498a() { // from class: com.baidu.swan.games.n.a.1
+        @Override // com.baidu.swan.games.n.a.InterfaceC0498a
+        public void le(int i) {
             com.baidu.swan.games.n.b.b bVar = new com.baidu.swan.games.n.b.b();
             bVar.errMsg = "showKeyboard:ok";
             bVar.height = i;
-            com.baidu.swan.games.utils.b.a(a.this.djY, true, bVar);
+            com.baidu.swan.games.utils.b.a(a.this.dug, true, bVar);
         }
 
-        @Override // com.baidu.swan.games.n.a.InterfaceC0450a
-        public void aFF() {
+        @Override // com.baidu.swan.games.n.a.InterfaceC0498a
+        public void aOw() {
             a.this.hideKeyboard();
         }
 
-        @Override // com.baidu.swan.games.n.a.InterfaceC0450a
-        public void tf(String str) {
-            if (a.this.dgc != null) {
-                a.this.dgc.ti(str);
+        @Override // com.baidu.swan.games.n.a.InterfaceC0498a
+        public void vv(String str) {
+            if (a.this.dql != null) {
+                a.this.dql.vy(str);
             }
         }
 
-        @Override // com.baidu.swan.games.n.a.InterfaceC0450a
-        public void tg(String str) {
-            if (a.this.dgc != null) {
-                a.this.dgc.tj(str);
+        @Override // com.baidu.swan.games.n.a.InterfaceC0498a
+        public void vw(String str) {
+            if (a.this.dql != null) {
+                a.this.dql.vz(str);
             }
         }
 
-        @Override // com.baidu.swan.games.n.a.InterfaceC0450a
-        public void th(String str) {
-            if (a.this.dgc != null) {
-                a.this.dgc.tk(str);
+        @Override // com.baidu.swan.games.n.a.InterfaceC0498a
+        public void vx(String str) {
+            if (a.this.dql != null) {
+                a.this.dql.vA(str);
             }
         }
     };
     private Context mContext = AppRuntime.getAppContext();
-    private com.baidu.swan.games.view.b.a djX = new com.baidu.swan.games.view.b.a(this.mContext);
+    private com.baidu.swan.games.view.b.a duf = new com.baidu.swan.games.view.b.a(this.mContext);
 
     /* renamed from: com.baidu.swan.games.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0450a {
-        void aFF();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0498a {
+        void aOw();
 
-        void iV(int i);
+        void le(int i);
 
-        void tf(String str);
+        void vv(String str);
 
-        void tg(String str);
+        void vw(String str);
 
-        void th(String str);
+        void vx(String str);
     }
 
     public a(com.baidu.swan.games.f.b bVar, b bVar2) {
-        this.dgc = null;
-        this.deo = bVar;
-        this.djX.a(this.dkf);
-        this.dgc = bVar2;
+        this.dql = null;
+        this.dox = bVar;
+        this.duf.a(this.dun);
+        this.dql = bVar2;
     }
 
     public void showKeyboard(JsObject jsObject) {
-        this.dkc = new com.baidu.swan.games.n.b.b();
-        this.djY = com.baidu.swan.games.binding.model.c.e(jsObject);
-        if (this.djY == null) {
-            this.djY = new com.baidu.swan.games.binding.model.c();
+        this.duk = new com.baidu.swan.games.n.b.b();
+        this.dug = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (this.dug == null) {
+            this.dug = new com.baidu.swan.games.binding.model.c();
         }
-        if (this.deo == null || this.djX == null || this.djX.aHX()) {
-            this.dkc.errMsg = "showKeyboard:fail";
-            com.baidu.swan.games.utils.b.a(this.djY, false, this.dkc);
+        if (this.dox == null || this.duf == null || this.duf.aQN()) {
+            this.duk.errMsg = "showKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.dug, false, this.duk);
             return;
         }
-        this.dkb = new c();
+        this.duj = new c();
         try {
-            if (this.dkb.h(this.djY)) {
-                al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.2
+            if (this.duj.h(this.dug)) {
+                ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!com.baidu.swan.games.view.b.b.aHY().f(a.this.djX)) {
-                            a.this.dkc.errMsg = "showKeyboard:fail";
-                            com.baidu.swan.games.utils.b.a(a.this.djY, false, a.this.dkc);
+                        if (!com.baidu.swan.games.view.b.b.aQO().f(a.this.duf)) {
+                            a.this.duk.errMsg = "showKeyboard:fail";
+                            com.baidu.swan.games.utils.b.a(a.this.dug, false, a.this.duk);
                             return;
                         }
-                        a.this.djX.a(a.this.dkb);
+                        a.this.duf.a(a.this.duj);
                     }
                 }, 500L);
             } else {
-                this.dkc.errMsg = "showKeyboard:fail";
-                com.baidu.swan.games.utils.b.a(this.djY, false, this.dkc);
+                this.duk.errMsg = "showKeyboard:fail";
+                com.baidu.swan.games.utils.b.a(this.dug, false, this.duk);
             }
         } catch (JSTypeMismatchException e) {
-            this.dkc.errMsg = "showKeyboard:fail";
-            com.baidu.swan.games.utils.b.a(this.djY, false, this.dkc);
+            this.duk.errMsg = "showKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.dug, false, this.duk);
         }
     }
 
     public void hideKeyboard(JsObject jsObject) {
-        this.dkd = new com.baidu.swan.games.n.b.a();
-        this.djZ = com.baidu.swan.games.binding.model.c.e(jsObject);
-        if (this.djZ == null) {
-            this.djZ = new com.baidu.swan.games.binding.model.c();
+        this.dul = new com.baidu.swan.games.n.b.a();
+        this.duh = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (this.duh == null) {
+            this.duh = new com.baidu.swan.games.binding.model.c();
         }
-        if (this.deo == null || this.djX == null || !this.djX.aHX()) {
-            this.dkd.errMsg = "hideKeyboard:fail";
-            com.baidu.swan.games.utils.b.a(this.djZ, false, this.dkd);
+        if (this.dox == null || this.duf == null || !this.duf.aQN()) {
+            this.dul.errMsg = "hideKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.duh, false, this.dul);
             return;
         }
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.3
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.games.view.b.b.aHY().g(a.this.djX)) {
-                    a.this.dkd.errMsg = "hideKeyboard:ok";
-                    com.baidu.swan.games.utils.b.a(a.this.djZ, true, a.this.dkd);
+                if (com.baidu.swan.games.view.b.b.aQO().g(a.this.duf)) {
+                    a.this.dul.errMsg = "hideKeyboard:ok";
+                    com.baidu.swan.games.utils.b.a(a.this.duh, true, a.this.dul);
                     return;
                 }
-                a.this.dkd.errMsg = "hideKeyboard:fail";
-                com.baidu.swan.games.utils.b.a(a.this.djZ, false, a.this.dkd);
+                a.this.dul.errMsg = "hideKeyboard:fail";
+                com.baidu.swan.games.utils.b.a(a.this.duh, false, a.this.dul);
             }
         });
     }
 
     public void hideKeyboard() {
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.4
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.4
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.games.view.b.b.aHY().g(a.this.djX);
+                com.baidu.swan.games.view.b.b.aQO().g(a.this.duf);
             }
         });
     }
 
     public void updateKeyboard(JsObject jsObject) {
-        this.dke = new com.baidu.swan.games.n.b.a();
-        this.dka = com.baidu.swan.games.binding.model.c.e(jsObject);
-        if (this.dka == null) {
-            this.dka = new com.baidu.swan.games.binding.model.c();
+        this.dum = new com.baidu.swan.games.n.b.a();
+        this.dui = com.baidu.swan.games.binding.model.c.e(jsObject);
+        if (this.dui == null) {
+            this.dui = new com.baidu.swan.games.binding.model.c();
         }
-        if (this.deo == null || this.djX == null) {
-            this.dke.errMsg = "updateKeyboard:fail";
-            com.baidu.swan.games.utils.b.a(this.dka, false, this.dke);
+        if (this.dox == null || this.duf == null) {
+            this.dum.errMsg = "updateKeyboard:fail";
+            com.baidu.swan.games.utils.b.a(this.dui, false, this.dum);
             return;
         }
-        final String optString = this.dka.optString("value");
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.5
+        final String optString = this.dui.optString("value");
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.djX.tV(optString)) {
-                    a.this.dke.errMsg = "updateKeyboard:ok";
-                    com.baidu.swan.games.utils.b.a(a.this.dka, true, a.this.dke);
+                if (a.this.duf.wl(optString)) {
+                    a.this.dum.errMsg = "updateKeyboard:ok";
+                    com.baidu.swan.games.utils.b.a(a.this.dui, true, a.this.dum);
                     return;
                 }
-                a.this.dke.errMsg = "updateKeyboard:fail";
-                com.baidu.swan.games.utils.b.a(a.this.dka, false, a.this.dke);
+                a.this.dum.errMsg = "updateKeyboard:fail";
+                com.baidu.swan.games.utils.b.a(a.this.dui, false, a.this.dum);
             }
         });
     }

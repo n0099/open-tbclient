@@ -9,19 +9,19 @@ import com.baidu.swan.games.bdtls.model.h;
 import com.baidu.swan.games.bdtls.model.i;
 import com.baidu.swan.games.bdtls.model.j;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private static volatile d dfa;
+    private static volatile d dpj;
 
-    public static d aCx() {
-        if (dfa == null) {
+    public static d aLm() {
+        if (dpj == null) {
             synchronized (d.class) {
-                if (dfa == null) {
-                    dfa = new d();
+                if (dpj == null) {
+                    dpj = new d();
                 }
             }
         }
-        return dfa;
+        return dpj;
     }
 
     private d() {
@@ -34,11 +34,11 @@ public class d {
         try {
             byte[] a = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a != null) {
-                h aDv = h.dfu.aDv();
-                aDv.c((byte) 22);
-                aDv.c((short) a.length);
-                aDv.S(a);
-                return com.baidu.swan.games.bdtls.a.b.a(aDv);
+                h aMk = h.dpD.aMk();
+                aMk.c((byte) 22);
+                aMk.c((short) a.length);
+                aMk.T(a);
+                return com.baidu.swan.games.bdtls.a.b.a(aMk);
             }
             return null;
         } catch (Exception e) {
@@ -56,19 +56,19 @@ public class d {
             return null;
         }
         try {
-            h aDv = h.dfu.aDv();
-            aDv.c((byte) 23);
-            byte[] aDH = jVar.aDH();
-            if (aDH != null && aDH.length > 0 && aDH.length <= 32767) {
-                aDv.c((short) aDH.length);
-                aDv.S(aDH);
+            h aMk = h.dpD.aMk();
+            aMk.c((byte) 23);
+            byte[] aMw = jVar.aMw();
+            if (aMw != null && aMw.length > 0 && aMw.length <= 32767) {
+                aMk.c((short) aMw.length);
+                aMk.T(aMw);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] f = AES.f(str, jVar.aDG());
-                aDv.iO(f.length);
-                aDv.setContent(f);
+                byte[] f = AES.f(str, jVar.aMv());
+                aMk.kX(f.length);
+                aMk.setContent(f);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(aDv);
+            return com.baidu.swan.games.bdtls.a.b.a(aMk);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -82,10 +82,10 @@ public class d {
     public i a(j jVar, byte[] bArr) {
         i iVar = new i();
         try {
-            h W = com.baidu.swan.games.bdtls.a.b.W(bArr);
-            switch (W.aDq()) {
+            h X = com.baidu.swan.games.bdtls.a.b.X(bArr);
+            switch (X.aMf()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(W.aDu());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(X.aMj());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
                         if (a.DEBUG) {
@@ -93,11 +93,11 @@ public class d {
                         }
                         f.a(jVar, parseFrom);
                         if (1 == parseFrom.getLevel()) {
-                            iVar.c(-2);
+                            iVar.d(-2);
                         } else if (TextUtils.equals(str, "down grade")) {
-                            iVar.c(2);
+                            iVar.d(2);
                         } else {
-                            iVar.c(-1);
+                            iVar.d(-1);
                         }
                         if (a.DEBUG) {
                             if (parseFrom.getDescription() != null) {
@@ -111,13 +111,13 @@ public class d {
                             }
                         }
                     } else {
-                        iVar.c(-1);
+                        iVar.d(-1);
                         break;
                     }
                     break;
                 case 23:
-                    iVar.sp(new String(AES.d(W.getContent(), jVar.aDG())));
-                    iVar.c(1);
+                    iVar.uH(new String(AES.d(X.getContent(), jVar.aMv())));
+                    iVar.d(1);
                     break;
             }
         } catch (Exception e) {
@@ -125,16 +125,16 @@ public class d {
                 e.printStackTrace();
                 Log.d("BDTLS", "exception=" + e.getMessage());
             }
-            iVar.c(-1);
+            iVar.d(-1);
         }
         return iVar;
     }
 
-    public static byte[] iJ(int i) {
+    public static byte[] kS(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
     }
 
-    public static int O(byte[] bArr) {
+    public static int P(byte[] bArr) {
         if (bArr != null) {
             int i = 0;
             for (byte b : bArr) {
@@ -147,7 +147,7 @@ public class d {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: char */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String P(byte[] bArr) {
+    public static String Q(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < bArr.length; i++) {
             sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);

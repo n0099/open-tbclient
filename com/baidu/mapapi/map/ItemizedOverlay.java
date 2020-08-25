@@ -1,12 +1,12 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ItemizedOverlay extends Overlay {
     MapView a;
 
     public ItemizedOverlay(Drawable drawable, MapView mapView) {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.marker;
+        this.type = com.baidu.mapsdkplatform.comapi.map.i.marker;
         this.a = mapView;
     }
 

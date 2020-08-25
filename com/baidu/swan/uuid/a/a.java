@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes3.dex */
 public class a implements b<String> {
     private Context mContext;
 
@@ -18,32 +18,32 @@ public class a implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        vn(str);
+        xy(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: awA */
+    /* renamed from: aEK */
     public String get() {
-        return aOd();
+        return aWB();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean aOc() {
+    public boolean aWA() {
         return (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.READ_EXTERNAL_STORAGE") && new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists()) ? false : true;
     }
 
-    private void vn(String str) {
+    private void xy(String str) {
         if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             com.baidu.swan.uuid.b.a.saveFile(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
         }
     }
 
-    private String aOd() {
+    private String aWB() {
         if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.READ_EXTERNAL_STORAGE")) {
             File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
             if (file.exists()) {
-                return com.baidu.swan.uuid.b.a.p(file);
+                return com.baidu.swan.uuid.b.a.q(file);
             }
             return null;
         }

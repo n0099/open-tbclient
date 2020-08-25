@@ -2,11 +2,12 @@ package com.baidu.afd;
 
 import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static e j(JSONObject jSONObject, String str) throws ParseError {
@@ -20,7 +21,7 @@ public class f {
         if (optJSONObject == null) {
             throw new ParseError(1, "root missing key res");
         }
-        JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+        JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONArray == null || optJSONArray.length() == 0) {
             throw new ParseError(1, "res missing key ad");
         }
@@ -78,7 +79,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no extraParam info");
             }
             if (z) {
-                return a.K(str2, str);
+                return a.M(str2, str);
             }
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
             if (optJSONArray3 == null || optJSONArray3.length() == 0) {
@@ -98,8 +99,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Xz = z;
-                eVar.XA = com.baidu.tieba.lego.card.b.IK(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Yf = z;
+                eVar.Yg = com.baidu.tieba.lego.card.b.LC(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

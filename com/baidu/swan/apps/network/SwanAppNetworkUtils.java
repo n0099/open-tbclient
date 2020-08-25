@@ -6,20 +6,24 @@ import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import java.util.Iterator;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppNetworkUtils {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void onResult(int i);
+    }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
         boolean z;
@@ -57,7 +61,7 @@ public class SwanAppNetworkUtils {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(networkClass, NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED)) {
+                if (TextUtils.equals(networkClass, "no")) {
                     networkClass = "none";
                 }
                 jSONObject.put("networkType", networkClass);
@@ -133,7 +137,7 @@ public class SwanAppNetworkUtils {
     public static String getNetworkClass() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
+            return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
             return "wifi";
@@ -144,7 +148,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType amW() {
+    public static NetType auT() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -173,7 +177,7 @@ public class SwanAppNetworkUtils {
                 }
                 break;
             case 3521:
-                if (networkClass.equals(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED)) {
+                if (networkClass.equals("no")) {
                     c = 4;
                     break;
                 }
@@ -201,9 +205,9 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum NetType {
-        NONE(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED),
+        NONE("no"),
         WIFI("wifi"),
         _2G("2g"),
         _3G("3g"),
@@ -218,12 +222,12 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String amX() {
-        String qJ = al.qJ(com.baidu.swan.apps.core.turbo.d.adw().adT());
-        if (TextUtils.isEmpty(qJ)) {
+    public static String auU() {
+        String sL = ak.sL(com.baidu.swan.apps.core.turbo.d.ajS().akq());
+        if (TextUtils.isEmpty(sL)) {
             return "";
         }
-        return qJ;
+        return sL;
     }
 
     public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
@@ -231,12 +235,12 @@ public class SwanAppNetworkUtils {
             Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.b.c.a.aKu().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.ahH().Us()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.aSW().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.apj().aau()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 
-    public static void h(final Runnable runnable) {
-        com.baidu.swan.apps.process.messaging.client.a.apG().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
+    public static void a(@NonNull final a aVar) {
+        com.baidu.swan.apps.process.messaging.client.a.axC().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -244,8 +248,8 @@ public class SwanAppNetworkUtils {
                 if (bVar.getResult() != null) {
                     i = bVar.getResult().getInt("net_quality");
                 }
-                if (i == 2) {
-                    runnable.run();
+                if (a.this != null) {
+                    a.this.onResult(i);
                 }
             }
         });

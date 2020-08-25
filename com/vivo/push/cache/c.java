@@ -13,7 +13,7 @@ import java.util.Set;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class c<T> {
     protected static final String TAG = "IAppManager";
     protected Context mContext;
@@ -132,8 +132,8 @@ public abstract class c<T> {
             String a = g.a(CRPYT_IV_BYTE);
             String a2 = g.a(CRPYT_KEY_BYTE);
             byte[] bytes = appStr.getBytes("utf-8");
-            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), com.baidu.sapi2.utils.h.q);
-            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.h.p);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), com.baidu.sapi2.utils.e.q);
+            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.e.p);
             cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes("utf-8")));
             String encodeToString = Base64.encodeToString(cipher.doFinal(bytes), 2);
             if (!TextUtils.isEmpty(encodeToString) && encodeToString.length() > MAX_CLIENT_SAVE_LENGTH) {

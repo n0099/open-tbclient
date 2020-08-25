@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class StickerSpan extends DynamicDrawableSpan {
     private Uri mContentUri;
     private Context mContext;
@@ -21,7 +21,7 @@ public class StickerSpan extends DynamicDrawableSpan {
     private int mResourceId;
     private String mSource;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface DrawableLoader {
         Drawable getDrawableFromUI(StickerSpan stickerSpan);
     }

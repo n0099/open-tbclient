@@ -1,107 +1,269 @@
 package com.baidu.tbadk.coreExtra.model;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes2.dex */
 public class f {
-    private static String eth;
-    private static Map<String, String> eti;
-    private static boolean etj;
-    private static int etk;
-    private static int etl;
-    private static boolean etm;
-    private static String etn;
-    private static Map<String, String> eto;
-    private static int etp;
-    private static int etq;
-    private static boolean etr;
-    private static boolean etd = false;
-    private static boolean ete = false;
-    private static int etf = 8;
-    private static int etg = 16;
-    private static boolean isInit = false;
+    private String groupMsgName;
+    private String groupUpdatesEventContent;
+    private String groupUpdatesEventTitle;
+    private String groupUpdatesName;
+    private String groupValidateName;
+    private String latestSummaryGroupMessage;
+    private String latestSummaryGroupUpdates;
+    private String latestSummaryPrivateMessage;
+    private String latestSummaryValidate;
+    private String privateMsgUserName;
+    private int unReadGroupMessageCount = 0;
+    private int unReadGroupMessagePreCount = 0;
+    private int unReadGroupMessageNotNotifyCount = 0;
+    private int unReadGroupUpdatesCount = 0;
+    private int unReadGroupUpdatesEventCount = 0;
+    private int unReadGroupUpdatesPreCount = 0;
+    private int unReadGroupValidateCount = 0;
+    private int unReadGroupValidatePreCount = 0;
+    private int unReadPrivateMessageCount = 0;
+    private int unReadPrivateMessagePreCount = 0;
+    private int unReadOfficialMessageCount = 0;
+    private int unReadOfficialMessagePreCount = 0;
+    private int unReadStrangerMsgCount = 0;
+    private int unReadOfficialMergeCount = 0;
+    private int unReadStrangerMergeCount = 0;
+    private int unReadOfficialAccountCount = 0;
+    private boolean isShowInNotifyBar = true;
+    private boolean isTipMsg = true;
+    private HashMap<String, String> groupGidName = new HashMap<>();
+    private HashMap<String, String> privateGidName = new HashMap<>();
+    private List<a> officialNotificationData = new ArrayList();
 
-    public static void parserJson(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null) {
-            isInit = true;
-            etj = jSONObject.optInt("switch", 1) != 0;
-            com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, etj);
-            etk = jSONObject.optInt("upload_type", 0);
-            com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, etk);
-            etl = jSONObject.optInt("upload_number", 5);
-            com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, etl);
-            etp = jSONObject.optInt("prepare_max_wait_time", 10000);
-            com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_WAIT_TIME, etp);
-            etq = jSONObject.optInt("prepare_max_loading_time", 3000);
-            com.baidu.tbadk.core.sharedPref.b.aZP().putInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_LOADING_TIME, etq);
-            etr = jSONObject.optInt("is_open_prepare_time", 0) == 1;
-            com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SharedPrefConfig.KEY_REPORT_IS_OPEN_PREPARE_TIME, etr);
-            etm = jSONObject.optInt("moov_check", 0) != 0;
-            com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SharedPrefConfig.KEY_REPORT_PLAY_MOOV_CHECK, etm);
-            etn = jSONObject.optString("android_debug_type");
-            if (!StringUtils.isNull(etn)) {
-                com.baidu.tbadk.core.sharedPref.b.aZP().putString(SharedPrefConfig.KEY_REPORT_PLAY_DEBUG_TYPE, etn);
-                yQ(etn);
-            }
-            eth = jSONObject.optString("step_cache_strategy");
-            if (!StringUtils.isNull(eth)) {
-                com.baidu.tbadk.core.sharedPref.b.aZP().putString(SharedPrefConfig.KEY_STEP_CHACHE_STRATEGY, eth);
-                yR(eth);
-            }
+    /* loaded from: classes2.dex */
+    public static class a {
+        public String content;
+        public String gName;
+        public String gid;
+        public String isShow;
+        public String tickerText;
+        public String title;
+        public int unReadCount;
+        public int unReadPreCount;
+        public int userType;
+    }
+
+    public void setLastMsgGroupName() {
+        HashMap<String, String> groupGidName = getGroupGidName();
+        Set<String> keySet = groupGidName.keySet();
+        if (keySet.size() != 1) {
+            setGroupMsgName(null);
+        } else {
+            setGroupMsgName(groupGidName.get(keySet.iterator().next()));
         }
     }
 
-    private static void yQ(String str) {
-        if (!StringUtils.isNull(str)) {
-            if (eto == null) {
-                eto = new HashMap();
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                eto.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
-                eto.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
-                eto.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    public void setLastPrivateMsgUserName() {
+        HashMap<String, String> privateGidName = getPrivateGidName();
+        Set<String> keySet = privateGidName.keySet();
+        if (keySet.size() != 1) {
+            setPrivateMsgUserName(null);
+        } else {
+            setPrivateMsgUserName(privateGidName.get(keySet.iterator().next()));
         }
     }
 
-    private static void yR(String str) {
-        if (!StringUtils.isNull(str)) {
-            if (eti == null) {
-                eti = new HashMap();
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                eti.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
-                eti.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
-                eti.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
-                eti.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
-                eti.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+    public int getUnReadGroupMessage() {
+        return this.unReadGroupMessageCount;
     }
 
-    public static boolean bgD() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, true) : etj;
+    public void setUnReadGroupMessage(int i) {
+        this.unReadGroupMessageCount = i;
     }
 
-    public static int getReportType() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, 0) : etk;
+    public int getUnReadGroupUpdates() {
+        return this.unReadGroupUpdatesCount;
     }
 
-    public static int bgE() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, 5) : etl;
+    public void setUnReadGroupUpdates(int i) {
+        this.unReadGroupUpdatesCount = i;
     }
 
-    public static boolean bgF() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.KEY_REPORT_PLAY_MOOV_CHECK, false) : etm;
+    public int getUnReadGroupUpdatesEventCount() {
+        return this.unReadGroupUpdatesEventCount;
+    }
+
+    public int getUnReadGroupValidate() {
+        return this.unReadGroupValidateCount;
+    }
+
+    public void setUnReadGroupValidate(int i) {
+        this.unReadGroupValidateCount = i;
+    }
+
+    public int getUnReadOfficialMessageCount() {
+        return this.unReadOfficialMessageCount;
+    }
+
+    public void setUnReadOfficialMessageCount(int i) {
+        this.unReadOfficialMessageCount = i;
+    }
+
+    public int getUnReadPrivateMessagePreCount() {
+        return this.unReadPrivateMessagePreCount;
+    }
+
+    public void setUnReadPrivateMessagePreCount(int i) {
+        this.unReadPrivateMessagePreCount = i;
+    }
+
+    public int getUnReadGroupMessageCount() {
+        return this.unReadGroupMessageCount;
+    }
+
+    public int getUnReadGroupMessageNotNotify() {
+        return this.unReadGroupMessageNotNotifyCount;
+    }
+
+    public void setUnReadGroupMessageNotNotify(int i) {
+        this.unReadGroupMessageNotNotifyCount = i;
+    }
+
+    public boolean isShowInNotifyBar() {
+        return this.isShowInNotifyBar;
+    }
+
+    public void setShowInNotifyBar(boolean z) {
+        this.isShowInNotifyBar = z;
+    }
+
+    public String getLatestSummary() {
+        return this.latestSummaryGroupMessage;
+    }
+
+    public void setLatestSummary(String str) {
+        this.latestSummaryGroupMessage = str;
+    }
+
+    public String getGroupMsgName() {
+        return this.groupMsgName;
+    }
+
+    public void setGroupMsgName(String str) {
+        this.groupMsgName = str;
+    }
+
+    public void setGroupValidateName(String str) {
+        this.groupValidateName = str;
+    }
+
+    public int getUnReadGroupMessagePreCount() {
+        return this.unReadGroupMessagePreCount;
+    }
+
+    public void setUnReadGroupMessagePreCount(int i) {
+        this.unReadGroupMessagePreCount = i;
+    }
+
+    public void setGroupUpdatesName(String str) {
+        this.groupUpdatesName = str;
+    }
+
+    public String getGroupUpdatesEventTitle() {
+        return this.groupUpdatesEventTitle;
+    }
+
+    public String getGroupUpdatesEventContent() {
+        return this.groupUpdatesEventContent;
+    }
+
+    public HashMap<String, String> getGroupGidName() {
+        return this.groupGidName;
+    }
+
+    public int getUnReadGroupUpdatesPre() {
+        return this.unReadGroupUpdatesPreCount;
+    }
+
+    public void setUnReadGroupUpdatesPre(int i) {
+        this.unReadGroupUpdatesPreCount = i;
+    }
+
+    public int getUnReadGroupValidatePre() {
+        return this.unReadGroupValidatePreCount;
+    }
+
+    public void setUnReadGroupValidatePre(int i) {
+        this.unReadGroupValidatePreCount = i;
+    }
+
+    public int getUnReadOfficialMessagePreCount() {
+        return this.unReadOfficialMessagePreCount;
+    }
+
+    public void setUnReadOfficialMessagePreCount(int i) {
+        this.unReadOfficialMessagePreCount = i;
+    }
+
+    public void setLatestSummaryGroupUpdates(String str) {
+        this.latestSummaryGroupUpdates = str;
+    }
+
+    public void setLatestSummaryValidate(String str) {
+        this.latestSummaryValidate = str;
+    }
+
+    public int getUnReadPrivateMessageCount() {
+        return this.unReadPrivateMessageCount;
+    }
+
+    public void setUnReadPrivateMessageCount(int i) {
+        this.unReadPrivateMessageCount = i;
+    }
+
+    public String getLatestSummaryPrivateMessage() {
+        return this.latestSummaryPrivateMessage;
+    }
+
+    public void setLatestSummaryPrivateMessage(String str) {
+        this.latestSummaryPrivateMessage = str;
+    }
+
+    public HashMap<String, String> getPrivateGidName() {
+        return this.privateGidName;
+    }
+
+    public String getPrivateMsgUserName() {
+        return this.privateMsgUserName;
+    }
+
+    public void setPrivateMsgUserName(String str) {
+        this.privateMsgUserName = str;
+    }
+
+    public int getUnReadOfficialMergeCount() {
+        return this.unReadOfficialMergeCount;
+    }
+
+    public void setUnReadOfficialMergeCount(int i) {
+        this.unReadOfficialMergeCount = i;
+    }
+
+    public int getUnReadStrangerMergeCount() {
+        return this.unReadStrangerMergeCount;
+    }
+
+    public void setUnReadStrangerMergeCount(int i) {
+        this.unReadStrangerMergeCount = i;
+    }
+
+    public List<a> getOfficialNotificationListData() {
+        return this.officialNotificationData;
+    }
+
+    public int getUnReadOfficialAccountCount() {
+        return this.unReadOfficialAccountCount;
+    }
+
+    public void setUnReadOfficialAccountCount(int i) {
+        this.unReadOfficialAccountCount = i;
     }
 }

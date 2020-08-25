@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
-import com.baidu.g.a.a;
+import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -17,7 +17,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.sapi2.utils.j;
+import com.baidu.sapi2.utils.f;
 import com.baidu.tbadk.coreExtra.data.i;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
@@ -30,7 +30,7 @@ import java.util.List;
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
-    private SapiResult kdF = new SapiResult();
+    private SapiResult ktb = new SapiResult();
     private String tpl;
     private int type;
 
@@ -40,14 +40,14 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.cJv();
+            PassManagerStatic.cUl();
             init();
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.kdF.setResultCode(-202);
-            this.kdF.setResultMsg("网络连接失败，请检查网络设置");
-            t(false, null);
+            this.ktb.setResultCode(-202);
+            this.ktb.setResultMsg("网络连接失败，请检查网络设置");
+            u(false, null);
         }
     }
 
@@ -60,22 +60,22 @@ public class AuthActivity extends BaseActivity {
             this.authToken = getIntent().getStringExtra("EXTRA_AUTH_TOKEN");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.authToken) || TextUtils.isEmpty(this.tpl)) {
-                this.kdF.setResultCode(-204);
-                this.kdF.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
-                t(false, null);
+                this.ktb.setResultCode(-204);
+                this.ktb.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                u(false, null);
             }
         } else if (this.type == 1 || this.type == 2) {
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.bduss)) {
-                this.kdF.setResultCode(-204);
-                this.kdF.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
-                t(false, null);
+                this.ktb.setResultCode(-204);
+                this.ktb.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                u(false, null);
             }
         } else {
-            this.kdF.setResultCode(-204);
-            this.kdF.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
-            t(false, null);
+            this.ktb.setResultCode(-204);
+            this.ktb.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+            u(false, null);
         }
     }
 
@@ -83,7 +83,7 @@ public class AuthActivity extends BaseActivity {
         return new String(Base64.decode(str.getBytes(), 0));
     }
 
-    private String cJh() {
+    private String cTW() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -91,17 +91,17 @@ public class AuthActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
             arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(j.l) + "?__wp-action" + ETAG.EQUAL + "auth-widget", "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action" + ETAG.EQUAL + "auth-widget", "UTF-8")));
         } catch (UnsupportedEncodingException e) {
             Log.e(e);
         }
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap() + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String getModifyPwdUrl() {
+    private String cTX() {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(j.l) + "?__wp-action" + ETAG.EQUAL + "modify-pwd", "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action" + ETAG.EQUAL + "modify-pwd", "UTF-8")));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -118,7 +118,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> cJi() {
+    private List<PassNameValuePair> cTY() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -155,7 +155,7 @@ public class AuthActivity extends BaseActivity {
                     if (str != null && str.contains("__wp-action=auth-widget")) {
                         String queryParameter = Uri.parse(str).getQueryParameter("authsid");
                         if (!TextUtils.isEmpty(queryParameter)) {
-                            AuthActivity.this.t(true, queryParameter);
+                            AuthActivity.this.u(true, queryParameter);
                         }
                     }
                 }
@@ -164,22 +164,22 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(cJh());
+            this.sapiWebView.loadUrl(cTW());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(getModifyPwdUrl(), cJi());
+            this.sapiWebView.loadUrl(cTX(), cTY());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
-                    AuthActivity.this.t(true, null);
+                    AuthActivity.this.u(true, null);
                 }
             });
         } else if (this.type == 2) {
             setTitleText("绑定手机");
             this.sapiWebView.loadBindWidget(BindWidgetAction.BIND_MOBILE, this.bduss, null, true, null);
         } else {
-            t(false, null);
+            u(false, null);
         }
     }
 
@@ -196,9 +196,9 @@ public class AuthActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.kdF.setResultCode(-301);
-        this.kdF.setResultMsg("流程已结束");
-        t(false, null);
+        this.ktb.setResultCode(-301);
+        this.ktb.setResultMsg("流程已结束");
+        u(false, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -211,15 +211,15 @@ public class AuthActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t(boolean z, String str) {
+    public void u(boolean z, String str) {
         if (this.type == 0) {
-            b.cJA().v(z, str);
+            b.cUq().w(z, str);
         } else if (this.type == 1) {
-            b.cJA().rJ(z);
+            b.cUq().sq(z);
         } else if (this.type == 2) {
-            b.cJA().rK(z);
+            b.cUq().sr(z);
         } else {
-            b.cJA().a((i.c) null);
+            b.cUq().a((i.c) null);
         }
         finish();
     }

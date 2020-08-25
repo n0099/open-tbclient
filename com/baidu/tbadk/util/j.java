@@ -5,13 +5,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j {
-    private static j eKz = new j();
-    private b eKA;
-    private a eKB;
+    private static j eVe = new j();
+    private b eVf;
+    private a eVg;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onResult(boolean z);
     }
@@ -19,18 +19,18 @@ public class j {
     private j() {
     }
 
-    public static j bmC() {
-        return eKz;
+    public static j bvp() {
+        return eVe;
     }
 
     public void a(a aVar) {
-        this.eKB = aVar;
-        if (this.eKA != null) {
-            this.eKA.cancel();
+        this.eVg = aVar;
+        if (this.eVf != null) {
+            this.eVf.cancel();
         }
-        this.eKA = new b();
-        this.eKA.setPriority(4);
-        this.eKA.execute(new String[0]);
+        this.eVf = new b();
+        this.eVf.setPriority(4);
+        this.eVf.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,7 +61,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b extends BdAsyncTask<String, Integer, Boolean> {
         private b() {
         }
@@ -77,8 +77,8 @@ public class j {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (j.this.eKB != null && bool != null) {
-                j.this.eKB.onResult(bool.booleanValue());
+            if (j.this.eVg != null && bool != null) {
+                j.this.eVg.onResult(bool.booleanValue());
             }
         }
     }

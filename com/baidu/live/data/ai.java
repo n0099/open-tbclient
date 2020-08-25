@@ -1,5 +1,6 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ai {
-    public String aCW;
+    public long mTDouScores = 0;
+    public long mPetalTotal = 0;
 }

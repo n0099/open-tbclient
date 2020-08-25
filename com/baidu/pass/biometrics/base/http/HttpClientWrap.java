@@ -32,128 +32,47 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class HttpClientWrap {
-    private static final String KEY_REQID = "reqid";
-    private static final String PARAM_CUID_2 = "cuid_2";
-    private static final String PARAM_ENCODE = "encode";
-    private static final String PARAM_UA = "ua";
-    private static final String SING_SHA1 = "s1";
-    private static final String SP_PARAMETER = "sp_params";
-    private Context context;
-    private PassHttpClient passHttpClient = new PassHttpClient();
+    private static final String a = "encode";
+    private static final String b = "ua";
+    private static final String c = "cuid_2";
+    private static final String d = "reqid";
+    private static final String e = "sp_params";
+    private static final String f = "s1";
+    private PassHttpClient g = new PassHttpClient();
+    private Context h;
 
     public HttpClientWrap(Context context) {
-        this.context = context;
+        this.h = context;
     }
 
-    public void get(String str, HttpHandlerWrap httpHandlerWrap) {
-        get(str, null, null, httpHandlerWrap);
-    }
-
-    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
-        get(str, httpHashMap, list, 0, httpHandlerWrap);
-    }
-
-    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
-        this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onStart() {
-                httpHandlerWrap.onStart();
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFinish() {
-                httpHandlerWrap.onFinish();
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onSuccess(int i2, String str2) {
-                httpHandlerWrap.onSuccess(i2, str2);
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFailure(Throwable th, String str2) {
-                httpHandlerWrap.onFailure(th, -1, str2);
-            }
-        });
-    }
-
-    public void get(String str, BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
-        get(str, (HttpHashMap) null, (List<HttpCookie>) null, 0, binaryHttpHandlerWrap);
-    }
-
-    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
-        this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, list, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onStart() {
-                binaryHttpHandlerWrap.onStart();
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFinish() {
-                binaryHttpHandlerWrap.onFinish();
-            }
-
-            @Override // com.baidu.pass.http.BinaryHttpResponseHandler
-            protected void onSuccess(int i2, byte[] bArr) {
-                binaryHttpHandlerWrap.onSuccess(i2, bArr);
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFailure(Throwable th, String str2) {
-                binaryHttpHandlerWrap.onFailure(th, -1, str2);
-            }
-        });
-    }
-
-    public void post(String str, HttpHashMap httpHashMap, HttpHandlerWrap httpHandlerWrap) {
-        post(str, httpHashMap, null, httpHandlerWrap);
-    }
-
-    public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
-        post(str, httpHashMap, list, 0, httpHandlerWrap);
-    }
-
-    public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
-        this.passHttpClient.post(this.context, buildParamDTO(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onStart() {
-                httpHandlerWrap.onStart();
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFinish() {
-                httpHandlerWrap.onFinish();
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onSuccess(int i2, String str2) {
-                httpHandlerWrap.onSuccess(i2, str2);
-            }
-
-            @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFailure(Throwable th, String str2) {
-                httpHandlerWrap.onFailure(th, -1, str2);
-            }
-        });
-    }
-
-    private PassHttpParamDTO buildParamDTO(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i) {
+    private PassHttpParamDTO a(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i) {
         PassHttpParamDTO passHttpParamDTO = new PassHttpParamDTO();
         passHttpParamDTO.url = str;
         passHttpParamDTO.paramsMap = httpHashMap;
         passHttpParamDTO.cookie = list;
-        passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.context, BeanConstants.tpl);
+        passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.h, BeanConstants.tpl);
         passHttpParamDTO.connectTimeout = i;
         passHttpParamDTO.asyncCookie = true;
         return passHttpParamDTO;
     }
 
-    public void cancelRequest() {
-        if (this.passHttpClient != null) {
-            this.passHttpClient.cancelRequests(true);
+    public static Map<String, String> appendCertification(Context context) {
+        HashMap hashMap = new HashMap();
+        hashMap.put(a, "utf-8");
+        hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
+        hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
+        hashMap.put("appid", BeanConstants.appid);
+        hashMap.put("tpl", BeanConstants.tpl);
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(c, PhoneUtils.getCUID2(context));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
+        hashMap.put("wcp", PassBioDataEncryptor.encryptParams(new String(jSONObject.toString().getBytes())));
+        return hashMap;
     }
 
     public static String calculateSig(Map<String, String> map, String str) {
@@ -172,8 +91,8 @@ public class HttpClientWrap {
                 if (!TextUtils.isEmpty(str4)) {
                     sb.append(str3).append(ETAG.EQUAL).append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
                 }
-            } catch (UnsupportedEncodingException e) {
-                Log.e(e);
+            } catch (UnsupportedEncodingException e2) {
+                Log.e(e2);
             }
         }
         sb.append("sign_key=").append(str);
@@ -181,9 +100,9 @@ public class HttpClientWrap {
     }
 
     public static String getNonce(Context context, String str, Map<String, String> map) {
-        map.put(KEY_REQID, PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
-        map.put(SP_PARAMETER, PassBioDataEncryptor.encryptParams(str));
-        map.put(SING_SHA1, getAppSignatureSha1(context, context.getPackageName()));
+        map.put(d, PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
+        map.put(e, PassBioDataEncryptor.encryptParams(str));
+        map.put(f, a(context, context.getPackageName()));
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<String, String> entry : map.entrySet()) {
             arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -191,33 +110,115 @@ public class HttpClientWrap {
         return PassBioDataEncryptor.encryptParams(HttpUtils.getNonce(context, arrayList));
     }
 
-    public static Map<String, String> appendCertification(Context context) {
-        HashMap hashMap = new HashMap();
-        hashMap.put(PARAM_ENCODE, "utf-8");
-        hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
-        hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
-        hashMap.put("appid", BeanConstants.appid);
-        hashMap.put("tpl", BeanConstants.tpl);
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(PARAM_CUID_2, PhoneUtils.getCUID2(context));
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public void cancelRequest() {
+        PassHttpClient passHttpClient = this.g;
+        if (passHttpClient != null) {
+            passHttpClient.cancelRequests(true);
         }
-        hashMap.put("wcp", PassBioDataEncryptor.encryptParams(new String(jSONObject.toString().getBytes())));
-        return hashMap;
     }
 
-    private static String getAppSignatureSha1(Context context, String str) {
+    public void get(String str, HttpHandlerWrap httpHandlerWrap) {
+        get(str, null, null, httpHandlerWrap);
+    }
+
+    public void post(String str, HttpHashMap httpHashMap, HttpHandlerWrap httpHandlerWrap) {
+        post(str, httpHashMap, null, httpHandlerWrap);
+    }
+
+    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
+        get(str, httpHashMap, list, 0, httpHandlerWrap);
+    }
+
+    public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
+        post(str, httpHashMap, list, 0, httpHandlerWrap);
+    }
+
+    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
+        this.g.get(this.h, a(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onFailure(Throwable th, String str2) {
+                httpHandlerWrap.onFailure(th, -1, str2);
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onFinish() {
+                httpHandlerWrap.onFinish();
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onStart() {
+                httpHandlerWrap.onStart();
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onSuccess(int i2, String str2) {
+                httpHandlerWrap.onSuccess(i2, str2);
+            }
+        });
+    }
+
+    public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
+        this.g.post(this.h, a(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onFailure(Throwable th, String str2) {
+                httpHandlerWrap.onFailure(th, -1, str2);
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onFinish() {
+                httpHandlerWrap.onFinish();
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onStart() {
+                httpHandlerWrap.onStart();
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onSuccess(int i2, String str2) {
+                httpHandlerWrap.onSuccess(i2, str2);
+            }
+        });
+    }
+
+    public void get(String str, BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
+        get(str, (HttpHashMap) null, (List<HttpCookie>) null, 0, binaryHttpHandlerWrap);
+    }
+
+    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
+        this.g.get(this.h, a(str, httpHashMap, list, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onFailure(Throwable th, String str2) {
+                binaryHttpHandlerWrap.onFailure(th, -1, str2);
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onFinish() {
+                binaryHttpHandlerWrap.onFinish();
+            }
+
+            @Override // com.baidu.pass.http.HttpResponseHandler
+            protected void onStart() {
+                binaryHttpHandlerWrap.onStart();
+            }
+
+            @Override // com.baidu.pass.http.BinaryHttpResponseHandler
+            protected void onSuccess(int i2, byte[] bArr) {
+                binaryHttpHandlerWrap.onSuccess(i2, bArr);
+            }
+        });
+    }
+
+    private static String a(Context context, String str) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
             if (packageInfo != null && packageInfo.signatures != null) {
                 return Crypto.sha1(packageInfo.signatures[0].toByteArray());
             }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (Exception e2) {
+        } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
         return "";
     }

@@ -2,60 +2,60 @@ package com.baidu.tieba.write;
 
 import android.content.Context;
 import com.baidu.tieba.write.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f extends h {
-    private a.C0773a muc;
+    private a.C0826a mMp;
 
-    public f(Context context, a.C0773a c0773a) {
-        super(context, c0773a);
-        this.muc = c0773a;
+    public f(Context context, a.C0826a c0826a) {
+        super(context, c0826a);
+        this.mMp = c0826a;
     }
 
     @Override // com.baidu.tieba.write.h
-    public void duh() {
+    public void dFC() {
         if (this.mState == 4) {
             this.mState = 1;
             this.mState = 2;
-            if (this.mui != null) {
-                this.mui.FL(this.mState);
+            if (this.mMw != null) {
+                this.mMw.Jw(this.mState);
             }
-            due();
+            dFz();
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void akZ() {
+    public void asN() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.mui != null) {
-                this.mui.FL(this.mState);
+            if (this.mMw != null) {
+                this.mMw.Jw(this.mState);
             }
-            dug();
+            dFB();
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dui() {
-        dug();
+    public void dFD() {
+        dFB();
     }
 
     @Override // com.baidu.tieba.write.h
     public void onDestroy() {
     }
 
-    private void due() {
-        this.muc.dpw.setClickable(true);
+    private void dFz() {
+        this.mMp.dzy.setClickable(true);
         this.mState = 2;
-        if (this.mui != null) {
-            this.mui.FL(this.mState);
+        if (this.mMw != null) {
+            this.mMw.Jw(this.mState);
         }
     }
 
-    private void dug() {
-        this.muc.dpw.setClickable(false);
+    private void dFB() {
+        this.mMp.dzy.setClickable(false);
         this.mState = 4;
-        if (this.mui != null) {
-            this.mui.FL(this.mState);
+        if (this.mMw != null) {
+            this.mMw.Jw(this.mState);
         }
     }
 }

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class k extends BaseData {
-    private long ayG = 5000;
-    private List<j> ayH;
+    private long aDI = 5000;
+    private List<j> aDJ;
     private long mAudienceCount;
 
     public long getCount() {
@@ -16,31 +16,31 @@ public class k extends BaseData {
     }
 
     public long getInterval() {
-        return this.ayG;
+        return this.aDI;
     }
 
     public List<j> getList() {
-        return this.ayH;
+        return this.aDJ;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mAudienceCount = jSONObject.optLong("audience_count");
-            this.ayG = jSONObject.optLong("interval", 5L);
-            if (this.ayG < 5) {
-                this.ayG = 5000L;
+            this.aDI = jSONObject.optLong("interval", 5L);
+            if (this.aDI < 5) {
+                this.aDI = 5000L;
             } else {
-                this.ayG *= 1000;
+                this.aDI *= 1000;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("initmacy_rank");
             if (optJSONArray != null) {
-                this.ayH = new ArrayList();
+                this.aDJ = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     j jVar = new j();
                     jVar.parserJson(optJSONObject);
-                    this.ayH.add(jVar);
+                    this.aDJ.add(jVar);
                 }
             }
         }

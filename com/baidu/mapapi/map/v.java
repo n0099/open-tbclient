@@ -1,44 +1,39 @@
 package com.baidu.mapapi.map;
 
-import android.util.Log;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import java.util.HashSet;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.mapapi.map.SwipeDismissTouchListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class v implements Runnable {
-    final /* synthetic */ int a;
+/* loaded from: classes20.dex */
+public class v extends AnimatorListenerAdapter {
+    final /* synthetic */ ViewGroup.LayoutParams a;
     final /* synthetic */ int b;
-    final /* synthetic */ int c;
-    final /* synthetic */ String d;
-    final /* synthetic */ TileOverlay e;
+    final /* synthetic */ SwipeDismissTouchListener c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
-        this.e = tileOverlay;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = str;
+    public v(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
+        this.c = swipeDismissTouchListener;
+        this.a = layoutParams;
+        this.b = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TileProvider tileProvider;
-        String str;
-        HashSet hashSet;
-        String str2;
-        tileProvider = this.e.g;
-        Tile tile = ((FileTileProvider) tileProvider).getTile(this.a, this.b, this.c);
-        if (tile == null) {
-            str = TileOverlay.b;
-            Log.e(str, "FileTile pic is null");
-        } else if (tile.width == 256 && tile.height == 256) {
-            this.e.a(this.a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
-        } else {
-            str2 = TileOverlay.b;
-            Log.e(str2, "FileTile pic must be 256 * 256");
-        }
-        hashSet = this.e.e;
-        hashSet.remove(this.d);
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        SwipeDismissTouchListener.DismissCallbacks dismissCallbacks;
+        View view;
+        Object obj;
+        View view2;
+        View view3;
+        dismissCallbacks = this.c.f;
+        view = this.c.e;
+        obj = this.c.l;
+        dismissCallbacks.onDismiss(view, obj);
+        view2 = this.c.e;
+        view2.setTranslationX(0.0f);
+        this.a.height = this.b;
+        view3 = this.c.e;
+        view3.setLayoutParams(this.a);
     }
 }

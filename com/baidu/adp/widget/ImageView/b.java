@@ -277,7 +277,7 @@ public class b extends Drawable {
         return this;
     }
 
-    public b aF(int i) {
+    public b aH(int i) {
         this.mBorderWidth = i;
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
         return this;
@@ -292,7 +292,7 @@ public class b extends Drawable {
         return this;
     }
 
-    public b ay(boolean z) {
+    public b az(boolean z) {
         this.mOval = z;
         return this;
     }

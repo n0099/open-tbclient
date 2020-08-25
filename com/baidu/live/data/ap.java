@@ -1,26 +1,45 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ap {
-    public String aDr;
-    public String aDs;
+    public int aIn;
+    public int aIo;
+    public long aIp;
+    public long aIq;
+    public long aIr;
+    public long aIs;
+    public long aIt;
+    public int aIu;
+    public int aIv;
+    public String aIw;
+    public bj aIx;
+    public long challengeId;
+    public int challengeResult;
     public long endTime;
-    public int flag;
-    public long serverTime;
     public long startTime;
-    public int type;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.type = jSONObject.optInt("type");
-            this.aDr = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
+            this.challengeId = jSONObject.optLong("challenge_id");
+            this.aIn = jSONObject.optInt("challenge_status");
+            this.challengeResult = jSONObject.optInt("challenge_ret");
+            this.aIo = jSONObject.optInt("challenge_ret_type");
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
-            this.serverTime = jSONObject.optLong("server_time");
-            this.aDs = jSONObject.optString("punish_key");
-            this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
+            this.aIp = jSONObject.optLong("stage_start_time");
+            this.aIq = jSONObject.optLong("stage_end_time");
+            this.aIr = jSONObject.optLong("now_time");
+            this.aIs = jSONObject.optLong("anchor_score");
+            this.aIt = jSONObject.optLong("rival_score");
+            this.aIu = jSONObject.optInt("winning_num");
+            this.aIv = jSONObject.optInt("anchor_rank");
+            this.aIw = jSONObject.optString("rank_url");
+            this.aIx = new bj();
+            JSONObject optJSONObject = jSONObject.optJSONObject("punish_stage_close_info");
+            if (optJSONObject != null) {
+                this.aIx.parseJson(optJSONObject);
+            }
         }
     }
 }

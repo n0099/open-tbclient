@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import com.baidu.tieba.view.AdapterLinearLayout;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
-    private a eMm;
+    private a eWS;
     private int mType;
 
     public SelectRuleRowItem(Context context) {
@@ -29,20 +29,20 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.eMm = new a(getContext());
-        setAdapter(this.eMm);
+        this.eWS = new a(getContext());
+        setAdapter(this.eWS);
     }
 
     public void setData(List<String> list, List<String> list2) {
-        this.eMm.setData(list, list2);
+        this.eWS.setData(list, list2);
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.eMm.setData(list, list2, list3);
+        this.eWS.setData(list, list2, list3);
     }
 
     public void setType(int i) {
         this.mType = i;
-        this.eMm.setType(i);
+        this.eWS.setType(i);
     }
 }

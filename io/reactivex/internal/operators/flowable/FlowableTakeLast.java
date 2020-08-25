@@ -10,28 +10,28 @@ public final class FlowableTakeLast<T> extends a<T, T> {
     final int count;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new TakeLastSubscriber(cVar, this.count));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new TakeLastSubscriber(cVar, this.count));
     }
 
     /* loaded from: classes7.dex */
-    static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements j<T>, org.a.d {
+    static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements j<T>, org.b.d {
         private static final long serialVersionUID = 7240042530241604978L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         volatile boolean cancelled;
         final int count;
         volatile boolean done;
-        org.a.d s;
+        org.b.d s;
         final AtomicLong requested = new AtomicLong();
         final AtomicInteger wip = new AtomicInteger();
 
-        TakeLastSubscriber(org.a.c<? super T> cVar, int i) {
+        TakeLastSubscriber(org.b.c<? super T> cVar, int i) {
             this.actual = cVar;
             this.count = i;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -39,7 +39,7 @@ public final class FlowableTakeLast<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (this.count == size()) {
                 poll();
@@ -47,18 +47,18 @@ public final class FlowableTakeLast<T> extends a<T, T> {
             offer(t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.done = true;
             drain();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -66,7 +66,7 @@ public final class FlowableTakeLast<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.cancelled = true;
             this.s.cancel();
@@ -74,7 +74,7 @@ public final class FlowableTakeLast<T> extends a<T, T> {
 
         void drain() {
             if (this.wip.getAndIncrement() == 0) {
-                org.a.c<? super T> cVar = this.actual;
+                org.b.c<? super T> cVar = this.actual;
                 long j = this.requested.get();
                 while (!this.cancelled) {
                     if (this.done) {

@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class b extends d {
     private int code;
     private String reason;
@@ -21,7 +21,7 @@ public class b extends d {
             this.code = 1005;
             this.reason = "";
         }
-        dXm();
+        ejq();
     }
 
     public void setReason(String str) {
@@ -29,7 +29,7 @@ public class b extends d {
             str = "";
         }
         this.reason = str;
-        dXm();
+        ejq();
     }
 
     public int getCloseCode() {
@@ -46,8 +46,8 @@ public class b extends d {
     }
 
     @Override // org.java_websocket.framing.d, org.java_websocket.framing.f
-    public void dXl() throws InvalidDataException {
-        super.dXl();
+    public void ejp() throws InvalidDataException {
+        super.ejp();
         if (this.code == 1007 && this.reason == null) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
@@ -96,20 +96,20 @@ public class b extends d {
         }
     }
 
-    private void dXm() {
-        byte[] Tx = org.java_websocket.e.c.Tx(this.reason);
+    private void ejq() {
+        byte[] WB = org.java_websocket.e.c.WB(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(Tx.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(WB.length + 2);
         allocate2.put(allocate);
-        allocate2.put(Tx);
+        allocate2.put(WB);
         allocate2.rewind();
         super.A(allocate2);
     }
 
     @Override // org.java_websocket.framing.f, org.java_websocket.framing.Framedata
-    public ByteBuffer dXn() {
-        return this.code == 1005 ? org.java_websocket.e.b.dXw() : super.dXn();
+    public ByteBuffer ejr() {
+        return this.code == 1005 ? org.java_websocket.e.b.ejA() : super.ejr();
     }
 }

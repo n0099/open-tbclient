@@ -17,7 +17,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.util.io.ActionJsonData;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private static Intent a(Context context, String str) {
         Intent intent;

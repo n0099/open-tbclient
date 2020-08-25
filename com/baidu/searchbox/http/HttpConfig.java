@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class HttpConfig {
     public static final boolean DEBUG = false;
     public static final boolean HTTP_DNS_BACKUPIPENABLE_DEFAULT = true;

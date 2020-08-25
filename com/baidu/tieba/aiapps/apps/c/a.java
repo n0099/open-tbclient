@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.adaptation.a.z;
+import com.baidu.swan.apps.adaptation.a.ac;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -14,14 +14,14 @@ import com.baidu.tbadk.m.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes19.dex */
-public class a implements z {
+public class a implements ac {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private long lastResumeTime;
 
-    @Override // com.baidu.swan.apps.adaptation.a.z
-    public void Uw() {
+    @Override // com.baidu.swan.apps.adaptation.a.ac
+    public void aay() {
         if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.arv().id);
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.azI().id);
         }
         this.lastResumeTime = System.currentTimeMillis();
     }
@@ -40,14 +40,14 @@ public class a implements z {
         return arrayList;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.z
-    public void Ux() {
+    @Override // com.baidu.swan.apps.adaptation.a.ac
+    public void aaz() {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.aZP().getLong("smart_app_tid", 0L);
-        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("smart_app_id", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.aZP().getString("smart_app_name", "");
+        long j = com.baidu.tbadk.core.sharedPref.b.bik().getLong("smart_app_tid", 0L);
+        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("smart_app_id", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.bik().getString("smart_app_name", "");
         if (this.lastResumeTime != 0 && j != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d dVar = new d();
@@ -55,28 +55,28 @@ public class a implements z {
             dVar.setCurrentPageKey(getCurrentPageKey());
             dVar.setTid(j);
             dVar.objID = string;
-            dVar.eGC = string2;
+            dVar.eRi = string2;
             dVar.setSorceKeyList(getCurrentPageSourceKeyList());
-            com.baidu.tbadk.m.e.blm().jb(true);
-            com.baidu.tbadk.m.e.blm().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
-            com.baidu.tbadk.core.sharedPref.b.aZP().putLong("smart_app_tid", 0L);
+            com.baidu.tbadk.m.e.btZ().jz(true);
+            com.baidu.tbadk.m.e.btZ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.core.sharedPref.b.bik().putLong("smart_app_tid", 0L);
         }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.z
+    @Override // com.baidu.swan.apps.adaptation.a.ac
     public void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.u.c.b bVar) {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
-        if (com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean("key_ai_app_guide_display", true)) {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("key_ai_app_guide_display", false);
+        if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_ai_app_guide_display", true)) {
+            com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_ai_app_guide_display", false);
             Intent intent = new Intent(swanAppActivity, DealIntentService.class);
             intent.putExtra(DealIntentService.KEY_CLASS, 38);
             swanAppActivity.startService(intent);
         }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.z
-    public void Uy() {
+    @Override // com.baidu.swan.apps.adaptation.a.ac
+    public void aaA() {
     }
 }

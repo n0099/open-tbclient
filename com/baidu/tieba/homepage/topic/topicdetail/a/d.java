@@ -3,13 +3,13 @@ package com.baidu.tieba.homepage.topic.topicdetail.a;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.homepage.topic.topicdetail.b.e;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topicdetail.c.a> {
-    private List<e> iEi;
+    private List<e> iTg;
     private Context mContext;
 
     public d(Context context) {
@@ -24,8 +24,8 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
     }
 
     public void setData(List<e> list) {
-        if (!x.isEmpty(list)) {
-            this.iEi = list;
+        if (!y.isEmpty(list)) {
+            this.iTg = list;
         }
     }
 
@@ -33,9 +33,9 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(com.baidu.tieba.homepage.topic.topicdetail.c.a aVar, int i) {
-        e eVar = (e) x.getItem(this.iEi, i);
+        e eVar = (e) y.getItem(this.iTg, i);
         if (eVar != null) {
-            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.cog();
+            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.cyZ();
             topicTimelineCellCardView.setData(eVar);
             topicTimelineCellCardView.onChangeSkinType();
         }
@@ -43,6 +43,6 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.iEi);
+        return y.getCount(this.iTg);
     }
 }

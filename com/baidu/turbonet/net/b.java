@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 final class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void n(ByteBuffer byteBuffer) {

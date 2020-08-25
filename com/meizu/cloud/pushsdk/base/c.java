@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class c {
     private static String a = "";
     private static String b = "";

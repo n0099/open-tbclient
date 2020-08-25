@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface Drawer {
     boolean isTop();
 }

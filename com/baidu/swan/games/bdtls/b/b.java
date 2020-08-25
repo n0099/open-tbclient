@@ -5,55 +5,55 @@ import android.util.Log;
 import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b {
-    protected boolean dfL = false;
-    protected int dfM = 0;
-    private String dfN;
+    protected boolean dpU = false;
+    protected int dpV = 0;
+    private String dpW;
 
-    public abstract void X(byte[] bArr);
+    public abstract void Y(byte[] bArr);
 
     public abstract void b(IOException iOException);
 
-    public abstract void iQ(int i);
+    public abstract void kZ(int i);
 
-    public final String Y(byte[] bArr) {
+    public final String Z(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.dfL) {
-            i a = com.baidu.swan.games.bdtls.d.aCx().a(e.aCy().aCz(), bArr);
+        if (this.dpU) {
+            i a = com.baidu.swan.games.bdtls.d.aLm().a(e.aLn().aLo(), bArr);
             if (a != null) {
                 if (!TextUtils.isEmpty(a.getResponseMessage())) {
                     str = a.getResponseMessage();
                 }
-                this.dfM = a.aDw().intValue();
+                this.dpV = a.aMl().intValue();
             } else {
-                this.dfM = -1;
+                this.dpV = -1;
             }
-            e.aCy().aCz().iP(this.dfM);
-            if (this.dfM == -1) {
-                com.baidu.swan.games.bdtls.c.aCw().setEnable(false);
+            e.aLn().aLo().kY(this.dpV);
+            if (this.dpV == -1) {
+                com.baidu.swan.games.bdtls.c.aLl().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void sq(String str) {
-        this.dfM = 0;
-        com.baidu.swan.games.bdtls.c.aCw().a(str, this);
+    public final void uI(String str) {
+        this.dpV = 0;
+        com.baidu.swan.games.bdtls.c.aLl().a(str, this);
     }
 
-    public void gf(boolean z) {
-        this.dfL = z;
+    public void gB(boolean z) {
+        this.dpU = z;
     }
 
     public String getMethod() {
-        return this.dfN;
+        return this.dpW;
     }
 
-    public void ss(String str) {
-        this.dfN = str;
+    public void uJ(String str) {
+        this.dpW = str;
     }
 }

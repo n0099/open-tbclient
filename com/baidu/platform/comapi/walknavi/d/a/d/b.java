@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.platform.comapi.walknavi.d.a.g.j;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b {
     private final Context a;
-    private C0229b b;
+    private C0250b b;
     private a c;
     private g d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface a {
         void a(int i);
 
@@ -95,7 +95,7 @@ public class b {
 
     private void d(String str) {
         b();
-        this.b = new C0229b(this.a, str);
+        this.b = new C0250b(this.a, str);
         this.b.start();
     }
 
@@ -153,13 +153,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0229b extends Thread {
+    /* loaded from: classes20.dex */
+    public class C0250b extends Thread {
         private Context b;
         private String c;
         private volatile boolean d = false;
 
-        public C0229b(Context context, String str) {
+        public C0250b(Context context, String str) {
             this.b = context;
             this.c = str;
         }

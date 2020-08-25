@@ -8,18 +8,18 @@ import io.reactivex.j;
 import io.reactivex.parallel.a;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLongArray;
-import org.a.b;
-import org.a.c;
-import org.a.d;
+import org.b.b;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int nUN;
+    final int ooJ;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int dTd() {
-        return this.nUN;
+    public int eff() {
+        return this.ooJ;
     }
 
     @Override // io.reactivex.parallel.a
@@ -57,7 +57,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
             this.emissions = new long[length];
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -105,7 +105,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                 this.m = i2;
             }
 
-            @Override // org.a.d
+            @Override // org.b.d
             public void request(long j) {
                 long j2;
                 if (SubscriptionHelper.validate(j)) {
@@ -123,7 +123,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                 }
             }
 
-            @Override // org.a.d
+            @Override // org.b.d
             public void cancel() {
                 if (ParallelDispatcher.this.requests.compareAndSet(this.m + this.j, 0L, 1L)) {
                     ParallelDispatcher.this.cancel(this.m + this.m);
@@ -131,7 +131,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (this.sourceMode == 0 && !this.queue.offer(t)) {
                 this.s.cancel();
@@ -141,14 +141,14 @@ public final class ParallelFromPublisher<T> extends a<T> {
             drain();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
             drain();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.done = true;
             drain();
@@ -221,7 +221,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                     i7 = 0;
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.K(th2);
+                                io.reactivex.exceptions.a.J(th2);
                                 this.s.cancel();
                                 for (c<? super T> cVar3 : cVarArr) {
                                     cVar3.onError(th2);
@@ -312,7 +312,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                 jArr[i4] = 1 + j2;
                                 i3 = 0;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.K(th);
+                                io.reactivex.exceptions.a.J(th);
                                 this.s.cancel();
                                 for (c<? super T> cVar2 : cVarArr) {
                                     cVar2.onError(th);

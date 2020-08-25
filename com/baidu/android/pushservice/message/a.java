@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class a {
     private Context a;
 

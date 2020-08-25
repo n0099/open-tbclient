@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     public static String CONTINUOUS_SIGN_ALL_DAYS = "continuous_sign_all_days";
     public static String SUPPLEMENT_SIGN_DAYS = "supplement_sign_days";

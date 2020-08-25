@@ -30,7 +30,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.webkit.internal.ETAG;
@@ -213,8 +212,8 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes19.dex */
-    public class C0876a extends WebViewClient {
-        private C0876a() {
+    public class C0934a extends WebViewClient {
+        private C0934a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -357,11 +356,10 @@ public class a extends Dialog {
         @TargetApi(8)
         public void onReceivedSslError(WebView webView, final SslErrorHandler sslErrorHandler, SslError sslError) {
             f.e("openSDK_LOG.AuthDialog", "-->onReceivedSslError " + sslError.getPrimaryError() + "请求不合法，请检查手机安全设置，如系统时间、代理等");
-            String language = Locale.getDefault().getLanguage();
             String str = "The SSL certificate is invalid,do you countinue?";
             String str2 = "yes";
-            String str3 = NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
-            if (language.equals("zh")) {
+            String str3 = "no";
+            if (Locale.getDefault().getLanguage().equals("zh")) {
                 str = "ssl证书无效，是否继续访问？";
                 str2 = "是";
                 str3 = "否";
@@ -469,7 +467,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0876a());
+        this.j.setWebViewClient(new C0934a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();

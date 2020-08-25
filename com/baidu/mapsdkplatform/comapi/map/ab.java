@@ -1,155 +1,259 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.os.Bundle;
-import com.baidu.live.adp.widget.HorizontalTranslateLayout;
-import com.baidu.live.adp.widget.VerticalTranslateLayout;
-import com.baidu.mapapi.map.WinRound;
-import com.baidu.mapapi.model.inner.Point;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes10.dex */
-public class ab {
-    private static final String t = ab.class.getSimpleName();
-    public double m;
-    public double n;
-    public int o;
-    public String p;
-    public float q;
-    public boolean r;
-    public int s;
-    public float a = 12.0f;
-    public int b = 0;
-    public int c = 0;
-    public double d = 1.2958162E7d;
-    public double e = 4825907.0d;
-    public long h = 0;
-    public long i = 0;
-    public int f = -1;
-    public int g = -1;
-    public WinRound j = new WinRound();
-    public a k = new a();
-    public boolean l = false;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.NinePatchDrawable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.mapapi.common.SysOSUtil;
+/* loaded from: classes20.dex */
+public class ab extends LinearLayout implements View.OnTouchListener {
+    private ImageView a;
+    private ImageView b;
+    private Context c;
+    private Bitmap d;
+    private Bitmap e;
+    private Bitmap f;
+    private Bitmap g;
+    private Bitmap h;
+    private Bitmap i;
+    private Bitmap j;
+    private Bitmap k;
+    private int l;
+    private boolean m;
+    private boolean n;
 
-    /* loaded from: classes10.dex */
-    public class a {
-        public long a = 0;
-        public long b = 0;
-        public long c = 0;
-        public long d = 0;
-        public Point e = new Point(0, 0);
-        public Point f = new Point(0, 0);
-        public Point g = new Point(0, 0);
-        public Point h = new Point(0, 0);
+    @Deprecated
+    public ab(Context context) {
+        super(context);
+        this.m = false;
+        this.n = false;
+        this.c = context;
+        c();
+        if (this.d == null || this.e == null || this.f == null || this.g == null) {
+            return;
+        }
+        this.a = new ImageView(this.c);
+        this.b = new ImageView(this.c);
+        this.a.setImageBitmap(this.d);
+        this.b.setImageBitmap(this.f);
+        this.l = a(this.f.getHeight() / 6);
+        a(this.a, "main_topbtn_up.9.png");
+        a(this.b, "main_bottombtn_up.9.png");
+        this.a.setId(0);
+        this.b.setId(1);
+        this.a.setClickable(true);
+        this.b.setClickable(true);
+        this.a.setOnTouchListener(this);
+        this.b.setOnTouchListener(this);
+        setOrientation(1);
+        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        addView(this.a);
+        addView(this.b);
+        this.n = true;
+    }
 
-        public a() {
+    public ab(Context context, boolean z) {
+        super(context);
+        this.m = false;
+        this.n = false;
+        this.c = context;
+        this.m = z;
+        this.a = new ImageView(this.c);
+        this.b = new ImageView(this.c);
+        if (z) {
+            d();
+            if (this.h == null || this.i == null || this.j == null || this.k == null) {
+                return;
+            }
+            this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.a.setImageBitmap(this.h);
+            this.b.setImageBitmap(this.j);
+            setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            setOrientation(0);
+        } else {
+            c();
+            if (this.d == null || this.e == null || this.f == null || this.g == null) {
+                return;
+            }
+            this.a.setImageBitmap(this.d);
+            this.b.setImageBitmap(this.f);
+            this.l = a(this.f.getHeight() / 6);
+            a(this.a, "main_topbtn_up.9.png");
+            a(this.b, "main_bottombtn_up.9.png");
+            setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            setOrientation(1);
+        }
+        this.a.setId(0);
+        this.b.setId(1);
+        this.a.setClickable(true);
+        this.b.setClickable(true);
+        this.a.setOnTouchListener(this);
+        this.b.setOnTouchListener(this);
+        addView(this.a);
+        addView(this.b);
+        this.n = true;
+    }
+
+    private int a(int i) {
+        return (int) ((this.c.getResources().getDisplayMetrics().density * i) + 0.5f);
+    }
+
+    private Bitmap a(String str) {
+        Matrix matrix = new Matrix();
+        int densityDpi = SysOSUtil.getDensityDpi();
+        if (densityDpi > 480) {
+            matrix.postScale(1.8f, 1.8f);
+        } else if (densityDpi <= 320 || densityDpi > 480) {
+            matrix.postScale(1.2f, 1.2f);
+        } else {
+            matrix.postScale(1.5f, 1.5f);
+        }
+        Bitmap a = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
+        if (a == null) {
+            return null;
+        }
+        return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
+    }
+
+    private void a(View view, String str) {
+        Bitmap a = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
+        byte[] ninePatchChunk = a.getNinePatchChunk();
+        NinePatch.isNinePatchChunk(ninePatchChunk);
+        view.setBackgroundDrawable(new NinePatchDrawable(a, ninePatchChunk, new Rect(), null));
+        view.setPadding(this.l, this.l, this.l, this.l);
+    }
+
+    private void c() {
+        this.d = a("main_icon_zoomin.png");
+        this.e = a("main_icon_zoomin_dis.png");
+        this.f = a("main_icon_zoomout.png");
+        this.g = a("main_icon_zoomout_dis.png");
+    }
+
+    private void d() {
+        this.h = a("wear_zoom_in.png");
+        this.i = a("wear_zoom_in_pressed.png");
+        this.j = a("wear_zoon_out.png");
+        this.k = a("wear_zoom_out_pressed.png");
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.a.setOnClickListener(onClickListener);
+    }
+
+    public void a(boolean z) {
+        this.a.setEnabled(z);
+        if (z) {
+            this.a.setImageBitmap(this.d);
+        } else {
+            this.a.setImageBitmap(this.e);
         }
     }
 
-    public Bundle a(e eVar) {
-        if (this.a < eVar.b) {
-            this.a = eVar.b;
+    public boolean a() {
+        return this.n;
+    }
+
+    public void b() {
+        if (this.d != null && !this.d.isRecycled()) {
+            this.d.recycle();
+            this.d = null;
         }
-        if (this.a > eVar.a) {
-            if (this.a == 1096.0f || e.d == 26.0f) {
-                this.a = 26.0f;
-                e.d = 26.0f;
-            } else {
-                this.a = eVar.a;
+        if (this.e != null && !this.e.isRecycled()) {
+            this.e.recycle();
+            this.e = null;
+        }
+        if (this.f != null && !this.f.isRecycled()) {
+            this.f.recycle();
+            this.f = null;
+        }
+        if (this.g != null && !this.g.isRecycled()) {
+            this.g.recycle();
+            this.g = null;
+        }
+        if (this.h != null && !this.h.isRecycled()) {
+            this.h.recycle();
+            this.h = null;
+        }
+        if (this.i != null && !this.i.isRecycled()) {
+            this.i.recycle();
+            this.i = null;
+        }
+        if (this.j != null && !this.j.isRecycled()) {
+            this.j.recycle();
+            this.j = null;
+        }
+        if (this.k == null || this.k.isRecycled()) {
+            return;
+        }
+        this.k.recycle();
+        this.k = null;
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        this.b.setOnClickListener(onClickListener);
+    }
+
+    public void b(boolean z) {
+        this.b.setEnabled(z);
+        if (z) {
+            this.b.setImageBitmap(this.f);
+        } else {
+            this.b.setImageBitmap(this.g);
+        }
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (view instanceof ImageView) {
+            switch (((ImageView) view).getId()) {
+                case 0:
+                    if (motionEvent.getAction() == 0) {
+                        if (this.m) {
+                            this.a.setImageBitmap(this.i);
+                            return false;
+                        }
+                        a(this.a, "main_topbtn_down.9.png");
+                        return false;
+                    } else if (motionEvent.getAction() == 1) {
+                        if (this.m) {
+                            this.a.setImageBitmap(this.h);
+                            return false;
+                        }
+                        a(this.a, "main_topbtn_up.9.png");
+                        return false;
+                    } else {
+                        return false;
+                    }
+                case 1:
+                    if (motionEvent.getAction() == 0) {
+                        if (this.m) {
+                            this.b.setImageBitmap(this.k);
+                            return false;
+                        }
+                        a(this.b, "main_bottombtn_down.9.png");
+                        return false;
+                    } else if (motionEvent.getAction() == 1) {
+                        if (this.m) {
+                            this.b.setImageBitmap(this.j);
+                            return false;
+                        }
+                        a(this.b, "main_bottombtn_up.9.png");
+                        return false;
+                    } else {
+                        return false;
+                    }
+                default:
+                    return false;
             }
         }
-        while (this.b < 0) {
-            this.b += 360;
-        }
-        this.b %= 360;
-        if (this.c > 0) {
-            this.c = 0;
-        }
-        if (this.c < -45) {
-            this.c = -45;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putDouble(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, this.a);
-        bundle.putDouble("rotation", this.b);
-        bundle.putDouble("overlooking", this.c);
-        bundle.putDouble("centerptx", this.d);
-        bundle.putDouble("centerpty", this.e);
-        bundle.putInt("left", this.j.left);
-        bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, this.j.right);
-        bundle.putInt(VerticalTranslateLayout.TOP, this.j.top);
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, this.j.bottom);
-        if (this.f >= 0 && this.g >= 0 && this.f <= this.j.right && this.g <= this.j.bottom && this.j.right > 0 && this.j.bottom > 0) {
-            int i = this.f - ((this.j.right - this.j.left) / 2);
-            int i2 = this.g;
-            this.h = i;
-            this.i = -(i2 - ((this.j.bottom - this.j.top) / 2));
-            bundle.putLong("xoffset", this.h);
-            bundle.putLong("yoffset", this.i);
-        }
-        bundle.putInt("lbx", this.k.e.x);
-        bundle.putInt("lby", this.k.e.y);
-        bundle.putInt("ltx", this.k.f.x);
-        bundle.putInt("lty", this.k.f.y);
-        bundle.putInt("rtx", this.k.g.x);
-        bundle.putInt("rty", this.k.g.y);
-        bundle.putInt("rbx", this.k.h.x);
-        bundle.putInt("rby", this.k.h.y);
-        bundle.putInt("bfpp", this.l ? 1 : 0);
-        bundle.putInt("animation", 1);
-        bundle.putInt("animatime", this.o);
-        bundle.putString("panoid", this.p);
-        bundle.putInt("autolink", 0);
-        bundle.putFloat("siangle", this.q);
-        bundle.putInt("isbirdeye", this.r ? 1 : 0);
-        bundle.putInt("ssext", this.s);
-        return bundle;
-    }
-
-    public void a(Bundle bundle) {
-        this.a = (float) bundle.getDouble(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
-        this.b = (int) bundle.getDouble("rotation");
-        this.c = (int) bundle.getDouble("overlooking");
-        this.d = bundle.getDouble("centerptx");
-        this.e = bundle.getDouble("centerpty");
-        this.j.left = bundle.getInt("left");
-        this.j.right = bundle.getInt(HorizontalTranslateLayout.DIRECTION_RIGHT);
-        this.j.top = bundle.getInt(VerticalTranslateLayout.TOP);
-        this.j.bottom = bundle.getInt(VerticalTranslateLayout.BOTTOM);
-        this.h = bundle.getLong("xoffset");
-        this.i = bundle.getLong("yoffset");
-        if (this.j.right != 0 && this.j.bottom != 0) {
-            int i = (int) (-this.i);
-            this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
-            this.g = i + ((this.j.bottom - this.j.top) / 2);
-        }
-        this.k.a = bundle.getLong("gleft");
-        this.k.b = bundle.getLong("gright");
-        this.k.c = bundle.getLong("gtop");
-        this.k.d = bundle.getLong("gbottom");
-        if (this.k.a <= -20037508) {
-            this.k.a = -20037508L;
-        }
-        if (this.k.b >= 20037508) {
-            this.k.b = 20037508L;
-        }
-        if (this.k.c >= 20037508) {
-            this.k.c = 20037508L;
-        }
-        if (this.k.d <= -20037508) {
-            this.k.d = -20037508L;
-        }
-        this.k.e.x = bundle.getInt("lbx");
-        this.k.e.y = bundle.getInt("lby");
-        this.k.f.x = bundle.getInt("ltx");
-        this.k.f.y = bundle.getInt("lty");
-        this.k.g.x = bundle.getInt("rtx");
-        this.k.g.y = bundle.getInt("rty");
-        this.k.h.x = bundle.getInt("rbx");
-        this.k.h.y = bundle.getInt("rby");
-        this.l = bundle.getInt("bfpp") == 1;
-        this.m = bundle.getDouble("adapterzoomunit");
-        this.n = bundle.getDouble("zoomunit");
-        this.p = bundle.getString("panoid");
-        this.q = bundle.getFloat("siangle");
-        this.r = bundle.getInt("isbirdeye") != 0;
-        this.s = bundle.getInt("ssext");
+        return false;
     }
 }

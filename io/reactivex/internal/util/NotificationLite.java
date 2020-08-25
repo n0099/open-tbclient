@@ -34,9 +34,9 @@ public enum NotificationLite {
     /* loaded from: classes7.dex */
     static final class SubscriptionNotification implements Serializable {
         private static final long serialVersionUID = -1322257508628817540L;
-        final org.a.d s;
+        final org.b.d s;
 
-        SubscriptionNotification(org.a.d dVar) {
+        SubscriptionNotification(org.b.d dVar) {
             this.s = dVar;
         }
 
@@ -71,7 +71,7 @@ public enum NotificationLite {
         return new ErrorNotification(th);
     }
 
-    public static Object subscription(org.a.d dVar) {
+    public static Object subscription(org.b.d dVar) {
         return new SubscriptionNotification(dVar);
     }
 
@@ -105,7 +105,7 @@ public enum NotificationLite {
         return ((ErrorNotification) obj).e;
     }
 
-    public static org.a.d getSubscription(Object obj) {
+    public static org.b.d getSubscription(Object obj) {
         return ((SubscriptionNotification) obj).s;
     }
 
@@ -113,7 +113,7 @@ public enum NotificationLite {
         return ((DisposableNotification) obj).d;
     }
 
-    public static <T> boolean accept(Object obj, org.a.c<? super T> cVar) {
+    public static <T> boolean accept(Object obj, org.b.c<? super T> cVar) {
         if (obj == COMPLETE) {
             cVar.onComplete();
             return true;
@@ -139,7 +139,7 @@ public enum NotificationLite {
         }
     }
 
-    public static <T> boolean acceptFull(Object obj, org.a.c<? super T> cVar) {
+    public static <T> boolean acceptFull(Object obj, org.b.c<? super T> cVar) {
         if (obj == COMPLETE) {
             cVar.onComplete();
             return true;

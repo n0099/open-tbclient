@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.upload;
 import android.text.TextUtils;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.b.b.b;
+import com.baidu.d.b.b;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.cookie.CookieManager;
@@ -21,7 +21,7 @@ import org.apache.commons.codec.digest4util.EncryptUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class HttpRequestTokenModule {
     public static final boolean DEBUG = false;
     private static final String ENCYPT_CONSTANT_STR = "searchbox_2017";
@@ -30,7 +30,7 @@ public class HttpRequestTokenModule {
     private static final String TAG = HttpRequestTokenModule.class.getSimpleName();
     private STSInfo mSTSInfo = new STSInfo();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public static class STSInfo {
         public String ak;
         public String bucket;
@@ -39,7 +39,7 @@ public class HttpRequestTokenModule {
         public String sk;
         public String token;
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes8.dex */
         public class BosInfo {
             public String bosobject;
             public String key;
@@ -118,7 +118,7 @@ public class HttpRequestTokenModule {
     /* JADX WARN: Type inference failed for: r0v8, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
     public String requestToken(Map<String, String> map) {
         try {
-            ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.sQ().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.TOKEN_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
+            ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.uy().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.TOKEN_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
             String publisherUserAgent = UgcServerApiUtils.getPublisherUserAgent();
             if (!TextUtils.isEmpty(publisherUserAgent)) {
                 cookieManager.addHeader("User-Agent", publisherUserAgent);

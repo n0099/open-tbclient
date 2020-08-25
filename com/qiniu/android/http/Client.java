@@ -30,7 +30,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class Client {
     private OkHttpClient httpClient;
-    private final UrlConverter nLC;
+    private final UrlConverter ofw;
 
     public Client() {
         this(null, 10, 30, null, null);
@@ -38,12 +38,12 @@ public final class Client {
 
     public Client(ProxyConfiguration proxyConfiguration, int i, int i2, UrlConverter urlConverter, final Dns dns) {
         OkHttpClient.Builder newBuilder;
-        this.nLC = urlConverter;
-        OkHttpClient dQs = UploadManager.dQs();
-        if (dQs == null) {
+        this.ofw = urlConverter;
+        OkHttpClient ecu = UploadManager.ecu();
+        if (ecu == null) {
             newBuilder = new OkHttpClient.Builder();
         } else {
-            newBuilder = dQs.newBuilder();
+            newBuilder = ecu.newBuilder();
             newBuilder.interceptors().clear();
             newBuilder.networkInterceptors().clear();
         }
@@ -109,16 +109,16 @@ public final class Client {
         return contentType == null ? "" : contentType.type() + "/" + contentType.subtype();
     }
 
-    private static JSONObject as(byte[] bArr) throws Exception {
+    private static JSONObject at(byte[] bArr) throws Exception {
         String str = new String(bArr, "utf-8");
-        return StringUtils.Sw(str) ? new JSONObject() : new JSONObject(str);
+        return StringUtils.VA(str) ? new JSONObject() : new JSONObject(str);
     }
 
     private static ResponseInfo a(Response response, String str, long j, UpToken upToken, long j2) {
         JSONObject jSONObject;
         String str2;
         Exception exc;
-        JSONObject as;
+        JSONObject at;
         int code = response.code();
         String header = response.header("X-Reqid");
         String str3 = header == null ? null : header.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP)[0];
@@ -131,19 +131,19 @@ public final class Client {
         }
         if (i(response).equals(HttpHelper.CONTENT_JSON) && bArr != null) {
             try {
-                as = as(bArr);
+                at = at(bArr);
             } catch (Exception e2) {
                 jSONObject = null;
                 exc = e2;
             }
             try {
                 if (response.code() != 200) {
-                    str4 = as.optString(BdStatsConstant.StatsType.ERROR, new String(bArr, "utf-8"));
+                    str4 = at.optString(BdStatsConstant.StatsType.ERROR, new String(bArr, "utf-8"));
                 }
-                jSONObject = as;
+                jSONObject = at;
                 str2 = str4;
             } catch (Exception e3) {
-                jSONObject = as;
+                jSONObject = at;
                 exc = e3;
                 if (response.code() < 300) {
                     str4 = exc.getMessage();
@@ -176,10 +176,10 @@ public final class Client {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Response response, String str, long j, UpToken upToken, long j2, final CompletionHandler completionHandler) {
         final ResponseInfo a = a(response, str, j, upToken, j2);
-        AsyncRun.H(new Runnable() { // from class: com.qiniu.android.http.Client.3
+        AsyncRun.E(new Runnable() { // from class: com.qiniu.android.http.Client.3
             @Override // java.lang.Runnable
             public void run() {
-                CompletionHandler.this.a(a, a.nLZ);
+                CompletionHandler.this.a(a, a.ofT);
             }
         });
     }
@@ -188,15 +188,15 @@ public final class Client {
         if (stringMap != null) {
             stringMap.a(new StringMap.Consumer() { // from class: com.qiniu.android.http.Client.4
                 @Override // com.qiniu.android.utils.StringMap.Consumer
-                public void N(String str, Object obj) {
+                public void M(String str, Object obj) {
                     builder.header(str, obj.toString());
                 }
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.dQk().Ss(upToken.nLr));
+            builder.header("User-Agent", UserAgent.ecm().Vw(upToken.ofl));
         } else {
-            builder.header("User-Agent", UserAgent.dQk().Ss("pandora"));
+            builder.header("User-Agent", UserAgent.ecm().Vw("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5
@@ -231,8 +231,8 @@ public final class Client {
     public void a(String str, byte[] bArr, int i, int i2, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
         CountingRequestBody create;
         Object obj;
-        if (this.nLC != null) {
-            str = this.nLC.Jz(str);
+        if (this.ofw != null) {
+            str = this.ofw.Mr(str);
         }
         if (bArr != null && bArr.length > 0) {
             MediaType parse = MediaType.parse("application/octet-stream");
@@ -259,18 +259,18 @@ public final class Client {
             create = RequestBody.create(MediaType.parse(postArgs.mimeType), postArgs.data);
             length = postArgs.data.length;
         }
-        a(str, postArgs.nLR, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
+        a(str, postArgs.ofL, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
     }
 
     private void a(String str, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, String str2, RequestBody requestBody, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
-        if (this.nLC != null) {
-            str = this.nLC.Jz(str);
+        if (this.ofw != null) {
+            str = this.ofw.Mr(str);
         }
         final MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("file", str2, requestBody);
         stringMap.a(new StringMap.Consumer() { // from class: com.qiniu.android.http.Client.6
             @Override // com.qiniu.android.utils.StringMap.Consumer
-            public void N(String str3, Object obj) {
+            public void M(String str3, Object obj) {
                 builder.addFormDataPart(str3, obj.toString());
             }
         });
@@ -289,33 +289,33 @@ public final class Client {
     /* renamed from: com.qiniu.android.http.Client$7  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass7 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder nLH;
+        final /* synthetic */ Request.Builder ofB;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
-        public void N(String str, Object obj) {
-            this.nLH.header(str, obj.toString());
+        public void M(String str, Object obj) {
+            this.ofB.header(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$8  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass8 implements StringMap.Consumer {
-        final /* synthetic */ MultipartBody.Builder nLK;
+        final /* synthetic */ MultipartBody.Builder ofE;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
-        public void N(String str, Object obj) {
-            this.nLK.addFormDataPart(str, obj.toString());
+        public void M(String str, Object obj) {
+            this.ofE.addFormDataPart(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$9  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass9 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder nLH;
+        final /* synthetic */ Request.Builder ofB;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
-        public void N(String str, Object obj) {
-            this.nLH.header(str, obj.toString());
+        public void M(String str, Object obj) {
+            this.ofB.header(str, obj.toString());
         }
     }
 

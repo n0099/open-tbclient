@@ -6,9 +6,9 @@ import com.baidu.prologue.a.c.k;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SplashStyleRecorder {
-    public static void af(JSONObject jSONObject) {
+    public static void ah(JSONObject jSONObject) {
         if (jSONObject != null) {
             String string = k.getString("splash_style", "");
             String jSONObject2 = jSONObject.toString();
@@ -80,14 +80,14 @@ public class SplashStyleRecorder {
         }
     }
 
-    public static int ag(JSONObject jSONObject) {
+    public static int ai(JSONObject jSONObject) {
         if (jSONObject == null) {
             return 0;
         }
         return jSONObject.optInt("l_gravity");
     }
 
-    public static int[] ah(JSONObject jSONObject) {
+    public static int[] aj(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("margin");
             if (!TextUtils.isEmpty(optString)) {
@@ -108,7 +108,7 @@ public class SplashStyleRecorder {
         return null;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum SplashElements {
         LOGO("logo"),
         SKIP(FreeSpaceBox.TYPE),

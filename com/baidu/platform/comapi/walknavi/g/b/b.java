@@ -1,23 +1,9 @@
 package com.baidu.platform.comapi.walknavi.g.b;
-/* loaded from: classes10.dex */
-public abstract class b {
-    private boolean a;
+/* loaded from: classes20.dex */
+public class b {
+    public static int a = 0;
 
-    public void e() {
-        this.a = true;
-        a();
-    }
-
-    public void f() {
-        this.a = false;
-        b();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
+    public static void a() {
+        a = 0;
     }
 }

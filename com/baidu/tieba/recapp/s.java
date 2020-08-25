@@ -16,22 +16,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.tieba.tbadkCore.d.a;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class s {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.dMX;
-        if (StringUtils.isNull(str) && advertAppInfo.dNf != null) {
-            str = advertAppInfo.dNf.userName;
+        String str = advertAppInfo.dWg;
+        if (StringUtils.isNull(str) && advertAppInfo.dWo != null) {
+            str = advertAppInfo.dWo.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -39,28 +39,24 @@ public class s {
         return a(context, advertAppInfo, i, str, downloadStaticsData);
     }
 
-    public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, String str) {
-        return a(context, advertAppInfo, i, str, null);
-    }
-
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, String str, DownloadStaticsData downloadStaticsData) {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.biw().b(advertAppInfo);
-        String str2 = advertAppInfo.dMX;
+        com.baidu.tbadk.distribute.a.bri().b(advertAppInfo);
+        String str2 = advertAppInfo.dWg;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dcg().a(advertAppInfo.dMZ, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Mr(advertAppInfo.dMZ).intValue(), null, true, false, true, advertAppInfo.dNf.userPortrait, downloadStaticsData, advertAppInfo.dNf.userName);
+        com.baidu.tieba.recapp.download.e.dnn().a(advertAppInfo.dWi, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Pp(advertAppInfo.dWi).intValue(), null, true, false, true, advertAppInfo.dWo.userPortrait, downloadStaticsData, advertAppInfo.dWo.userName);
         return true;
     }
 
-    public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dcg().C(advertAppInfo.apkUrl, advertAppInfo.dMZ, true);
+    public static final void e(AdvertAppInfo advertAppInfo) {
+        com.baidu.tieba.recapp.download.e.dnn().B(advertAppInfo.apkUrl, advertAppInfo.dWi, true);
     }
 
-    public static final void aM(Context context, String str) {
+    public static final void aQ(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, R.string.download_error);
             return;
@@ -75,7 +71,7 @@ public class s {
         }
     }
 
-    public static boolean e(Context context, Uri uri) {
+    public static boolean f(Context context, Uri uri) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(uri);
         intent.setFlags(268435456);
@@ -100,11 +96,11 @@ public class s {
         return false;
     }
 
-    public static boolean ar(Activity activity) {
+    public static boolean as(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean checkWriteExternalStorage = ad.checkWriteExternalStorage(activity);
+        boolean checkWriteExternalStorage = ae.checkWriteExternalStorage(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
@@ -169,15 +165,15 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.dca().sendFRS(z, str, str2, str3, list, str4);
+        r.dnh().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.dca().a(z, str, str2, str3, str4, list, str5);
+        r.dnh().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.bqh().bqi() != 1) {
+        if (com.baidu.tieba.a.bzf().bzg() != 1) {
             return h(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -185,7 +181,7 @@ public class s {
         }
         if (str.startsWith("tieba://deeplink?")) {
             Uri parse = Uri.parse(str);
-            if (e(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
+            if (f(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
                 return 1;
             }
             return i(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
@@ -205,7 +201,7 @@ public class s {
             return i(tbPageContext, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
-        if (e(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
+        if (f(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
         return i(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
@@ -217,7 +213,7 @@ public class s {
         }
         if (str.startsWith("tieba://deeplink?")) {
             Uri parse = Uri.parse(str);
-            if (e(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
+            if (f(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
                 return 1;
             }
             return i(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
@@ -232,41 +228,70 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g dbX = r.dca().dbX();
-        if (dbX == null) {
+        g dne = r.dnh().dne();
+        if (dne == null) {
             return false;
         }
-        if (dbX.AT(str)) {
-            dbX.a(tbPageContext.getPageActivity(), strArr, true);
+        if (dne.Dn(str)) {
+            dne.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return dbX.c(tbPageContext.getPageActivity(), strArr);
+        return dne.c(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aN(Context context, String str) {
+    public static int aR(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return aO(context, str) ? 3 : 0;
+            return aT(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
-        if (e(context, Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
+        if (f(context, Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        return aO(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aT(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean aO(Context context, String str) {
-        String[] strArr = {str};
-        g dbX = r.dca().dbX();
-        if (dbX == null) {
+    public static int a(Context context, String str, AdvertAppInfo advertAppInfo) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return 2;
+        }
+        if (str.startsWith("tieba://deeplink?") && f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
+            return 1;
+        }
+        r.dnh().a(advertAppInfo, context);
+        return 2;
+    }
+
+    public static boolean aS(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str) || !str.startsWith("tieba://deeplink?")) {
             return false;
         }
-        if (dbX.AT(str)) {
-            dbX.a(context, strArr, true);
+        return f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)));
+    }
+
+    public static boolean Pk(String str) {
+        return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
+    }
+
+    public static String Pl(String str) {
+        if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
+            return Uri.parse(str).getQueryParameter("wap");
+        }
+        return str;
+    }
+
+    private static boolean aT(Context context, String str) {
+        String[] strArr = {str};
+        g dne = r.dnh().dne();
+        if (dne == null) {
+            return false;
+        }
+        if (dne.Dn(str)) {
+            dne.a(context, strArr, true);
             return true;
         }
-        return dbX.c(context, strArr);
+        return dne.c(context, strArr);
     }
 }

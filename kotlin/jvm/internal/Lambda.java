@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 
 import java.io.Serializable;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public abstract class Lambda<R> implements Serializable, p<R> {
     private final int arity;
 

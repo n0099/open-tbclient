@@ -9,11 +9,12 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class b implements ServiceConnection {
     private static final Object a = new Object();
     private static Map<String, b> b = new HashMap();
@@ -77,7 +78,7 @@ public final class b implements ServiceConnection {
                 return;
             }
             this.j.removeMessages(1);
-            this.j.sendEmptyMessageDelayed(1, 3000L);
+            this.j.sendEmptyMessageDelayed(1, IMConnection.RETRY_DELAY_TIMES);
         }
     }
 

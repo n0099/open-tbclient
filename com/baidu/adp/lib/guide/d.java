@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a Kf;
+    private a KJ;
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration Kc = new Configuration();
+    private Configuration KG = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,14 +17,14 @@ public class d {
         void onShown();
     }
 
-    public d ah(int i) {
+    public d aj(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.Kc.mAlpha = i;
+        this.KG.mAlpha = i;
         return this;
     }
 
@@ -35,26 +35,18 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.Kc.mTargetView = view;
+        this.KG.mTargetView = view;
         return this;
     }
 
-    public d ai(int i) {
+    public d ak(int i) {
         if (this.mBuilt) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.Kc.mTargetViewId = i;
-        return this;
-    }
-
-    public d ae(boolean z) {
-        if (this.mBuilt) {
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        this.Kc.mAutoDismiss = z;
+        this.KG.mTargetViewId = i;
         return this;
     }
 
@@ -62,7 +54,15 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Kc.mOverlayTarget = z;
+        this.KG.mAutoDismiss = z;
+        return this;
+    }
+
+    public d ag(boolean z) {
+        if (this.mBuilt) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        this.KG.mOverlayTarget = z;
         return this;
     }
 
@@ -78,23 +78,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Kf = aVar;
+        this.KJ = aVar;
         return this;
     }
 
-    public d ag(boolean z) {
-        this.Kc.mOutsideTouchable = z;
+    public d ah(boolean z) {
+        this.KG.mOutsideTouchable = z;
         return this;
     }
 
-    public c kE() {
+    public c md() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.Kc);
-        cVar.a(this.Kf);
+        cVar.a(this.KG);
+        cVar.a(this.KJ);
         this.mComponents = null;
-        this.Kc = null;
-        this.Kf = null;
+        this.KG = null;
+        this.KJ = null;
         this.mBuilt = true;
         return cVar;
     }

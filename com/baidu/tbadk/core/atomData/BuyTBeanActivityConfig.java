@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.util.PageDialogHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static final String GIFT_TBEAN = "gift_tbean";
     public static final String IS_FROM_ALA = "is_from_ala";

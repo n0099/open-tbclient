@@ -24,7 +24,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class BdNet implements INoProGuard, BdNetEngine.b {
     public static final int CORE_POOL_SIZE = 2;
     protected static final boolean DEBUG = false;
@@ -44,14 +44,14 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     private int mPriority = 1;
     private int mPoolSize = 2;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum HttpMethod implements INoProGuard {
         METHOD_GET,
         METHOD_POST,
         METHOD_RESUME
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum NetError implements INoProGuard {
         ERROR_RUN_START,
         ERROR_RUN_EXCEPTION,
@@ -64,7 +64,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         ERROR_UNKNOWN
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum NetState implements INoProGuard {
         STATE_CONNECT_START,
         STATE_CONNECT_SETUP,
@@ -72,7 +72,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         STATE_UNKNOWN
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class a implements X509TrustManager {
         private X509TrustManager a;
         private X509TrustManager b;
@@ -82,7 +82,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 this.a = a(null);
                 this.b = a(keyStore);
             } catch (NoSuchAlgorithmException e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
         }
 
@@ -200,7 +200,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                         BdNetTask.clearTaskPool();
                         e.c();
                     } catch (Exception e) {
-                        com.a.a.a.a.a.a.a.a(e);
+                        e.printStackTrace();
                     }
                 }
             }
@@ -230,15 +230,15 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 throw th;
             }
         } catch (IOException e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (KeyManagementException e2) {
-            com.a.a.a.a.a.a.a.a(e2);
+            e2.printStackTrace();
         } catch (KeyStoreException e3) {
-            com.a.a.a.a.a.a.a.a(e3);
+            e3.printStackTrace();
         } catch (NoSuchAlgorithmException e4) {
-            com.a.a.a.a.a.a.a.a(e4);
+            e4.printStackTrace();
         } catch (CertificateException e5) {
-            com.a.a.a.a.a.a.a.a(e5);
+            e5.printStackTrace();
         }
     }
 

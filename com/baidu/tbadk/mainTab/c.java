@@ -1,17 +1,19 @@
 package com.baidu.tbadk.mainTab;
 
 import android.support.v4.app.Fragment;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     public int animationResId;
     public int backgroundId;
     public int drawableResId;
+    public String ePy;
     public Fragment frag;
     public int showIconType = SHOWICON;
+    public String text;
     public int textResId;
     public int type;
     public static int SHOWICON = 1;
     public static int SHOWTEXT = 2;
     public static int SHOWBOTH = 3;
-    public static int eEX = 4;
+    public static int ePz = 4;
 }

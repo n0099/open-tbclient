@@ -1,5 +1,5 @@
 package com.baidu.searchbox.v8engine;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface JSRuntime {
     void postOnJSThread(Runnable runnable);
 

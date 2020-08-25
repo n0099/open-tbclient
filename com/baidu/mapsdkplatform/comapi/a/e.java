@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.a;
 import android.animation.Animator;
 import com.baidu.mapapi.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e implements Animator.AnimatorListener {
     final /* synthetic */ d a;
 

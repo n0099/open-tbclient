@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class ap {
     private String a;
     private long b;

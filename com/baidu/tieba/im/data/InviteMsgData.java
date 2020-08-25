@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class InviteMsgData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 5185744948511601466L;
     private long fromUid;

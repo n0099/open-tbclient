@@ -1,6 +1,6 @@
 package com.baidu.swan.game.ad.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public String dba;
+    public String dlm;
     public String mClickId;
 }

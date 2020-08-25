@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static final String IS_NEW_USER = "is_new_user";
     public static final String MAIN_TAB = "main_tab";
@@ -18,6 +18,8 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
     public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
     public static boolean PERSON_TAB_AVAIBLE = true;
+    public static boolean ENTER_FORUM_TAB_AVAIBLE = true;
+    public static boolean NEW_CATEGORY_TAB_AVAIBLE = true;
     public static boolean MEMBER_CENTER_TAB_AVAILABLE = true;
 
     public MainTabActivityConfig(Context context) {

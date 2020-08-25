@@ -3,7 +3,7 @@ package android.support.v4.view.accessibility;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.accessibility.AccessibilityWindowInfo;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class AccessibilityWindowInfoCompat {
     public static final int TYPE_ACCESSIBILITY_OVERLAY = 4;
     public static final int TYPE_APPLICATION = 1;

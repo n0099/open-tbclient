@@ -10,7 +10,7 @@ import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MessageSyncMessage extends TbSocketMessage {
     private int height;
     private boolean isForTimer;
@@ -133,7 +133,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
-        long gid = c.cwS().getGid();
+        long gid = c.cHJ().getGid();
         boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
             long keyAt = this.mMids.keyAt(i);
@@ -144,16 +144,16 @@ public class MessageSyncMessage extends TbSocketMessage {
                 builder2.lastMsgId = valueAt;
                 if (gid == keyAt) {
                     z = true;
-                    builder2.excludeMid = c.cwS().cwU();
+                    builder2.excludeMid = c.cHJ().cHL();
                 }
                 builder.groupMids.add(builder2.build(false));
             }
         }
-        if (!z && c.cwS().cwW()) {
+        if (!z && c.cHJ().cHN()) {
             GroupLastId.Builder builder3 = new GroupLastId.Builder();
             builder3.groupId = Long.valueOf(gid);
-            builder3.lastMsgId = c.cwS().cwT();
-            builder3.excludeMid = c.cwS().cwU();
+            builder3.lastMsgId = c.cHJ().cHK();
+            builder3.excludeMid = c.cHJ().cHL();
             builder.groupMids.add(builder3.build(false));
         }
         builder.newpushRepire = getNewpushRepire();

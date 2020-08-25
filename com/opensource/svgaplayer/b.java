@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class b extends Drawable {
-    private boolean nJb;
-    private int nJc;
-    private final com.opensource.svgaplayer.a.b nJd;
-    private final f nJe;
-    private final c nJf;
+    private boolean ocU;
+    private int ocV;
+    private final com.opensource.svgaplayer.a.b ocW;
+    private final f ocX;
+    private final c ocY;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.nJe = fVar;
-        this.nJf = cVar;
-        this.nJb = true;
+        this.ocX = fVar;
+        this.ocY = cVar;
+        this.ocU = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.nJd = new com.opensource.svgaplayer.a.b(this.nJe, this.nJf);
+        this.ocW = new com.opensource.svgaplayer.a.b(this.ocX, this.ocY);
     }
 
-    public final f dOT() {
-        return this.nJe;
+    public final f eaV() {
+        return this.ocX;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.m(fVar, "videoItem");
     }
 
-    public final void xK(boolean z) {
-        if (this.nJb != z) {
-            this.nJb = z;
+    public final void yC(boolean z) {
+        if (this.ocU != z) {
+            this.ocU = z;
             invalidateSelf();
         }
     }
 
-    public final int dOS() {
-        return this.nJc;
+    public final int eaU() {
+        return this.ocV;
     }
 
-    public final void KV(int i) {
-        if (this.nJc != i) {
-            this.nJc = i;
+    public final void Nz(int i) {
+        if (this.ocV != i) {
+            this.ocV = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.nJb && canvas != null) {
-            this.nJd.a(canvas, this.nJc, this.scaleType);
+        if (!this.ocU && canvas != null) {
+            this.ocW.a(canvas, this.ocV, this.scaleType);
         }
     }
 

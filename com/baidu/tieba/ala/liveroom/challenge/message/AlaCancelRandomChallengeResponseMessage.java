@@ -2,15 +2,15 @@ package com.baidu.tieba.ala.liveroom.challenge.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.challenge.a gev;
-    private int gew;
+    private com.baidu.live.challenge.a gqD;
+    private int gqE;
 
     public AlaCancelRandomChallengeResponseMessage() {
         super(1021111);
-        this.gew = -1;
-        this.gev = null;
+        this.gqE = -1;
+        this.gqD = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -18,20 +18,20 @@ public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gew = optJSONObject.optInt("cancel_status");
+            this.gqE = optJSONObject.optInt("cancel_status");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject2 != null) {
-                this.gev = new com.baidu.live.challenge.a();
-                this.gev.parseJson(optJSONObject2);
+                this.gqD = new com.baidu.live.challenge.a();
+                this.gqD.parseJson(optJSONObject2);
             }
         }
     }
 
-    public com.baidu.live.challenge.a bFO() {
-        return this.gev;
+    public com.baidu.live.challenge.a bPt() {
+        return this.gqD;
     }
 
-    public boolean bFQ() {
-        return this.gew == 1;
+    public boolean bPv() {
+        return this.gqE == 1;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.usermute;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import tbclient.SimpleUser;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MuteUser extends OrmObject implements Serializable {
     public int agreeType;
     private String nickName;

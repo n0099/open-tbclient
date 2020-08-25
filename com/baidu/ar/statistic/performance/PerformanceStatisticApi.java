@@ -2,34 +2,34 @@ package com.baidu.ar.statistic.performance;
 
 import android.os.SystemClock;
 import com.baidu.ar.bean.ARConfig;
-import com.baidu.ar.f.d;
+import com.baidu.ar.g.f;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.f;
 import com.baidu.ar.statistic.performance.a;
 import java.util.Random;
 /* loaded from: classes11.dex */
 public class PerformanceStatisticApi implements f {
-    private a.C0088a vO;
-    private int vL = 0;
-    private boolean vM = false;
-    private a vN = new a();
-    private d.a vP = new d.a();
+    private a.C0085a wr;
+    private int wo = 0;
+    private boolean wp = false;
+    private a wq = new a();
+    private f.a ws = new f.a();
 
-    private void fe() {
-        if (this.vO == null) {
-            this.vO = new a.C0088a();
-            this.vL++;
-            this.vO.vW = this.vL;
-            this.vN.vV.add(this.vO);
+    private void gs() {
+        if (this.wr == null) {
+            this.wr = new a.C0085a();
+            this.wo++;
+            this.wr.wz = this.wo;
+            this.wq.wy.add(this.wr);
         }
     }
 
     @Override // com.baidu.ar.statistic.f
     public void onFrameIn() {
         try {
-            if (this.vM) {
-                fe();
-                this.vO.vX = SystemClock.elapsedRealtime();
+            if (this.wp) {
+                gs();
+                this.wr.wA = SystemClock.elapsedRealtime();
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -39,24 +39,24 @@ public class PerformanceStatisticApi implements f {
     @Override // com.baidu.ar.statistic.f
     public void onFrameOut() {
         try {
-            if (this.vM) {
-                fe();
-                this.vO.vY = SystemClock.elapsedRealtime();
-                if (this.vL >= 3) {
-                    this.vN.vS = this.vP.vS;
-                    this.vN.vR = this.vP.vR;
-                    this.vN.vT = this.vP.vT;
-                    this.vN.vU = this.vP.vU;
-                    this.vN.vQ = ARConfig.getARKey();
-                    StatisticApi.onPerformance("performance_summary", this.vN.ff());
-                    this.vN.fg();
-                    this.vL = 0;
-                    this.vM = false;
+            if (this.wp) {
+                gs();
+                this.wr.wB = SystemClock.elapsedRealtime();
+                if (this.wo >= 3) {
+                    this.wq.wv = this.ws.wv;
+                    this.wq.wu = this.ws.wu;
+                    this.wq.ww = this.ws.ww;
+                    this.wq.wx = this.ws.wx;
+                    this.wq.wt = ARConfig.getARKey();
+                    StatisticApi.onPerformance("performance_summary", this.wq.gt());
+                    this.wq.gu();
+                    this.wo = 0;
+                    this.wp = false;
                 }
-                this.vO = null;
+                this.wr = null;
             }
-            if (!this.vM && StatisticApi.isAllowPerformanceEvent("performance_summary") && new Random().nextInt(20) == 1) {
-                this.vM = true;
+            if (!this.wp && StatisticApi.isAllowPerformanceEvent("performance_summary") && new Random().nextInt(20) == 1) {
+                this.wp = true;
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -66,14 +66,14 @@ public class PerformanceStatisticApi implements f {
     @Override // com.baidu.ar.statistic.f
     public void recordAlgoTimeCost(String str, String str2, long j, int i) {
         try {
-            if (this.vM) {
-                fe();
-                a.C0088a.C0089a c0089a = new a.C0088a.C0089a();
-                c0089a.name = str;
-                c0089a.wa = str2;
-                c0089a.wb = j;
-                c0089a.count = i;
-                this.vO.vZ.add(c0089a);
+            if (this.wp) {
+                gs();
+                a.C0085a.C0086a c0086a = new a.C0085a.C0086a();
+                c0086a.name = str;
+                c0086a.wD = str2;
+                c0086a.wE = j;
+                c0086a.count = i;
+                this.wr.wC.add(c0086a);
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -82,7 +82,7 @@ public class PerformanceStatisticApi implements f {
 
     public void switchCase(String str) {
         try {
-            this.vN.vQ = str;
+            this.wq.wt = str;
         } catch (RuntimeException e) {
             e.printStackTrace();
         }

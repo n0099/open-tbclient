@@ -21,28 +21,28 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class DispatchableContentProvider extends ContentProvider {
-    private a bHx;
-    private ArrayList<com.baidu.pyramid.runtime.multiprocess.components.a> bHy;
+    private a bMX;
+    private ArrayList<com.baidu.pyramid.runtime.multiprocess.components.a> bMY;
     private String mAuthority;
     private volatile boolean mIsInit = false;
-    private final Object bHz = new Object();
+    private final Object bMZ = new Object();
 
-    protected abstract String QA();
+    protected abstract String Ww();
 
-    protected abstract List<com.baidu.pyramid.runtime.multiprocess.components.a> QB();
+    protected abstract List<com.baidu.pyramid.runtime.multiprocess.components.a> Wx();
 
-    private com.baidu.pyramid.runtime.multiprocess.components.a eg(int i) {
+    private com.baidu.pyramid.runtime.multiprocess.components.a gd(int i) {
         int i2;
         int i3;
         int i4 = 0;
-        int size = this.bHy.size() - 1;
+        int size = this.bMY.size() - 1;
         while (i4 <= size) {
             int i5 = (i4 + size) / 2;
-            com.baidu.pyramid.runtime.multiprocess.components.a aVar = this.bHy.get(i5);
-            if (i < aVar.Qy() || i > aVar.Qz()) {
-                if (i < aVar.Qy()) {
+            com.baidu.pyramid.runtime.multiprocess.components.a aVar = this.bMY.get(i5);
+            if (i < aVar.Wu() || i > aVar.Wv()) {
+                if (i < aVar.Wu()) {
                     i3 = i5 - 1;
                     i2 = i4;
                 } else {
@@ -60,28 +60,28 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     }
 
     private void a(com.baidu.pyramid.runtime.multiprocess.components.a aVar) {
-        if (aVar.Qy() > aVar.Qz()) {
+        if (aVar.Wu() > aVar.Wv()) {
             throw new IllegalArgumentException();
         }
-        int size = this.bHy.size();
+        int size = this.bMY.size();
         int i = 0;
         int i2 = 0;
         while (i < size) {
-            int i3 = aVar.Qy() > this.bHy.get(i).Qz() ? i + 1 : i2;
+            int i3 = aVar.Wu() > this.bMY.get(i).Wv() ? i + 1 : i2;
             i++;
             i2 = i3;
         }
-        if (i2 < size - 1 && aVar.Qz() >= this.bHy.get(i2).Qy()) {
+        if (i2 < size - 1 && aVar.Wv() >= this.bMY.get(i2).Wu()) {
             throw new IllegalArgumentException();
         }
-        this.bHy.add(i2, aVar);
+        this.bMY.add(i2, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends UriMatcher {
-        int bHA;
-        int bHB;
+        int bNa;
+        int bNb;
 
         public a(int i) {
             super(i);
@@ -89,38 +89,38 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
         @Override // android.content.UriMatcher
         public void addURI(String str, String str2, int i) {
-            eh(i);
+            ge(i);
             super.addURI(str, str2, i);
         }
 
-        private void eh(int i) {
-            if (i < this.bHB || i > this.bHA) {
-                throw new IllegalArgumentException("The minCode is : " + this.bHB + "The maxCode is : " + this.bHA + "The error code is : " + i);
+        private void ge(int i) {
+            if (i < this.bNb || i > this.bNa) {
+                throw new IllegalArgumentException("The minCode is : " + this.bNb + "The maxCode is : " + this.bNa + "The error code is : " + i);
             }
         }
     }
 
-    private void QC() {
+    private void Wy() {
         if (!this.mIsInit) {
-            synchronized (this.bHz) {
+            synchronized (this.bMZ) {
                 if (!this.mIsInit) {
                     this.mIsInit = true;
-                    this.mAuthority = QA();
+                    this.mAuthority = Ww();
                     if (this.mAuthority == null) {
                         throw new IllegalStateException();
                     }
-                    this.bHx = new a(-1);
-                    this.bHy = new ArrayList<>();
-                    List<com.baidu.pyramid.runtime.multiprocess.components.a> QB = QB();
-                    if (QB != null) {
-                        for (com.baidu.pyramid.runtime.multiprocess.components.a aVar : QB) {
+                    this.bMX = new a(-1);
+                    this.bMY = new ArrayList<>();
+                    List<com.baidu.pyramid.runtime.multiprocess.components.a> Wx = Wx();
+                    if (Wx != null) {
+                        for (com.baidu.pyramid.runtime.multiprocess.components.a aVar : Wx) {
                             a(aVar);
-                            this.bHx.bHB = aVar.Qy();
-                            this.bHx.bHA = aVar.Qz();
-                            aVar.a(this.bHx, this.mAuthority);
+                            this.bMX.bNb = aVar.Wu();
+                            this.bMX.bNa = aVar.Wv();
+                            aVar.a(this.bMX, this.mAuthority);
                         }
                     }
-                    Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bHy.iterator();
+                    Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bMY.iterator();
                     while (it.hasNext()) {
                         it.next().onCreate();
                     }
@@ -136,92 +136,92 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 0);
-            return eg.a(match, uri, strArr, str, strArr2, str2);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 0);
+            return gd.a(match, uri, strArr, str, strArr2, str2);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 0);
-            return eg.a(match, uri, strArr, str, strArr2, str2, cancellationSignal);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 0);
+            return gd.a(match, uri, strArr, str, strArr2, str2, cancellationSignal);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 4);
-            return eg.a(match, uri);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 4);
+            return gd.a(match, uri);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 1);
-            return eg.a(match, uri, contentValues);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 1);
+            return gd.a(match, uri, contentValues);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 5);
-            return eg.a(match, uri, str, strArr);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 5);
+            return gd.a(match, uri, str, strArr);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 2);
-            return eg.a(match, uri, contentValues, str, strArr);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 2);
+            return gd.a(match, uri, contentValues, str, strArr);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public int bulkInsert(Uri uri, ContentValues[] contentValuesArr) {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 6);
-            return eg.a(match, uri, contentValuesArr);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 6);
+            return gd.a(match, uri, contentValuesArr);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        com.baidu.pyramid.runtime.multiprocess.components.a eg;
-        QC();
+        com.baidu.pyramid.runtime.multiprocess.components.a gd;
+        Wy();
         if (arrayList == null) {
             return null;
         }
@@ -230,12 +230,12 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         while (it.hasNext()) {
             ContentProviderOperation next = it.next();
             Uri uri = next.getUri();
-            if (uri != null && (eg = eg(this.bHx.match(uri))) != null) {
-                eg.b(uri, 0);
-                ArrayList arrayList2 = (ArrayList) hashMap.get(eg);
+            if (uri != null && (gd = gd(this.bMX.match(uri))) != null) {
+                gd.b(uri, 0);
+                ArrayList arrayList2 = (ArrayList) hashMap.get(gd);
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList();
-                    hashMap.put(eg, arrayList2);
+                    hashMap.put(gd, arrayList2);
                 }
                 arrayList2.add(next);
             }
@@ -257,43 +257,43 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            return eg.a(match, uri, str);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            return gd.a(match, uri, str);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public AssetFileDescriptor openAssetFile(Uri uri, String str) throws FileNotFoundException {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 7);
-            return eg.b(match, uri, str);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 7);
+            return gd.b(match, uri, str);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public AssetFileDescriptor openAssetFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        QC();
-        int match = this.bHx.match(uri);
-        com.baidu.pyramid.runtime.multiprocess.components.a eg = eg(match);
-        if (eg != null) {
-            eg.b(uri, 7);
-            return eg.a(match, uri, str, cancellationSignal);
+        Wy();
+        int match = this.bMX.match(uri);
+        com.baidu.pyramid.runtime.multiprocess.components.a gd = gd(match);
+        if (gd != null) {
+            gd.b(uri, 7);
+            return gd.a(match, uri, str, cancellationSignal);
         }
         throw new IllegalArgumentException();
     }
 
     @Override // android.content.ContentProvider
     public void attachInfo(Context context, ProviderInfo providerInfo) {
-        QC();
-        Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bHy.iterator();
+        Wy();
+        Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bMY.iterator();
         while (it.hasNext()) {
             it.next().a(this);
         }
@@ -302,9 +302,9 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        QC();
+        Wy();
         super.onConfigurationChanged(configuration);
-        Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bHy.iterator();
+        Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bMY.iterator();
         while (it.hasNext()) {
             it.next().onConfigurationChanged(configuration);
         }
@@ -312,8 +312,8 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
-        QC();
-        Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bHy.iterator();
+        Wy();
+        Iterator<com.baidu.pyramid.runtime.multiprocess.components.a> it = this.bMY.iterator();
         while (it.hasNext()) {
             com.baidu.pyramid.runtime.multiprocess.components.a next = it.next();
             if (next.b(str, str2, bundle)) {

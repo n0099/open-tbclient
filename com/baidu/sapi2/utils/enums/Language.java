@@ -1,18 +1,18 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public enum Language {
     CHINESE(0, "chinese"),
     ENGLISH(1, "english");
     
-    private int b;
-    private String c;
+    private int a;
+    private String b;
 
     Language(int i, String str) {
-        this.b = i;
-        this.c = str;
+        this.a = i;
+        this.b = str;
     }
 
     public int getType() {
-        return this.b;
+        return this.a;
     }
 }

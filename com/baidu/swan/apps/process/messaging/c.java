@@ -8,30 +8,30 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
-    private boolean cAM;
-    private final Message cAX;
-    private final Set<SwanAppProcessInfo> cAY;
-    private final Set<String> cAZ;
-    private boolean cBa;
-    private long cBb;
+    private boolean cIV;
+    private final Message cJg;
+    private final Set<SwanAppProcessInfo> cJh;
+    private final Set<String> cJi;
+    private boolean cJj;
+    private long cJk;
 
     @NonNull
-    public Message apA() {
-        if (this.cAX.obj == null) {
-            Q(new Bundle());
+    public Message axw() {
+        if (this.cJg.obj == null) {
+            T(new Bundle());
         }
-        return this.cAX;
+        return this.cJg;
     }
 
     public c(Message message) {
-        this.cAY = new HashSet();
-        this.cAZ = new HashSet();
-        this.cAM = false;
-        this.cBa = false;
-        this.cBb = 0L;
-        this.cAX = message == null ? Message.obtain() : message;
+        this.cJh = new HashSet();
+        this.cJi = new HashSet();
+        this.cIV = false;
+        this.cJj = false;
+        this.cJk = 0L;
+        this.cJg = message == null ? Message.obtain() : message;
     }
 
     public c(int i, Object obj) {
@@ -46,13 +46,13 @@ public final class c {
         this(Message.obtain());
     }
 
-    public c eV(boolean z) {
-        this.cBa = z;
+    public c fo(boolean z) {
+        this.cJj = z;
         return this;
     }
 
     public boolean isSticky() {
-        return this.cBa;
+        return this.cJj;
     }
 
     private boolean a(int[] iArr, int i) {
@@ -69,19 +69,19 @@ public final class c {
 
     public c a(SwanAppProcessInfo... swanAppProcessInfoArr) {
         if (swanAppProcessInfoArr != null) {
-            this.cAY.addAll(Arrays.asList(swanAppProcessInfoArr));
+            this.cJh.addAll(Arrays.asList(swanAppProcessInfoArr));
         }
         return this;
     }
 
-    public c t(String... strArr) {
+    public c u(String... strArr) {
         if (strArr != null) {
-            this.cAZ.addAll(Arrays.asList(strArr));
+            this.cJi.addAll(Arrays.asList(strArr));
         }
         return this;
     }
 
-    public c e(int... iArr) {
+    public c f(int... iArr) {
         if (iArr != null) {
             for (int i : iArr) {
                 if (SwanAppProcessInfo.checkProcessId(i)) {
@@ -92,7 +92,7 @@ public final class c {
         return this;
     }
 
-    public c apB() {
+    public c axx() {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess()) {
@@ -102,7 +102,7 @@ public final class c {
         return this;
     }
 
-    public c f(int... iArr) {
+    public c g(int... iArr) {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess() && !a(iArr, swanAppProcessInfo.index)) {
@@ -112,40 +112,40 @@ public final class c {
         return this;
     }
 
-    public c eW(boolean z) {
-        this.cAM = z;
+    public c fp(boolean z) {
+        this.cIV = z;
         return this;
     }
 
-    public Set<SwanAppProcessInfo> apC() {
-        return new HashSet(this.cAY);
+    public Set<SwanAppProcessInfo> axy() {
+        return new HashSet(this.cJh);
     }
 
-    public Set<String> apD() {
-        return new HashSet(this.cAZ);
+    public Set<String> axz() {
+        return new HashSet(this.cJi);
     }
 
-    public boolean apE() {
-        return this.cAM;
+    public boolean axA() {
+        return this.cIV;
     }
 
-    public c Q(Object obj) {
-        this.cAX.obj = obj;
+    public c T(Object obj) {
+        this.cJg.obj = obj;
         return this;
     }
 
-    public c bv(long j) {
+    public c bC(long j) {
         if (j < 0) {
             j = 0;
         }
-        this.cBb = j;
+        this.cJk = j;
         return this;
     }
 
-    public long apF() {
-        if (this.cBb < 0) {
+    public long axB() {
+        if (this.cJk < 0) {
             return 0L;
         }
-        return this.cBb;
+        return this.cJk;
     }
 }

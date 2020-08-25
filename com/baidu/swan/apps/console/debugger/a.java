@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.console.debugger;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    String XE();
+    String adK();
 
-    void p(Bundle bundle);
+    void n(Bundle bundle);
 
-    void q(Bundle bundle);
+    void o(Bundle bundle);
 }

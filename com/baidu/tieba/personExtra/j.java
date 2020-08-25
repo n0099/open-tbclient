@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
@@ -17,39 +17,39 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes18.dex */
 public class j {
-    private k gZb;
-    private com.baidu.tbadk.core.dialog.g jpL;
-    private SmartApp kUf;
-    private com.baidu.tbadk.core.dialog.i kUi;
-    private a kUj;
+    private k hlU;
+    private com.baidu.tbadk.core.dialog.g jEJ;
+    private SmartApp ljV;
+    private com.baidu.tbadk.core.dialog.i ljY;
+    private a ljZ;
     private Context mContext;
     private TbPageContext mPageContext;
-    private k.b kUk = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
+    private k.b lka = new k.b() { // from class: com.baidu.tieba.personExtra.j.1
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            if (j.this.kUf != null) {
+            if (j.this.ljV != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-                httpMessage.addParam("swan_app_key", j.this.kUf.id);
+                httpMessage.addParam("swan_app_key", j.this.ljV.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
-                if (j.this.kUj != null) {
-                    j.this.kUj.LC(j.this.kUf.id);
+                if (j.this.ljZ != null) {
+                    j.this.ljZ.Ov(j.this.ljV.id);
                 }
-                ap apVar = new ap("c13436");
-                apVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                apVar.t("obj_id", j.this.kUf.swan_app_id.longValue());
-                apVar.dn("obj_name", j.this.kUf.name);
-                TiebaStatic.log(apVar);
-                if (j.this.kUi != null) {
-                    j.this.kUi.dismiss();
+                aq aqVar = new aq("c13436");
+                aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
+                aqVar.u("obj_id", j.this.ljV.swan_app_id.longValue());
+                aqVar.dD("obj_name", j.this.ljV.name);
+                TiebaStatic.log(aqVar);
+                if (j.this.ljY != null) {
+                    j.this.ljY.dismiss();
                 }
             }
         }
     };
-    private List<com.baidu.tbadk.core.dialog.g> dAT = new ArrayList();
+    private List<com.baidu.tbadk.core.dialog.g> dKd = new ArrayList();
 
     /* loaded from: classes18.dex */
     public interface a {
-        void LC(String str);
+        void Ov(String str);
     }
 
     static {
@@ -59,30 +59,30 @@ public class j {
     public j(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.gZb = new k(this.mContext);
+        this.hlU = new k(this.mContext);
     }
 
     public void create() {
-        if (this.kUi == null) {
-            this.jpL = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.gZb);
-            this.jpL.a(this.kUk);
-            this.dAT.add(this.jpL);
-            this.gZb.aS(this.dAT);
-            this.kUi = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.gZb);
+        if (this.ljY == null) {
+            this.jEJ = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.hlU);
+            this.jEJ.a(this.lka);
+            this.dKd.add(this.jEJ);
+            this.hlU.aT(this.dKd);
+            this.ljY = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.hlU);
         }
     }
 
     public void a(a aVar) {
-        this.kUj = aVar;
+        this.ljZ = aVar;
     }
 
     public void b(SmartApp smartApp) {
-        this.kUf = smartApp;
+        this.ljV = smartApp;
     }
 
     public void show() {
-        if (this.kUi != null) {
-            this.kUi.showDialog();
+        if (this.ljY != null) {
+            this.ljY.Nv();
         }
     }
 }

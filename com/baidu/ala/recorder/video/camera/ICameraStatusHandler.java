@@ -3,17 +3,21 @@ package com.baidu.ala.recorder.video.camera;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 /* loaded from: classes7.dex */
 public interface ICameraStatusHandler {
+
+    /* loaded from: classes7.dex */
+    public interface Beauty {
+        boolean hasAdvancedBeauty();
+
+        int hasBeauty();
+
+        void setBeauty(int i);
+    }
+
     int getDisplayRotate();
-
-    boolean hasAdvancedBeauty();
-
-    int hasBeauty();
 
     boolean isBackCamera();
 
     boolean isFlashingLightOpen();
-
-    void setBeauty(int i);
 
     void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig);
 

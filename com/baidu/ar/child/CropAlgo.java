@@ -2,8 +2,8 @@ package com.baidu.ar.child;
 /* loaded from: classes11.dex */
 public class CropAlgo {
     static {
-        com.baidu.ar.libloader.b.ao("cropface");
-        com.baidu.ar.libloader.b.ao("childCropFace");
+        com.baidu.ar.libloader.b.as("cropface");
+        com.baidu.ar.libloader.b.as("childCropFace");
     }
 
     public native int nativeClear();

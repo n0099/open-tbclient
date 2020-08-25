@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private String dwo;
-    private long dwp;
+    private String dFs;
+    private long dFt;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -37,24 +37,24 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public String aLj() {
-        return this.dwo;
+    public String aTH() {
+        return this.dFs;
     }
 
     public void setTipMessage(String str) {
-        this.dwo = str;
+        this.dFs = str;
     }
 
-    public void cb(long j) {
-        this.dwp = j;
+    public void ch(long j) {
+        this.dFt = j;
     }
 
-    public static c uv(String str) {
+    public static c wE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return cm(new JSONObject(str));
+            return cq(new JSONObject(str));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -64,12 +64,12 @@ public class c {
         }
     }
 
-    public static c cm(JSONObject jSONObject) {
+    public static c cq(JSONObject jSONObject) {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1));
         cVar.setErrorMessage(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
         cVar.setTipMessage(jSONObject.optString("tipmsg"));
-        cVar.cb(jSONObject.optLong("request_id"));
+        cVar.ch(jSONObject.optLong("request_id"));
         cVar.setData(jSONObject.optJSONObject("data"));
         return cVar;
     }

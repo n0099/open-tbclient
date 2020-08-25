@@ -9,14 +9,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class TitleBox extends AbstractFullBox {
     public static final String TYPE = "titl";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
     private String language;
     private String title;
 
@@ -26,11 +26,11 @@ public class TitleBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TitleBox.java", TitleBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.TitleBox", "", "", "", FieldUtil.TYPE_STRING), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getTitle", "com.coremedia.iso.boxes.TitleBox", "", "", "", FieldUtil.TYPE_STRING), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.TitleBox", FieldUtil.TYPE_STRING, "language", "", "void"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setTitle", "com.coremedia.iso.boxes.TitleBox", FieldUtil.TYPE_STRING, "title", "", "void"), 63);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TitleBox", "", "", "", FieldUtil.TYPE_STRING), 86);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.TitleBox", "", "", "", FieldUtil.TYPE_STRING), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getTitle", "com.coremedia.iso.boxes.TitleBox", "", "", "", FieldUtil.TYPE_STRING), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.TitleBox", FieldUtil.TYPE_STRING, "language", "", "void"), 59);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setTitle", "com.coremedia.iso.boxes.TitleBox", FieldUtil.TYPE_STRING, "title", "", "void"), 63);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.TitleBox", "", "", "", FieldUtil.TYPE_STRING), 86);
     }
 
     public TitleBox() {

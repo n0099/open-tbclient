@@ -2,7 +2,7 @@ package com.baidu.searchbox.suspensionwindow;
 
 import android.support.annotation.NonNull;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class IFloatWindow {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void dismiss();

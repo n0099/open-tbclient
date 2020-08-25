@@ -11,6 +11,8 @@ public interface IARCaseInfo {
 
     String getAcId();
 
+    String getArCasePath();
+
     ARCaseBundleInfo getCaseBundleInfo();
 
     Map<FunctionType, Boolean> getFeatures();

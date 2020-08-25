@@ -19,8 +19,8 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.d;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.webkit.internal.ETAG;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,7 +78,7 @@ public class a {
     public void a(String str, String str2, String str3) {
         try {
             Uri.Builder appendQueryParameter = new Uri.Builder().appendQueryParameter("stacktrace", str2);
-            appendQueryParameter.appendQueryParameter("ad", str3);
+            appendQueryParameter.appendQueryParameter(MapBundleKey.MapObjKey.OBJ_AD, str3);
             for (Map.Entry<String, String> entry : new com.baidu.mobads.vo.a.b().c().entrySet()) {
                 appendQueryParameter.appendQueryParameter(entry.getKey(), entry.getValue());
             }
@@ -168,7 +168,7 @@ public class a {
         try {
             StringBuilder sb = new StringBuilder("type=" + str + ETAG.ITEM_SEPARATOR);
             StringBuilder sb2 = new StringBuilder();
-            map.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis() + "");
+            map.put("ts", System.currentTimeMillis() + "");
             e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
             for (String str2 : map.keySet()) {
                 String str3 = map.get(str2);

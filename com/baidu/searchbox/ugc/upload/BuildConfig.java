@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.upload;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.ugc.upload";
     public static final String BUILD_TYPE = "release";

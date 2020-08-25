@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes16.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private aa hly;
+    private aa hyp;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, aa aaVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.hlP);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.hyG);
         this.mPageContext = tbPageContext;
-        this.hly = aaVar;
+        this.hyp = aaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aK */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> b(ViewGroup viewGroup) {
         com.baidu.tieba.enterForum.recommend.view.c cVar = new com.baidu.tieba.enterForum.recommend.view.c(this.mPageContext);
         cVar.setTag(this.mPageId);
@@ -31,15 +31,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.bSs() == null) {
+        if (dVar == null || aVar == null || aVar.ccE() == null) {
             return null;
         }
         if (viewGroup instanceof BdTypeRecyclerView) {
-            aVar.bSs().nf(dVar.needTopMargin);
+            aVar.ccE().nJ(dVar.needTopMargin);
         }
-        aVar.bSs().a(dVar);
-        if (this.hly != null) {
-            aVar.bSs().c(this.hly);
+        aVar.ccE().a(dVar);
+        if (this.hyp != null) {
+            aVar.ccE().c(this.hyp);
         }
         return aVar.getView();
     }

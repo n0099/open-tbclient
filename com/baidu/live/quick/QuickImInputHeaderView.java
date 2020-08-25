@@ -16,11 +16,11 @@ import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.view.AlphaGradientHListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class QuickImInputHeaderView extends RelativeLayout implements com.baidu.live.im.d.a {
-    private AlphaGradientHListView bbB;
-    private a bbC;
-    private a.InterfaceC0168a bbD;
+    private AlphaGradientHListView bgZ;
+    private a bha;
+    private a.InterfaceC0176a bhb;
 
     public QuickImInputHeaderView(Context context) {
         super(context);
@@ -28,8 +28,8 @@ public class QuickImInputHeaderView extends RelativeLayout implements com.baidu.
     }
 
     @Override // com.baidu.live.im.d.a
-    public void setCallback(a.InterfaceC0168a interfaceC0168a) {
-        this.bbD = interfaceC0168a;
+    public void setCallback(a.InterfaceC0176a interfaceC0176a) {
+        this.bhb = interfaceC0176a;
     }
 
     @Override // com.baidu.live.im.d.a
@@ -40,64 +40,64 @@ public class QuickImInputHeaderView extends RelativeLayout implements com.baidu.
 
     @Override // com.baidu.live.im.d.a
     public void setData(List<String> list) {
-        if (this.bbC == null) {
-            this.bbC = new a();
-            this.bbC.setData(list);
-            this.bbB.setAdapter((ListAdapter) this.bbC);
+        if (this.bha == null) {
+            this.bha = new a();
+            this.bha.setData(list);
+            this.bgZ.setAdapter((ListAdapter) this.bha);
         } else {
-            this.bbC.setData(list);
-            this.bbC.notifyDataSetChanged();
+            this.bha.setData(list);
+            this.bha.notifyDataSetChanged();
         }
-        this.bbB.setSelection(0);
+        this.bgZ.setSelection(0);
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.ala_quick_im_input_header, (ViewGroup) this, true);
-        this.bbB = (AlphaGradientHListView) findViewById(a.g.lv);
-        this.bbB.setShadowWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds56));
-        this.bbB.setNeedAlphaShade(true);
-        this.bbB.setColor(getResources().getColor(a.d.sdk_white_alpha100), getResources().getColor(a.d.sdk_white_alpha0));
-        this.bbB.setSelector(getResources().getDrawable(a.f.sdk_transparent_bg));
-        this.bbB.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.quick.QuickImInputHeaderView.1
+        this.bgZ = (AlphaGradientHListView) findViewById(a.g.lv);
+        this.bgZ.setShadowWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds56));
+        this.bgZ.setNeedAlphaShade(true);
+        this.bgZ.setColor(getResources().getColor(a.d.sdk_white_alpha100), getResources().getColor(a.d.sdk_white_alpha0));
+        this.bgZ.setSelector(getResources().getDrawable(a.f.sdk_transparent_bg));
+        this.bgZ.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.live.quick.QuickImInputHeaderView.1
             @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                if (QuickImInputHeaderView.this.bbD != null) {
-                    QuickImInputHeaderView.this.bbD.B(QuickImInputHeaderView.this.bbC.getItem(i), i);
+                if (QuickImInputHeaderView.this.bhb != null) {
+                    QuickImInputHeaderView.this.bhb.C(QuickImInputHeaderView.this.bha.getItem(i), i);
                 }
             }
         });
         findViewById(a.g.iv_more).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.quick.QuickImInputHeaderView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (QuickImInputHeaderView.this.bbD != null) {
-                    QuickImInputHeaderView.this.bbD.Ey();
+                if (QuickImInputHeaderView.this.bhb != null) {
+                    QuickImInputHeaderView.this.bhb.Kd();
                 }
             }
         });
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     private static class a extends BaseAdapter {
-        private List<String> bbF;
+        private List<String> bhd;
 
         private a() {
         }
 
         public void setData(List<String> list) {
-            if (this.bbF == null) {
-                this.bbF = new ArrayList();
+            if (this.bhd == null) {
+                this.bhd = new ArrayList();
             }
-            this.bbF.clear();
+            this.bhd.clear();
             if (list != null) {
-                this.bbF.addAll(list);
+                this.bhd.addAll(list);
             }
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.bbF != null) {
-                return this.bbF.size();
+            if (this.bhd != null) {
+                return this.bhd.size();
             }
             return 0;
         }
@@ -105,7 +105,7 @@ public class QuickImInputHeaderView extends RelativeLayout implements com.baidu.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         public String getItem(int i) {
-            return (this.bbF == null || getCount() <= i) ? "" : this.bbF.get(i);
+            return (this.bhd == null || getCount() <= i) ? "" : this.bhd.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -131,7 +131,7 @@ public class QuickImInputHeaderView extends RelativeLayout implements com.baidu.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     private static class b {
         TextView textView;
 

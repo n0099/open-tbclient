@@ -4,28 +4,28 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.af;
+import com.baidu.live.data.ah;
 import com.baidu.tieba.ala.person.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static PersonUserData a(b bVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new af();
+        personUserData.user_info = new ah();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aCI = bVar.metaKey;
+        personUserData.user_info.aHS = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.fVo;
+        personUserData.relation_info.follow_status = bVar.ghn;
         return personUserData;
     }
 
-    public static String ba(int i, String str) {
+    public static String aY(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -58,11 +58,11 @@ public class a {
         return null;
     }
 
-    public static String ec(long j) {
-        return j / 10000 > 0 ? q(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+    public static String en(long j) {
+        return j / 10000 > 0 ? w(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String q(double d) {
+    public static String w(double d) {
         String valueOf = String.valueOf(d);
         int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());

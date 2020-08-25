@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import com.xiaomi.push.ai;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class bh extends ai.a {
     private Context a;
 
@@ -11,12 +11,12 @@ public class bh extends ai.a {
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.a).m53a().isPerfUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.a).m58a().isPerfUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo161a() {
+    public int mo166a() {
         return 100887;
     }
 

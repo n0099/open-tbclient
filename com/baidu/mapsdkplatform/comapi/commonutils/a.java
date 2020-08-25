@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static final boolean a;
 
@@ -27,141 +27,7 @@ public class a {
             }
             return null;
         } catch (Exception e) {
-            return BitmapFactory.decodeFile(b("assets/" + str, str, context));
-        }
-    }
-
-    private static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
-        byte[] bArr = new byte[4096];
-        while (true) {
-            try {
-                int read = inputStream.read(bArr);
-                if (read == -1) {
-                    fileOutputStream.flush();
-                    try {
-                        inputStream.close();
-                        try {
-                            fileOutputStream.close();
-                            return;
-                        } catch (IOException e) {
-                            return;
-                        }
-                    } catch (IOException e2) {
-                        return;
-                    }
-                }
-                fileOutputStream.write(bArr, 0, read);
-            } catch (Throwable th) {
-                try {
-                    inputStream.close();
-                    try {
-                        fileOutputStream.close();
-                        throw th;
-                    } catch (IOException e3) {
-                        return;
-                    }
-                } catch (IOException e4) {
-                    return;
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0095 A[Catch: IOException -> 0x0099, TRY_LEAVE, TryCatch #0 {IOException -> 0x0099, blocks: (B:30:0x0090, B:32:0x0095), top: B:47:0x0090 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(String str, String str2, Context context) {
-        InputStream inputStream;
-        Throwable th;
-        FileOutputStream fileOutputStream;
-        InputStream inputStream2;
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            inputStream = context.getAssets().open(str);
-            if (inputStream != null) {
-                try {
-                    byte[] bArr = new byte[inputStream.available()];
-                    inputStream.read(bArr);
-                    File file = new File(context.getFilesDir().getAbsolutePath() + "/" + str2);
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                    fileOutputStream = new FileOutputStream(file);
-                    try {
-                        fileOutputStream.write(bArr);
-                        fileOutputStream.close();
-                    } catch (Exception e) {
-                        fileOutputStream2 = fileOutputStream;
-                        inputStream2 = inputStream;
-                        try {
-                            b("assets/" + str, str2, context);
-                            if (inputStream2 != null) {
-                                try {
-                                    inputStream2.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                    return;
-                                }
-                            }
-                            if (fileOutputStream2 != null) {
-                                fileOutputStream2.close();
-                                return;
-                            }
-                            return;
-                        } catch (Throwable th2) {
-                            inputStream = inputStream2;
-                            fileOutputStream = fileOutputStream2;
-                            th = th2;
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                fileOutputStream.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (inputStream != null) {
-                        }
-                        if (fileOutputStream != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    inputStream2 = inputStream;
-                } catch (Throwable th4) {
-                    fileOutputStream = null;
-                    th = th4;
-                }
-            } else {
-                fileOutputStream = null;
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                    return;
-                }
-            }
-            if (fileOutputStream != null) {
-                fileOutputStream.close();
-            }
-        } catch (Exception e6) {
-            inputStream2 = null;
-        } catch (Throwable th5) {
-            inputStream = null;
-            th = th5;
-            fileOutputStream = null;
+            return BitmapFactory.decodeFile(a("assets/" + str, str, context));
         }
     }
 
@@ -169,7 +35,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String b(String str, String str2, Context context) {
+    private static String a(String str, String str2, Context context) {
         ZipFile zipFile;
         File file;
         File file2;
@@ -242,5 +108,28 @@ public class a {
             }
         }
         return sb.toString();
+    }
+
+    private static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
+        byte[] bArr = new byte[4096];
+        while (true) {
+            try {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                fileOutputStream.write(bArr, 0, read);
+            } finally {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                }
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                }
+            }
+        }
+        fileOutputStream.flush();
     }
 }

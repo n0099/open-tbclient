@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.ak;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.dcN().MC(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.dnW().Pz(threadListResIdl.data.asp_shown_info);
             Message<?> orginalMessage2 = getOrginalMessage();
             boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
             this.threadList = new ArrayList<>();
@@ -61,24 +61,24 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 ArrayList arrayList = new ArrayList();
                 for (int i3 = 0; i3 < list2.size(); i3++) {
                     ThreadInfo threadInfo = list2.get(i3);
-                    bv bvVar = new bv();
-                    bvVar.setUserMap(this.userMap);
-                    bvVar.a(threadInfo);
-                    bvVar.aXj();
-                    bvVar.dUu = isBrandForum;
-                    if (!TextUtils.isEmpty(bvVar.aXv())) {
-                        aj ajVar = new aj();
-                        ajVar.wN(bvVar.aXv());
-                        this.threadList.add(ajVar);
+                    bw bwVar = new bw();
+                    bwVar.setUserMap(this.userMap);
+                    bwVar.a(threadInfo);
+                    bwVar.bfC();
+                    bwVar.edQ = isBrandForum;
+                    if (!TextUtils.isEmpty(bwVar.bfO())) {
+                        ak akVar = new ak();
+                        akVar.zb(bwVar.bfO());
+                        this.threadList.add(akVar);
                     } else {
-                        this.threadList.add(bvVar);
+                        this.threadList.add(bwVar);
                         JSONObject f = b.f(threadInfo);
                         if (f != null) {
                             arrayList.add(f);
                         }
                     }
                 }
-                b.dcS().eP(arrayList);
+                b.doc().eX(arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

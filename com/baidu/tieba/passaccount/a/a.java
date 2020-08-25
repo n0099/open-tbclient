@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes15.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a keb = null;
-    private final a.InterfaceC0490a kec = new a.InterfaceC0490a() { // from class: com.baidu.tieba.passaccount.a.a.1
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0490a
+    private static a ktv = null;
+    private final a.InterfaceC0536a ktw = new a.InterfaceC0536a() { // from class: com.baidu.tieba.passaccount.a.a.1
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0536a
         public void onBeforeLogin(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0490a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0536a
         public void a(AccountData accountData) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0490a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0536a
         public void onFailure(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.aZI().e(null);
+                ReloginManager.bid().e(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 /* renamed from: i */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.wD(str);
+                    return com.baidu.tbadk.core.a.b.yO(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getID())) {
-                        com.baidu.tbadk.core.a.b.wC(accountData.getID());
+                        com.baidu.tbadk.core.a.b.yN(accountData.getID());
                     }
                 }
             };
@@ -53,15 +53,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a cJz() {
-        if (keb == null) {
-            keb = new a();
+    public static a cUp() {
+        if (ktv == null) {
+            ktv = new a();
         }
-        return keb;
+        return ktv;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b wB(String str) {
+    public a.b yM(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -93,14 +93,14 @@ public class a extends com.baidu.tbadk.core.a.a {
     @Override // com.baidu.tbadk.core.a.a
     public void reLoginByCacheAccount() {
         AccountData currentAccountObj;
-        a.b wB;
-        if (j.isNetWorkAvailable() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (wB = wB(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), wB.mBduss, wB.mPtoken, currentAccountObj.getStoken(), this.kec);
+        a.b yM;
+        if (j.isNetWorkAvailable() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (yM = yM(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), yM.mBduss, yM.mPtoken, currentAccountObj.getStoken(), this.ktw);
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0490a interfaceC0490a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0490a);
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0536a interfaceC0536a) {
+        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0536a);
     }
 }

@@ -12,31 +12,36 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static final String cfQ = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    private static final String cfR = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
-    public static final String cfS = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    public static final String cmi = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    private static final String cmj = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
+    public static final String cmk = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
-    public static f dS(boolean z) {
+    public static f ec(boolean z) {
+        boolean z2 = true;
         if (z) {
-            return f.gr(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
+            return f.gN(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
         }
-        if (acW()) {
-            acV();
-            return f.r(d.k("zeusv8", cfR, true), d.k("v8.engine", cfQ, false));
+        if (ajv()) {
+            aju();
+            boolean k = d.k("zeusv8", cmj, true);
+            if (!d.k("arcore_sdk_c", cmi, false) || !d.k("arcore_sdk_jni", cmi, false) || !d.k("c++_shared", cmi, false) || !d.k("v8.engine", cmi, false)) {
+                z2 = false;
+            }
+            return f.u(k, z2);
         }
-        d.k("zeusv8", cfS, true);
-        return f.gr(d.k("v8.engine", cfS, true));
+        d.k("zeusv8", cmk, true);
+        return f.gN(d.k("v8.engine", cmk, true));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [146=5, 147=4, 148=4, 150=4, 151=4, 152=4, 155=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=5, 153=4, 154=4, 156=4, 157=4, 158=4, 161=4] */
     /* JADX WARN: Removed duplicated region for block: B:90:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:92:0x00fe A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void acV() {
+    private static void aju() {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
@@ -48,11 +53,11 @@ public class a {
         fileLock = null;
         fileLock = null;
         fileLock = null;
-        File file = new File(cfQ + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(cmi + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(cfR);
+        File file2 = new File(cmj);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -75,8 +80,8 @@ public class a {
                     try {
                         if (lock.isValid()) {
                             if (file.length() == file3.length()) {
-                                com.baidu.swan.d.d.closeSafely(null);
-                                com.baidu.swan.d.d.closeSafely(null);
+                                com.baidu.swan.c.d.closeSafely(null);
+                                com.baidu.swan.c.d.closeSafely(null);
                                 if (lock != null) {
                                     try {
                                         lock.release();
@@ -84,7 +89,7 @@ public class a {
                                         e2.printStackTrace();
                                     }
                                 }
-                                com.baidu.swan.d.d.closeSafely(fileChannel);
+                                com.baidu.swan.c.d.closeSafely(fileChannel);
                                 return;
                             }
                             fileInputStream = new FileInputStream(file);
@@ -112,8 +117,8 @@ public class a {
                                 }
                                 fileOutputStream2.flush();
                                 fileInputStream3 = fileInputStream;
-                                com.baidu.swan.d.d.closeSafely(fileInputStream3);
-                                com.baidu.swan.d.d.closeSafely(fileOutputStream2);
+                                com.baidu.swan.c.d.closeSafely(fileInputStream3);
+                                com.baidu.swan.c.d.closeSafely(fileOutputStream2);
                                 if (lock != null) {
                                     try {
                                         lock.release();
@@ -121,7 +126,7 @@ public class a {
                                         e4.printStackTrace();
                                     }
                                 }
-                                com.baidu.swan.d.d.closeSafely(fileChannel);
+                                com.baidu.swan.c.d.closeSafely(fileChannel);
                             } catch (Exception e5) {
                                 fileLock = lock;
                                 fileOutputStream = fileOutputStream2;
@@ -130,8 +135,8 @@ public class a {
                                 fileChannel2 = fileChannel;
                                 try {
                                     e.printStackTrace();
-                                    com.baidu.swan.d.d.closeSafely(fileInputStream2);
-                                    com.baidu.swan.d.d.closeSafely(fileOutputStream);
+                                    com.baidu.swan.c.d.closeSafely(fileInputStream2);
+                                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
                                     if (fileLock != null) {
                                         try {
                                             fileLock.release();
@@ -139,15 +144,15 @@ public class a {
                                             e6.printStackTrace();
                                         }
                                     }
-                                    com.baidu.swan.d.d.closeSafely(fileChannel2);
+                                    com.baidu.swan.c.d.closeSafely(fileChannel2);
                                     return;
                                 } catch (Throwable th2) {
                                     th = th2;
                                     FileChannel fileChannel3 = fileChannel2;
                                     fileInputStream = fileInputStream2;
                                     fileChannel = fileChannel3;
-                                    com.baidu.swan.d.d.closeSafely(fileInputStream);
-                                    com.baidu.swan.d.d.closeSafely(fileOutputStream);
+                                    com.baidu.swan.c.d.closeSafely(fileInputStream);
+                                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
                                     if (fileLock != null) {
                                         try {
                                             fileLock.release();
@@ -155,18 +160,18 @@ public class a {
                                             e7.printStackTrace();
                                         }
                                     }
-                                    com.baidu.swan.d.d.closeSafely(fileChannel);
+                                    com.baidu.swan.c.d.closeSafely(fileChannel);
                                     throw th;
                                 }
                             } catch (Throwable th3) {
                                 fileLock = lock;
                                 fileOutputStream = fileOutputStream2;
                                 th = th3;
-                                com.baidu.swan.d.d.closeSafely(fileInputStream);
-                                com.baidu.swan.d.d.closeSafely(fileOutputStream);
+                                com.baidu.swan.c.d.closeSafely(fileInputStream);
+                                com.baidu.swan.c.d.closeSafely(fileOutputStream);
                                 if (fileLock != null) {
                                 }
-                                com.baidu.swan.d.d.closeSafely(fileChannel);
+                                com.baidu.swan.c.d.closeSafely(fileChannel);
                                 throw th;
                             }
                         }
@@ -184,11 +189,11 @@ public class a {
                     }
                 }
                 fileOutputStream2 = null;
-                com.baidu.swan.d.d.closeSafely(fileInputStream3);
-                com.baidu.swan.d.d.closeSafely(fileOutputStream2);
+                com.baidu.swan.c.d.closeSafely(fileInputStream3);
+                com.baidu.swan.c.d.closeSafely(fileOutputStream2);
                 if (lock != null) {
                 }
-                com.baidu.swan.d.d.closeSafely(fileChannel);
+                com.baidu.swan.c.d.closeSafely(fileChannel);
             } catch (Exception e9) {
                 e = e9;
                 fileChannel2 = fileChannel;
@@ -212,7 +217,7 @@ public class a {
         }
     }
 
-    public static boolean acW() {
+    public static boolean ajv() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

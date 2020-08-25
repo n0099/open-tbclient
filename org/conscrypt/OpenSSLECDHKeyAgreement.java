@@ -12,7 +12,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.SecretKeySpec;
 import org.conscrypt.NativeRef;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class OpenSSLECDHKeyAgreement extends KeyAgreementSpi {
     private int mExpectedResultLength;
     private OpenSSLKey mOpenSslPrivateKey;

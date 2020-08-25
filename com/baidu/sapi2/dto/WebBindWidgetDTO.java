@@ -1,7 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class WebBindWidgetDTO extends SapiWebDTO {
     public String bduss;
     public BindWidgetAction bindWidgetAction;

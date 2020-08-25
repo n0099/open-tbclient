@@ -4,10 +4,10 @@ import android.media.MediaFormat;
 import android.opengl.EGLContext;
 import android.os.Build;
 import android.os.Handler;
-import android.os.HandlerThread;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
 import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.EglCore;
+import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 import com.baidu.ala.recorder.video.hardware.VideoEncoderCore;
@@ -19,7 +19,6 @@ public class TextureEncoder {
     private static final boolean VERBOSE = false;
     private static final boolean mUseModelFit = false;
     private Handler mHandler;
-    private HandlerThread mThread;
     private float[] mEncoderVertex = new float[8];
     private volatile boolean mIsGoingRelase = false;
     private VideoEncoderCore.OutputCallback mCallback = null;
@@ -32,12 +31,9 @@ public class TextureEncoder {
     private AFullFrameRect mFullScreen = null;
     private EglCore mEglCore = null;
 
-    public TextureEncoder() {
-        this.mThread = null;
+    public TextureEncoder(Handler handler) {
         this.mHandler = null;
-        this.mThread = new HandlerThread("TextureEncoder");
-        this.mThread.start();
-        this.mHandler = new Handler(this.mThread.getLooper());
+        this.mHandler = handler;
     }
 
     public void prepare(final EGLContext eGLContext, final EncodeConfig encodeConfig, VideoEncoderCore.OutputCallback outputCallback) {
@@ -159,14 +155,7 @@ public class TextureEncoder {
                     TextureEncoder.this.doRelease();
                 }
             });
-            if (Build.VERSION.SDK_INT >= 18) {
-                this.mThread.quitSafely();
-                this.mHandler.removeCallbacksAndMessages(null);
-            } else {
-                this.mThread.join(200L);
-                this.mThread.quit();
-                this.mHandler.removeCallbacksAndMessages(null);
-            }
+            GlUtil.logPrint("TextureEncoder.release end ");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -174,6 +163,7 @@ public class TextureEncoder {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doRelease() {
+        GlUtil.logPrint("TextureEncoder.doRelease begin ");
         if (this.mVideoEncoder != null) {
             this.mVideoEncoder.drainEncoder(true);
             this.mVideoEncoder.release();
@@ -191,6 +181,7 @@ public class TextureEncoder {
             this.mEglCore.release();
             this.mEglCore = null;
         }
+        GlUtil.logPrint("TextureEncoder.doRelease done ");
     }
 
     /* loaded from: classes7.dex */

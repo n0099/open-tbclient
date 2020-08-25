@@ -5,12 +5,12 @@ import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMManagerImpl {
     private static volatile IMManagerImpl mInstance;
     private static Object mLock = new Object();
@@ -101,7 +101,7 @@ public class IMManagerImpl {
         Method method;
         try {
             Class<?> cls = Class.forName(str);
-            if (cls != null && (method = cls.getMethod(c.l, Context.class)) != null) {
+            if (cls != null && (method = cls.getMethod(OneKeyLoginSdkCall.l, Context.class)) != null) {
                 method.invoke(cls, sContext);
             }
         } catch (Exception e) {

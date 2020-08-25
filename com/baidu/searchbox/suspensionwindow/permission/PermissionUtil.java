@@ -8,7 +8,7 @@ import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.WindowManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PermissionUtil {
     public static boolean hasPermission(Context context) {
         return Build.VERSION.SDK_INT >= 23 ? Settings.canDrawOverlays(context) : hasPermissionBelowMarshmallow(context);

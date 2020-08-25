@@ -10,27 +10,27 @@ import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
-    e muL;
+    e mMZ;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        if (this.muL == null) {
-            this.muL = new e(this, null, linearLayout.getId(), R.id.root_stub);
-            this.muL.a(navigationBar);
+        if (this.mMZ == null) {
+            this.mMZ = new e(this, null, linearLayout.getId(), R.id.root_stub);
+            this.mMZ.a(navigationBar);
         }
-        return this.muL;
+        return this.mMZ;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bmd() {
+    protected void buQ() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.muL != null) {
-            this.muL.onStart();
+        if (this.mMZ != null) {
+            this.mMZ.onStart();
         }
     }
 
@@ -38,8 +38,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.muL != null) {
-            this.muL.onResume();
+        if (this.mMZ != null) {
+            this.mMZ.onResume();
         }
     }
 
@@ -47,16 +47,16 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.muL != null) {
-            this.muL.onStop();
+        if (this.mMZ != null) {
+            this.mMZ.onStop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        if (this.muL != null) {
-            this.muL.onPause();
+        if (this.mMZ != null) {
+            this.mMZ.onPause();
         }
         super.onPause();
     }
@@ -65,8 +65,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.muL != null) {
-            this.muL.onDestroy();
+        if (this.mMZ != null) {
+            this.mMZ.onDestroy();
         }
     }
 
@@ -75,21 +75,21 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            this.muL.m(intent);
+            this.mMZ.o(intent);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.muL != null) {
-            this.muL.onClick(view);
+        if (this.mMZ != null) {
+            this.mMZ.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.muL.onBackClick();
+            this.mMZ.onBackClick();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -98,8 +98,8 @@ public class AlbumFloatActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (this.muL != null) {
-            this.muL.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.mMZ != null) {
+            this.mMZ.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 }

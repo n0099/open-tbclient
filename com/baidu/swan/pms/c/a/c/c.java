@@ -3,40 +3,40 @@ package com.baidu.swan.pms.c.a.c;
 import android.util.Log;
 import com.baidu.swan.pms.c.a.d.f;
 import com.baidu.swan.pms.d;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
-    private volatile f dww;
+    private volatile f dFz;
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0077, code lost:
-        if (r6.aLE() > r0.aLE()) goto L21;
+        if (r6.aUd() > r0.aUd()) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void f(f fVar) {
         if (fVar != null) {
-            if (this.dww != null && this.dww.k(fVar)) {
-                fVar.aLw().O(fVar.aLx());
+            if (this.dFz != null && this.dFz.k(fVar)) {
+                fVar.aTV().P(fVar.aTW());
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "enQueue: 要入队的任务和当前正在运行的任务相同->" + fVar);
                 }
             } else {
-                f ag = ag(fVar);
-                if (ag != null) {
-                    fVar.aLw().O(fVar.aLx());
+                f ai = ai(fVar);
+                if (ai != null) {
+                    fVar.aTV().P(fVar.aTW());
                     if (d.DEBUG) {
                         Log.d("PMSPriorityQueue", "enQueue: 队列中已经有相同的任务在排队等待处理->" + fVar);
                     }
                 }
-                int aLE = fVar.aLE();
+                int aUd = fVar.aUd();
                 if (d.DEBUG) {
-                    Log.d("PMSPriorityQueue", "[enQueue] priorityOption:" + aLE);
+                    Log.d("PMSPriorityQueue", "[enQueue] priorityOption:" + aUd);
                 }
-                switch (aLE) {
+                switch (aUd) {
                     case 200:
-                        if (ag != null) {
-                            this.mQueue.remove(ag);
-                            this.mQueue.add(0, ag);
+                        if (ai != null) {
+                            this.mQueue.remove(ai);
+                            this.mQueue.add(0, ai);
                             if (d.DEBUG) {
                                 Log.d("PMSPriorityQueue", "enQueue: 有更高优先级的重复任务入队，任务提队头处理");
                             }
@@ -51,9 +51,9 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
                         break;
                     case 300:
                         h(fVar);
-                        if (ag != null) {
-                            this.mQueue.remove(ag);
-                            this.mQueue.add(0, ag);
+                        if (ai != null) {
+                            this.mQueue.remove(ai);
+                            this.mQueue.add(0, ai);
                             if (d.DEBUG) {
                                 Log.d("PMSPriorityQueue", "enQueue-stop running: 有更高优先级的重复任务入队，任务提队头处理");
                             }
@@ -67,7 +67,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
                         }
                         break;
                     default:
-                        if (ag == null) {
+                        if (ai == null) {
                             this.mQueue.add(fVar);
                             if (d.DEBUG) {
                                 Log.d("PMSPriorityQueue", "[enQueue] append new task to queue tail. size:" + this.mQueue.size());
@@ -84,10 +84,10 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.c.a.c.a
-    /* renamed from: aLs */
-    public synchronized f aLq() {
+    /* renamed from: aTR */
+    public synchronized f aTP() {
         f fVar;
-        fVar = (f) super.aLq();
+        fVar = (f) super.aTP();
         if (d.DEBUG) {
             Log.d("PMSPriorityQueue", "deQueue first task:" + fVar);
         }
@@ -96,7 +96,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.c.a.c.a
-    /* renamed from: aLt */
+    /* renamed from: aTS */
     public synchronized f get() {
         f fVar;
         fVar = (f) super.get();
@@ -108,13 +108,13 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void d(f<T> fVar) {
-        this.dww = fVar;
+        this.dFz = fVar;
     }
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (this.dww == fVar) {
-            this.dww = null;
+        if (this.dFz == fVar) {
+            this.dFz = null;
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "notifyTaskEnd mCurrentTask == null:" + fVar);
             }
@@ -123,11 +123,11 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
     }
 
     private void g(f fVar) {
-        if (fVar.aLG()) {
+        if (fVar.aUf()) {
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "processPendingTask:" + fVar);
             }
-            fVar.gK(true);
+            fVar.he(true);
             this.mQueue.add(0, fVar);
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "PendingTask added-to-Queue-head:" + fVar);
@@ -137,16 +137,16 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     private void h(f fVar) {
         f fVar2;
-        if (fVar.aLE() == 300 && (fVar2 = this.dww) != null) {
-            if (fVar2.aLE() == 300) {
+        if (fVar.aUd() == 300 && (fVar2 = this.dFz) != null) {
+            if (fVar2.aUd() == 300) {
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "Hi-priority task is working, can't stop:" + fVar2);
                     return;
                 }
                 return;
             }
-            fVar2.aLF();
-            for (int i = 0; i < 500 && this.dww != null; i++) {
+            fVar2.aUe();
+            for (int i = 0; i < 500 && this.dFz != null; i++) {
                 try {
                     Thread.sleep(10L);
                 } catch (InterruptedException e) {

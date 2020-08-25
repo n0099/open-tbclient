@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaChallengeInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AlaChallengeInfoData implements Serializable {
     private static final long serialVersionUID = -7697481412505420403L;
     public long challenge_id;

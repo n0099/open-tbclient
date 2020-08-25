@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import com.baidu.ar.npc.BaiduArView;
 import java.util.Calendar;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class ac implements Runnable {
     final /* synthetic */ MotionEvent a;
     final /* synthetic */ MotionEvent b;
@@ -29,7 +29,7 @@ class ac implements Runnable {
         if (!this.e.a.x) {
             z = this.e.a.B;
             if (z) {
-                ArBridge.getInstance().a(BaiduArView.j.EScroll.ordinal(), this.a.getPointerId(0), this.a.getX(), this.a.getY(), -1.0f, -1.0f, this.b.getPointerId(0), this.b.getX(), this.b.getY(), this.c, this.d, timeInMillis);
+                ArBridge.getInstance().a(BaiduArView.i.EScroll.ordinal(), this.a.getPointerId(0), this.a.getX(), this.a.getY(), -1.0f, -1.0f, this.b.getPointerId(0), this.b.getX(), this.b.getY(), this.c, this.d, timeInMillis);
             }
         }
     }

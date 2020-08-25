@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FrsGoodActivityConfig extends IntentConfig {
     public FrsGoodActivityConfig(Context context) {
         super(context);

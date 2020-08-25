@@ -1,56 +1,88 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
+/* loaded from: classes2.dex */
 public class am {
-    private ArrayList<String> dPy;
-    private int dPz = 0;
-    private UserData dPx = new UserData();
-    private AntiData anti = new AntiData();
+    public static int dYL = 1;
+    private String dYM;
+    private String dYN;
+    private int dYO = 0;
+    private boolean dYP = false;
+    private String linkTitle;
+    private String linkUrl;
 
-    public am() {
-        this.dPy = null;
-        this.dPy = new ArrayList<>();
-        kM(0);
-    }
-
-    public UserData getUser() {
-        return this.dPx;
-    }
-
-    public AntiData getAnti() {
-        return this.anti;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(LinkThreadInfo linkThreadInfo) {
+        if (linkThreadInfo != null) {
+            this.linkUrl = linkThreadInfo.link_url;
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.y.getItem(linkThreadInfo.link_content, 0);
+            if (linkThreadContent != null) {
+                this.linkTitle = linkThreadContent.link_title;
+                this.dYM = linkThreadContent.link_abstract;
+                this.dYN = linkThreadContent.link_head_small_pic;
+                this.dYO = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.at.isEmpty(this.linkTitle) && com.baidu.tbadk.core.util.at.isEmpty(this.dYM)) {
+                    this.dYP = true;
+                    return;
+                }
+                return;
+            }
+            this.dYP = true;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            this.dPx.parserJson(jSONObject.optJSONObject("user"));
-            this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.dPy.add(optJSONArray.optString(i, null));
+        if (jSONObject != null) {
+            this.linkUrl = jSONObject.optString("link_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                    if (jSONObject2 != null) {
+                        this.linkTitle = jSONObject2.optString("link_title");
+                        this.dYM = jSONObject2.optString("link_abstract");
+                        this.dYN = jSONObject2.optString("link_head_small_pic");
+                        this.dYO = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.at.isEmpty(this.linkTitle) && com.baidu.tbadk.core.util.at.isEmpty(this.dYM)) {
+                            this.dYP = true;
+                        }
+                    } else {
+                        this.dYP = true;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    this.dYP = true;
+                    return;
                 }
             }
-            kM(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.dYP = true;
         }
     }
 
-    public void kM(int i) {
-        this.dPz = i;
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public String bcW() {
+        return this.linkTitle;
+    }
+
+    public String bcX() {
+        return this.dYM;
+    }
+
+    public String bcY() {
+        return this.dYN;
+    }
+
+    public int bcZ() {
+        return this.dYO;
+    }
+
+    public boolean bda() {
+        return this.dYP;
     }
 }

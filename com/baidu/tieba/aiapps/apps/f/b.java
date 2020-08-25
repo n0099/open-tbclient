@@ -28,8 +28,8 @@ public class b implements f {
     private static BroadcastReceiver broadcastReceiver = null;
 
     @Override // com.baidu.swan.apps.t.b.f
-    public void e(Activity activity, String str, final com.baidu.h.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.akr().akb(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.BE(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
+    public void e(Activity activity, String str, final com.baidu.l.a.a aVar) {
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.arY().arI(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.DY(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
@@ -38,20 +38,20 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.t.b.f
-    public void f(Activity activity, String str, final com.baidu.h.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.blp().isWalletOk()) {
+    public void f(Activity activity, String str, final com.baidu.l.a.a aVar) {
+        if (!com.baidu.tbadk.pay.c.buc().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
             return;
         }
-        e arv = e.arv();
-        if (arv != null && arv.getActivity() != null) {
+        e azI = e.azI();
+        if (azI != null && azI.getActivity() != null) {
             a aVar2 = new a();
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
-            aVar2.ag(arv.getActivity());
+            aVar2.af(azI.getActivity());
             aVar2.a(new com.baidu.tieba.aiapps.apps.f.a.a() { // from class: com.baidu.tieba.aiapps.apps.f.b.2
                 @Override // com.baidu.tieba.aiapps.apps.f.a.a
-                public void ai(Bundle bundle) {
+                public void ah(Bundle bundle) {
                     if (aVar != null) {
                         aVar.onPayResult(bundle.getInt("result_code"), bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
                     }
@@ -62,15 +62,15 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.t.b.f
-    public void b(Context context, JSONObject jSONObject, final com.baidu.h.a.a aVar) {
+    public void b(Context context, JSONObject jSONObject, final com.baidu.l.a.a aVar) {
         IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
-        PayReq cW = cW(jSONObject);
-        createWXAPI.registerApp(cW.appId);
+        PayReq dd = dd(jSONObject);
+        createWXAPI.registerApp(dd.appId);
         if (!createWXAPI.isWXAppInstalled()) {
             aVar.onPayResult(3, "wx_not_installed");
             d.a(context, "您没有安装微信，请选择其他支付方式").showToast();
-        } else if (e.arv() != null) {
-            if (!createWXAPI.sendReq(cW)) {
+        } else if (e.azI() != null) {
+            if (!createWXAPI.sendReq(dd)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }
             if (broadcastReceiver != null) {
@@ -89,7 +89,7 @@ public class b implements f {
         }
     }
 
-    private PayReq cW(JSONObject jSONObject) {
+    private PayReq dd(JSONObject jSONObject) {
         PayReq payReq = new PayReq();
         payReq.appId = jSONObject.optString("appid");
         payReq.partnerId = jSONObject.optString("partnerid");
@@ -102,7 +102,7 @@ public class b implements f {
     }
 
     @Override // com.baidu.swan.apps.t.b.f
-    public boolean aG(Context context) {
+    public boolean aL(Context context) {
         if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
             return true;
         }

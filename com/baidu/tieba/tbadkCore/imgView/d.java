@@ -1,15 +1,15 @@
 package com.baidu.tieba.tbadkCore.imgView;
 
 import android.graphics.Rect;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface d {
-    void dlE();
+    void dxb();
 
-    void dlF();
+    void dxc();
 
-    void dlG();
+    void dxd();
 
-    void dlH();
+    void dxe();
 
     void j(Rect rect);
 }

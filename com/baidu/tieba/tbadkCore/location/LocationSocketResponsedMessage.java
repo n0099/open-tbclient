@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetPoisByLocation.GetPoisByLocationResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LocationSocketResponsedMessage extends SocketResponsedMessage {
-    private a mLocationData;
+    private LocationData mLocationData;
 
     public LocationSocketResponsedMessage() {
         super(CmdConfigSocket.CMD_GET_LOCATION);
@@ -20,13 +20,17 @@ public class LocationSocketResponsedMessage extends SocketResponsedMessage {
         setError(getPoisByLocationResIdl.error.errorno.intValue());
         setErrorString(getPoisByLocationResIdl.error.usermsg);
         if (getError() == 0) {
-            this.mLocationData = new a();
-            this.mLocationData.a(getPoisByLocationResIdl.data);
+            this.mLocationData = new LocationData();
+            this.mLocationData.parserProtoBuf(getPoisByLocationResIdl.data);
             BdLog.detailException(null);
         }
     }
 
-    public a getLocationData() {
+    public LocationData getLocationData() {
         return this.mLocationData;
+    }
+
+    public void setLocationData(LocationData locationData) {
+        this.mLocationData = locationData;
     }
 }

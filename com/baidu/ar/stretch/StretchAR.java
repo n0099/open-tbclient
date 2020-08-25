@@ -4,14 +4,15 @@ import android.os.Bundle;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
 import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.c;
-import com.baidu.ar.c.e;
-import com.baidu.ar.c.l;
+import com.baidu.ar.d.b;
+import com.baidu.ar.d.e;
+import com.baidu.ar.d.l;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class StretchAR extends c {
-    private e ly;
-    private a wx;
+    private e mg;
+    private StretchDetector xa;
 
     /* JADX INFO: Access modifiers changed from: private */
     public HashMap m(float[] fArr) {
@@ -31,9 +32,9 @@ public class StretchAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.wx != null) {
-            this.wx.aw();
-            a(this.wx);
+        if (this.xa != null) {
+            this.xa.au();
+            a(this.xa);
         }
         super.release();
     }
@@ -41,23 +42,23 @@ public class StretchAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.wx = new a();
-        this.ly = new e() { // from class: com.baidu.ar.stretch.StretchAR.1
-            @Override // com.baidu.ar.c.e
-            public void a(com.baidu.ar.c.b bVar) {
-                StretchAR.this.d(StretchAR.this.m(((b) bVar).eg()));
+        this.xa = new StretchDetector();
+        this.mg = new e() { // from class: com.baidu.ar.stretch.StretchAR.1
+            @Override // com.baidu.ar.d.e
+            public void a(b bVar) {
+                StretchAR.this.d(StretchAR.this.m(((a) bVar).fs()));
             }
 
-            @Override // com.baidu.ar.c.e
+            @Override // com.baidu.ar.d.e
             public void a(l lVar) {
             }
 
-            @Override // com.baidu.ar.c.e
+            @Override // com.baidu.ar.d.e
             public void b(l lVar) {
             }
         };
-        a(this.wx, this.ly);
-        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
-        this.wx.c((Bundle) null);
+        a(this.xa, this.mg);
+        com.baidu.ar.b.a.ar().a(getContext(), getMdlConfigs());
+        this.xa.b((Bundle) null);
     }
 }

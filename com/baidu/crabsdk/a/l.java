@@ -6,18 +6,18 @@ import android.os.SystemClock;
 import android.util.Printer;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 final class l implements Printer {
-    private i alJ;
-    private final Context alx;
-    private long alH = 0;
-    private long alI = 0;
+    private final Context amA;
+    private i amM;
+    private long amK = 0;
+    private long amL = 0;
     private boolean aB = false;
 
     public l(i iVar, Context context) {
-        this.alJ = null;
-        this.alJ = iVar;
-        this.alx = context;
+        this.amM = null;
+        this.amM = iVar;
+        this.amA = context;
     }
 
     @Override // android.util.Printer
@@ -26,23 +26,23 @@ final class l implements Printer {
             return;
         }
         if (!this.aB) {
-            this.alH = System.currentTimeMillis();
-            this.alI = SystemClock.currentThreadTimeMillis();
+            this.amK = System.currentTimeMillis();
+            this.amL = SystemClock.currentThreadTimeMillis();
             this.aB = true;
-            if (c.Y(this.alx).alv != null) {
-                c.Y(this.alx).alv.start();
+            if (c.aa(this.amA).amy != null) {
+                c.aa(this.amA).amy.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         this.aB = false;
-        if (currentTimeMillis - this.alH >= ((long) a.W)) {
-            com.baidu.crabsdk.c.a.dh("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.alH + ETAG.EQUAL + (currentTimeMillis - this.alH) + " >= " + a.W);
-            j.tf().post(new m(this, this.alH, currentTimeMillis, this.alI, SystemClock.currentThreadTimeMillis()));
+        if (currentTimeMillis - this.amK >= ((long) a.W)) {
+            com.baidu.crabsdk.c.a.ds("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.amK + ETAG.EQUAL + (currentTimeMillis - this.amK) + " >= " + a.W);
+            j.uN().post(new m(this, this.amK, currentTimeMillis, this.amL, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.Y(this.alx).alv != null) {
-            c.Y(this.alx).alv.stop();
+        if (c.aa(this.amA).amy != null) {
+            c.aa(this.amA).amy.stop();
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.swan.pms.c.g;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends m implements d {
     public a(com.baidu.swan.apps.runtime.d dVar) {
         super(dVar);
@@ -25,7 +25,7 @@ public abstract class a extends m implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static final Map<String, String> r(Bundle bundle) {
+    public static final Map<String, String> p(Bundle bundle) {
         HashMap hashMap = new HashMap();
         if (bundle != null && !bundle.isEmpty()) {
             for (String str : bundle.keySet()) {

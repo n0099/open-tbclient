@@ -1,5 +1,5 @@
 package org.conscrypt;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 final class EmptyArray {
     static final boolean[] BOOLEAN = new boolean[0];
     static final byte[] BYTE = new byte[0];

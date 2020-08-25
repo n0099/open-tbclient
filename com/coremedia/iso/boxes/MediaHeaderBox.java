@@ -11,20 +11,20 @@ import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class MediaHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mdhd";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_9 = null;
     private Date creationTime;
     private long duration;
     private String language;
@@ -37,17 +37,17 @@ public class MediaHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MediaHeaderBox.java", MediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_DATE), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_DATE), 50);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 118);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "long"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "long"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "creationTime", "", "void"), 79);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "modificationTime", "", "void"), 83);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "timescale", "", "void"), 87);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "duration", "", "void"), 91);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_STRING, "language", "", "void"), 95);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_DATE), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_DATE), 50);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 118);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "long"), 54);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "getDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", "long"), 58);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 62);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setCreationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "creationTime", "", "void"), 79);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "setModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "modificationTime", "", "void"), 83);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.d("1", "setTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "timescale", "", "void"), 87);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.d("1", "setDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "duration", "", "void"), 91);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_STRING, "language", "", "void"), 95);
     }
 
     public MediaHeaderBox() {
@@ -98,12 +98,12 @@ public class MediaHeaderBox extends AbstractFullBox {
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.gY(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.gY(j)));
         this.duration = j;
     }
 

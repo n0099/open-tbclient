@@ -1,24 +1,24 @@
 package com.baidu.tieba.ala.alaar.sticker.a;
 
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a fmM;
+    private static a fyh;
 
-    public static a bvB() {
-        if (fmM == null) {
-            fmM = bvC();
+    public static a bEw() {
+        if (fyh == null) {
+            fyh = bEx();
         }
-        return fmM;
+        return fyh;
     }
 
-    private static synchronized a bvC() {
+    private static synchronized a bEx() {
         a aVar;
         synchronized (a.class) {
-            if (fmM == null) {
-                fmM = new a();
+            if (fyh == null) {
+                fyh = new a();
             }
-            aVar = fmM;
+            aVar = fyh;
         }
         return aVar;
     }
@@ -26,11 +26,11 @@ public class a {
     private a() {
     }
 
-    public File bvD() {
+    public File bEy() {
         return h.getPrivateCaptureRootChildDir("duModel");
     }
 
-    public File bvE() {
+    public File bEz() {
         return h.getPrivateCaptureRootChildDir("duSo");
     }
 }

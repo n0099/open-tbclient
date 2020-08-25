@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.memorycache;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    public static boolean zc(int i) {
+    public static boolean Bv(int i) {
         return i == 1 || i == 5 || i == -1 || i == -9 || i == -2 || i == 8 || i == 7 || i == 6;
     }
 
-    public static boolean zd(int i) {
+    public static boolean Bw(int i) {
         return i == 8 || i == 7;
     }
 }

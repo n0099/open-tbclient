@@ -7,18 +7,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
-    protected BdUniqueId Uh;
-    protected a<T, V> eoq;
+    protected BdUniqueId UM;
+    protected a<T, V> eyC;
     protected Context mContext;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a<T extends q, V extends BdBaseViewPagerAdapter.a> {
         void c(V v, T t);
     }
 
-    public abstract V B(ViewGroup viewGroup);
+    public abstract V C(ViewGroup viewGroup);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract View a(ViewGroup viewGroup, V v, T t);
@@ -26,21 +26,21 @@ public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.Uh = bdUniqueId;
+        this.UM = bdUniqueId;
     }
 
     public BdUniqueId getType() {
-        return this.Uh;
+        return this.UM;
     }
 
     public void b(V v, T t) {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.eoq = aVar;
+        this.eyC = aVar;
     }
 
-    public a<T, V> bdk() {
-        return this.eoq;
+    public a<T, V> blQ() {
+        return this.eyC;
     }
 }

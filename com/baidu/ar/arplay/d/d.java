@@ -5,27 +5,27 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    private static d gY = null;
-    private List<c> gZ = new ArrayList();
+    private static d gn = null;
+    private List<c> go = new ArrayList();
 
     private d() {
     }
 
-    public static d bk() {
-        if (gY == null) {
+    public static d bs() {
+        if (gn == null) {
             synchronized (d.class) {
-                if (gY == null) {
-                    gY = new d();
+                if (gn == null) {
+                    gn = new d();
                 }
             }
         }
-        return gY;
+        return gn;
     }
 
     public c b(int i, int i2, int i3) {
         c cVar;
-        if (this.gZ != null) {
-            Iterator<c> it = this.gZ.iterator();
+        if (this.go != null) {
+            Iterator<c> it = this.go.iterator();
             while (it.hasNext()) {
                 cVar = it.next();
                 if (cVar != null && cVar.mTextureId == i) {
@@ -36,15 +36,15 @@ public class d {
         }
         cVar = new c();
         cVar.a(i, i2, i3);
-        if (this.gZ != null) {
-            this.gZ.add(cVar);
+        if (this.go != null) {
+            this.go.add(cVar);
         }
         return cVar;
     }
 
-    public c q(int i) {
-        if (this.gZ != null) {
-            for (c cVar : this.gZ) {
+    public c n(int i) {
+        if (this.go != null) {
+            for (c cVar : this.go) {
                 if (cVar != null && cVar.mTextureId == i) {
                     return cVar;
                 }
@@ -54,16 +54,16 @@ public class d {
     }
 
     public void release() {
-        if (this.gZ != null) {
-            for (c cVar : this.gZ) {
+        if (this.go != null) {
+            for (c cVar : this.go) {
                 if (cVar != null) {
                     cVar.release();
                 }
             }
-            this.gZ.clear();
+            this.go.clear();
         }
-        if (gY != null) {
-            gY = null;
+        if (gn != null) {
+            gn = null;
         }
     }
 }

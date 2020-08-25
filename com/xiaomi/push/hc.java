@@ -3,15 +3,15 @@ package com.xiaomi.push;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.down.manage.DownloadConstants;
 import java.net.UnknownHostException;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 final class hc {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     static class a {
         fh a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f427a;
+        String f424a;
 
         a() {
         }
@@ -19,7 +19,7 @@ final class hc {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Exception exc) {
-        m327a(exc);
+        m332a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -43,13 +43,13 @@ final class hc {
             aVar.a = fh.GSLB_TCP_ERR_OTHER;
         }
         if (aVar.a == fh.GSLB_TCP_ERR_OTHER) {
-            aVar.f427a = str;
+            aVar.f424a = str;
         }
         return aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m327a(Exception exc) {
+    private static void m332a(Exception exc) {
         if (exc == null) {
             throw new NullPointerException();
         }
@@ -58,7 +58,7 @@ final class hc {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a b(Exception exc) {
         Throwable cause;
-        m327a(exc);
+        m332a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -84,14 +84,14 @@ final class hc {
             aVar.a = fh.CONN_XMPP_ERR;
         }
         if (aVar.a == fh.CONN_TCP_ERR_OTHER || aVar.a == fh.CONN_XMPP_ERR || aVar.a == fh.CONN_BOSH_ERR) {
-            aVar.f427a = str;
+            aVar.f424a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a c(Exception exc) {
-        m327a(exc);
+        m332a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -132,14 +132,14 @@ final class hc {
                 break;
         }
         if (aVar.a == fh.BIND_TCP_ERR || aVar.a == fh.BIND_XMPP_ERR || aVar.a == fh.BIND_BOSH_ERR) {
-            aVar.f427a = str;
+            aVar.f424a = str;
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a d(Exception exc) {
-        m327a(exc);
+        m332a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -177,7 +177,7 @@ final class hc {
                 break;
         }
         if (aVar.a == fh.CHANNEL_TCP_ERR || aVar.a == fh.CHANNEL_XMPPEXCEPTION || aVar.a == fh.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f427a = str;
+            aVar.f424a = str;
         }
         return aVar;
     }

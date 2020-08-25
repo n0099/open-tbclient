@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-import org.a.c;
+import org.b.c;
 /* loaded from: classes7.dex */
 public final class MaybeMergeArray<T> extends g<T> {
     final o<? extends T>[] sources;
@@ -36,7 +36,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         a clqSimpleQueue;
         o[] oVarArr = this.sources;
         int length = oVarArr.length;
-        if (length <= dSN()) {
+        if (length <= eeP()) {
             clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
         } else {
             clqSimpleQueue = new ClqSimpleQueue();
@@ -100,7 +100,7 @@ public final class MaybeMergeArray<T> extends g<T> {
             this.queue.clear();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -108,7 +108,7 @@ public final class MaybeMergeArray<T> extends g<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;

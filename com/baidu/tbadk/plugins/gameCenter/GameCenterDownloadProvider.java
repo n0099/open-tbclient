@@ -8,7 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GameCenterDownloadProvider extends ContentProvider {
     private boolean isPluginSetted = false;
 
@@ -20,9 +20,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.blR() != null) {
+        if (a.buE() != null) {
             try {
-                return a.blR().query(uri, strArr, str, strArr2, str2);
+                return a.buE().query(uri, strArr, str, strArr2, str2);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -33,9 +33,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.blR() != null) {
+        if (a.buE() != null) {
             try {
-                return a.blR().getType(uri);
+                return a.buE().getType(uri);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -46,9 +46,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.blR() != null) {
+        if (a.buE() != null) {
             try {
-                return a.blR().insert(uri, contentValues);
+                return a.buE().insert(uri, contentValues);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -59,9 +59,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.blR() != null) {
+        if (a.buE() != null) {
             try {
-                return a.blR().delete(uri, str, strArr);
+                return a.buE().delete(uri, str, strArr);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -72,9 +72,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.blR() != null) {
+        if (a.buE() != null) {
             try {
-                return a.blR().update(uri, contentValues, str, strArr);
+                return a.buE().update(uri, contentValues, str, strArr);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -85,8 +85,8 @@ public class GameCenterDownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_PROVIDER_READY, this), (Class) null);
-            if (a.blR() != null) {
-                a.blR().onCreate();
+            if (a.buE() != null) {
+                a.buE().onCreate();
                 this.isPluginSetted = true;
             }
         }

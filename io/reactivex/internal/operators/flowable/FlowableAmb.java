@@ -8,24 +8,24 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableAmb<T> extends io.reactivex.g<T> {
-    final Iterable<? extends org.a.b<? extends T>> nSH;
-    final org.a.b<? extends T>[] sources;
+    final Iterable<? extends org.b.b<? extends T>> omC;
+    final org.b.b<? extends T>[] sources;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super T> cVar) {
+    public void a(org.b.c<? super T> cVar) {
         int length;
-        org.a.b<? extends T>[] bVarArr = this.sources;
+        org.b.b<? extends T>[] bVarArr = this.sources;
         if (bVarArr == null) {
-            org.a.b<? extends T>[] bVarArr2 = new org.a.b[8];
+            org.b.b<? extends T>[] bVarArr2 = new org.b.b[8];
             try {
                 int i = 0;
-                for (org.a.b<? extends T> bVar : this.nSH) {
+                for (org.b.b<? extends T> bVar : this.omC) {
                     if (bVar == null) {
                         EmptySubscription.error(new NullPointerException("One of the sources is null"), cVar);
                         return;
                     }
                     if (i == bVarArr2.length) {
-                        org.a.b<? extends T>[] bVarArr3 = new org.a.b[(i >> 2) + i];
+                        org.b.b<? extends T>[] bVarArr3 = new org.b.b[(i >> 2) + i];
                         System.arraycopy(bVarArr2, 0, bVarArr3, 0, i);
                         bVarArr2 = bVarArr3;
                     }
@@ -36,7 +36,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
                 length = i;
                 bVarArr = bVarArr2;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 EmptySubscription.error(th, cVar);
                 return;
             }
@@ -53,46 +53,46 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
     }
 
     /* loaded from: classes7.dex */
-    static final class a<T> implements org.a.d {
-        final org.a.c<? super T> actual;
-        final AmbInnerSubscriber<T>[] nSI;
-        final AtomicInteger nSJ = new AtomicInteger();
+    static final class a<T> implements org.b.d {
+        final org.b.c<? super T> actual;
+        final AmbInnerSubscriber<T>[] omD;
+        final AtomicInteger omE = new AtomicInteger();
 
-        a(org.a.c<? super T> cVar, int i) {
+        a(org.b.c<? super T> cVar, int i) {
             this.actual = cVar;
-            this.nSI = new AmbInnerSubscriber[i];
+            this.omD = new AmbInnerSubscriber[i];
         }
 
-        public void a(org.a.b<? extends T>[] bVarArr) {
-            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.nSI;
+        public void a(org.b.b<? extends T>[] bVarArr) {
+            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.omD;
             int length = ambInnerSubscriberArr.length;
             for (int i = 0; i < length; i++) {
                 ambInnerSubscriberArr[i] = new AmbInnerSubscriber<>(this, i + 1, this.actual);
             }
-            this.nSJ.lazySet(0);
+            this.omE.lazySet(0);
             this.actual.onSubscribe(this);
-            for (int i2 = 0; i2 < length && this.nSJ.get() == 0; i2++) {
+            for (int i2 = 0; i2 < length && this.omE.get() == 0; i2++) {
                 bVarArr[i2].subscribe(ambInnerSubscriberArr[i2]);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                int i = this.nSJ.get();
+                int i = this.omE.get();
                 if (i > 0) {
-                    this.nSI[i - 1].request(j);
+                    this.omD[i - 1].request(j);
                 } else if (i == 0) {
-                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.nSI) {
+                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.omD) {
                         ambInnerSubscriber.request(j);
                     }
                 }
             }
         }
 
-        public boolean Lk(int i) {
-            if (this.nSJ.get() == 0 && this.nSJ.compareAndSet(0, i)) {
-                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.nSI;
+        public boolean NN(int i) {
+            if (this.omE.get() == 0 && this.omE.compareAndSet(0, i)) {
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.omD;
                 int length = ambInnerSubscriberArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     if (i2 + 1 != i) {
@@ -104,11 +104,11 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
             return false;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
-            if (this.nSJ.get() != -1) {
-                this.nSJ.lazySet(-1);
-                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.nSI) {
+            if (this.omE.get() != -1) {
+                this.omE.lazySet(-1);
+                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.omD) {
                     ambInnerSubscriber.cancel();
                 }
             }
@@ -117,35 +117,35 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class AmbInnerSubscriber<T> extends AtomicReference<org.a.d> implements j<T>, org.a.d {
+    public static final class AmbInnerSubscriber<T> extends AtomicReference<org.b.d> implements j<T>, org.b.d {
         private static final long serialVersionUID = -1185974347409665484L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         final int index;
         final AtomicLong missedRequested = new AtomicLong();
         final a<T> parent;
         boolean won;
 
-        AmbInnerSubscriber(a<T> aVar, int i, org.a.c<? super T> cVar) {
+        AmbInnerSubscriber(a<T> aVar, int i, org.b.c<? super T> cVar) {
             this.parent = aVar;
             this.index = i;
             this.actual = cVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             SubscriptionHelper.deferredSetOnce(this, this.missedRequested, dVar);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             SubscriptionHelper.deferredRequest(this, this.missedRequested, j);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (this.won) {
                 this.actual.onNext(t);
-            } else if (this.parent.Lk(this.index)) {
+            } else if (this.parent.NN(this.index)) {
                 this.won = true;
                 this.actual.onNext(t);
             } else {
@@ -153,11 +153,11 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.won) {
                 this.actual.onError(th);
-            } else if (this.parent.Lk(this.index)) {
+            } else if (this.parent.NN(this.index)) {
                 this.won = true;
                 this.actual.onError(th);
             } else {
@@ -166,11 +166,11 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (this.won) {
                 this.actual.onComplete();
-            } else if (this.parent.Lk(this.index)) {
+            } else if (this.parent.NN(this.index)) {
                 this.won = true;
                 this.actual.onComplete();
             } else {
@@ -178,7 +178,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             SubscriptionHelper.cancel(this);
         }

@@ -11,45 +11,45 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableRepeatWhen<T> extends a<T, T> {
-    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> nTt;
+    final h<? super io.reactivex.g<Object>, ? extends org.b.b<?>> onp;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super T> cVar) {
+    public void a(org.b.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dTv = UnicastProcessor.Lq(8).dTv();
+        io.reactivex.processors.a<T> efx = UnicastProcessor.NT(8).efx();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.nTt.apply(dTv), "handler returned a null Publisher");
-            WhenReceiver whenReceiver = new WhenReceiver(this.nSG);
-            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dTv, whenReceiver);
+            org.b.b bVar2 = (org.b.b) io.reactivex.internal.functions.a.k(this.onp.apply(efx), "handler returned a null Publisher");
+            WhenReceiver whenReceiver = new WhenReceiver(this.omB);
+            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, efx, whenReceiver);
             whenReceiver.subscriber = repeatWhenSubscriber;
             cVar.onSubscribe(repeatWhenSubscriber);
             bVar2.subscribe(whenReceiver);
             whenReceiver.onNext(0);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.K(th);
+            io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
     /* loaded from: classes7.dex */
-    static final class WhenReceiver<T, U> extends AtomicInteger implements j<Object>, org.a.d {
+    static final class WhenReceiver<T, U> extends AtomicInteger implements j<Object>, org.b.d {
         private static final long serialVersionUID = 2827772011130406689L;
-        final org.a.b<T> source;
+        final org.b.b<T> source;
         WhenSourceSubscriber<T, U> subscriber;
-        final AtomicReference<org.a.d> subscription = new AtomicReference<>();
+        final AtomicReference<org.b.d> subscription = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public WhenReceiver(org.a.b<T> bVar) {
+        public WhenReceiver(org.b.b<T> bVar) {
             this.source = bVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             SubscriptionHelper.deferredSetOnce(this.subscription, this.requested, dVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(Object obj) {
             if (getAndIncrement() == 0) {
                 while (!SubscriptionHelper.isCancelled(this.subscription.get())) {
@@ -61,24 +61,24 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.subscriber.cancel();
             this.subscriber.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.subscriber.cancel();
             this.subscriber.actual.onComplete();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             SubscriptionHelper.deferredRequest(this.subscription, this.requested, j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             SubscriptionHelper.cancel(this.subscription);
         }
@@ -88,24 +88,24 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
     /* loaded from: classes7.dex */
     public static abstract class WhenSourceSubscriber<T, U> extends SubscriptionArbiter implements j<T> {
         private static final long serialVersionUID = -5604623027276966720L;
-        protected final org.a.c<? super T> actual;
+        protected final org.b.c<? super T> actual;
         protected final io.reactivex.processors.a<U> processor;
         private long produced;
-        protected final org.a.d receiver;
+        protected final org.b.d receiver;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public WhenSourceSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<U> aVar, org.a.d dVar) {
+        public WhenSourceSubscriber(org.b.c<? super T> cVar, io.reactivex.processors.a<U> aVar, org.b.d dVar) {
             this.actual = cVar;
             this.processor = aVar;
             this.receiver = dVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public final void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public final void onSubscribe(org.b.d dVar) {
             setSubscription(dVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public final void onNext(T t) {
             this.produced++;
             this.actual.onNext(t);
@@ -122,7 +122,7 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
             this.processor.onNext(u);
         }
 
-        @Override // io.reactivex.internal.subscriptions.SubscriptionArbiter, org.a.d
+        @Override // io.reactivex.internal.subscriptions.SubscriptionArbiter, org.b.d
         public final void cancel() {
             super.cancel();
             this.receiver.cancel();
@@ -133,17 +133,17 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
     static final class RepeatWhenSubscriber<T> extends WhenSourceSubscriber<T, Object> {
         private static final long serialVersionUID = -2680129890138081029L;
 
-        RepeatWhenSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<Object> aVar, org.a.d dVar) {
+        RepeatWhenSubscriber(org.b.c<? super T> cVar, io.reactivex.processors.a<Object> aVar, org.b.d dVar) {
             super(cVar, aVar, dVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.receiver.cancel();
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             again(0);
         }

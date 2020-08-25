@@ -8,9 +8,9 @@ class f implements b {
     private JSONObject g;
     private Context h;
     private int c = 1;
-    private h ary = new e();
-    private j arz = new n();
-    private g arA = new d();
+    private h awv = new e();
+    private j aww = new n();
+    private g awx = new d();
 
     public f(Context context) {
         if (this.g == null) {
@@ -26,62 +26,62 @@ class f implements b {
             e.printStackTrace();
         }
         try {
-            jSONObject.put("aid", this.ary.a(this.h));
+            jSONObject.put("aid", this.awv.a(this.h));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
-            jSONObject.put("uid", this.arA.a(this.h));
+            jSONObject.put("uid", this.awx.a(this.h));
         } catch (Exception e3) {
             e3.printStackTrace();
         }
         try {
-            jSONObject.put("adrid", this.arz.c(this.h));
+            jSONObject.put("adrid", this.aww.c(this.h));
         } catch (Exception e4) {
             e4.printStackTrace();
         }
         try {
-            jSONObject.put("network", this.arz.d(this.h));
+            jSONObject.put("network", this.aww.d(this.h));
         } catch (Exception e5) {
             e5.printStackTrace();
         }
         try {
-            jSONObject.put(Config.INPUT_DEF_PKG, this.arz.b(this.h));
+            jSONObject.put(Config.INPUT_DEF_PKG, this.aww.b(this.h));
         } catch (Exception e6) {
             e6.printStackTrace();
         }
         try {
-            jSONObject.put("ctime", this.arz.b());
+            jSONObject.put("ctime", this.aww.b());
         } catch (Exception e7) {
             e7.printStackTrace();
         }
         try {
-            jSONObject.put(com.baidu.fsg.base.statistics.j.c, this.arz.a(this.h));
+            jSONObject.put(com.baidu.fsg.base.statistics.j.c, this.aww.a(this.h));
         } catch (Exception e8) {
             e8.printStackTrace();
         }
         try {
-            jSONObject.put("ut", this.arz.a());
+            jSONObject.put("ut", this.aww.a());
         } catch (Exception e9) {
             e9.printStackTrace();
         }
         try {
-            jSONObject.put("iid", this.ary.e(this.h));
+            jSONObject.put("iid", this.awv.e(this.h));
         } catch (Exception e10) {
             e10.printStackTrace();
         }
         try {
-            jSONObject.put("sids", this.ary.aj(this.h));
+            jSONObject.put("sids", this.awv.ak(this.h));
         } catch (Exception e11) {
             e11.printStackTrace();
         }
         try {
-            jSONObject.put("oid", this.ary.c(this.h));
+            jSONObject.put("oid", this.awv.c(this.h));
         } catch (Exception e12) {
             e12.printStackTrace();
         }
         try {
-            jSONObject.put("gaid", this.ary.d(this.h));
+            jSONObject.put("gaid", this.awv.d(this.h));
         } catch (Exception e13) {
             e13.printStackTrace();
         }
@@ -99,7 +99,7 @@ class f implements b {
     }
 
     @Override // com.baidu.helios.a.a.b
-    public JSONObject uz() {
+    public JSONObject zW() {
         if (this.g == null) {
             a(this.h);
         }

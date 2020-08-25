@@ -1,9 +1,9 @@
 package android.support.constraint.solver;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 final class Pools {
     private static final boolean DEBUG = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     interface Pool<T> {
         T acquire();
 
@@ -15,7 +15,7 @@ final class Pools {
     private Pools() {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     static class SimplePool<T> implements Pool<T> {
         private final Object[] mPool;
         private int mPoolSize;

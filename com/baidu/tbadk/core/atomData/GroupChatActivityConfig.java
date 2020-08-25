@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GroupChatActivityConfig extends IntentConfig {
     public static final String AUTO_SEND_EXTRA_MSG = "auto_send_extra_msg";
     public static final String AUTO_SEND_TEXT_MSG = "auto_send_text_msg";

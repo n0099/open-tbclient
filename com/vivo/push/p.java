@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class p {
     private static final Object a = new Object();
     private static volatile p b;
@@ -548,7 +548,7 @@ public final class p {
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, com.baidu.sapi2.share.m.g);
+                    a(a2, com.baidu.sapi2.share.b.h);
                     return;
                 } else if (arrayList.size() < 0) {
                     a(a2, 20002);
@@ -623,7 +623,7 @@ public final class p {
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, com.baidu.sapi2.share.m.g);
+                    a(a2, com.baidu.sapi2.share.b.h);
                     return;
                 } else if (arrayList.size() < 0) {
                     a(a2, 20002);
@@ -774,7 +774,7 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         private IPushActionListener a;
         private com.vivo.push.b.c b;

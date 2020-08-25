@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class URLConnection implements Connection {
     private HttpURLConnection mConnection;
     private int netEngine = 1;

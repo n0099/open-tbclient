@@ -8,7 +8,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.core.d.c;
 import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.runtime.e;
@@ -17,7 +17,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMenuButtonBoundingClientRect");
@@ -32,47 +32,47 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
-        if (Sc == null) {
+        f XX = com.baidu.swan.apps.v.f.arY().XX();
+        if (XX == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        c aaZ = Sc.aaZ();
-        if (aaZ == null) {
+        c ahm = XX.ahm();
+        if (ahm == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.arO() && (aaZ instanceof com.baidu.swan.apps.core.d.j)) {
-            View abF = ((com.baidu.swan.apps.core.d.j) aaZ).abF();
-            if (abF == null) {
+        if (eVar.aAb() && (ahm instanceof com.baidu.swan.apps.core.d.j)) {
+            View ahR = ((com.baidu.swan.apps.core.d.j) ahm).ahR();
+            if (ahR == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = av(abF);
+            unitedSchemeEntity.result = aw(ahR);
         } else {
-            SwanAppActionBar aak = aaZ.aak();
-            if (aak == null) {
+            SwanAppActionBar agu = ahm.agu();
+            if (agu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = aak.getRightMenu();
+            View rightMenu = agu.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = av(rightMenu);
+            unitedSchemeEntity.result = aw(rightMenu);
         }
         return true;
     }
 
-    private JSONObject av(View view) {
+    private JSONObject aw(View view) {
         JSONObject wrapCallbackParams;
-        e arv = e.arv();
-        int px2dpFloat = arv != null ? arv.arO() : false ? 0 : (int) (ai.px2dpFloat(ai.getStatusBarHeight()) + 0.5f);
-        int px2dpFloat2 = (int) (ai.px2dpFloat(view.getLeft()) + 0.5f);
-        int px2dpFloat3 = (int) (ai.px2dpFloat(view.getRight()) + 0.5f);
-        int px2dpFloat4 = ((int) (ai.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
-        int px2dpFloat5 = px2dpFloat + ((int) (ai.px2dpFloat(view.getBottom()) + 0.5f));
+        e azI = e.azI();
+        int px2dpFloat = azI != null ? azI.aAb() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
+        int px2dpFloat2 = (int) (ah.px2dpFloat(view.getLeft()) + 0.5f);
+        int px2dpFloat3 = (int) (ah.px2dpFloat(view.getRight()) + 0.5f);
+        int px2dpFloat4 = ((int) (ah.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;
+        int px2dpFloat5 = px2dpFloat + ((int) (ah.px2dpFloat(view.getBottom()) + 0.5f));
         int i = px2dpFloat3 - px2dpFloat2;
         int i2 = px2dpFloat5 - px2dpFloat4;
         try {

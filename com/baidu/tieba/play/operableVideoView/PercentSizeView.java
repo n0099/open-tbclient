@@ -4,38 +4,38 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PercentSizeView extends View {
-    private float lfi;
-    private float lfj;
+    private float lvB;
+    private float lvC;
 
     public PercentSizeView(Context context) {
         super(context);
-        this.lfi = 1.0f;
-        this.lfj = 1.0f;
+        this.lvB = 1.0f;
+        this.lvC = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lfi = 1.0f;
-        this.lfj = 1.0f;
+        this.lvB = 1.0f;
+        this.lvC = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lfi = 1.0f;
-        this.lfj = 1.0f;
+        this.lvB = 1.0f;
+        this.lvC = 1.0f;
     }
 
     public void setHeightPercent(float f) {
         if (f > 0.0f) {
-            this.lfi = f;
+            this.lvB = f;
         }
     }
 
     public void setWidthPercent(float f) {
         if (f > 0.0f) {
-            this.lfj = f;
+            this.lvC = f;
         }
     }
 
@@ -47,12 +47,12 @@ public class PercentSizeView extends View {
         if (View.MeasureSpec.getMode(i) == 1073741824) {
             measuredWidth = View.MeasureSpec.getSize(i);
         } else {
-            measuredWidth = (int) (getMeasuredWidth() * this.lfj);
+            measuredWidth = (int) (getMeasuredWidth() * this.lvC);
         }
         if (View.MeasureSpec.getMode(i2) == 1073741824) {
             measuredHeight = View.MeasureSpec.getSize(i2);
         } else {
-            measuredHeight = (int) (getMeasuredHeight() * this.lfi);
+            measuredHeight = (int) (getMeasuredHeight() * this.lvB);
         }
         setMeasuredDimension(measuredWidth, measuredHeight);
     }

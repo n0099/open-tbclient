@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e {
-    private static final e mNc = new e();
-    private l mNd = new l();
+    private static final e nfY = new e();
+    private l nfZ = new l();
 
-    public static e dAD() {
-        return mNc;
+    public static e dMp() {
+        return nfY;
     }
 
-    public final void QM(String str) {
-        this.mNd.QM(str);
+    public final void TL(String str) {
+        this.nfZ.TL(str);
     }
 
-    public final void QN(String str) {
-        this.mNd.QN(str);
+    public final void TM(String str) {
+        this.nfZ.TM(str);
     }
 }

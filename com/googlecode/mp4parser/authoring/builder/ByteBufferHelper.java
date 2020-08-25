@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ByteBufferHelper {
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0086, code lost:
         if ((r0 instanceof java.nio.MappedByteBuffer) == false) goto L30;

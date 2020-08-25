@@ -18,20 +18,20 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @JNINamespace
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class ProxyChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean mJS;
+    private static boolean ncN;
     private Context mContext;
-    private b mJT;
-    private Delegate mJU;
     private long mNativePtr;
+    private b ncO;
+    private Delegate ncP;
     private final Looper mLooper = Looper.myLooper();
     private final Handler mHandler = new Handler(this.mLooper);
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public interface Delegate {
-        void dzb();
+        void dKO();
     }
 
     @NativeClassQualifiedName
@@ -42,22 +42,22 @@ public class ProxyChangeListener {
 
     static {
         $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
-        mJS = true;
+        ncN = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public final String mHost;
-        public final String[] mJV;
         public final String mPacUrl;
         public final int mPort;
+        public final String[] ncQ;
 
         public a(String str, int i, String str2, String[] strArr) {
             this.mHost = str;
             this.mPort = i;
             this.mPacUrl = str2;
-            this.mJV = strArr;
+            this.ncQ = strArr;
         }
     }
 
@@ -93,7 +93,7 @@ public class ProxyChangeListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class b extends BroadcastReceiver {
         private b() {
         }
@@ -171,13 +171,13 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (mJS && bVar == this.mJT) {
-            if (this.mJU != null) {
-                this.mJU.dzb();
+        if (ncN && bVar == this.ncO) {
+            if (this.ncP != null) {
+                this.ncP.dKO();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
-                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.mJV);
+                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.ncQ);
                 } else {
                     nativeProxySettingsChanged(this.mNativePtr);
                 }
@@ -186,18 +186,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.mJT == null) {
+        if (this.ncO == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.mJT = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.mJT, intentFilter);
+            this.ncO = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.ncO, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.mJT != null) {
-            this.mContext.unregisterReceiver(this.mJT);
-            this.mJT = null;
+        if (this.ncO != null) {
+            this.mContext.unregisterReceiver(this.ncO);
+            this.ncO = null;
         }
     }
 

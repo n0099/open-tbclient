@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.core.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class Version {
     public static String userAgent() {
         return "baidu_network/1.0";

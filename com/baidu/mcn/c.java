@@ -6,39 +6,39 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mcn.McnVideoAdView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.aq;
+/* loaded from: classes2.dex */
 public class c {
-    private McnVideoAdView bun;
-    private McnVideoAdView.a buo = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
+    private McnVideoAdView bzY;
+    private McnVideoAdView.a bzZ = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void a(a aVar) {
             if (aVar != null) {
-                ap apVar = new ap("c13404");
-                apVar.dn("tid", aVar.tid);
-                apVar.dn("fid", aVar.fid);
-                apVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                apVar.ah("obj_locate", aVar.buj);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13404");
+                aqVar.dD("tid", aVar.tid);
+                aqVar.dD("fid", aVar.fid);
+                aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
+                aqVar.ai("obj_locate", aVar.bzU);
+                TiebaStatic.log(aqVar);
             }
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void b(a aVar) {
             if (aVar != null) {
-                ap apVar = new ap("c13405");
-                apVar.dn("tid", aVar.tid);
-                apVar.dn("fid", aVar.fid);
-                apVar.t("uid", TbadkCoreApplication.getCurrentAccountId());
-                apVar.ah("obj_locate", aVar.buj);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13405");
+                aqVar.dD("tid", aVar.tid);
+                aqVar.dD("fid", aVar.fid);
+                aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
+                aqVar.ai("obj_locate", aVar.bzU);
+                TiebaStatic.log(aqVar);
             }
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void c(a aVar) {
-            if (aVar != null && !StringUtils.isNull(aVar.bui)) {
-                b.MN().gm(aVar.bui);
+            if (aVar != null && !StringUtils.isNull(aVar.bzT)) {
+                b.SM().hH(aVar.bzT);
             }
         }
     };
@@ -46,43 +46,43 @@ public class c {
 
     public c(Context context) {
         this.mContext = context;
-        this.bun = new McnVideoAdView(context);
-        this.bun.setIMcnStatListener(this.buo);
+        this.bzY = new McnVideoAdView(context);
+        this.bzY.setIMcnStatListener(this.bzZ);
     }
 
     public void a(a aVar, ViewGroup viewGroup) {
-        if (this.bun != null) {
-            this.bun.a(aVar, viewGroup);
+        if (this.bzY != null) {
+            this.bzY.a(aVar, viewGroup);
         }
     }
 
     public void dismiss() {
-        if (this.bun != null) {
-            this.bun.dismiss();
+        if (this.bzY != null) {
+            this.bzY.dismiss();
         }
     }
 
     public void reset() {
-        if (this.bun != null) {
-            this.bun.reset();
+        if (this.bzY != null) {
+            this.bzY.reset();
         }
     }
 
     public void b(a aVar, ViewGroup viewGroup) {
-        if (this.bun != null) {
-            this.bun.b(aVar, viewGroup);
+        if (this.bzY != null) {
+            this.bzY.b(aVar, viewGroup);
         }
     }
 
-    public void MO() {
-        if (this.bun != null) {
-            this.bun.MO();
+    public void SN() {
+        if (this.bzY != null) {
+            this.bzY.SN();
         }
     }
 
     public boolean isShowing() {
-        if (this.bun != null) {
-            return this.bun.isShowing();
+        if (this.bzY != null) {
+            return this.bzY.isShowing();
         }
         return false;
     }

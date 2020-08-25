@@ -14,7 +14,7 @@ import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> extends TbSocketReponsedMessage {
     private D data;
 
@@ -68,7 +68,7 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        l<byte[]> df;
+        l<byte[]> dv;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -88,10 +88,10 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String bkC = eVar.bkC();
+                String bto = eVar.bto();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(bkC) && bArr != null && (df = a.aYG().df(bkC, currentAccount)) != null) {
-                    df.setForever(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(bto) && bArr != null && (dv = a.bhb().dv(bto, currentAccount)) != null) {
+                    dv.setForever(cacheKey, bArr);
                 }
             }
         }

@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class bl {
     private static String a;
     private WeakReference<WebView> b;
@@ -164,7 +164,7 @@ public class bl {
         try {
             JSONObject jSONObject2 = new JSONObject(str);
             jSONArray2 = jSONObject2.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-            str4 = jSONObject2.optString(Config.EVENT_H5_PAGE);
+            str4 = jSONObject2.optString("p2");
             str5 = jSONObject2.optString("l");
             jSONObject = jSONObject2.optJSONObject(Config.EVENT_HEAT_POINT);
             str2 = str5;

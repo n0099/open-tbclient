@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String mxa;
-    private boolean mrT;
-    private boolean mxb;
+    private static String mPp;
+    private boolean mKe;
+    private boolean mPq;
 
     public c(boolean z, boolean z2) {
-        this.mrT = true;
-        this.mxb = false;
-        this.mrT = z;
-        this.mxb = z2;
+        this.mKe = true;
+        this.mPq = false;
+        this.mKe = z;
+        this.mPq = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.mxb || !PI(str2);
+        return this.mPq || !SG(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.mrT && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.mKe && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return mxa;
+        return mPp;
     }
 
-    public static void bI(String str) {
-        mxa = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+    public static void bN(String str) {
+        mPp = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void duW() {
-        mxa = "";
+    public static void dGs() {
+        mPp = "";
     }
 
-    public static boolean PI(String str) {
+    public static boolean SG(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

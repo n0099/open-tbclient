@@ -17,7 +17,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     private static final String TAG = "IMSubscriptionBaseRequest";
     protected String mKey;

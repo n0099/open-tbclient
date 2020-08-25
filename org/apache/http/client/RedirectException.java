@@ -2,7 +2,7 @@ package org.apache.http.client;
 
 import org.apache.http.ProtocolException;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class RedirectException extends ProtocolException {
     public RedirectException() {
         throw new RuntimeException("Stub!");

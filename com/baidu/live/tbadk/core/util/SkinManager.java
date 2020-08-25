@@ -25,7 +25,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SkinManager {
     public static final int SKIN_TYPE_NIGHT = 1;
     public static final int SKIN_TYPE_NONE = 3;
@@ -38,7 +38,7 @@ public class SkinManager {
     private static String sPackagename;
     private static int sPacknameLength;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ViewType {
         public static final int BUTTON = 3;
         public static final int CHECKBOX = 4;

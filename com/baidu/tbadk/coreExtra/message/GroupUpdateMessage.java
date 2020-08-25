@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GroupUpdateMessage implements Serializable {
     private static final long serialVersionUID = 1071062952403340773L;
     private String authorId;

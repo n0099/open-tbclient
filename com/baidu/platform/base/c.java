@@ -1,8 +1,9 @@
 package com.baidu.platform.base;
 
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes10.dex */
-class c implements Runnable {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes20.dex */
+public class c implements Runnable {
     final /* synthetic */ d a;
     final /* synthetic */ SearchResult b;
     final /* synthetic */ Object c;

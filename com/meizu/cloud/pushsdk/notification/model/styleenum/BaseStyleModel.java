@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.notification.model.styleenum;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public enum BaseStyleModel {
     FLYME(0),
     PURE_PICTURE(1),

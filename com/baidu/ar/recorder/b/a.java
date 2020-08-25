@@ -9,11 +9,11 @@ import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long tu = 0;
+    private long tZ = 0;
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void R(boolean z) {
-        super.R(z);
+    public /* bridge */ /* synthetic */ void S(boolean z) {
+        super.S(z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0066  */
@@ -24,7 +24,7 @@ public class a extends b {
     public void a(EncoderParams encoderParams, d dVar) {
         boolean z = true;
         if (encoderParams != null && dVar != null) {
-            this.tx = dVar;
+            this.uc = dVar;
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString("mime", encoderParams.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
@@ -33,24 +33,24 @@ public class a extends b {
             mediaFormat.setInteger("bitrate", encoderParams.getAudioBitrate());
             mediaFormat.setInteger("max-input-size", encoderParams.getAudioFrameSize());
             try {
-                this.ty = MediaCodec.createEncoderByType(encoderParams.getAudioCodec());
-                this.ty.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+                this.ud = MediaCodec.createEncoderByType(encoderParams.getAudioCodec());
+                this.ud.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (encoderParams.isVideoIncluded()) {
-                    this.tB = false;
+                    this.ug = false;
                 } else {
-                    this.tB = true;
+                    this.ug = true;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.tA == null) {
-                this.tA.a(z, null);
+            if (this.uf == null) {
+                this.uf.a(z, null);
                 return;
             }
             return;
         }
         z = false;
-        if (this.tA == null) {
+        if (this.uf == null) {
         }
     }
 
@@ -65,33 +65,33 @@ public class a extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    protected void eD() {
-        if (this.tC == 0) {
-            this.tC = this.tz.presentationTimeUs;
+    protected void fP() {
+        if (this.uh == 0) {
+            this.uh = this.ue.presentationTimeUs;
         }
-        this.tz.presentationTimeUs -= this.tC;
-        if (this.tz.presentationTimeUs < this.tu) {
-            MediaCodec.BufferInfo bufferInfo = this.tz;
-            long j = this.tu + 10000;
-            this.tu = j;
+        this.ue.presentationTimeUs -= this.uh;
+        if (this.ue.presentationTimeUs < this.tZ) {
+            MediaCodec.BufferInfo bufferInfo = this.ue;
+            long j = this.tZ + 10000;
+            this.tZ = j;
             bufferInfo.presentationTimeUs = j;
         }
-        this.tu = this.tz.presentationTimeUs;
-        com.baidu.ar.f.b.c(TAG, "syncTimestamp mAudioEncoder = " + this.tz.size + "|" + this.tz.presentationTimeUs);
+        this.tZ = this.ue.presentationTimeUs;
+        com.baidu.ar.g.b.c(TAG, "syncTimestamp mAudioEncoder = " + this.ue.size + "|" + this.ue.presentationTimeUs);
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void eE() {
-        super.eE();
+    public /* bridge */ /* synthetic */ void fQ() {
+        super.fQ();
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void eF() {
-        super.eF();
+    public /* bridge */ /* synthetic */ void fR() {
+        super.fR();
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void eG() {
-        super.eG();
+    public /* bridge */ /* synthetic */ void fS() {
+        super.fS();
     }
 }

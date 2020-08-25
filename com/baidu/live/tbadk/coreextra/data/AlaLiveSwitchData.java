@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveSwitchData extends BaseData {
     public static final String SWITCH_DEFAULT_VALUE = "0";
     public static int isHotLive;
@@ -19,22 +19,24 @@ public class AlaLiveSwitchData extends BaseData {
     public String mFirstCharge;
     public String mFollowBtn;
     public String mGiftPanel;
-    public boolean mGiftPanelInvalid;
+    public String mGiftPanelInvalid;
     public String mGmsgGetLiveStatus;
     public String mGuardFans;
     public String mGuardThrone;
     public String mLiveSwitch;
     public String mNobleInfo;
-    public boolean mPayBarrageInvalid;
+    public String mPayBarrage;
     public String mPopupWindow;
-    public boolean mQuickChatInvalid;
+    public String mQuickChat;
     public String mQuickGift;
     public String mRankHour;
     public String mRedPkg;
     public String mRotaryTable;
     public String mShareBtn;
+    public String mSmallWindowPendant;
     public String mSuperConsumer;
     public String mVideoGoodslist;
+    public String mZanAnim;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -61,9 +63,11 @@ public class AlaLiveSwitchData extends BaseData {
             this.mActivityTaskWatch = jSONObject.optString("f_activity_task_watch");
             this.mGmsgGetLiveStatus = jSONObject.optString("f_gmsg_getLiveStatus");
             this.mNobleInfo = jSONObject.optString("s_noble_info");
-            this.mPayBarrageInvalid = jSONObject.optInt("s_paid_barrage") == 0;
-            this.mQuickChatInvalid = jSONObject.optInt("s_quick_chat") == 0;
-            this.mGiftPanelInvalid = jSONObject.optInt("s_gift_panel") == 0;
+            this.mPayBarrage = jSONObject.optString("s_paid_barrage");
+            this.mQuickChat = jSONObject.optString("s_quick_chat");
+            this.mGiftPanelInvalid = jSONObject.optString("s_gift_panel");
+            this.mSmallWindowPendant = jSONObject.optString("s_small_window_pendant");
+            this.mZanAnim = jSONObject.optString("s_hide_zan");
         }
     }
 
@@ -92,6 +96,11 @@ public class AlaLiveSwitchData extends BaseData {
             jSONObject.put("f_activity_task_watch", this.mActivityTaskWatch);
             jSONObject.put("f_gmsg_getLiveStatus", this.mGmsgGetLiveStatus);
             jSONObject.put("s_noble_info", this.mNobleInfo);
+            jSONObject.put("s_paid_barrage", this.mPayBarrage);
+            jSONObject.put("s_quick_chat", this.mQuickChat);
+            jSONObject.put("s_gift_panel", this.mGiftPanelInvalid);
+            jSONObject.put("s_small_window_pendant", this.mSmallWindowPendant);
+            jSONObject.put("s_hide_zan", this.mZanAnim);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -180,5 +189,25 @@ public class AlaLiveSwitchData extends BaseData {
 
     public boolean isNobleInfoSwitchUnabled() {
         return TextUtils.equals(this.mNobleInfo, "0");
+    }
+
+    public boolean isPayBarrageUnabled() {
+        return TextUtils.equals(this.mPayBarrage, "0");
+    }
+
+    public boolean isQuickChatUnabled() {
+        return TextUtils.equals(this.mQuickChat, "0");
+    }
+
+    public boolean isGiftPanelUnabled() {
+        return TextUtils.equals(this.mGiftPanelInvalid, "0");
+    }
+
+    public boolean isSmallWindowPendantUnabled() {
+        return !TextUtils.equals(this.mSmallWindowPendant, "1");
+    }
+
+    public boolean isZanAnimUnabled() {
+        return TextUtils.equals(this.mZanAnim, "0");
     }
 }

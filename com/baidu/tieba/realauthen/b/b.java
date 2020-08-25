@@ -10,14 +10,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class b {
-    private static char[] llc = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] lBD = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String toMD5(String str, String str2) {
         if (str != null) {
             try {
-                return ah(str.getBytes(str2));
+                return ai(str.getBytes(str2));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -53,7 +53,7 @@ public final class b {
         }
     }
 
-    private static synchronized String ah(byte[] bArr) {
+    private static synchronized String ai(byte[] bArr) {
         String str;
         synchronized (b.class) {
             try {

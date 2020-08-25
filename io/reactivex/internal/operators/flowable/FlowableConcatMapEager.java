@@ -12,32 +12,32 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class FlowableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
-    final h<? super T, ? extends org.a.b<? extends R>> mapper;
+    final h<? super T, ? extends org.b.b<? extends R>> mapper;
     final int maxConcurrency;
     final int prefetch;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super R> cVar) {
-        this.nSG.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+    protected void a(org.b.c<? super R> cVar) {
+        this.omB.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
     /* loaded from: classes7.dex */
-    static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.subscribers.c<R>, j<T>, org.a.d {
+    static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.subscribers.c<R>, j<T>, org.b.d {
         private static final long serialVersionUID = -4255299542215038287L;
-        final org.a.c<? super R> actual;
+        final org.b.c<? super R> actual;
         volatile boolean cancelled;
         volatile InnerQueuedSubscriber<R> current;
         volatile boolean done;
         final ErrorMode errorMode;
-        final h<? super T, ? extends org.a.b<? extends R>> mapper;
+        final h<? super T, ? extends org.b.b<? extends R>> mapper;
         final int maxConcurrency;
         final int prefetch;
-        org.a.d s;
+        org.b.d s;
         final io.reactivex.internal.queue.a<InnerQueuedSubscriber<R>> subscribers;
         final AtomicThrowable errors = new AtomicThrowable();
         final AtomicLong requested = new AtomicLong();
 
-        ConcatMapEagerDelayErrorSubscriber(org.a.c<? super R> cVar, h<? super T, ? extends org.a.b<? extends R>> hVar, int i, int i2, ErrorMode errorMode) {
+        ConcatMapEagerDelayErrorSubscriber(org.b.c<? super R> cVar, h<? super T, ? extends org.b.b<? extends R>> hVar, int i, int i2, ErrorMode errorMode) {
             this.actual = cVar;
             this.mapper = hVar;
             this.maxConcurrency = i;
@@ -46,8 +46,8 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
             this.subscribers = new io.reactivex.internal.queue.a<>(Math.min(i2, i));
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -55,10 +55,10 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             try {
-                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
+                org.b.b bVar = (org.b.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
                 InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
                 if (!this.cancelled) {
                     this.subscribers.offer(innerQueuedSubscriber);
@@ -71,13 +71,13 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 this.s.cancel();
                 onError(th);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.errors.addThrowable(th)) {
                 this.done = true;
@@ -87,13 +87,13 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.done = true;
             drain();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -121,7 +121,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -164,7 +164,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
             if (getAndIncrement() == 0) {
                 int i = 1;
                 InnerQueuedSubscriber<R> innerQueuedSubscriber = this.current;
-                org.a.c<? super R> cVar = this.actual;
+                org.b.c<? super R> cVar = this.actual;
                 ErrorMode errorMode = this.errorMode;
                 while (true) {
                     long j = this.requested.get();
@@ -224,7 +224,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                                         innerQueuedSubscriber2.requestOne();
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.K(th);
+                                    io.reactivex.exceptions.a.J(th);
                                     this.current = null;
                                     innerQueuedSubscriber2.cancel();
                                     cancelAll();

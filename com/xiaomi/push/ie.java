@@ -2,20 +2,20 @@ package com.xiaomi.push;
 
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ie implements ix<ie, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f573a;
+    public int f570a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f574a = new BitSet(2);
+    private BitSet f571a = new BitSet(2);
 
     /* renamed from: b  reason: collision with other field name */
-    public int f575b;
+    public int f572b;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f572a = new jn("XmPushActionCheckClientInfo");
+    private static final jn f569a = new jn("XmPushActionCheckClientInfo");
     private static final jf a = new jf("", (byte) 8, 1);
     private static final jf b = new jf("", (byte) 8, 2);
 
@@ -26,12 +26,12 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
         int a2;
         int a3;
         if (getClass().equals(ieVar.getClass())) {
-            int compareTo = Boolean.valueOf(m400a()).compareTo(Boolean.valueOf(ieVar.m400a()));
+            int compareTo = Boolean.valueOf(m405a()).compareTo(Boolean.valueOf(ieVar.m405a()));
             if (compareTo == 0) {
-                if (!m400a() || (a3 = iy.a(this.f573a, ieVar.f573a)) == 0) {
+                if (!m405a() || (a3 = iy.a(this.f570a, ieVar.f570a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ieVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a2 = iy.a(this.f575b, ieVar.f575b)) == 0) {
+                        if (!b() || (a2 = iy.a(this.f572b, ieVar.f572b)) == 0) {
                             return 0;
                         }
                         return a2;
@@ -46,7 +46,7 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     }
 
     public ie a(int i) {
-        this.f573a = i;
+        this.f570a = i;
         a(true);
         return this;
     }
@@ -56,12 +56,12 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m484a();
+        jiVar.m489a();
         while (true) {
-            jf m480a = jiVar.m480a();
-            if (m480a.a == 0) {
+            jf m485a = jiVar.m485a();
+            if (m485a.a == 0) {
                 jiVar.f();
-                if (!m400a()) {
+                if (!m405a()) {
                     throw new jj("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
                 }
                 if (!b()) {
@@ -70,27 +70,27 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m480a.f783a) {
+            switch (m485a.f780a) {
                 case 1:
-                    if (m480a.a != 8) {
-                        jl.a(jiVar, m480a.a);
+                    if (m485a.a != 8) {
+                        jl.a(jiVar, m485a.a);
                         break;
                     } else {
-                        this.f573a = jiVar.m478a();
+                        this.f570a = jiVar.m483a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m480a.a != 8) {
-                        jl.a(jiVar, m480a.a);
+                    if (m485a.a != 8) {
+                        jl.a(jiVar, m485a.a);
                         break;
                     } else {
-                        this.f575b = jiVar.m478a();
+                        this.f572b = jiVar.m483a();
                         b(true);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m480a.a);
+                    jl.a(jiVar, m485a.a);
                     break;
             }
             jiVar.g();
@@ -98,21 +98,21 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f574a.set(0, z);
+        this.f571a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m400a() {
-        return this.f574a.get(0);
+    public boolean m405a() {
+        return this.f571a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m401a(ie ieVar) {
-        return ieVar != null && this.f573a == ieVar.f573a && this.f575b == ieVar.f575b;
+    public boolean m406a(ie ieVar) {
+        return ieVar != null && this.f570a == ieVar.f570a && this.f572b == ieVar.f572b;
     }
 
     public ie b(int i) {
-        this.f575b = i;
+        this.f572b = i;
         b(true);
         return this;
     }
@@ -120,28 +120,28 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         a();
-        jiVar.a(f572a);
+        jiVar.a(f569a);
         jiVar.a(a);
-        jiVar.a(this.f573a);
+        jiVar.a(this.f570a);
         jiVar.b();
         jiVar.a(b);
-        jiVar.a(this.f575b);
+        jiVar.a(this.f572b);
         jiVar.b();
         jiVar.c();
-        jiVar.m488a();
+        jiVar.m493a();
     }
 
     public void b(boolean z) {
-        this.f574a.set(1, z);
+        this.f571a.set(1, z);
     }
 
     public boolean b() {
-        return this.f574a.get(1);
+        return this.f571a.get(1);
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ie)) {
-            return m401a((ie) obj);
+            return m406a((ie) obj);
         }
         return false;
     }
@@ -151,6 +151,6 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     }
 
     public String toString() {
-        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f573a + ", pluginConfigVersion:" + this.f575b + ")";
+        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f570a + ", pluginConfigVersion:" + this.f572b + ")";
     }
 }

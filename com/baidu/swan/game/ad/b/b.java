@@ -1,88 +1,88 @@
 package com.baidu.swan.game.ad.b;
 
-import com.baidu.swan.apps.aq.ai;
-/* loaded from: classes9.dex */
+import com.baidu.swan.apps.ap.ah;
+/* loaded from: classes19.dex */
 public class b {
-    private int Ya;
-    private String daA;
-    private int daB;
-    private int daC;
-    private String dax;
-    private String daz;
+    private int YG;
+    private String dkI;
+    private String dkJ;
+    private String dkK;
+    private int dkL;
+    private int dkM;
 
     private b(a aVar) {
-        this.daz = aVar.daz;
-        this.dax = aVar.dax;
-        this.daB = aVar.daB;
-        this.daC = aVar.daC;
-        this.daA = aVar.daA;
-        this.Ya = aVar.Ya;
+        this.dkJ = aVar.dkJ;
+        this.dkI = aVar.dkI;
+        this.dkL = aVar.dkL;
+        this.dkM = aVar.dkM;
+        this.dkK = aVar.dkK;
+        this.YG = aVar.YG;
     }
 
-    public int aAt() {
-        return this.daB;
+    public int aJd() {
+        return this.dkL;
     }
 
-    public int aAu() {
-        return this.daC;
+    public int aJe() {
+        return this.dkM;
     }
 
     public String getAppSid() {
-        return this.daz;
+        return this.dkJ;
     }
 
-    public String aAv() {
-        return this.dax;
+    public String aJf() {
+        return this.dkI;
     }
 
-    public String aAw() {
-        return this.daA;
+    public String aJg() {
+        return this.dkK;
     }
 
-    public int qp() {
-        return this.Ya;
+    public int rO() {
+        return this.YG;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public static class a {
-        private int Ya;
-        private String daA;
-        private int daB;
-        private int daC;
-        private String dax;
-        private String daz;
+        private int YG;
+        private String dkI;
+        private String dkJ;
+        private String dkK;
+        private int dkL;
+        private int dkM;
 
-        public a rC(String str) {
-            this.daz = str;
+        public a tV(String str) {
+            this.dkJ = str;
             return this;
         }
 
-        public a rD(String str) {
-            this.dax = str;
+        public a tW(String str) {
+            this.dkI = str;
             return this;
         }
 
-        public a rE(String str) {
-            this.daA = str;
+        public a tX(String str) {
+            this.dkK = str;
             return this;
         }
 
-        public a iD(int i) {
-            this.daB = ai.D(i);
+        public a kM(int i) {
+            this.dkL = ah.H(i);
             return this;
         }
 
-        public a iE(int i) {
-            this.daC = ai.D(i);
+        public a kN(int i) {
+            this.dkM = ah.H(i);
             return this;
         }
 
-        public a iF(int i) {
-            this.Ya = i;
+        public a kO(int i) {
+            this.YG = i;
             return this;
         }
 
-        public b aAx() {
+        public b aJh() {
             return new b(this);
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class CollectionUtils {
     public static boolean isEmpty(Collection<?> collection) {
         return collection == null || collection.isEmpty();

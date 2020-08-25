@@ -11,13 +11,13 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.k.g;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
     public a(@NonNull b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b hv(String str) {
+    public com.baidu.swan.apps.api.c.b iS(String str) {
         if (DEBUG) {
             Log.d("Api-LoadSubPackage", "start pre load sub package");
         }
@@ -25,47 +25,29 @@ public class a extends d {
             @Override // com.baidu.swan.apps.api.a.d.a
             public com.baidu.swan.apps.api.c.b a(e eVar, JSONObject jSONObject, @Nullable String str2) {
                 String optString = jSONObject.optString("root");
-                if (TextUtils.isEmpty(optString)) {
-                    c.e("Api-LoadSubPackage", "subPackage root is null");
-                    return new com.baidu.swan.apps.api.c.b(202);
-                } else if (!com.baidu.swan.apps.performance.b.b.aon()) {
-                    return a.this.a(eVar, optString, str2);
-                } else {
-                    a.this.b(eVar, optString, str2);
+                if (!TextUtils.isEmpty(optString)) {
+                    a.this.a(eVar, optString, str2);
                     return new com.baidu.swan.apps.api.c.b(0);
                 }
+                c.e("Api-LoadSubPackage", "subPackage root is null");
+                return new com.baidu.swan.apps.api.c.b(202);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.swan.apps.api.c.b a(e eVar, String str, @Nullable String str2) {
-        if (eVar.ol(str) && eVar.om(str)) {
-            c.i("Api-LoadSubPackage", "subPackage have existed");
-            return new com.baidu.swan.apps.api.c.b(1001, "subPackage have existed");
-        }
-        String oo = eVar.oo(str);
-        if (TextUtils.isEmpty(oo)) {
-            c.i("Api-LoadSubPackage", "subPackage cannot find aps key");
-            return new com.baidu.swan.apps.api.c.b(202);
-        }
-        a(eVar, str, oo, str2);
-        return new com.baidu.swan.apps.api.c.b(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(final e eVar, final String str, @Nullable final String str2) {
+    public void a(final e eVar, final String str, @Nullable final String str2) {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.api.module.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (eVar.ol(str) && eVar.om(str)) {
+                if (eVar.qj(str) && eVar.qk(str)) {
                     c.i("Api-LoadSubPackage", "subPackage have existed");
                     a.this.a(str2, new com.baidu.swan.apps.api.c.b(1001, "subPackage have existed"));
                     return;
                 }
-                String oo = eVar.oo(str);
-                if (!TextUtils.isEmpty(oo)) {
-                    a.this.a(eVar, str, oo, str2);
+                String ql = eVar.ql(str);
+                if (!TextUtils.isEmpty(ql)) {
+                    a.this.a(eVar, str, ql, str2);
                     return;
                 }
                 c.i("Api-LoadSubPackage", "subPackage cannot find aps key");
@@ -78,13 +60,13 @@ public class a extends d {
     public void a(e eVar, String str, String str2, @Nullable final String str3) {
         g.a(eVar.id, eVar.getVersion(), str, str2, null, new g.a() { // from class: com.baidu.swan.apps.api.module.b.a.3
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void hw(String str4) {
+            public void iT(String str4) {
                 c.i("Api-LoadSubPackage", "preload subPackage success");
                 a.this.a(str3, new com.baidu.swan.apps.api.c.b(0, "preload subPackage success"));
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void ex(int i) {
+            public void gv(int i) {
                 c.e("Api-LoadSubPackage", "preload subPackage failed");
                 a.this.a(str3, new com.baidu.swan.apps.api.c.b(202, "No SubPackage"));
             }

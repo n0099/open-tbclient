@@ -1,7 +1,15 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes15.dex */
 public interface aq {
-    void bxR();
+    void OA();
 
-    void cbd();
+    void bFY();
+
+    void bFZ();
+
+    void bkF();
+
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.aa aaVar);
+
+    void showFloatingView();
 }

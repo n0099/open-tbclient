@@ -11,30 +11,30 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class k extends TypeAdapter<Time> {
-    public static final TypeAdapterFactory njJ = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.k.1
+    public static final TypeAdapterFactory nDA = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.k.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dLH() == Time.class) {
+            if (aVar.dXI() == Time.class) {
                 return new k();
             }
             return null;
         }
     };
-    private final DateFormat nkl = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat nEc = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     /* renamed from: e */
     public synchronized Time read(com.google.gson.stream.a aVar) throws IOException {
         Time time;
-        if (aVar.dLo() == JsonToken.NULL) {
-            aVar.dLt();
+        if (aVar.dXp() == JsonToken.NULL) {
+            aVar.dXu();
             time = null;
         } else {
             try {
-                time = new Time(this.nkl.parse(aVar.dLs()).getTime());
+                time = new Time(this.nEc.parse(aVar.dXt()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -46,6 +46,6 @@ public final class k extends TypeAdapter<Time> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Time time) throws IOException {
-        bVar.RP(time == null ? null : this.nkl.format((Date) time));
+        bVar.UT(time == null ? null : this.nEc.format((Date) time));
     }
 }

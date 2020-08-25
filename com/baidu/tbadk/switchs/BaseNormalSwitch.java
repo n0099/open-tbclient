@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseNormalSwitch extends a {
     private static final int TYPE_OFF = 0;
     private static final int TYPE_ON = 1;

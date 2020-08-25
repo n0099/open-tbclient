@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.SocketMessage;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MessageQueueHelper {
     MessageQueueHelper() {
     }

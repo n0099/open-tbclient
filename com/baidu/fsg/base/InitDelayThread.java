@@ -9,12 +9,12 @@ import com.baidu.fsg.base.restnet.fp.GetFPResponse;
 import com.baidu.fsg.base.utils.JsonUtils;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class InitDelayThread extends Thread {
     InitDelayCallback mCallback;
     WeakReference<Context> mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface InitDelayCallback extends NoProguard {
         void callBack();
     }

@@ -1,7 +1,7 @@
 package com.squareup.wire;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public final class WireOutput {
     private final byte[] buffer;
     private final int limit;

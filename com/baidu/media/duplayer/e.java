@@ -14,9 +14,9 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private static e buX;
+    private static e bAI;
     private static String b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
@@ -24,22 +24,22 @@ public class e {
     private e() {
     }
 
-    public static synchronized e MS() {
+    public static synchronized e SR() {
         e eVar;
         synchronized (e.class) {
-            if (buX == null) {
+            if (bAI == null) {
                 b = Utils.f();
-                buX = new e();
+                bAI = new e();
             }
-            eVar = buX;
+            eVar = bAI;
         }
         return eVar;
     }
 
     private String a(Context context, d dVar) {
-        if (dVar.MR() == d.a.LIB_TYPE_JAR) {
+        if (dVar.SQ() == d.a.LIB_TYPE_JAR) {
             return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.b(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
-        } else if (dVar.MR() == d.a.LIB_TYPE_SO) {
+        } else if (dVar.SQ() == d.a.LIB_TYPE_SO) {
             String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
             return TextUtils.isEmpty(findLibrary) ? c + File.separator + b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
         } else {
@@ -67,7 +67,7 @@ public class e {
         for (d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String a = a(context, dVar);
             dVar.a(a);
-            if (dVar.MR() == d.a.LIB_TYPE_SO) {
+            if (dVar.SQ() == d.a.LIB_TYPE_SO) {
                 File parentFile = new File(a).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
@@ -109,10 +109,6 @@ public class e {
         }
     }
 
-    public String[] MT() {
-        return (String[]) d.toArray(new String[d.size()]);
-    }
-
     public void a(Context context, String str) {
         if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
             g();
@@ -134,16 +130,12 @@ public class e {
         return (i & 32) == 32 ? i2 | 2048 : i2;
     }
 
-    public String c() {
-        return b;
+    public String[] b() {
+        return (String[]) d.toArray(new String[d.size()]);
     }
 
-    public String c(int i) {
-        d dM = dM(i);
-        if (dM == null) {
-            return null;
-        }
-        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dM.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dM.b() + ".zip";
+    public String c() {
+        return b;
     }
 
     public void d() {
@@ -176,12 +168,12 @@ public class e {
         return (i & 28) == i;
     }
 
-    public d dM(int i) {
-        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
-    }
-
-    public boolean dN(int i) {
-        return (i & 896) == i;
+    public String dq(int i) {
+        d fH = fH(i);
+        if (fH == null) {
+            return null;
+        }
+        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fH.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fH.b() + ".zip";
     }
 
     public boolean e(int i) {
@@ -192,11 +184,19 @@ public class e {
         return (i & 64) == i;
     }
 
-    public boolean h(int i) {
-        return (i & 2048) == i;
+    public d fH(int i) {
+        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
     }
 
-    public boolean i(int i) {
+    public boolean fI(int i) {
+        return (i & 896) == i;
+    }
+
+    public boolean fJ(int i) {
         return (i & 3) == i;
+    }
+
+    public boolean h(int i) {
+        return (i & 2048) == i;
     }
 }

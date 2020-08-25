@@ -11,62 +11,62 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
     final io.reactivex.c.g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> nSE;
-    final h<? super D, ? extends org.a.b<? extends T>> nTG;
+    final Callable<? extends D> omz;
+    final h<? super D, ? extends org.b.b<? extends T>> onC;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super T> cVar) {
+    public void a(org.b.c<? super T> cVar) {
         try {
-            D call = this.nSE.call();
+            D call = this.omz.call();
             try {
-                ((org.a.b) io.reactivex.internal.functions.a.k(this.nTG.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
+                ((org.b.b) io.reactivex.internal.functions.a.k(this.onC.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 try {
                     this.disposer.accept(call);
                     EmptySubscription.error(th, cVar);
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.K(th2);
+                    io.reactivex.exceptions.a.J(th2);
                     EmptySubscription.error(new CompositeException(th, th2), cVar);
                 }
             }
         } catch (Throwable th3) {
-            io.reactivex.exceptions.a.K(th3);
+            io.reactivex.exceptions.a.J(th3);
             EmptySubscription.error(th3, cVar);
         }
     }
 
     /* loaded from: classes7.dex */
-    static final class UsingSubscriber<T, D> extends AtomicBoolean implements j<T>, org.a.d {
+    static final class UsingSubscriber<T, D> extends AtomicBoolean implements j<T>, org.b.d {
         private static final long serialVersionUID = 5904473792286235046L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         final io.reactivex.c.g<? super D> disposer;
         final boolean eager;
         final D resource;
-        org.a.d s;
+        org.b.d s;
 
-        UsingSubscriber(org.a.c<? super T> cVar, D d, io.reactivex.c.g<? super D> gVar, boolean z) {
+        UsingSubscriber(org.b.c<? super T> cVar, D d, io.reactivex.c.g<? super D> gVar, boolean z) {
             this.actual = cVar;
             this.resource = d;
             this.disposer = gVar;
             this.eager = z;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.actual.onNext(t);
         }
 
         /* JADX DEBUG: Type inference failed for r2v0. Raw type applied. Possible types: D, ? super D */
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.eager) {
                 Throwable th2 = null;
@@ -75,7 +75,7 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th3) {
                         th2 = th3;
-                        io.reactivex.exceptions.a.K(th2);
+                        io.reactivex.exceptions.a.J(th2);
                     }
                 }
                 this.s.cancel();
@@ -93,14 +93,14 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
         }
 
         /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: D, ? super D */
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (this.eager) {
                 if (compareAndSet(false, true)) {
                     try {
                         this.disposer.accept((D) this.resource);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.K(th);
+                        io.reactivex.exceptions.a.J(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -114,12 +114,12 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
             disposeAfter();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             this.s.request(j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             disposeAfter();
             this.s.cancel();
@@ -131,7 +131,7 @@ public final class FlowableUsing<T, D> extends io.reactivex.g<T> {
                 try {
                     this.disposer.accept((D) this.resource);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     io.reactivex.e.a.onError(th);
                 }
             }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.adp.lib.featureSwitch.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class KeepAliveSwitch extends a {
     public static final String KEEP_ALIVE_KEY = "android_new_keep_alive";
     public static final int OFF_TYPE = 0;
@@ -14,7 +14,7 @@ public class KeepAliveSwitch extends a {
         b bVar = new b(this.mName, this.mDefaultType, this.mSwitchListener);
         bVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
         bVar.g(getSwitchLibs());
-        bVar.ad(true);
+        bVar.ae(true);
         SwitchManager.getInstance().addSwitchData(bVar);
     }
 

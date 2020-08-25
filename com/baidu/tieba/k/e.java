@@ -1,17 +1,17 @@
 package com.baidu.tieba.k;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface e {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void AK(int i);
+        void Dd(int i);
 
         void onChange(boolean z);
 
-        void rn(boolean z);
+        void rT(boolean z);
     }
 
     void a(a aVar);
 
-    void cGm();
+    void cRb();
 }

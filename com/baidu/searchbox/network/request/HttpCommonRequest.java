@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.request;
 import com.baidu.searchbox.network.core.MediaType;
 import com.baidu.searchbox.network.core.RequestBody;
 import com.baidu.searchbox.network.request.HttpCommonRequestBuilder;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public abstract class HttpCommonRequest<T extends HttpCommonRequestBuilder> extends HttpRequest<T> {
     protected RequestBody requestBody;
 

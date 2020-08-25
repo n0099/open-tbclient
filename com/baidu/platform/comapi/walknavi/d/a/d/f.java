@@ -2,15 +2,15 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 
 import com.baidu.platform.comapi.walknavi.d.a.d.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class f implements Runnable {
     final /* synthetic */ boolean a;
     final /* synthetic */ h b;
-    final /* synthetic */ b.C0229b c;
+    final /* synthetic */ b.C0250b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b.C0229b c0229b, boolean z, h hVar) {
-        this.c = c0229b;
+    public f(b.C0250b c0250b, boolean z, h hVar) {
+        this.c = c0250b;
         this.a = z;
         this.b = hVar;
     }

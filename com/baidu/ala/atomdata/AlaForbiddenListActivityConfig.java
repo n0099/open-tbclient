@@ -2,7 +2,7 @@ package com.baidu.ala.atomdata;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaForbiddenListActivityConfig extends IntentConfig {
     public AlaForbiddenListActivityConfig(Context context) {
         super(context);

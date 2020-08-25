@@ -1,7 +1,7 @@
 package com.baidu.swan.games.r.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     @V8JavascriptField
     public String errMsg;

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
     private static Toast mToast;
     private boolean dontShowToast;
@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e aZX() {
+    public static e bis() {
         return new e();
     }
 

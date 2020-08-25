@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.ah;
+import com.baidu.tbadk.util.ai;
 import com.xiaomi.mipush.sdk.Constants;
 import org.apache.http.cookie.SM;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class s {
     public s() {
         MessageManager messageManager = MessageManager.getInstance();
@@ -23,14 +23,14 @@ public class s {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void aRb() {
+    public void aZr() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
         httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
         httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         httpMessage.addParam("client_version", TbConfig.getVersion());
         httpMessage.addParam("client_type", "Android");
         httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        httpMessage.addParam(com.baidu.fsg.base.statistics.j.c, ah.getUserAgent());
+        httpMessage.addParam(com.baidu.fsg.base.statistics.j.c, ai.getUserAgent());
         httpMessage.addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
         MessageManager.getInstance().sendMessage(httpMessage);
     }

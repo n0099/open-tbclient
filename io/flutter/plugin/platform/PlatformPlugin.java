@@ -15,7 +15,7 @@ import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class PlatformPlugin {
     public static final int DEFAULT_SYSTEM_UI = 1280;
     private final Activity activity;

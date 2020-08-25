@@ -28,7 +28,7 @@ public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
                 setErrorString(getForumBroadcastListResIdl.error.usermsg);
                 if (getError() == 0) {
                     this.majorHistoryData.a(getForumBroadcastListResIdl.data);
-                    this.majorHistoryData.ctH();
+                    this.majorHistoryData.cEy();
                 }
             }
         }

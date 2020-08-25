@@ -13,7 +13,7 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.graphics.drawable.IconCompat;
 import android.text.TextUtils;
 import java.util.Arrays;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class ShortcutInfoCompat {
     private ComponentName mActivity;
     private Context mContext;
@@ -104,7 +104,7 @@ public class ShortcutInfoCompat {
         return (Intent[]) Arrays.copyOf(this.mIntents, this.mIntents.length);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         private final ShortcutInfoCompat mInfo = new ShortcutInfoCompat();
 

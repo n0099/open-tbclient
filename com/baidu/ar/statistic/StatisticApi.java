@@ -7,37 +7,37 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class StatisticApi {
-    private static g vD;
-    private static f vE;
+    private static g wg;
+    private static f wh;
 
     public static f getPerformanceApi() {
-        if (vE == null) {
-            vE = new o();
+        if (wh == null) {
+            wh = new o();
         }
-        return vE;
+        return wh;
     }
 
     public static void init(Context context) {
-        if (vD == null) {
+        if (wg == null) {
             try {
-                Constructor<?> a = com.baidu.ar.f.l.a("com.baidu.ar.statistic.StatisticApiImpl", Context.class, HandlerThread.class);
+                Constructor<?> a = com.baidu.ar.g.n.a("com.baidu.ar.statistic.StatisticApiImpl", Context.class, HandlerThread.class);
                 if (a != null) {
-                    vD = (g) com.baidu.ar.f.l.a(a, context, null);
+                    wg = (g) com.baidu.ar.g.n.a(a, context, null);
                 }
             } catch (Throwable th) {
-                vD = null;
-                com.baidu.ar.f.b.aL("Statistic init fail");
+                wg = null;
+                com.baidu.ar.g.b.aP("Statistic init fail");
                 th.printStackTrace();
             }
         }
-        if (vE == null) {
-            vE = new o();
+        if (wh == null) {
+            wh = new o();
         }
     }
 
     public static boolean isAllowPerformanceEvent(String str) {
-        if (vD != null) {
-            return vD.isAllowPerformanceEvent(str);
+        if (wg != null) {
+            return wg.isAllowPerformanceEvent(str);
         }
         return true;
     }
@@ -47,88 +47,88 @@ public final class StatisticApi {
     }
 
     public static void onEvent(String str, String str2) {
-        if (vD != null) {
-            vD.onEvent(str, str2);
+        if (wg != null) {
+            wg.onEvent(str, str2);
         }
     }
 
     public static void onEvent(String str, Map<String, String> map) {
-        if (vD != null) {
-            vD.onEvent(str, map);
+        if (wg != null) {
+            wg.onEvent(str, map);
         }
     }
 
     public static void onEventDebounce(String str, long j, String str2) {
-        if (vD != null) {
-            vD.onEventDebounce(str, j, str2);
+        if (wg != null) {
+            wg.onEventDebounce(str, j, str2);
         }
     }
 
     public static void onEventDebounce(String str, long j, Map<String, String> map) {
-        if (vD != null) {
-            vD.onEventDebounce(str, j, map);
+        if (wg != null) {
+            wg.onEventDebounce(str, j, map);
         }
     }
 
     public static void onEventEnd(String str) {
-        if (vD != null) {
-            vD.onEventEnd(str);
+        if (wg != null) {
+            wg.onEventEnd(str);
         }
     }
 
     public static void onEventStart(String str) {
-        if (vD != null) {
-            vD.onEventStart(str);
+        if (wg != null) {
+            wg.onEventStart(str);
         }
     }
 
     public static void onEventStatus(String str, String str2, boolean z) {
-        if (vD != null) {
-            vD.onEventStatus(str, str2, z);
+        if (wg != null) {
+            wg.onEventStatus(str, str2, z);
         }
     }
 
     public static void onPerformance(String str, Map<String, String> map) {
-        if (vD != null) {
-            vD.onPerformance(str, map);
+        if (wg != null) {
+            wg.onPerformance(str, map);
         }
     }
 
     public static void onPerformance(String str, JSONObject jSONObject) {
-        if (vD != null) {
-            vD.onPerformance(str, jSONObject);
+        if (wg != null) {
+            wg.onPerformance(str, jSONObject);
         }
     }
 
     public static void pause() {
-        if (vD != null) {
-            vD.pause();
+        if (wg != null) {
+            wg.pause();
         }
     }
 
     public static void release() {
-        vE = null;
-        if (vD != null) {
-            vD.release();
-            vD = null;
+        wh = null;
+        if (wg != null) {
+            wg.release();
+            wg = null;
         }
     }
 
     public static void resume() {
-        if (vD != null) {
-            vD.resume();
+        if (wg != null) {
+            wg.resume();
         }
     }
 
     public static void setPubParam(String str, String str2) {
-        if (vD != null) {
-            vD.setPubParam(str, str2);
+        if (wg != null) {
+            wg.setPubParam(str, str2);
         }
     }
 
     public static void setPubParams(Map<String, String> map) {
-        if (vD != null) {
-            vD.setPubParams(map);
+        if (wg != null) {
+            wg.setPubParams(map);
         }
     }
 }

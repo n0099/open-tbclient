@@ -9,17 +9,17 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 /* loaded from: classes6.dex */
 public class f {
-    private static SoftReference<Properties> otg;
+    private static SoftReference<Properties> oMY;
 
     public static String get(@NonNull String str) {
-        Object obj = eah().get(str);
+        Object obj = emk().get(str);
         if (obj == null) {
-            obj = TT(str);
+            obj = WX(str);
         }
         return obj == null ? "" : String.valueOf(obj);
     }
 
-    private static String TT(String str) {
+    private static String WX(String str) {
         try {
             Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
             declaredMethod.setAccessible(true);
@@ -30,12 +30,12 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties eah() {
+    private static synchronized Properties emk() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         synchronized (f.class) {
-            properties = otg != null ? otg.get() : null;
+            properties = oMY != null ? oMY.get() : null;
             if (properties == null) {
                 properties = new Properties();
                 try {
@@ -50,7 +50,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream);
                 } catch (Exception e2) {
                     tv.chushou.a.a.d.a.b(fileInputStream);
-                    otg = new SoftReference<>(properties);
+                    oMY = new SoftReference<>(properties);
                     return properties;
                 } catch (Throwable th2) {
                     th = th2;
@@ -58,7 +58,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream2);
                     throw th;
                 }
-                otg = new SoftReference<>(properties);
+                oMY = new SoftReference<>(properties);
             }
         }
         return properties;

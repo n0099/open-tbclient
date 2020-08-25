@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.ubc;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UbcStatisticLiveKey {
     public static final String KEY_ID_1391 = "1391";
     public static final String KEY_ID_1392 = "1392";

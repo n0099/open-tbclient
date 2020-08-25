@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FrsArActivityConfig extends IntentConfig {
     public static final String AR_ID = "ar_id";
     public static final String AR_TYPE = "ar_type";

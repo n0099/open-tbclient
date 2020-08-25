@@ -1,33 +1,51 @@
 package com.baidu.ar.c;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.os.Looper;
+import android.text.TextUtils;
 /* loaded from: classes11.dex */
-public class c extends b {
-    private ArrayList<b> lE;
+public class c {
+    private com.baidu.ar.bus.a ik;
+    private b il;
 
-    public c() {
-        S("DetectorGroup");
+    /* loaded from: classes11.dex */
+    private static class a {
+        private static c im = new c();
     }
 
-    public boolean T(String str) {
-        Iterator<b> it = this.lE.iterator();
-        while (it.hasNext()) {
-            if (it.next().cD().equals(str)) {
-                return true;
-            }
+    private c() {
+        this.ik = new com.baidu.ar.bus.a();
+        this.il = new b();
+    }
+
+    public static c ce() {
+        return a.im;
+    }
+
+    public int O(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
         }
-        return false;
+        return this.il.O(str);
     }
 
-    public void c(b bVar) {
-        if (this.lE == null) {
-            this.lE = new ArrayList<>();
-        }
-        this.lE.add(bVar);
+    public void a(Looper looper) {
+        this.ik.b(looper);
     }
 
-    public ArrayList<b> cG() {
-        return this.lE;
+    public void a(Object obj) {
+        this.ik.d(obj);
+    }
+
+    public void b(Object obj) {
+        this.ik.e(obj);
+    }
+
+    public void c(Object obj) {
+        this.ik.f(obj);
+    }
+
+    public boolean c(com.baidu.ar.c.a aVar) {
+        this.il.a(aVar);
+        return true;
     }
 }

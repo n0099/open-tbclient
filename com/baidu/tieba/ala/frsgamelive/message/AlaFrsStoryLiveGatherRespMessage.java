@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.json.JSONObject;
 public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
-    private List<bv> liveList;
-    private List<bv> recommandList;
+    private List<bw> liveList;
+    private List<bw> recommandList;
 
     public AlaFrsStoryLiveGatherRespMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_FRS_STORY_LIVE_GATHER);
@@ -36,9 +36,9 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
-                    bv bvVar = new bv();
-                    bvVar.parserJson(optJSONObject2);
-                    this.liveList.add(bvVar);
+                    bw bwVar = new bw();
+                    bwVar.parserJson(optJSONObject2);
+                    this.liveList.add(bwVar);
                 }
             }
         }
@@ -48,19 +48,19 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             for (int i3 = 0; i3 < length2; i3++) {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
-                    bv bvVar2 = new bv();
-                    bvVar2.parserJson(optJSONObject3);
-                    this.recommandList.add(bvVar2);
+                    bw bwVar2 = new bw();
+                    bwVar2.parserJson(optJSONObject3);
+                    this.recommandList.add(bwVar2);
                 }
             }
         }
     }
 
-    public List<bv> getLiveList() {
+    public List<bw> getLiveList() {
         return this.liveList;
     }
 
-    public List<bv> getRecommandList() {
+    public List<bw> getRecommandList() {
         return this.recommandList;
     }
 

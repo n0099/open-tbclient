@@ -4,12 +4,12 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a jjQ;
-    private b jjR;
+    private a jyP;
+    private b jyQ;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(String str, ChatMessage chatMessage);
     }
@@ -29,33 +29,33 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.jjQ = new a(str, chatMessage);
-        this.jjQ.execute(new Object[0]);
+        this.jyP = new a(str, chatMessage);
+        this.jyP.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.jjR = bVar;
+        this.jyQ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private ChatMessage jjS;
-        private com.baidu.tieba.im.sendmessage.b jjT = new com.baidu.tieba.im.sendmessage.b();
+        private ChatMessage jyR;
+        private com.baidu.tieba.im.sendmessage.b jyS = new com.baidu.tieba.im.sendmessage.b();
         private String mVid;
 
         public a(String str, ChatMessage chatMessage) {
             this.mVid = str;
-            this.jjS = chatMessage;
+            this.jyR = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: j */
+        /* renamed from: k */
         public String doInBackground(Object... objArr) {
             try {
-                return this.jjT.Ih(this.mVid);
+                return this.jyS.KZ(this.mVid);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.jjR != null) {
-                VoiceSendModel.this.jjR.a(str, this.jjS);
+            if (VoiceSendModel.this.jyQ != null) {
+                VoiceSendModel.this.jyQ.a(str, this.jyR);
             }
         }
     }

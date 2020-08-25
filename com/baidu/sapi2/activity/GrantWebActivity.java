@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.fsg.base.statistics.h;
-import com.baidu.g.a.a;
+import com.baidu.k.a.a;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -21,68 +21,28 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
-import com.baidu.sapi2.utils.t;
+import com.baidu.sapi2.utils.k;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class GrantWebActivity extends BaseActivity {
-    private static final String r = "GrantWebActivity";
-    private static final String s = "openapp";
-    private static final String t = "/passport/grantweb";
-    private String u;
-    private String v;
-    private String w;
-    private String x;
-    private String y;
+    private static final String u = GrantWebActivity.class.getSimpleName();
+    private static final String v = "openapp";
+    private static final String w = "/passport/grantweb";
+    private String p;
+    private String q;
+    private String r;
+    private String s;
+    private String t;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        SapiWebView sapiWebView = this.sapiWebView;
-        if (sapiWebView != null && sapiWebView.canGoBack()) {
-            this.sapiWebView.goBack();
-            return;
-        }
-        t.a("grant_web_cancel", new HashMap());
-        finish();
-    }
-
-    private boolean f() {
-        Uri data;
-        Intent intent = getIntent();
-        String scheme = intent.getScheme();
-        if ("android.intent.action.VIEW".equals(intent.getAction()) && (data = intent.getData()) != null) {
-            String host = data.getHost();
-            String path = data.getPath();
-            String packageName = SapiAccountManager.getInstance().getConfignation().getContext().getPackageName();
-            if (TextUtils.isEmpty(packageName)) {
-                packageName = "";
-            }
-            if (s.equals(scheme) && packageName.equals(host) && t.equals(path)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean g() {
-        if (SapiAccountManager.getInstance().getConfignation() == null && SapiAccountManager.getReceiveShareListener() != null) {
-            SapiAccountManager.getReceiveShareListener().onReceiveShare();
-        }
-        if (SapiAccountManager.getInstance().getConfignation() == null) {
-            Log.e(Log.TAG, "pass sdk has not been initialized");
-            return false;
-        }
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
         boolean z;
         if (SapiAccountManager.getCheckUrlIsAvailablelister() != null) {
-            if (TextUtils.isEmpty(this.w)) {
-                this.w = this.v;
+            if (TextUtils.isEmpty(this.r)) {
+                this.r = this.q;
             }
-            z = SapiAccountManager.getCheckUrlIsAvailablelister().onCheckUrlIsAvailable(this.w);
+            z = SapiAccountManager.getCheckUrlIsAvailablelister().onCheckUrlIsAvailable(this.r);
         } else {
             z = false;
         }
@@ -92,17 +52,17 @@ public class GrantWebActivity extends BaseActivity {
         hashMap.put("clientfrom", "native");
         hashMap.put("suppcheck", "1");
         hashMap.put("adapter", "3");
-        hashMap.put(SharedPrefConfig.CHANNEL_ID, this.u);
-        hashMap.put("wap_tpl", this.y);
+        hashMap.put(SharedPrefConfig.CHANNEL_ID, this.p);
+        hashMap.put("wap_tpl", this.t);
         hashMap.put("tpl", SapiAccountManager.getInstance().getConfignation().tpl);
-        hashMap.put("u", this.v);
-        if (z && !"true".equals(this.x)) {
+        hashMap.put("u", this.q);
+        if (z && !"true".equals(this.s)) {
             hashMap.put("force", "false");
         } else {
             hashMap.put("force", "true");
         }
         String str2 = str + SapiUtils.mapToUrlParams(hashMap, false) + "#app_auth";
-        Log.d(r, "url = " + str2);
+        Log.d(u, "url = " + str2);
         this.sapiWebView.loadUrl(str2);
     }
 
@@ -112,13 +72,13 @@ public class GrantWebActivity extends BaseActivity {
         super.init();
         Uri data = getIntent().getData();
         if (data != null) {
-            this.u = data.getQueryParameter(SharedPrefConfig.CHANNEL_ID);
-            this.v = data.getQueryParameter("u");
-            this.w = data.getQueryParameter(h.f);
-            this.x = data.getQueryParameter("force");
-            this.y = data.getQueryParameter("wap_tpl");
+            this.p = data.getQueryParameter(SharedPrefConfig.CHANNEL_ID);
+            this.q = data.getQueryParameter("u");
+            this.r = data.getQueryParameter(h.f);
+            this.s = data.getQueryParameter("force");
+            this.t = data.getQueryParameter("wap_tpl");
         }
-        if (TextUtils.isEmpty(this.u)) {
+        if (TextUtils.isEmpty(this.p)) {
             finish();
         }
     }
@@ -126,7 +86,7 @@ public class GrantWebActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
-        e();
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -135,7 +95,7 @@ public class GrantWebActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            if (g() && f()) {
+            if (d() && c()) {
                 init();
                 setupViews();
                 return;
@@ -150,16 +110,16 @@ public class GrantWebActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
-        e();
+        b();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        Log.d(r, this + " onNewIntent");
+        Log.d(u, this + " onNewIntent");
         if (SapiAccountManager.getInstance().isLogin() && !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
-            h();
+            e();
         } else {
-            b(false);
+            a(false);
         }
     }
 
@@ -170,7 +130,7 @@ public class GrantWebActivity extends BaseActivity {
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.GrantWebActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                GrantWebActivity.this.e();
+                GrantWebActivity.this.b();
                 return false;
             }
         });
@@ -183,14 +143,14 @@ public class GrantWebActivity extends BaseActivity {
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.GrantWebActivity.3
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onFailed(int i, String str) {
-                Log.d(GrantWebActivity.r, "GrantWebPage login failed");
+                Log.d(GrantWebActivity.u, "GrantWebPage login failed");
                 GrantWebActivity.this.finish();
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess(AccountType accountType) {
-                GrantWebActivity.this.h();
-                LoginStatusChangeCallback loginStatusChangeCallback = PassportSDK.getLoginStatusChangeCallback();
+                GrantWebActivity.this.e();
+                LoginStatusChangeCallback loginStatusChangeCallback = CoreViewRouter.getLoginStatusChangeCallback();
                 if (loginStatusChangeCallback != null) {
                     loginStatusChangeCallback.onChange();
                 }
@@ -200,17 +160,17 @@ public class GrantWebActivity extends BaseActivity {
             @Override // com.baidu.sapi2.SapiJsCallBacks.GrantWebCallback
             public void onGrant(int i) {
                 if (i == 0) {
-                    Log.d(GrantWebActivity.r, "after grant web, then back to wap");
+                    Log.d(GrantWebActivity.u, "after grant web, then back to wap");
                     GrantWebActivity.this.finish();
                     return;
                 }
-                Log.d(GrantWebActivity.r, "after grant web, still stay in app");
+                Log.d(GrantWebActivity.u, "after grant web, still stay in app");
                 if (SapiAccountManager.getCheckUrlIsAvailablelister() != null) {
-                    if (TextUtils.isEmpty(GrantWebActivity.this.w)) {
+                    if (TextUtils.isEmpty(GrantWebActivity.this.r)) {
                         GrantWebActivity grantWebActivity = GrantWebActivity.this;
-                        grantWebActivity.w = grantWebActivity.v;
+                        grantWebActivity.r = grantWebActivity.q;
                     }
-                    SapiAccountManager.getCheckUrlIsAvailablelister().handleWebPageUrl(GrantWebActivity.this.w);
+                    SapiAccountManager.getCheckUrlIsAvailablelister().handleWebPageUrl(GrantWebActivity.this.r);
                 }
                 GrantWebActivity.this.finish();
             }
@@ -218,18 +178,58 @@ public class GrantWebActivity extends BaseActivity {
         this.sapiWebView.setCurrentAccountBdussExpiredCallback(new SapiJsCallBacks.CurrentAccountBdussExpiredCallback() { // from class: com.baidu.sapi2.activity.GrantWebActivity.5
             @Override // com.baidu.sapi2.SapiJsCallBacks.CurrentAccountBdussExpiredCallback
             public void onBdussExpired() {
-                GrantWebActivity.this.b(true);
+                GrantWebActivity.this.a(true);
             }
         });
         if (SapiAccountManager.getInstance().isLogin() && !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
-            h();
+            e();
         } else {
-            b(false);
+            a(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(boolean z) {
+    public void b() {
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+            return;
+        }
+        k.a("grant_web_cancel", new HashMap());
+        finish();
+    }
+
+    private boolean c() {
+        Uri data;
+        Intent intent = getIntent();
+        String scheme = intent.getScheme();
+        if ("android.intent.action.VIEW".equals(intent.getAction()) && (data = intent.getData()) != null) {
+            String host = data.getHost();
+            String path = data.getPath();
+            String packageName = SapiAccountManager.getInstance().getConfignation().getContext().getPackageName();
+            if (TextUtils.isEmpty(packageName)) {
+                packageName = "";
+            }
+            if (v.equals(scheme) && packageName.equals(host) && w.equals(path)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean d() {
+        if (SapiAccountManager.getInstance().getConfignation() == null && SapiAccountManager.getReceiveShareListener() != null) {
+            SapiAccountManager.getReceiveShareListener().onReceiveShare();
+        }
+        if (SapiAccountManager.getInstance().getConfignation() == null) {
+            Log.e(Log.TAG, "pass sdk has not been initialized");
+            return false;
+        }
+        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
         final boolean z2 = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = false;
         LoginActivity.supportShareLogin = false;
@@ -244,7 +244,7 @@ public class GrantWebActivity extends BaseActivity {
             webLoginDTO.encryptedId = currentAccount.uid;
             webLoginDTO.preSetUname = currentAccount.displayname;
         }
-        PassportSDK.getInstance().startLogin(this, new WebAuthListener() { // from class: com.baidu.sapi2.activity.GrantWebActivity.6
+        CoreViewRouter.getInstance().startLogin(this, new WebAuthListener() { // from class: com.baidu.sapi2.activity.GrantWebActivity.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(WebAuthResult webAuthResult) {
@@ -256,8 +256,8 @@ public class GrantWebActivity extends BaseActivity {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
-                GrantWebActivity.this.h();
-                LoginStatusChangeCallback loginStatusChangeCallback = PassportSDK.getLoginStatusChangeCallback();
+                GrantWebActivity.this.e();
+                LoginStatusChangeCallback loginStatusChangeCallback = CoreViewRouter.getLoginStatusChangeCallback();
                 if (loginStatusChangeCallback != null) {
                     loginStatusChangeCallback.onChange();
                 }

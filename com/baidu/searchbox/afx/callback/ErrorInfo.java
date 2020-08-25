@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.callback;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class ErrorInfo {
     public static final int ERROR_DECODE = 16;
     public static final int ERROR_GL = 2;

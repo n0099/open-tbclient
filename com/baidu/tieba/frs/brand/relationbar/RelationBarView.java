@@ -9,15 +9,15 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes16.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a hNn;
+    private a ibs;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,8 +43,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.hNn = new a(context);
-        this.mRecyclerView.setAdapter(this.hNn);
+        this.ibs = new a(context);
+        this.mRecyclerView.setAdapter(this.ibs);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(context, R.dimen.tbds44);
@@ -53,21 +53,21 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (x.isEmpty(list)) {
+        if (y.isEmpty(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.hNn.setData(list);
-        this.hNn.notifyDataSetChanged();
+        this.ibs.setData(list);
+        this.ibs.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ao.setBackgroundColor(this, R.color.cp_bg_line_e);
-            this.hNn.notifyDataSetChanged();
+            ap.setBackgroundColor(this, R.color.cp_bg_line_e);
+            this.ibs.notifyDataSetChanged();
         }
     }
 }

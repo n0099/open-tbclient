@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CheckShowNameDialogSwitch extends a {
     public static final String KEY = "check_user_name";
     public static final int TYPE_CLOSE = 0;

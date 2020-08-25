@@ -12,33 +12,33 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static a dMe;
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> dMf = new ArrayList<>();
+    private static a dVn;
+    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> dVo = new ArrayList<>();
 
-    public static a aTH() {
-        if (dMe == null) {
+    public static a bbY() {
+        if (dVn == null) {
             synchronized (a.class) {
-                if (dMe == null) {
-                    dMe = new a();
+                if (dVn == null) {
+                    dVn = new a();
                 }
             }
         }
-        return dMe;
+        return dVn;
     }
 
-    public void L(JSONArray jSONArray) {
+    public void N(JSONArray jSONArray) {
         if (jSONArray != null) {
-            M(jSONArray);
+            O(jSONArray);
         }
     }
 
-    private void M(JSONArray jSONArray) {
+    private void O(JSONArray jSONArray) {
         JSONObject jSONObject;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount) && jSONArray != null) {
-            this.dMf.clear();
+            this.dVo.clear();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     jSONObject = jSONArray.getJSONObject(i);
@@ -59,12 +59,12 @@ public class a {
                     putInt("business_count_hint" + currentAccount + aVar.activityId, aVar.showNum);
                     putLong("business_update_time" + currentAccount + aVar.activityId, System.currentTimeMillis());
                 }
-                aVar.dHI = jSONObject.optInt("show_time_begin");
-                aVar.dHJ = jSONObject.optInt("show_time_end");
+                aVar.dQP = jSONObject.optInt("show_time_begin");
+                aVar.dQQ = jSONObject.optInt("show_time_end");
                 JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     try {
-                        aVar.dHL.add((String) optJSONArray.get(i2));
+                        aVar.dQS.add((String) optJSONArray.get(i2));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -72,12 +72,12 @@ public class a {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     try {
-                        aVar.dHK.add((String) optJSONArray2.get(i3));
+                        aVar.dQR.add((String) optJSONArray2.get(i3));
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
                 }
-                this.dMf.add(aVar);
+                this.dVo.add(aVar);
             }
         }
     }
@@ -106,27 +106,27 @@ public class a {
         TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).edit().clear();
     }
 
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> aTI() {
-        return this.dMf;
+    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> bbZ() {
+        return this.dVo;
     }
 
-    public void dd(String str, String str2) {
-        ArrayList<com.baidu.tbadk.BdToken.completeTask.a> aTI = aTI();
-        if (aTI != null && j.isNetWorkAvailable()) {
+    public void dt(String str, String str2) {
+        ArrayList<com.baidu.tbadk.BdToken.completeTask.a> bbZ = bbZ();
+        if (bbZ != null && j.isNetWorkAvailable()) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < aTI.size()) {
-                        int i3 = aTI.get(i2).activityId;
-                        int i4 = aTI.get(i2).missionId;
-                        int i5 = aTI.get(i2).showType;
+                    if (i2 < bbZ.size()) {
+                        int i3 = bbZ.get(i2).activityId;
+                        int i4 = bbZ.get(i2).missionId;
+                        int i5 = bbZ.get(i2).showType;
                         int i6 = getInt("business_count_hint" + currentAccount + i3);
-                        long j = aTI.get(i2).dHI;
-                        long j2 = aTI.get(i2).dHJ;
-                        ArrayList<String> arrayList = aTI.get(i2).dHK;
-                        ArrayList<String> arrayList2 = aTI.get(i2).dHL;
+                        long j = bbZ.get(i2).dQP;
+                        long j2 = bbZ.get(i2).dQQ;
+                        ArrayList<String> arrayList = bbZ.get(i2).dQR;
+                        ArrayList<String> arrayList2 = bbZ.get(i2).dQS;
                         if (i6 != 0 && System.currentTimeMillis() / 1000 > j && System.currentTimeMillis() / 1000 < j2) {
                             int i7 = 0;
                             boolean z = false;

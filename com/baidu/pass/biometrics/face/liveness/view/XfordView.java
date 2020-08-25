@@ -12,46 +12,46 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class XfordView extends ImageView {
-    private Rect destRect;
-    private Paint paint;
-    private Bitmap srcBitmap;
-    private Rect srcRect;
-    private Xfermode xfermode;
+    private Bitmap a;
+    private Paint b;
+    private Rect c;
+    private Rect d;
+    private Xfermode e;
 
     public XfordView(Context context) {
         super(context);
-        this.srcBitmap = null;
-        this.paint = null;
-        init();
+        this.a = null;
+        this.b = null;
+        a();
     }
 
-    public XfordView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.srcBitmap = null;
-        this.paint = null;
-        init();
-    }
-
-    private void init() {
-        if (this.paint == null) {
-            this.paint = new Paint();
-            this.paint.setColor(1711276032);
+    private void a() {
+        if (this.b == null) {
+            this.b = new Paint();
+            this.b.setColor(1711276032);
         }
-        if (this.srcBitmap == null) {
-            this.srcBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pass_liveness_recog_face_mask);
+        if (this.a == null) {
+            this.a = BitmapFactory.decodeResource(getResources(), R.drawable.pass_liveness_recog_face_mask);
         }
-        if (this.xfermode == null) {
-            this.xfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+        if (this.e == null) {
+            this.e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
         }
     }
 
-    public void setBgPaintColor(int i) {
-        if (this.paint == null) {
-            this.paint = new Paint();
+    @Override // android.widget.ImageView, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Bitmap bitmap = this.a;
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.a.recycle();
+            this.a = null;
         }
-        this.paint.setColor(i);
+        System.gc();
+        this.e = null;
+        this.c = null;
+        this.d = null;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -62,29 +62,30 @@ public class XfordView extends ImageView {
         int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.pass_liveness_face_round_width);
         int width = (getWidth() - dimensionPixelSize2) / 2;
         int height = (getHeight() - dimensionPixelSize) / 2;
-        if (this.destRect == null) {
-            this.destRect = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+        if (this.d == null) {
+            this.d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
         }
-        if (this.srcRect == null) {
-            this.srcRect = new Rect(0, 0, this.srcBitmap.getWidth(), this.srcBitmap.getHeight());
+        if (this.c == null) {
+            this.c = new Rect(0, 0, this.a.getWidth(), this.a.getHeight());
         }
-        canvas.drawBitmap(this.srcBitmap, this.srcRect, this.destRect, this.paint);
-        this.paint.setXfermode(this.xfermode);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.paint);
-        this.paint.setXfermode(null);
+        canvas.drawBitmap(this.a, this.c, this.d, this.b);
+        this.b.setXfermode(this.e);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.b);
+        this.b.setXfermode(null);
         canvas.restoreToCount(saveLayer);
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if (this.srcBitmap != null && !this.srcBitmap.isRecycled()) {
-            this.srcBitmap.recycle();
-            this.srcBitmap = null;
+    public void setBgPaintColor(int i) {
+        if (this.b == null) {
+            this.b = new Paint();
         }
-        System.gc();
-        this.xfermode = null;
-        this.srcRect = null;
-        this.destRect = null;
+        this.b.setColor(i);
+    }
+
+    public XfordView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = null;
+        this.b = null;
+        a();
     }
 }

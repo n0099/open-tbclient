@@ -7,7 +7,7 @@ import java.security.InvalidParameterException;
 public abstract class a extends g<CustomResponsedMessage<?>> {
     public a(int i) {
         super(i);
-        if (i != 0 && FrameHelper.W(i) != FrameHelper.TYPE.CUSTOM) {
+        if (i != 0 && FrameHelper.Y(i) != FrameHelper.TYPE.CUSTOM) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

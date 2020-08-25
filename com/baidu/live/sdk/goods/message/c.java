@@ -2,23 +2,30 @@ package com.baidu.live.sdk.goods.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends HttpMessage {
-    public String aIO;
+    public String aNZ;
     public long authorId;
-    public boolean bdl;
+    public boolean biO;
     public boolean isHost;
     public long liveId;
+    public String source;
+    public String tab;
+    public String tag;
 
     public c() {
         super(1021144);
-        this.aIO = "";
+        this.aNZ = "";
         this.liveId = 0L;
     }
 
     public void setParams() {
-        addParam("feed_id", this.aIO);
+        addParam("live_id", this.liveId);
+        addParam("feed_id", this.aNZ);
         addParam("anchor_id", this.authorId);
         addParam("live_goods_source", TbConfig.getSubappType());
+        addParam("tab", this.tab);
+        addParam("tag", this.tag);
+        addParam("source", this.source);
     }
 }

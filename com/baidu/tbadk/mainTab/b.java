@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mainTab;
 
 import android.content.Context;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class b {
     protected c mFragement = createFragmentTabStructure();
     protected TbFragmentTabIndicator mIndicator;

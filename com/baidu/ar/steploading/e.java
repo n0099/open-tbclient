@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import com.baidu.ar.bean.ARCaseBundleInfo;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.IError;
-import com.baidu.ar.f.m;
-import com.baidu.ar.f.q;
+import com.baidu.ar.g.o;
+import com.baidu.ar.g.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
@@ -14,25 +14,24 @@ import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-class e extends com.baidu.ar.d.a<String, String> {
-    private IHttpRequest bX;
-    private WeakReference<Context> uW;
-    private ARCaseBundleInfo wg;
-    private a wi;
+class e extends com.baidu.ar.e.a<String, String> {
+    private IHttpRequest bO;
+    private WeakReference<Context> vz;
+    private ARCaseBundleInfo wJ;
+    private a wL;
 
     public e(Context context, ARCaseBundleInfo aRCaseBundleInfo, a aVar) {
-        this.uW = new WeakReference<>(context);
-        this.wg = aRCaseBundleInfo;
-        this.wi = aVar;
+        this.vz = new WeakReference<>(context);
+        this.wJ = aRCaseBundleInfo;
+        this.wL = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aH(String str) {
+    public String aL(String str) {
         JSONObject jSONObject = new JSONObject(str);
         if (jSONObject.getInt("errorNum") != 0) {
             throw new Exception(jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE, "query res failed"));
@@ -44,11 +43,11 @@ class e extends com.baidu.ar.d.a<String, String> {
         return string;
     }
 
-    private JSONObject d(Context context, String str) {
+    private JSONObject e(Context context, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            m.g(jSONObject);
-            m.b(context, jSONObject);
+            o.g(jSONObject);
+            o.b(context, jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -57,27 +56,27 @@ class e extends com.baidu.ar.d.a<String, String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.ar.d.a
+    @Override // com.baidu.ar.e.a
     public void a(String str, final ICallbackWith<String> iCallbackWith, final IError iError) {
-        Context context = this.uW.get();
-        if (context == null) {
+        Context context = this.vz.get();
+        if (context == null || this.wJ == null) {
             return;
         }
-        String str2 = this.wg.arKey;
-        f aG = this.wi.aG(str);
-        if (aG == null) {
+        String str2 = this.wJ.arKey;
+        f aK = this.wL.aK(str);
+        if (aK == null) {
             iError.onError(1, "资源不存在", null);
-        } else if (TextUtils.isEmpty(aG.wu)) {
+        } else if (TextUtils.isEmpty(aK.wX)) {
             iError.onError(1, "资源id不存在", null);
-        } else if (RecentlyVisitedForumModel.LOCAL_ACCOUNT.equals(aG.wu)) {
-            iCallbackWith.run(RecentlyVisitedForumModel.LOCAL_ACCOUNT);
-        } else if (TextUtils.isEmpty(aG.wv)) {
+        } else if ("local".equals(aK.wX)) {
+            iCallbackWith.run("local");
+        } else if (TextUtils.isEmpty(aK.wY)) {
             iError.onError(1, "编码不正确", null);
         } else {
             StatisticApi.onEvent(StatisticConstants.LOAD_START_QUERY);
-            String fE = q.fE();
-            this.bX = HttpFactory.newRequest();
-            this.bX.setUrl(fE).setMethod("POST").addQueryField("id", aG.wu).setBody(d(context, str2)).enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.steploading.e.1
+            String gT = s.gT();
+            this.bO = HttpFactory.newRequest();
+            this.bO.setUrl(gT).setMethod("POST").addQueryField("id", aK.wX).setBody(e(context, str2)).enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.steploading.e.1
                 @Override // com.baidu.ar.ihttp.a
                 public void a(HttpException httpException) {
                     StatisticApi.onEvent(StatisticConstants.LOAD_QUERY_FAILURE);
@@ -93,9 +92,9 @@ class e extends com.baidu.ar.d.a<String, String> {
                     String str3 = null;
                     if (iHttpResponse.isSuccess()) {
                         try {
-                            String aH = e.this.aH(iHttpResponse.getContent());
+                            String aL = e.this.aL(iHttpResponse.getContent());
                             if (iCallbackWith != null) {
-                                iCallbackWith.run(aH);
+                                iCallbackWith.run(aL);
                             }
                             i = 0;
                             jSONException = null;
@@ -126,11 +125,11 @@ class e extends com.baidu.ar.d.a<String, String> {
         }
     }
 
-    @Override // com.baidu.ar.d.a
-    protected void ee() {
-        if (this.bX != null) {
-            this.bX.cancel();
-            this.bX = null;
+    @Override // com.baidu.ar.e.a
+    protected void fq() {
+        if (this.bO != null) {
+            this.bO.cancel();
+            this.bO = null;
         }
     }
 }

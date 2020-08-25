@@ -14,22 +14,22 @@ public final class MaybeSubscribeOn<T> extends io.reactivex.internal.operators.m
     protected void b(m<? super T> mVar) {
         SubscribeOnMaybeObserver subscribeOnMaybeObserver = new SubscribeOnMaybeObserver(mVar);
         mVar.onSubscribe(subscribeOnMaybeObserver);
-        subscribeOnMaybeObserver.task.replace(this.scheduler.I(new a(subscribeOnMaybeObserver, this.source)));
+        subscribeOnMaybeObserver.task.replace(this.scheduler.F(new a(subscribeOnMaybeObserver, this.source)));
     }
 
     /* loaded from: classes7.dex */
     static final class a<T> implements Runnable {
-        final m<? super T> nTZ;
+        final m<? super T> onV;
         final o<T> source;
 
         a(m<? super T> mVar, o<T> oVar) {
-            this.nTZ = mVar;
+            this.onV = mVar;
             this.source = oVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.source.a(this.nTZ);
+            this.source.a(this.onV);
         }
     }
 

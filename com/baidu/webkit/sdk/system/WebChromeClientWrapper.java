@@ -19,13 +19,14 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
-/* loaded from: classes8.dex */
+import java.util.Objects;
+/* loaded from: classes19.dex */
 final class WebChromeClientWrapper extends WebChromeClient {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final com.baidu.webkit.sdk.WebChromeClient mClient;
     private final WebViewImpl mWebView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
         private WebChromeClient.CustomViewCallback mCallback;
 
@@ -40,7 +41,7 @@ final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         private final WebChromeClient.FileChooserParams mImpl;
 
@@ -124,7 +125,7 @@ final class WebChromeClientWrapper extends WebChromeClient {
         if ($assertionsDisabled || message != null) {
             if ($assertionsDisabled || message.obj != null) {
                 WebViewImpl webViewImpl = this.mWebView;
-                webViewImpl.getClass();
+                Objects.requireNonNull(webViewImpl);
                 message.obj = new WebViewImpl.WebViewTransportImpl(this.mWebView.getWebView(), (WebView.WebViewTransport) message.obj);
                 boolean onCreateWindow = this.mClient.onCreateWindow(this.mWebView.getWebView(), z, z2, message);
                 message.obj = (WebView.WebViewTransport) message.obj;

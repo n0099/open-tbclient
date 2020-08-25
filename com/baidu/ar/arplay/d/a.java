@@ -9,15 +9,15 @@ import android.webkit.WebView;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
 /* loaded from: classes11.dex */
 public class a extends WebView {
-    private C0078a gx;
-    private boolean gy;
+    private C0074a fM;
+    private boolean fN;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0078a {
-        public int dX;
-        public boolean gB;
-        public String gC;
+    public static class C0074a {
+        public int dz;
+        public boolean fQ;
+        public String fR;
         public int height;
         public String url;
         public int width;
@@ -25,20 +25,20 @@ public class a extends WebView {
 
     public a(Context context) {
         super(context);
-        this.gy = false;
+        this.fN = false;
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (this.gx == null || canvas == null || !this.gy) {
+        if (this.fM == null || canvas == null || !this.fN) {
             return;
         }
-        final c q = d.bk().q(this.gx.dX);
-        if (q == null) {
-            Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.gx.dX);
+        final c n = d.bs().n(this.fM.dz);
+        if (n == null) {
+            Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.fM.dz);
             return;
         }
-        Canvas lockCanvas = q.lockCanvas();
+        Canvas lockCanvas = n.lockCanvas();
         if (lockCanvas != null) {
             float width = lockCanvas.getWidth() / canvas.getWidth();
             lockCanvas.scale(width, width);
@@ -46,20 +46,20 @@ public class a extends WebView {
             lockCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
             super.draw(lockCanvas);
         }
-        q.bj();
+        n.br();
         ARPFilter.getInstance().runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arplay.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (q != null) {
-                    q.update();
-                    a.this.gy = false;
+                if (n != null) {
+                    n.update();
+                    a.this.fN = false;
                 }
             }
         });
     }
 
-    public C0078a getWebViewData() {
-        return this.gx;
+    public C0074a getWebViewData() {
+        return this.fM;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -68,10 +68,10 @@ public class a extends WebView {
     }
 
     public void setIsNeedRender(boolean z) {
-        this.gy = z;
+        this.fN = z;
     }
 
-    public void setWebViewData(C0078a c0078a) {
-        this.gx = c0078a;
+    public void setWebViewData(C0074a c0074a) {
+        this.fM = c0074a;
     }
 }

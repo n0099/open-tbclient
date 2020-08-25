@@ -6,7 +6,7 @@ import com.baidu.prologue.a.c.k;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static void h(e eVar) {
         k.setLong("last_show_time", System.currentTimeMillis() / 1000);
@@ -26,7 +26,7 @@ public class f {
             if (jSONArray.length() > 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (TextUtils.equals(optJSONObject.optString("k"), eVar.bFi)) {
+                    if (TextUtils.equals(optJSONObject.optString("k"), eVar.bKI)) {
                         optJSONObject.put("t", TextUtils.concat(valueOf, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, optJSONObject.optString("t")).toString());
                         jSONArray.put(i, optJSONObject);
                         break;
@@ -36,7 +36,7 @@ public class f {
             z = true;
             if (z) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("k", eVar.bFi);
+                jSONObject.put("k", eVar.bKI);
                 jSONObject.put("t", valueOf);
                 jSONArray.put(jSONObject);
             }
@@ -46,7 +46,7 @@ public class f {
         }
     }
 
-    public static JSONArray PG() {
+    public static JSONArray VC() {
         int i = 0;
         String string = k.getString("today_show_list", "");
         JSONArray jSONArray = new JSONArray();

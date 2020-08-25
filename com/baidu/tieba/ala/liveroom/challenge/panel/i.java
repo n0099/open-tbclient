@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.ala.liveroom.challenge.panel.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class i extends BaseAdapter {
-    private List<com.baidu.live.challenge.d> gex = new ArrayList();
-    private j.a ggg;
+    private List<com.baidu.live.challenge.d> gqF = new ArrayList();
+    private j.a gso;
     private Context mContext;
 
     public i(Context context) {
@@ -25,38 +25,38 @@ public class i extends BaseAdapter {
 
     public void setDatas(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.gex.clear();
-            this.gex.addAll(list);
+            this.gqF.clear();
+            this.gqF.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void bX(List<com.baidu.live.challenge.d> list) {
+    public void bY(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.gex.addAll(list);
+            this.gqF.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void bGE() {
-        if (!ListUtils.isEmpty(this.gex)) {
-            this.gex.clear();
+    public void bQj() {
+        if (!ListUtils.isEmpty(this.gqF)) {
+            this.gqF.clear();
             notifyDataSetChanged();
         }
     }
 
     public void a(j.a aVar) {
-        this.ggg = aVar;
+        this.gso = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.gex.size();
+        return this.gqF.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.gex.get(i);
+        return this.gqF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,9 +66,9 @@ public class i extends BaseAdapter {
 
     public void i(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            for (com.baidu.live.challenge.d dVar2 : this.gex) {
+            for (com.baidu.live.challenge.d dVar2 : this.gqF) {
                 if (dVar.equals(dVar2)) {
-                    dVar2.axu = dVar.axu;
+                    dVar2.aCw = dVar.aCw;
                 }
             }
             notifyDataSetChanged();
@@ -81,35 +81,35 @@ public class i extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_user_item_view_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.ggj = (HeadImageView) view.findViewById(a.g.ala_challenge_user_header);
-            aVar.ggj.setIsRound(true);
-            aVar.ggj.setAutoChangeStyle(false);
-            aVar.dKI = (TextView) view.findViewById(a.g.ala_challenge_user_name);
-            aVar.ggk = (TextView) view.findViewById(a.g.ala_challenge_user_status);
-            aVar.fFx = (TextView) view.findViewById(a.g.ala_challenge_user_charm);
+            aVar.gsr = (HeadImageView) view.findViewById(a.g.ala_challenge_user_header);
+            aVar.gsr.setIsRound(true);
+            aVar.gsr.setAutoChangeStyle(false);
+            aVar.dTQ = (TextView) view.findViewById(a.g.ala_challenge_user_name);
+            aVar.gss = (TextView) view.findViewById(a.g.ala_challenge_user_status);
+            aVar.fQO = (TextView) view.findViewById(a.g.ala_challenge_user_charm);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.live.challenge.d dVar = this.gex.get(i);
-        aVar.ggj.startLoad(dVar.avatar, 12, false);
-        aVar.dKI.setText(Html.fromHtml(dVar.userName));
-        aVar.fFx.setText(this.mContext.getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
-        if (dVar.axu) {
-            aVar.ggk.setEnabled(true);
-            aVar.ggk.setBackgroundResource(a.f.sdk_red_border_bg);
-            aVar.ggk.setText(this.mContext.getString(a.i.ala_challenge_invite));
-            aVar.ggk.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i));
+        final com.baidu.live.challenge.d dVar = this.gqF.get(i);
+        aVar.gsr.startLoad(dVar.avatar, 12, false);
+        aVar.dTQ.setText(Html.fromHtml(dVar.userName));
+        aVar.fQO.setText(this.mContext.getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
+        if (dVar.aCw) {
+            aVar.gss.setEnabled(true);
+            aVar.gss.setBackgroundResource(a.f.sdk_red_border_bg);
+            aVar.gss.setText(this.mContext.getString(a.i.ala_challenge_invite));
+            aVar.gss.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i));
         } else {
-            aVar.ggk.setBackgroundDrawable(null);
-            aVar.ggk.setText(this.mContext.getString(a.i.ala_live_challenging));
-            aVar.ggk.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
+            aVar.gss.setBackgroundDrawable(null);
+            aVar.gss.setText(this.mContext.getString(a.i.ala_live_challenging));
+            aVar.gss.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
         }
-        aVar.ggk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.i.1
+        aVar.gss.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (dVar.axu && i.this.ggg != null) {
-                    i.this.ggg.f(dVar);
+                if (dVar.aCw && i.this.gso != null) {
+                    i.this.gso.f(dVar);
                     view2.setEnabled(false);
                 }
             }
@@ -117,12 +117,12 @@ public class i extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        public TextView dKI;
-        public TextView fFx;
-        public HeadImageView ggj;
-        public TextView ggk;
+        public TextView dTQ;
+        public TextView fQO;
+        public HeadImageView gsr;
+        public TextView gss;
 
         private a() {
         }

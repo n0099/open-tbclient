@@ -1,31 +1,31 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes11.dex */
 public class Texture {
-    private long eG;
-    private int iC;
-    private int iD = 3553;
+    private long ia = -1;
+    private int mId = -1;
+    private int ib = 3553;
 
     public long getHandle() {
-        return this.eG;
+        return this.ia;
     }
 
     public int getId() {
-        return this.iC;
+        return this.mId;
     }
 
     public int getType() {
-        return this.iD;
+        return this.ib;
     }
 
     public void setHandle(long j) {
-        this.eG = j;
+        this.ia = j;
     }
 
     public void setId(int i) {
-        this.iC = i;
+        this.mId = i;
     }
 
     public void setType(int i) {
-        this.iD = i;
+        this.ib = i;
     }
 }

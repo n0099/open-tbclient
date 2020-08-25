@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
 import tbclient.DecryptCode.DecryptCodeResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
     private g decryptData;
 

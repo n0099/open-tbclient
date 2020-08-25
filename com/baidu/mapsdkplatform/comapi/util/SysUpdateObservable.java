@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SysUpdateObservable {
     private static volatile SysUpdateObservable a;
     private List<SysUpdateObserver> b;
@@ -28,10 +28,10 @@ public class SysUpdateObservable {
         this.b.add(sysUpdateObserver);
     }
 
-    public void init() {
+    public void init(String str) {
         for (SysUpdateObserver sysUpdateObserver : this.b) {
             if (sysUpdateObserver != null) {
-                sysUpdateObserver.init();
+                sysUpdateObserver.init(str);
             }
         }
     }
@@ -52,10 +52,10 @@ public class SysUpdateObservable {
         }
     }
 
-    public void updatePhoneInfo() {
+    public void updatePhoneInfo(String str) {
         for (SysUpdateObserver sysUpdateObserver : this.b) {
             if (sysUpdateObserver != null) {
-                sysUpdateObserver.updatePhoneInfo();
+                sysUpdateObserver.updatePhoneInfo(str);
             }
         }
     }

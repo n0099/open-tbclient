@@ -22,6 +22,7 @@ import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.Heartbeat;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
@@ -31,12 +32,14 @@ import com.baidu.android.imsdk.mcast.IMQuitCastMsg;
 import com.baidu.android.imsdk.mcast.IMSendQuizOptMsg;
 import com.baidu.android.imsdk.mcast.IMcastSetListener;
 import com.baidu.android.imsdk.mcast.McastConfig;
+import com.baidu.android.imsdk.request.MessageExt;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +49,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ConversationStudioManImpl {
     private static final int ACK_INTERVAL_TIME = 3000;
     private static final int ACK_MAX_COUNT = 1;
@@ -80,16 +83,16 @@ public class ConversationStudioManImpl {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            IMService.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
+                            a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
                             synchronized (ConversationStudioManImpl.this.mAckChatMsgList) {
                                 LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + ConversationStudioManImpl.this.mAckChatMsgList.size());
                                 MessageParser.handleAck(ConversationStudioManImpl.mContext, ConversationStudioManImpl.this.mAckChatMsgList, false);
                                 ConversationStudioManImpl.this.mAckChatMsgList.clear();
                             }
-                            IMService.mHandler.postDelayed(ConversationStudioManImpl.this.mAckRunnable, 3000L);
+                            a.mHandler.postDelayed(ConversationStudioManImpl.this.mAckRunnable, IMConnection.RETRY_DELAY_TIMES);
                         } catch (Exception e) {
                             LogUtils.e(ConversationStudioManImpl.TAG, "ackRunnable Exception :", e);
-                            IMService.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
+                            a.mHandler.removeCallbacks(ConversationStudioManImpl.this.mAckRunnable);
                         }
                     }
                 });
@@ -100,7 +103,7 @@ public class ConversationStudioManImpl {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     interface HeartbeatOperation {
         void cancelHearbeat();
 
@@ -232,13 +235,13 @@ public class ConversationStudioManImpl {
         this.mJoinReliableCastId = 0L;
         this.mJoinMsgCastId = 0L;
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
-        if (IMService.isSmallFlow || LoginManager.getInstance(mContext).isIMLogined()) {
+        if (a.ayn || LoginManager.getInstance(mContext).isIMLogined()) {
             Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 201);
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
             try {
-                IMService.enqueueWork(mContext, createMcastMethodIntent);
+                a.al(mContext).e(mContext, createMcastMethodIntent);
                 new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                 return;
             } catch (Exception e) {
@@ -314,7 +317,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                IMService.enqueueWork(mContext, createMcastMethodIntent);
+                a.al(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -336,7 +339,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                IMService.enqueueWork(mContext, createMcastMethodIntent);
+                a.al(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -367,6 +370,9 @@ public class ConversationStudioManImpl {
             if (isReliable && jSONArray2.length() > 0) {
                 this.mMaxMsgId = ((Long) jSONArray2.getJSONObject(0).get("msgid")).longValue();
             }
+            MessageExt.getInstance().setCastId(Long.valueOf(optLong));
+            MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
+            ArrayList arrayList = new ArrayList();
             for (int i = 0; i < jSONArray2.length(); i++) {
                 JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
                 if (jSONObject2.optLong("origin_id") != Utility.getTriggerId(mContext)) {
@@ -380,6 +386,7 @@ public class ConversationStudioManImpl {
                         this.mMaxMsgId = longValue;
                     }
                 }
+                arrayList.add(Long.valueOf(((Long) jSONObject2.get("msgid")).longValue()));
             }
             if (isReliable) {
                 LogUtils.e(TAG, "handleMessage push reliable castId :" + optLong + ", max :" + this.mMaxMsgId);
@@ -390,6 +397,7 @@ public class ConversationStudioManImpl {
                 }
                 fetchConversationStudio.toFetch(this.mMaxMsgId);
             } else if (jSONArray.length() != 0) {
+                MessageExt.getInstance().setLastCallbackMsgId((Long) Collections.max(arrayList));
                 ChatMsgManagerImpl.getInstance(mContext).deliverMcastMessage(optLong + "", jSONArray);
                 if (isAck(optLong)) {
                     toAck(jSONArray);
@@ -418,6 +426,7 @@ public class ConversationStudioManImpl {
         if (jSONArray.length() > 0) {
             this.mReliableMsgCount += arrayList2.size();
             LogUtils.d(TAG, "reliableMsgCount :" + this.mReliableMsgCount + ", DeliverCastReliableMsg :" + arrayList2.toString());
+            MessageExt.getInstance().setLastCallbackMsgId((Long) Collections.max(arrayList2));
             ChatMsgManagerImpl.getInstance(mContext).deliverReliableMcastMessage(j + "", jSONArray, arrayList2);
         }
     }
@@ -436,8 +445,8 @@ public class ConversationStudioManImpl {
         if (!this.mAcking.get()) {
             LogUtils.d(TAG, "begin ack");
             this.mAcking.set(true);
-            IMService.mHandler.removeCallbacks(this.mAckRunnable);
-            IMService.mHandler.postDelayed(this.mAckRunnable, 3000L);
+            a.mHandler.removeCallbacks(this.mAckRunnable);
+            a.mHandler.postDelayed(this.mAckRunnable, IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
@@ -476,7 +485,7 @@ public class ConversationStudioManImpl {
     }
 
     public static void resetHeartBeat(int i) {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             Heartbeat.ALARM_TIMEOUT = i;
             LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
             IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
@@ -485,7 +494,7 @@ public class ConversationStudioManImpl {
     }
 
     public void setMcastQuickHeartBeat() {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             mCastHeartBeatTime = mRandom.nextInt(3000) + 3000;
             LogUtils.d(TAG, "mcast now quick heart beat = " + mCastHeartBeatTime);
             if (mcastHeartbeat == null) {
@@ -496,7 +505,7 @@ public class ConversationStudioManImpl {
     }
 
     public void cancelMcastQuickHeartBeat() {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             if (mcastHeartbeat != null) {
                 mcastHeartbeat.cancelHearbeat();
                 mcastHeartbeat = null;
@@ -506,17 +515,17 @@ public class ConversationStudioManImpl {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class McastHeartbeat implements HeartbeatOperation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (!IMService.isSmallFlow) {
-                        Intent intent = new Intent(ConversationStudioManImpl.mContext, IMService.class);
+                    if (!a.ayn) {
+                        Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
-                        IMService.enqueueWork(ConversationStudioManImpl.mContext, intent);
+                        a.al(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
                     }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
@@ -534,8 +543,8 @@ public class ConversationStudioManImpl {
         @Override // com.baidu.android.imsdk.conversation.ConversationStudioManImpl.HeartbeatOperation
         public void startHeartbeat() {
             try {
-                IMService.mHandler.removeCallbacks(this.startHeartBeatTask);
-                IMService.mHandler.postDelayed(this.startHeartBeatTask, ConversationStudioManImpl.mCastHeartBeatTime);
+                a.mHandler.removeCallbacks(this.startHeartBeatTask);
+                a.mHandler.postDelayed(this.startHeartBeatTask, ConversationStudioManImpl.mCastHeartBeatTime);
             } catch (Exception e) {
                 LogUtils.e(ConversationStudioManImpl.TAG, e.getMessage());
             }
@@ -544,7 +553,7 @@ public class ConversationStudioManImpl {
         @Override // com.baidu.android.imsdk.conversation.ConversationStudioManImpl.HeartbeatOperation
         public void cancelHearbeat() {
             try {
-                IMService.mHandler.removeCallbacks(this.startHeartBeatTask);
+                a.mHandler.removeCallbacks(this.startHeartBeatTask);
             } catch (Exception e) {
                 LogUtils.e(ConversationStudioManImpl.TAG, e.getMessage());
             }
@@ -573,7 +582,7 @@ public class ConversationStudioManImpl {
     }
 
     private void registerNetChangedReceiver() {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             try {
                 if (mNetChangedReceiver == null && mContext != null) {
                     mNetChangedReceiver = new IMReceiver();
@@ -592,7 +601,7 @@ public class ConversationStudioManImpl {
     }
 
     private void unRegisterNetChangedReceiver() {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             try {
                 if (this.isRegisterNetReceiver && mContext != null) {
                     mContext.unregisterReceiver(mNetChangedReceiver);
@@ -606,7 +615,7 @@ public class ConversationStudioManImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }

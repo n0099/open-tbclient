@@ -1,180 +1,253 @@
 package com.baidu.swan.apps.env.b;
 
-import android.database.Cursor;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.env.b.b;
-import com.baidu.swan.apps.statistic.a.e;
-import com.baidu.swan.apps.statistic.h;
-import com.baidu.swan.d.d;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.e.b;
+import com.baidu.swan.pms.model.i;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.swan.pms.utils.g;
+import java.io.File;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class c implements b {
-    private final b.C0356b cju;
+import kotlin.h;
+import kotlin.jvm.internal.Ref;
+import kotlin.jvm.internal.q;
+import kotlin.l;
+@h
+/* loaded from: classes8.dex */
+public final class c {
+    public static final c cpW = new c();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final String cpU = "swan" + File.separator + "libs" + File.separator + "so";
+    private static final Map<String, e> cpV = new LinkedHashMap();
 
-    private c(b.C0356b c0356b) {
-        this.cju = c0356b == null ? new b.C0356b() : c0356b;
+    private c() {
     }
 
-    public static c aeQ() {
-        return a((b.C0356b) null);
-    }
-
-    public static c a(b.C0356b c0356b) {
-        return new c(c0356b);
-    }
-
-    public b.C0356b aeR() {
-        return this.cju;
-    }
-
-    public c fx(int i) {
-        if (isValid() && i != this.cju.cjt && (this.cju.cjt == 0 || this.cju.cjt == this.cju.cjs)) {
-            this.cju.cjt = i;
+    public final e a(f fVar, String str) {
+        q.m(fVar, "updater");
+        q.m(str, "libName");
+        e mk = mk(str);
+        if (mk == null) {
+            e eVar = new e(fVar, str);
+            cpV.put(str, eVar);
+            return eVar;
         }
-        return this;
+        return mk;
     }
 
-    public c fy(int i) {
-        if (isValid()) {
-            this.cju.cjs = i;
+    public final e mk(String str) {
+        q.m(str, "libName");
+        return cpV.get(str);
+    }
+
+    public final void ml(String str) {
+        q.m(str, "libName");
+        cpV.remove(str);
+    }
+
+    public final void a(d dVar) {
+        q.m(dVar, "config");
+        if (DEBUG) {
+            Log.i("SoLibManager", "main updatePmsPkg start args: " + dVar);
         }
-        return this;
+        dVar.h(b.cqa);
+        f fVar = new f(new com.baidu.swan.pms.c.d.h(5), dVar);
+        if (DEBUG) {
+            Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + fVar);
+        }
+        com.baidu.swan.pms.c.a(fVar);
     }
 
-    public int aeS() {
-        return this.cju.cjt == 0 ? this.cju.cjs : this.cju.cjt;
-    }
+    @h
+    /* loaded from: classes8.dex */
+    static final class b<MsgType> implements com.baidu.swan.apps.ap.e.b<Exception> {
+        public static final b cqa = new b();
 
-    public c kG(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cju.cjr.get(str))) {
-            a kF = a.kF(str);
-            if (a(kF)) {
-                this.cju.cjr.put(kF.aeP(), kF);
+        b() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.apps.ap.e.b
+        /* renamed from: p */
+        public final void I(Exception exc) {
+            c cVar = c.cpW;
+            if (c.DEBUG) {
+                Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo end with e: " + exc + " trace=" + Log.getStackTraceString(exc != null ? exc : new Exception()));
             }
         }
-        return this;
     }
 
-    public boolean isValid() {
-        boolean z;
-        synchronized (this.cju) {
-            z = this.cju.mIsValid;
+    /* JADX WARN: Type inference failed for: r0v5, types: [T, com.baidu.swan.pms.model.i] */
+    public final void a(String str, kotlin.jvm.a.b<? super com.baidu.swan.apps.am.a, l> bVar) {
+        q.m(str, "libName");
+        q.m(bVar, BuyTBeanActivityConfig.CALLBACK);
+        if (DEBUG) {
+            Log.i("SoLibManager", "tryInstallUpdatePkg: libName=" + str);
         }
-        return z;
-    }
-
-    private static boolean a(b.a aVar) {
-        return aVar != null && aVar.isValid();
-    }
-
-    @NonNull
-    private JSONArray aeT() {
-        JSONArray jSONArray = new JSONArray();
-        try {
-            Cursor L = com.baidu.swan.apps.database.a.b.L("", 400);
-            int count = L.getCount();
-            while (L.moveToNext()) {
-                String string = L.getString(L.getColumnIndex("app_id"));
-                if (!TextUtils.isEmpty(string)) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("pkg_id", string);
-                    jSONArray.put(jSONObject);
+        com.baidu.swan.apps.env.b.a mj = com.baidu.swan.apps.env.b.b.mj(str);
+        if (mj == null) {
+            if (DEBUG) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + str);
+            }
+            bVar.invoke(new com.baidu.swan.apps.am.a().bO(16).bQ(2900).sm("not available: so=" + mj));
+        } else if (mj.alz()) {
+            if (DEBUG) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + mj);
+            }
+            bVar.invoke(null);
+        } else {
+            Ref.ObjectRef objectRef = new Ref.ObjectRef();
+            objectRef.element = com.baidu.swan.pms.database.a.aTt().wy(str);
+            if (((i) objectRef.element) == null || !((i) objectRef.element).ajo() || !AbiType.currentAbi().compat(((i) objectRef.element).dFp)) {
+                if (DEBUG) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + str + " soPkg=" + ((i) objectRef.element));
                 }
+                bVar.invoke(new com.baidu.swan.apps.am.a().bO(16).bQ(2900).sm("invalid: pkg=" + ((i) objectRef.element)));
+                return;
             }
-            if (cjq) {
-                Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
-            }
-            if (L != null) {
-                if (0 != 0) {
-                    L.close();
-                } else {
-                    L.close();
+            AbiType mo = mo(str);
+            if (j(str, ((i) objectRef.element).versionCode) && mo != null && mo.compat(((i) objectRef.element).dFp)) {
+                if (DEBUG) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + str + " soPkg=" + ((i) objectRef.element));
                 }
+                bVar.invoke(null);
+                return;
             }
-        } catch (JSONException e) {
-            if (cjq) {
-                e.printStackTrace();
-                Log.i("PurgerStatistic", "queryHisList: e=" + e);
-            }
+            mj.a(((i) objectRef.element).filePath, new a(str, objectRef, bVar));
         }
-        return jSONArray;
     }
 
-    public void aeU() {
-        if (cjq) {
-            Log.i("PurgerStatistic", "performReport: " + this.cju);
+    @h
+    /* loaded from: classes8.dex */
+    static final class a implements b.a {
+        final /* synthetic */ String cpX;
+        final /* synthetic */ Ref.ObjectRef cpY;
+        final /* synthetic */ kotlin.jvm.a.b cpZ;
+
+        a(String str, Ref.ObjectRef objectRef, kotlin.jvm.a.b bVar) {
+            this.cpX = str;
+            this.cpY = objectRef;
+            this.cpZ = bVar;
         }
-        if (isValid()) {
-            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.b.c.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    c.this.aeV();
-                }
-            }, "PurgerStatistic", 3);
+
+        @Override // com.baidu.swan.pms.e.b.a
+        public final void em(boolean z) {
+            c cVar = c.cpW;
+            if (c.DEBUG) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.cpX);
+            }
+            if (z) {
+                c.cpW.l(this.cpX, ((i) this.cpY.element).versionCode);
+                c cVar2 = c.cpW;
+                String str = this.cpX;
+                String str2 = ((i) this.cpY.element).versionName;
+                q.l((Object) str2, "soPkg.versionName");
+                cVar2.bt(str, str2);
+                c cVar3 = c.cpW;
+                String str3 = this.cpX;
+                AbiType abiType = ((i) this.cpY.element).dFp;
+                q.l((Object) abiType, "soPkg.abi");
+                cVar3.a(str3, abiType);
+                this.cpZ.invoke(null);
+                return;
+            }
+            this.cpZ.invoke(new com.baidu.swan.apps.am.a().bO(16).bQ(2900).sm("install error: pkg=" + ((i) this.cpY.element)));
         }
+    }
+
+    private final File alE() {
+        Context appContext = AppRuntime.getAppContext();
+        q.l((Object) appContext, "AppRuntime.getAppContext()");
+        return new File(appContext.getFilesDir(), cpU);
+    }
+
+    public final String a(i iVar) {
+        if ((iVar != null ? iVar.dFp : null) == null) {
+            return "";
+        }
+        String str = iVar.cpL;
+        q.l((Object) str, "so.libName");
+        AbiType abiType = iVar.dFp;
+        q.l((Object) abiType, "so.abi");
+        return a(str, abiType, iVar.versionCode);
+    }
+
+    public final String a(String str, AbiType abiType, long j) {
+        q.m(str, "libName");
+        q.m(abiType, "abi");
+        if (TextUtils.isEmpty(str) || j < 1) {
+            return "";
+        }
+        File file = new File(alE(), "" + str + "" + File.separator + "" + j + "" + File.separator + "" + abiType.id);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file.getPath();
+    }
+
+    public final boolean mm(String str) {
+        q.m(str, "libName");
+        return j(str, mn(str));
+    }
+
+    public final boolean j(String str, long j) {
+        AbiType mo;
+        q.m(str, "libName");
+        com.baidu.swan.apps.env.b.a mj = com.baidu.swan.apps.env.b.b.mj(str);
+        if (mj != null) {
+            if (mj.alz()) {
+                return true;
+            }
+            long mn = mn(str);
+            if (mn <= 0 || j > mn || (mo = mo(str)) == null) {
+                return false;
+            }
+            return AbiType.currentAbi().compat(mo);
+        }
+        return false;
+    }
+
+    public final void k(String str, long j) {
+        q.m(str, "libName");
+        g.aUR().edit().putLong("swan_so_latest_update_time_" + str, j).apply();
+    }
+
+    private final long mn(String str) {
+        return com.baidu.swan.apps.storage.c.h.aDf().getLong(mp(str), 0L);
+    }
+
+    private final AbiType mo(String str) {
+        return AbiType.findById(com.baidu.swan.apps.storage.c.h.aDf().getString(mr(str), ""));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeV() {
-        String str;
-        b.a value;
-        synchronized (this.cju) {
-            if (isValid()) {
-                this.cju.mIsValid = false;
-                e eVar = new e();
-                eVar.mFrom = "swan";
-                eVar.mSource = "NA";
-                int aeS = aeS();
-                eVar.mType = String.valueOf(aeS);
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.cju.cjr.entrySet()) {
-                    if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
-                        jSONArray.put(value.toJSONObject());
-                    }
-                }
-                eVar.v("purged_list", jSONArray);
-                if (7 == aeS) {
-                    eVar.v("history_list", aeT());
-                }
-                if (cjq) {
-                    JSONObject jSONObject = eVar.toJSONObject();
-                    if (jSONObject == null) {
-                        str = "null";
-                    } else {
-                        try {
-                            str = jSONObject.toString(4);
-                        } catch (JSONException e) {
-                            str = "" + eVar;
-                            e.printStackTrace();
-                        }
-                    }
-                    BufferedReader bufferedReader = new BufferedReader(new StringReader(str));
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            Log.i("PurgerStatistic", "report event => " + readLine);
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        } finally {
-                            d.closeSafely(bufferedReader);
-                        }
-                    }
-                }
-                h.a("1377", eVar);
-            }
-        }
+    public final void l(String str, long j) {
+        com.baidu.swan.apps.storage.c.h.aDf().putLong(mp(str), j);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void bt(String str, String str2) {
+        com.baidu.swan.apps.storage.c.h.aDf().putString(mq(str), str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void a(String str, AbiType abiType) {
+        com.baidu.swan.apps.storage.c.h.aDf().putString(mr(str), abiType.id);
+    }
+
+    private final String mp(String str) {
+        return "swan_so_installed_version_code_" + str;
+    }
+
+    private final String mq(String str) {
+        return "swan_so_installed_version_name_" + str;
+    }
+
+    private final String mr(String str) {
+        return "swan_so_installed_abi_" + str;
     }
 }

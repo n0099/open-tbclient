@@ -8,7 +8,7 @@ import android.view.Surface;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.e;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends GLSurfaceView implements i {
     private e a;
 

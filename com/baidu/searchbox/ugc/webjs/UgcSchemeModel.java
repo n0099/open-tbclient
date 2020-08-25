@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class UgcSchemeModel implements Serializable {
     public static final int NA_CALL_TYPE = 1;
     public static final int SCHEME_CALL_TYPE = 2;

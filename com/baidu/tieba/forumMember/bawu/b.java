@@ -4,45 +4,45 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes17.dex */
 public class b implements i {
-    private String hAI;
+    private String hNX;
     private ArrayList<BawuRoleInfoPub> mMembers = new ArrayList<>();
-    private boolean isLast = false;
-    private boolean hAH = false;
+    private boolean hNV = false;
+    private boolean hNW = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bZG() {
+    public int ckc() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bZH() {
+    public ArrayList<BawuRoleInfoPub> ckd() {
         return this.mMembers;
     }
 
-    public void am(ArrayList<BawuRoleInfoPub> arrayList) {
+    public void as(ArrayList<BawuRoleInfoPub> arrayList) {
         this.mMembers = arrayList;
     }
 
     public boolean isLast() {
-        return this.isLast;
+        return this.hNV;
     }
 
-    public void nq(boolean z) {
-        this.isLast = z;
+    public void nU(boolean z) {
+        this.hNV = z;
     }
 
-    public boolean bZI() {
-        return this.hAH;
+    public boolean cke() {
+        return this.hNW;
     }
 
-    public void nr(boolean z) {
-        this.hAH = z;
+    public void nV(boolean z) {
+        this.hNW = z;
     }
 
-    public String bZJ() {
-        return this.hAI;
+    public String ckf() {
+        return this.hNX;
     }
 
-    public void FD(String str) {
-        this.hAI = str;
+    public void Ie(String str) {
+        this.hNX = str;
     }
 }

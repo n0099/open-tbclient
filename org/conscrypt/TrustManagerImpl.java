@@ -38,7 +38,7 @@ import javax.net.ssl.X509ExtendedTrustManager;
 import org.conscrypt.ct.CTLogStore;
 import org.conscrypt.ct.CTPolicy;
 import org.conscrypt.ct.CTVerifier;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class TrustManagerImpl extends X509ExtendedTrustManager {
     private static final TrustAnchorComparator TRUST_ANCHOR_COMPARATOR = new TrustAnchorComparator();
     private final X509Certificate[] acceptedIssuers;
@@ -619,7 +619,7 @@ public final class TrustManagerImpl extends X509ExtendedTrustManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static class TrustAnchorComparator implements Comparator<TrustAnchor> {
         private static final CertificatePriorityComparator CERT_COMPARATOR = new CertificatePriorityComparator();
 
@@ -634,7 +634,7 @@ public final class TrustManagerImpl extends X509ExtendedTrustManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static class ExtendedKeyUsagePKIXCertPathChecker extends PKIXCertPathChecker {
         private static final String EKU_anyExtendedKeyUsage = "2.5.29.37.0";
         private static final String EKU_clientAuth = "1.3.6.1.5.5.7.3.2";

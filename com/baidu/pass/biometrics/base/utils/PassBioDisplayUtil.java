@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class PassBioDisplayUtil {
     public static void enableNavigationBarTint(Activity activity, int i) {
         if (Build.VERSION.SDK_INT >= 19) {
@@ -18,6 +18,13 @@ public class PassBioDisplayUtil {
         SapiSystemBarTintManager sapiSystemBarTintManager = new SapiSystemBarTintManager(activity);
         sapiSystemBarTintManager.setNavigationBarTintEnabled(true);
         sapiSystemBarTintManager.setNavigationBarTintColor(i);
+    }
+
+    public static int getNavigationBarHeight(Activity activity) {
+        if (hasSoftKeys(activity.getWindowManager())) {
+            return new SapiSystemBarTintManager(activity).getConfig().getNavigationBarHeight();
+        }
+        return 0;
     }
 
     public static boolean hasSoftKeys(WindowManager windowManager) {
@@ -32,12 +39,5 @@ public class PassBioDisplayUtil {
             return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
         }
         return false;
-    }
-
-    public static int getNavigationBarHeight(Activity activity) {
-        if (!hasSoftKeys(activity.getWindowManager())) {
-            return 0;
-        }
-        return new SapiSystemBarTintManager(activity).getConfig().getNavigationBarHeight();
     }
 }

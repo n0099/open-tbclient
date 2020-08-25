@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class RealTimeAudioMsg extends RealTimeMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<RealTimeAudioMsg> CREATOR = new Parcelable.Creator<RealTimeAudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RealTimeAudioMsg.1
         /* JADX DEBUG: Method merged with bridge method */

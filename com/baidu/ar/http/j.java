@@ -23,7 +23,7 @@ final class j {
         return URLEncoder.encode(str, name);
     }
 
-    public static String[] aj(String str) {
+    public static String[] an(String str) {
         int indexOf;
         if (TextUtils.isEmpty(str) || (indexOf = str.indexOf(58)) <= 0 || indexOf == str.length() - 1) {
             return null;
@@ -31,12 +31,12 @@ final class j {
         return new String[]{str.substring(0, indexOf), str.substring(indexOf + 1).trim()};
     }
 
-    public static String ak(String str) {
+    public static String ao(String str) {
         String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str);
         return TextUtils.isEmpty(contentTypeFor) ? "application/octet-stream" : contentTypeFor;
     }
 
-    public static String al(String str) {
+    public static String ap(String str) {
         return (str == null || !str.startsWith("\ufeff")) ? str : str.substring(1);
     }
 

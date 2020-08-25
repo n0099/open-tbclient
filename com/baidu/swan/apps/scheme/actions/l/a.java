@@ -9,10 +9,10 @@ import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.ai;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.p;
-import com.baidu.swan.apps.aq.v;
+import com.baidu.swan.apps.ap.ah;
+import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.ap.v;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     private String mName;
 
@@ -52,17 +52,17 @@ public class a extends aa {
     }
 
     private void c(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, @NonNull final e eVar) {
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap awS = ai.awS();
-                if (awS == null) {
+                final Bitmap aFb = ah.aFb();
+                if (aFb == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(awS, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(aFb, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -93,9 +93,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String pH = b.pH(eVar.id);
-        if (pH != null) {
-            String str = pH + File.separator + StatisticConstants.SCREENSHOT;
+        String rH = b.rH(eVar.id);
+        if (rH != null) {
+            String str = rH + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -113,7 +113,7 @@ public class a extends aa {
                     try {
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                         c.i("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.bZ(sb, eVar.id), "success"), 0));
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.cq(sb, eVar.id), "success"), 0));
                         r1 = fileOutputStream;
                         if (fileOutputStream != null) {
                             try {

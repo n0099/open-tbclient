@@ -14,53 +14,53 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.a.a;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
-    private ImageView fNo;
-    private EditText gPQ;
-    private SearchMajorActivity jHY;
-    private RelativeLayout jHZ;
-    private ImageView jIa;
-    private RecyclerView jIb;
-    private LinearLayoutManager jIc;
-    private com.baidu.tieba.majorsearch.a.a jId;
-    private LinearLayout jIe;
+    private ImageView fZm;
+    private EditText hcG;
+    private SearchMajorActivity jXp;
+    private RelativeLayout jXq;
+    private ImageView jXr;
+    private RecyclerView jXs;
+    private LinearLayoutManager jXt;
+    private com.baidu.tieba.majorsearch.a.a jXu;
+    private LinearLayout jXv;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
     public a(View view, SearchMajorActivity searchMajorActivity) {
         this.mRootView = view;
-        this.jHY = searchMajorActivity;
+        this.jXp = searchMajorActivity;
         initView();
     }
 
     private void initView() {
-        bmb();
-        cEo();
-        cEp();
+        buO();
+        cPf();
+        cPg();
     }
 
-    private void bmb() {
+    private void buO() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.jHY.getResources().getString(R.string.search_major));
+        this.mNavigationBar.setCenterTextTitle(this.jXp.getResources().getString(R.string.search_major));
     }
 
-    private void cEo() {
-        this.jHZ = (RelativeLayout) this.mRootView.findViewById(R.id.search_container);
-        this.jHZ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.majorsearch.a.1
+    private void cPf() {
+        this.jXq = (RelativeLayout) this.mRootView.findViewById(R.id.search_container);
+        this.jXq.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.majorsearch.a.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    a.this.jHZ.setFocusable(true);
-                    a.this.jHZ.setFocusableInTouchMode(true);
-                    if (a.this.gPQ.hasFocus()) {
-                        l.hideSoftKeyPad(a.this.jHY, a.this.gPQ);
+                    a.this.jXq.setFocusable(true);
+                    a.this.jXq.setFocusableInTouchMode(true);
+                    if (a.this.hcG.hasFocus()) {
+                        l.hideSoftKeyPad(a.this.jXp, a.this.hcG);
                         return false;
                     }
                     return false;
@@ -68,90 +68,90 @@ public class a {
                 return false;
             }
         });
-        this.fNo = (ImageView) this.mRootView.findViewById(R.id.search_icon);
-        this.gPQ = (EditText) this.mRootView.findViewById(R.id.search_box);
-        this.jIa = (ImageView) this.mRootView.findViewById(R.id.search_del);
-        this.jIa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.2
+        this.fZm = (ImageView) this.mRootView.findViewById(R.id.search_icon);
+        this.hcG = (EditText) this.mRootView.findViewById(R.id.search_box);
+        this.jXr = (ImageView) this.mRootView.findViewById(R.id.search_del);
+        this.jXr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.gPQ.setText("");
+                a.this.hcG.setText("");
             }
         });
-        mu(false);
-        this.gPQ.setText("");
-        this.gPQ.requestFocus();
+        mX(false);
+        this.hcG.setText("");
+        this.hcG.requestFocus();
     }
 
-    private void cEp() {
-        this.jIe = (LinearLayout) this.mRootView.findViewById(R.id.layout_container);
-        this.jIb = (RecyclerView) this.mRootView.findViewById(R.id.rv_major_list);
-        this.jIc = new LinearLayoutManager(this.jHY);
-        this.jIb.setLayoutManager(this.jIc);
-        this.jId = new com.baidu.tieba.majorsearch.a.a(this.jHY);
-        this.jIb.setAdapter(this.jId);
+    private void cPg() {
+        this.jXv = (LinearLayout) this.mRootView.findViewById(R.id.layout_container);
+        this.jXs = (RecyclerView) this.mRootView.findViewById(R.id.rv_major_list);
+        this.jXt = new LinearLayoutManager(this.jXp);
+        this.jXs.setLayoutManager(this.jXt);
+        this.jXu = new com.baidu.tieba.majorsearch.a.a(this.jXp);
+        this.jXs.setAdapter(this.jXu);
     }
 
     public void onResume() {
-        if (!StringUtils.isNull(this.gPQ.getText().toString())) {
-            this.jHZ.setFocusable(true);
-            this.jHZ.setFocusableInTouchMode(true);
-            this.jHZ.requestFocus();
+        if (!StringUtils.isNull(this.hcG.getText().toString())) {
+            this.jXq.setFocusable(true);
+            this.jXq.setFocusableInTouchMode(true);
+            this.jXq.requestFocus();
         }
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
-        this.gPQ.setOnFocusChangeListener(onFocusChangeListener);
+        this.hcG.setOnFocusChangeListener(onFocusChangeListener);
     }
 
     public void a(TextView.OnEditorActionListener onEditorActionListener) {
-        this.gPQ.setOnEditorActionListener(onEditorActionListener);
+        this.hcG.setOnEditorActionListener(onEditorActionListener);
     }
 
     public void d(TextWatcher textWatcher) {
-        this.gPQ.addTextChangedListener(textWatcher);
+        this.hcG.addTextChangedListener(textWatcher);
     }
 
-    public void a(a.InterfaceC0695a interfaceC0695a) {
-        this.jId.b(interfaceC0695a);
+    public void a(a.InterfaceC0746a interfaceC0746a) {
+        this.jXu.b(interfaceC0746a);
     }
 
     public void a(RecyclerView.OnScrollListener onScrollListener) {
-        this.jIb.addOnScrollListener(onScrollListener);
+        this.jXs.addOnScrollListener(onScrollListener);
     }
 
-    public LinearLayout cEq() {
-        return this.jIe;
+    public LinearLayout cPh() {
+        return this.jXv;
     }
 
-    public void mu(boolean z) {
-        this.jIa.setVisibility(z ? 0 : 8);
+    public void mX(boolean z) {
+        this.jXr.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jId != null) {
-            this.jId.notifyDataSetChanged();
+        if (this.jXu != null) {
+            this.jXu.notifyDataSetChanged();
         }
-        this.mNavigationBar.onChangeSkinType(this.jHY.getPageContext(), i);
-        this.gPQ.setHintTextColor(ao.getColor(R.color.cp_cont_d));
-        this.gPQ.setTextColor(ao.getColor(R.color.cp_cont_b));
-        SvgManager.baR().a(this.fNo, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        ao.setBackgroundResource(this.jHZ, R.drawable.search_major_bg);
-        SvgManager.baR().a(this.jIa, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.mNavigationBar.onChangeSkinType(this.jXp.getPageContext(), i);
+        this.hcG.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        this.hcG.setTextColor(ap.getColor(R.color.cp_cont_b));
+        SvgManager.bjq().a(this.fZm, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        ap.setBackgroundResource(this.jXq, R.drawable.search_major_bg);
+        SvgManager.bjq().a(this.jXr, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void l(List<String> list, String str) {
-        this.jIb.setVisibility(0);
-        if (this.jId != null) {
-            this.jId.IX(str);
-            this.jId.setData(list);
-            this.jIb.setAdapter(this.jId);
+        this.jXs.setVisibility(0);
+        if (this.jXu != null) {
+            this.jXu.LP(str);
+            this.jXu.setData(list);
+            this.jXs.setAdapter(this.jXu);
         }
     }
 
     public void c(ErrorData errorData) {
-        this.jIb.setVisibility(8);
-        if (this.jId != null) {
-            this.jId.cEs();
+        this.jXs.setVisibility(8);
+        if (this.jXu != null) {
+            this.jXu.cPj();
         }
     }
 }

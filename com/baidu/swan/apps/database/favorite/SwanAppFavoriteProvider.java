@@ -6,19 +6,19 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b cik;
+    private volatile b coH;
 
-    private b aes() {
-        if (this.cik == null) {
+    private b alb() {
+        if (this.coH == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.cik == null) {
-                    this.cik = new b();
+                if (this.coH == null) {
+                    this.coH = new b();
                 }
             }
         }
-        return this.cik;
+        return this.coH;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return aes().query(uri, strArr, str, strArr2, str2);
+        return alb().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return aes().getType(uri);
+        return alb().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return aes().insert(uri, contentValues);
+        return alb().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return aes().delete(uri, str, strArr);
+        return alb().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return aes().update(uri, contentValues, str, strArr);
+        return alb().update(uri, contentValues, str, strArr);
     }
 }

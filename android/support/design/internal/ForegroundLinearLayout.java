@@ -13,7 +13,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     private Drawable mForeground;
     boolean mForegroundBoundsChanged;

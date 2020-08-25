@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.LinearLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AdapterLinearLayout extends LinearLayout {
     private Adapter mAdapter;
     private final DataSetObserver mDataSetObserver;

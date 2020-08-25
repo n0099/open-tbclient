@@ -1,13 +1,13 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class Enums {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static class FingerprintAuthType {
         public static final int LOGIN = 3;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static class NormalizeWay {
         public static final int NONE = 0;
         public static final int PWD = 3;
@@ -15,7 +15,7 @@ public class Enums {
         public static final int SMS_EXIST = 2;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static class PreLoginType {
         public static final int CHINA_MOBILE_OAUTH = 12;
         public static final int CHOICE_SHARE = 8;
@@ -26,6 +26,7 @@ public class Enums {
         public static final int FACE = 3;
         public static final int HUAWEI = 10;
         public static final int MEIZU = 14;
+        public static final int NA_QR_LOGIN = 20;
         public static final int NONE = 0;
         public static final int OTHER = 11;
         public static final int PWD = 1;

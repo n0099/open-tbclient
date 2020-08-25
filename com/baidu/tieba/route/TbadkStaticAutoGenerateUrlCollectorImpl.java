@@ -9,7 +9,9 @@ public final class TbadkStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
-        hashMap.put("com.baidu.tbadk.coreExtra.messageCenter.TbadkStatic", new ArrayList());
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("SimpleVideoPlayActivityConfig");
+        hashMap.put("com.baidu.tbadk.coreExtra.messageCenter.TbadkStatic", arrayList);
         return hashMap;
     }
 
@@ -18,6 +20,7 @@ public final class TbadkStaticAutoGenerateUrlCollectorImpl implements d {
         HashMap hashMap = new HashMap();
         new ArrayList();
         hashMap.put("2156675", "com.baidu.tbadk.coreExtra.messageCenter.TbadkStatic");
+        hashMap.put("2002001", "com.baidu.tbadk.coreExtra.messageCenter.TbadkStatic");
         return hashMap;
     }
 }

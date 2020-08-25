@@ -3,66 +3,66 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.Fans;
 import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class n {
-    private int lLB = 0;
-    private int eyR = 0;
-    private String lLC = null;
-    private String lLD = null;
-    private int lLE = 0;
-    private int lLF = 0;
-    private int lLG = 0;
-    private int lLH = 0;
-    private int lLI = 0;
-    private int lLJ = 0;
-    private long lLK = 0;
-    private long lLL = 0;
-    private boolean lLM = false;
-    private long lLN = 0;
-    private String lLO = null;
-    private String lLP = null;
+    private int mdl = 0;
+    private int eJp = 0;
+    private String mdm = null;
+    private String mdn = null;
+    private int mdo = 0;
+    private int mdp = 0;
+    private int mdq = 0;
+    private int mdr = 0;
+    private int mds = 0;
+    private int mdt = 0;
+    private long mdu = 0;
+    private long mdv = 0;
+    private boolean mdw = false;
+    private long mdx = 0;
+    private String mdy = null;
+    private String mdz = null;
 
-    public int dkv() {
-        return this.lLB;
+    public int dvS() {
+        return this.mdl;
     }
 
-    public String dkw() {
-        return this.lLP;
+    public String dvT() {
+        return this.mdz;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.lLB = starInfo.has_frs_star.intValue();
-            if (this.lLB == 1) {
-                this.lLC = starInfo.top;
-                this.lLD = starInfo.head;
+            this.mdl = starInfo.has_frs_star.intValue();
+            if (this.mdl == 1) {
+                this.mdm = starInfo.top;
+                this.mdn = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.lLE = fans.is_get.intValue();
-                    this.lLF = fans.num.intValue();
-                    this.eyR = fans.open.intValue();
-                    this.lLK = fans.left_time.intValue();
+                    this.mdo = fans.is_get.intValue();
+                    this.mdp = fans.num.intValue();
+                    this.eJp = fans.open.intValue();
+                    this.mdu = fans.left_time.intValue();
                 }
-                this.lLL = this.lLK;
+                this.mdv = this.mdu;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.lLG = size.width.intValue();
-                    this.lLH = size.height.intValue();
+                    this.mdq = size.width.intValue();
+                    this.mdr = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.lLI = size2.width.intValue();
-                    this.lLJ = size2.height.intValue();
+                    this.mds = size2.width.intValue();
+                    this.mdt = size2.height.intValue();
                 }
             }
-            this.lLM = starInfo.trade != null;
-            if (this.lLM) {
+            this.mdw = starInfo.trade != null;
+            if (this.mdw) {
                 if (starInfo.trade.time != null) {
-                    this.lLN = starInfo.trade.time.intValue();
+                    this.mdx = starInfo.trade.time.intValue();
                 }
-                this.lLO = starInfo.trade.url;
+                this.mdy = starInfo.trade.url;
             }
-            this.lLP = starInfo.star_forum_headimg;
+            this.mdz = starInfo.star_forum_headimg;
         }
     }
 }

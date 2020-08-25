@@ -5,7 +5,7 @@ import android.app.Dialog;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     Dialog a(TbPageContext tbPageContext, com.baidu.tbadk.widget.timepicker.a.d.e eVar);
 

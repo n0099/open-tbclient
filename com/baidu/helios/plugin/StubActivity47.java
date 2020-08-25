@@ -1,6 +1,6 @@
 package com.baidu.helios.plugin;
 
 import android.app.Activity;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class StubActivity47 extends Activity {
 }

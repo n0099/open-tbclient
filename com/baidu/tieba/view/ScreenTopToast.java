@@ -12,19 +12,19 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ScreenTopToast extends LinearLayout {
-    private TextView cdm;
-    private TBSpecificationBtn hmd;
-    private Animation ifH;
-    private Animation ifI;
+    private TextView cjk;
+    private TBSpecificationBtn hyU;
     private boolean isShow;
+    private Animation itL;
+    private Animation itM;
     private Runnable mHideRunnable;
+    private ShadowLinearLayout mJK;
     private TextView mTitleView;
-    private ShadowLinearLayout mry;
 
     public ScreenTopToast(Context context) {
         this(context, null);
@@ -45,19 +45,19 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.mry = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.mJK = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
-        this.cdm = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.hmd = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.hmd.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+        this.cjk = (TextView) findViewById(R.id.screen_top_toast_content);
+        this.hyU = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.hyU.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
         initAnimation();
         onChangeSkinType();
     }
 
     private void initAnimation() {
-        this.ifH = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.ifI = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.ifI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
+        this.itL = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.itM = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.itM.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -83,59 +83,59 @@ public class ScreenTopToast extends LinearLayout {
         };
     }
 
-    public ScreenTopToast Pv(String str) {
+    public ScreenTopToast St(String str) {
         this.mTitleView.setText(str);
         return this;
     }
 
-    public ScreenTopToast Pw(String str) {
-        this.cdm.setText(str);
+    public ScreenTopToast Su(String str) {
+        this.cjk.setText(str);
         return this;
     }
 
-    public ScreenTopToast Px(String str) {
-        this.hmd.setText(str);
+    public ScreenTopToast Sv(String str) {
+        this.hyU.setText(str);
         return this;
     }
 
-    public ScreenTopToast aj(View.OnClickListener onClickListener) {
-        this.hmd.setOnClickListener(onClickListener);
+    public ScreenTopToast ak(View.OnClickListener onClickListener) {
+        this.hyU.setOnClickListener(onClickListener);
         return this;
     }
 
-    public void aF(ViewGroup viewGroup) {
+    public void aE(ViewGroup viewGroup) {
         if (viewGroup != null) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
             release();
-            if (TextUtils.isEmpty(this.cdm.getText())) {
-                this.cdm.setVisibility(8);
+            if (TextUtils.isEmpty(this.cjk.getText())) {
+                this.cjk.setVisibility(8);
             }
             viewGroup.addView(this, -1, -2);
             this.isShow = true;
-            startAnimation(this.ifH);
-            com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, 5000L);
+            startAnimation(this.itL);
+            com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, 5000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.ifI);
+        startAnimation(this.itM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void release() {
-        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
         clearAnimation();
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.mTitleView, R.color.cp_link_tip_a);
-        ao.setViewTextColor(this.cdm, R.color.cp_link_tip_a);
-        this.hmd.bci();
-        this.mry.onChangeSkinType();
+        ap.setViewTextColor(this.mTitleView, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.cjk, R.color.cp_link_tip_a);
+        this.hyU.bkF();
+        this.mJK.onChangeSkinType();
     }
 
     public boolean isShow() {

@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tieba.compatible.EditorHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SharedPrefHelper {
     private static SharedPrefHelper spHelper = null;
     private SharedPreferences mSP = null;

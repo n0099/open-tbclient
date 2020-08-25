@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.walkmap;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatus;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b implements BaiduMap.OnMapStatusChangeListener {
     final /* synthetic */ a a;
 

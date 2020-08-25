@@ -15,53 +15,53 @@ import java.util.Map;
 /* loaded from: classes20.dex */
 public class b implements com.baidu.tieba.ad.download.b.a {
     private static final String TAG = b.class.getSimpleName();
-    private final Map<String, DownloadCacheKey> lmw = new HashMap();
-    private final com.baidu.tieba.ad.download.a.c lmx = new a();
+    private final Map<String, DownloadCacheKey> lCX = new HashMap();
+    private final com.baidu.tieba.ad.download.a.c lCY = new a();
 
     @Override // com.baidu.tieba.ad.download.b.a
     public void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData) {
-        this.lmw.put(downloadCacheKey.mAdId, downloadCacheKey);
+        this.lCX.put(downloadCacheKey.mAdId, downloadCacheKey);
         DownloadData downloadData = new DownloadData();
         downloadData.setId(downloadCacheKey.mAdId);
         downloadData.setUrl(downloadCacheKey.mDownloadUrl);
         downloadData.setName(downloadCacheKey.mPackageName);
         downloadData.setType(12);
-        downloadData.setNotifyId(i.Mr(downloadCacheKey.mPackageName).intValue());
+        downloadData.setNotifyId(i.Pp(downloadCacheKey.mPackageName).intValue());
         downloadData.setNeedNotify(true);
         downloadData.setNeedInvokeApk(true);
         downloadData.setPosition(0);
-        i.dcm().a(downloadData);
+        i.dnu().a(downloadData);
     }
 
     @Override // com.baidu.tieba.ad.download.b.a
-    public void Be(String str) {
-        DownloadCacheKey downloadCacheKey = this.lmw.get(str);
+    public void Dy(String str) {
+        DownloadCacheKey downloadCacheKey = this.lCX.get(str);
         if (downloadCacheKey != null) {
-            i.dcm().C(downloadCacheKey.mDownloadUrl, str, true);
+            i.dnu().B(downloadCacheKey.mDownloadUrl, str, true);
         }
     }
 
     @Override // com.baidu.tieba.ad.download.b.a
-    public void Bf(String str) {
-        DownloadCacheKey downloadCacheKey = this.lmw.get(str);
+    public void Dz(String str) {
+        DownloadCacheKey downloadCacheKey = this.lCX.get(str);
         if (downloadCacheKey != null) {
-            this.lmw.put(downloadCacheKey.mAdId, downloadCacheKey);
+            this.lCX.put(downloadCacheKey.mAdId, downloadCacheKey);
             DownloadData downloadData = new DownloadData();
             downloadData.setId(downloadCacheKey.mAdId);
             downloadData.setUrl(downloadCacheKey.mDownloadUrl);
             downloadData.setName(downloadCacheKey.mPackageName);
             downloadData.setType(12);
-            downloadData.setNotifyId(i.Mr(downloadData.getName()).intValue());
+            downloadData.setNotifyId(i.Pp(downloadData.getName()).intValue());
             downloadData.setNeedNotify(true);
             downloadData.setNeedInvokeApk(true);
             downloadData.setPosition(0);
-            i.dcm().a(downloadData);
+            i.dnu().a(downloadData);
         }
     }
 
     @Override // com.baidu.tieba.ad.download.b.a
-    public com.baidu.tieba.ad.download.a.c bsr() {
-        return this.lmx;
+    public com.baidu.tieba.ad.download.a.c bBo() {
+        return this.lCY;
     }
 
     /* loaded from: classes20.dex */
@@ -70,25 +70,25 @@ public class b implements com.baidu.tieba.ad.download.b.a {
         }
 
         @Override // com.baidu.tieba.ad.download.a.c
-        public void Bd(String str) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bsi().c((DownloadCacheKey) b.this.lmw.get(str));
+        public void Dx(String str) {
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bBf().c((DownloadCacheKey) b.this.lCX.get(str));
             if (c != null) {
                 Toast.makeText(TbadkCoreApplication.getInst(), TbadkApplication.getInst().getResources().getString(R.string.download_start_tips), 1).show();
-                c.Bd(str);
+                c.Dx(str);
             }
         }
 
         @Override // com.baidu.tieba.ad.download.a.c
-        public void as(String str, int i) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bsi().c((DownloadCacheKey) b.this.lmw.get(str));
+        public void av(String str, int i) {
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bBf().c((DownloadCacheKey) b.this.lCX.get(str));
             if (c != null) {
-                c.as(str, i);
+                c.av(str, i);
             }
         }
 
         @Override // com.baidu.tieba.ad.download.a.c
         public void a(String str, StopStatus stopStatus) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bsi().c((DownloadCacheKey) b.this.lmw.get(str));
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bBf().c((DownloadCacheKey) b.this.lCX.get(str));
             if (c != null) {
                 c.a(str, stopStatus);
             }
@@ -96,18 +96,18 @@ public class b implements com.baidu.tieba.ad.download.b.a {
 
         @Override // com.baidu.tieba.ad.download.a.c
         public void onSuccess(String str, String str2) {
-            DownloadCacheKey downloadCacheKey = (DownloadCacheKey) b.this.lmw.get(str);
-            String ar = com.baidu.tieba.ad.download.a.ar(TbadkCoreApplication.getInst(), str2);
+            DownloadCacheKey downloadCacheKey = (DownloadCacheKey) b.this.lCX.get(str);
+            String av = com.baidu.tieba.ad.download.a.av(TbadkCoreApplication.getInst(), str2);
             if (downloadCacheKey == null) {
                 downloadCacheKey = DownloadCacheKey.create(str, "");
-                b.this.lmw.put(str, downloadCacheKey);
+                b.this.lCX.put(str, downloadCacheKey);
             }
-            downloadCacheKey.mPackageName = ar;
-            com.baidu.tieba.ad.download.d.bsi().d(downloadCacheKey).setupPkgName(ar);
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bsi().c(downloadCacheKey);
+            downloadCacheKey.mPackageName = av;
+            com.baidu.tieba.ad.download.d.bBf().d(downloadCacheKey).setupPkgName(av);
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bBf().c(downloadCacheKey);
             if (c != null) {
-                if (com.baidu.tieba.ad.download.a.isAppInstalled(TbadkCoreApplication.getInst(), ar)) {
-                    c.bsp();
+                if (com.baidu.tieba.ad.download.a.isAppInstalled(TbadkCoreApplication.getInst(), av)) {
+                    c.bBm();
                 } else {
                     c.onSuccess(str, str2);
                 }
@@ -115,10 +115,10 @@ public class b implements com.baidu.tieba.ad.download.b.a {
         }
 
         @Override // com.baidu.tieba.ad.download.a.c
-        public void at(String str, int i) {
-            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bsi().c((DownloadCacheKey) b.this.lmw.get(str));
+        public void aw(String str, int i) {
+            com.baidu.tieba.ad.download.a.a c = com.baidu.tieba.ad.download.d.bBf().c((DownloadCacheKey) b.this.lCX.get(str));
             if (c != null) {
-                c.at(str, i);
+                c.aw(str, i);
             }
         }
     }

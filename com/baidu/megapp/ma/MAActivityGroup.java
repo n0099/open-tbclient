@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes9.dex */
+/* loaded from: classes20.dex */
 public abstract class MAActivityGroup extends ActivityGroup {
     public Activity getActivity() {
         return this;

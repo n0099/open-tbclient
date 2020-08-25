@@ -3,7 +3,7 @@ package com.baidu.searchbox.suspensionball;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.searchbox.suspensionball.ioc.SuspensionBallRuntime;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class SuspensionBallDispatcher {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean invoke(Context context, SuspensionBallEntity suspensionBallEntity) {

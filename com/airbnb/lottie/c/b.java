@@ -3,7 +3,7 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class b {
     public static com.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
         jsonReader.beginObject();
@@ -13,7 +13,7 @@ public class b {
             char c = 65535;
             switch (nextName.hashCode()) {
                 case 97:
-                    if (nextName.equals(Config.APP_VERSION_CODE)) {
+                    if (nextName.equals("a")) {
                         c = 0;
                         break;
                     }

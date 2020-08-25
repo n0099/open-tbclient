@@ -8,7 +8,7 @@ import com.baidu.searchbox.network.request.IAsyncRequestParamsHandler;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class ParamInterceptor implements Interceptor {
     private IAsyncRequestParamsHandler paramsHandler;
 

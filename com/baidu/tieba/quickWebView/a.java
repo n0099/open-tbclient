@@ -4,15 +4,15 @@ import android.content.Context;
 import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.browser.b {
-    private b lkh;
-    private final String lko;
+    private b lAA;
+    private final String lAI;
 
     public a(Context context, b bVar) {
         super(context);
-        this.lko = "requestByNative";
-        this.lkh = bVar;
+        this.lAI = "requestByNative";
+        this.lAA = bVar;
     }
 
     @Override // com.baidu.tbadk.browser.b, com.baidu.tieba.tbadkCore.e.b
@@ -21,8 +21,8 @@ public class a extends com.baidu.tbadk.browser.b {
             try {
                 QuickWebViewBridgeData quickWebViewBridgeData = (QuickWebViewBridgeData) OrmObject.objectWithJsonStr(str3, QuickWebViewBridgeData.class);
                 quickWebViewBridgeData.begin = System.currentTimeMillis();
-                if (this.lkh != null) {
-                    this.lkh.a(quickWebViewBridgeData, quickWebViewBridgeData.callBack);
+                if (this.lAA != null) {
+                    this.lAA.a(quickWebViewBridgeData, quickWebViewBridgeData.callBack);
                 }
                 jsPromptResult.confirm();
                 return true;

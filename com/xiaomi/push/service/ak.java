@@ -7,17 +7,17 @@ import com.xiaomi.push.hr;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ak {
     private static volatile ak a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected SharedPreferences f851a;
+    protected SharedPreferences f848a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashSet<a> f852a = new HashSet<>();
+    private HashSet<a> f849a = new HashSet<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         private String mDescription;
         private int mId;
@@ -44,7 +44,7 @@ public class ak {
     }
 
     private ak(Context context) {
-        this.f851a = context.getSharedPreferences("mipush_oc", 0);
+        this.f848a = context.getSharedPreferences("mipush_oc", 0);
     }
 
     public static ak a(Context context) {
@@ -87,29 +87,29 @@ public class ak {
 
     public int a(int i, int i2) {
         String b = b(i);
-        if (this.f851a.contains(b)) {
-            return this.f851a.getInt(b, 0);
+        if (this.f848a.contains(b)) {
+            return this.f848a.getInt(b, 0);
         }
         String a2 = a(i);
-        return this.f851a.contains(a2) ? this.f851a.getInt(a2, 0) : i2;
+        return this.f848a.contains(a2) ? this.f848a.getInt(a2, 0) : i2;
     }
 
     public String a(int i, String str) {
         String b = b(i);
-        if (this.f851a.contains(b)) {
-            return this.f851a.getString(b, null);
+        if (this.f848a.contains(b)) {
+            return this.f848a.getString(b, null);
         }
         String a2 = a(i);
-        return this.f851a.contains(a2) ? this.f851a.getString(a2, null) : str;
+        return this.f848a.contains(a2) ? this.f848a.getString(a2, null) : str;
     }
 
     public synchronized void a() {
-        this.f852a.clear();
+        this.f849a.clear();
     }
 
     public synchronized void a(a aVar) {
-        if (!this.f852a.contains(aVar)) {
-            this.f852a.add(aVar);
+        if (!this.f849a.contains(aVar)) {
+            this.f849a.add(aVar);
         }
     }
 
@@ -117,7 +117,7 @@ public class ak {
         if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f851a.edit();
+        SharedPreferences.Editor edit = this.f848a.edit();
         for (Pair<Integer, Object> pair : list) {
             if (pair.first != null && pair.second != null) {
                 a(edit, pair, a(((Integer) pair.first).intValue()));
@@ -128,11 +128,11 @@ public class ak {
 
     public boolean a(int i, boolean z) {
         String b = b(i);
-        if (this.f851a.contains(b)) {
-            return this.f851a.getBoolean(b, false);
+        if (this.f848a.contains(b)) {
+            return this.f848a.getBoolean(b, false);
         }
         String a2 = a(i);
-        return this.f851a.contains(a2) ? this.f851a.getBoolean(a2, false) : z;
+        return this.f848a.contains(a2) ? this.f848a.getBoolean(a2, false) : z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -140,7 +140,7 @@ public class ak {
         com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
         HashSet hashSet = new HashSet();
         synchronized (this) {
-            hashSet.addAll(this.f852a);
+            hashSet.addAll(this.f849a);
         }
         Iterator it = hashSet.iterator();
         while (it.hasNext()) {
@@ -156,7 +156,7 @@ public class ak {
         if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f851a.edit();
+        SharedPreferences.Editor edit = this.f848a.edit();
         for (Pair<Integer, Object> pair : list) {
             if (pair.first != null) {
                 String b = b(((Integer) pair.first).intValue());

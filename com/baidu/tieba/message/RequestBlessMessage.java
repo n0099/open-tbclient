@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestBlessMessage extends NetMessage {
     private int click_type;
 
@@ -53,7 +53,7 @@ public class RequestBlessMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1243common = this.f990common;
+        builder.f1249common = this.f990common;
         builder.pk_id = this.pk_id;
         builder.topic_id = this.topic_id;
         builder.pk_index = Integer.valueOf(this.pk_index);

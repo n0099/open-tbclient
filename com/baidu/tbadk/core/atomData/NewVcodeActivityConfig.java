@@ -5,7 +5,7 @@ import com.baidu.adp.lib.f.b;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NewVcodeActivityConfig extends IntentConfig {
     public static final String IS_AD = "is_ad";
     public static final String NEED_FEED_BACK_BUTTON = "need_feed_back_button";

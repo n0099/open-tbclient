@@ -5,7 +5,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.person.PersonMoreData;
@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class b {
-    private c kOs;
-    private List<q> kOt;
-    private PersonMoreData kOu;
+    private c leh;
+    private List<q> lei;
+    private PersonMoreData lej;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, aa<h> aaVar) {
         this.mPageContext = tbPageContext;
-        this.kOs = new c(tbPageContext);
-        this.kOs.c(aaVar);
+        this.leh = new c(tbPageContext);
+        this.leh.c(aaVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.kOu = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.lej = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.kOs.aj(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        cVx();
-        this.kOs.setData(this.kOt);
+        this.leh.ak(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        dgu();
+        this.leh.setData(this.lei);
     }
 
     public void onChangeSkinType() {
-        if (this.kOs != null) {
-            this.kOs.onChangeSkinType();
+        if (this.leh != null) {
+            this.leh.onChangeSkinType();
         }
     }
 
-    private void cVx() {
-        this.kOt = new ArrayList();
-        if (this.kOu != null && !x.isEmpty(this.kOu.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.kOu.mUrlMaps) {
+    private void dgu() {
+        this.lei = new ArrayList();
+        if (this.lej != null && !y.isEmpty(this.lej.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.lej.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     h hVar = new h();
                     hVar.title = personMoreItemData.mName;
                     hVar.type = 36;
-                    hVar.aye = personMoreItemData.mUrl;
+                    hVar.aDg = personMoreItemData.mUrl;
                     hVar.itemId = personMoreItemData.mId;
-                    this.kOt.add(hVar);
+                    this.lei.add(hVar);
                 }
             }
         }

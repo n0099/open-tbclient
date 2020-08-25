@@ -4,10 +4,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Voice;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VoiceData {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class VoiceModel extends OrmObject implements Serializable {
         private static final long serialVersionUID = 5684687527058675291L;
         public int duration;

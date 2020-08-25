@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobstat.bt;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class an {
     private static volatile String c;
     private static volatile int d = 0;
@@ -124,14 +125,14 @@ public class an {
                         jSONObject.put("type", b2);
                         jSONObject.put("value", bj.a(view));
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put(Config.EVENT_HEAT_X, ah.a(activity, e.left));
+                        jSONObject3.put("x", ah.a(activity, e.left));
                         jSONObject3.put("y", ah.a(activity, e.top));
                         jSONObject3.put("w", ah.a(activity, e.width()));
                         jSONObject3.put("h", ah.a(activity, e.height()));
                         jSONObject.put("frame", jSONObject3);
                         jSONObject.put("alpha", bj.i(view));
                         jSONObject.put("page", activity.getClass().getName());
-                        jSONObject.put("z", bj.j(view));
+                        jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, bj.j(view));
                         if (view instanceof WebView) {
                             String a2 = bl.a(activity, (WebView) view, e);
                             if (TextUtils.isEmpty(a2)) {
@@ -145,7 +146,7 @@ public class an {
                             if (obj == null) {
                                 obj = new JSONArray();
                             }
-                            jSONObject.put("child", obj);
+                            jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CHILD, obj);
                             if (TextUtils.isEmpty(str2)) {
                                 jSONObject.put("url", "/");
                             } else {
@@ -158,7 +159,7 @@ public class an {
                             if (view instanceof ViewGroup) {
                                 ViewGroup viewGroup = (ViewGroup) view;
                                 JSONArray jSONArray3 = new JSONArray();
-                                jSONObject.put("child", jSONArray3);
+                                jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CHILD, jSONArray3);
                                 while (true) {
                                     int i2 = i;
                                     if (i2 < viewGroup.getChildCount()) {
@@ -169,7 +170,7 @@ public class an {
                                     }
                                 }
                             } else {
-                                jSONObject.put("child", new JSONArray());
+                                jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CHILD, new JSONArray());
                             }
                         }
                     }
@@ -205,7 +206,7 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class b implements Callable<List<c>> {
         private Activity a;
         private final int e = 160;
@@ -333,7 +334,7 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         private final Paint b = new Paint(2);
         private Bitmap a = null;
@@ -356,7 +357,7 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class c {
         public final String a;
         public final View b;

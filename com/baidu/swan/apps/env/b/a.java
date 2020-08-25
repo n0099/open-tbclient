@@ -1,58 +1,70 @@
 package com.baidu.swan.apps.env.b;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.env.b.b;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-class a implements b.a {
-    private final String cjo;
-    private JSONObject cjp = new JSONObject();
+import android.support.annotation.NonNull;
+import com.baidu.swan.pms.e.b;
+/* loaded from: classes8.dex */
+public final class a implements com.baidu.swan.pms.e.b {
+    private String cpL;
+    private boolean cpM;
+    private com.baidu.swan.pms.e.b cpN;
 
-    private a(String str, boolean z) {
-        this.cjo = str;
-        try {
-            this.cjp.put("pkg_id", this.cjo);
-            if (z) {
-                update();
-            }
-        } catch (JSONException e) {
-            if (b.cjq) {
-                e.printStackTrace();
-            }
+    private a() {
+    }
+
+    @Override // com.baidu.swan.pms.e.b
+    public void a(String str, b.a aVar) {
+        if (this.cpN != null) {
+            this.cpN.a(str, aVar);
+        } else if (aVar != null) {
+            aVar.em(true);
         }
     }
 
-    public static a kF(String str) {
-        return new a(str, true);
+    public String aly() {
+        return this.cpL;
     }
 
-    @Override // com.baidu.swan.apps.env.b.b.a
-    public String aeP() {
-        return this.cjo;
+    public boolean alz() {
+        return this.cpM;
     }
 
-    @Override // com.baidu.swan.apps.env.b.b.a
-    public JSONObject toJSONObject() {
-        return this.cjp;
+    @NonNull
+    public String toString() {
+        return "SoLib:: libName=" + this.cpL + " buildin=" + this.cpM;
     }
 
-    @Override // com.baidu.swan.apps.env.b.b.a
-    public boolean isValid() {
-        return !TextUtils.isEmpty(this.cjo);
-    }
+    /* renamed from: com.baidu.swan.apps.env.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public static class C0400a {
+        private a cpO;
 
-    private void update() throws JSONException {
-        PMSAppInfo uq;
-        if (isValid() && (uq = com.baidu.swan.pms.database.a.aKS().uq(this.cjo)) != null) {
-            this.cjp.put("app_name", uq.appName);
-            this.cjp.put("pkg_vername", uq.versionName);
-            this.cjp.put("pkg_vercode", uq.versionCode);
-            this.cjp.put("create_time", uq.createTime);
-            this.cjp.put("last_launch_time", uq.getLastLaunchTime());
-            this.cjp.put("launch_count", uq.awU());
-            this.cjp.put("install_src", uq.aco());
+        private a alA() {
+            if (this.cpO == null) {
+                this.cpO = new a();
+            }
+            return this.cpO;
+        }
+
+        public C0400a mi(String str) {
+            alA().cpL = str;
+            return this;
+        }
+
+        public C0400a el(boolean z) {
+            alA().cpM = z;
+            return this;
+        }
+
+        public C0400a a(com.baidu.swan.pms.e.b bVar) {
+            alA().cpN = bVar;
+            return this;
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public a alB() {
+            a aVar = this.cpO;
+            this.cpO = null;
+            return aVar;
         }
     }
 }

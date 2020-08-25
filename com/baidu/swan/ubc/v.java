@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class v {
-    private boolean dBq = false;
-    private JSONArray cCo = new JSONArray();
-    private SparseArray<Integer> dBm = new SparseArray<>();
-    private ArrayList<String> dBn = new ArrayList<>();
-    private long dBo = 0;
-    private long dBp = 0;
-    private String dAs = "0";
+    private boolean dKB = false;
+    private JSONArray cKC = new JSONArray();
+    private SparseArray<Integer> dKx = new SparseArray<>();
+    private ArrayList<String> dKy = new ArrayList<>();
+    private long dKz = 0;
+    private long dKA = 0;
+    private String dJB = "0";
 
-    public final void cK(JSONObject jSONObject) {
-        this.cCo.put(jSONObject);
+    public final void cQ(JSONObject jSONObject) {
+        this.cKC.put(jSONObject);
     }
 
-    public final SparseArray<Integer> aNP() {
-        return this.dBm;
+    public final SparseArray<Integer> aWp() {
+        return this.dKx;
     }
 
-    public final void ay(int i, int i2) {
-        this.dBm.put(i, Integer.valueOf(i2));
+    public final void aF(int i, int i2) {
+        this.dKx.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList aNQ() {
-        return this.dBn;
+    public final ArrayList aWq() {
+        return this.dKy;
     }
 
-    public final void vf(String str) {
-        if (!this.dBn.contains(str)) {
-            this.dBn.add(str);
+    public final void xq(String str) {
+        if (!this.dKy.contains(str)) {
+            this.dKy.add(str);
         }
     }
 
-    public final void t(long j, long j2) {
-        if ((j < this.dBo || this.dBo == 0) && j != 0) {
-            this.dBo = j;
+    public final void u(long j, long j2) {
+        if ((j < this.dKz || this.dKz == 0) && j != 0) {
+            this.dKz = j;
         }
-        if (j2 > this.dBp) {
-            this.dBp = j2;
+        if (j2 > this.dKA) {
+            this.dKA = j2;
         }
     }
 
-    public boolean kg(int i) {
-        return this.cCo.toString().getBytes().length >= i;
+    public boolean mm(int i) {
+        return this.cKC.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.cCo.length() == 0;
+        return this.cKC.length() == 0;
     }
 
-    public JSONArray aNR() {
-        return this.cCo;
+    public JSONArray aWr() {
+        return this.cKC;
     }
 
     public void clearData() {
-        this.dBm.clear();
-        this.dBn.clear();
-        this.cCo = null;
+        this.dKx.clear();
+        this.dKy.clear();
+        this.cKC = null;
     }
 
-    public void vg(String str) {
-        this.dAs = str;
+    public void xr(String str) {
+        this.dJB = str;
     }
 
-    public String aNS() {
-        return this.dAs;
+    public String aWs() {
+        return this.dJB;
     }
 
-    public long aNT() {
-        return this.dBo;
+    public long aWt() {
+        return this.dKz;
     }
 
     public long getMaxTime() {
-        return this.dBp;
+        return this.dKA;
     }
 
-    public JSONArray aNU() {
-        return this.cCo;
+    public JSONArray aWu() {
+        return this.cKC;
     }
 
-    public boolean aNV() {
-        return this.dBq;
+    public boolean aWv() {
+        return this.dKB;
     }
 
-    public void gP(boolean z) {
-        this.dBq = z;
+    public void hj(boolean z) {
+        this.dKB = z;
     }
 }

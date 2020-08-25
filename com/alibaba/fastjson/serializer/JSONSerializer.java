@@ -14,7 +14,7 @@ import java.util.IdentityHashMap;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class JSONSerializer extends SerializeFilterable {
     protected final SerializeConfig config;
     protected SerialContext context;

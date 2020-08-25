@@ -13,7 +13,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdWalletUtils {
     private static final String DEVICE_FP = "rim_device_fp";
     private static final String PREF_FILE_NAME_FP = "__RIM_SDK_FP_V1";

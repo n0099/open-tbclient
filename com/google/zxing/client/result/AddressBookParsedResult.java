@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class AddressBookParsedResult extends ParsedResult {
     private final String[] addressTypes;
     private final String[] addresses;

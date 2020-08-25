@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 /* loaded from: classes18.dex */
 public class AlignTextView extends TextView {
     public AlignTextView(Context context) {
@@ -43,7 +43,7 @@ public class AlignTextView extends TextView {
         }
         String str = (String) text;
         Layout layout = getLayout();
-        if (!as.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+        if (!at.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
             int paddingTop = getPaddingTop() + layout.getLineBaseline(0);
             float measureText = getPaint().measureText(str);
             float paddingLeft = getPaddingLeft();

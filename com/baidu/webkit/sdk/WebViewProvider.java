@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.http.SslCertificate;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.view.DragEvent;
 import android.view.KeyEvent;
@@ -30,10 +31,10 @@ import com.baidu.webkit.sdk.performance.PagePerformanceTiming;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public interface WebViewProvider {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface ScrollDelegate {
         int computeHorizontalScrollOffset();
 
@@ -48,15 +49,21 @@ public interface WebViewProvider {
         int computeVerticalScrollRange();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface ViewDelegate {
         boolean dispatchKeyEvent(KeyEvent keyEvent);
 
+        View findFocus(View view);
+
         AccessibilityNodeProvider getAccessibilityNodeProvider();
+
+        Handler getHandler(Handler handler);
 
         AbsoluteLayout getWebViewImpl();
 
         void onAttachedToWindow();
+
+        boolean onCheckIsTextEditor();
 
         void onConfigurationChanged(Configuration configuration);
 
@@ -141,6 +148,8 @@ public interface WebViewProvider {
 
     void addJavascriptInterface(Object obj, String str);
 
+    void addNoStatePrefetch(String str, String str2);
+
     void addZeusPluginFactory(ZeusPluginFactory zeusPluginFactory);
 
     boolean canGoBack();
@@ -154,6 +163,8 @@ public interface WebViewProvider {
     boolean canZoomIn();
 
     boolean canZoomOut();
+
+    void cancelCurrentNoStatePrefetch();
 
     Picture captureHistoryPicture(int i, int i2, int i3);
 
@@ -241,6 +252,10 @@ public interface WebViewProvider {
 
     String getReferer();
 
+    boolean getRendererPriorityWaivedWhenNotVisible();
+
+    int getRendererRequestedPriority();
+
     float getScale();
 
     ScrollDelegate getScrollDelegate();
@@ -317,11 +332,19 @@ public interface WebViewProvider {
 
     void loadUrl(String str, Map<String, String> map, boolean z);
 
+    void notifyPageLeave();
+
     void notifyUnsafeInvolved(int i, String str);
+
+    void onPageSwapFromWebview(WebView webView, String str, boolean z);
 
     void onPause();
 
+    void onPauseAll();
+
     void onResume();
+
+    void onResumeAll();
 
     boolean overlayHorizontalScrollbar();
 
@@ -408,6 +431,8 @@ public interface WebViewProvider {
     void setPictureListener(WebView.PictureListener pictureListener);
 
     boolean setPreviewZoomScale(float f);
+
+    void setRendererPriorityPolicy(int i, boolean z);
 
     boolean setSelectingText(boolean z);
 

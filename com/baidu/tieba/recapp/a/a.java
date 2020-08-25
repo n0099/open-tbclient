@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.b.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import java.util.HashMap;
 import java.util.Set;
 import org.json.JSONObject;
@@ -30,62 +30,62 @@ public class a extends com.baidu.tbadk.b.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0737a c0737a = new C0737a(str, str2, hashMap, dVar);
-                c0737a.setPriority(2);
-                c0737a.execute(new Object[0]);
+                C0789a c0789a = new C0789a(str, str2, hashMap, dVar);
+                c0789a.setPriority(2);
+                c0789a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
-    private class C0737a extends BdAsyncTask<Object, Integer, h> {
-        private String dIp;
-        private HashMap<String, String> jxM;
-        private d jxN;
-        private volatile z mNetwork = null;
+    private class C0789a extends BdAsyncTask<Object, Integer, h> {
+        private String dRw;
+        private HashMap<String, String> jNh;
+        private d jNi;
+        private volatile aa mNetwork = null;
         private String postUrl;
 
-        public C0737a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
-            this.dIp = str;
+        public C0789a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
+            this.dRw = str;
             this.postUrl = str2;
-            this.jxM = hashMap;
-            this.jxN = dVar;
+            this.jNh = hashMap;
+            this.jNi = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
+        /* renamed from: D */
         public h doInBackground(Object... objArr) {
             h hVar = new h();
             try {
-                this.mNetwork = new z(this.postUrl);
-                Set<String> keySet = this.jxM.keySet();
+                this.mNetwork = new aa(this.postUrl);
+                Set<String> keySet = this.jNh.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.addPostData(str, this.jxM.get(str));
+                            this.mNetwork.addPostData(str, this.jNh.get(str));
                         }
                     }
                 }
                 this.mNetwork.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.bav().baW().mIsNeedTbs = true;
+                this.mNetwork.biQ().bjv().mIsNeedTbs = true;
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.bav().baX().isNetSuccess()) {
+                if (!this.mNetwork.biQ().bjw().isNetSuccess()) {
                     hVar.errorCode = this.mNetwork.getNetErrorCode();
                     hVar.errorString = this.mNetwork.getNetString();
                 } else {
                     hVar.errorCode = this.mNetwork.getServerErrorCode();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.bav().baX().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
+                if (this.mNetwork.biQ().bjw().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
                             hVar.result = true;
-                            hVar.dIp = this.dIp;
+                            hVar.dRw = this.dRw;
                             return hVar;
                         }
                         String str2 = "";
@@ -93,7 +93,7 @@ public class a extends com.baidu.tbadk.b.a {
                             str2 = jSONObject.optString("msg", "");
                         }
                         hVar.result = false;
-                        hVar.dIp = this.dIp;
+                        hVar.dRw = this.dRw;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -102,7 +102,7 @@ public class a extends com.baidu.tbadk.b.a {
                 BdLog.e(e.getMessage());
             }
             hVar.result = false;
-            hVar.dIp = this.dIp;
+            hVar.dRw = this.dRw;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.jxN != null) {
-                this.jxN.callback(hVar);
+            if (this.jNi != null) {
+                this.jNi.callback(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.jxN != null) {
-                this.jxN.callback(null);
+            if (this.jNi != null) {
+                this.jNi.callback(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.jxN != null) {
-                this.jxN.callback(null);
+            if (this.jNi != null) {
+                this.jNi.callback(null);
             }
         }
     }

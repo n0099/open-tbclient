@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     private com.meizu.cloud.pushsdk.handler.a a;
     private Context b;

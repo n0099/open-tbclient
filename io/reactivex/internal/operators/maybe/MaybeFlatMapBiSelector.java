@@ -19,27 +19,27 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
     /* loaded from: classes7.dex */
     static final class FlatMapBiMainObserver<T, U, R> implements io.reactivex.disposables.b, m<T> {
         final h<? super T, ? extends o<? extends U>> mapper;
-        final InnerObserver<T, U, R> nTW;
+        final InnerObserver<T, U, R> onS;
 
         FlatMapBiMainObserver(m<? super R> mVar, h<? super T, ? extends o<? extends U>> hVar, c<? super T, ? super U, ? extends R> cVar) {
-            this.nTW = new InnerObserver<>(mVar, cVar);
+            this.onS = new InnerObserver<>(mVar, cVar);
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            DisposableHelper.dispose(this.nTW);
+            DisposableHelper.dispose(this.onS);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.nTW.get());
+            return DisposableHelper.isDisposed(this.onS.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.setOnce(this.nTW, bVar)) {
-                this.nTW.actual.onSubscribe(this);
+            if (DisposableHelper.setOnce(this.onS, bVar)) {
+                this.onS.actual.onSubscribe(this);
             }
         }
 
@@ -47,24 +47,24 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
         public void onSuccess(T t) {
             try {
                 o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                if (DisposableHelper.replace(this.nTW, null)) {
-                    this.nTW.value = t;
-                    oVar.a(this.nTW);
+                if (DisposableHelper.replace(this.onS, null)) {
+                    this.onS.value = t;
+                    oVar.a(this.onS);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
-                this.nTW.actual.onError(th);
+                io.reactivex.exceptions.a.J(th);
+                this.onS.actual.onError(th);
             }
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
-            this.nTW.actual.onError(th);
+            this.onS.actual.onError(th);
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            this.nTW.actual.onComplete();
+            this.onS.actual.onComplete();
         }
 
         /* loaded from: classes7.dex */
@@ -91,7 +91,7 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
                 try {
                     this.actual.onSuccess(io.reactivex.internal.functions.a.k(this.resultSelector.apply(t, u), "The resultSelector returned a null value"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     this.actual.onError(th);
                 }
             }

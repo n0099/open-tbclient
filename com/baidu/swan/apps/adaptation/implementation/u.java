@@ -1,32 +1,20 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.swan.apps.adaptation.a.am;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class u implements am {
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public void a(String str, String str2, int i, String str3, int i2) {
+    public String uE() {
+        return com.baidu.swan.config.c.c.aHc().uE();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public void a(String str, String str2, int i, String str3, long j, int i2) {
+    public String getHostName() {
+        return com.baidu.swan.config.c.c.aHc().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public void f(String str, int i, String str2) {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.am
-    public void a(String str, int i, JSONArray jSONArray) {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.am
-    public void G(String str, int i) {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.am
-    public ExecutorService TZ() {
-        return null;
+    public String ZV() {
+        return com.baidu.swan.config.c.c.aHc().ZV();
     }
 }

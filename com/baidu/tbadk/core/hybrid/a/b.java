@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.data.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b extends n {
     public b(l lVar) {
         super(lVar);
@@ -17,7 +17,7 @@ public class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String aSW() {
+    public String bbn() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -29,8 +29,8 @@ public class b extends n {
             String optString = jSONObject.optString("curNum");
             g gVar = new g();
             gVar.setActivityId(optInt);
-            gVar.nL(optInt2);
-            gVar.zo(optString);
+            gVar.pW(optInt2);
+            gVar.BE(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, gVar));
         }
     }

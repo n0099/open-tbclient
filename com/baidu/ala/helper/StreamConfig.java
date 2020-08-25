@@ -11,13 +11,7 @@ public class StreamConfig {
     public static final int AUDIO_IO_JAVA = 1;
     private static final boolean FORCE_JAVA_CAP = false;
     private static final boolean FORCE_OEPN_SL_ES = false;
-    public static final String STAT_AR_INFO = "arInfo";
-    public static final String STAT_AUDIP_CAPTURE_TYPE = "kStatAudioCap";
-    public static final String STAT_DELAY_OFF = "kStatDelayOff";
-    public static final String STAT_FIRST_FRAME = "kStatFirstFrame";
-    public static final String STAT_PERF_KEY = "perf";
-    public static final String STAT_ROOM_INFO = "roomInfo";
-    public static final String STAT_VIDEO_INFO = "videoInfo";
+    public static final int STREAM_CLOUD_RTC_MODE = 3;
     public static final int STREAM_COMMON_MODE = 1;
     public static final int STREAM_RTC_MODE = 2;
     private static final String TAG = "LIVE_SDK_JNI";

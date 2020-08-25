@@ -9,11 +9,11 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class LivenessVideoWarningTipTextView extends TextView {
     private boolean a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a();
 

@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.io.ByteArrayOutputStream;
@@ -25,26 +25,26 @@ import java.util.List;
 import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ShareItem {
-    public static final String eum = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int dVb;
+    public static final String eEM = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
     public Bundle diskPicOperate;
-    public String etQ;
-    public String etR;
-    public int etX;
-    public String etY;
-    public String etZ;
-    public OriginalThreadInfo.ShareInfo eua;
-    public ForwardInfo eub;
-    public String euh;
-    public String euj;
-    public int euk;
-    public String eul;
-    public String eun;
-    public String euo;
-    public JSONArray eup;
-    public JSONObject euq;
+    public OriginalThreadInfo.ShareInfo eEA;
+    public ForwardInfo eEB;
+    public String eEH;
+    public String eEJ;
+    public int eEK;
+    public String eEL;
+    public String eEN;
+    public String eEO;
+    public JSONArray eEP;
+    public JSONObject eEQ;
+    public String eEq;
+    public String eEr;
+    public int eEx;
+    public String eEy;
+    public String eEz;
+    public int eeB;
     public String extLiveInfo;
     public String fName;
     public String fid;
@@ -52,54 +52,57 @@ public class ShareItem {
     private List<Integer> mCommandChannelArray;
     public String mediaType;
     public String nid;
+    public String pid;
     private Bundle stats;
     public String taskCompleteId;
     public String tid;
     public String topic;
     public int typeShareToSmallApp;
     public String uid;
-    public boolean etC = false;
-    public boolean etD = false;
-    public boolean etE = false;
-    public boolean etF = false;
-    public boolean etG = false;
-    public boolean etH = false;
-    public boolean etI = false;
-    public boolean etJ = false;
-    public boolean etK = false;
+    public boolean eEa = false;
+    public boolean eEb = false;
+    public boolean eEc = false;
+    public boolean eEd = false;
+    public boolean eEe = false;
+    public boolean eEf = false;
+    public boolean eEg = false;
+    public boolean eEh = false;
+    public boolean eEi = false;
     public boolean isFromImageViewer = false;
-    public boolean etL = false;
-    public boolean etM = false;
-    public String etN = "";
-    public int etS = 0;
-    public int etT = 3;
-    public int etU = 0;
-    public int etV = 0;
-    public int etW = 0;
+    public boolean eEj = false;
+    public boolean eEk = false;
+    public boolean eEl = false;
+    public boolean eEm = false;
+    public String eEn = "";
+    public int eEs = 0;
+    public int eEt = 3;
+    public int eEu = 0;
+    public int eEv = 0;
+    public int eEw = 0;
     public long readCount = -1;
     public int shareType = 0;
-    public boolean eud = true;
-    public boolean eue = true;
-    public boolean euf = true;
-    public int eug = 0;
+    public boolean eED = true;
+    public boolean eEE = true;
+    public boolean eEF = true;
+    public int eEG = 0;
     public boolean canShareBySmartApp = true;
-    public boolean eui = false;
+    public boolean eEI = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String etO = null;
+    public String eEo = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> euc = null;
-    public String etP = null;
+    private WeakReference<Bitmap> eEC = null;
+    public String eEp = null;
     public String extData = null;
     public String localFile = null;
 
-    public Bundle bgL() {
+    public Bundle bpw() {
         return this.stats;
     }
 
-    public void af(Bundle bundle) {
+    public void ae(Bundle bundle) {
         this.stats = bundle;
     }
 
@@ -108,22 +111,22 @@ public class ShareItem {
         this.typeShareToSmallApp = 0;
     }
 
-    public Bitmap bgM() {
+    public Bitmap bpx() {
         Bitmap bitmap;
-        if (this.euc == null || (bitmap = this.euc.get()) == null || bitmap.isRecycled()) {
+        if (this.eEC == null || (bitmap = this.eEC.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void w(Bitmap bitmap) {
-        this.euc = new WeakReference<>(bitmap);
+        this.eEC = new WeakReference<>(bitmap);
     }
 
-    public byte[] bgN() {
+    public byte[] bpy() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.euc == null || (bitmap = this.euc.get()) == null || bitmap.isRecycled()) {
+        if (this.eEC == null || (bitmap = this.eEC.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -140,17 +143,17 @@ public class ShareItem {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [309=4, 310=4, 312=4, 313=4] */
-    public void bgO() {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [314=4, 315=4, 317=4, 318=4] */
+    public void bpz() {
         FileOutputStream fileOutputStream = null;
-        if (this.euc == null) {
+        if (this.eEC == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (n.checkSD()) {
-                    File file = new File(eum);
+                    File file = new File(eEM);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -158,14 +161,14 @@ public class ShareItem {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] bgN = bgN();
-                    if (bgN != null) {
+                    byte[] bpy = bpy();
+                    if (bpy != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(bgN);
+                            fileOutputStream3.write(bpy);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.euc = null;
+                            this.eEC = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();
@@ -227,7 +230,11 @@ public class ShareItem {
         return this.mCommandChannelArray;
     }
 
-    /* loaded from: classes.dex */
+    public boolean bpA() {
+        return this.eEx == 7 || this.eEx == 8 || this.eEx == 5 || this.eEx == 6;
+    }
+
+    /* loaded from: classes2.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public String avatar;
         public BaijiahaoData baijiahaoData;
@@ -261,100 +268,100 @@ public class ShareItem {
             return forwardInfo;
         }
 
-        public static ForwardInfo generateForwardInfo(bv bvVar) {
-            return generateForwardInfo(bvVar, 0);
+        public static ForwardInfo generateForwardInfo(bw bwVar) {
+            return generateForwardInfo(bwVar, 0);
         }
 
-        public static ForwardInfo generateForwardInfo(bv bvVar, int i) {
-            return generateForwardInfo(bvVar, i, null);
+        public static ForwardInfo generateForwardInfo(bw bwVar, int i) {
+            return generateForwardInfo(bwVar, i, null);
         }
 
-        public static ForwardInfo generateForwardInfo(bv bvVar, int i, PostData postData) {
+        public static ForwardInfo generateForwardInfo(bw bwVar, int i, PostData postData) {
             String str = null;
-            if (bvVar == null) {
+            if (bwVar == null) {
                 return null;
             }
             ForwardInfo forwardInfo = new ForwardInfo();
             forwardInfo.isShareType = false;
-            if (bvVar.isShareThread && bvVar.dUi != null) {
+            if (bwVar.isShareThread && bwVar.edE != null) {
                 forwardInfo.isShareType = true;
             }
             if (forwardInfo.isShareType) {
-                if (bvVar.dUi.oriUgcInfo != null && !TextUtils.isEmpty(bvVar.dUi.oriUgcInfo.oriUgcNid)) {
+                if (bwVar.edE.oriUgcInfo != null && !TextUtils.isEmpty(bwVar.edE.oriUgcInfo.oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                forwardInfo.showText = bvVar.dUi.aUS();
-                forwardInfo.showPicUrl = bvVar.dUi.showPicUrl;
-                forwardInfo.showType = bvVar.dUi.showType;
-                forwardInfo.originalBaijiahaoData = bvVar.dUi.oriUgcInfo;
-                forwardInfo.originalTid = bvVar.dUi.threadId;
+                forwardInfo.showText = bwVar.edE.bdl();
+                forwardInfo.showPicUrl = bwVar.edE.showPicUrl;
+                forwardInfo.showType = bwVar.edE.showType;
+                forwardInfo.originalBaijiahaoData = bwVar.edE.oriUgcInfo;
+                forwardInfo.originalTid = bwVar.edE.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.dlk() != null) {
-                        str = postData.dlk().toString();
-                    } else if (bvVar.getAbstract() != null) {
-                        str = bvVar.aVM().toString();
+                    if (postData != null && postData.dwH() != null) {
+                        str = postData.dwH().toString();
+                    } else if (bwVar.getAbstract() != null) {
+                        str = bwVar.bef().toString();
                     }
-                } else if (bvVar.aXh() != null) {
-                    str = bvVar.aXh().toString();
+                } else if (bwVar.bfA() != null) {
+                    str = bwVar.bfA().toString();
                 }
                 if (!TextUtils.isEmpty(str)) {
                     forwardInfo.transmitOriginThreadComment = str;
                 }
-                if (bvVar.aWl() != null && !TextUtils.isEmpty(bvVar.aWl().getName_show())) {
-                    forwardInfo.transmitThreadAuthorNameShow = bvVar.aWl().getName_show();
+                if (bwVar.beE() != null && !TextUtils.isEmpty(bwVar.beE().getName_show())) {
+                    forwardInfo.transmitThreadAuthorNameShow = bwVar.beE().getName_show();
                 }
-                if (i == 1 && postData != null && as.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.aWl() != null) {
-                    forwardInfo.transmitThreadAuthorNameShow = postData.aWl().getName_show();
+                if (i == 1 && postData != null && at.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.beE() != null) {
+                    forwardInfo.transmitThreadAuthorNameShow = postData.beE().getName_show();
                 }
-                if (i == 2 && as.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                if (i == 2 && at.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                     forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                 }
             } else {
-                if (bvVar.getBaijiahaoData() != null && !TextUtils.isEmpty(bvVar.getBaijiahaoData().oriUgcNid)) {
+                if (bwVar.getBaijiahaoData() != null && !TextUtils.isEmpty(bwVar.getBaijiahaoData().oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                OriginalThreadInfo s = OriginalThreadInfo.s(bvVar);
+                OriginalThreadInfo s = OriginalThreadInfo.s(bwVar);
                 if (s != null) {
-                    forwardInfo.showText = s.aUS();
+                    forwardInfo.showText = s.bdl();
                     forwardInfo.showPicUrl = s.showPicUrl;
                     forwardInfo.showType = s.showType;
                 }
-                forwardInfo.originalTid = bvVar.getTid();
+                forwardInfo.originalTid = bwVar.getTid();
             }
             if (i == 1) {
-                if (bvVar.dUi != null && bvVar.dUi.oriUgcInfo != null) {
+                if (bwVar.edE != null && bwVar.edE.oriUgcInfo != null) {
                     forwardInfo.baijiahaoData = new BaijiahaoData();
-                    forwardInfo.baijiahaoData.oriUgcNid = bvVar.dUi.oriUgcInfo.oriUgcNid;
-                    forwardInfo.baijiahaoData.oriUgcTid = bvVar.dUi.oriUgcInfo.oriUgcTid;
-                    forwardInfo.baijiahaoData.oriUgcType = bvVar.dUi.oriUgcInfo.oriUgcType;
-                    forwardInfo.baijiahaoData.oriUgcVid = bvVar.dUi.oriUgcInfo.oriUgcVid;
-                    forwardInfo.baijiahaoData.forwardUrl = bvVar.dUi.oriUgcInfo.forwardUrl;
-                } else if (bvVar.getBaijiahaoData() != null) {
+                    forwardInfo.baijiahaoData.oriUgcNid = bwVar.edE.oriUgcInfo.oriUgcNid;
+                    forwardInfo.baijiahaoData.oriUgcTid = bwVar.edE.oriUgcInfo.oriUgcTid;
+                    forwardInfo.baijiahaoData.oriUgcType = bwVar.edE.oriUgcInfo.oriUgcType;
+                    forwardInfo.baijiahaoData.oriUgcVid = bwVar.edE.oriUgcInfo.oriUgcVid;
+                    forwardInfo.baijiahaoData.forwardUrl = bwVar.edE.oriUgcInfo.forwardUrl;
+                } else if (bwVar.getBaijiahaoData() != null) {
                     forwardInfo.baijiahaoData = new BaijiahaoData();
-                    forwardInfo.baijiahaoData.oriUgcNid = bvVar.getBaijiahaoData().oriUgcNid;
-                    forwardInfo.baijiahaoData.oriUgcTid = bvVar.getBaijiahaoData().oriUgcTid;
-                    forwardInfo.baijiahaoData.oriUgcType = bvVar.getBaijiahaoData().oriUgcType;
-                    forwardInfo.baijiahaoData.oriUgcVid = bvVar.getBaijiahaoData().oriUgcVid;
-                    forwardInfo.baijiahaoData.forwardUrl = bvVar.getBaijiahaoData().forwardUrl;
+                    forwardInfo.baijiahaoData.oriUgcNid = bwVar.getBaijiahaoData().oriUgcNid;
+                    forwardInfo.baijiahaoData.oriUgcTid = bwVar.getBaijiahaoData().oriUgcTid;
+                    forwardInfo.baijiahaoData.oriUgcType = bwVar.getBaijiahaoData().oriUgcType;
+                    forwardInfo.baijiahaoData.oriUgcVid = bwVar.getBaijiahaoData().oriUgcVid;
+                    forwardInfo.baijiahaoData.forwardUrl = bwVar.getBaijiahaoData().forwardUrl;
                 }
-            } else if (bvVar.getBaijiahaoData() != null) {
+            } else if (bwVar.getBaijiahaoData() != null) {
                 forwardInfo.baijiahaoData = new BaijiahaoData();
-                forwardInfo.baijiahaoData.oriUgcNid = bvVar.getBaijiahaoData().oriUgcNid;
-                forwardInfo.baijiahaoData.oriUgcTid = bvVar.getBaijiahaoData().oriUgcTid;
-                forwardInfo.baijiahaoData.oriUgcType = bvVar.getBaijiahaoData().oriUgcType;
-                forwardInfo.baijiahaoData.oriUgcVid = bvVar.getBaijiahaoData().oriUgcVid;
-                forwardInfo.baijiahaoData.forwardUrl = bvVar.getBaijiahaoData().forwardUrl;
+                forwardInfo.baijiahaoData.oriUgcNid = bwVar.getBaijiahaoData().oriUgcNid;
+                forwardInfo.baijiahaoData.oriUgcTid = bwVar.getBaijiahaoData().oriUgcTid;
+                forwardInfo.baijiahaoData.oriUgcType = bwVar.getBaijiahaoData().oriUgcType;
+                forwardInfo.baijiahaoData.oriUgcVid = bwVar.getBaijiahaoData().oriUgcVid;
+                forwardInfo.baijiahaoData.forwardUrl = bwVar.getBaijiahaoData().forwardUrl;
             }
-            if (bvVar.getBaijiahaoData() != null) {
-                if (bvVar.getBaijiahaoData().oriUgcType == 2) {
-                    if (bvVar.aWD() != null) {
-                        forwardInfo.video_duration = String.valueOf(bvVar.aWD().video_duration);
+            if (bwVar.getBaijiahaoData() != null) {
+                if (bwVar.getBaijiahaoData().oriUgcType == 2) {
+                    if (bwVar.beW() != null) {
+                        forwardInfo.video_duration = String.valueOf(bwVar.beW().video_duration);
                     }
-                } else if ((bvVar.getBaijiahaoData().oriUgcType == 3 || bvVar.getBaijiahaoData().oriUgcType == 4) && bvVar.aWl() != null && !TextUtils.isEmpty(bvVar.aWl().getPortrait())) {
-                    if (bvVar.aWl().getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                        forwardInfo.avatar = bvVar.aWl().getPortrait();
+                } else if ((bwVar.getBaijiahaoData().oriUgcType == 3 || bwVar.getBaijiahaoData().oriUgcType == 4) && bwVar.beE() != null && !TextUtils.isEmpty(bwVar.beE().getPortrait())) {
+                    if (bwVar.beE().getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                        forwardInfo.avatar = bwVar.beE().getPortrait();
                     } else {
-                        forwardInfo.avatar = TbConfig.getBigPhotoAdress() + bvVar.aWl().getPortrait() + ".jpg";
+                        forwardInfo.avatar = TbConfig.getBigPhotoAdress() + bwVar.beE().getPortrait() + ".jpg";
                     }
                 }
             }

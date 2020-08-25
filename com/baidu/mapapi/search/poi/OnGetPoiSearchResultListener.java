@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface OnGetPoiSearchResultListener {
     void onGetPoiDetailResult(PoiDetailResult poiDetailResult);
 

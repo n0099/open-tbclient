@@ -100,9 +100,9 @@ public class a implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h u = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.u(object);
-            if (u != null) {
-                return u.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h v = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.v(object);
+            if (v != null) {
+                return v.g(cVar);
             }
         }
         return null;

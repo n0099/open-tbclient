@@ -11,44 +11,44 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.data.ContriInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static final int DELAY_TIME = 2000;
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener eaN;
-    private a lBf;
-    private ContriInfo lBg;
-    private Runnable lBh;
+    private HttpMessageListener ekw;
+    private a lSK;
+    private ContriInfo lSL;
+    private Runnable lSM;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(ContriInfo contriInfo);
     }
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lBh = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.lSM = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.lBf != null) {
-                    AddExperiencedModel.this.lBf.a(AddExperiencedModel.this.lBg);
+                if (AddExperiencedModel.this.lSK != null) {
+                    AddExperiencedModel.this.lSK.a(AddExperiencedModel.this.lSL);
                 }
             }
         };
-        this.eaN = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.ekw = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.lBg = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.lt().postDelayed(AddExperiencedModel.this.lBh, 2000L);
+                    AddExperiencedModel.this.lSL = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.mS().postDelayed(AddExperiencedModel.this.lSM, 2000L);
                 }
             }
         };
         registerTask();
-        registerListener(this.eaN);
+        registerListener(this.ekw);
     }
 
     private void registerTask() {
@@ -57,14 +57,14 @@ public class AddExperiencedModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void fs(String str, String str2) {
+    public void fJ(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(1003332);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean MZ(String str) {
+    public static boolean PX(String str) {
         return b.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
@@ -79,6 +79,6 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        e.lt().removeCallbacks(this.lBh);
+        e.mS().removeCallbacks(this.lSM);
     }
 }

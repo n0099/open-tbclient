@@ -4,7 +4,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.Window;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public final class WindowCompat {
     public static final int FEATURE_ACTION_BAR = 8;
     public static final int FEATURE_ACTION_BAR_OVERLAY = 9;

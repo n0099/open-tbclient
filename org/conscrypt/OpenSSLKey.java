@@ -15,7 +15,7 @@ import java.security.spec.X509EncodedKeySpec;
 import org.conscrypt.NativeRef;
 import org.conscrypt.OpenSSLX509CertificateFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class OpenSSLKey {
     private final NativeRef.EVP_PKEY ctx;
     private final boolean wrapped;

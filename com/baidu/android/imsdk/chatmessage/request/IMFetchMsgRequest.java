@@ -9,11 +9,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageParser;
+import com.baidu.android.imsdk.request.MessageExt;
+import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
+import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.webkit.internal.ETAG;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +28,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     private Long mAppid;
     private long mBeginid;
@@ -30,10 +36,11 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     private long mContacter;
     private int mCount;
     private long mEndid;
+    private boolean mIsReliable;
     private String mKey;
     private long mUk;
 
-    public IMFetchMsgRequest(Context context, String str, long j, long j2, long j3, int i, int i2, long j4, long j5) {
+    public IMFetchMsgRequest(Context context, String str, long j, long j2, long j3, int i, int i2, long j4, long j5, boolean z) {
         this.mContext = context;
         this.mAppid = Long.valueOf(j);
         this.mUk = j2;
@@ -43,6 +50,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         this.mBeginid = j4;
         this.mEndid = j5;
         this.mKey = str;
+        this.mIsReliable = z;
     }
 
     /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Long] */
@@ -85,6 +93,17 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             arrayList = null;
         }
         LogUtils.d("IMFetchMsgRequest", "requestid : " + str + " , resultCode: " + i3 + " , resultMsg : " + str2);
+        if (this.mIsReliable && arrayList != null && arrayList.size() > 0) {
+            LogUtils.d("IMFetchMsgRequest", "短连接回ack begin");
+            final ArrayList<ChatMsg> arrayList3 = arrayList;
+            TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgRequest.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    IMAckRequest iMAckRequest = new IMAckRequest(IMFetchMsgRequest.this.mContext, IMFetchMsgRequest.this.mKey, IMFetchMsgRequest.this.mUk, IMFetchMsgRequest.this.mContacter, IMFetchMsgRequest.this.mCategory, IMFetchMsgRequest.this.mCount, IMFetchMsgRequest.this.mBeginid, IMFetchMsgRequest.this.mEndid, IMFetchMsgRequest.this.mIsReliable, arrayList3);
+                    HttpHelper.executor(IMFetchMsgRequest.this.mContext, iMAckRequest, iMAckRequest);
+                }
+            });
+        }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener instanceof IFetchMsgByIdListener) {
             ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
@@ -123,6 +142,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        JSONObject json;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         StringBuilder sb = new StringBuilder();
         sb.append("appid=").append(this.mAppid);
@@ -133,12 +153,20 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         sb.append("&sdk_version=").append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
         sb.append("&to=").append(this.mContacter);
         sb.append("&uk=").append(this.mUk);
-        String[] split = sb.toString().split(ETAG.ITEM_SEPARATOR);
+        if (4 == this.mCategory && (json = MessageExt.getInstance().toJson()) != null && json.length() > 0) {
+            sb.append("&ext_info=").append(URLEncoder.encode(json.toString()));
+        }
+        String sb2 = sb.toString();
+        String[] split = sb2.split(ETAG.ITEM_SEPARATOR);
         Arrays.sort(split);
         String str = "";
-        for (int i = 0; i < split.length; i++) {
-            str = str + split[i];
+        for (String str2 : split) {
+            if (str2.contains(UgcConstant.EXT_INFO)) {
+                str2 = URLDecoder.decode(str2);
+            }
+            str = str + str2;
         }
+        LogUtils.d("IMFetchMsgRequest", "IMFetchMsgRequest param:" + sb2);
         LogUtils.d("IMFetchMsgRequest", " " + str);
         sb.append("&sign=").append(getMd5(str));
         return sb.toString().getBytes();

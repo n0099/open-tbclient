@@ -1,32 +1,32 @@
 package com.baidu.swan.apps.storage.b;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
-    boolean V(String str, boolean z);
+    String aCZ();
 
-    String auQ();
-
-    String auR();
+    String aDa();
 
     @NonNull
-    d auS();
+    d aDb();
 
-    boolean pC(String str);
+    boolean aa(String str, boolean z);
 
-    boolean pD(String str);
+    boolean rC(String str);
 
-    String pI(String str);
+    boolean rD(String str);
 
-    String pR(String str);
+    String rI(String str);
 
-    String pS(String str);
+    String rR(String str);
 
-    String pT(String str);
+    String rS(String str);
 
-    String pU(String str);
+    String rT(String str);
 
-    String pV(String str);
+    String rU(String str);
 
-    String pW(String str);
+    String rV(String str);
+
+    String rW(String str);
 }

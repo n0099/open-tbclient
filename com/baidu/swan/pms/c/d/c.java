@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class c extends g {
-    private String dxf;
-    private int dxg;
-    private long dxh;
-    private String dxi;
-    private String dxj;
-    private int dxk;
+    private String dGk;
+    private long dGl;
+    private long dGm;
+    private String dGn;
+    private String dGo;
+    private int dGp;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dxg = -1;
-        this.dxh = -1L;
-        this.dxk = -1;
-        this.dxf = str;
+        this.dGl = -1L;
+        this.dGm = -1L;
+        this.dGp = -1;
+        this.dGk = str;
     }
 
-    public c jM(int i) {
-        this.dxk = i;
+    public c lT(int i) {
+        this.dGp = i;
         return this;
     }
 
-    public int aLN() {
-        return this.dxk;
+    public int aUm() {
+        return this.dGp;
     }
 
-    public c uy(String str) {
-        this.dxi = str;
+    public c wH(String str) {
+        this.dGn = str;
         return this;
     }
 
-    public c jN(int i) {
-        this.dxg = i;
+    public c cl(long j) {
+        this.dGl = j;
         return this;
     }
 
-    public c ce(long j) {
-        this.dxh = j;
+    public c cm(long j) {
+        this.dGm = j;
         return this;
     }
 
-    public c uz(String str) {
-        this.dxj = str;
+    public c wI(String str) {
+        this.dGo = str;
         return this;
     }
 
-    public c uA(String str) {
+    public c wJ(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.dxf;
+        return this.dGk;
     }
 
-    public int aLL() {
-        return this.dxg;
+    public long aUk() {
+        return this.dGl;
     }
 
-    public long aLM() {
-        return this.dxh;
+    public long aUl() {
+        return this.dGm;
     }
 
-    public String aLO() {
-        return this.dxi;
+    public String aUn() {
+        return this.dGn;
     }
 
-    public String aLP() {
-        return this.dxj;
+    public String aUo() {
+        return this.dGo;
     }
 
     public String getPath() {

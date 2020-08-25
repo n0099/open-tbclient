@@ -2,11 +2,11 @@ package com.baidu.tieba.pb.interactionpopupwindow;
 
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface f<V extends g, D extends IBaseDialogData> {
-    boolean Im();
+    boolean Of();
 
-    boolean In();
+    boolean Og();
 
     void dismiss();
 

@@ -3,7 +3,7 @@ package android.support.v4.internal.view;
 import android.support.annotation.RestrictTo;
 import android.view.Menu;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public interface SupportMenu extends Menu {
     public static final int CATEGORY_MASK = -65536;
     public static final int CATEGORY_SHIFT = 16;

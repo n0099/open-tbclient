@@ -30,7 +30,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class BdSailor implements INoProGuard {
     public static final String LOG_TAG = BdSailor.class.getSimpleName();
     protected static BdSailor sInstance;
@@ -93,7 +93,7 @@ public class BdSailor implements INoProGuard {
         }
         Log.i(EngineManager.LOG_TAG, "start check zeus update after notifyUserPrivacyConfirmInner");
         getAppContext();
-        com.baidu.browser.sailor.webkit.update.a.rI().a(getAppContext());
+        com.baidu.browser.sailor.webkit.update.a.tt().a(getAppContext());
     }
 
     private void setSailorFeatureListener() {
@@ -275,17 +275,17 @@ public class BdSailor implements INoProGuard {
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = BdWebkitManager.a.a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
         if (z2) {
-            ZeusPerformanceTiming.initSysWebkitStart();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
         } else {
-            ZeusPerformanceTiming.initWebkitStart();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
         }
         BdSailorPlatform.getInstance().initWebkit(str, z, cls);
         if (z2) {
-            ZeusPerformanceTiming.initSysWebkitEnd();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
             android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getSysInitTiming());
             return;
         }
-        ZeusPerformanceTiming.initWebkitEnd();
+        ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
         android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getZeusInitTiming());
     }
 
@@ -370,7 +370,7 @@ public class BdSailor implements INoProGuard {
     }
 
     public void pause() {
-        if (isInit()) {
+        if (WebKitFactory.isUserPrivacyEnabled() && isInit()) {
             WebSettingsGlobalBlink.notifyPause();
             Log.d(LOG_TAG, "BdSailor::pause");
             BdSailorPlatform.getInstance().pause();
@@ -389,7 +389,7 @@ public class BdSailor implements INoProGuard {
     }
 
     public void resume() {
-        if (isInit()) {
+        if (WebKitFactory.isUserPrivacyEnabled() && isInit()) {
             WebSettingsGlobalBlink.notifyResume();
             Log.d(LOG_TAG, "BdSailor::resume");
             BdSailorPlatform.getInstance().resume();
@@ -430,7 +430,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().adv = this.mClient;
+        BdSailorPlatform.getStatic().aeI = this.mClient;
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {
@@ -453,6 +453,10 @@ public class BdSailor implements INoProGuard {
 
     public void startCaptureCurrentPageContent() {
         getCurSailorWebView().getWebViewExt().startCaptureContentExt();
+    }
+
+    public void startCheckUpdate() {
+        BdSailorPlatform.getInstance().startCheckUpdate();
     }
 
     public void syncCookie(String str, String str2) {

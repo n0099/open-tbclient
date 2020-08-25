@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends n {
-    private l dYf;
+    private l ehL;
 
     public d(l lVar) {
         super(lVar);
-        this.dYf = lVar;
+        this.ehL = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String aSW() {
+    public String bbn() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @o(aZB = false, value = "showShareDialog")
+    @o(bhW = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
@@ -42,7 +42,7 @@ public class d extends n {
                 shareItem.imageUri = Uri.parse(optString3);
             }
             shareItem.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.dYf.getContext(), shareItem, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.ehL.getContext(), shareItem, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));

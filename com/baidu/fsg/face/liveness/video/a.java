@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class a extends h {
     public static volatile boolean b = false;
     public static volatile boolean c = false;

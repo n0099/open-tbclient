@@ -33,10 +33,10 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
     }
 
     public ArrayList<q> getThreadList() {
-        return this.enterForumTabFeedData.bWn();
+        return this.enterForumTabFeedData.cgA();
     }
 
     public Object getExtra() {
-        return this.enterForumTabFeedData.bWp();
+        return this.enterForumTabFeedData.cgC();
     }
 }

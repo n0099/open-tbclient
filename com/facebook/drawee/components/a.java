@@ -5,53 +5,53 @@ import android.os.Looper;
 import com.facebook.common.internal.g;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static a mTl = null;
-    private final Runnable mTn = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a nnb = null;
+    private final Runnable nnd = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.dDI();
-            for (InterfaceC0808a interfaceC0808a : a.this.mTm) {
-                interfaceC0808a.release();
+            a.dPI();
+            for (InterfaceC0866a interfaceC0866a : a.this.nnc) {
+                interfaceC0866a.release();
             }
-            a.this.mTm.clear();
+            a.this.nnc.clear();
         }
     };
-    private final Set<InterfaceC0808a> mTm = new HashSet();
+    private final Set<InterfaceC0866a> nnc = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0808a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0866a {
         void release();
     }
 
-    public static synchronized a dDH() {
+    public static synchronized a dPH() {
         a aVar;
         synchronized (a.class) {
-            if (mTl == null) {
-                mTl = new a();
+            if (nnb == null) {
+                nnb = new a();
             }
-            aVar = mTl;
+            aVar = nnb;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0808a interfaceC0808a) {
-        dDI();
-        if (this.mTm.add(interfaceC0808a) && this.mTm.size() == 1) {
-            this.mUiHandler.post(this.mTn);
+    public void a(InterfaceC0866a interfaceC0866a) {
+        dPI();
+        if (this.nnc.add(interfaceC0866a) && this.nnc.size() == 1) {
+            this.mUiHandler.post(this.nnd);
         }
     }
 
-    public void b(InterfaceC0808a interfaceC0808a) {
-        dDI();
-        this.mTm.remove(interfaceC0808a);
+    public void b(InterfaceC0866a interfaceC0866a) {
+        dPI();
+        this.nnc.remove(interfaceC0866a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dDI() {
+    public static void dPI() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

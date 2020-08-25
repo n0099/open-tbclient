@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Message;
-import android.view.InputEvent;
 import android.view.KeyEvent;
 import android.webkit.ClientCertRequest;
 import android.webkit.HttpAuthHandler;
@@ -14,7 +13,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class WebViewClientWrapper extends WebViewClient {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final com.baidu.webkit.sdk.WebViewClient mClient;
@@ -149,13 +148,6 @@ final class WebViewClientWrapper extends WebViewClient {
             throw new AssertionError();
         }
         this.mClient.onTooManyRedirects(this.mWebView.getWebView(), message, message2);
-    }
-
-    public final void onUnhandledInputEvent(WebView webView, InputEvent inputEvent) {
-        if (!$assertionsDisabled && webView != this.mWebView) {
-            throw new AssertionError();
-        }
-        this.mClient.onUnhandledInputEvent(this.mWebView.getWebView(), inputEvent);
     }
 
     @Override // android.webkit.WebViewClient

@@ -1,10 +1,10 @@
 package com.baidu.live.ar;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
-    private int auL;
-    private String auZ;
+    private String aAb;
+    private int azN;
     private String mFile;
     private String mId;
     private String mName;
@@ -14,8 +14,8 @@ public class f {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
             this.mFile = jSONObject.optString("file");
-            this.auZ = jSONObject.optString("bgurl");
-            this.auL = jSONObject.optInt("effect");
+            this.aAb = jSONObject.optString("bgurl");
+            this.azN = jSONObject.optInt("effect");
         }
     }
 
@@ -23,15 +23,15 @@ public class f {
         return this.mName;
     }
 
-    public String vr() {
+    public String AP() {
         return this.mFile;
     }
 
-    public String vq() {
-        return this.auZ;
+    public String AO() {
+        return this.aAb;
     }
 
-    public int vu() {
-        return this.auL;
+    public int AS() {
+        return this.azN;
     }
 }

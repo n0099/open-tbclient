@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ShareReportNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
@@ -22,7 +22,7 @@ public class ShareReportNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1213common = getCommon();
+        builder.f1217common = getCommon();
         builder.fid = Long.valueOf(getFid());
         builder.tid = Long.valueOf(getTid());
         builder.from = Integer.valueOf(getFrom());

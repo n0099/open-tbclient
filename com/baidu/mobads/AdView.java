@@ -13,15 +13,15 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes20.dex */
 public final class AdView extends RelativeLayout {
-    private AtomicBoolean bxo;
-    IOAdEventListener bxp;
-    private com.baidu.mobads.production.a.a bxq;
-    private AdViewListener bxr;
+    private AtomicBoolean b;
+    IOAdEventListener bCX;
+    private com.baidu.mobads.production.a.a bCY;
+    private AdViewListener bCZ;
 
     public AdView(Context context) {
         super(context);
-        this.bxo = new AtomicBoolean(false);
-        this.bxp = new a(this);
+        this.b = new AtomicBoolean(false);
+        this.bCX = new a(this);
     }
 
     public AdView(Context context, String str) {
@@ -39,24 +39,24 @@ public final class AdView extends RelativeLayout {
 
     public AdView(Context context, AttributeSet attributeSet, boolean z, AdSize adSize, String str) {
         super(context, attributeSet);
-        this.bxo = new AtomicBoolean(false);
-        this.bxp = new a(this);
+        this.b = new AtomicBoolean(false);
+        this.bCX = new a(this);
         XAdView xAdView = new XAdView(context);
-        this.bxq = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
-        this.bxq.addEventListener(IXAdEvent.AD_LOADED, this.bxp);
-        this.bxq.addEventListener(IXAdEvent.AD_ERROR, this.bxp);
-        this.bxq.addEventListener(IXAdEvent.AD_STARTED, this.bxp);
-        this.bxq.addEventListener("AdUserClick", this.bxp);
-        this.bxq.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bxp);
+        this.bCY = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
+        this.bCY.addEventListener(IXAdEvent.AD_LOADED, this.bCX);
+        this.bCY.addEventListener(IXAdEvent.AD_ERROR, this.bCX);
+        this.bCY.addEventListener(IXAdEvent.AD_STARTED, this.bCX);
+        this.bCY.addEventListener("AdUserClick", this.bCX);
+        this.bCY.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bCX);
         xAdView.setListener(new c(this));
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (!this.bxo.get()) {
-            this.bxo.set(true);
-            this.bxq.request();
+        if (!this.b.get()) {
+            this.b.set(true);
+            this.bCY.request();
         }
     }
 
@@ -84,16 +84,16 @@ public final class AdView extends RelativeLayout {
         }
         layoutParams.width = i2;
         layoutParams.height = i;
-        if (this.bxq != null && this.bxq.getAdRequestInfo() != null) {
-            this.bxq.getAdRequestInfo().d(layoutParams.width);
-            this.bxq.getAdRequestInfo().e(layoutParams.height);
+        if (this.bCY != null && this.bCY.getAdRequestInfo() != null) {
+            this.bCY.getAdRequestInfo().d(layoutParams.width);
+            this.bCY.getAdRequestInfo().e(layoutParams.height);
         }
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams adapter", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height));
         super.setLayoutParams(layoutParams);
     }
 
     public void setListener(AdViewListener adViewListener) {
-        this.bxr = adViewListener;
+        this.bCZ = adViewListener;
     }
 
     @Override // android.view.View
@@ -107,7 +107,7 @@ public final class AdView extends RelativeLayout {
     }
 
     public void destroy() {
-        this.bxq.p();
+        this.bCY.p();
     }
 
     public static void setAppSid(Context context, String str) {

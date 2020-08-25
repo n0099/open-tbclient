@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.apps.u.c.e;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a cOP;
+    public static a cXP;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.cOO) {
+                switch (searchFlowEvent.cXO) {
                     case START:
-                        auC();
-                        if (cOP != null) {
-                            cOP.a(searchFlowEvent);
+                        aCL();
+                        if (cXP != null) {
+                            cXP.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (cOP != null) {
-                            cOP.a(searchFlowEvent);
+                        if (cXP != null) {
+                            cXP.a(searchFlowEvent);
                         }
-                        XU();
+                        aea();
                         break;
                     case NORMAL:
-                        if (cOP != null) {
-                            cOP.a(searchFlowEvent);
+                        if (cXP != null) {
+                            cXP.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -50,10 +50,10 @@ public final class b {
     public static synchronized void p(com.baidu.swan.apps.u.c.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                e(bVar.ajl(), bVar.ajg());
-                if (cOP != null) {
-                    cOP.setAppId(bVar.getAppId());
-                    cOP.setSource(bVar.ajg());
+                f(bVar.aqS(), bVar.aqN());
+                if (cXP != null) {
+                    cXP.setAppId(bVar.getAppId());
+                    cXP.setSource(bVar.aqN());
                 }
             }
         }
@@ -62,30 +62,30 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                e(eVar.ajm(), eVar.ajg());
-                if (cOP != null) {
-                    cOP.setAppId(eVar.getAppId());
-                    cOP.setSource(eVar.ajg());
+                f(eVar.aqT(), eVar.aqN());
+                if (cXP != null) {
+                    cXP.setAppId(eVar.getAppId());
+                    cXP.setSource(eVar.aqN());
                 }
             }
         }
     }
 
-    private static void auC() {
-        if (cOP != null) {
-            cOP.destroy();
-            cOP = null;
+    private static void aCL() {
+        if (cXP != null) {
+            cXP.destroy();
+            cXP = null;
         }
-        cOP = new a("772");
+        cXP = new a("772");
     }
 
-    private static void XU() {
-        if (cOP != null) {
-            cOP.send();
+    private static void aea() {
+        if (cXP != null) {
+            cXP.send();
         }
     }
 
-    private static void e(Bundle bundle, String str) {
+    private static void f(Bundle bundle, String str) {
         if (bundle != null) {
             String string = bundle.getString("search_id");
             if (TextUtils.isEmpty(string) && !TextUtils.equals(PayHelper.STATUS_FAIL, str)) {
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (cOP != null) {
-                cOP.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                cOP.addExt("url", bundle.getString("search_url"));
+            if (cXP != null) {
+                cXP.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                cXP.addExt("url", bundle.getString("search_url"));
             }
         }
     }

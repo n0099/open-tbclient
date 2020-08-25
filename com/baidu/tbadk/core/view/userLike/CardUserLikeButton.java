@@ -5,9 +5,9 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public CardUserLikeButton(Context context) {
         super(context);
@@ -30,15 +30,15 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void r(boolean z, int i) {
-        this.emQ = z;
+        this.ewU = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.emO);
+            setText(this.ewS);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.emP);
+            setText(this.ewT);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -46,14 +46,14 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.emQ) {
+        if (this.ewU) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            ao.setViewTextColor(this, R.color.cp_cont_e, 1, i);
+            ap.setViewTextColor(this, R.color.cp_cont_e, 1, i);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(i, R.drawable.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        ao.setViewTextColor(this, R.color.pb_like_user_select_color, 1, i);
-        ao.setBackgroundResource(this, R.drawable.btn_focus_border_bg, i);
+        setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(i, R.drawable.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setViewTextColor(this, R.color.pb_like_user_select_color, 1, i);
+        ap.setBackgroundResource(this, R.drawable.btn_focus_border_bg, i);
     }
 }

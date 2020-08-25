@@ -5,9 +5,9 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public abstract class ChunkOffsetBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -15,7 +15,7 @@ public abstract class ChunkOffsetBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ChunkOffsetBox.java", ChunkOffsetBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.ChunkOffsetBox", "", "", "", FieldUtil.TYPE_STRING), 17);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.ChunkOffsetBox", "", "", "", FieldUtil.TYPE_STRING), 17);
     }
 
     public abstract long[] getChunkOffsets();

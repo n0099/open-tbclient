@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SettingChangeMessage extends CustomResponsedMessage<Integer> {
     public static final int TYPE_GROUP = 1;
     public static final int TYPE_OFFICIAL = 2;

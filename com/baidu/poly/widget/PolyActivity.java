@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.poly.a;
 import com.baidu.poly.a.h.d;
 import com.baidu.poly.widget.m;
@@ -13,27 +14,20 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class PolyActivity extends Activity {
-    private static com.baidu.poly.d.a.c bBj;
-    private static a.b bBk;
-    private static PolyActivity bBl;
+/* loaded from: classes6.dex */
+public class PolyActivity extends Activity implements m.l {
+    private static com.baidu.poly.d.a.c bGN;
+    private static a.b bGO;
+    private static PolyActivity bGP;
     private static boolean o;
-    private m bBm;
-    private Bundle bBn;
+    private m bGQ;
+    private Bundle bGR;
 
-    /* loaded from: classes9.dex */
-    class a implements m.l {
-        a() {
-        }
-
-        @Override // com.baidu.poly.widget.m.l
-        public void onClose() {
-            PolyActivity.this.finish();
-        }
+    private void Ut() {
+        this.bGR = getIntent().getBundleExtra("pay_arguements");
     }
 
-    private String OB() {
+    private String Uu() {
         try {
             return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
@@ -42,27 +36,23 @@ public class PolyActivity extends Activity {
         }
     }
 
-    private static void X() {
-        if (bBl != null) {
-            if (bBk != null) {
-                String a2 = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
-                bBk.onResult(2, a2);
-                d.b(2, a2);
+    private static void Y() {
+        if (bGP != null) {
+            if (bGO != null) {
+                String a = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
+                bGO.onResult(2, a);
+                d.b(2, a);
             }
-            bBl.finish();
+            bGP.finish();
         }
-    }
-
-    private void Y() {
-        this.bBn = getIntent().getBundleExtra("pay_arguements");
     }
 
     public static void a(Context context, com.baidu.poly.d.a.c cVar, a.b bVar, Bundle bundle) {
         if (o) {
-            X();
+            Y();
         }
-        bBj = cVar;
-        bBk = bVar;
+        bGN = cVar;
+        bGO = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -72,25 +62,16 @@ public class PolyActivity extends Activity {
         context.startActivity(intent);
     }
 
-    private void clear() {
-        this.bBm = null;
-        bBj = null;
-        this.bBn = null;
-        bBk = null;
-        o = false;
-        bBl = null;
-    }
-
-    private Bundle m(Bundle bundle) {
+    private Bundle c(Bundle bundle) {
         if (bundle == null) {
             return new Bundle();
         }
-        d.bAj = bundle.getString("bduss");
-        d.bAk = bundle.getString("tpOrderId");
-        d.bAn = bundle.getString("nativeAppId");
+        d.nd = bundle.getString("bduss");
+        d.bFO = bundle.getString("tpOrderId");
+        d.bFR = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
-        bundle.putString(CommandMessage.SDK_VERSION, "2.7.2");
+        bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
         String[] stringArray = bundle.getStringArray("blockedPayChannels");
         if (stringArray != null && stringArray.length > 0) {
             bundle.remove("blockedPayChannels");
@@ -102,6 +83,15 @@ public class PolyActivity extends Activity {
         }
         b(bundle);
         return bundle;
+    }
+
+    private void clear() {
+        this.bGQ = null;
+        bGN = null;
+        this.bGR = null;
+        bGO = null;
+        o = false;
+        bGP = null;
     }
 
     @Override // android.app.Activity
@@ -117,10 +107,10 @@ public class PolyActivity extends Activity {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.j.a.Os().a((Context) this, intent.getExtras(), this.bBm, true);
+                com.baidu.poly.a.j.a.Um().a((Context) this, intent.getExtras(), this.bGQ, true);
                 return;
             }
-            m mVar = this.bBm;
+            m mVar = this.bGQ;
             if (mVar != null) {
                 mVar.a(3, "pay canceled , back from H5. ");
             }
@@ -129,7 +119,7 @@ public class PolyActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        m mVar = this.bBm;
+        m mVar = this.bGQ;
         if (mVar == null) {
             super.onBackPressed();
             return;
@@ -140,14 +130,19 @@ public class PolyActivity extends Activity {
         com.baidu.poly.util.d.info("PolyActivity onBackPressed");
     }
 
+    @Override // com.baidu.poly.widget.m.l
+    public void onClose() {
+        finish();
+    }
+
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         o = true;
-        bBl = this;
-        d.G();
+        bGP = this;
+        d.H();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
-        Y();
+        Ut();
         com.baidu.poly.util.d.info("PolyActivity onCreate");
     }
 
@@ -175,10 +170,19 @@ public class PolyActivity extends Activity {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.bBm == null && !isFinishing()) {
-            this.bBm = new m(this);
-            setContentView(this.bBm);
-            this.bBm.a(bBk).n(m(this.bBn)).a(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, bBj))).a(new a()).OI();
+        if (z && this.bGQ == null && !isFinishing() && this.bGR != null) {
+            this.bGQ = new m(this);
+            setContentView(this.bGQ);
+            this.bGQ.setResultListener(bGO);
+            this.bGQ.setCloseListener(this);
+            this.bGQ.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, bGN)));
+            String string = this.bGR.getString("chosenChannel");
+            if (TextUtils.equals(this.bGR.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
+                this.bGQ.c(c(this.bGR), string);
+                return;
+            }
+            this.bGQ.a(c(this.bGR));
+            this.bGQ.UE();
         }
     }
 
@@ -190,10 +194,10 @@ public class PolyActivity extends Activity {
                     bundle.remove("zid");
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("c", bundle.getString("cuid"));
-                    jSONObject.put("z", string);
+                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, string);
                     jSONObject.put("mac", com.baidu.poly.util.a.getMacAddress());
                     jSONObject.put("app", "android");
-                    jSONObject.put("ver", OB());
+                    jSONObject.put("ver", Uu());
                     bundle.putString("deviceInfo", jSONObject.toString());
                 }
             } catch (Exception e) {

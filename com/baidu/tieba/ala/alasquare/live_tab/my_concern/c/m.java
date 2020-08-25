@@ -4,35 +4,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class m extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c> {
-    private k fvM;
-    private k fvN;
-    private k fvO;
+    private k fHe;
+    private k fHf;
+    private k fHg;
     ViewGroup rootView;
 
     public m(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.fvM = new k(tbPageContext);
-        this.fvN = new k(tbPageContext);
-        this.fvO = new k(tbPageContext);
+        this.fHe = new k(tbPageContext);
+        this.fHf = new k(tbPageContext);
+        this.fHg = new k(tbPageContext);
         this.rootView = (ViewGroup) getView();
         new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.fvM.getView());
-        this.rootView.addView(this.fvN.getView());
-        this.rootView.addView(this.fvO.getView());
+        this.rootView.addView(this.fHe.getView());
+        this.rootView.addView(this.fHf.getView());
+        this.rootView.addView(this.fHg.getView());
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.fvM.onChangeSkinType(tbPageContext, i);
-        this.fvN.onChangeSkinType(tbPageContext, i);
-        this.fvO.onChangeSkinType(tbPageContext, i);
+        ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
+        this.fHe.onChangeSkinType(tbPageContext, i);
+        this.fHf.onChangeSkinType(tbPageContext, i);
+        this.fHg.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -44,9 +44,9 @@ public class m extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar) {
         if (cVar != null) {
-            this.fvM.b(cVar.fts);
-            this.fvN.b(cVar.fuG);
-            this.fvO.b(cVar.ftt);
+            this.fHe.b(cVar.fEL);
+            this.fHf.b(cVar.fFZ);
+            this.fHg.b(cVar.fEM);
         }
     }
 
@@ -55,8 +55,8 @@ public class m extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     }
 
     public void a(o oVar) {
-        this.fvM.a(oVar);
-        this.fvN.a(oVar);
-        this.fvO.a(oVar);
+        this.fHe.a(oVar);
+        this.fHf.a(oVar);
+        this.fHg.a(oVar);
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.ala.dumixar.utils.LuaMessageHelper;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arrender.f;
 import com.baidu.ar.c;
-import com.baidu.ar.c.g;
-import com.baidu.ar.f.l;
+import com.baidu.ar.d.g;
 import com.baidu.ar.filter.FilterNode;
 import com.baidu.ar.filter.FilterParam;
+import com.baidu.ar.g.n;
 import com.baidu.ar.libloader.a;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
@@ -66,16 +66,20 @@ public class b {
             try {
                 switch (message.what) {
                     case 1001:
-                        C0080b c0080b = (C0080b) message.obj;
-                        b.this.a(c0080b.mClassName, c0080b.F, c0080b.G, c0080b.H, c0080b.I, c0080b.J);
+                        c cVar = (c) message.obj;
+                        b.this.a(cVar.mClassName, cVar.G, cVar.H, cVar.F, cVar.I, cVar.J);
                         break;
                     case 1002:
-                        c cVar = (c) message.obj;
-                        b.this.a(cVar.mClassName, cVar.I, cVar.J);
+                        C0077b c0077b = (C0077b) message.obj;
+                        b.this.a(c0077b.mClassName, c0077b.F);
+                        break;
+                    case 1003:
+                        d dVar = (d) message.obj;
+                        b.this.a(dVar.mClassName, dVar.I, dVar.J);
                         break;
                 }
             } catch (Exception e) {
-                com.baidu.ar.f.b.b("AbilityManager", "handleMessage Exception: " + e.getMessage());
+                com.baidu.ar.g.b.b("AbilityManager", "handleMessage Exception: " + e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -84,49 +88,61 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0080b {
-        List<String> F;
-        boolean G;
-        HashMap<String, Object> H;
-        String I;
-        com.baidu.ar.c.e J;
+    public class C0077b {
+        HashMap<String, Object> F;
         String mClassName;
 
-        C0080b(String str, String str2, boolean z, HashMap<String, Object> hashMap) {
+        C0077b(String str, HashMap<String, Object> hashMap) {
             this.mClassName = str;
-            this.F = new ArrayList();
-            this.F.add(str2);
-            this.G = z;
-            this.H = hashMap;
-        }
-
-        C0080b(String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.c.e eVar) {
-            this.mClassName = str;
-            this.I = str2;
-            this.H = hashMap;
-            this.J = eVar;
-        }
-
-        C0080b(String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
-            this.mClassName = str;
-            this.F = list;
-            this.G = z;
-            this.H = hashMap;
+            this.F = hashMap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public class c {
+        HashMap<String, Object> F;
+        List<String> G;
+        boolean H;
         String I;
-        com.baidu.ar.c.e J;
+        com.baidu.ar.d.e J;
         String mClassName;
 
-        c(String str) {
+        c(String str, String str2, boolean z, HashMap<String, Object> hashMap) {
+            this.mClassName = str;
+            this.G = new ArrayList();
+            this.G.add(str2);
+            this.H = z;
+            this.F = hashMap;
+        }
+
+        c(String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.d.e eVar) {
+            this.mClassName = str;
+            this.I = str2;
+            this.F = hashMap;
+            this.J = eVar;
+        }
+
+        c(String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
+            this.mClassName = str;
+            this.G = list;
+            this.H = z;
+            this.F = hashMap;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes11.dex */
+    public class d {
+        String I;
+        com.baidu.ar.d.e J;
+        String mClassName;
+
+        d(String str) {
             this.mClassName = str;
         }
 
-        c(String str, String str2, com.baidu.ar.c.e eVar) {
+        d(String str, String str2, com.baidu.ar.d.e eVar) {
             this.mClassName = str;
             this.I = str2;
             this.J = eVar;
@@ -170,14 +186,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2, com.baidu.ar.c.e eVar) {
+    public void a(String str, String str2, com.baidu.ar.d.e eVar) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.ar.f.b.b("AbilityManager", "destroyAbility error!!! arClassName is empty!!!");
+            com.baidu.ar.g.b.b("AbilityManager", "destroyAbility error!!! arClassName is empty!!!");
             return;
         }
         com.baidu.ar.c cVar = this.l.get(str);
         if (cVar == null) {
-            com.baidu.ar.f.b.b("AbilityManager", "destroyAbility error!!! As arClassName = " + str + " not active!!!");
+            com.baidu.ar.g.b.b("AbilityManager", "destroyAbility error!!! As arClassName = " + str + " not active!!!");
             return;
         }
         if (TextUtils.isEmpty(str2) || eVar == null) {
@@ -195,14 +211,22 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, List<String> list, boolean z, HashMap<String, Object> hashMap, String str2, com.baidu.ar.c.e eVar) {
-        if (!com.baidu.ar.ability.a.l(str)) {
-            com.baidu.ar.f.b.b("AbilityManager", "checkARTypeAuth error!!!");
+    public void a(String str, HashMap<String, Object> hashMap) {
+        com.baidu.ar.c cVar = this.l.get(str);
+        if (cVar != null) {
+            cVar.adjust(hashMap);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, List<String> list, boolean z, HashMap<String, Object> hashMap, String str2, com.baidu.ar.d.e eVar) {
+        if (!com.baidu.ar.ability.a.m(str)) {
+            com.baidu.ar.g.b.b("AbilityManager", "checkARTypeAuth error!!!");
             return;
         }
         com.baidu.ar.c cVar = this.l.get(str);
         if (cVar != null) {
-            com.baidu.ar.f.b.c("AbilityManager", "createARAbility arClassName = " + str + " ARAbility exist!!!");
+            com.baidu.ar.g.b.c("AbilityManager", "createARAbility arClassName = " + str + " ARAbility exist!!!");
             if (list != null) {
                 if (z) {
                     cVar.o();
@@ -213,7 +237,7 @@ public class b {
         } else {
             cVar = e(str);
             if (cVar == null) {
-                com.baidu.ar.f.b.b("AbilityManager", "createARAbility createARAbility error!!!");
+                com.baidu.ar.g.b.b("AbilityManager", "createARAbility createARAbility error!!!");
                 return;
             }
             if (list != null) {
@@ -237,7 +261,7 @@ public class b {
         boolean z = true;
         int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
         boolean z2 = com.baidu.ar.arplay.c.c.a(hashMap.get("open"), -1) == 1;
-        com.baidu.ar.f.b.c("AbilityManager", "operateAbilityById id = " + a2 + " && open = " + z2);
+        com.baidu.ar.g.b.c("AbilityManager", "operateAbilityById id = " + a2 + " && open = " + z2);
         if (a2 == 5001) {
             z = z2;
             str = "ability_gesture";
@@ -263,8 +287,8 @@ public class b {
     }
 
     private void a(final List<String> list) {
-        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0086a() { // from class: com.baidu.ar.b.1
-            @Override // com.baidu.ar.libloader.a.InterfaceC0086a
+        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0083a() { // from class: com.baidu.ar.b.1
+            @Override // com.baidu.ar.libloader.a.InterfaceC0083a
             public void a(ARType aRType, String str, String str2) {
                 b.this.u.addAll(b.this.t);
                 String str3 = (String) b.this.j.get("ability_face_filter");
@@ -272,7 +296,7 @@ public class b {
                     return;
                 }
                 if (b.this.l.get(str3) == null) {
-                    b.this.c.sendMessage(b.this.c.obtainMessage(1001, new C0080b(str3, (List<String>) list, true, (HashMap<String, Object>) null)));
+                    b.this.c.sendMessage(b.this.c.obtainMessage(1001, new c(str3, (List<String>) list, true, (HashMap<String, Object>) null)));
                     return;
                 }
                 ((com.baidu.ar.c) b.this.l.get(str3)).o();
@@ -284,14 +308,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(HashMap<String, Object> hashMap) {
         String str = (String) hashMap.get(LuaMessageHelper.KEY_EVENT_NAME);
-        com.baidu.ar.f.b.c("AbilityManager", "operateAbilityByEvent eventName = " + str);
+        com.baidu.ar.g.b.c("AbilityManager", "operateAbilityByEvent eventName = " + str);
         if (!"ability_operation".equals(str)) {
-            String str2 = com.baidu.ar.ability.b.bF.get(str);
+            String str2 = com.baidu.ar.ability.b.bw.get(str);
             if (!TextUtils.isEmpty(str2)) {
                 startAbility(str2, hashMap);
                 return;
             }
-            String str3 = com.baidu.ar.ability.b.bG.get(str);
+            String str3 = com.baidu.ar.ability.b.bx.get(str);
             if (TextUtils.isEmpty(str3)) {
                 return;
             }
@@ -318,10 +342,10 @@ public class b {
     public void c(HashMap<String, Object> hashMap) {
         if ("ability_operation".equals((String) hashMap.get(LuaMessageHelper.KEY_EVENT_NAME))) {
             String str = (String) hashMap.get("ability_name");
-            if (TextUtils.isEmpty(str) || !com.baidu.ar.ability.b.bE.contains(str)) {
+            if (TextUtils.isEmpty(str) || !com.baidu.ar.ability.b.bv.contains(str)) {
                 return;
             }
-            com.baidu.ar.f.b.c("AbilityManager", "operateFilterState abilityName = " + str);
+            com.baidu.ar.g.b.c("AbilityManager", "operateFilterState abilityName = " + str);
             String str2 = (String) hashMap.get("ability_action");
             if ("open".equals(str2) && "close".equals(str2)) {
                 boolean equals = "open".equals(str2);
@@ -335,16 +359,16 @@ public class b {
                     } else if ("ability_lut_filter".equals(str)) {
                         this.A.a(FilterNode.lutFilter, equals);
                     }
-                    this.A.dw();
+                    this.A.eG();
                 }
             }
         }
     }
 
     private com.baidu.ar.c e(String str) {
-        com.baidu.ar.c cVar = (com.baidu.ar.c) l.aO(str);
+        com.baidu.ar.c cVar = (com.baidu.ar.c) n.aS(str);
         if (cVar == null) {
-            com.baidu.ar.f.b.b("AbilityManager", "createARAbility error!!!");
+            com.baidu.ar.g.b.b("AbilityManager", "createARAbility error!!!");
             return null;
         }
         this.l.put(str, cVar);
@@ -365,7 +389,7 @@ public class b {
 
     private void f(String str) {
         if (this.u.contains(str)) {
-            com.baidu.ar.f.b.c("AbilityManager", "enableAbility() abilityName " + str + " has enabled!!!");
+            com.baidu.ar.g.b.c("AbilityManager", "enableAbility() abilityName " + str + " has enabled!!!");
             return;
         }
         this.u.add(str);
@@ -382,11 +406,11 @@ public class b {
         if (this.j != null) {
             String str2 = this.j.get(str);
             if (!TextUtils.isEmpty(str2) && this.l != null && (cVar = this.l.get(str2)) != null) {
-                cVar.h(str);
+                cVar.i(str);
             }
         }
         if (!this.u.contains(str)) {
-            com.baidu.ar.f.b.c("AbilityManager", "disableAbility() abilityName " + str + " has disabled!!!");
+            com.baidu.ar.g.b.c("AbilityManager", "disableAbility() abilityName " + str + " has disabled!!!");
             return;
         }
         if (str.equals("ability_makeup_filter") || str.equals("ability_face_filter")) {
@@ -424,7 +448,7 @@ public class b {
                 b.this.a(hashMap);
             }
         };
-        this.f.dZ().addLuaMsgListener(this.q);
+        this.f.fl().addLuaMsgListener(this.q);
         this.r = Arrays.asList(LuaMessageHelper.KEY_EVENT_NAME);
         this.s = new LuaMsgListener() { // from class: com.baidu.ar.b.4
             @Override // com.baidu.ar.lua.LuaMsgListener
@@ -438,7 +462,7 @@ public class b {
                 b.this.c(hashMap);
             }
         };
-        this.f.dZ().addLuaMsgListener(this.s);
+        this.f.fl().addLuaMsgListener(this.s);
     }
 
     private void i() {
@@ -452,24 +476,24 @@ public class b {
     private void j() {
         long currentTimeMillis = System.currentTimeMillis();
         ClassLoader classLoader = getClass().getClassLoader();
-        for (Map.Entry<String, String> entry : com.baidu.ar.ability.b.bD.entrySet()) {
-            if (l.a(entry.getValue(), classLoader)) {
+        for (Map.Entry<String, String> entry : com.baidu.ar.ability.b.bu.entrySet()) {
+            if (n.a(entry.getValue(), classLoader)) {
                 this.j.put(entry.getKey(), entry.getValue());
             }
         }
-        this.k.putAll(com.baidu.ar.ability.b.bI);
-        com.baidu.ar.f.b.i("AbilityManager", "initSupportedARClasses mSupportedARClasses = " + this.j.values());
-        com.baidu.ar.f.b.c("AbilityManager", "initSupportedARClasses time cost = " + (System.currentTimeMillis() - currentTimeMillis));
+        this.k.putAll(com.baidu.ar.ability.b.bz);
+        com.baidu.ar.g.b.k("AbilityManager", "initSupportedARClasses mSupportedARClasses = " + this.j.values());
+        com.baidu.ar.g.b.c("AbilityManager", "initSupportedARClasses time cost = " + (System.currentTimeMillis() - currentTimeMillis));
     }
 
     private void k() {
         this.B = new c.a() { // from class: com.baidu.ar.b.5
             @Override // com.baidu.ar.c.a
-            public boolean a(String str, com.baidu.ar.c.e eVar) {
+            public boolean a(String str, com.baidu.ar.d.e eVar) {
                 if (b.this.k != null && b.this.k.containsKey(str)) {
                     String str2 = (String) b.this.k.get(str);
                     if (!TextUtils.isEmpty(str2) && b.this.c != null) {
-                        b.this.c.sendMessage(b.this.c.obtainMessage(1002, new c(str2, str, eVar)));
+                        b.this.c.sendMessage(b.this.c.obtainMessage(1003, new d(str2, str, eVar)));
                         return true;
                     }
                 }
@@ -477,11 +501,11 @@ public class b {
             }
 
             @Override // com.baidu.ar.c.a
-            public boolean a(String str, com.baidu.ar.c.e eVar, HashMap<String, Object> hashMap) {
+            public boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap) {
                 if (b.this.k != null && b.this.k.containsKey(str)) {
                     String str2 = (String) b.this.k.get(str);
                     if (!TextUtils.isEmpty(str2) && b.this.c != null) {
-                        b.this.c.sendMessage(b.this.c.obtainMessage(1001, new C0080b(str2, hashMap, str, eVar)));
+                        b.this.c.sendMessage(b.this.c.obtainMessage(1001, new c(str2, hashMap, str, eVar)));
                         return true;
                     }
                 }
@@ -517,7 +541,7 @@ public class b {
     public void a(ARType aRType) {
         if (aRType != ARType.FACE) {
             g();
-        } else if (!com.baidu.ar.ability.a.m("ability_face_model")) {
+        } else if (!com.baidu.ar.ability.a.n("ability_face_model")) {
             return;
         } else {
             if (this.d.isUseFaceFilter()) {
@@ -525,16 +549,19 @@ public class b {
             }
         }
         this.A.a(FilterParam.SkinFilter.whiten, aRType == ARType.FACE || this.d.isUseBeautyFilter());
-        String str = com.baidu.ar.ability.b.bH.get(aRType);
-        if (TextUtils.isEmpty(str) || this.u.contains(str)) {
+        String str = com.baidu.ar.ability.b.by.get(aRType);
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         String str2 = this.j.get(str);
-        if (aRType == ARType.IMU || TextUtils.isEmpty(str2) || this.c == null) {
+        if (!TextUtils.isEmpty(str2) && this.l.get(str2) != null) {
+            this.l.get(str2).h(str);
+        }
+        if (this.u.contains(str) || aRType == ARType.IMU || TextUtils.isEmpty(str2) || this.c == null) {
             return;
         }
         this.u.add(str);
-        this.c.sendMessage(this.c.obtainMessage(1001, new C0080b(str2, str, false, (HashMap<String, Object>) null)));
+        this.c.sendMessage(this.c.obtainMessage(1001, new c(str2, str, false, (HashMap<String, Object>) null)));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -551,14 +578,14 @@ public class b {
             }
             h();
         } catch (Exception e) {
-            com.baidu.ar.f.b.b("AbilityManager", "setup exception: " + e.getMessage());
+            com.baidu.ar.g.b.b("AbilityManager", "setup exception: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(String str, List<String> list, String str2) {
-        if (TextUtils.isEmpty(str) || list == null || list.size() <= 0 || !l.a(str, getClass().getClassLoader())) {
+        if (TextUtils.isEmpty(str) || list == null || list.size() <= 0 || !n.a(str, getClass().getClassLoader())) {
             return false;
         }
         for (String str3 : list) {
@@ -573,14 +600,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean adjustAbility(String str, HashMap<String, Object> hashMap) {
         if (!this.u.contains(str)) {
-            com.baidu.ar.f.b.b("AbilityManager", "adjustAbility abilityType = " + str + " not start!!!");
+            com.baidu.ar.g.b.b("AbilityManager", "adjustAbility abilityType = " + str + " not start!!!");
+            return false;
+        } else if (this.c != null) {
+            this.c.sendMessage(this.c.obtainMessage(1002, new C0077b(this.j.get(str), hashMap)));
+            return true;
+        } else {
             return false;
         }
-        com.baidu.ar.c cVar = this.l.get(this.j.get(str));
-        if (cVar != null) {
-            cVar.adjust(hashMap);
-        }
-        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -591,7 +618,7 @@ public class b {
         this.t.clear();
         this.u.clear();
         this.u.add("ability_common_filter");
-        if (this.d.isUseFaceFilter() && com.baidu.ar.ability.a.n("ability_face_filter")) {
+        if (this.d.isUseFaceFilter() && com.baidu.ar.ability.a.o("ability_face_filter")) {
             this.t.add("ability_face_filter");
             if (this.A != null) {
                 this.A.a((FilterParam) FilterParam.SkinFilter.whiten, true);
@@ -604,7 +631,7 @@ public class b {
             }
         }
         if (this.d.isUseMakeupFilter()) {
-            if (com.baidu.ar.ability.a.n("ability_makeup_filter")) {
+            if (com.baidu.ar.ability.a.o("ability_makeup_filter")) {
                 this.t.add("ability_makeup_filter");
             }
             if (this.A != null) {
@@ -639,7 +666,7 @@ public class b {
         e();
         if (this.c != null) {
             for (String str3 : arrayList) {
-                this.c.sendMessage(this.c.obtainMessage(1002, new c(str3)));
+                this.c.sendMessage(this.c.obtainMessage(1003, new d(str3)));
             }
         }
     }
@@ -660,7 +687,7 @@ public class b {
         this.u.add("ability_common_filter");
         if (this.c != null) {
             for (Map.Entry<String, com.baidu.ar.c> entry : this.l.entrySet()) {
-                this.c.sendMessage(this.c.obtainMessage(1002, new c(entry.getKey())));
+                this.c.sendMessage(this.c.obtainMessage(1003, new d(entry.getKey())));
             }
         }
     }
@@ -700,7 +727,7 @@ public class b {
             return;
         }
         for (com.baidu.ar.c cVar : this.l.values()) {
-            com.baidu.ar.f.b.c("AbilityManager", "onCaseCreate casePath = " + str);
+            com.baidu.ar.g.b.c("AbilityManager", "onCaseCreate casePath = " + str);
             cVar.onCaseCreate(str);
         }
     }
@@ -736,10 +763,10 @@ public class b {
         }
         this.l.clear();
         this.j.clear();
-        if (this.f != null && this.f.dZ() != null) {
+        if (this.f != null && this.f.fl() != null) {
             this.f.d(this.o);
-            this.f.dZ().removeLuaMsgListener(this.q);
-            this.f.dZ().removeLuaMsgListener(this.s);
+            this.f.fl().removeLuaMsgListener(this.q);
+            this.f.fl().removeLuaMsgListener(this.s);
             this.f = null;
             this.o = null;
             this.q = null;
@@ -787,11 +814,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean startAbility(String str, HashMap<String, Object> hashMap) {
-        if (!com.baidu.ar.ability.a.m(str)) {
-            com.baidu.ar.f.b.b("AbilityManager", "startAbility abilityType = " + str + " is no authorization!!!");
+        if (!com.baidu.ar.ability.a.n(str)) {
+            com.baidu.ar.g.b.b("AbilityManager", "startAbility abilityType = " + str + " is no authorization!!!");
             return false;
         } else if (this.u.contains(str)) {
-            com.baidu.ar.f.b.b("AbilityManager", "startAbility abilityType = " + str + " is exist!!!");
+            com.baidu.ar.g.b.b("AbilityManager", "startAbility abilityType = " + str + " is exist!!!");
             return false;
         } else {
             String str2 = this.j.get(str);
@@ -800,7 +827,7 @@ public class b {
             }
             f(str);
             if (this.c != null) {
-                this.c.sendMessage(this.c.obtainMessage(1001, new C0080b(str2, str, false, hashMap)));
+                this.c.sendMessage(this.c.obtainMessage(1001, new c(str2, str, false, hashMap)));
                 return true;
             }
             return false;
@@ -821,7 +848,7 @@ public class b {
         if (arrayList.contains(str4) || this.c == null) {
             return false;
         }
-        this.c.sendMessage(this.c.obtainMessage(1002, new c(str4)));
+        this.c.sendMessage(this.c.obtainMessage(1003, new d(str4)));
         return true;
     }
 }

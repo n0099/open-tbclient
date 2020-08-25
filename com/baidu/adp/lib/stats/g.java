@@ -13,9 +13,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String MJ;
-    private String MK;
-    private Map<String, String> MN;
+    private String No;
+    private String Np;
+    private Map<String, String> Nq;
     private String mAction;
     private c mCommonData;
     private String mErrorCode;
@@ -27,8 +27,8 @@ public class g {
         this.mCommonData = cVar;
     }
 
-    public void bT(String str) {
-        this.MJ = str;
+    public void bY(String str) {
+        this.No = str;
     }
 
     public void setAction(String str) {
@@ -43,14 +43,14 @@ public class g {
         this.mErrorMessage = str;
     }
 
-    public void u(String str, String str2) {
-        if (this.MN == null) {
-            this.MN = new HashMap();
+    public void y(String str, String str2) {
+        if (this.Nq == null) {
+            this.Nq = new HashMap();
         }
-        this.MN.put(str, str2);
+        this.Nq.put(str, str2);
     }
 
-    public JSONObject lJ() {
+    public JSONObject ni() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
@@ -58,22 +58,22 @@ public class g {
                 jSONObject2.put("app_version", this.mCommonData.mAppVersion);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("cuid", this.mCommonData.mCuid);
-                jSONObject2.put("shoubai_cuid", this.mCommonData.Mn);
+                jSONObject2.put("shoubai_cuid", this.mCommonData.MT);
                 jSONObject2.put("from", this.mCommonData.mChannel);
                 jSONObject2.put("uid", this.mCommonData.mUid);
             }
             jSONObject2.put("client_ip", f.getClientIp());
-            jSONObject2.put("network", lK());
+            jSONObject2.put("network", nj());
             jSONObject2.put("model", Build.MODEL);
             jSONObject2.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject2.put(HttpConstants.HTTP_OS_TYPE, AlaLiveBaseInfo.mOSType);
             jSONObject2.put("os_version", Build.VERSION.RELEASE);
-            jSONObject2.put("active_id", f.lH());
-            jSONObject2.put("mission_id", f.lI());
+            jSONObject2.put("active_id", f.ng());
+            jSONObject2.put("mission_id", f.nh());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.MJ != null) {
-                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.MJ);
+            if (this.No != null) {
+                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.No);
             }
             if (this.mAction != null) {
                 jSONObject3.put("action", this.mAction);
@@ -84,9 +84,9 @@ public class g {
             if (this.mErrorMessage != null) {
                 jSONObject3.put("error_message", this.mErrorMessage);
             }
-            if (this.MN != null) {
+            if (this.Nq != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.MN.entrySet()) {
+                for (Map.Entry<String, String> entry : this.Nq.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -103,8 +103,8 @@ public class g {
             if (this.mTitle != null) {
                 jSONObject3.put("title", this.mTitle);
             }
-            if (this.MK != null) {
-                jSONObject3.put("abstract", this.MK);
+            if (this.Np != null) {
+                jSONObject3.put("abstract", this.Np);
             }
             jSONObject.put("debug_info", jSONObject3);
             jSONObject.put("kpi", new JSONObject());
@@ -114,7 +114,7 @@ public class g {
         return jSONObject;
     }
 
-    public static String lK() {
+    public static String nj() {
         if (j.isWifiNet()) {
             return "WIFI";
         }

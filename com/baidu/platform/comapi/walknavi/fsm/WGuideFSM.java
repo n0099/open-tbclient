@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     private String a;
     private String b;
@@ -30,17 +30,17 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     public synchronized void runCurrentState() {
         if (!this.a.equalsIgnoreCase("Entry")) {
-            stateReflection(this.a, RGState.METHOD_NAME_EXCUTE);
+            a(this.a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
-        if (b.a().J() == 4) {
+        if (b.a().M() == 4) {
             this.a = "SegEntry";
         } else {
             this.a = "Entry";
         }
-        stateReflection(this.a, RGState.METHOD_NAME_EXCUTE);
+        a(this.a, RGState.METHOD_NAME_EXCUTE);
     }
 
     public synchronized void run(String str) {
@@ -49,13 +49,13 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         if (queryDestState != null) {
             this.b = str;
             if ("BACK".equals(queryDestState)) {
-                queryDestState = getBackState(str2);
+                queryDestState = b(str2);
             }
-            stateReflection(str2, RGState.METHOD_NAME_EXIT);
-            stateReflection(queryDestState, "enter");
-            stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
+            a(str2, RGState.METHOD_NAME_EXIT);
+            a(queryDestState, "enter");
+            a(queryDestState, RGState.METHOD_NAME_EXCUTE);
             this.a = queryDestState;
-            cacheBackState(queryDestState);
+            a(queryDestState);
         }
     }
 
@@ -69,7 +69,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     public static void saveZoomLevel() {
         int i = 15;
-        int k = (int) b.a().G().k();
+        int k = (int) b.a().J().k();
         if (k >= 15) {
             i = k > 20 ? 19 : k;
         }
@@ -85,7 +85,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         com.baidu.platform.comapi.walknavi.b.a.c = i;
     }
 
-    private void stateReflection(String str, String str2) {
+    private void a(String str, String str2) {
         try {
             Class<?> cls = Class.forName(RGState.PACKAGE_NAME + "." + RGState.CLASS_PREFIX + str);
             cls.getMethod(str2, new Class[0]).invoke(cls.newInstance(), new Object[0]);
@@ -94,7 +94,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         }
     }
 
-    private void cacheBackState(String str) {
+    private void a(String str) {
         if ("North2D".equals(str)) {
             this.c = "North2D";
         } else if ("Car3D".equals(str) || "Entry".equals(str)) {
@@ -102,7 +102,7 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         }
     }
 
-    private String getBackState(String str) {
+    private String b(String str) {
         if (!"BrowseMap".equals(str)) {
             return null;
         }

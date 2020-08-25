@@ -9,9 +9,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes9.dex */
 public abstract class e<K, V> {
-    e<K, V>.b dzr;
-    e<K, V>.c dzs;
-    e<K, V>.C0476e dzt;
+    e<K, V>.b dIA;
+    e<K, V>.c dIB;
+    e<K, V>.C0522e dIC;
 
     protected abstract void colClear();
 
@@ -361,8 +361,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    final class C0476e implements Collection<V> {
-        C0476e() {
+    final class C0522e implements Collection<V> {
+        C0522e() {
         }
 
         @Override // java.util.Collection
@@ -547,23 +547,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.dzr == null) {
-            this.dzr = new b();
+        if (this.dIA == null) {
+            this.dIA = new b();
         }
-        return this.dzr;
+        return this.dIA;
     }
 
     public Set<K> getKeySet() {
-        if (this.dzs == null) {
-            this.dzs = new c();
+        if (this.dIB == null) {
+            this.dIB = new c();
         }
-        return this.dzs;
+        return this.dIB;
     }
 
     public Collection<V> getValues() {
-        if (this.dzt == null) {
-            this.dzt = new C0476e();
+        if (this.dIC == null) {
+            this.dIC = new C0522e();
         }
-        return this.dzt;
+        return this.dIC;
     }
 }

@@ -3,33 +3,33 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import tbclient.FrsPage.ColorEgg;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class s {
-    private ArrayList<String> dOk = new ArrayList<>();
-    private int dOl;
+    private ArrayList<String> dXt = new ArrayList<>();
+    private int dXu;
 
-    public ArrayList<String> aUn() {
-        return this.dOk;
+    public ArrayList<String> bcG() {
+        return this.dXt;
     }
 
-    public int aUo() {
-        return this.dOl;
+    public int bcH() {
+        return this.dXu;
     }
 
     public boolean a(ColorEgg colorEgg) {
-        this.dOl = 0;
+        this.dXu = 0;
         if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
             return false;
         }
         for (String str : colorEgg.holiday_words) {
             if (!StringUtils.isNull(str)) {
-                this.dOk.add(str);
+                this.dXt.add(str);
             }
         }
-        if (this.dOk.size() <= 0) {
+        if (this.dXt.size() <= 0) {
             return false;
         }
-        this.dOl = colorEgg.style_flag.intValue();
+        this.dXu = colorEgg.style_flag.intValue();
         return true;
     }
 }

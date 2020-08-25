@@ -3,13 +3,13 @@ package com.baidu.mapapi.favorite;
 import android.util.Log;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
-import com.baidu.mapsdkplatform.comapi.map.i;
+import com.baidu.mapsdkplatform.comapi.map.j;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class FavoriteManager {
     private static FavoriteManager a;
     private static com.baidu.mapsdkplatform.comapi.favrite.a b;
@@ -70,7 +70,7 @@ public class FavoriteManager {
             b.b();
             b = null;
             BMapManager.destroy();
-            i.b();
+            j.b();
         }
     }
 
@@ -117,7 +117,7 @@ public class FavoriteManager {
 
     public void init() {
         if (b == null) {
-            i.a();
+            j.a();
             BMapManager.init();
             b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
         }

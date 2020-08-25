@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class Challenge {
     private final Map<String, String> authParams;
     private final String scheme;

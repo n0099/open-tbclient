@@ -17,13 +17,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class BoxAlertDialog extends BaseDialog {
     private static final boolean DEBUG = false;
     public static final int HUNDRED = 100;
     private Builder mBuilder;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface IDecorate {
         void decorate(BoxAlertDialog boxAlertDialog, DialogElement dialogElement);
     }
@@ -69,7 +69,7 @@ public class BoxAlertDialog extends BaseDialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         public static final int DIALOG_NEGATIVE_TEXT_CANCEL = R.string.dialog_negative_title_cancel;
         public static final int DIALOG_POSITIVE_TEXT_OK = R.string.dialog_positive_title_ok;
@@ -540,7 +540,7 @@ public class BoxAlertDialog extends BaseDialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class DialogElement {
         public LinearLayout mBtnPanelLayout;
         public View mCustomPanel;

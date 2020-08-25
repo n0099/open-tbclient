@@ -5,16 +5,16 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
-    final org.a.b<U> nTg;
+    final org.b.b<U> onb;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TakeUntilMainMaybeObserver takeUntilMainMaybeObserver = new TakeUntilMainMaybeObserver(mVar);
         mVar.onSubscribe(takeUntilMainMaybeObserver);
-        this.nTg.subscribe(takeUntilMainMaybeObserver.other);
+        this.onb.subscribe(takeUntilMainMaybeObserver.other);
         this.source.a(takeUntilMainMaybeObserver);
     }
 
@@ -93,24 +93,24 @@ public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
                 this.parent = takeUntilMainMaybeObserver;
             }
 
-            @Override // io.reactivex.j, org.a.c
+            @Override // io.reactivex.j, org.b.c
             public void onSubscribe(d dVar) {
                 if (SubscriptionHelper.setOnce(this, dVar)) {
                     dVar.request(Long.MAX_VALUE);
                 }
             }
 
-            @Override // org.a.c
+            @Override // org.b.c
             public void onNext(Object obj) {
                 this.parent.otherComplete();
             }
 
-            @Override // org.a.c
+            @Override // org.b.c
             public void onError(Throwable th) {
                 this.parent.otherError(th);
             }
 
-            @Override // org.a.c
+            @Override // org.b.c
             public void onComplete() {
                 this.parent.otherComplete();
             }

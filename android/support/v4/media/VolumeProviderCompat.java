@@ -5,7 +5,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.media.VolumeProviderCompatApi21;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class VolumeProviderCompat {
     public static final int VOLUME_CONTROL_ABSOLUTE = 2;
     public static final int VOLUME_CONTROL_FIXED = 0;
@@ -16,14 +16,14 @@ public abstract class VolumeProviderCompat {
     private final int mMaxVolume;
     private Object mVolumeProviderObj;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Callback {
         public abstract void onVolumeChanged(VolumeProviderCompat volumeProviderCompat);
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface ControlType {
     }
 

@@ -7,14 +7,14 @@ import com.baidu.searchbox.ui.animview.praise.data.PraiseSourceDef;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
 import java.io.BufferedReader;
 import java.io.FileReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class PraiseEnvironment {
     private static final int RAM_THRESHOLD_GB = 3;
     private static final String TAG = "PraiseEnvironment";
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static Performance sPerformanceLevel = Performance.LEVEL_NONE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public enum Performance {
         LEVEL_NONE,
         LEVEL_1,

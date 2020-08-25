@@ -3,64 +3,63 @@ package com.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e DX;
-    private final m<PointF, PointF> DY;
-    private final g DZ;
-    private final b Ea;
-    private final d Eb;
+    private final e EB;
+    private final m<PointF, PointF> ED;
+    private final g EE;
+    private final b EF;
+    private final d EG;
     @Nullable
-    private final b Ec;
+    private final b EH;
     @Nullable
-    private final b Ed;
+    private final b EI;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.DX = eVar;
-        this.DY = mVar;
-        this.DZ = gVar;
-        this.Ea = bVar;
-        this.Eb = dVar;
-        this.Ec = bVar2;
-        this.Ed = bVar3;
+        this.EB = eVar;
+        this.ED = mVar;
+        this.EE = gVar;
+        this.EF = bVar;
+        this.EG = dVar;
+        this.EH = bVar2;
+        this.EI = bVar3;
     }
 
-    public e ic() {
-        return this.DX;
+    public e jD() {
+        return this.EB;
     }
 
-    public m<PointF, PointF> ie() {
-        return this.DY;
+    public m<PointF, PointF> jE() {
+        return this.ED;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public g m7if() {
-        return this.DZ;
+    public g jF() {
+        return this.EE;
     }
 
-    public b ig() {
-        return this.Ea;
+    public b jG() {
+        return this.EF;
     }
 
-    public d ih() {
-        return this.Eb;
-    }
-
-    @Nullable
-    public b ii() {
-        return this.Ec;
+    public d jH() {
+        return this.EG;
     }
 
     @Nullable
-    public b ij() {
-        return this.Ed;
+    public b jI() {
+        return this.EH;
     }
 
-    public o ik() {
+    @Nullable
+    public b jJ() {
+        return this.EI;
+    }
+
+    public o jK() {
         return new o(this);
     }
 

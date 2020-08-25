@@ -1,13 +1,13 @@
 package com.baidu.helios.common.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private com.baidu.helios.common.a.a.b.b arN = new com.baidu.helios.common.a.a.b.b(32);
+    private com.baidu.helios.common.a.a.b.b awK = new com.baidu.helios.common.a.a.b.b(32);
 
     public byte[] A(byte[] bArr) {
-        return this.arN.a(bArr);
+        return this.awK.b(bArr);
     }
 
-    public byte[] z(byte[] bArr) {
-        return this.arN.b(bArr);
+    public byte[] B(byte[] bArr) {
+        return this.awK.a(bArr);
     }
 }

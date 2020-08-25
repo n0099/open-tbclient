@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.g.a.a;
+import com.baidu.k.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
@@ -27,11 +27,11 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.p;
-import com.baidu.sapi2.utils.t;
+import com.baidu.sapi2.utils.i;
+import com.baidu.sapi2.utils.k;
 import com.baidu.sapi2.views.ViewUtility;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
     protected View bottomBackView;
     protected View dividerLine;
@@ -48,44 +48,12 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     protected RelativeLayout mTitleLayout;
     protected boolean useTitle = true;
     public boolean executeSubClassMethod = true;
-    private PassportViewManager a = PassportViewManager.getInstance();
-    public TitleBtnCallback titleBtnCallback = this.a.getTitleBtnCallback();
+    protected PassportViewManager viewManager = PassportViewManager.getInstance();
+    public TitleBtnCallback titleBtnCallback = this.viewManager.getTitleBtnCallback();
     protected SapiConfiguration configuration = SapiAccountManager.getInstance().getConfignation();
 
-    private void a(boolean z) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        SapiConfiguration sapiConfiguration = this.configuration;
-        int i5 = sapiConfiguration.activityOpenAnimId;
-        int i6 = sapiConfiguration.activityExitAnimId;
-        SapiWebDTO webDTO = getWebDTO();
-        if (webDTO == null || (i = webDTO.openEnterAnimId) == 0) {
-            i = i5;
-        }
-        if (webDTO == null || (i2 = webDTO.closeExitAnimId) == 0) {
-            i2 = i6;
-        }
-        int i7 = i == 0 ? a.C0123a.sapi_sdk_slide_right_in : i;
-        int i8 = i2 == 0 ? a.C0123a.sapi_sdk_slide_right_out : i2;
-        if (z) {
-            int i9 = a.C0123a.sapi_sdk_slide_left_out;
-            if (webDTO == null || (i4 = webDTO.openExitAnimId) == 0) {
-                i4 = i9;
-            }
-            overridePendingTransition(i7, i4);
-            return;
-        }
-        int i10 = a.C0123a.sapi_sdk_slide_left_in;
-        if (webDTO == null || (i3 = webDTO.closeEnterAnimId) == 0) {
-            i3 = i10;
-        }
-        overridePendingTransition(i3, i8);
-    }
-
-    public void configCustomTitle() {
-        PassportViewManager.TitleViewModule titleViewModule = this.a.getTitleViewModule();
+    private void a() {
+        PassportViewManager.TitleViewModule titleViewModule = this.viewManager.getTitleViewModule();
         if (titleViewModule != null) {
             setTitleLayoutBg(titleViewModule.bgColor);
             setTitleLayoutHeight(titleViewModule.bgHeight);
@@ -107,16 +75,48 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             setRightBtnTextSize(SapiUtils.px2sp(this, titleViewModule.rightBtnTextSize));
             setRightBtnColor(titleViewModule.rightBtnTextColor);
             this.dividerLine.setVisibility(titleViewModule.dividerLineVisible);
+        } else {
+            setBtnVisibility(4, 0, 4);
+            setTitleDrawable(null, null, null, null);
+            setLeftBtnDrawable(getResources().getDrawable(a.d.sapi_sdk_btn_back), null, null, null);
         }
-        switchDarkmode();
+        b();
         if (this.configuration.showBottomBack) {
             setLeftBtnLayoutVisible(8);
         }
     }
 
+    private void b() {
+        if (this.configuration.isDarkMode) {
+            if (this.useTitle) {
+                setTitleLayoutBg(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
+                setLeftBtnImage(a.d.sapi_sdk_btn_back_dark_mode);
+                setLeftBtnTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
+                setTitleTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
+                setRightBtnColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
+                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
+                this.mRightBtnClose.setImageResource(a.d.sapi_sdk_title_close_dark_mode);
+                this.dividerLine.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
+            }
+            ImageView imageView = this.mBottomBackBtnIv;
+            if (imageView != null) {
+                imageView.setImageResource(a.d.sapi_sdk_btn_back_dark_mode);
+            }
+            RelativeLayout relativeLayout = this.mBottomBgLayout;
+            if (relativeLayout != null) {
+                relativeLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
+            }
+            ImageView imageView2 = this.mBottomDividerLine;
+            if (imageView2 != null) {
+                imageView2.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public void configTitle() {
         if (this.configuration.customActionBarEnabled) {
-            configCustomTitle();
+            a();
         } else {
             setTitleLayoutVisible(8);
         }
@@ -125,7 +125,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        a(false);
+        setPageAnim(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -135,7 +135,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        a(true);
+        setPageAnim(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -205,7 +205,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         hashMap.put(BdStatsConstant.StatsType.ERROR, Log.getStackTraceString(th));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("os_version", Build.VERSION.RELEASE);
-        t.a("webview_init_error", hashMap);
+        k.a("webview_init_error", hashMap);
     }
 
     public void setBtnVisibility(int i, int i2, int i3) {
@@ -257,6 +257,38 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         this.mLeftBtnTv.setVisibility(i);
     }
 
+    protected void setPageAnim(boolean z) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        SapiConfiguration sapiConfiguration = this.configuration;
+        int i5 = sapiConfiguration.activityOpenAnimId;
+        int i6 = sapiConfiguration.activityExitAnimId;
+        SapiWebDTO webDTO = getWebDTO();
+        if (webDTO == null || (i = webDTO.openEnterAnimId) == 0) {
+            i = i5;
+        }
+        if (webDTO == null || (i2 = webDTO.closeExitAnimId) == 0) {
+            i2 = i6;
+        }
+        int i7 = i == 0 ? a.C0160a.sapi_sdk_slide_right_in : i;
+        int i8 = i2 == 0 ? a.C0160a.sapi_sdk_slide_right_out : i2;
+        if (z) {
+            int i9 = a.C0160a.sapi_sdk_slide_left_out;
+            if (webDTO == null || (i4 = webDTO.openExitAnimId) == 0) {
+                i4 = i9;
+            }
+            overridePendingTransition(i7, i4);
+            return;
+        }
+        int i10 = a.C0160a.sapi_sdk_slide_left_in;
+        if (webDTO == null || (i3 = webDTO.closeEnterAnimId) == 0) {
+            i3 = i10;
+        }
+        overridePendingTransition(i3, i8);
+    }
+
     public void setRightBtnColor(int i) {
         this.mRightBtn.setTextColor(i);
     }
@@ -291,12 +323,13 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    protected void setTitleLayoutVisible(int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void setTitleLayoutVisible(int i) {
         this.mTitleLayout.setVisibility(i);
     }
 
     public void setTitleText(String str) {
-        PassportViewManager.TitleViewModule titleViewModule = this.a.getTitleViewModule();
+        PassportViewManager.TitleViewModule titleViewModule = this.viewManager.getTitleViewModule();
         if (titleViewModule != null) {
             if (titleViewModule.useWebviewTitle) {
                 if (!TextUtils.isEmpty(str)) {
@@ -350,25 +383,22 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 this.mBottomBackBtnIv = (ImageView) findViewById(a.e.sapi_bottom_back);
                 this.mBottomBgLayout = (RelativeLayout) findViewById(a.e.sapi_layout_bottom_back);
                 this.mBottomDividerLine = (ImageView) findViewById(a.e.sapi_sdk_bottom_divider_line);
-                this.mBottomBackBtnIv.setOnClickListener(this);
+                ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
                 ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
             }
-            ImageView imageView = this.mRightBtnClose;
-            if (imageView != null) {
-                imageView.setOnClickListener(this);
-                ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
-            }
-            this.mLeftBtnIv.setOnClickListener(this);
-            this.mLeftBtnTv.setOnClickListener(this);
-            this.mRightBtn.setOnClickListener(this);
+            ViewUtility.setOnClickListener(this.mRightBtnClose, this);
+            ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
+            ViewUtility.setOnClickListener(this.mLeftBtnIv, this);
+            ViewUtility.setOnClickListener(this.mLeftBtnTv, this);
+            ViewUtility.setOnClickListener(this.mRightBtn, this);
         }
         SapiConfiguration sapiConfiguration = this.configuration;
         if (!sapiConfiguration.isDarkMode && sapiConfiguration.isNightMode) {
             ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
         if (this.bottomBackView != null) {
-            p.a(this, new p.a() { // from class: com.baidu.sapi2.activity.TitleActivity.1
-                @Override // com.baidu.sapi2.utils.p.a
+            i.a(this, new i.b() { // from class: com.baidu.sapi2.activity.TitleActivity.1
+                @Override // com.baidu.sapi2.utils.i.b
                 public void keyBoardHide(int i) {
                     View view = TitleActivity.this.bottomBackView;
                     if (view != null) {
@@ -376,7 +406,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                     }
                 }
 
-                @Override // com.baidu.sapi2.utils.p.a
+                @Override // com.baidu.sapi2.utils.i.b
                 public void keyBoardShow(int i) {
                     View view = TitleActivity.this.bottomBackView;
                     if (view != null) {
@@ -385,33 +415,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 }
             });
         }
-    }
-
-    public void switchDarkmode() {
-        if (this.configuration.isDarkMode) {
-            if (this.useTitle) {
-                setTitleLayoutBg(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
-                setLeftBtnImage(a.d.sapi_sdk_btn_back_dark_mode);
-                setLeftBtnTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
-                setTitleTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
-                setRightBtnColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
-                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
-                this.mRightBtnClose.setImageResource(a.d.sapi_sdk_title_close_dark_mode);
-                this.dividerLine.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
-            }
-            ImageView imageView = this.mBottomBackBtnIv;
-            if (imageView != null) {
-                imageView.setImageResource(a.d.sapi_sdk_btn_back_dark_mode);
-            }
-            RelativeLayout relativeLayout = this.mBottomBgLayout;
-            if (relativeLayout != null) {
-                relativeLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
-            }
-            ImageView imageView2 = this.mBottomDividerLine;
-            if (imageView2 != null) {
-                imageView2.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
-            }
-        }
+        configTitle();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

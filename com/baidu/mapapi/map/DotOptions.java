@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class DotOptions extends OverlayOptions {
     int a;
     Bundle c;
@@ -16,9 +16,9 @@ public final class DotOptions extends OverlayOptions {
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Dot dot = new Dot();
-        dot.x = this.b;
-        dot.w = this.a;
-        dot.y = this.c;
+        dot.B = this.b;
+        dot.A = this.a;
+        dot.C = this.c;
         dot.b = this.e;
         dot.a = this.d;
         dot.c = this.f;
@@ -27,7 +27,7 @@ public final class DotOptions extends OverlayOptions {
 
     public DotOptions center(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("dot center can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
         }
         this.d = latLng;
         return this;

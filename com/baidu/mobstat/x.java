@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class x {
     private static volatile DexClassLoader a;
     private static volatile boolean b = false;
@@ -171,7 +171,7 @@ public class x {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     static class a extends Thread {
         private Context a;
         private com.baidu.mobstat.a b;

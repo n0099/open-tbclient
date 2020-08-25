@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess.mission;
 import com.baidu.tbadk.BdToken.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements b<MissionEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mutiprocess.b
@@ -16,17 +16,17 @@ public class a implements b<MissionEvent> {
         long j = missionEvent.tid;
         String str = missionEvent.actionType;
         if (MissionEvent.MESSAGE_RESUME.equals(str)) {
-            c.aQc().n(i, j);
-            c.aQc().p(i2, j);
+            c.aYs().n(i, j);
+            c.aYs().p(i2, j);
             return true;
         } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-            c.aQc().aQm();
+            c.aYs().aYC();
             return true;
         } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-            c.aQc().aQo();
+            c.aYs().aYE();
             return true;
         } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-            c.aQc().n(i, j);
+            c.aYs().n(i, j);
             return true;
         } else {
             return true;

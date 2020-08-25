@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class bp implements ServiceConnection {
     final /* synthetic */ XMPushService a;
 
@@ -22,7 +22,7 @@ public class bp implements ServiceConnection {
         com.xiaomi.channel.commonutils.logger.b.b("onServiceConnected " + iBinder);
         Service a = XMJobService.a();
         if (a == null) {
-            com.xiaomi.channel.commonutils.logger.b.m49a("XMService connected but innerService is null " + iBinder);
+            com.xiaomi.channel.commonutils.logger.b.m54a("XMService connected but innerService is null " + iBinder);
             return;
         }
         XMPushService xMPushService = this.a;

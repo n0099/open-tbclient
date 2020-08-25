@@ -1,29 +1,29 @@
 package com.baidu.tieba.pb.data;
 
 import android.graphics.Bitmap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m {
     private String content;
     private String duringTime;
-    private Bitmap kiC;
-    private Bitmap kiD;
-    private String kiE;
-    private boolean kiF;
+    private Bitmap kxU;
+    private Bitmap kxV;
+    private String kxW;
+    private boolean kxX;
 
-    public Bitmap cLm() {
-        return this.kiC;
+    public Bitmap cWa() {
+        return this.kxU;
     }
 
     public void E(Bitmap bitmap) {
-        this.kiC = bitmap;
+        this.kxU = bitmap;
     }
 
-    public Bitmap cLn() {
-        return this.kiD;
+    public Bitmap cWb() {
+        return this.kxV;
     }
 
     public void F(Bitmap bitmap) {
-        this.kiD = bitmap;
+        this.kxV = bitmap;
     }
 
     public String getContent() {
@@ -34,27 +34,27 @@ public class m {
         this.content = str;
     }
 
-    public String cLo() {
+    public String cWc() {
         return this.duringTime;
     }
 
-    public void Kt(String str) {
+    public void Nm(String str) {
         this.duringTime = str;
     }
 
     public String getThreadImgUrl() {
-        return this.kiE;
+        return this.kxW;
     }
 
-    public void Ku(String str) {
-        this.kiE = str;
+    public void Nn(String str) {
+        this.kxW = str;
     }
 
-    public boolean cLp() {
-        return this.kiF;
+    public boolean cWd() {
+        return this.kxX;
     }
 
-    public void rU(boolean z) {
-        this.kiF = z;
+    public void sB(boolean z) {
+        this.kxX = z;
     }
 }

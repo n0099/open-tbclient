@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class a extends SwanAppDownloadAction {
     public a(j jVar) {
         super(jVar, "/swanAPI/installApp4Ad");

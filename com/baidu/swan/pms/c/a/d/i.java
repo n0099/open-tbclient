@@ -4,36 +4,36 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d cnf;
-    private List<com.baidu.swan.pms.model.e> dwP = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> dwQ = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> dwR = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> dwO = new ArrayList();
+    private com.baidu.swan.pms.a.d cuI;
+    private List<com.baidu.swan.pms.model.e> dFT = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> dFU = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> dFV = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> dFS = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.cnf = dVar;
-        d.aLv().c(this);
+        this.cuI = dVar;
+        d.aTU().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.dwO.add(bVar);
+            this.dFS.add(bVar);
         }
     }
 
-    public void aLH() {
-        if (!aLI()) {
+    public void aUg() {
+        if (!aUh()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aKM().getProcessName() + " startDownload: total=" + this.dwO.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aTn().getProcessName() + " startDownload: total=" + this.dFS.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.dwO) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.dFS) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aKM().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.aTn().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.gG(false);
+                bVar.ha(false);
             }
         }
     }
@@ -44,43 +44,43 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.aLG()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.dwO.iterator();
+        if (!fVar.aUf()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.dFS.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
-                    int aLy = fVar.aLy();
-                    this.dwO.remove(next);
-                    switch (aLy) {
+                    int aTX = fVar.aTX();
+                    this.dFS.remove(next);
+                    switch (aTX) {
                         case 2:
-                            this.dwR.add(next.aLp().dwH.dwG);
+                            this.dFV.add(next.aTO().dFK.dFJ);
                             break;
                         case 3:
-                            this.dwQ.add(next.aLp().dwH.dwG);
+                            this.dFU.add(next.aTO().dFK.dFJ);
                             break;
                         case 10:
-                            this.dwP.add(next.aLp().dwH.dwG);
+                            this.dFT.add(next.aTO().dFK.dFJ);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + aLy);
+                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + aTX);
                                 break;
                             }
                             break;
                     }
                 }
             }
-            aLI();
+            aUh();
         }
     }
 
-    private boolean aLI() {
-        if (this.dwO.isEmpty()) {
-            this.cnf.abS();
-            d.aLv().d(this);
+    private boolean aUh() {
+        if (this.dFS.isEmpty()) {
+            this.cuI.air();
+            d.aTU().d(this);
             return true;
         }
         return false;

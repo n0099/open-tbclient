@@ -2,39 +2,39 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m implements q {
-    public static final BdUniqueId agB = BdUniqueId.gen();
-    private boolean bOf = false;
-    private String ezf;
-    private String ezg;
+    public static final BdUniqueId ahK = BdUniqueId.gen();
+    private boolean bTD = false;
+    private String eJD;
+    private String eJE;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return agB;
+        return ahK;
     }
 
-    public String bio() {
-        return this.ezf;
+    public String bra() {
+        return this.eJD;
     }
 
-    public void zp(String str) {
-        this.ezf = str;
+    public void BF(String str) {
+        this.eJD = str;
     }
 
     public String getSmallUrl() {
-        return this.ezg;
+        return this.eJE;
     }
 
-    public void zq(String str) {
-        this.ezg = str;
+    public void BG(String str) {
+        this.eJE = str;
     }
 
-    public boolean bip() {
-        return this.bOf;
+    public boolean brb() {
+        return this.bTD;
     }
 
-    public void iC(boolean z) {
-        this.bOf = z;
+    public void ja(boolean z) {
+        this.bTD = z;
     }
 }

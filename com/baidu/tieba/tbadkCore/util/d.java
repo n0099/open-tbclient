@@ -3,38 +3,38 @@ package com.baidu.tieba.tbadkCore.util;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    protected volatile int eet;
-    protected volatile HashMap<Long, Integer> lQi = new HashMap<>();
+    protected volatile int enT;
+    protected volatile HashMap<Long, Integer> mhR = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.eet = i;
+        this.enT = i;
     }
 
-    public void NY(String str) {
+    public void QW(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.lQi.size() >= this.eet) {
-                    dmn();
+                if (this.mhR.size() >= this.enT) {
+                    dxI();
                 }
                 this.mWeight++;
-                this.lQi.put(valueOf, Integer.valueOf(this.mWeight));
+                this.mhR.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dmn() {
+    public void dxI() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.lQi.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.mhR.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.lQi.remove(l2);
+                this.mhR.remove(l2);
             } else {
-                this.lQi.clear();
+                this.mhR.clear();
             }
         }
     }
 
-    public boolean NZ(String str) {
+    public boolean QX(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.lQi.get(valueOf) != null;
+                z = this.mhR.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean Oa(String str) {
+    public boolean QY(String str) {
         try {
-            return this.lQi.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.mhR.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dmm() {
+    public void dxH() {
         synchronized (this) {
-            this.lQi.clear();
+            this.mhR.clear();
         }
     }
 }

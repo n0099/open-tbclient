@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class NetWorkUtils implements INoProGuard {
     private static final int CELL_2G = 2;
     private static final int CELL_3G = 3;
@@ -23,6 +23,7 @@ public final class NetWorkUtils implements INoProGuard {
     private static final int UNKNOWN_OPERATOR = 0;
     private static final int WIFI = 100;
     private static boolean sLaunchState;
+    private static boolean sNetTypeMobile;
     private static int sConnectionType = 0;
     private static int sOperatorType = 0;
     private static boolean sIsOnline = true;
@@ -32,6 +33,10 @@ public final class NetWorkUtils implements INoProGuard {
 
     public static boolean getIsOnline() {
         return sIsOnline;
+    }
+
+    public static boolean getNetTypeIsMobile() {
+        return sNetTypeMobile;
     }
 
     public static int getNetWorkType() {
@@ -58,17 +63,19 @@ public final class NetWorkUtils implements INoProGuard {
             sIsOnline = false;
             z = z2;
         } else {
-            boolean z3 = sIsOnline ? false : true;
+            z = !sIsOnline;
             sIsOnline = true;
+            sNetTypeMobile = false;
             if (networkInfo.getType() == 0) {
-                switch (networkInfo.getSubtype()) {
+                int subtype = networkInfo.getSubtype();
+                sNetTypeMobile = true;
+                switch (subtype) {
                     case 1:
                     case 2:
                     case 4:
                     case 7:
                     case 11:
                         sConnectionType = 2;
-                        z = z3;
                         break;
                     case 3:
                     case 5:
@@ -80,26 +87,20 @@ public final class NetWorkUtils implements INoProGuard {
                     case 14:
                     case 15:
                         sConnectionType = 3;
-                        z = z3;
                         break;
                     case 13:
                         sConnectionType = 4;
-                        z = z3;
                         break;
                     default:
                         sConnectionType = 1;
-                        z = z3;
                         break;
                 }
             } else if (networkInfo.getType() == 1) {
                 sConnectionType = 100;
-                z = z3;
             } else if (networkInfo.getType() == 9) {
                 sConnectionType = 101;
-                z = z3;
             } else {
                 sConnectionType = NEW_TYPE;
-                z = z3;
             }
         }
         try {

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public final class LinkifyCompat {
     private static final String[] EMPTY_STRING = new String[0];
     private static final Comparator<LinkSpec> COMPARATOR = new Comparator<LinkSpec>() { // from class: android.support.v4.text.util.LinkifyCompat.1
@@ -44,7 +44,7 @@ public final class LinkifyCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface LinkifyMask {
     }
 
@@ -292,7 +292,7 @@ public final class LinkifyCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class LinkSpec {
         int end;
         URLSpan frameworkAddedSpan;

@@ -4,7 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class URIUtils {
     URIUtils() {
         throw new RuntimeException("Stub!");

@@ -1,10 +1,9 @@
 package com.baidu.swan.games.view.recommend.model;
 
-import android.support.annotation.Keep;
+import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
-@Keep
-/* loaded from: classes7.dex */
-public class RecommendItemModel {
+/* loaded from: classes8.dex */
+public class RecommendItemModel implements NoProGuard {
     @com.google.gson.a.c("app_key")
     public String appKey;
     @com.google.gson.a.c("app_name")

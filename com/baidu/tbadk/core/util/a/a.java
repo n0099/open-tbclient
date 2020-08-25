@@ -1,26 +1,26 @@
 package com.baidu.tbadk.core.util.a;
 
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private b ebI = new b();
-    private c ebJ = new c();
-    private d ebK = new d();
-    private HashMap<String, String> ebL = new HashMap<>();
+    private b elr = new b();
+    private c els = new c();
+    private d elt = new d();
+    private HashMap<String, String> elu = new HashMap<>();
 
-    public b baW() {
-        return this.ebI;
+    public b bjv() {
+        return this.elr;
     }
 
-    public c baX() {
-        return this.ebJ;
+    public c bjw() {
+        return this.els;
     }
 
-    public d baY() {
-        return this.ebK;
+    public d bjx() {
+        return this.elt;
     }
 
-    public HashMap<String, String> baZ() {
-        return this.ebL;
+    public HashMap<String, String> bjy() {
+        return this.elu;
     }
 }

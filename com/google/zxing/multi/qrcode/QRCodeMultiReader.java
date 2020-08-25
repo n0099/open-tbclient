@@ -21,7 +21,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class QRCodeMultiReader extends QRCodeReader implements MultipleBarcodeReader {
     private static final Result[] EMPTY_RESULT_ARRAY = new Result[0];
     private static final ResultPoint[] NO_POINTS = new ResultPoint[0];
@@ -131,7 +131,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static final class SAComparator implements Serializable, Comparator<Result> {
         private SAComparator() {
         }

@@ -2,16 +2,16 @@ package rx.internal.schedulers;
 
 import java.util.concurrent.ThreadFactory;
 import rx.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class f extends rx.g {
-    private final ThreadFactory nVm;
+    private final ThreadFactory opi;
 
     public f(ThreadFactory threadFactory) {
-        this.nVm = threadFactory;
+        this.opi = threadFactory;
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new g(this.nVm);
+        return new g(this.opi);
     }
 }

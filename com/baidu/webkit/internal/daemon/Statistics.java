@@ -1,8 +1,7 @@
 package com.baidu.webkit.internal.daemon;
 
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class Statistics implements INoProGuard {
     private static boolean mIsInited;
 
@@ -22,7 +21,7 @@ public final class Statistics implements INoProGuard {
         try {
             return mIsInited ? nativeGetPhoenixString() : "";
         } catch (Throwable th) {
-            a.a(th);
+            th.printStackTrace();
             return "";
         }
     }
@@ -31,7 +30,7 @@ public final class Statistics implements INoProGuard {
         try {
             return mIsInited ? nativeGetString() : "";
         } catch (Throwable th) {
-            a.a(th);
+            th.printStackTrace();
             return "";
         }
     }
@@ -70,7 +69,7 @@ public final class Statistics implements INoProGuard {
                 nativeRecord(i, str);
             }
         } catch (Throwable th) {
-            a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -80,7 +79,7 @@ public final class Statistics implements INoProGuard {
                 nativeUpdatePhoenixConfig(str);
             }
         } catch (Throwable th) {
-            a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -90,7 +89,7 @@ public final class Statistics implements INoProGuard {
                 nativeUploadSuccessfully();
             }
         } catch (Throwable th) {
-            a.a(th);
+            th.printStackTrace();
         }
     }
 }

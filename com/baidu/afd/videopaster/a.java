@@ -6,15 +6,15 @@ import java.util.Map;
 public interface a {
     int height();
 
-    int pH();
+    int rg();
 
-    int pJ();
+    int ri();
 
-    Map<String, String> pK();
+    Map<String, String> rj();
 
-    String pU();
+    String rt();
 
-    void w(HashMap hashMap);
+    void u(HashMap hashMap);
 
     int width();
 }

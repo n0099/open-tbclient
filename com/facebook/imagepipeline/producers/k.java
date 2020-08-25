@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface k<T> {
-    void F(Throwable th);
+    void E(Throwable th);
 
-    void ax(float f);
+    void aD(float f);
 
-    void dCu();
+    void dOu();
 
     void h(T t, int i);
 }

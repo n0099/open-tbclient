@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EditHeadActivityConfig extends IntentConfig {
     public static final String ACCOUNTDATA = "account_data";
     public static final int ALA_PERSON_TYPE = 3;

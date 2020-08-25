@@ -10,7 +10,7 @@ import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusRequestMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
 import com.baidu.tbadk.core.BaseFragment;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     protected static final int GET_CLOSE_ONSCROLL_STOP_DELAY_MILLIS = 2000;
     private a mLiveStatusMsgListener = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1

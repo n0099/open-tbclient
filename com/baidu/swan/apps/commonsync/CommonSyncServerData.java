@@ -1,19 +1,17 @@
 package com.baidu.swan.apps.commonsync;
 
-import android.support.annotation.Keep;
+import com.baidu.searchbox.NoProGuard;
 import com.coremedia.iso.boxes.MetaBox;
 import com.google.gson.a.c;
 import java.io.Serializable;
 import java.util.List;
-@Keep
-/* loaded from: classes7.dex */
-public class CommonSyncServerData implements Serializable {
+/* loaded from: classes8.dex */
+public class CommonSyncServerData implements NoProGuard, Serializable {
     @c("items")
     public List<MetaItemInfo> metaItems;
 
-    @Keep
-    /* loaded from: classes7.dex */
-    public class MetaItemInfo {
+    /* loaded from: classes8.dex */
+    public class MetaItemInfo implements NoProGuard {
         @c(MetaBox.TYPE)
         public MetaData metaData;
 
@@ -21,9 +19,8 @@ public class CommonSyncServerData implements Serializable {
         }
     }
 
-    @Keep
-    /* loaded from: classes7.dex */
-    public class MetaData {
+    /* loaded from: classes8.dex */
+    public class MetaData implements NoProGuard {
         @c("logo_url")
         public String logoUrl;
         @c("data")
@@ -39,9 +36,8 @@ public class CommonSyncServerData implements Serializable {
         }
     }
 
-    @Keep
-    /* loaded from: classes7.dex */
-    public class PlatConf {
+    /* loaded from: classes8.dex */
+    public class PlatConf implements NoProGuard {
         @c("h5")
         public PlatH5 platH5;
 
@@ -49,9 +45,8 @@ public class CommonSyncServerData implements Serializable {
         }
     }
 
-    @Keep
-    /* loaded from: classes7.dex */
-    public class PlatH5 {
+    /* loaded from: classes8.dex */
+    public class PlatH5 implements NoProGuard {
         @c("url")
         public String url;
 
@@ -59,9 +54,8 @@ public class CommonSyncServerData implements Serializable {
         }
     }
 
-    @Keep
-    /* loaded from: classes7.dex */
-    public class OtherData {
+    /* loaded from: classes8.dex */
+    public class OtherData implements NoProGuard {
         @c("app_key")
         public String appKey;
         @c("frame_type")

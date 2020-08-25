@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.liveroom.guide;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
-    private String gnx;
-    private String gny;
+    private String gAn;
+    private String gAo;
 
     public YanZhiSignInHttpResponseMessage() {
         super(1021153);
@@ -17,16 +17,16 @@ public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gnx = optJSONObject.optString("sign_status");
-            this.gny = optJSONObject.optString("visit_yanzhi_tab");
+            this.gAn = optJSONObject.optString("sign_status");
+            this.gAo = optJSONObject.optString("visit_yanzhi_tab");
         }
     }
 
-    public boolean bIl() {
-        return !StringUtils.isNull(this.gnx) && this.gnx.equals("1");
+    public boolean bSm() {
+        return !StringUtils.isNull(this.gAn) && this.gAn.equals("1");
     }
 
-    public boolean bIm() {
-        return !StringUtils.isNull(this.gny) && this.gny.equals("1");
+    public boolean bSn() {
+        return !StringUtils.isNull(this.gAo) && this.gAo.equals("1");
     }
 }

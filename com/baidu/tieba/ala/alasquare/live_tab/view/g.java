@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.b.h;
@@ -40,82 +40,82 @@ import java.util.List;
 import org.apache.http.HttpHost;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.i> {
-    private LinearLayout fwA;
-    private ImageView fwB;
-    private TextView fwC;
-    private LinearLayout fwD;
-    private ImageView fwE;
-    private TextView fwF;
-    private LinearLayout fwG;
-    private ImageView fwH;
-    private TextView fwI;
-    private LinearLayout fwJ;
-    private ImageView fwK;
-    private TextView fwL;
-    private ImageView fwM;
-    private ImageView fwN;
-    private ImageView fwO;
-    private ObjectAnimator fwP;
-    private int fwQ;
-    private List<h.a> fwR;
-    private String fwS;
-    private com.baidu.tieba.ueg.d fwT;
-    private LinearLayout fww;
-    private HeadImageView fwx;
-    private ImageView fwy;
-    private TextView fwz;
+    private LinearLayout fHO;
+    private HeadImageView fHP;
+    private ImageView fHQ;
+    private TextView fHR;
+    private LinearLayout fHS;
+    private ImageView fHT;
+    private TextView fHU;
+    private LinearLayout fHV;
+    private ImageView fHW;
+    private TextView fHX;
+    private LinearLayout fHY;
+    private ImageView fHZ;
+    private TextView fIa;
+    private LinearLayout fIb;
+    private ImageView fIc;
+    private TextView fId;
+    private ImageView fIe;
+    private ImageView fIf;
+    private ImageView fIg;
+    private ObjectAnimator fIh;
+    private int fIi;
+    private List<h.a> fIj;
+    private String fIk;
+    private com.baidu.tieba.ueg.d fIl;
     private View mRootView;
     private RotateAnimation mRotateAnimation;
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fwQ = -1;
-        this.fwR = new ArrayList();
+        this.fIi = -1;
+        this.fIj = new ArrayList();
         initView();
     }
 
     private void initView() {
         this.mRootView = getView();
-        this.fww = (LinearLayout) this.mRootView.findViewById(R.id.entrance_follow);
-        this.fwA = (LinearLayout) this.mRootView.findViewById(R.id.entrance_ranklist);
-        this.fwD = (LinearLayout) this.mRootView.findViewById(R.id.entrance_discuss);
-        this.fwG = (LinearLayout) this.mRootView.findViewById(R.id.entrance_person_center);
-        this.fwN = (ImageView) this.mRootView.findViewById(R.id.entrance_follow_img_diandian);
-        this.fwJ = (LinearLayout) this.mRootView.findViewById(R.id.entrance_start_recorder);
-        this.fwx = (HeadImageView) this.mRootView.findViewById(R.id.entrance_follow_img);
-        this.fwx.setIsRound(true);
-        this.fwx.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fwx.setDefaultResource(17170445);
-        this.fwx.setDefaultBgResource(17170445);
-        this.fwO = (ImageView) this.mRootView.findViewById(R.id.entrance_follow_circle);
-        this.fwy = (ImageView) this.mRootView.findViewById(R.id.entrance_follow_default_img);
-        this.fwB = (ImageView) this.mRootView.findViewById(R.id.entrance_ranklist_img);
-        this.fwE = (ImageView) this.mRootView.findViewById(R.id.entrance_discuss_img);
-        this.fwH = (ImageView) this.mRootView.findViewById(R.id.entrance_person_center_img);
-        this.fwK = (ImageView) this.mRootView.findViewById(R.id.entrance_start_recorder_img);
-        this.fwz = (TextView) this.mRootView.findViewById(R.id.entrance_follow_desc);
-        this.fwC = (TextView) this.mRootView.findViewById(R.id.entrance_ranklist_desc);
-        this.fwF = (TextView) this.mRootView.findViewById(R.id.entrance_discuss_desc);
-        this.fwI = (TextView) this.mRootView.findViewById(R.id.entrance_person_center_desc);
-        this.fwL = (TextView) this.mRootView.findViewById(R.id.entrance_start_recorder_desc);
-        this.fwM = (ImageView) this.mRootView.findViewById(R.id.entrance_publish_live_red);
-        this.fww.setOnClickListener(this);
-        this.fwA.setOnClickListener(this);
-        this.fwD.setOnClickListener(this);
-        this.fwG.setOnClickListener(this);
-        this.fwJ.setOnClickListener(this);
+        this.fHO = (LinearLayout) this.mRootView.findViewById(R.id.entrance_follow);
+        this.fHS = (LinearLayout) this.mRootView.findViewById(R.id.entrance_ranklist);
+        this.fHV = (LinearLayout) this.mRootView.findViewById(R.id.entrance_discuss);
+        this.fHY = (LinearLayout) this.mRootView.findViewById(R.id.entrance_person_center);
+        this.fIf = (ImageView) this.mRootView.findViewById(R.id.entrance_follow_img_diandian);
+        this.fIb = (LinearLayout) this.mRootView.findViewById(R.id.entrance_start_recorder);
+        this.fHP = (HeadImageView) this.mRootView.findViewById(R.id.entrance_follow_img);
+        this.fHP.setIsRound(true);
+        this.fHP.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fHP.setDefaultResource(17170445);
+        this.fHP.setDefaultBgResource(17170445);
+        this.fIg = (ImageView) this.mRootView.findViewById(R.id.entrance_follow_circle);
+        this.fHQ = (ImageView) this.mRootView.findViewById(R.id.entrance_follow_default_img);
+        this.fHT = (ImageView) this.mRootView.findViewById(R.id.entrance_ranklist_img);
+        this.fHW = (ImageView) this.mRootView.findViewById(R.id.entrance_discuss_img);
+        this.fHZ = (ImageView) this.mRootView.findViewById(R.id.entrance_person_center_img);
+        this.fIc = (ImageView) this.mRootView.findViewById(R.id.entrance_start_recorder_img);
+        this.fHR = (TextView) this.mRootView.findViewById(R.id.entrance_follow_desc);
+        this.fHU = (TextView) this.mRootView.findViewById(R.id.entrance_ranklist_desc);
+        this.fHX = (TextView) this.mRootView.findViewById(R.id.entrance_discuss_desc);
+        this.fIa = (TextView) this.mRootView.findViewById(R.id.entrance_person_center_desc);
+        this.fId = (TextView) this.mRootView.findViewById(R.id.entrance_start_recorder_desc);
+        this.fIe = (ImageView) this.mRootView.findViewById(R.id.entrance_publish_live_red);
+        this.fHO.setOnClickListener(this);
+        this.fHS.setOnClickListener(this);
+        this.fHV.setOnClickListener(this);
+        this.fHY.setOnClickListener(this);
+        this.fIb.setOnClickListener(this);
         this.mRotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
         this.mRotateAnimation.setDuration(6000L);
         this.mRotateAnimation.setRepeatMode(1);
         this.mRotateAnimation.setRepeatCount(-1);
         this.mRotateAnimation.setInterpolator(new LinearInterpolator());
-        this.fwP = ObjectAnimator.ofPropertyValuesHolder(this.fwx, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f));
-        this.fwP.setInterpolator(new DecelerateInterpolator());
-        this.fwP.setTarget(this.fwx);
-        this.fwP.setRepeatCount(-1);
-        this.fwP.setRepeatMode(1);
-        this.fwP.setDuration(2000L);
-        this.fwP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.g.1
+        this.fIh = ObjectAnimator.ofPropertyValuesHolder(this.fHP, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f));
+        this.fIh.setInterpolator(new DecelerateInterpolator());
+        this.fIh.setTarget(this.fHP);
+        this.fIh.setRepeatCount(-1);
+        this.fIh.setRepeatMode(1);
+        this.fIh.setDuration(2000L);
+        this.fIh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.g.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -130,7 +130,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                g.this.bxv();
+                g.this.bGu();
             }
         });
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -138,21 +138,21 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        ao.setViewTextColor(this.fwz, R.drawable.tab_super_entrance_txt_selecor);
-        ao.setViewTextColor(this.fwC, R.drawable.tab_super_entrance_txt_selecor);
-        ao.setViewTextColor(this.fwF, R.drawable.tab_super_entrance_txt_selecor);
-        ao.setViewTextColor(this.fwI, R.drawable.tab_super_entrance_txt_selecor);
-        ao.setViewTextColor(this.fwL, R.drawable.tab_super_entrance_txt_selecor);
-        ao.setImageResource(this.fwB, R.drawable.super_entrance_ranklist_bg_selector);
-        ao.setImageResource(this.fwE, R.drawable.super_entrance_discuss_bg_selector);
-        ao.setImageResource(this.fwH, R.drawable.super_entrance_person_bg_selector);
-        ao.setImageResource(this.fwK, R.drawable.super_entrance_start_recorder_bg_selector);
-        ao.setImageResource(this.fwO, R.drawable.pic_live_tab_quan);
-        if (8 == this.fwN.getVisibility()) {
-            this.fwy.setVisibility(0);
-            this.fwO.setVisibility(8);
-            ao.setBackgroundResource(this.fwy, R.drawable.super_entrance_follow_bg_selector);
+        ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.fHR, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.fHU, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.fHX, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.fIa, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setViewTextColor(this.fId, (int) R.drawable.tab_super_entrance_txt_selecor);
+        ap.setImageResource(this.fHT, R.drawable.super_entrance_ranklist_bg_selector);
+        ap.setImageResource(this.fHW, R.drawable.super_entrance_discuss_bg_selector);
+        ap.setImageResource(this.fHZ, R.drawable.super_entrance_person_bg_selector);
+        ap.setImageResource(this.fIc, R.drawable.super_entrance_start_recorder_bg_selector);
+        ap.setImageResource(this.fIg, R.drawable.pic_live_tab_quan);
+        if (8 == this.fIf.getVisibility()) {
+            this.fHQ.setVisibility(0);
+            this.fIg.setVisibility(8);
+            ap.setBackgroundResource(this.fHQ, R.drawable.super_entrance_follow_bg_selector);
         }
     }
 
@@ -164,7 +164,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.i iVar) {
-        if (iVar == null || iVar.ftq == null) {
+        if (iVar == null || iVar.fEJ == null) {
             stopAnim();
             return;
         }
@@ -172,113 +172,113 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         TiebaStatic.log("c13549");
         TiebaStatic.log("c13547");
         TiebaStatic.log("c13546");
-        this.fwS = iVar.ftq.ftm;
-        if (!iVar.ftq.ftk || x.isEmpty(iVar.ftq.ftl)) {
+        this.fIk = iVar.fEJ.fEG;
+        if (!iVar.fEJ.fEE || y.isEmpty(iVar.fEJ.fEF)) {
             stopAnim();
             return;
         }
-        this.fwR = iVar.ftq.ftl;
-        if (!x.isEmpty(this.fwR)) {
+        this.fIj = iVar.fEJ.fEF;
+        if (!y.isEmpty(this.fIj)) {
             startAnim();
-            bxv();
+            bGu();
         }
     }
 
-    public void kl(boolean z) {
-        if (this.fwM != null) {
+    public void kJ(boolean z) {
+        if (this.fIe != null) {
             if (z) {
-                if (!com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), false)) {
-                    com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
-                    this.fwM.setVisibility(0);
+                if (!com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), false)) {
+                    com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
+                    this.fIe.setVisibility(0);
                     return;
                 }
-                this.fwM.setVisibility(8);
+                this.fIe.setVisibility(8);
                 return;
             }
-            this.fwM.setVisibility(8);
+            this.fIe.setVisibility(8);
         }
     }
 
     private void startAnim() {
-        this.fwy.setVisibility(8);
-        this.fwN.setVisibility(0);
-        this.fwO.setVisibility(0);
-        this.fwx.setVisibility(0);
-        this.fwN.clearAnimation();
+        this.fHQ.setVisibility(8);
+        this.fIf.setVisibility(0);
+        this.fIg.setVisibility(0);
+        this.fHP.setVisibility(0);
+        this.fIf.clearAnimation();
         if (this.mRotateAnimation != null) {
-            this.fwN.startAnimation(this.mRotateAnimation);
+            this.fIf.startAnimation(this.mRotateAnimation);
         }
-        if (this.fwP != null) {
-            if (this.fwP.isRunning()) {
-                this.fwP.cancel();
+        if (this.fIh != null) {
+            if (this.fIh.isRunning()) {
+                this.fIh.cancel();
             }
-            this.fwP.start();
+            this.fIh.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxv() {
-        if (this.fwx != null && !x.isEmpty(this.fwR)) {
-            this.fwQ++;
-            if (this.fwR.size() > this.fwQ) {
-                this.fwx.startLoad(this.fwR.get(this.fwQ).portrait, 12, false);
-            } else if (this.fwR.size() > 0) {
-                this.fwQ = 0;
-                this.fwx.startLoad(this.fwR.get(this.fwQ).portrait, 12, false);
+    public void bGu() {
+        if (this.fHP != null && !y.isEmpty(this.fIj)) {
+            this.fIi++;
+            if (this.fIj.size() > this.fIi) {
+                this.fHP.startLoad(this.fIj.get(this.fIi).portrait, 12, false);
+            } else if (this.fIj.size() > 0) {
+                this.fIi = 0;
+                this.fHP.startLoad(this.fIj.get(this.fIi).portrait, 12, false);
             }
         }
     }
 
     private void stopAnim() {
-        this.fwN.setVisibility(8);
-        this.fwO.setVisibility(8);
-        this.fwx.setVisibility(8);
-        this.fwN.clearAnimation();
-        if (this.fwP != null) {
-            this.fwP.cancel();
+        this.fIf.setVisibility(8);
+        this.fIg.setVisibility(8);
+        this.fHP.setVisibility(8);
+        this.fIf.clearAnimation();
+        if (this.fIh != null) {
+            this.fIh.cancel();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fww) {
-            if (bf.checkUpIsLogin(this.mContext)) {
+        if (view == this.fHO) {
+            if (bg.checkUpIsLogin(this.mContext)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveTabMyConcernActivityConfig(getTbPageContext().getPageActivity())));
             }
             TiebaStatic.log("c13552");
-        } else if (view == this.fwA) {
-            if (!StringUtils.isNull(this.fwS)) {
-                com.baidu.tbadk.browser.a.startWebActivity(this.mContext.getApplicationContext(), getContext().getResources().getString(R.string.entrance_ranklist_tip), this.fwS, true, true, true, true, true, true, true);
+        } else if (view == this.fHS) {
+            if (!StringUtils.isNull(this.fIk)) {
+                com.baidu.tbadk.browser.a.startWebActivity(this.mContext.getApplicationContext(), getContext().getResources().getString(R.string.entrance_ranklist_tip), this.fIk, true, true, true, true, true, true, true);
                 TiebaStatic.log("c13553");
             }
-        } else if (view == this.fwD) {
-            String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
+        } else if (view == this.fHV) {
+            String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
             string = (StringUtils.isNull(string) || !string.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) ? "http://tieba.baidu.com/f?kw=百度直播" : "http://tieba.baidu.com/f?kw=百度直播";
             if (!string.contains("?")) {
                 string = string + "?default_tab_id=1&call_from=15";
             } else if (!string.contains("&default_tab_id=")) {
                 string = string + "&default_tab_id=1&call_from=15";
             }
-            bd.baV().a(this.mTbPageContext, new String[]{string}, true);
+            be.bju().a(this.mTbPageContext, new String[]{string}, true);
             TiebaStatic.log("c13554");
-        } else if (view == this.fwG) {
-            if (bf.checkUpIsLogin(this.mContext)) {
+        } else if (view == this.fHY) {
+            if (bg.checkUpIsLogin(this.mContext)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mTbPageContext.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true)));
             }
             TiebaStatic.log("c13555");
-        } else if (view == this.fwJ) {
-            bxw();
+        } else if (view == this.fIb) {
+            bGv();
             TiebaStatic.log("c13617");
         }
     }
 
-    private void bxw() {
+    private void bGv() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getTbPageContext().getPageActivity());
             aVar.setAutoNight(false);
-            aVar.lm(R.string.prompt);
-            aVar.xl(getContext().getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+            aVar.ns(R.string.prompt);
+            aVar.zz(getContext().getResources().getString(R.string.disallow_open_live_by_android_v5_0));
             aVar.setTitleShowCenter(true);
             aVar.setMessageShowCenter(true);
             aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.g.2
@@ -287,18 +287,18 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                     aVar2.dismiss();
                 }
             });
-            aVar.b(getTbPageContext()).aYL();
-        } else if (bf.checkUpIsLogin(getTbPageContext().getPageActivity())) {
-            if (this.fwT == null) {
-                this.fwT = new com.baidu.tieba.ueg.d(getTbPageContext());
+            aVar.b(getTbPageContext()).bhg();
+        } else if (bg.checkUpIsLogin(getTbPageContext().getPageActivity())) {
+            if (this.fIl == null) {
+                this.fIl = new com.baidu.tieba.ueg.d(getTbPageContext());
             }
-            if (!this.fwT.doV()) {
+            if (!this.fIl.dAq()) {
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                    com.baidu.adp.lib.util.l.showToast(getTbPageContext().getPageActivity(), R.string.plugin_config_not_found);
+                    com.baidu.adp.lib.util.l.showToast(getTbPageContext().getPageActivity(), (int) R.string.plugin_config_not_found);
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
-                this.fwM.setVisibility(8);
+                com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
+                this.fIe.setVisibility(8);
                 o(getTbPageContext());
             }
         }
@@ -315,7 +315,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                 @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.b
                 public void onPermissionsGranted() {
                     MessageManager.getInstance().sendMessage(new HttpMessage(1003303));
-                    com.baidu.adp.lib.c.a.kG().getAddress(false);
+                    com.baidu.adp.lib.c.a.mf().getAddress(false);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
                 }
             });

@@ -15,28 +15,28 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     final long skip;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super io.reactivex.g<T>> cVar) {
+    public void a(org.b.c<? super io.reactivex.g<T>> cVar) {
         if (this.skip == this.size) {
-            this.nSG.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
+            this.omB.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
         } else if (this.skip > this.size) {
-            this.nSG.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.omB.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
         } else {
-            this.nSG.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.omB.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
         }
     }
 
     /* loaded from: classes7.dex */
-    static final class WindowExactSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
+    static final class WindowExactSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.b.d {
         private static final long serialVersionUID = -2365647875069161133L;
-        final org.a.c<? super io.reactivex.g<T>> actual;
+        final org.b.c<? super io.reactivex.g<T>> actual;
         final int bufferSize;
         long index;
         final AtomicBoolean once;
-        org.a.d s;
+        org.b.d s;
         final long size;
         UnicastProcessor<T> window;
 
-        WindowExactSubscriber(org.a.c<? super io.reactivex.g<T>> cVar, long j, int i) {
+        WindowExactSubscriber(org.b.c<? super io.reactivex.g<T>> cVar, long j, int i) {
             super(1);
             this.actual = cVar;
             this.size = j;
@@ -44,15 +44,15 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.bufferSize = i;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             long j = this.index;
             UnicastProcessor<T> unicastProcessor = this.window;
@@ -73,7 +73,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.index = j2;
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (unicastProcessor != null) {
@@ -83,7 +83,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (unicastProcessor != null) {
@@ -93,14 +93,14 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.actual.onComplete();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 this.s.request(io.reactivex.internal.util.b.Q(this.size, j));
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (this.once.compareAndSet(false, true)) {
                 run();
@@ -116,19 +116,19 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     }
 
     /* loaded from: classes7.dex */
-    static final class WindowSkipSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
+    static final class WindowSkipSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.b.d {
         private static final long serialVersionUID = -8792836352386833856L;
-        final org.a.c<? super io.reactivex.g<T>> actual;
+        final org.b.c<? super io.reactivex.g<T>> actual;
         final int bufferSize;
         final AtomicBoolean firstRequest;
         long index;
         final AtomicBoolean once;
-        org.a.d s;
+        org.b.d s;
         final long size;
         final long skip;
         UnicastProcessor<T> window;
 
-        WindowSkipSubscriber(org.a.c<? super io.reactivex.g<T>> cVar, long j, long j2, int i) {
+        WindowSkipSubscriber(org.b.c<? super io.reactivex.g<T>> cVar, long j, long j2, int i) {
             super(1);
             this.actual = cVar;
             this.size = j;
@@ -138,15 +138,15 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.bufferSize = i;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             long j = this.index;
             UnicastProcessor<T> unicastProcessor = this.window;
@@ -171,7 +171,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (unicastProcessor != null) {
@@ -181,7 +181,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (unicastProcessor != null) {
@@ -191,7 +191,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.actual.onComplete();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
@@ -202,7 +202,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (this.once.compareAndSet(false, true)) {
                 run();
@@ -218,9 +218,9 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     }
 
     /* loaded from: classes7.dex */
-    static final class WindowOverlapSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
+    static final class WindowOverlapSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.b.d {
         private static final long serialVersionUID = 2428527070996323976L;
-        final org.a.c<? super io.reactivex.g<T>> actual;
+        final org.b.c<? super io.reactivex.g<T>> actual;
         final int bufferSize;
         volatile boolean cancelled;
         volatile boolean done;
@@ -231,13 +231,13 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         long produced;
         final io.reactivex.internal.queue.a<UnicastProcessor<T>> queue;
         final AtomicLong requested;
-        org.a.d s;
+        org.b.d s;
         final long size;
         final long skip;
         final ArrayDeque<UnicastProcessor<T>> windows;
         final AtomicInteger wip;
 
-        WindowOverlapSubscriber(org.a.c<? super io.reactivex.g<T>> cVar, long j, long j2, int i) {
+        WindowOverlapSubscriber(org.b.c<? super io.reactivex.g<T>> cVar, long j, long j2, int i) {
             super(1);
             this.actual = cVar;
             this.size = j;
@@ -251,15 +251,15 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             this.bufferSize = i;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 long j = this.index;
@@ -293,7 +293,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -309,7 +309,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             drain();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 Iterator<UnicastProcessor<T>> it = this.windows.iterator();
@@ -324,7 +324,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
 
         void drain() {
             if (this.wip.getAndIncrement() == 0) {
-                org.a.c<? super io.reactivex.g<T>> cVar = this.actual;
+                org.b.c<? super io.reactivex.g<T>> cVar = this.actual;
                 io.reactivex.internal.queue.a<UnicastProcessor<T>> aVar = this.queue;
                 int i = 1;
                 while (true) {
@@ -360,7 +360,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.a.c<?> cVar, io.reactivex.internal.queue.a<?> aVar) {
+        boolean checkTerminated(boolean z, boolean z2, org.b.c<?> cVar, io.reactivex.internal.queue.a<?> aVar) {
             if (this.cancelled) {
                 aVar.clear();
                 return true;
@@ -379,7 +379,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             return false;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -392,7 +392,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.cancelled = true;
             if (this.once.compareAndSet(false, true)) {

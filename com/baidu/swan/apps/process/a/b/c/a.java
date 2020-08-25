@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.process.a.b.c;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a<T> {
-    String apm();
+    String axi();
 
-    boolean apo();
+    boolean axk();
 
     long getTimeoutMillis();
 

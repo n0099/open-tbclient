@@ -1,11 +1,10 @@
 package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.d n(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
@@ -45,7 +44,7 @@ public class j {
                     }
                     break;
                 case 3530753:
-                    if (nextName.equals(TiebaInitialize.LogFields.SIZE)) {
+                    if (nextName.equals("size")) {
                         c2 = 1;
                         break;
                     }

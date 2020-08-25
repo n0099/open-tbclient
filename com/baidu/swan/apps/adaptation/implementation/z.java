@@ -1,27 +1,33 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
-import com.baidu.swan.apps.adaptation.a.ao;
-import com.baidu.swan.apps.core.container.NgWebView;
-/* loaded from: classes7.dex */
-public class z implements ao {
-    @Override // com.baidu.swan.apps.adaptation.a.ao
-    public void a(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
+import android.support.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.adaptation.a.au;
+import java.io.File;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class z implements au {
+    private z() {
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ao
-    public void p(String str, Context context) {
+    public static z aae() {
+        return a.bSM;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ao
-    public void q(String str, Context context) {
+    @Override // com.baidu.swan.apps.adaptation.a.au
+    public com.baidu.swan.c.b e(Context context, String str, boolean z) {
+        return new com.baidu.swan.c.i(str);
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ao
-    public void a(NgWebView ngWebView) {
+    @Override // com.baidu.swan.apps.adaptation.a.au
+    public void a(@NonNull String str, Set<String> set, boolean z) {
+        com.baidu.swan.apps.env.d.a(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ".xml", set, z);
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ao
-    public void a(NgWebView ngWebView, String str) {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes8.dex */
+    public static class a {
+        private static final z bSM = new z();
     }
 }

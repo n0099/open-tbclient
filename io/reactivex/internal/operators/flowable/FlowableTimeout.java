@@ -11,9 +11,9 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<U> nTB;
-    final org.a.b<? extends T> nTg;
+    final h<? super T, ? extends org.b.b<V>> itemTimeoutIndicator;
+    final org.b.b<? extends T> onb;
+    final org.b.b<U> onx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -22,40 +22,40 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
     }
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        if (this.nTg == null) {
+    protected void a(org.b.c<? super T> cVar) {
+        if (this.onb == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.nTB);
-            this.nSG.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.onx);
+            this.omB.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.nTg);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.onb);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.nTB);
-        this.nSG.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.onx);
+        this.omB.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes7.dex */
-    static final class TimeoutSubscriber<T> extends AtomicLong implements a, j<T>, org.a.d {
+    static final class TimeoutSubscriber<T> extends AtomicLong implements a, j<T>, org.b.d {
         private static final long serialVersionUID = 3764492702657003550L;
-        final org.a.c<? super T> actual;
-        final h<? super T, ? extends org.a.b<?>> itemTimeoutIndicator;
+        final org.b.c<? super T> actual;
+        final h<? super T, ? extends org.b.b<?>> itemTimeoutIndicator;
         final SequentialDisposable task = new SequentialDisposable();
-        final AtomicReference<org.a.d> upstream = new AtomicReference<>();
+        final AtomicReference<org.b.d> upstream = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
-        TimeoutSubscriber(org.a.c<? super T> cVar, h<? super T, ? extends org.a.b<?>> hVar) {
+        TimeoutSubscriber(org.b.c<? super T> cVar, h<? super T, ? extends org.b.b<?>> hVar) {
             this.actual = cVar;
             this.itemTimeoutIndicator = hVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             SubscriptionHelper.deferredSetOnce(this.upstream, this.requested, dVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             long j = get();
             if (j != Long.MAX_VALUE && compareAndSet(j, j + 1)) {
@@ -65,13 +65,13 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                 }
                 this.actual.onNext(t);
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                    org.b.b bVar2 = (org.b.b) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
                     TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j + 1, this);
                     if (this.task.replace(timeoutConsumer)) {
                         bVar2.subscribe(timeoutConsumer);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     this.upstream.get().cancel();
                     getAndSet(Long.MAX_VALUE);
                     this.actual.onError(th);
@@ -79,7 +79,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             }
         }
 
-        void startFirstTimeout(org.a.b<?> bVar) {
+        void startFirstTimeout(org.b.b<?> bVar) {
             if (bVar != null) {
                 TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
                 if (this.task.replace(timeoutConsumer)) {
@@ -88,7 +88,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
@@ -98,7 +98,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
@@ -124,12 +124,12 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             SubscriptionHelper.deferredRequest(this.upstream, this.requested, j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             SubscriptionHelper.cancel(this.upstream);
             this.task.dispose();
@@ -139,28 +139,28 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
     /* loaded from: classes7.dex */
     static final class TimeoutFallbackSubscriber<T> extends SubscriptionArbiter implements a, j<T> {
         private static final long serialVersionUID = 3764492702657003550L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         long consumed;
-        org.a.b<? extends T> fallback;
-        final h<? super T, ? extends org.a.b<?>> itemTimeoutIndicator;
+        org.b.b<? extends T> fallback;
+        final h<? super T, ? extends org.b.b<?>> itemTimeoutIndicator;
         final SequentialDisposable task = new SequentialDisposable();
-        final AtomicReference<org.a.d> upstream = new AtomicReference<>();
+        final AtomicReference<org.b.d> upstream = new AtomicReference<>();
         final AtomicLong index = new AtomicLong();
 
-        TimeoutFallbackSubscriber(org.a.c<? super T> cVar, h<? super T, ? extends org.a.b<?>> hVar, org.a.b<? extends T> bVar) {
+        TimeoutFallbackSubscriber(org.b.c<? super T> cVar, h<? super T, ? extends org.b.b<?>> hVar, org.b.b<? extends T> bVar) {
             this.actual = cVar;
             this.itemTimeoutIndicator = hVar;
             this.fallback = bVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.setOnce(this.upstream, dVar)) {
                 setSubscription(dVar);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             long j = this.index.get();
             if (j != Long.MAX_VALUE && this.index.compareAndSet(j, j + 1)) {
@@ -171,13 +171,13 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                 this.consumed++;
                 this.actual.onNext(t);
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                    org.b.b bVar2 = (org.b.b) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
                     TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j + 1, this);
                     if (this.task.replace(timeoutConsumer)) {
                         bVar2.subscribe(timeoutConsumer);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     this.upstream.get().cancel();
                     this.index.getAndSet(Long.MAX_VALUE);
                     this.actual.onError(th);
@@ -185,7 +185,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             }
         }
 
-        void startFirstTimeout(org.a.b<?> bVar) {
+        void startFirstTimeout(org.b.b<?> bVar) {
             if (bVar != null) {
                 TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
                 if (this.task.replace(timeoutConsumer)) {
@@ -194,7 +194,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
@@ -205,7 +205,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
@@ -218,7 +218,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
         public void onTimeout(long j) {
             if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
-                org.a.b<? extends T> bVar = this.fallback;
+                org.b.b<? extends T> bVar = this.fallback;
                 this.fallback = null;
                 long j2 = this.consumed;
                 if (j2 != 0) {
@@ -238,7 +238,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // io.reactivex.internal.subscriptions.SubscriptionArbiter, org.a.d
+        @Override // io.reactivex.internal.subscriptions.SubscriptionArbiter, org.b.d
         public void cancel() {
             super.cancel();
             this.task.dispose();
@@ -247,7 +247,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class TimeoutConsumer extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Object> {
+    public static final class TimeoutConsumer extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = 8708641127342403073L;
         final long idx;
         final a parent;
@@ -257,16 +257,16 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             this.parent = aVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(Object obj) {
-            org.a.d dVar = (org.a.d) get();
+            org.b.d dVar = (org.b.d) get();
             if (dVar != SubscriptionHelper.CANCELLED) {
                 dVar.cancel();
                 lazySet(SubscriptionHelper.CANCELLED);
@@ -274,7 +274,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (get() != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);
@@ -284,7 +284,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (get() != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);

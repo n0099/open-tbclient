@@ -8,13 +8,13 @@ import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h extends o {
     public String avatar;
-    public int dSD;
-    public String fJp;
-    public String fJq;
-    public ArrayList<a> fJr;
+    public int ebZ;
+    public String fUG;
+    public String fUH;
+    public ArrayList<a> fUI;
     public String is_follow;
     public long live_id;
     public String point;
@@ -28,10 +28,10 @@ public class h extends o {
     public void parserJson(JSONObject jSONObject) {
         this.user_id = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
         this.rank = JavaTypesHelper.toInt(jSONObject.optString("rank"), 0);
-        this.dSD = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
+        this.ebZ = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
         this.live_id = JavaTypesHelper.toLong(jSONObject.optString("live_id"), 0L);
         this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
-        this.fJp = jSONObject.optString("point_behind");
+        this.fUG = jSONObject.optString("point_behind");
         this.user_nickname = jSONObject.optString("user_nickname");
         if (!TextUtils.isEmpty(jSONObject.optString("bd_portrait"))) {
             this.avatar = jSONObject.optString("bd_portrait");
@@ -40,16 +40,16 @@ public class h extends o {
         }
         this.is_follow = jSONObject.optString("is_follow");
         this.user_name = jSONObject.optString("user_name");
-        this.fJq = jSONObject.optString("rule_url");
+        this.fUH = jSONObject.optString("rule_url");
         this.room_id = jSONObject.optInt("room_id");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.fJr = new ArrayList<>();
+            this.fUI = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.fJr.add(aVar);
+                this.fUI.add(aVar);
             }
         }
     }
@@ -58,10 +58,10 @@ public class h extends o {
         return !StringHelper.isEmpty(this.user_nickname) ? this.user_nickname : this.user_name;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a {
-        public long aVI;
-        public String fJs;
+        public long baX;
+        public String fUJ;
         public String portrait;
         public String userId;
         public String userName;
@@ -73,14 +73,14 @@ public class h extends o {
             if (jSONObject != null) {
                 this.userId = jSONObject.optString("user_id");
                 this.userName = jSONObject.optString("user_name");
-                this.fJs = jSONObject.optString("user_nickname");
+                this.fUJ = jSONObject.optString("user_nickname");
                 this.portrait = jSONObject.optString("bd_portrait");
-                this.aVI = jSONObject.optLong("charm_value");
+                this.baX = jSONObject.optLong("charm_value");
             }
         }
 
         public String getName_show() {
-            return !StringHelper.isEmpty(this.fJs) ? this.fJs : this.userName;
+            return !StringHelper.isEmpty(this.fUJ) ? this.fUJ : this.userName;
         }
     }
 }

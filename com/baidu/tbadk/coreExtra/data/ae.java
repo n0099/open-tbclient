@@ -1,54 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.as;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+import java.util.ArrayList;
+/* loaded from: classes15.dex */
 public class ae {
-    private String eqF;
-    private long eqG;
-    private long eqH;
-    private long eqI;
-    private String eqJ;
-    private String eqK;
+    private String eAV;
+    private ArrayList<Object> eAW;
 
-    public void parseJson(String str) {
-        if (!as.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.eqF = jSONObject.optString("splash_video_url");
-                this.eqG = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.eqH = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.eqI = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.eqJ = jSONObject.optString("splash_video_h5_url");
-                this.eqK = jSONObject.optString("splash_video_h5_text");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+    public ae() {
+        J(new ArrayList<>());
     }
 
-    public String beq() {
-        return this.eqF;
+    public String bmV() {
+        return this.eAV;
     }
 
-    public long ber() {
-        return this.eqG;
+    public ArrayList<Object> bmW() {
+        return this.eAW;
     }
 
-    public long bes() {
-        return this.eqH;
-    }
-
-    public long bet() {
-        return this.eqI;
-    }
-
-    public String beu() {
-        return this.eqJ;
-    }
-
-    public String bev() {
-        return this.eqK;
+    public void J(ArrayList<Object> arrayList) {
+        this.eAW = arrayList;
     }
 }

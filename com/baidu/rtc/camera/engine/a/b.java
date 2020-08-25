@@ -2,53 +2,54 @@ package com.baidu.rtc.camera.engine.a;
 
 import com.baidu.rtc.camera.engine.model.AspectRatio;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    private static final b bIj = new b();
-    public boolean bHY;
-    public AspectRatio bHZ;
-    public float bIa;
-    public int bIb;
-    public int bIc;
-    public int bId;
-    public int bIe;
-    public boolean bIf;
-    public boolean bIg;
-    public com.baidu.rtc.camera.engine.b.a bIh;
-    public com.baidu.rtc.camera.engine.b.b bIi;
+    private static final b bNK = new b();
+    public int bNA;
+    public int bNB;
+    public int bNC;
+    public int bND;
+    public int bNE;
+    public int bNF;
+    public boolean bNG;
+    public boolean bNH;
+    public com.baidu.rtc.camera.engine.b.a bNI;
+    public com.baidu.rtc.camera.engine.b.b bNJ;
+    public boolean bNx;
+    public AspectRatio bNy;
+    public float bNz;
     public int cameraId;
     public int orientation;
-    public int previewHeight;
-    public int previewWidth;
 
     private b() {
         reset();
     }
 
     private void reset() {
-        this.bHY = false;
-        this.bHZ = AspectRatio.Ratio_16_9;
-        this.bIa = 0.5625f;
-        this.bIb = 30;
-        this.bIc = 0;
-        this.bId = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        this.bIe = 720;
-        this.previewWidth = 0;
-        this.previewHeight = 0;
+        this.bNx = false;
+        this.bNy = AspectRatio.Ratio_16_9;
+        this.bNz = 0.5625f;
+        this.bNA = 30;
+        this.bNB = 0;
+        this.bNC = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        this.bND = 720;
+        this.bNE = 0;
+        this.bNF = 0;
         this.orientation = 0;
-        this.bIf = false;
+        this.bNG = false;
         this.cameraId = 1;
-        this.bIg = false;
-        this.bIh = null;
-        this.bIi = null;
+        this.bNH = false;
+        this.bNI = null;
+        this.bNJ = null;
     }
 
-    public static b QL() {
-        return bIj;
+    public static b WH() {
+        return bNK;
     }
 
-    public void dg(boolean z) {
-        this.bIf = z;
+    /* renamed from: do  reason: not valid java name */
+    public void m32do(boolean z) {
+        this.bNG = z;
         if (z) {
             this.cameraId = 0;
         } else {

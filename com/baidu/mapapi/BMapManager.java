@@ -1,18 +1,17 @@
 package com.baidu.mapapi;
 
 import android.content.Context;
-import com.baidu.mapsdkplatform.comapi.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BMapManager {
     public static void destroy() {
-        a.a().d();
+        com.baidu.mapsdkplatform.comapi.a.a().d();
     }
 
     public static Context getContext() {
-        return a.a().e();
+        return com.baidu.mapsdkplatform.comapi.a.a().e();
     }
 
     public static void init() {
-        a.a().b();
+        com.baidu.mapsdkplatform.comapi.a.a().b();
     }
 }

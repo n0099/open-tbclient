@@ -1,5 +1,5 @@
 package com.airbnb.lottie.d;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class b {
     private static float k(float f) {
         return f <= 0.0031308f ? 12.92f * f : (float) ((Math.pow(f, 0.4166666567325592d) * 1.0549999475479126d) - 0.054999999701976776d);

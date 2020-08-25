@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -29,9 +29,9 @@ public final class TextOptions extends OverlayOptions {
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.x = this.b;
-        text.w = this.a;
-        text.y = this.c;
+        text.B = this.b;
+        text.A = this.a;
+        text.C = this.c;
         text.a = this.d;
         text.b = this.e;
         text.c = this.f;
@@ -120,7 +120,7 @@ public final class TextOptions extends OverlayOptions {
 
     public TextOptions position(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
         this.e = latLng;
         return this;
@@ -133,7 +133,7 @@ public final class TextOptions extends OverlayOptions {
 
     public TextOptions text(String str) {
         if (str == null || str.equals("")) {
-            throw new IllegalArgumentException("text can not be null or empty");
+            throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
         }
         this.d = str;
         return this;

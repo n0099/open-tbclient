@@ -14,16 +14,17 @@ import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.location.a.c;
-import com.baidu.location.a.j;
-import com.baidu.location.a.k;
+import com.baidu.location.b.d;
+import com.baidu.location.b.n;
+import com.baidu.location.e.l;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
-public final class LocationClient implements c.a {
+/* loaded from: classes20.dex */
+public final class LocationClient implements d.a {
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
     public static final int CONNECT_HOT_SPOT_UNKNOWN = -1;
@@ -62,7 +63,7 @@ public final class LocationClient implements c.a {
     private Boolean y = false;
     private Boolean z = false;
     private Boolean A = true;
-    private com.baidu.location.a.c C = null;
+    private com.baidu.location.b.d C = null;
     private boolean D = false;
     private boolean E = false;
     private boolean F = false;
@@ -71,7 +72,7 @@ public final class LocationClient implements c.a {
     private final Messenger i = new Messenger(this.h);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class a extends Handler {
         private final WeakReference<LocationClient> a;
 
@@ -203,7 +204,7 @@ public final class LocationClient implements c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -258,12 +259,17 @@ public final class LocationClient implements c.a {
             return;
         }
         if (this.A.booleanValue()) {
-            try {
-                new c(this).start();
-            } catch (Throwable th) {
+            if (this.d.isOnceLocation() ? true : l.c(this.f)) {
+                try {
+                    new c(this).start();
+                } catch (Throwable th) {
+                }
             }
-            this.A = false;
         }
+        if (this.d.isOnceLocation()) {
+            return;
+        }
+        this.A = false;
         this.b = this.f.getPackageName();
         this.u = this.b + "_bdls_v2.9";
         Intent intent = new Intent(this.f, f.class);
@@ -377,6 +383,9 @@ public final class LocationClient implements c.a {
                 if (this.l.getLocType() == 61) {
                     this.s = System.currentTimeMillis();
                 }
+                if (this.l.getLocType() == 61 || this.l.getLocType() == 161) {
+                    com.baidu.location.b.a.a().a(this.l.getLatitude(), this.l.getLongitude(), this.l.getCoorType());
+                }
                 a(i);
             } catch (Exception e) {
             }
@@ -391,6 +400,7 @@ public final class LocationClient implements c.a {
         this.l = bDLocation;
         if (!this.E && bDLocation.getLocType() == 161) {
             this.D = true;
+            com.baidu.location.b.a.a().a(bDLocation.getLatitude(), bDLocation.getLongitude(), bDLocation.getCoorType());
         }
         if (this.j != null) {
             Iterator<BDLocationListener> it = this.j.iterator();
@@ -503,6 +513,13 @@ public final class LocationClient implements c.a {
         bundle.putInt("autoNotifyMinDistance", this.c.getAutoNotifyMinDistance());
         bundle.putFloat("autoNotifyLocSensitivity", this.c.b());
         bundle.putInt("wifitimeout", this.c.wifiCacheTimeOut);
+        bundle.putInt("wfnum", com.baidu.location.b.a.a().b);
+        bundle.putBoolean("ischeckper", com.baidu.location.b.a.a().a);
+        bundle.putFloat("wfsm", (float) com.baidu.location.b.a.a().c);
+        bundle.putDouble("gnmcrm", com.baidu.location.b.a.a().f);
+        bundle.putInt("gnmcon", com.baidu.location.b.a.a().g);
+        bundle.putInt("iupl", com.baidu.location.b.a.a().h);
+        bundle.putInt("lpcs", com.baidu.location.b.a.a().e);
         return bundle;
     }
 
@@ -526,7 +543,7 @@ public final class LocationClient implements c.a {
         if (this.g == null) {
             return;
         }
-        if ((System.currentTimeMillis() - this.s > 3000 || !this.c.location_change_notify || this.n) && (!this.w || System.currentTimeMillis() - this.t > 20000 || this.n)) {
+        if ((System.currentTimeMillis() - this.s > IMConnection.RETRY_DELAY_TIMES || !this.c.location_change_notify || this.n) && (!this.w || System.currentTimeMillis() - this.t > 20000 || this.n)) {
             Message obtain = Message.obtain((Handler) null, 22);
             if (this.n) {
                 Bundle bundle = new Bundle();
@@ -587,7 +604,7 @@ public final class LocationClient implements c.a {
     }
 
     public void disableAssistantLocation() {
-        k.a().b();
+        n.a().b();
     }
 
     public void disableLocInForeground(boolean z) {
@@ -599,7 +616,7 @@ public final class LocationClient implements c.a {
     }
 
     public void enableAssistantLocation(WebView webView) {
-        k.a().a(this.f, webView, this);
+        n.a().a(this.f, webView, this);
     }
 
     public void enableLocInForeground(int i, Notification notification) {
@@ -617,7 +634,7 @@ public final class LocationClient implements c.a {
 
     public String getAccessKey() {
         try {
-            this.v = j.b(this.f);
+            this.v = com.baidu.location.a.a.b(this.f);
             if (TextUtils.isEmpty(this.v)) {
                 throw new IllegalStateException("please setting key from Manifest.xml");
             }
@@ -636,14 +653,17 @@ public final class LocationClient implements c.a {
     }
 
     public String getVersion() {
-        return "7.6.3";
+        return "9.0.2";
     }
 
     public boolean isStarted() {
         return this.e;
     }
 
-    @Override // com.baidu.location.a.c.a
+    public void onReceiveLightLocString(String str) {
+    }
+
+    @Override // com.baidu.location.b.d.a
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.E || this.D) && bDLocation != null) {
             Message obtainMessage = this.h.obtainMessage(701);
@@ -721,6 +741,7 @@ public final class LocationClient implements c.a {
 
     public void start() {
         this.x = false;
+        com.baidu.location.b.a.a().a(this.f, this.d);
         this.h.obtainMessage(1).sendToTarget();
     }
 

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.d.d;
+import com.baidu.swan.c.d;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
 
@@ -149,7 +149,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String lk(String str) {
+    public static synchronized String nh(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         Throwable th;

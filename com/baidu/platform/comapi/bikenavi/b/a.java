@@ -1,10 +1,10 @@
 package com.baidu.platform.comapi.bikenavi.b;
 
-import com.baidu.platform.comapi.wnplatform.m.c;
-import com.baidu.platform.comapi.wnplatform.o.i;
+import com.baidu.platform.comapi.wnplatform.n.c;
+import com.baidu.platform.comapi.wnplatform.p.j;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
-/* loaded from: classes10.dex */
-public class a extends com.baidu.platform.comapi.wnplatform.m.a {
+/* loaded from: classes20.dex */
+public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private c a = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -21,7 +21,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
         this.a = null;
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.m.a
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
     public void a(c cVar) {
         this.a = cVar;
     }
@@ -41,17 +41,17 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
-        if (com.baidu.platform.comapi.walknavi.b.a == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.a == com.baidu.platform.comapi.walknavi.b.a().u()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().u()) {
             if (i == 1) {
-                i.a().b(com.baidu.platform.comapi.wnplatform.e.a.a().b());
+                j.a().b(com.baidu.platform.comapi.wnplatform.f.a.a().b());
                 return 1;
             } else if (i == 2) {
-                i.a().c(com.baidu.platform.comapi.wnplatform.e.a.a().c());
+                j.a().c(com.baidu.platform.comapi.wnplatform.f.a.a().c());
                 return 1;
-            } else if (i.a().b()) {
+            } else if (j.a().b()) {
                 return 0;
             } else {
                 return a(str, false);

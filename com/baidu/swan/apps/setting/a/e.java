@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.ap.v;
 import com.baidu.swan.apps.api.module.h.a;
-import com.baidu.swan.apps.aq.v;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/getSwanId");
@@ -37,8 +37,8 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        if (com.baidu.swan.apps.performance.b.b.aop()) {
-            String string = eVar.arH().getString(a.C0314a.b(eVar), (String) null);
+        if (com.baidu.swan.apps.performance.b.c.awj()) {
+            String string = eVar.azU().getString(a.C0360a.b(eVar), (String) null);
             if (TextUtils.isEmpty(string)) {
                 a(context, unitedSchemeEntity, callbackHandler, eVar, optString);
             } else {
@@ -70,15 +70,15 @@ public class e extends aa {
             com.baidu.swan.apps.console.c.e("getSwanId", "network_error");
             return;
         }
-        com.baidu.swan.apps.runtime.d.arr().art().Sv().Uf().bc(context).t(new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
+        com.baidu.swan.apps.runtime.d.azE().azG().Yq().aah().bh(context).A(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
+            @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void H(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
+            public void I(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
                 if (hVar.isOk() && hVar.mData != null) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hVar.mData, 0).toString(), str);
                     if (eVar != null) {
-                        eVar.arH().putString(a.C0314a.b(eVar), hVar.mData.toString());
+                        eVar.azU().putString(a.C0360a.b(eVar), hVar.mData.toString());
                     }
                     com.baidu.swan.apps.console.c.i("getSwanId", "getSwanId success");
                     return;
@@ -86,6 +86,6 @@ public class e extends aa {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), str);
                 com.baidu.swan.apps.console.c.e("getSwanId", "getSwanId failed: internal_error");
             }
-        }).atq();
+        }).aBy();
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -27,7 +27,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             }
-            this.mActDialogData = com.baidu.tieba.pb.b.dM(optJSONObject);
+            this.mActDialogData = com.baidu.tieba.pb.b.dX(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             this.mContriInfo = new ContriInfo();
             this.mContriInfo.parseJson(optJSONObject3);

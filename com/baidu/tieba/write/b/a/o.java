@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class o extends UnitedSchemeBaseDispatcher {
     private static final String TAG = o.class.getSimpleName();
     private static final boolean DEBUG = AppConfig.isDebug();
-    public static HashMap<String, CallbackHandler> mxk = new HashMap<>();
+    public static HashMap<String, CallbackHandler> mPz = new HashMap<>();
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {

@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends b {
     private Timer connectionLostTimer;
     private TimerTask connectionLostTimerTask;
@@ -36,7 +36,7 @@ public abstract class a extends b {
                 while (it.hasNext()) {
                     WebSocket webSocket = (WebSocket) it.next();
                     if (webSocket instanceof c) {
-                        ((c) webSocket).dWY();
+                        ((c) webSocket).ejc();
                     }
                 }
             } catch (Exception e) {
@@ -79,20 +79,20 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> oij = new ArrayList<>();
+            private ArrayList<WebSocket> oCf = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.oij.clear();
+                this.oCf.clear();
                 try {
-                    this.oij.addAll(a.this.getConnections());
+                    this.oCf.addAll(a.this.getConnections());
                     long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.oij.iterator();
+                    Iterator<WebSocket> it = this.oCf.iterator();
                     while (it.hasNext()) {
                         WebSocket next = it.next();
                         if (next instanceof c) {
                             c cVar = (c) next;
-                            if (cVar.dWX() < currentTimeMillis) {
+                            if (cVar.ejb() < currentTimeMillis) {
                                 if (c.DEBUG) {
                                     System.out.println("Closing connection due to no pong received: " + next.toString());
                                 }
@@ -109,7 +109,7 @@ public abstract class a extends b {
                         System.out.println("Exception during connection lost ping: " + e.getMessage());
                     }
                 }
-                this.oij.clear();
+                this.oCf.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

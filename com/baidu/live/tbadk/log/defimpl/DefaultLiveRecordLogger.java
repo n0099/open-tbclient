@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.ILiveRecordLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultLiveRecordLogger implements ILiveRecordLogger {
     @Override // com.baidu.live.tbadk.log.ILiveRecordLogger
     public void doClickFunctionButtonLog(String str, String str2, String str3) {

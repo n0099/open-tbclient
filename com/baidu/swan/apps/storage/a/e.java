@@ -2,7 +2,6 @@ package com.baidu.swan.apps.storage.a;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -12,7 +11,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
     public e(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/getSavedFileList");
@@ -20,12 +19,12 @@ public class e extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.arG() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.azT() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFileList", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        ArrayList arrayList = (ArrayList) eVar.arG().auH();
+        ArrayList arrayList = (ArrayList) eVar.azT().aCQ();
         JSONArray jSONArray = new JSONArray();
         if (arrayList == null || arrayList.size() == 0) {
             com.baidu.swan.apps.console.c.e("getSavedFileList", "file list is null");
@@ -37,11 +36,11 @@ public class e extends aa {
             com.baidu.swan.apps.storage.a aVar = (com.baidu.swan.apps.storage.a) it.next();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("filePath", com.baidu.swan.apps.storage.b.bZ(aVar.getPath(), com.baidu.swan.apps.runtime.e.arx()));
-                jSONObject.put("createTime", aVar.auD());
-                jSONObject.put(TiebaInitialize.LogFields.SIZE, aVar.getSize());
+                jSONObject.put("filePath", com.baidu.swan.apps.storage.b.cq(aVar.getPath(), com.baidu.swan.apps.runtime.e.azK()));
+                jSONObject.put("createTime", aVar.aCM());
+                jSONObject.put("size", aVar.getSize());
                 if (DEBUG) {
-                    Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get("createTime") + " , " + jSONObject.get(TiebaInitialize.LogFields.SIZE) + ")");
+                    Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get("createTime") + " , " + jSONObject.get("size") + ")");
                 }
             } catch (JSONException e) {
                 com.baidu.swan.apps.console.c.w("getSavedFileList", "file info to json fail");

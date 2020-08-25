@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public enum BarcodeFormat {
     AZTEC,
     CODABAR,

@@ -10,7 +10,7 @@ import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes18.dex */
 public interface IPublisherSboxVideoInterface {
     public static final String EXTRA_MAX_DURATION = "max_time";
     public static final String EXTRA_MIN_DURATION = "min_time";

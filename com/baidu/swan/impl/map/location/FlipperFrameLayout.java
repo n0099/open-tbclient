@@ -12,9 +12,9 @@ import android.widget.FrameLayout;
 import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes19.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
-    private float VN;
-    private h drE;
-    private boolean drM;
+    private h dBF;
+    private boolean dBN;
+    private float mLastY;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,31 +29,31 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.drE = hVar;
+        this.dBF = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.drM || this.drE == null) {
-            this.VN = motionEvent.getRawY();
+        if (this.dBN || this.dBF == null) {
+            this.mLastY = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                this.VN = motionEvent.getRawY();
+                this.mLastY = motionEvent.getRawY();
                 break;
             case 1:
             case 3:
-                this.VN = motionEvent.getRawY();
+                this.mLastY = motionEvent.getRawY();
                 break;
             case 2:
-                float rawY = motionEvent.getRawY() - this.VN;
+                float rawY = motionEvent.getRawY() - this.mLastY;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.drE.isFlipped() && O(rawY)) {
-                    this.drE.gA(true);
+                if (z && !this.dBF.isFlipped() && T(rawY)) {
+                    this.dBF.gW(true);
                     return true;
-                } else if (!z && aJk() && this.drE.isFlipped() && O(rawY)) {
-                    this.drE.gA(false);
+                } else if (!z && aSa() && this.dBF.isFlipped() && T(rawY)) {
+                    this.dBF.gW(false);
                     return true;
                 }
                 break;
@@ -61,7 +61,7 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean aJk() {
+    private boolean aSa() {
         if (getChildCount() <= 0) {
             return true;
         }
@@ -69,17 +69,17 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return ((childAt instanceof ScrollingView) && childAt.canScrollVertically(-1)) ? false : true;
     }
 
-    private boolean O(float f) {
+    private boolean T(float f) {
         return Math.abs(f) >= ((float) ViewConfiguration.getTouchSlop());
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void gy(boolean z) {
-        this.drM = false;
+    public void gU(boolean z) {
+        this.dBN = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void gz(boolean z) {
-        this.drM = true;
+    public void gV(boolean z) {
+        this.dBN = true;
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.swan.apps.t.b;
 import android.content.Context;
 import android.net.Uri;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface i {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void aiI();
+        void aqo();
 
-        void aiJ();
+        void aqp();
     }
 
     void a(Context context, String str, Uri uri);

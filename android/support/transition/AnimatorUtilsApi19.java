@@ -5,7 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 @RequiresApi(19)
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 class AnimatorUtilsApi19 implements AnimatorUtilsImpl {
     @Override // android.support.transition.AnimatorUtilsImpl
     public void addPauseListener(@NonNull Animator animator, @NonNull AnimatorListenerAdapter animatorListenerAdapter) {

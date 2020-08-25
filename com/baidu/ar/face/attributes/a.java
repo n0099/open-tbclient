@@ -2,19 +2,34 @@ package com.baidu.ar.face.attributes;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ar.f.b;
+import com.baidu.ar.arrender.k;
 import com.baidu.ar.face.FaceResultData;
-import com.baidu.ar.face.a.h;
 import com.baidu.ar.face.algo.FAUFaceBox;
 import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.algo.FaceFrame;
+import com.baidu.ar.face.detector.m;
+import com.baidu.ar.g.b;
+import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private HashMap<Integer, float[]> na = new HashMap<>();
-    private boolean nb = false;
+    private HashMap<Integer, float[]> nI = new HashMap<>();
+    private boolean nJ = false;
+    private k nK;
+
+    public a(k kVar) {
+        this.nK = kVar;
+    }
+
+    private boolean W(String str) {
+        if (new File(str).exists()) {
+            return true;
+        }
+        b.b("FaceAttributesManager", "open model path error:" + str);
+        return false;
+    }
 
     private static float[] a(ByteBuffer byteBuffer, FAUFaceBox fAUFaceBox, int i, int i2) {
         float[] fArr = new float[2];
@@ -24,9 +39,19 @@ public class a {
         return null;
     }
 
-    private boolean d(h hVar) {
-        if (this.nb) {
-            if (hVar.isTracked()) {
+    private boolean c(Context context, String str) {
+        try {
+            context.getAssets().open(str).close();
+            return true;
+        } catch (Exception e) {
+            b.b("FaceAttributesManager", "open asset model path error:" + str);
+            return false;
+        }
+    }
+
+    private boolean d(m mVar) {
+        if (this.nJ) {
+            if (mVar.isTracked()) {
                 return true;
             }
             b.c("FaceAttributesManager", "faceResult.isTracked == false.");
@@ -35,10 +60,10 @@ public class a {
         return false;
     }
 
-    public void a(h hVar, FaceResultData faceResultData, int i, int i2) {
-        if (d(hVar)) {
-            FaceAlgoData dc = hVar.dc();
-            FaceFrame faceFrame = dc == null ? null : dc.getFaceFrame();
+    public void a(m mVar, FaceResultData faceResultData, int i, int i2) {
+        if (d(mVar)) {
+            FaceAlgoData eD = mVar.eD();
+            FaceFrame faceFrame = eD == null ? null : eD.getFaceFrame();
             if (faceFrame == null) {
                 b.c("FaceAttributesManager", "faceFrame == null.");
                 return;
@@ -51,17 +76,20 @@ public class a {
             }
             faceResultData.setFaceIds(faceIDList);
             int i3 = faceIDList[0];
-            float[] fArr = this.na.get(Integer.valueOf(i3));
+            float[] fArr = this.nI.get(Integer.valueOf(i3));
             if (fArr != null) {
                 faceResultData.setGenders(fArr);
                 return;
             }
-            float[] a = a(hVar.db(), faceBoxes.get(0), i, i2);
-            if (a == null || !this.nb) {
+            float[] a = a(mVar.eC(), faceBoxes.get(0), i, i2);
+            if (a == null || !this.nJ) {
                 return;
             }
-            this.na.put(Integer.valueOf(i3), a);
+            this.nI.put(Integer.valueOf(i3), a);
             faceResultData.setGenders(a);
+            if (this.nK != null) {
+                this.nK.b("face_gender_predict", Float.valueOf(a[0]));
+            }
         }
     }
 
@@ -70,18 +98,23 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             b.b("FaceAttributesManager", "gender model path is empty.");
             return -1;
-        } else if (this.nb) {
+        } else if (this.nJ) {
             return 0;
         } else {
-            if (FaceAttributesJni.mZ) {
+            if (FaceAttributesJni.nH) {
                 if (str.startsWith("file:///android_asset/")) {
                     String replace = str.replace("file:///android_asset/", "");
+                    if (!c(context, replace)) {
+                        return -1;
+                    }
                     FaceAttributesJni.setAssetManager(context.getAssets());
                     initGenderDetect = FaceAttributesJni.initGenderDetectFromAssets(replace);
+                } else if (!W(str)) {
+                    return -1;
                 } else {
                     initGenderDetect = FaceAttributesJni.initGenderDetect(str);
                 }
-                this.nb = initGenderDetect == 0;
+                this.nJ = initGenderDetect == 0;
                 return initGenderDetect;
             }
             return -1;
@@ -89,9 +122,14 @@ public class a {
     }
 
     public void release() {
-        if (this.nb) {
-            this.nb = false;
+        this.nK = null;
+        if (this.nJ) {
+            this.nJ = false;
             FaceAttributesJni.releaseGenderDetect();
         }
+    }
+
+    public void reset() {
+        this.nI.clear();
     }
 }

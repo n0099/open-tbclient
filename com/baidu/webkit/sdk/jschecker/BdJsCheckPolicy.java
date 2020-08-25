@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk.jschecker;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public interface BdJsCheckPolicy extends INoProGuard {
     void onJsCheckFinished(BdJsCallInfo bdJsCallInfo);
 

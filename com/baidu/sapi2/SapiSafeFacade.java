@@ -2,7 +2,7 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public final class SapiSafeFacade {
     public static final int DEVICE_AUTH_TOKEN_EVENT_ID = 122;
     public static final int GET_ZID_DEFAULT_EVENT_ID = 120;
@@ -30,10 +30,10 @@ public final class SapiSafeFacade {
     }
 
     public String getDeviceAuthToken(Context context, String str, int i) {
-        return com.baidu.sapi2.utils.d.a().a(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i);
+        return com.baidu.sapi2.utils.c.a().a(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i);
     }
 
     public String getZidAndCheckSafe(Context context, String str, int i) {
-        return com.baidu.sapi2.utils.d.a().a(context, str, i);
+        return com.baidu.sapi2.utils.c.a().a(context, str, i);
     }
 }

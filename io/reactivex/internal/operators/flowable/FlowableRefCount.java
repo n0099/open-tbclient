@@ -10,53 +10,53 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class FlowableRefCount<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final ReentrantLock lock;
-    final io.reactivex.b.a<T> nTn;
-    volatile io.reactivex.disposables.a nTo;
-    final AtomicInteger nTp;
+    final io.reactivex.b.a<T> onj;
+    volatile io.reactivex.disposables.a onk;
+    final AtomicInteger onl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public final class ConnectionSubscriber extends AtomicReference<org.a.d> implements j<T>, org.a.d {
+    public final class ConnectionSubscriber extends AtomicReference<org.b.d> implements j<T>, org.b.d {
         private static final long serialVersionUID = 152064694420235350L;
         final io.reactivex.disposables.a currentBase;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.b resource;
-        final org.a.c<? super T> subscriber;
+        final org.b.c<? super T> subscriber;
 
-        ConnectionSubscriber(org.a.c<? super T> cVar, io.reactivex.disposables.a aVar, io.reactivex.disposables.b bVar) {
+        ConnectionSubscriber(org.b.c<? super T> cVar, io.reactivex.disposables.a aVar, io.reactivex.disposables.b bVar) {
             this.subscriber = cVar;
             this.currentBase = aVar;
             this.resource = bVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             SubscriptionHelper.deferredSetOnce(this, this.requested, dVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             cleanup();
             this.subscriber.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.subscriber.onNext(t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             cleanup();
             this.subscriber.onComplete();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             SubscriptionHelper.deferredRequest(this, this.requested, j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             SubscriptionHelper.cancel(this);
             this.resource.dispose();
@@ -65,13 +65,13 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
         void cleanup() {
             FlowableRefCount.this.lock.lock();
             try {
-                if (FlowableRefCount.this.nTo == this.currentBase) {
-                    if (FlowableRefCount.this.nTn instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) FlowableRefCount.this.nTn).dispose();
+                if (FlowableRefCount.this.onk == this.currentBase) {
+                    if (FlowableRefCount.this.onj instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) FlowableRefCount.this.onj).dispose();
                     }
-                    FlowableRefCount.this.nTo.dispose();
-                    FlowableRefCount.this.nTo = new io.reactivex.disposables.a();
-                    FlowableRefCount.this.nTp.set(0);
+                    FlowableRefCount.this.onk.dispose();
+                    FlowableRefCount.this.onk = new io.reactivex.disposables.a();
+                    FlowableRefCount.this.onl.set(0);
                 }
             } finally {
                 FlowableRefCount.this.lock.unlock();
@@ -80,13 +80,13 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
     }
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super T> cVar) {
+    public void a(org.b.c<? super T> cVar) {
         boolean z;
         this.lock.lock();
-        if (this.nTp.incrementAndGet() == 1) {
+        if (this.onl.incrementAndGet() == 1) {
             AtomicBoolean atomicBoolean = new AtomicBoolean(true);
             try {
-                this.nTn.c(a(cVar, atomicBoolean));
+                this.onj.c(a(cVar, atomicBoolean));
                 if (z) {
                     return;
                 }
@@ -97,35 +97,35 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
             }
         }
         try {
-            a(cVar, this.nTo);
+            a(cVar, this.onk);
         } finally {
             this.lock.unlock();
         }
     }
 
-    private io.reactivex.c.g<io.reactivex.disposables.b> a(org.a.c<? super T> cVar, AtomicBoolean atomicBoolean) {
+    private io.reactivex.c.g<io.reactivex.disposables.b> a(org.b.c<? super T> cVar, AtomicBoolean atomicBoolean) {
         return new a(cVar, atomicBoolean);
     }
 
-    void a(org.a.c<? super T> cVar, io.reactivex.disposables.a aVar) {
+    void a(org.b.c<? super T> cVar, io.reactivex.disposables.a aVar) {
         ConnectionSubscriber connectionSubscriber = new ConnectionSubscriber(cVar, aVar, a(aVar));
         cVar.onSubscribe(connectionSubscriber);
-        this.nTn.a((j) connectionSubscriber);
+        this.onj.a((j) connectionSubscriber);
     }
 
     private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
-        return io.reactivex.disposables.c.K(new b(aVar));
+        return io.reactivex.disposables.c.H(new b(aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public final class a implements io.reactivex.c.g<io.reactivex.disposables.b> {
-        private final AtomicBoolean nTq;
-        private final org.a.c<? super T> subscriber;
+        private final AtomicBoolean onm;
+        private final org.b.c<? super T> subscriber;
 
-        a(org.a.c<? super T> cVar, AtomicBoolean atomicBoolean) {
+        a(org.b.c<? super T> cVar, AtomicBoolean atomicBoolean) {
             this.subscriber = cVar;
-            this.nTq = atomicBoolean;
+            this.onm = atomicBoolean;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,11 +133,11 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
         /* renamed from: f */
         public void accept(io.reactivex.disposables.b bVar) {
             try {
-                FlowableRefCount.this.nTo.a(bVar);
-                FlowableRefCount.this.a(this.subscriber, FlowableRefCount.this.nTo);
+                FlowableRefCount.this.onk.a(bVar);
+                FlowableRefCount.this.a(this.subscriber, FlowableRefCount.this.onk);
             } finally {
                 FlowableRefCount.this.lock.unlock();
-                this.nTq.set(false);
+                this.onm.set(false);
             }
         }
     }
@@ -145,22 +145,22 @@ public final class FlowableRefCount<T> extends io.reactivex.internal.operators.f
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public final class b implements Runnable {
-        private final io.reactivex.disposables.a nTr;
+        private final io.reactivex.disposables.a onn;
 
         b(io.reactivex.disposables.a aVar) {
-            this.nTr = aVar;
+            this.onn = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             FlowableRefCount.this.lock.lock();
             try {
-                if (FlowableRefCount.this.nTo == this.nTr && FlowableRefCount.this.nTp.decrementAndGet() == 0) {
-                    if (FlowableRefCount.this.nTn instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) FlowableRefCount.this.nTn).dispose();
+                if (FlowableRefCount.this.onk == this.onn && FlowableRefCount.this.onl.decrementAndGet() == 0) {
+                    if (FlowableRefCount.this.onj instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) FlowableRefCount.this.onj).dispose();
                     }
-                    FlowableRefCount.this.nTo.dispose();
-                    FlowableRefCount.this.nTo = new io.reactivex.disposables.a();
+                    FlowableRefCount.this.onk.dispose();
+                    FlowableRefCount.this.onk = new io.reactivex.disposables.a();
                 }
             } finally {
                 FlowableRefCount.this.lock.unlock();

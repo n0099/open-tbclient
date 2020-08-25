@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AlaUserInfoData extends OrmObject {
     public long ala_id;
     public int anchor_fans;

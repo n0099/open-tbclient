@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ea extends ed {
     private String a;
 
@@ -27,24 +27,24 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo161a() {
+    public int mo166a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo161a() {
+    public ho mo166a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo161a() {
+    public String mo166a() {
         String[] a = a();
         if (a == null || a.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f236a.getPackageManager();
+        PackageManager packageManager = this.f233a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a) {
             try {

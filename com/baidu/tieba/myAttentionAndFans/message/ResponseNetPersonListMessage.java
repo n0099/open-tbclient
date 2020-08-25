@@ -5,14 +5,14 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private bb data;
+    private bc data;
     private int mErrCode;
     private String mErrMsg;
 
@@ -30,7 +30,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public bb getData() {
+    public bc getData() {
         return this.data;
     }
 
@@ -41,7 +41,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.data = new bb();
+            this.data = new bc();
             this.data.parserJson(jSONObject);
         }
     }
@@ -63,9 +63,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> xj = a.aYG().xj("tb.my_pages");
-                    if (xj != null) {
-                        xj.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
+                    l<String> zx = a.bhb().zx("tb.my_pages");
+                    if (zx != null) {
+                        zx.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }
                 }
             }

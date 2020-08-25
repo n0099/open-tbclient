@@ -6,16 +6,16 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WalletStaticInit {
     public static void init() {
-        bd.baV().a(new bd.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
-            @Override // com.baidu.tbadk.core.util.bd.a
+        be.bju().a(new be.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
+            @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;

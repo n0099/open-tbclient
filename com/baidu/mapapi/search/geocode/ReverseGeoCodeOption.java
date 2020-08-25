@@ -1,12 +1,12 @@
 package com.baidu.mapapi.search.geocode;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ReverseGeoCodeOption {
     private int a = 10;
     private int b = 0;
     private LatLng c = null;
-    private int d = 0;
+    private int d = 1;
     private int e = 1000;
 
     public int getLatestAdmin() {

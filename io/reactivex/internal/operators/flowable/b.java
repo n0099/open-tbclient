@@ -20,20 +20,20 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
     }
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.dSS(), this.delayError));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.eeU(), this.delayError));
     }
 
     /* loaded from: classes7.dex */
-    static final class a<T> implements j<T>, org.a.d {
-        final org.a.c<? super T> actual;
+    static final class a<T> implements j<T>, org.b.d {
+        final org.b.c<? super T> actual;
         final long delay;
         final boolean delayError;
-        org.a.d s;
+        org.b.d s;
         final TimeUnit unit;
         final v.c w;
 
-        a(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v.c cVar2, boolean z) {
+        a(org.b.c<? super T> cVar, long j, TimeUnit timeUnit, v.c cVar2, boolean z) {
             this.actual = cVar;
             this.delay = j;
             this.unit = timeUnit;
@@ -41,35 +41,35 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
             this.delayError = z;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.w.c(new c(t), this.delay, this.unit);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
-            this.w.c(new RunnableC0906b(th), this.delayError ? this.delay : 0L, this.unit);
+            this.w.c(new RunnableC0964b(th), this.delayError ? this.delay : 0L, this.unit);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
-            this.w.c(new RunnableC0905a(), this.delay, this.unit);
+            this.w.c(new RunnableC0963a(), this.delay, this.unit);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             this.s.request(j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.s.cancel();
             this.w.dispose();
@@ -92,17 +92,17 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        final class RunnableC0906b implements Runnable {
-            private final Throwable arw;
+        final class RunnableC0964b implements Runnable {
+            private final Throwable awt;
 
-            RunnableC0906b(Throwable th) {
-                this.arw = th;
+            RunnableC0964b(Throwable th) {
+                this.awt = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    a.this.actual.onError(this.arw);
+                    a.this.actual.onError(this.awt);
                 } finally {
                     a.this.w.dispose();
                 }
@@ -111,8 +111,8 @@ public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T>
 
         /* renamed from: io.reactivex.internal.operators.flowable.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        final class RunnableC0905a implements Runnable {
-            RunnableC0905a() {
+        final class RunnableC0963a implements Runnable {
+            RunnableC0963a() {
             }
 
             @Override // java.lang.Runnable

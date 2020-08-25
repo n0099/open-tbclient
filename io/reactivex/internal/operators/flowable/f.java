@@ -13,11 +13,11 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // io.reactivex.g
-    public void a(org.a.c<? super U> cVar) {
+    public void a(org.b.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nSG.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.omB.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.nSG.a((j) new b(cVar, this.mapper));
+            this.omB.a((j) new b(cVar, this.mapper));
         }
     }
 
@@ -26,12 +26,12 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
         final h<? super T, ? extends U> mapper;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
+        public b(org.b.c<? super U> cVar, h<? super T, ? extends U> hVar) {
             super(cVar);
             this.mapper = hVar;
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 if (this.sourceMode != 0) {
@@ -41,14 +41,14 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                 try {
                     this.actual.onNext(io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
-                    L(th);
+                    K(th);
                 }
             }
         }
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Lj(i);
+            return NM(i);
         }
 
         @Override // io.reactivex.internal.a.g
@@ -70,7 +70,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
             this.mapper = hVar;
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 if (this.sourceMode != 0) {
@@ -80,7 +80,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                 try {
                     this.actual.onNext(io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
-                    L(th);
+                    K(th);
                 }
             }
         }
@@ -93,14 +93,14 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
             try {
                 return this.actual.tryOnNext(io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
-                L(th);
+                K(th);
                 return true;
             }
         }
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Lj(i);
+            return NM(i);
         }
 
         @Override // io.reactivex.internal.a.g

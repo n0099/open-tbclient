@@ -1,5 +1,5 @@
 package com.baidu.tieba.InjectPlugin;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    Object bqq();
+    Object bzo();
 }

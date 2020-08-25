@@ -7,15 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes20.dex */
 public class HistoryItemView extends LinearLayout {
-    TbRichTextView iSe;
-    TextView iSf;
-    ChatImageWithTailView iSg;
+    TbRichTextView jhb;
+    TextView jhc;
+    ChatImageWithTailView jhd;
     LinearLayout mContainer;
     Context mContext;
 
@@ -37,28 +37,28 @@ public class HistoryItemView extends LinearLayout {
         setClickable(false);
         setFocusable(false);
         this.mContainer = (LinearLayout) findViewById(R.id.history_container);
-        this.iSf = (TextView) findViewById(R.id.history_send_time);
-        this.iSe = (TbRichTextView) findViewById(R.id.history_txt);
-        this.iSg = (ChatImageWithTailView) findViewById(R.id.history_pic);
-        ao.setBackgroundResource(this.mContainer, R.drawable.selector_history_multi_single_bg);
-        ao.setViewTextColor(this.iSf, R.color.common_color_10067, 1);
-        this.iSe.setTextColor(ao.getColor(R.color.cp_cont_c));
-        this.iSg.setIsSupportNight(true);
+        this.jhc = (TextView) findViewById(R.id.history_send_time);
+        this.jhb = (TbRichTextView) findViewById(R.id.history_txt);
+        this.jhd = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        ap.setBackgroundResource(this.mContainer, R.drawable.selector_history_multi_single_bg);
+        ap.setViewTextColor(this.jhc, R.color.common_color_10067, 1);
+        this.jhb.setTextColor(ap.getColor(R.color.cp_cont_c));
+        this.jhd.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.iSf.setText(str);
+        this.jhc.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.iSe;
+        return this.jhb;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.iSg;
+        return this.jhd;
     }
 
-    public void cs(View view) {
+    public void cv(View view) {
         this.mContainer.setBackgroundDrawable(null);
         this.mContainer.removeAllViews();
         this.mContainer.addView(view);

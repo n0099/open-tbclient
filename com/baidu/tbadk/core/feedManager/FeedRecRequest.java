@@ -6,10 +6,10 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.feedManager.PersonalizedReqIdl;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.t;
 import tbclient.Personalized.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FeedRecRequest extends NetMessage {
     private int loadType;
     private int needForumlist;
@@ -88,7 +88,7 @@ public class FeedRecRequest extends NetMessage {
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        builder.q_type = Integer.valueOf(at.baS().baT() ? 2 : 1);
+        builder.q_type = Integer.valueOf(au.bjr().bjs() ? 2 : 1);
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(j.netType());
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);

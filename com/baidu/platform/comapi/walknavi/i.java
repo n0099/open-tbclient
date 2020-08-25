@@ -1,6 +1,6 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes10.dex */
-class i implements Runnable {
+/* loaded from: classes20.dex */
+class i implements com.baidu.platform.comapi.wnplatform.c.c {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,8 @@ class i implements Runnable {
         this.a = hVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        b.a().e(1);
+    @Override // com.baidu.platform.comapi.wnplatform.c.c
+    public void a() {
+        this.a.a.v();
     }
 }

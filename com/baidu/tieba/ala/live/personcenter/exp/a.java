@@ -9,41 +9,41 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> fUZ = new ArrayList<>();
-    private AlaPersonCenterExpActivity fVa;
+    private ArrayList<b> ggY = new ArrayList<>();
+    private AlaPersonCenterExpActivity ggZ;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.fVa = alaPersonCenterExpActivity;
+        this.ggZ = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void rk(int i) {
+    public void tw(int i) {
         this.mSkinType = i;
     }
 
-    public void X(ArrayList<b> arrayList) {
-        this.fUZ.clear();
-        this.fUZ.addAll(arrayList);
+    public void ad(ArrayList<b> arrayList) {
+        this.ggY.clear();
+        this.ggY.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fUZ == null) {
+        if (this.ggY == null) {
             return 1;
         }
-        return this.fUZ.size() + 1;
+        return this.ggY.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.fUZ.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.ggY.size())) {
             return null;
         }
-        return this.fUZ.get(i - 1);
+        return this.ggY.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.fVa.getLayoutMode().onModeChanged(view);
+        this.ggZ.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0572a c0572a;
+        C0619a c0619a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0572a c0572a2 = new C0572a(view);
-            view.setTag(c0572a2);
-            c0572a = c0572a2;
+            C0619a c0619a2 = new C0619a(view);
+            view.setTag(c0619a2);
+            c0619a = c0619a2;
         } else {
-            c0572a = (C0572a) view.getTag();
+            c0619a = (C0619a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0572a.aK(bVar.level, bVar.fVd);
+            c0619a.aI(bVar.level, bVar.ghc);
         }
-        this.fVa.getLayoutMode().onModeChanged(view);
+        this.ggZ.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0572a.fGA.b(a.d.sdk_cp_cont_g, 0.7f);
+            c0619a.fRR.b(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C0572a {
-        private ALALevelView fGA;
-        private TextView fVb;
+    /* loaded from: classes7.dex */
+    public class C0619a {
+        private ALALevelView fRR;
+        private TextView gha;
 
-        public C0572a(View view) {
-            this.fGA = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.fVb = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0619a(View view) {
+            this.fRR = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.gha = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
-        public void aK(int i, String str) {
-            this.fGA.setupLevelIcon(i);
-            this.fVb.setText(str);
+        public void aI(int i, String str) {
+            this.fRR.setupLevelIcon(i);
+            this.gha.setText(str);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.face.data;
 
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EmotionImageData implements Serializable {
     private String mAuthorNameShow;
     private int mHeight;

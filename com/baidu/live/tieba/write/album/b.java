@@ -17,23 +17,23 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private AlbumActivity bjd;
-    private String bjq;
-    private int bjr;
+    private AlbumActivity boI;
+    private String boV;
+    private int boW;
     private LayoutInflater mLayoutInflater;
     private List<AlbumData> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.bjd = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.bjd.getPageContext().getPageActivity());
-        this.bjr = BdUtilHelper.getEquipmentWidth(this.bjd.getPageContext().getPageActivity()) / 2;
+        this.boI = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.boI.getPageContext().getPageActivity());
+        this.boW = BdUtilHelper.getEquipmentWidth(this.boI.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<AlbumData> list, String str) {
         this.mList = list;
-        this.bjq = str;
+        this.boV = str;
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dx */
+    /* renamed from: fq */
     public AlbumData getItem(int i) {
         return (AlbumData) ListUtils.getItem(this.mList, i);
     }
@@ -61,11 +61,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(a.h.sdk_ph_album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.bjs = (TbImageView) view.findViewById(a.g.item_head);
-            aVar.bjt = (TextView) view.findViewById(a.g.item_name);
-            aVar.bju = (ImageView) view.findViewById(a.g.item_arrow);
-            aVar.bjs.setGifIconSupport(false);
-            aVar.bjs.setLongIconSupport(false);
+            aVar.boX = (TbImageView) view.findViewById(a.g.item_head);
+            aVar.boY = (TextView) view.findViewById(a.g.item_name);
+            aVar.boZ = (ImageView) view.findViewById(a.g.item_arrow);
+            aVar.boX.setGifIconSupport(false);
+            aVar.boX.setLongIconSupport(false);
             view.setTag(aVar);
         }
         AlbumData item = getItem(i);
@@ -74,34 +74,34 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.bjt.setText(BdUtilHelper.getTextOmit(aVar.bjt.getPaint(), item.getName(), this.bjr) + "(" + item.getCount() + ")");
+                aVar.boY.setText(BdUtilHelper.getTextOmit(aVar.boY.getPaint(), item.getName(), this.boW) + "(" + item.getCount() + ")");
             } else {
-                aVar.bjt.setText("");
+                aVar.boY.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.bjq)) {
-                SkinManager.setImageResource(aVar.bju, a.f.sdk_ph_icon_list_select_ok_n);
-                aVar.bju.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.boV)) {
+                SkinManager.setImageResource(aVar.boZ, a.f.sdk_ph_icon_list_select_ok_n);
+                aVar.boZ.setVisibility(0);
             } else {
-                aVar.bju.setVisibility(8);
+                aVar.boZ.setVisibility(8);
             }
             MediaFileInfo mediaFileInfo = item.getMediaFileInfo();
             if (mediaFileInfo instanceof VideoFileInfo) {
-                aVar.bjs.startLoad(TbImageView.getUrlWithResizeTag(((VideoFileInfo) mediaFileInfo).videoPath, 200, 200), 37, false);
+                aVar.boX.startLoad(TbImageView.getUrlWithResizeTag(((VideoFileInfo) mediaFileInfo).videoPath, 200, 200), 37, false);
             } else if (mediaFileInfo instanceof ImageFileInfo) {
-                aVar.bjs.startLoad(TbImageView.getUrlWithResizeTag(((ImageFileInfo) mediaFileInfo).getFilePath(), 200, 200), 35, false);
+                aVar.boX.startLoad(TbImageView.getUrlWithResizeTag(((ImageFileInfo) mediaFileInfo).getFilePath(), 200, 200), 35, false);
             }
-            SkinManager.setViewTextColor(aVar.bjt, a.d.sdk_cp_cont_b);
+            SkinManager.setViewTextColor(aVar.boY, a.d.sdk_cp_cont_b);
             SkinManager.setBackgroundResource(view, a.f.sdk_ph_addresslist_item_bg);
         }
         return view;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     private class a {
-        TbImageView bjs;
-        TextView bjt;
-        ImageView bju;
+        TbImageView boX;
+        TextView boY;
+        ImageView boZ;
 
         private a() {
         }

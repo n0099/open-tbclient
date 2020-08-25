@@ -1,23 +1,23 @@
 package com.google.ar.core;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class l extends Thread {
     private final Context a;
     private volatile boolean c;
-    private final y nit;
+    private final y nCk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context, y yVar) {
         this.a = context;
-        this.nit = yVar;
+        this.nCk = yVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         while (!this.c) {
-            if (o.dKS().b(this.a)) {
-                this.nit.a(p.COMPLETED);
+            if (o.dWT().b(this.a)) {
+                this.nCk.a(p.COMPLETED);
                 return;
             }
             try {

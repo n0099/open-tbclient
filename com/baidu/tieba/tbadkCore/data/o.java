@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import android.graphics.Bitmap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class o {
-    public String lOj;
-    public Bitmap lOk;
-    public String lOl;
-    public String lOm;
+    public String mfT;
+    public Bitmap mfU;
+    public String mfV;
+    public String mfW;
     public int type = 0;
 }

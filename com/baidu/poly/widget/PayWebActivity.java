@@ -21,16 +21,16 @@ import android.widget.ImageView;
 import com.baidu.poly.b;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class PayWebActivity extends Activity {
-    private Bundle bBi;
+    private Bundle bGM;
     private ImageView i;
     private boolean j;
     private String k;
     private WebView webView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         a() {
         }
@@ -42,16 +42,16 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    private void U() {
+    private void V() {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.bBi = intent.getBundleExtra("launch_payment_data");
+            this.bGM = intent.getBundleExtra("launch_payment_data");
         }
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    private void V() {
+    private void W() {
         this.i = (ImageView) findViewById(b.e.iv_pay_back);
         this.i.setOnClickListener(new a());
         this.webView = (WebView) findViewById(b.e.webView);
@@ -100,8 +100,8 @@ public class PayWebActivity extends Activity {
         super.onCreate(bundle);
         setContentView(b.f.activity_pay_web);
         this.j = false;
-        U();
         V();
+        W();
     }
 
     @Override // android.app.Activity
@@ -122,14 +122,14 @@ public class PayWebActivity extends Activity {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.bBi);
+            intent.putExtras(this.bGM);
             setResult(-1, intent);
             finish();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public class b extends WebViewClient {
         b() {
         }

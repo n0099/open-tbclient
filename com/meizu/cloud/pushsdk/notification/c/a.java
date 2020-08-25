@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class a {
     public static void a(String str, String str2) {
         try {

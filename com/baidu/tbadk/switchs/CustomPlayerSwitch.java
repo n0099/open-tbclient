@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CustomPlayerSwitch extends a {
     public static final String CUSTOM_PLAYER_SWITCH = "android_custom_player_enabled_2";
     public static final int DEFAULT_TYPE = 1;

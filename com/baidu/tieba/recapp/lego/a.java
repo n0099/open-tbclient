@@ -30,23 +30,23 @@ import org.json.JSONObject;
 /* loaded from: classes20.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cBc() {
-        jyR.put(17, jyR.size() + 1);
-        jyR.put(26, jyR.size() + 1);
-        jyR.put(27, jyR.size() + 1);
-        jyR.put(31, jyR.size() + 1);
-        jyR.put(32, jyR.size() + 1);
-        jyR.put(33, jyR.size() + 1);
-        jyR.put(34, jyR.size() + 1);
-        jyR.put(99, jyR.size() + 1);
-        jyS.put(17, BdUniqueId.gen());
-        jyS.put(26, BdUniqueId.gen());
-        jyS.put(27, BdUniqueId.gen());
-        jyS.put(31, BdUniqueId.gen());
-        jyS.put(32, BdUniqueId.gen());
-        jyS.put(33, BdUniqueId.gen());
-        jyS.put(34, BdUniqueId.gen());
-        jyS.put(99, BdUniqueId.gen());
+    protected void cLU() {
+        jOl.put(17, jOl.size() + 1);
+        jOl.put(26, jOl.size() + 1);
+        jOl.put(27, jOl.size() + 1);
+        jOl.put(31, jOl.size() + 1);
+        jOl.put(32, jOl.size() + 1);
+        jOl.put(33, jOl.size() + 1);
+        jOl.put(34, jOl.size() + 1);
+        jOl.put(99, jOl.size() + 1);
+        jOm.put(17, BdUniqueId.gen());
+        jOm.put(26, BdUniqueId.gen());
+        jOm.put(27, BdUniqueId.gen());
+        jOm.put(31, BdUniqueId.gen());
+        jOm.put(32, BdUniqueId.gen());
+        jOm.put(33, BdUniqueId.gen());
+        jOm.put(34, BdUniqueId.gen());
+        jOm.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -55,7 +55,7 @@ class a extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public ICardInfo d(JSONObject jSONObject, int i) throws CardParseException {
+    public ICardInfo c(JSONObject jSONObject, int i) throws CardParseException {
         switch (i) {
             case 17:
             case 26:

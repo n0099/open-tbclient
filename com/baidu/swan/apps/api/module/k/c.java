@@ -4,21 +4,21 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.swan.apps.aq.am;
+import com.baidu.swan.apps.ap.al;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.swan.apps.api.a.d {
     public c(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ix(String str) {
+    public com.baidu.swan.apps.api.c.b jU(String str) {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start set clipboard data");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aS = com.baidu.swan.apps.api.d.b.aS("Api-ClipboardApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aS.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ClipboardApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-ClipboardApi", "parse fail");
@@ -26,17 +26,17 @@ public class c extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        am.cJ(getContext()).setText(((JSONObject) aS.second).optString("data"));
+        al.cP(getContext()).setText(((JSONObject) aX.second).optString("data"));
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b Wd() {
+    public com.baidu.swan.apps.api.c.b acj() {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            CharSequence text = am.cJ(getContext()).getText();
+            CharSequence text = al.cP(getContext()).getText();
             jSONObject.put("data", TextUtils.isEmpty(text) ? "" : text.toString());
             if (DEBUG) {
                 Log.i("Api-ClipboardApi", "getClipboardData:  " + jSONObject);

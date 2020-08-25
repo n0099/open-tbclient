@@ -2,32 +2,31 @@ package com.baidu.tbadk.core.util.f;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private static d ees;
-    private int eet = 3;
+    private static d enS;
+    private int enT = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static d bbF() {
-        if (ees == null) {
+    public static d bkb() {
+        if (enS == null) {
             synchronized (d.class) {
-                if (ees == null) {
-                    ees = new d();
+                if (enS == null) {
+                    enS = new d();
                 }
             }
         }
-        return ees;
+        return enS;
     }
 
     private d() {
         e.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(com.baidu.tbadk.core.sharedPref.b.aZP().getString("video_sync_switch_json", ""));
+            parseJson(com.baidu.tbadk.core.sharedPref.b.bik().getString("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -41,8 +40,8 @@ public class d {
         return false;
     }
 
-    public int bbG() {
-        return this.eet;
+    public int bkc() {
+        return this.enT;
     }
 
     public int getSize() {
@@ -52,12 +51,12 @@ public class d {
         return this.mSize;
     }
 
-    public void yj(String str) {
+    public void Ax(String str) {
         e.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {
                 parseJson(str);
-                com.baidu.tbadk.core.sharedPref.b.aZP().putString("video_sync_switch_json", str);
+                com.baidu.tbadk.core.sharedPref.b.bik().putString("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -67,10 +66,10 @@ public class d {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.eet = jSONObject.optInt("num", 3);
+            this.enT = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
-            this.mSize = jSONObject.optInt(TiebaInitialize.LogFields.SIZE, 512000);
-            e.log("PreLoadVideoSwitchManager parseJson:   num: " + this.eet + " size: " + this.mSize + " isWifi " + this.isWifi);
+            this.mSize = jSONObject.optInt("size", 512000);
+            e.log("PreLoadVideoSwitchManager parseJson:   num: " + this.enT + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

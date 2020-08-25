@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class InterviewLiveActivityConfig extends IntentConfig {
     public static final String KEY_ANTI = "interviewlive_anti";
     public static final String KEY_FORUM_ID = "forum_id";

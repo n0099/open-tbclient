@@ -10,7 +10,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
 /* loaded from: classes19.dex */
@@ -47,7 +46,7 @@ public class c {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();
-            d = width + Config.EVENT_HEAT_X + windowManager.getDefaultDisplay().getHeight();
+            d = width + "x" + windowManager.getDefaultDisplay().getHeight();
         }
         return d;
     }

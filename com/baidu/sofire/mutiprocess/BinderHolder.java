@@ -1,0 +1,40 @@
+package com.baidu.sofire.mutiprocess;
+
+import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable;
+/* loaded from: classes20.dex */
+public class BinderHolder implements Parcelable {
+    public static final Parcelable.Creator<BinderHolder> CREATOR = new Parcelable.Creator<BinderHolder>() { // from class: com.baidu.sofire.mutiprocess.BinderHolder.1
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+        @Override // android.os.Parcelable.Creator
+        public final /* bridge */ /* synthetic */ BinderHolder[] newArray(int i) {
+            return new BinderHolder[i];
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // android.os.Parcelable.Creator
+        public final /* synthetic */ BinderHolder createFromParcel(Parcel parcel) {
+            return new BinderHolder(parcel);
+        }
+    };
+    public IBinder a;
+
+    public BinderHolder(IBinder iBinder) {
+        this.a = iBinder;
+    }
+
+    protected BinderHolder(Parcel parcel) {
+        this.a = parcel.readStrongBinder();
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeStrongBinder(this.a);
+    }
+}

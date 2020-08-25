@@ -4,48 +4,48 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class ThreadUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean mGF;
-    private static Handler mGG;
+    private static boolean mZE;
+    private static Handler mZF;
     private static final Object sLock;
 
     static {
         $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
         sLock = new Object();
-        mGF = false;
-        mGG = null;
+        mZE = false;
+        mZF = null;
     }
 
-    private static Handler dyk() {
+    private static Handler dJX() {
         Handler handler;
         synchronized (sLock) {
-            if (mGG == null) {
-                if (mGF) {
+            if (mZF == null) {
+                if (mZE) {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
-                mGG = new Handler(Looper.getMainLooper());
+                mZF = new Handler(Looper.getMainLooper());
             }
-            handler = mGG;
+            handler = mZF;
         }
         return handler;
     }
 
     public static void runOnUiThread(Runnable runnable) {
-        if (dyl()) {
+        if (dJY()) {
             runnable.run();
         } else {
-            dyk().post(runnable);
+            dJX().post(runnable);
         }
     }
 
-    public static void A(Runnable runnable) {
-        dyk().post(runnable);
+    public static void x(Runnable runnable) {
+        dJX().post(runnable);
     }
 
-    public static boolean dyl() {
-        return dyk().getLooper() == Looper.myLooper();
+    public static boolean dJY() {
+        return dJX().getLooper() == Looper.myLooper();
     }
 
     @CalledByNative

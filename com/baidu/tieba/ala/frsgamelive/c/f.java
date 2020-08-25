@@ -2,29 +2,29 @@ package com.baidu.tieba.ala.frsgamelive.c;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext fMH;
-    private d fMI;
+    private TbPageContext fYF;
+    private d fYG;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fMH = tbPageContext;
+        this.fYF = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.fMI = new d(this.fMH);
-        ((ViewGroup) getView()).addView(this.fMI.getView());
+        this.fYG = new d(this.fYF);
+        ((ViewGroup) getView()).addView(this.fYG.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fMI != null) {
-            this.fMI.onChangeSkinType(tbPageContext, i);
+        if (this.fYG != null) {
+            this.fYG.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dLK != null && this.fMI != null) {
-            this.fMI.a(cVar.dLK);
+        if (cVar != null && cVar.dUS != null && this.fYG != null) {
+            this.fYG.a(cVar.dUS);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.e eVar) {
-        if (this.fMI != null) {
-            this.fMI.d(eVar);
+        if (this.fYG != null) {
+            this.fYG.d(eVar);
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class a extends ad.a {
-        public f fMJ;
+    public static class a extends af.a {
+        public f fYH;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.fMJ = fVar;
+            this.fYH = fVar;
         }
     }
 }

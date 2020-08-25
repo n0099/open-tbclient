@@ -9,25 +9,25 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c implements com.baidu.live.guardclub.j {
     protected Context context;
-    protected com.baidu.tieba.ala.guardclub.view.c fNH;
-    private ViewGroup fNw;
+    protected com.baidu.tieba.ala.guardclub.view.c fZF;
+    private ViewGroup fZu;
     public String otherParams;
-    private String fNI = "";
-    private View.OnClickListener eve = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.c.2
+    private String fZG = "";
+    private View.OnClickListener eFC = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.fNw != null && c.this.fNw.indexOfChild(c.this.fNH.getView()) >= 0) {
-                c.this.fNw.removeView(c.this.fNH.getView());
+            if (c.this.fZu != null && c.this.fZu.indexOfChild(c.this.fZF.getView()) >= 0) {
+                c.this.fZu.removeView(c.this.fZF.getView());
             }
             if (ViewHelper.checkUpIsLogin(c.this.context)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913106, c.this.fNI));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913106, c.this.fZG));
             }
         }
     };
-    CustomMessageListener fEy = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.c.3
+    CustomMessageListener fPP = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,40 +44,40 @@ public class c implements com.baidu.live.guardclub.j {
 
     public c(Context context) {
         this.context = context;
-        MessageManager.getInstance().registerListener(this.fEy);
+        MessageManager.getInstance().registerListener(this.fPP);
     }
 
-    protected boolean ai(ViewGroup viewGroup) {
+    protected boolean aj(ViewGroup viewGroup) {
         if (viewGroup == null) {
             return false;
         }
-        if (this.fNH == null) {
-            this.fNH = new com.baidu.tieba.ala.guardclub.view.c(this.context, this.eve);
+        if (this.fZF == null) {
+            this.fZF = new com.baidu.tieba.ala.guardclub.view.c(this.context, this.eFC);
         }
-        if (this.fNw != null && this.fNw.indexOfChild(this.fNH.getView()) >= 0) {
-            this.fNw.removeView(this.fNH.getView());
+        if (this.fZu != null && this.fZu.indexOfChild(this.fZF.getView()) >= 0) {
+            this.fZu.removeView(this.fZF.getView());
         }
-        this.fNw = viewGroup;
+        this.fZu = viewGroup;
         return true;
     }
 
     @Override // com.baidu.live.guardclub.j
     public View getView() {
-        if (this.fNH == null) {
+        if (this.fZF == null) {
             return null;
         }
-        return this.fNH.getView();
+        return this.fZF.getView();
     }
 
     @Override // com.baidu.live.guardclub.j
     public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && ai(viewGroup)) {
-            this.fNw.addView(this.fNH.getView(), layoutParams);
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && aj(viewGroup)) {
+            this.fZu.addView(this.fZF.getView(), layoutParams);
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.fNw != null && c.this.fNw.indexOfChild(c.this.fNH.getView()) >= 0) {
-                        c.this.fNw.removeView(c.this.fNH.getView());
+                    if (c.this.fZu != null && c.this.fZu.indexOfChild(c.this.fZF.getView()) >= 0) {
+                        c.this.fZu.removeView(c.this.fZF.getView());
                     }
                 }
             }, 10000L);
@@ -85,17 +85,17 @@ public class c implements com.baidu.live.guardclub.j {
     }
 
     @Override // com.baidu.live.guardclub.j
-    public void CN() {
+    public void Iq() {
         this.handler.removeCallbacksAndMessages(null);
-        if (this.fNw != null && this.fNH != null && this.fNw.indexOfChild(this.fNH.getView()) >= 0) {
-            this.fNw.removeView(this.fNH.getView());
+        if (this.fZu != null && this.fZF != null && this.fZu.indexOfChild(this.fZF.getView()) >= 0) {
+            this.fZu.removeView(this.fZF.getView());
         }
     }
 
     @Override // com.baidu.live.guardclub.j
     public void onDestroy() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.fEy);
+        MessageManager.getInstance().unRegisterListener(this.fPP);
     }
 
     @Override // com.baidu.live.guardclub.j

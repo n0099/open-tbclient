@@ -3,13 +3,13 @@ package com.baidu.tbadk.coreExtra.data;
 import android.content.Intent;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.video.EditVideoData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
     private static final String KEY_VIDEO_DURATION = "video_l";
@@ -53,7 +53,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     }
 
     public boolean isVideoMixFinished() {
-        return isAvaliable() && this.editVideoData != null && as.equals(this.videoPath, this.editVideoData.finalPath);
+        return isAvaliable() && this.editVideoData != null && at.equals(this.videoPath, this.editVideoData.finalPath);
     }
 
     public String getVideoPath() {

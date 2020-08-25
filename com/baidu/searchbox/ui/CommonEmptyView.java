@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class CommonEmptyView extends RelativeLayout {
     public FrameLayout mBottomLayout;
     public ImageView mIcon;

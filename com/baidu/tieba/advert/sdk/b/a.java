@@ -14,7 +14,7 @@ import java.io.IOException;
 public class a extends BdAsyncTask<Void, Void, Boolean> {
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
-    public static final String fgx = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String frS = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
     public static final String FILE_SEP = File.separator;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,13 +23,13 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... voidArr) {
         FileNotFoundException e;
         boolean z;
-        String str = fgx + FILE_SEP + "advideo.temp";
+        String str = frS + FILE_SEP + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(fgx).mkdirs();
+            new File(frS).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -38,7 +38,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e2.printStackTrace();
         }
         e eVar = new e();
-        eVar.kT().setUrl(this.adInfo.adVideoUrl);
+        eVar.ms().setUrl(this.adInfo.adVideoUrl);
         boolean a = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
         try {
         } catch (FileNotFoundException e3) {
@@ -71,7 +71,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(fgx + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(frS + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

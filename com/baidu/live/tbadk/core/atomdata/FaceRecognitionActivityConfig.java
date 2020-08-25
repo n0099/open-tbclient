@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FaceRecognitionActivityConfig extends IntentConfig {
     public static final String RETRY = "retry";
     public static final String UID = "uid";

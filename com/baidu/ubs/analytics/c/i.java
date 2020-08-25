@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -99,9 +99,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String dAJ = dAJ();
-                if (dAJ != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(dAJ);
+                String dMx = dMx();
+                if (dMx != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(dMx);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -117,7 +117,7 @@ public final class i {
         }
     }
 
-    private static String dAJ() {
+    private static String dMx() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -211,26 +211,26 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.dAv().getContext());
+            ae(com.baidu.ubs.analytics.d.dMi().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.dAv().getContext());
+            ae(com.baidu.ubs.analytics.d.dMi().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.dAv().getContext());
+            ae(com.baidu.ubs.analytics.d.dMi().getContext());
         }
         return B;
     }
 
-    private static void p(Context context) {
+    private static void ae(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);

@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ff extends fd {
     private static int a = 3600000;
 

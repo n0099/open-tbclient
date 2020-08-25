@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private LivePlayer blI;
-    private com.baidu.live.p.b blJ;
+    private LivePlayer bro;
+    private com.baidu.live.p.b brp;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -15,40 +15,40 @@ public class b {
     }
 
     public void a(com.baidu.live.p.b bVar) {
-        this.blJ = bVar;
+        this.brp = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.blI == null) {
-            this.blI = new LivePlayer(this.mActivity);
-            this.blI.setIPlayerCallBack(new com.baidu.live.p.b() { // from class: com.baidu.live.videochat.a.b.1
+        if (this.bro == null) {
+            this.bro = new LivePlayer(this.mActivity);
+            this.bro.setIPlayerCallBack(new com.baidu.live.p.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.p.b
-                public void bR(int i) {
-                    if (b.this.blJ != null) {
-                        b.this.blJ.bR(i);
+                public void dD(int i) {
+                    if (b.this.brp != null) {
+                        b.this.brp.dD(i);
                     }
                 }
             });
         }
-        this.blI.c(alaLiveInfoData);
+        this.bro.c(alaLiveInfoData);
     }
 
-    public void JZ() {
-        if (this.blI != null) {
-            this.blI.setIPlayerCallBack(null);
-            this.blI.bZ(true);
-            this.blI.destroy();
-            this.blI = null;
+    public void PR() {
+        if (this.bro != null) {
+            this.bro.setIPlayerCallBack(null);
+            this.bro.ch(true);
+            this.bro.destroy();
+            this.bro = null;
         }
     }
 
     public boolean isStarted() {
-        return this.blI != null;
+        return this.bro != null;
     }
 
-    public View JU() {
-        if (this.blI != null) {
-            return this.blI.getLivePlayer();
+    public View PM() {
+        if (this.bro != null) {
+            return this.bro.getLivePlayer();
         }
         return null;
     }

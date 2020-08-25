@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface SpringListener {
     void onSpringActivate(Spring spring);
 

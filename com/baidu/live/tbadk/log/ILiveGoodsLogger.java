@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.log;
 
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ILiveGoodsLogger {
     public static final Set<Long> displayStoreIconMap = new HashSet();
     public static final Set<Long> displayGoodsListMap = new HashSet();

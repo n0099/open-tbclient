@@ -14,7 +14,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class CarUUID {
     private static final Pattern a = Pattern.compile("(\\w{32})");
 

@@ -4,9 +4,9 @@ import android.graphics.Point;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class BaiduMapOptions implements Parcelable {
-    public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new f();
+    public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new k();
     MapStatus a;
     boolean b;
     int c;
@@ -22,7 +22,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     public BaiduMapOptions() {
         this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.b = true;
+        this.b = false;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -35,7 +35,7 @@ public final class BaiduMapOptions implements Parcelable {
     /* JADX INFO: Access modifiers changed from: protected */
     public BaiduMapOptions(Parcel parcel) {
         this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.b = true;
+        this.b = false;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -57,8 +57,8 @@ public final class BaiduMapOptions implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.mapsdkplatform.comapi.map.z a() {
-        return new com.baidu.mapsdkplatform.comapi.map.z().a(this.a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
+    public com.baidu.mapsdkplatform.comapi.map.u a() {
+        return new com.baidu.mapsdkplatform.comapi.map.u().a(this.a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {

@@ -23,7 +23,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class HttpHelper {
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
     public static final String CONTENT_JSON = "application/json";
@@ -35,7 +35,7 @@ public class HttpHelper {
     public static final String TAG = HttpHelper.class.getSimpleName();
     private static Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -54,14 +54,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     protected class Result {
         int errorCode;
         InputStream inputStream = null;
@@ -72,7 +72,7 @@ public class HttpHelper {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class ResponseResult {
         protected int mErrorCode;
         protected String mErrorMsg;

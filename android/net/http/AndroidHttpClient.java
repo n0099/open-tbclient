@@ -16,7 +16,7 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.entity.AbstractHttpEntity;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public final class AndroidHttpClient implements HttpClient {
     public static long DEFAULT_SYNC_MIN_GZIP_BYTES;
 

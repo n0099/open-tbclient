@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
     private static final Set<String> installedApk = new HashSet();
@@ -56,12 +56,12 @@ public final class a {
                                 clearOldDexDir(context);
                                 File file = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);
                                 List<File> a = com.baidu.tieba.m.b.a(context, applicationInfo, file, false);
-                                if (eb(a)) {
+                                if (ej(a)) {
                                     installSecondaryDexes(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.m.b.a(context, applicationInfo, file, true);
-                                    if (!eb(a2)) {
+                                    if (!ej(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     installSecondaryDexes(classLoader, file, a2);
@@ -120,7 +120,7 @@ public final class a {
                     c.install(classLoader, list);
                     return;
                 } else {
-                    C0691a.install(classLoader, list, file);
+                    C0742a.install(classLoader, list, file);
                     return;
                 }
             }
@@ -128,9 +128,9 @@ public final class a {
         }
     }
 
-    private static boolean eb(List<File> list) {
+    private static boolean ej(List<File> list) {
         for (File file : list) {
-            if (!com.baidu.tieba.m.b.X(file)) {
+            if (!com.baidu.tieba.m.b.Y(file)) {
                 return false;
             }
         }
@@ -203,7 +203,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class c {
         /* JADX INFO: Access modifiers changed from: private */
         public static void install(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
@@ -235,8 +235,8 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static final class C0691a {
+    /* loaded from: classes2.dex */
+    public static final class C0742a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);
@@ -249,7 +249,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class b {
         /* JADX INFO: Access modifiers changed from: private */
         public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {

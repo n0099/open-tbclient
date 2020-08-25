@@ -10,10 +10,10 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
 import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView fUs;
-    private a fUt;
+    private NoNetworkView ggr;
+    private a ggs;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -32,9 +32,9 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
             }
             this.rootView = findViewById(a.g.ala_person_adminlist_rootview);
             this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_adminlist_navigation_bar);
-            this.fUs = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
-            this.fUt = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-            this.fUt.onCreate(bundle);
+            this.ggr = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
+            this.ggs = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+            this.ggs.onCreate(bundle);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getString(a.i.sdk_prc_person_live_admin));
         }
@@ -48,11 +48,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.d.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.d.sdk_cp_bg_line_d);
-        if (this.fUs != null) {
-            this.fUs.onChangeSkinType(getPageContext(), i);
+        if (this.ggr != null) {
+            this.ggr.onChangeSkinType(getPageContext(), i);
         }
-        if (this.fUt != null) {
-            this.fUt.onChangeSkinType(i);
+        if (this.ggs != null) {
+            this.ggs.onChangeSkinType(i);
         }
     }
 }

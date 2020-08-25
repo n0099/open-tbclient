@@ -3,19 +3,19 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class t implements h {
-    private final Object zc;
-    private final b.a zd;
+    private final Object zB;
+    private final b.a zC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(Object obj) {
-        this.zc = obj;
-        this.zd = b.yk.g(this.zc.getClass());
+        this.zB = obj;
+        this.zC = b.yJ.g(this.zB.getClass());
     }
 
     @Override // android.arch.lifecycle.h
     public void a(j jVar, Lifecycle.Event event) {
-        this.zd.a(jVar, event, this.zc);
+        this.zC.a(jVar, event, this.zB);
     }
 }

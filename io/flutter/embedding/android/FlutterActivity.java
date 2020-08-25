@@ -24,7 +24,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterActivity extends Activity implements LifecycleOwner, FlutterActivityAndFragmentDelegate.Host {
     private static final String TAG = "FlutterActivity";
     @VisibleForTesting
@@ -42,7 +42,7 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
         return new NewEngineIntentBuilder(FlutterActivity.class);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends FlutterActivity> activityClass;
         private String initialRoute = "/";
@@ -74,7 +74,7 @@ public class FlutterActivity extends Activity implements LifecycleOwner, Flutter
         return new CachedEngineIntentBuilder(FlutterActivity.class, str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class CachedEngineIntentBuilder {
         private final Class<? extends FlutterActivity> activityClass;
         private final String cachedEngineId;

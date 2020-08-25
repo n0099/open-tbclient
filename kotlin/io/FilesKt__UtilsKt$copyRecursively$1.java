@@ -6,7 +6,7 @@ import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class FilesKt__UtilsKt$copyRecursively$1 extends Lambda implements m {
     public static final FilesKt__UtilsKt$copyRecursively$1 INSTANCE = new FilesKt__UtilsKt$copyRecursively$1();
 

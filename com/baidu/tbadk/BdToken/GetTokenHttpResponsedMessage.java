@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.GetToken.GetTokenResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
     private x mData;
 

@@ -85,9 +85,9 @@ public class r {
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
         if (lVar != null && (lVar instanceof l.c)) {
             l.c cVar = (l.c) lVar;
-            if (cVar.kx() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c ku = ((com.baidu.adp.lib.cache.j) cVar.kx()).ku();
-                return ku.queryAllForNameSpace(ku.kr().getOpenedDatabase(), cVar.getNameSpace());
+            if (cVar.lW() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c lT = ((com.baidu.adp.lib.cache.j) cVar.lW()).lT();
+                return lT.queryAllForNameSpace(lT.lQ().getOpenedDatabase(), cVar.getNameSpace());
             }
             return null;
         }

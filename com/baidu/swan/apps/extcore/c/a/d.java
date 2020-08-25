@@ -13,10 +13,8 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends aa {
-    private static final String cjR = d.class.getSimpleName();
-
     public d(j jVar) {
         super(jVar, "/swanAPI/debug/replaceSwanCore");
     }
@@ -36,11 +34,11 @@ public class d extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan core url or cb is null");
             return false;
         }
-        eVar.arH().b(context, "mapp_cts_debug", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.d.1
+        eVar.azU().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
+            @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void H(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     d.this.b(context, optString, optString2, callbackHandler);
                 } else {
@@ -56,18 +54,18 @@ public class d extends aa {
     public void b(final Context context, String str, final String str2, final CallbackHandler callbackHandler) {
         com.baidu.swan.apps.r.d.a(str, new d.b() { // from class: com.baidu.swan.apps.extcore.c.a.d.2
             @Override // com.baidu.swan.apps.r.d.b
-            public void dE(int i) {
+            public void fy(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.d.b
             public void onSuccess() {
-                File afj = com.baidu.swan.apps.swancore.b.a.afj();
-                File afh = com.baidu.swan.apps.swancore.b.a.afh();
+                File amq = com.baidu.swan.apps.swancore.b.a.amq();
+                File amo = com.baidu.swan.apps.swancore.b.a.amo();
                 if (d.DEBUG) {
-                    Log.d(d.cjR, "swanCoreZipFile: " + afj + " swanCoreDir: " + afh);
+                    Log.d("replaceSwanCore", "swanCoreZipFile: " + amq + " swanCoreDir: " + amo);
                 }
-                if (afj.exists() && com.baidu.swan.d.d.unzipFile(afj.getPath(), afh.getPath())) {
-                    com.baidu.swan.apps.ae.a.a.eO(true);
+                if (amq.exists() && com.baidu.swan.c.d.unzipFile(amq.getPath(), amo.getPath())) {
+                    com.baidu.swan.apps.ad.a.a.fh(true);
                     com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_swan_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

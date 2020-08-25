@@ -10,15 +10,15 @@ import com.vivo.push.PushClientConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends e {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bEI.get().OY();
-    private static final String[] bGH = {"deeplink", "open"};
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bKi.get().UU();
+    private static final String[] bMh = {"deeplink", "open"};
 
     @Override // com.baidu.prologue.c.e
     public void addRedirectScheme(HashMap<String, String> hashMap) {
         String[] strArr;
-        for (String str : bGH) {
+        for (String str : bMh) {
             hashMap.put("splash/ad/" + str, "splash_ad/" + str);
         }
     }
@@ -89,7 +89,7 @@ public class i extends e {
     }
 
     private boolean a(@NonNull String str, final a aVar) {
-        return com.baidu.prologue.a.b.a.bEI.get().a(str, new b() { // from class: com.baidu.prologue.c.i.1
+        return com.baidu.prologue.a.b.a.bKi.get().a(str, new b() { // from class: com.baidu.prologue.c.i.1
         });
     }
 
@@ -127,11 +127,11 @@ public class i extends e {
     }
 
     private void a(Als.Area area) {
-        if (!TextUtils.isEmpty(com.baidu.prologue.business.data.c.bFa)) {
+        if (!TextUtils.isEmpty(com.baidu.prologue.business.data.c.bKA)) {
             Als.a aVar = new Als.a(Als.Type.DEEP_LINK);
             aVar.a(Als.Page.NA_DEEPLINK);
             aVar.b(area);
-            aVar.gR(com.baidu.prologue.business.data.c.bFa);
+            aVar.il(com.baidu.prologue.business.data.c.bKA);
             Als.a(aVar);
         } else if (DEBUG) {
             throw new IllegalStateException("全局数据仓库获取数据失败，打点失败...");

@@ -1,19 +1,10 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes7.dex */
+
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.swan.apps.res.widget.dialog.g;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface j {
-    void a(String str, com.baidu.swan.apps.media.audio.service.a aVar);
-
-    int getDuration();
-
-    boolean isPlaying();
-
-    void onRelease();
-
-    void pause();
-
-    void play();
-
-    void seek(int i);
-
-    void stop();
+    g.a a(Context context, com.baidu.swan.apps.runtime.e eVar, com.baidu.swan.apps.setting.oauth.e eVar2, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

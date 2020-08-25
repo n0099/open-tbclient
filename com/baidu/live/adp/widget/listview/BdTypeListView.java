@@ -8,7 +8,7 @@ import android.widget.ListAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdTypeListView extends BdListView implements ITypeListView<BdTypeListView> {
     TypeAdapter mTypeAdapter;
 

@@ -1,36 +1,36 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class g {
-    private String dAn;
-    private String dAo;
-    private String dAp;
-    private String dAq;
-    private int dAr;
-    private String dAs;
-    private int dAt;
-    private int dAu;
-    private String dAv;
-    private String dAw;
+    private int dJA;
+    private String dJB;
+    private int dJC;
+    private int dJD;
+    private String dJE;
+    private String dJF;
+    private String dJw;
+    private String dJx;
+    private String dJy;
+    private String dJz;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
 
     public g(String str, String str2, String str3, int i, String str4, String str5) {
-        this.dAo = str;
+        this.dJx = str;
         this.mId = str;
-        this.dAp = str2;
-        this.dAq = str3;
-        this.dAr = i;
+        this.dJy = str2;
+        this.dJz = str3;
+        this.dJA = i;
         this.mType = str4;
-        this.dAs = str5;
+        this.dJB = str5;
     }
 
-    public void uX(String str) {
-        this.dAn = str;
+    public void xi(String str) {
+        this.dJw = str;
     }
 
-    public void ka(int i) {
+    public void mg(int i) {
         this.mRate = i;
     }
 
@@ -38,39 +38,39 @@ class g {
         this.mCategory = str;
     }
 
-    public void kb(int i) {
-        this.dAt = i;
+    public void mh(int i) {
+        this.dJC = i;
     }
 
-    public void kc(int i) {
-        this.dAu = i;
+    public void mi(int i) {
+        this.dJD = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aNh() {
-        return this.dAp;
+    public String aVH() {
+        return this.dJy;
     }
 
-    public String aNi() {
-        return this.dAq;
+    public String aVI() {
+        return this.dJz;
     }
 
     public int getTimeout() {
-        return this.dAr;
+        return this.dJA;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aNj() {
-        return this.dAs;
+    public String aVJ() {
+        return this.dJB;
     }
 
-    public int aNk() {
+    public int aVK() {
         return this.mRate;
     }
 
@@ -78,23 +78,23 @@ class g {
         return this.mCategory;
     }
 
-    public int aNl() {
-        return this.dAt;
+    public int aVL() {
+        return this.dJC;
     }
 
-    public int aNm() {
-        return this.dAu;
+    public int aVM() {
+        return this.dJD;
     }
 
-    public void uY(String str) {
-        this.dAv = str;
+    public void xj(String str) {
+        this.dJE = str;
     }
 
-    public String aNn() {
-        return this.dAv;
+    public String aVN() {
+        return this.dJE;
     }
 
-    public void uZ(String str) {
-        this.dAw = str;
+    public void xk(String str) {
+        this.dJF = str;
     }
 }

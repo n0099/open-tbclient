@@ -14,14 +14,17 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SchemeUtils {
     private static final String DEFAULT_PROTOCOL = "bdlive";
+    private static Set<String> commonProtocolSet;
     private static Set<String> protocolSet = new HashSet();
     private static Map<String, Class<? extends ILiveScheme>> schemeMap;
 
     static {
         protocolSet.add(DEFAULT_PROTOCOL);
+        commonProtocolSet = new HashSet();
+        commonProtocolSet.add("tel");
         schemeMap = new HashMap();
     }
 
@@ -54,24 +57,45 @@ public class SchemeUtils {
         return false;
     }
 
+    public static boolean checkCommonScheme(String str) {
+        try {
+            return commonProtocolSet.contains(Uri.parse(str).getScheme());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static boolean openScheme(String str) {
-        return openScheme((Context) null, str);
+        return openScheme(str, true);
+    }
+
+    public static boolean openScheme(String str, boolean z) {
+        return openScheme((Context) null, str, z);
     }
 
     public static boolean openScheme(Context context, String str) {
-        return openScheme(context, str, null);
+        return openScheme(context, str, null, true);
+    }
+
+    public static boolean openScheme(Context context, String str, boolean z) {
+        return openScheme(context, str, null, z);
     }
 
     public static boolean openScheme(String str, SchemeCallback schemeCallback) {
-        return openScheme(null, str, schemeCallback);
+        return openScheme(null, str, schemeCallback, true);
     }
 
     public static boolean openScheme(Context context, String str, SchemeCallback schemeCallback) {
+        return openScheme(context, str, schemeCallback, true);
+    }
+
+    public static boolean openScheme(Context context, String str, SchemeCallback schemeCallback, boolean z) {
         try {
             Uri parse = Uri.parse(str);
             String scheme = parse.getScheme();
             if (!protocolSet.contains(scheme)) {
-                return openOtherScheme(scheme, parse);
+                return openOtherScheme(scheme, parse, z);
             }
             String host = parse.getHost();
             String path = parse.getPath();
@@ -110,9 +134,9 @@ public class SchemeUtils {
         }
     }
 
-    private static boolean openOtherScheme(String str, Uri uri) {
+    private static boolean openOtherScheme(String str, Uri uri, boolean z) {
         if (HttpHost.DEFAULT_SCHEME_NAME.equals(str) || "https".equals(str)) {
-            BrowserHelper.startInternalWebActivity(TbadkCoreApplication.getInst(), uri.toString());
+            BrowserHelper.startInternalWebActivity(TbadkCoreApplication.getInst(), uri.toString(), z);
             return true;
         }
         try {

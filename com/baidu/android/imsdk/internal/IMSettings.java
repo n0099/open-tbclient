@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMSettings {
     public static final int DEBUG_MODE = 1;
     public static final int INVALIDE_MODE = -1;
@@ -17,7 +17,8 @@ public class IMSettings {
             mDebugMode = 0;
         }
         sContext = context;
-        return Utility.writeIntData(sContext, Constants.SETTING_DEBUG_MODE, mDebugMode);
+        Utility.writeIntData(sContext, Constants.SETTING_DEBUG_MODE, mDebugMode);
+        return true;
     }
 
     public static Context getsContext() {

@@ -2,7 +2,9 @@ package com.baidu.lbsapi.auth;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.os.Build;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
@@ -21,7 +23,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class g {
     private Context a;
     private String b = null;
@@ -33,17 +35,51 @@ public class g {
     }
 
     private String a(Context context) {
+        String str = "wifi";
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
                 return null;
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
-                return null;
+            if (Build.VERSION.SDK_INT < 29) {
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
+                    return null;
+                }
+                String extraInfo = activeNetworkInfo.getExtraInfo();
+                if (extraInfo != null && (extraInfo.trim().toLowerCase().equals("cmwap") || extraInfo.trim().toLowerCase().equals("uniwap") || extraInfo.trim().toLowerCase().equals("3gwap") || extraInfo.trim().toLowerCase().equals("ctwap"))) {
+                    str = extraInfo.trim().toLowerCase().equals("ctwap") ? "ctwap" : "cmwap";
+                }
+                return str;
             }
-            String extraInfo = activeNetworkInfo.getExtraInfo();
-            return (extraInfo == null || !(extraInfo.trim().toLowerCase().equals("cmwap") || extraInfo.trim().toLowerCase().equals("uniwap") || extraInfo.trim().toLowerCase().equals("3gwap") || extraInfo.trim().toLowerCase().equals("ctwap"))) ? "wifi" : extraInfo.trim().toLowerCase().equals("ctwap") ? "ctwap" : "cmwap";
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+            if (networkCapabilities != null) {
+                boolean hasTransport = networkCapabilities.hasTransport(1);
+                boolean hasTransport2 = networkCapabilities.hasTransport(0);
+                boolean hasTransport3 = networkCapabilities.hasTransport(3);
+                boolean hasTransport4 = networkCapabilities.hasTransport(6);
+                boolean hasTransport5 = networkCapabilities.hasTransport(4);
+                boolean hasTransport6 = networkCapabilities.hasTransport(5);
+                if (hasTransport) {
+                    return "WIFI";
+                }
+                if (hasTransport2) {
+                    return "CELLULAR";
+                }
+                if (hasTransport3) {
+                    return "ETHERNET";
+                }
+                if (hasTransport4) {
+                    return "LoWPAN";
+                }
+                if (hasTransport5) {
+                    return "VPN";
+                }
+                if (hasTransport6) {
+                    return "WifiAware";
+                }
+            }
+            return "wifi";
         } catch (Exception e) {
             if (a.a) {
                 e.printStackTrace();
@@ -430,20 +466,25 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a() {
+        boolean z;
         a.a("checkNetwork start");
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) this.a.getSystemService("connectivity");
             if (connectivityManager == null) {
-                return false;
-            }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.isAvailable()) {
+                z = false;
+            } else if (Build.VERSION.SDK_INT >= 29) {
+                NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+                z = networkCapabilities != null && networkCapabilities.hasCapability(12) && networkCapabilities.hasCapability(16);
+            } else {
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
+                    z = false;
+                } else {
                     a.a("checkNetwork end");
-                    return true;
+                    z = true;
                 }
             }
-            return false;
+            return z;
         } catch (Exception e) {
             if (a.a) {
                 e.printStackTrace();

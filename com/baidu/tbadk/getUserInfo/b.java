@@ -1,5 +1,6 @@
 package com.baidu.tbadk.getUserInfo;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.h;
@@ -13,23 +14,23 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static b eDu;
-    private UserData eDv;
+    private static b eNT;
+    private UserData eNU;
 
     private b() {
     }
 
-    public static b bkd() {
-        if (eDu == null) {
+    public static b bsP() {
+        if (eNT == null) {
             synchronized (b.class) {
-                if (eDu == null) {
-                    eDu = new b();
+                if (eNT == null) {
+                    eNT = new b();
                 }
             }
         }
-        return eDu;
+        return eNT;
     }
 
     public void registerTask() {
@@ -37,7 +38,7 @@ public class b {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_USER_INFO, 1003001, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void bke() {
+    public void bsQ() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(1003001, CmdConfigSocket.CMD_GET_USER_INFO);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -48,7 +49,7 @@ public class b {
     }
 
     public void a(UserData userData) {
-        this.eDv = userData;
+        this.eNU = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -73,6 +74,9 @@ public class b {
             if (userData.getNewGodData() != null) {
                 currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
             }
+            if (!TextUtils.isEmpty(userData.getUk())) {
+                currentAccountObj.setUk(userData.getUk());
+            }
             currentAccountObj.setIsBigV(userData.isBigV());
             currentAccountObj.setNameShow(userData.getName_show());
             if (!StringUtils.isNull(userData.getBimg_url())) {
@@ -86,12 +90,12 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.bid());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.bie());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.bqP());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.bqQ());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            h.lu().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
+            h.mT().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.tbadk.core.a.b.b(currentAccountObj);
@@ -101,7 +105,7 @@ public class b {
         }
     }
 
-    public UserData bkf() {
-        return this.eDv;
+    public UserData bsR() {
+        return this.eNU;
     }
 }

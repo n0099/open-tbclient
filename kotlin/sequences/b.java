@@ -6,16 +6,16 @@ import kotlin.TypeCastException;
 import kotlin.jvm.internal.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> nZo;
-    private final kotlin.jvm.a.b<T, T> nZp;
+    private final kotlin.jvm.a.a<T> otm;
+    private final kotlin.jvm.a.b<T, T> otn;
 
     @kotlin.h
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static final class a implements Iterator<T> {
-        private int nZm = -2;
         private T nextItem;
+        private int otk = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dUA() {
+        private final void egC() {
             T t;
-            if (this.nZm == -2) {
-                t = (T) b.this.nZo.invoke();
+            if (this.otk == -2) {
+                t = (T) b.this.otm.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.nZp;
+                kotlin.jvm.a.b bVar = b.this.otn;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dUh();
+                    q.egj();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.nZm = this.nextItem == null ? 0 : 1;
+            this.otk = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nZm < 0) {
-                dUA();
+            if (this.otk < 0) {
+                egC();
             }
-            if (this.nZm == 0) {
+            if (this.otk == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.nZm = -1;
+            this.otk = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nZm < 0) {
-                dUA();
+            if (this.otk < 0) {
+                egC();
             }
-            return this.nZm == 1;
+            return this.otk == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.m(aVar, "getInitialValue");
         q.m(bVar, "getNextValue");
-        this.nZo = aVar;
-        this.nZp = bVar;
+        this.otm = aVar;
+        this.otn = bVar;
     }
 
     @Override // kotlin.sequences.c

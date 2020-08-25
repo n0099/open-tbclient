@@ -4,51 +4,48 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.core.prefetch.a;
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.core.prefetch.a cfr;
-    private b cfs;
+    private com.baidu.swan.apps.core.prefetch.a clI;
+    private b clJ;
 
     private d() {
-        this.cfr = new com.baidu.swan.apps.core.prefetch.a();
-        this.cfs = new b();
+        this.clI = new com.baidu.swan.apps.core.prefetch.a();
+        this.clJ = new b();
     }
 
-    public static d acB() {
-        return a.cfu;
+    public static d aiZ() {
+        return a.clL;
     }
 
-    public void e(final PrefetchEvent prefetchEvent) {
+    public void d(final PrefetchEvent prefetchEvent) {
         if (DEBUG) {
-            Log.d("SwanAppPrefetchManager", "firePrefetchEvent abSwitch: " + com.baidu.swan.apps.core.prefetch.a.a.acD());
+            Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + com.baidu.swan.apps.core.prefetch.a.a.isOn());
         }
-        if (DEBUG || !f(prefetchEvent)) {
+        if (!e(prefetchEvent)) {
             if (DEBUG) {
                 Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
             }
             if (TextUtils.equals("show", prefetchEvent.state)) {
-                this.cfr.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
+                this.clI.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
                     @Override // com.baidu.swan.apps.core.prefetch.a.b
                     public void a(com.baidu.swan.apps.process.messaging.service.c cVar, PMSAppInfo pMSAppInfo) {
-                        d.this.cfs.a(prefetchEvent, cVar, pMSAppInfo);
+                        d.this.clJ.a(prefetchEvent, cVar, pMSAppInfo);
                     }
                 });
             } else {
-                this.cfs.e(prefetchEvent);
+                this.clJ.d(prefetchEvent);
             }
         }
     }
 
-    private boolean f(PrefetchEvent prefetchEvent) {
-        if (com.baidu.swan.apps.core.prefetch.a.a.acD() == 0 || prefetchEvent == null || !prefetchEvent.isValid()) {
-            return true;
-        }
-        return c.kh(prefetchEvent.appId);
+    private boolean e(PrefetchEvent prefetchEvent) {
+        return (com.baidu.swan.apps.core.prefetch.a.a.isOn() && prefetchEvent != null && prefetchEvent.isValid()) ? false : true;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        private static final d cfu = new d();
+        private static final d clL = new d();
     }
 }

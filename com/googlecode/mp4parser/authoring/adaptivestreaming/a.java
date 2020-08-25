@@ -1,10 +1,10 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 class a {
     long bitrate;
     String codecPrivateData;
     String fourCC;
     int height;
-    int nmg;
+    int nFX;
     int width;
 }

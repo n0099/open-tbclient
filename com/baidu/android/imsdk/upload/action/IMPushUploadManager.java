@@ -26,7 +26,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMPushUploadManager {
     private static final long PING_INTERVAL_MS = 1000;
     private static final int TIME_OUT_S = 30;
@@ -58,24 +58,38 @@ public class IMPushUploadManager {
                 if (iOException instanceof SocketException) {
                     str3 = "Request SocketException :" + iOException.toString();
                 }
-                iMPushUploadResponseListener.uploadResponse(-1, str3);
+                if (iMPushUploadResponseListener != null) {
+                    iMPushUploadResponseListener.uploadResponse(-1, str3);
+                }
             }
 
+            /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 int i = 0;
                 String str3 = "ok";
                 try {
-                    if (response.body() != null) {
-                        String[] parseResponse = IMPushUploadManager.this.parseResponse(response.body().bytes());
-                        i = Integer.valueOf(parseResponse[0]).intValue();
-                        str3 = parseResponse[1];
+                    try {
+                        if (response.body() != null) {
+                            String[] parseResponse = IMPushUploadManager.this.parseResponse(response.body().bytes());
+                            i = Integer.valueOf(parseResponse[0]).intValue();
+                            str3 = parseResponse[1];
+                        }
+                        Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i + " body = " + str3 + ", logId :" + str2);
+                        if (iMPushUploadResponseListener != null) {
+                            iMPushUploadResponseListener.uploadResponse(i, str3);
+                        }
+                    } catch (IOException e) {
+                        Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e);
+                        if (iMPushUploadResponseListener != null) {
+                            iMPushUploadResponseListener.uploadResponse(i, str3);
+                        }
                     }
-                    Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i + " body = " + str3 + ", logId :" + str2);
-                } catch (IOException e) {
-                    Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e);
-                } finally {
-                    iMPushUploadResponseListener.uploadResponse(i, str3);
+                } catch (Throwable th) {
+                    if (iMPushUploadResponseListener != null) {
+                        iMPushUploadResponseListener.uploadResponse(i, str3);
+                    }
+                    throw th;
                 }
             }
         });
@@ -119,7 +133,7 @@ public class IMPushUploadManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public GzipRequestInterceptor() {
         }

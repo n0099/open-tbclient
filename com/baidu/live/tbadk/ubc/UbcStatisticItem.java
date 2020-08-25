@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UbcStatisticItem {
     private String mContentPage;
     private String mContentType;

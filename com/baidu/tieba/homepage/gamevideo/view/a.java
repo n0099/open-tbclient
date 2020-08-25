@@ -5,21 +5,21 @@ import android.os.Build;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes16.dex */
 public class a extends PopupWindow {
-    private TbPageContext dVN;
-    private InterfaceC0645a iwa;
+    private TbPageContext efn;
+    private InterfaceC0696a iKp;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public interface InterfaceC0645a {
-        void cmu();
+    public interface InterfaceC0696a {
+        void cxd();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.dVN = tbPageContext;
+        this.efn = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(be.getScreenFullSize(this.dVN.getPageActivity())[1] - rect.bottom);
+            setHeight(bf.getScreenFullSize(this.efn.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(be.getScreenFullSize(this.dVN.getPageActivity())[1] - rect.bottom);
+            setHeight(bf.getScreenFullSize(this.efn.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.iwa != null) {
-            this.iwa.cmu();
+        if (this.iKp != null) {
+            this.iKp.cxd();
         } else {
             super.dismiss();
         }
     }
 
-    public void byi() {
+    public void bHi() {
         super.dismiss();
     }
 
-    public void a(InterfaceC0645a interfaceC0645a) {
-        this.iwa = interfaceC0645a;
+    public void a(InterfaceC0696a interfaceC0696a) {
+        this.iKp = interfaceC0696a;
     }
 }

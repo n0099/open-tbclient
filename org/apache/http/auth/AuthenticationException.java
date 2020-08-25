@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import org.apache.http.ProtocolException;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class AuthenticationException extends ProtocolException {
     public AuthenticationException() {
         throw new RuntimeException("Stub!");

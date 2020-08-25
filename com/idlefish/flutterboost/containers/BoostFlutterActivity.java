@@ -31,7 +31,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class BoostFlutterActivity extends Activity implements j, FlutterActivityAndFragmentDelegate.Host {
     protected static final String DEFAULT_BACKGROUND_MODE = BackgroundMode.opaque.name();
     protected static final String EXTRA_ANIMATED = "animated";
@@ -39,6 +39,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     protected static final String EXTRA_DART_ENTRYPOINT = "dart_entrypoint";
     protected static final String EXTRA_DESTROY_ENGINE_WITH_ACTIVITY = "destroy_engine_with_activity";
     protected static final String EXTRA_PARAMS = "params";
+    protected static final String EXTRA_SHOW_LOADING = "showloading";
     protected static final String EXTRA_SWIPEBACK = "swipeback";
     protected static final String EXTRA_URL = "url";
     protected static final String NORMAL_THEME_META_DATA_KEY = "io.flutter.embedding.android.NormalTheme";
@@ -49,7 +50,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     @NonNull
     private k lifecycle = new k(this);
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public enum BackgroundMode {
         opaque,
         transparent
@@ -63,7 +64,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return new NewEngineIntentBuilder(BoostFlutterActivity.class);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends BoostFlutterActivity> activityClass;
         private String backgroundMode = BoostFlutterActivity.DEFAULT_BACKGROUND_MODE;
@@ -81,7 +82,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public static class SerializableMap implements Serializable {
         private Map<String, Object> map;
 
@@ -94,8 +95,9 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         switchLaunchThemeForNormalTheme();
         super.onCreate(bundle);
         this.lifecycle.b(Lifecycle.Event.ON_CREATE);
@@ -121,7 +123,6 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
         Drawable splashScreenFromManifest = getSplashScreenFromManifest();
@@ -180,8 +181,9 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         this.delegate.onStart();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         this.lifecycle.b(Lifecycle.Event.ON_RESUME);
         this.delegate.onResume();
@@ -193,8 +195,9 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         this.delegate.onPostResume();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         this.delegate.onPause();
         this.lifecycle.b(Lifecycle.Event.ON_PAUSE);
@@ -206,8 +209,9 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         this.delegate.onStop();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         this.delegate.onDestroyView();
         this.delegate.onDetach();
@@ -283,8 +287,9 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return getBackgroundMode() == BackgroundMode.opaque ? FlutterView.TransparencyMode.opaque : FlutterView.TransparencyMode.transparent;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @NonNull
-    protected BackgroundMode getBackgroundMode() {
+    public BackgroundMode getBackgroundMode() {
         return getIntent().hasExtra(EXTRA_BACKGROUND_MODE) ? BackgroundMode.valueOf(getIntent().getStringExtra(EXTRA_BACKGROUND_MODE)) : BackgroundMode.opaque;
     }
 
@@ -322,7 +327,6 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return getIntent().hasExtra("url") ? getIntent().getStringExtra("url") : "";
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public Map getContainerUrlParams() {
         if (getIntent().hasExtra("params")) {
             return ((SerializableMap) getIntent().getSerializableExtra("params")).getMap();
@@ -330,7 +334,6 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return new HashMap();
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void setSwipeBackEnable(boolean z) {
     }
 }

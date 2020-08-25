@@ -1,21 +1,20 @@
 package com.baidu.swan.apps.performance;
 
 import android.util.Log;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String cyW = "NA";
-    private RecordType cyX = RecordType.KEEP;
-    private boolean cyY = false;
+    private String cGO = "NA";
+    private RecordType cGP = RecordType.KEEP;
+    private boolean cGQ = false;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -27,7 +26,7 @@ public class UbcFlowEvent {
         this.id = str;
     }
 
-    public UbcFlowEvent bm(long j) {
+    public UbcFlowEvent br(long j) {
         if (j < 0) {
             j = 0;
         }
@@ -35,7 +34,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long aob() {
+    public long avW() {
         return this.mTime;
     }
 
@@ -43,39 +42,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent np(String str) {
-        this.cyW = str;
+    public UbcFlowEvent pn(String str) {
+        this.cGO = str;
         return this;
     }
 
-    public String aoc() {
-        return this.cyW;
+    public String avX() {
+        return this.cGO;
     }
 
-    public UbcFlowEvent eI(boolean z) {
-        this.cyY = z;
+    public UbcFlowEvent fb(boolean z) {
+        this.cGQ = z;
         return this;
     }
 
-    public boolean aod() {
-        return this.cyY;
+    public boolean avY() {
+        return this.cGQ;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.cyX = recordType;
+        this.cGP = recordType;
         return this;
     }
 
-    public RecordType aoe() {
-        return this.cyX;
+    public RecordType avZ() {
+        return this.cGP;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(aob());
+        objArr[0] = Long.valueOf(avW());
         objArr[1] = this.id;
-        objArr[2] = aod() ? "(justLocalRecord)" : "";
+        objArr[2] = avY() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 
@@ -84,7 +83,7 @@ public class UbcFlowEvent {
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("value", this.mValue);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.mTime);
+            jSONObject.put("ts", this.mTime);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("UbcFlowEvent", "UbcFlowEvent to JSON exception", e);

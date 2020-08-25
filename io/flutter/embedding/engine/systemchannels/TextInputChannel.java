@@ -13,7 +13,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class TextInputChannel {
     private static final String TAG = "TextInputChannel";
     @NonNull
@@ -120,7 +120,7 @@ public class TextInputChannel {
     @Nullable
     private TextInputMethodHandler textInputMethodHandler;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface TextInputMethodHandler {
         void clearClient();
 
@@ -199,7 +199,7 @@ public class TextInputChannel {
         this.textInputMethodHandler = textInputMethodHandler;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class Configuration {
         @Nullable
         public final String actionLabel;
@@ -315,7 +315,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class InputType {
         public final boolean isDecimal;
         public final boolean isSigned;
@@ -334,7 +334,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public enum TextInputType {
         TEXT("TextInputType.text"),
         DATETIME("TextInputType.datetime"),
@@ -363,7 +363,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public enum TextCapitalization {
         CHARACTERS("TextCapitalization.characters"),
         WORDS("TextCapitalization.words"),
@@ -388,7 +388,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class TextEditState {
         public final int selectionEnd;
         public final int selectionStart;

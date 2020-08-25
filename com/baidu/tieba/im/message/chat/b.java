@@ -1,22 +1,22 @@
 package com.baidu.tieba.im.message.chat;
 
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements com.baidu.tbadk.mvc.b.a {
     private long createTime;
-    private boolean jhr;
-    private a.C0667a jhs;
-    private com.baidu.tieba.im.db.pojo.a jht;
-    private int jhu;
+    private boolean jwr;
+    private a.C0719a jws;
+    private com.baidu.tieba.im.db.pojo.a jwt;
+    private int jwu;
 
-    public static b a(ChatMessage chatMessage, a.C0667a c0667a) {
+    public static b a(ChatMessage chatMessage, a.C0719a c0719a) {
         b bVar = new b();
         if (chatMessage == null) {
             return bVar;
         }
-        c0667a.jho /= 100;
-        bVar.zg(chatMessage.getReadCountPv());
-        bVar.a(c0667a);
+        c0719a.jwo /= 100;
+        bVar.Bz(chatMessage.getReadCountPv());
+        bVar.a(c0719a);
         bVar.setCreateTime(chatMessage.getTime());
         if (chatMessage.getObjContent() instanceof com.baidu.tieba.im.db.pojo.a) {
             bVar.a((com.baidu.tieba.im.db.pojo.a) chatMessage.getObjContent());
@@ -24,28 +24,28 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         return bVar;
     }
 
-    public boolean cws() {
-        return this.jhr;
+    public boolean cHj() {
+        return this.jwr;
     }
 
-    public void qo(boolean z) {
-        this.jhr = z;
+    public void qU(boolean z) {
+        this.jwr = z;
     }
 
-    public a.C0667a cwt() {
-        return this.jhs;
+    public a.C0719a cHk() {
+        return this.jws;
     }
 
-    public void a(a.C0667a c0667a) {
-        this.jhs = c0667a;
+    public void a(a.C0719a c0719a) {
+        this.jws = c0719a;
     }
 
-    public com.baidu.tieba.im.db.pojo.a cwu() {
-        return this.jht;
+    public com.baidu.tieba.im.db.pojo.a cHl() {
+        return this.jwt;
     }
 
     public void a(com.baidu.tieba.im.db.pojo.a aVar) {
-        this.jht = aVar;
+        this.jwt = aVar;
     }
 
     public long getCreateTime() {
@@ -56,11 +56,11 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         this.createTime = j;
     }
 
-    public int cwv() {
-        return this.jhu;
+    public int cHm() {
+        return this.jwu;
     }
 
-    public void zg(int i) {
-        this.jhu = i;
+    public void Bz(int i) {
+        this.jwu = i;
     }
 }

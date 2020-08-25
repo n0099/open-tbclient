@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.download.exception;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class DownloadException extends Exception {
     private int errorCode;
     private String errorMessage;

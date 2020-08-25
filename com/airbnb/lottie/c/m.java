@@ -3,10 +3,11 @@ package com.airbnb.lottie.c;
 import android.graphics.Path;
 import android.util.JsonReader;
 import com.airbnb.lottie.model.content.GradientType;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -31,7 +32,7 @@ public class m {
                     c = 65535;
                     break;
                 case 103:
-                    if (nextName.equals("g")) {
+                    if (nextName.equals(IXAdRequestInfo.GPS)) {
                         c = 1;
                         break;
                     }

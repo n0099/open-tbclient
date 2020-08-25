@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class ErrorLogInfo implements Jsonable {
     public String code;
     public String data;

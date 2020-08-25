@@ -12,12 +12,12 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.ala.helper.AlaConstants;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.helper.AlaLiveStatConfig;
 import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
-import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaNDKPlayerAdapter;
 import com.baidu.ala.player.AlaVideoPlayer;
 import com.baidu.live.adp.base.BdPageContext;
@@ -639,8 +639,8 @@ public class AlaLivePlayer extends LinearLayout {
             for (Map.Entry<Integer, AlaVideoPlayer2> entry : this.mPlayersMap.entrySet()) {
                 if (entry.getValue() != null) {
                     this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), "perf", str, 0);
-                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), StreamConfig.STAT_FIRST_FRAME, str2, 0);
-                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), StreamConfig.STAT_DELAY_OFF, str3, 0);
+                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), AlaConstants.STAT_FIRST_FRAME, str2, 0);
+                    this.mNDKAdapter.sendNativeStatAppData(entry.getKey().intValue(), AlaConstants.STAT_DELAY_OFF, str3, 0);
                 }
             }
         }
@@ -648,7 +648,7 @@ public class AlaLivePlayer extends LinearLayout {
 
     public void setRoomInfo(int i, String str) {
         if (this.mNDKAdapter.getNativeObject() != 0) {
-            this.mNDKAdapter.sendNativeStatAppData(i, StreamConfig.STAT_ROOM_INFO, str, 0);
+            this.mNDKAdapter.sendNativeStatAppData(i, AlaConstants.STAT_ROOM_INFO, str, 0);
         }
     }
 

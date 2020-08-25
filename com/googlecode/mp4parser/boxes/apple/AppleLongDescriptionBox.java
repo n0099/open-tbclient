@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class AppleLongDescriptionBox extends Utf8AppleDataBox {
     public AppleLongDescriptionBox() {
         super("ldes");

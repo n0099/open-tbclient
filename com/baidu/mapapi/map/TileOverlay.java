@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class TileOverlay {
     private static final String b = TileOverlay.class.getSimpleName();
     private static int f = 0;
@@ -64,7 +64,7 @@ public final class TileOverlay {
         if (!b(str) && !this.c.isShutdown()) {
             try {
                 c(str);
-                this.c.execute(new v(this, i, i2, i3, str));
+                this.c.execute(new ac(this, i, i2, i3, str));
             } catch (RejectedExecutionException e) {
                 Log.e(b, "ThreadPool excepiton");
             } catch (Exception e2) {
@@ -86,6 +86,9 @@ public final class TileOverlay {
     }
 
     public boolean clearTileCache() {
+        if (this.a == null) {
+            return false;
+        }
         return this.a.b();
     }
 

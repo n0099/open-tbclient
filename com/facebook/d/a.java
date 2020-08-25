@@ -10,9 +10,9 @@ import com.facebook.common.internal.g;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> ngl = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> nAa = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int aj(@Nullable Bitmap bitmap) {
@@ -32,10 +32,10 @@ public final class a {
     }
 
     @Nullable
-    public static Pair<Integer, Integer> v(InputStream inputStream) {
+    public static Pair<Integer, Integer> w(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = ngl.acquire();
+        ByteBuffer acquire = nAa.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,38 +49,38 @@ public final class a {
             }
             return pair;
         } finally {
-            ngl.release(acquire);
+            nAa.release(acquire);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] ngm = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] nAb = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                ngm[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                nAb[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                ngm[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                nAb[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                ngm[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                nAb[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                ngm[Bitmap.Config.RGB_565.ordinal()] = 4;
+                nAb[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
     public static int e(Bitmap.Config config) {
-        switch (AnonymousClass1.ngm[config.ordinal()]) {
+        switch (AnonymousClass1.nAb[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:

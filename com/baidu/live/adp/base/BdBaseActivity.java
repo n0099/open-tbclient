@@ -18,7 +18,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
 import com.baidu.megapp.ma.MAActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BdBaseActivity<T> extends MAActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;

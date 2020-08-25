@@ -12,7 +12,7 @@ import com.nineoldandroids.animation.Animator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ValueAnimator extends Animator {
     static final int ANIMATION_FRAME = 1;
     static final int ANIMATION_START = 0;
@@ -88,7 +88,7 @@ public class ValueAnimator extends Animator {
     private Interpolator mInterpolator = sDefaultInterpolator;
     private ArrayList<AnimatorUpdateListener> mUpdateListeners = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface AnimatorUpdateListener {
         void onAnimationUpdate(ValueAnimator valueAnimator);
     }
@@ -210,7 +210,7 @@ public class ValueAnimator extends Animator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AnimationHandler extends Handler {
         private AnimationHandler() {
         }
@@ -594,7 +594,7 @@ public class ValueAnimator extends Animator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.nineoldandroids.animation.Animator
     public ValueAnimator clone() {
-        ValueAnimator valueAnimator = (ValueAnimator) super.m44clone();
+        ValueAnimator valueAnimator = (ValueAnimator) super.m49clone();
         if (this.mUpdateListeners != null) {
             ArrayList<AnimatorUpdateListener> arrayList = this.mUpdateListeners;
             valueAnimator.mUpdateListeners = new ArrayList<>();
@@ -615,9 +615,9 @@ public class ValueAnimator extends Animator {
             valueAnimator.mValues = new PropertyValuesHolder[length];
             valueAnimator.mValuesMap = new HashMap<>(length);
             for (int i2 = 0; i2 < length; i2++) {
-                PropertyValuesHolder m48clone = propertyValuesHolderArr[i2].m48clone();
-                valueAnimator.mValues[i2] = m48clone;
-                valueAnimator.mValuesMap.put(m48clone.getPropertyName(), m48clone);
+                PropertyValuesHolder m53clone = propertyValuesHolderArr[i2].m53clone();
+                valueAnimator.mValues[i2] = m53clone;
+                valueAnimator.mValuesMap.put(m53clone.getPropertyName(), m53clone);
             }
         }
         return valueAnimator;

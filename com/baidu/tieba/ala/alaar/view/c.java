@@ -9,43 +9,41 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends BaseAdapter {
-    private a fqE;
-    private ViewGroup fqj;
-    public List<com.baidu.live.ar.e> auz = new ArrayList();
-    private int foq = -1;
+    private ViewGroup fBF;
+    private a fCa;
+    public List<com.baidu.live.ar.e> azB = new ArrayList();
+    private int fzN = -1;
+    private int fzO = -1;
+    private int fBH = 0;
 
-    /* renamed from: for  reason: not valid java name */
-    private int f5for = -1;
-    private int fql = 0;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(int i, int[] iArr);
     }
 
     public c(ViewGroup viewGroup) {
-        this.fqj = viewGroup;
+        this.fBF = viewGroup;
     }
 
     public void a(a aVar) {
-        this.fqE = aVar;
+        this.fCa = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.auz == null) {
+        if (this.azB == null) {
             return 0;
         }
-        return this.auz.size();
+        return this.azB.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qm */
+    /* renamed from: sy */
     public com.baidu.live.ar.e getItem(int i) {
-        return (com.baidu.live.ar.e) ListUtils.getItem(this.auz, i);
+        return (com.baidu.live.ar.e) ListUtils.getItem(this.azB, i);
     }
 
     @Override // android.widget.Adapter
@@ -55,22 +53,22 @@ public class c extends BaseAdapter {
 
     public void e(List<com.baidu.live.ar.e> list, int i) {
         if (!ListUtils.isEmpty(list)) {
-            this.auz.clear();
-            this.auz.addAll(list);
-            this.foq = i;
+            this.azB.clear();
+            this.azB.addAll(list);
+            this.fzN = i;
             notifyDataSetChanged();
         }
     }
 
     public List<com.baidu.live.ar.e> getDatas() {
-        return this.auz;
+        return this.azB;
     }
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final d dVar;
         if (view == null) {
-            view = LayoutInflater.from(this.fqj.getContext()).inflate(a.h.face_feature_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.fBF.getContext()).inflate(a.h.face_feature_ar_item_layout, (ViewGroup) null);
             dVar = new d(view);
             view.setTag(dVar);
         } else {
@@ -88,14 +86,14 @@ public class c extends BaseAdapter {
         });
         if (dVar != null) {
             dVar.a(getItem(i));
-            if (this.foq == i) {
-                dVar.bwp();
+            if (this.fzN == i) {
+                dVar.bFo();
             } else {
-                dVar.bwo();
+                dVar.bFn();
             }
         }
-        if (i == 0 && this.fql != 0) {
-            view.setPadding(this.fql, 0, 0, 0);
+        if (i == 0 && this.fBH != 0) {
+            view.setPadding(this.fBH, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -105,41 +103,41 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.ar.e eVar, int i, d dVar, int[] iArr) {
         if (eVar != null) {
-            this.f5for = i;
-            if (this.fqE != null) {
-                this.fqE.b(i, iArr);
+            this.fzO = i;
+            if (this.fCa != null) {
+                this.fCa.b(i, iArr);
             }
-            this.foq = i;
-            if (com.baidu.live.c.vf().getInt("beauty_subitem_redot", 0) == 1) {
-                com.baidu.live.c.vf().putBoolean(eVar.getType(), false);
+            this.fzN = i;
+            if (com.baidu.live.c.AD().getInt("beauty_subitem_redot", 0) == 1) {
+                com.baidu.live.c.AD().putBoolean(eVar.getType(), false);
             }
             notifyDataSetChanged();
         }
     }
 
-    public int Cc(String str) {
+    public int Ew(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        for (int i = 0; i < this.auz.size(); i++) {
-            if (TextUtils.equals(str, this.auz.get(i).getType())) {
+        for (int i = 0; i < this.azB.size(); i++) {
+            if (TextUtils.equals(str, this.azB.get(i).getType())) {
                 return i;
             }
         }
         return 0;
     }
 
-    public String Cd(String str) {
+    public String Ex(String str) {
         int i = 0;
         if (TextUtils.equals(str, "goddessFace")) {
             i = 1;
         } else if (TextUtils.equals(str, "babyFace")) {
             i = 2;
         }
-        return com.baidu.minivideo.arface.c.dO(i);
+        return com.baidu.minivideo.arface.c.fK(i);
     }
 
-    public void ql(int i) {
-        this.fql = i;
+    public void sx(int i) {
+        this.fBH = i;
     }
 }

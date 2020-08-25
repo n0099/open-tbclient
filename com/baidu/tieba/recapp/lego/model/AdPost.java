@@ -32,13 +32,13 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.dP(jSONObject2);
+        this.feedData = PostAdBaseData.b.ea(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.dO(jSONObject3);
+        this.adData = PostAdBaseData.a.dZ(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -60,7 +60,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
         this.feedData.updataThreadData(this.appInfo);
-        this.adData.h(this.appInfo);
+        this.adData.g(this.appInfo);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.DM(i);
+            return this.adData.Gh(i);
         }
         return 0;
     }

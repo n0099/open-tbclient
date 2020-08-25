@@ -13,27 +13,27 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.br;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.data.bs;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
-    private bv aii;
-    private TextView ekx;
-    private View.OnClickListener emR;
-    private RelativeLayout fvE;
-    private TextView goe;
+    private bw ajx;
+    private TextView eus;
+    private View.OnClickListener ewV;
+    private RelativeLayout fGW;
+    private TextView gAU;
     private boolean isShowing;
-    private TbImageView kJr;
-    private boolean kJs;
+    private TbImageView kZf;
+    private boolean kZg;
     private boolean mHasInit;
     private CustomMessageListener mLikeForumListener;
     private final View.OnClickListener mOnClickListener;
     private CustomMessageListener mUnlikeForumListener;
-    private static final int kJq = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
-    private static final int ilO = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+    private static final int kZe = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
+    private static final int izR = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
 
     public PbBusinessPromotionContainer(Context context) {
         this(context, null);
@@ -46,14 +46,14 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public PbBusinessPromotionContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasInit = false;
-        this.kJs = false;
+        this.kZg = false;
         this.isShowing = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbBusinessPromotionContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                view.setTag(PbBusinessPromotionContainer.this.aii);
-                if (PbBusinessPromotionContainer.this.emR != null) {
-                    PbBusinessPromotionContainer.this.emR.onClick(view);
+                view.setTag(PbBusinessPromotionContainer.this.ajx);
+                if (PbBusinessPromotionContainer.this.ewV != null) {
+                    PbBusinessPromotionContainer.this.ewV.onClick(view);
                 }
             }
         };
@@ -63,9 +63,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    if (PbBusinessPromotionContainer.this.aii != null && PbBusinessPromotionContainer.this.aii.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.kJs = false;
-                        PbBusinessPromotionContainer.this.cUA();
+                    if (PbBusinessPromotionContainer.this.ajx != null && PbBusinessPromotionContainer.this.ajx.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
+                        PbBusinessPromotionContainer.this.kZg = false;
+                        PbBusinessPromotionContainer.this.dfx();
                     }
                 }
             }
@@ -76,88 +76,88 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    if (PbBusinessPromotionContainer.this.aii != null && PbBusinessPromotionContainer.this.aii.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.kJs = true;
-                        PbBusinessPromotionContainer.this.cUA();
+                    if (PbBusinessPromotionContainer.this.ajx != null && PbBusinessPromotionContainer.this.ajx.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
+                        PbBusinessPromotionContainer.this.kZg = true;
+                        PbBusinessPromotionContainer.this.dfx();
                     }
                 }
             }
         };
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.fvE = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.kJr = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
-        this.ekx = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.goe = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.kJr.setRadius(l.getDimens(context, R.dimen.tbds24));
-        this.kJr.setConrers(5);
-        this.kJr.setDefaultResource(17170445);
-        this.kJr.setDefaultBgResource(17170445);
-        this.fvE.setOnClickListener(this.mOnClickListener);
+        this.fGW = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
+        this.kZf = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.eus = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
+        this.gAU = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
+        this.kZf.setRadius(l.getDimens(context, R.dimen.tbds24));
+        this.kZf.setConrers(5);
+        this.kZf.setDefaultResource(17170445);
+        this.kZf.setDefaultBgResource(17170445);
+        this.fGW.setOnClickListener(this.mOnClickListener);
         MessageManager.getInstance().registerListener(this.mLikeForumListener);
         MessageManager.getInstance().registerListener(this.mUnlikeForumListener);
     }
 
-    public void a(bv bvVar, br brVar, boolean z) {
-        if (bvVar == null || brVar == null || StringUtils.isNull(brVar.getForumName())) {
+    public void a(bw bwVar, bs bsVar, boolean z) {
+        if (bwVar == null || bsVar == null || StringUtils.isNull(bsVar.getForumName())) {
             this.isShowing = false;
             setVisibility(8);
             return;
         }
-        this.aii = bvVar;
-        tE(z);
+        this.ajx = bwVar;
+        un(z);
         this.isShowing = true;
         setVisibility(0);
-        this.kJr.startLoad(brVar.getAvatar(), 10, false);
-        this.ekx.setText(brVar.getForumName());
+        this.kZf.startLoad(bsVar.getAvatar(), 10, false);
+        this.eus.setText(bsVar.getForumName());
         if (!this.mHasInit) {
             this.mHasInit = true;
-            this.kJs = brVar.getIsLike();
-            cUA();
+            this.kZg = bsVar.getIsLike();
+            dfx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUA() {
-        if (this.kJs) {
-            this.goe.setText(getResources().getString(R.string.followed));
-            ao.setViewTextColor(this.goe, R.color.cp_cont_d);
-            ao.setBackgroundResource(this.goe, 17170445);
-            this.goe.setOnClickListener(null);
+    public void dfx() {
+        if (this.kZg) {
+            this.gAU.setText(getResources().getString(R.string.followed));
+            ap.setViewTextColor(this.gAU, R.color.cp_cont_d);
+            ap.setBackgroundResource(this.gAU, 17170445);
+            this.gAU.setOnClickListener(null);
             return;
         }
-        this.goe.setText(getResources().getString(R.string.attention));
-        ao.setViewTextColor(this.goe, R.color.cp_cont_a);
-        ao.setBackgroundResource(this.goe, R.drawable.pb_business_promotion_attention_bg);
-        this.goe.setOnClickListener(this.mOnClickListener);
+        this.gAU.setText(getResources().getString(R.string.attention));
+        ap.setViewTextColor(this.gAU, R.color.cp_cont_a);
+        ap.setBackgroundResource(this.gAU, R.drawable.pb_business_promotion_attention_bg);
+        this.gAU.setOnClickListener(this.mOnClickListener);
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.ekx, R.color.cp_cont_b);
-        ao.setBackgroundResource(this.fvE, R.drawable.pb_business_promotion_bg);
-        if (this.kJs) {
-            ao.setViewTextColor(this.goe, R.color.cp_cont_d);
-            ao.setBackgroundResource(this.goe, 17170445);
+        ap.setViewTextColor(this.eus, R.color.cp_cont_b);
+        ap.setBackgroundResource(this.fGW, R.drawable.pb_business_promotion_bg);
+        if (this.kZg) {
+            ap.setViewTextColor(this.gAU, R.color.cp_cont_d);
+            ap.setBackgroundResource(this.gAU, 17170445);
             return;
         }
-        ao.setViewTextColor(this.goe, R.color.cp_cont_a);
-        ao.setBackgroundResource(this.goe, R.drawable.pb_business_promotion_attention_bg);
+        ap.setViewTextColor(this.gAU, R.color.cp_cont_a);
+        ap.setBackgroundResource(this.gAU, R.drawable.pb_business_promotion_attention_bg);
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        this.emR = onClickListener;
+        this.ewV = onClickListener;
     }
 
-    private void tE(boolean z) {
+    private void un(boolean z) {
         if (z) {
             setPadding(0, 0, 0, 0);
         } else {
-            setPadding(0, kJq, 0, ilO);
+            setPadding(0, kZe, 0, izR);
         }
     }
 
     public void destroy() {
         this.mHasInit = false;
-        this.kJs = false;
+        this.kZg = false;
         this.isShowing = false;
         if (this.mLikeForumListener != null) {
             MessageManager.getInstance().unRegisterListener(this.mLikeForumListener);

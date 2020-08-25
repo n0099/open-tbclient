@@ -28,7 +28,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1085common = this.f978common;
+        builder.f1087common = this.f978common;
         builder.forum_id = this.forum_id;
         if (z) {
             t.a(builder, true);

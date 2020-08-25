@@ -9,8 +9,8 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.b;
-import org.a.d;
+import org.b.b;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class CompletableMerge extends a {
     final boolean delayErrors;
@@ -50,7 +50,7 @@ public final class CompletableMerge extends a {
             return this.set.isDisposed();
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -64,7 +64,7 @@ public final class CompletableMerge extends a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(e eVar) {
             getAndIncrement();
             MergeInnerObserver mergeInnerObserver = new MergeInnerObserver();
@@ -72,7 +72,7 @@ public final class CompletableMerge extends a {
             eVar.a(mergeInnerObserver);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (!this.delayErrors) {
                 this.set.dispose();
@@ -93,7 +93,7 @@ public final class CompletableMerge extends a {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (decrementAndGet() == 0) {
                 if (this.error.get() != null) {

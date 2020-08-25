@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveUserNotifyDialog extends Dialog {
     private RelativeLayout alaNotifyContentPanel;
     private TextView alaNotifyDescription;

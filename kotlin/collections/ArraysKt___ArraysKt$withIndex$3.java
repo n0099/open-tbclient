@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class ArraysKt___ArraysKt$withIndex$3 extends Lambda implements kotlin.jvm.a.a<ap> {
     final /* synthetic */ short[] $this_withIndex;
 

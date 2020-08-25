@@ -10,28 +10,28 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes3.dex */
 public class b {
     private Context mContext;
-    private Bitmap mEB;
     private Rect mRect = new Rect();
+    private Bitmap mXB;
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void Hu(int i) {
-        this.mEB = BitmapHelper.getResBitmap(this.mContext, i);
+    public void JU(int i) {
+        this.mXB = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void a(Canvas canvas, float f, float f2) {
-        if (this.mEB != null) {
-            this.mRect.left = (int) (f - (this.mEB.getWidth() / 2));
-            this.mRect.right = (int) ((this.mEB.getWidth() / 2) + f);
-            this.mRect.top = (int) (f2 - (this.mEB.getHeight() / 2));
-            this.mRect.bottom = (int) ((this.mEB.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.mEB, (Rect) null, this.mRect, (Paint) null);
+        if (this.mXB != null) {
+            this.mRect.left = (int) (f - (this.mXB.getWidth() / 2));
+            this.mRect.right = (int) ((this.mXB.getWidth() / 2) + f);
+            this.mRect.top = (int) (f2 - (this.mXB.getHeight() / 2));
+            this.mRect.bottom = (int) ((this.mXB.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.mXB, (Rect) null, this.mRect, (Paint) null);
         }
     }
 
-    public boolean Q(MotionEvent motionEvent) {
+    public boolean aj(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return false;
         }

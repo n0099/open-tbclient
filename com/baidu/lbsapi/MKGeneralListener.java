@@ -1,5 +1,5 @@
 package com.baidu.lbsapi;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface MKGeneralListener {
     void onGetPermissionState(int i);
 }

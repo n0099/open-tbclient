@@ -20,7 +20,7 @@ import android.widget.Scroller;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SwipeBackLayout extends FrameLayout {
     private static final int INVALID_POINTER = -1;
     private static final int MARGIN_THRESHOLD = 24;
@@ -56,14 +56,14 @@ public class SwipeBackLayout extends FrameLayout {
     private int mViewWidth;
     private float mXVelocity;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface OnSlidingStateChangeListener {
         void onSlidingEnd(boolean z);
 
         void onSlidingStart();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface SwipeControlInterface {
         void disableSwipeBack();
 
@@ -429,7 +429,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class MyAccelerateInterpolator implements Interpolator {
         private final float mFactor;
 

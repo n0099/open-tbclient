@@ -14,50 +14,50 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
 import rx.internal.util.RxThreadFactory;
 import rx.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g extends g.a implements k {
-    private static final boolean ooi;
-    private static volatile Object oom;
+    private static final boolean oId;
+    private static volatile Object oIh;
     private final ScheduledExecutorService executor;
     volatile boolean isUnsubscribed;
-    private static final Object oon = new Object();
-    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> ook = new ConcurrentHashMap<>();
-    private static final AtomicReference<ScheduledExecutorService> ool = new AtomicReference<>();
-    public static final int ooj = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+    private static final Object oIi = new Object();
+    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> oIf = new ConcurrentHashMap<>();
+    private static final AtomicReference<ScheduledExecutorService> oIg = new AtomicReference<>();
+    public static final int oIe = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
 
     static {
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int dYr = rx.internal.util.f.dYr();
-        ooi = !z && (dYr == 0 || dYr >= 21);
+        int ekv = rx.internal.util.f.ekv();
+        oId = !z && (ekv == 0 || ekv >= 21);
     }
 
     public static void a(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
         while (true) {
-            if (ool.get() != null) {
+            if (oIg.get() != null) {
                 break;
             }
             ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-            if (ool.compareAndSet(null, newScheduledThreadPool)) {
+            if (oIg.compareAndSet(null, newScheduledThreadPool)) {
                 newScheduledThreadPool.scheduleAtFixedRate(new Runnable() { // from class: rx.internal.schedulers.g.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.dYn();
+                        g.ekr();
                     }
-                }, ooj, ooj, TimeUnit.MILLISECONDS);
+                }, oIe, oIe, TimeUnit.MILLISECONDS);
                 break;
             }
             newScheduledThreadPool.shutdownNow();
         }
-        ook.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+        oIf.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
     }
 
     public static void a(ScheduledExecutorService scheduledExecutorService) {
-        ook.remove(scheduledExecutorService);
+        oIf.remove(scheduledExecutorService);
     }
 
-    static void dYn() {
+    static void ekr() {
         try {
-            Iterator<ScheduledThreadPoolExecutor> it = ook.keySet().iterator();
+            Iterator<ScheduledThreadPoolExecutor> it = oIf.keySet().iterator();
             while (it.hasNext()) {
                 ScheduledThreadPoolExecutor next = it.next();
                 if (!next.isShutdown()) {
@@ -67,22 +67,22 @@ public class g extends g.a implements k {
                 }
             }
         } catch (Throwable th) {
-            rx.exceptions.a.K(th);
+            rx.exceptions.a.J(th);
             rx.c.c.onError(th);
         }
     }
 
     public static boolean b(ScheduledExecutorService scheduledExecutorService) {
         Method c;
-        if (ooi) {
+        if (oId) {
             if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                Object obj = oom;
-                if (obj == oon) {
+                Object obj = oIh;
+                if (obj == oIi) {
                     return false;
                 }
                 if (obj == null) {
                     c = c(scheduledExecutorService);
-                    oom = c != null ? c : oon;
+                    oIh = c != null ? c : oIi;
                 } else {
                     c = (Method) obj;
                 }
@@ -133,7 +133,7 @@ public class g extends g.a implements k {
 
     @Override // rx.g.a
     public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-        return this.isUnsubscribed ? rx.subscriptions.e.dZp() : b(aVar, j, timeUnit);
+        return this.isUnsubscribed ? rx.subscriptions.e.elt() : b(aVar, j, timeUnit);
     }
 
     public ScheduledAction b(rx.functions.a aVar, long j, TimeUnit timeUnit) {

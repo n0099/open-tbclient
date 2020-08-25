@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class cr implements cp {
     protected static byte[] b = new byte[0];
     private ByteBuffer a;

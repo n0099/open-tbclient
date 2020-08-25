@@ -18,30 +18,172 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class FileProvider extends ContentProvider {
-    private static final String b = "android.support.FILE_PROVIDER_PATHS";
-    private static final String c = "root-path";
-    private static final String d = "files-path";
-    private static final String e = "cache-path";
-    private static final String f = "external-path";
-    private static final String g = "name";
-    private static final String h = "path";
-    private a k;
-    private static final String[] a = {"_display_name", "_size"};
-    private static final File i = new File("/");
-    private static HashMap<String, a> j = new HashMap<>();
+    private static final String c = "android.support.FILE_PROVIDER_PATHS";
+    private static final String d = "root-path";
+    private static final String e = "files-path";
+    private static final String f = "cache-path";
+    private static final String g = "external-path";
+    private static final String h = "name";
+    private static final String i = "path";
+    private a a;
+    private static final String[] b = {"_display_name", "_size"};
+    private static final File j = new File("/");
+    private static HashMap<String, a> k = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public interface a {
-        File getFileForUri(Uri uri);
+        Uri a(File file);
 
-        Uri getUriForFile(File file);
+        File a(Uri uri);
+    }
+
+    private static a a(Context context, String str) {
+        a aVar;
+        synchronized (k) {
+            aVar = k.get(str);
+            if (aVar == null) {
+                try {
+                    try {
+                        aVar = b(context, str);
+                        k.put(str, aVar);
+                    } catch (IOException e2) {
+                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
+                    }
+                } catch (XmlPullParserException e3) {
+                    throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
+                }
+            }
+        }
+        return aVar;
+    }
+
+    private static a b(Context context, String str) throws IOException, XmlPullParserException {
+        File a2;
+        b bVar = new b(str);
+        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), c);
+        if (loadXmlMetaData == null) {
+            throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
+        }
+        while (true) {
+            int next = loadXmlMetaData.next();
+            if (next == 1) {
+                return bVar;
+            }
+            if (next == 2) {
+                String name = loadXmlMetaData.getName();
+                String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
+                String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                if (d.equals(name)) {
+                    a2 = a(j, attributeValue2);
+                } else if (e.equals(name)) {
+                    a2 = a(context.getFilesDir(), attributeValue2);
+                } else if ("cache-path".equals(name)) {
+                    a2 = a(context.getCacheDir(), attributeValue2);
+                } else {
+                    a2 = g.equals(name) ? a(Environment.getExternalStorageDirectory(), attributeValue2) : null;
+                }
+                if (a2 != null) {
+                    bVar.a(attributeValue, a2);
+                }
+            }
+        }
+    }
+
+    public static Uri getUriForFile(Context context, String str, File file) {
+        return a(context, str).a(file);
+    }
+
+    @Override // android.content.ContentProvider
+    public void attachInfo(Context context, ProviderInfo providerInfo) {
+        super.attachInfo(context, providerInfo);
+        if (!providerInfo.exported) {
+            if (providerInfo.grantUriPermissions) {
+                this.a = a(context, providerInfo.authority);
+                return;
+            }
+            throw new SecurityException("Provider must grant uri permissions");
+        }
+        throw new SecurityException("Provider must not be exported");
+    }
+
+    @Override // android.content.ContentProvider
+    public int delete(Uri uri, String str, String[] strArr) {
+        return this.a.a(uri).delete() ? 1 : 0;
+    }
+
+    @Override // android.content.ContentProvider
+    public String getType(Uri uri) {
+        File a2 = this.a.a(uri);
+        int lastIndexOf = a2.getName().lastIndexOf(46);
+        if (lastIndexOf >= 0) {
+            String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(a2.getName().substring(lastIndexOf + 1));
+            if (mimeTypeFromExtension != null) {
+                return mimeTypeFromExtension;
+            }
+        }
+        return "application/octet-stream";
+    }
+
+    @Override // android.content.ContentProvider
+    public Uri insert(Uri uri, ContentValues contentValues) {
+        throw new UnsupportedOperationException("No external inserts");
+    }
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        return true;
+    }
+
+    @Override // android.content.ContentProvider
+    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
+        return ParcelFileDescriptor.open(this.a.a(uri), a(str));
+    }
+
+    @Override // android.content.ContentProvider
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        int i2;
+        File a2 = this.a.a(uri);
+        if (strArr == null) {
+            strArr = b;
+        }
+        String[] strArr3 = new String[strArr.length];
+        Object[] objArr = new Object[strArr.length];
+        int length = strArr.length;
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < length) {
+            String str3 = strArr[i3];
+            if ("_display_name".equals(str3)) {
+                strArr3[i4] = "_display_name";
+                i2 = i4 + 1;
+                objArr[i4] = a2.getName();
+            } else if ("_size".equals(str3)) {
+                strArr3[i4] = "_size";
+                i2 = i4 + 1;
+                objArr[i4] = Long.valueOf(a2.length());
+            } else {
+                i2 = i4;
+            }
+            i3++;
+            i4 = i2;
+        }
+        String[] a3 = a(strArr3, i4);
+        Object[] a4 = a(objArr, i4);
+        MatrixCursor matrixCursor = new MatrixCursor(a3, 1);
+        matrixCursor.addRow(a4);
+        return matrixCursor;
+    }
+
+    @Override // android.content.ContentProvider
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        throw new UnsupportedOperationException("No external updates");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static class b implements a {
         private final String a;
         private final HashMap<String, File> b = new HashMap<>();
@@ -63,29 +205,7 @@ public class FileProvider extends ContentProvider {
         }
 
         @Override // com.baidu.sapi2.provider.FileProvider.a
-        public File getFileForUri(Uri uri) {
-            String encodedPath = uri.getEncodedPath();
-            int indexOf = encodedPath.indexOf(47, 1);
-            String decode = Uri.decode(encodedPath.substring(1, indexOf));
-            String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-            File file = this.b.get(decode);
-            if (file != null) {
-                File file2 = new File(file, decode2);
-                try {
-                    File canonicalFile = file2.getCanonicalFile();
-                    if (canonicalFile.getPath().startsWith(file.getPath())) {
-                        return canonicalFile;
-                    }
-                    throw new SecurityException("Resolved path jumped beyond configured root");
-                } catch (IOException e) {
-                    throw new IllegalArgumentException("Failed to resolve canonical path for " + file2);
-                }
-            }
-            throw new IllegalArgumentException("Unable to find configured root for " + uri);
-        }
-
-        @Override // com.baidu.sapi2.provider.FileProvider.a
-        public Uri getUriForFile(File file) {
+        public Uri a(File file) {
             String substring;
             try {
                 String canonicalPath = file.getCanonicalPath();
@@ -110,148 +230,28 @@ public class FileProvider extends ContentProvider {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }
         }
-    }
 
-    private static a a(Context context, String str) {
-        a aVar;
-        synchronized (j) {
-            aVar = j.get(str);
-            if (aVar == null) {
+        @Override // com.baidu.sapi2.provider.FileProvider.a
+        public File a(Uri uri) {
+            String encodedPath = uri.getEncodedPath();
+            int indexOf = encodedPath.indexOf(47, 1);
+            String decode = Uri.decode(encodedPath.substring(1, indexOf));
+            String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
+            File file = this.b.get(decode);
+            if (file != null) {
+                File file2 = new File(file, decode2);
                 try {
-                    try {
-                        aVar = b(context, str);
-                        j.put(str, aVar);
-                    } catch (IOException e2) {
-                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
+                    File canonicalFile = file2.getCanonicalFile();
+                    if (canonicalFile.getPath().startsWith(file.getPath())) {
+                        return canonicalFile;
                     }
-                } catch (XmlPullParserException e3) {
-                    throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
+                    throw new SecurityException("Resolved path jumped beyond configured root");
+                } catch (IOException e) {
+                    throw new IllegalArgumentException("Failed to resolve canonical path for " + file2);
                 }
             }
+            throw new IllegalArgumentException("Unable to find configured root for " + uri);
         }
-        return aVar;
-    }
-
-    private static a b(Context context, String str) throws IOException, XmlPullParserException {
-        File a2;
-        b bVar = new b(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), b);
-        if (loadXmlMetaData == null) {
-            throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
-        }
-        while (true) {
-            int next = loadXmlMetaData.next();
-            if (next == 1) {
-                return bVar;
-            }
-            if (next == 2) {
-                String name = loadXmlMetaData.getName();
-                String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
-                if (c.equals(name)) {
-                    a2 = a(i, attributeValue2);
-                } else if (d.equals(name)) {
-                    a2 = a(context.getFilesDir(), attributeValue2);
-                } else if ("cache-path".equals(name)) {
-                    a2 = a(context.getCacheDir(), attributeValue2);
-                } else {
-                    a2 = f.equals(name) ? a(Environment.getExternalStorageDirectory(), attributeValue2) : null;
-                }
-                if (a2 != null) {
-                    bVar.a(attributeValue, a2);
-                }
-            }
-        }
-    }
-
-    public static Uri getUriForFile(Context context, String str, File file) {
-        return a(context, str).getUriForFile(file);
-    }
-
-    @Override // android.content.ContentProvider
-    public void attachInfo(Context context, ProviderInfo providerInfo) {
-        super.attachInfo(context, providerInfo);
-        if (!providerInfo.exported) {
-            if (providerInfo.grantUriPermissions) {
-                this.k = a(context, providerInfo.authority);
-                return;
-            }
-            throw new SecurityException("Provider must grant uri permissions");
-        }
-        throw new SecurityException("Provider must not be exported");
-    }
-
-    @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
-        return this.k.getFileForUri(uri).delete() ? 1 : 0;
-    }
-
-    @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
-        File fileForUri = this.k.getFileForUri(uri);
-        int lastIndexOf = fileForUri.getName().lastIndexOf(46);
-        if (lastIndexOf >= 0) {
-            String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileForUri.getName().substring(lastIndexOf + 1));
-            if (mimeTypeFromExtension != null) {
-                return mimeTypeFromExtension;
-            }
-        }
-        return "application/octet-stream";
-    }
-
-    @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
-        throw new UnsupportedOperationException("No external inserts");
-    }
-
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        return true;
-    }
-
-    @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
-        return ParcelFileDescriptor.open(this.k.getFileForUri(uri), a(str));
-    }
-
-    @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        int i2;
-        File fileForUri = this.k.getFileForUri(uri);
-        if (strArr == null) {
-            strArr = a;
-        }
-        String[] strArr3 = new String[strArr.length];
-        Object[] objArr = new Object[strArr.length];
-        int length = strArr.length;
-        int i3 = 0;
-        int i4 = 0;
-        while (i3 < length) {
-            String str3 = strArr[i3];
-            if ("_display_name".equals(str3)) {
-                strArr3[i4] = "_display_name";
-                i2 = i4 + 1;
-                objArr[i4] = fileForUri.getName();
-            } else if ("_size".equals(str3)) {
-                strArr3[i4] = "_size";
-                i2 = i4 + 1;
-                objArr[i4] = Long.valueOf(fileForUri.length());
-            } else {
-                i2 = i4;
-            }
-            i3++;
-            i4 = i2;
-        }
-        String[] a2 = a(strArr3, i4);
-        Object[] a3 = a(objArr, i4);
-        MatrixCursor matrixCursor = new MatrixCursor(a2, 1);
-        matrixCursor.addRow(a3);
-        return matrixCursor;
-    }
-
-    @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        throw new UnsupportedOperationException("No external updates");
     }
 
     private static int a(String str) {

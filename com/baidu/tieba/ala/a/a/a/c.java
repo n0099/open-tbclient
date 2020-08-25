@@ -8,12 +8,12 @@ public class c implements a {
     @Override // com.baidu.tieba.ala.a.a.a.a
     public void i(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.a.a.b.b.getFieldValue(context.getClassLoader(), "pathList");
-        Class byH = byH();
-        if (byH != null) {
+        Class bHK = bHK();
+        if (bHK != null) {
             Object[] objArr = (Object[]) com.baidu.tieba.ala.a.a.b.b.getFieldValue(fieldValue, "nativeLibraryPathElements");
-            Object a = a(byH, file);
+            Object a = a(bHK, file);
             if (objArr != null && a != null) {
-                com.baidu.tieba.ala.a.a.b.b.a(fieldValue, "nativeLibraryPathElements", com.baidu.tieba.ala.a.a.b.a.a(byH, objArr, a));
+                com.baidu.tieba.ala.a.a.b.b.a(fieldValue, "nativeLibraryPathElements", com.baidu.tieba.ala.a.a.b.a.a(bHK, objArr, a));
             }
         }
     }
@@ -21,7 +21,7 @@ public class c implements a {
     @Override // com.baidu.tieba.ala.a.a.a.a
     public boolean j(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.a.a.b.b.getFieldValue(context.getClassLoader(), "pathList");
-        if (byH() != null) {
+        if (bHK() != null) {
             for (Object obj : (Object[]) com.baidu.tieba.ala.a.a.b.b.getFieldValue(fieldValue, "nativeLibraryPathElements")) {
                 if (obj.toString().contains(file.toString())) {
                     return true;
@@ -31,7 +31,7 @@ public class c implements a {
         return false;
     }
 
-    protected Class byH() {
+    protected Class bHK() {
         try {
             return Class.forName("dalvik.system.DexPathList$Element");
         } catch (Exception e) {

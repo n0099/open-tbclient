@@ -6,48 +6,48 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class IMUController implements c {
     private static final String TAG = IMUController.class.getSimpleName();
-    private SensorManager qL;
-    private HashMap<g, h> qM;
+    private SensorManager rq;
+    private HashMap<g, h> rr;
 
     @Override // com.baidu.ar.imu.c
     public void destroy() {
-        if (this.qM != null) {
-            for (h hVar : this.qM.values()) {
+        if (this.rr != null) {
+            for (h hVar : this.rr.values()) {
                 hVar.stop();
             }
-            this.qM.clear();
-            this.qM = null;
+            this.rr.clear();
+            this.rr = null;
         }
-        this.qL = null;
+        this.rq = null;
     }
 
     @Override // com.baidu.ar.imu.c
     public void setContext(Context context) {
         if (context != null) {
-            this.qL = (SensorManager) context.getSystemService("sensor");
+            this.rq = (SensorManager) context.getSystemService("sensor");
         }
     }
 
     @Override // com.baidu.ar.imu.c
     public boolean start(i iVar, g gVar) {
-        if (this.qL == null || iVar == null || gVar == null) {
+        if (this.rq == null || iVar == null || gVar == null) {
             return false;
         }
-        if (this.qM == null) {
-            this.qM = new HashMap<>();
+        if (this.rr == null) {
+            this.rr = new HashMap<>();
         }
-        h hVar = this.qM.get(gVar);
+        h hVar = this.rr.get(gVar);
         if (hVar == null) {
             hVar = new h();
-            this.qM.put(gVar, hVar);
+            this.rr.put(gVar, hVar);
         }
-        return hVar.a(this.qL, iVar, gVar);
+        return hVar.a(this.rq, iVar, gVar);
     }
 
     @Override // com.baidu.ar.imu.c
     public void stop(g gVar) {
         h remove;
-        if (gVar == null || this.qM == null || (remove = this.qM.remove(gVar)) == null) {
+        if (gVar == null || this.rr == null || (remove = this.rr.remove(gVar)) == null) {
             return;
         }
         remove.stop();

@@ -1,20 +1,22 @@
 package com.baidu.swan.apps.database;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public String appId;
     public String appKey;
     public String bearInfo;
     public int category;
-    public String chO;
-    public String chP;
-    public int chQ;
-    public String chR;
-    public String chS;
-    public String chT;
-    public long chU;
-    public int chV;
-    public String chW;
-    public boolean chX;
+
+    /* renamed from: com  reason: collision with root package name */
+    public String f972com;
+    public String con;
+    public int coo;
+    public String cop;
+    public String coq;
+    public String cor;
+    public long cos;
+    public int cot;
+    public String cou;
+    public boolean cov;
     public long createTime;
     public String description;
     public int errorCode;
@@ -26,6 +28,7 @@ public class a {
     public String name;
     public int orientation;
     public int payProtected;
+    public String quickAppKey;
     public String resumeDate;
     public String serviceCategory;
     public String sign;
@@ -33,7 +36,7 @@ public class a {
     public int type;
     public String version;
 
-    public String aed() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.chO + "', minSwanVersion='" + this.chP + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.chQ + ", targetSwanVersion='" + this.chT + "', mAppZipSize=" + this.chU + ", mPendingApsErrcode=" + this.chV + ", category=" + this.category + ", versionCode='" + this.chW + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.chX + ", payProtected=" + this.payProtected + '}';
+    public String akN() {
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.f972com + "', minSwanVersion='" + this.con + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.coo + ", targetSwanVersion='" + this.cor + "', mAppZipSize=" + this.cos + ", mPendingApsErrcode=" + this.cot + ", category=" + this.category + ", versionCode='" + this.cou + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.cov + ", payProtected=" + this.payProtected + '}';
     }
 }

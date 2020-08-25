@@ -5,9 +5,9 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public EntelechyUserLikeButton(Context context) {
         super(context);
@@ -33,26 +33,26 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void r(boolean z, int i) {
-        this.emQ = z;
+        this.ewU = z;
         if (z) {
             setClickable(false);
-            setText(this.emO);
+            setText(this.ewS);
         } else {
             setClickable(true);
-            setText(this.emP);
+            setText(this.ewT);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.emQ) {
+        if (this.ewU) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            ao.setViewTextColor(this, R.color.cp_cont_d);
+            ap.setViewTextColor(this, R.color.cp_cont_d);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        ao.setViewTextColor(this, R.color.btn_forum_focus_color);
+        setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setViewTextColor(this, R.color.btn_forum_focus_color);
     }
 }

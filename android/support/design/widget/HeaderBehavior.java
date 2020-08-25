@@ -10,7 +10,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.OverScroller;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     private static final int INVALID_POINTER = -1;
     private int mActivePointerId;
@@ -211,7 +211,7 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public class FlingRunnable implements Runnable {
         private final V mLayout;
         private final CoordinatorLayout mParent;

@@ -6,6 +6,7 @@ import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.webkit.internal.ETAG;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +73,7 @@ public class BdStatSwitchData implements Serializable {
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem.type = "dbg";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem.type, bdStatisticsUploadConfigItem);
-                    parserCommonData(optJSONObject.optJSONArray("debug"), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
+                    parserCommonData(optJSONObject.optJSONArray(ETAG.KEY_DEBUG), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
                     BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem2 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
                     bdStatisticsWriteConfigItem2.type = "stat";
                     this.writeConfig.item.put(bdStatisticsWriteConfigItem2.type, bdStatisticsWriteConfigItem2);

@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class StaticChunkOffsetBox extends ChunkOffsetBox {
     public static final String TYPE = "stco";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     private long[] chunkOffsets;
 
     static {
@@ -20,8 +20,8 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("StaticChunkOffsetBox.java", StaticChunkOffsetBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "", "", "", "[J"), 39);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "[J", "chunkOffsets", "", "void"), 47);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "", "", "", "[J"), 39);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "[J", "chunkOffsets", "", "void"), 47);
     }
 
     public StaticChunkOffsetBox() {

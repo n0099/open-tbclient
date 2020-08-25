@@ -7,21 +7,21 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class Functions {
-    static final io.reactivex.c.h<Object, Object> nSk = new g();
-    public static final Runnable nSl = new d();
-    public static final io.reactivex.c.a nSm = new a();
-    static final io.reactivex.c.g<Object> nSn = new b();
-    public static final io.reactivex.c.g<Throwable> nSo = new e();
-    public static final io.reactivex.c.g<Throwable> nSp = new k();
-    public static final io.reactivex.c.i nSq = new c();
-    static final io.reactivex.c.j<Object> nSr = new l();
-    static final io.reactivex.c.j<Object> nSs = new f();
-    static final Callable<Object> nSt = new j();
-    static final Comparator<Object> nSu = new i();
-    public static final io.reactivex.c.g<org.a.d> nSv = new h();
+    static final io.reactivex.c.h<Object, Object> omf = new g();
+    public static final Runnable omg = new d();
+    public static final io.reactivex.c.a omh = new a();
+    static final io.reactivex.c.g<Object> omi = new b();
+    public static final io.reactivex.c.g<Throwable> omj = new e();
+    public static final io.reactivex.c.g<Throwable> omk = new k();
+    public static final io.reactivex.c.i oml = new c();
+    static final io.reactivex.c.j<Object> omm = new l();
+    static final io.reactivex.c.j<Object> omn = new f();
+    static final Callable<Object> omo = new j();
+    static final Comparator<Object> omp = new i();
+    public static final io.reactivex.c.g<org.b.d> omq = new h();
 
-    public static <T> io.reactivex.c.g<T> dSX() {
-        return (io.reactivex.c.g<T>) nSn;
+    public static <T> io.reactivex.c.g<T> eeZ() {
+        return (io.reactivex.c.g<T>) omi;
     }
 
     /* loaded from: classes7.dex */
@@ -132,7 +132,7 @@ public final class Functions {
         }
 
         @Override // io.reactivex.c.i
-        public void gx(long j) {
+        public void gK(long j) {
         }
     }
 
@@ -181,13 +181,13 @@ public final class Functions {
     }
 
     /* loaded from: classes7.dex */
-    static final class h implements io.reactivex.c.g<org.a.d> {
+    static final class h implements io.reactivex.c.g<org.b.d> {
         h() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.g
-        public void accept(org.a.d dVar) throws Exception {
+        public void accept(org.b.d dVar) throws Exception {
             dVar.request(Long.MAX_VALUE);
         }
     }

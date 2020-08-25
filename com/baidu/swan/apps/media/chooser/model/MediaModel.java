@@ -3,19 +3,19 @@ package com.baidu.swan.apps.media.chooser.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaModel implements Parcelable, Comparable<Object> {
     public static final Parcelable.Creator<MediaModel> CREATOR = new Parcelable.Creator<MediaModel>() { // from class: com.baidu.swan.apps.media.chooser.model.MediaModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: t */
+        /* renamed from: u */
         public MediaModel createFromParcel(Parcel parcel) {
             return new MediaModel(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gl */
+        /* renamed from: ip */
         public MediaModel[] newArray(int i) {
             return new MediaModel[i];
         }
@@ -61,18 +61,18 @@ public class MediaModel implements Parcelable, Comparable<Object> {
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
-        return Long.valueOf(((MediaModel) obj).alx()).compareTo(Long.valueOf(this.addDate));
+        return Long.valueOf(((MediaModel) obj).atl()).compareTo(Long.valueOf(this.addDate));
     }
 
     public String getPath() {
         return this.path;
     }
 
-    public long alx() {
+    public long atl() {
         return this.addDate;
     }
 
-    public void be(long j) {
+    public void bj(long j) {
         this.addDate = j;
     }
 
@@ -84,11 +84,11 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         this.type = str;
     }
 
-    public String aly() {
+    public String atm() {
         return this.tempPath;
     }
 
-    public void mt(String str) {
+    public void os(String str) {
         this.tempPath = str;
     }
 

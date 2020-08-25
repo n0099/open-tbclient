@@ -6,27 +6,26 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.s;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    public boolean eaj;
-    private final g ebM = new g();
+    public boolean ejR;
+    private final g elv = new g();
     public boolean mIsNeedTbs = false;
     public boolean mNeedBackgroundLogin = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
-    public boolean Lb = false;
+    public boolean LG = false;
     public boolean mIsFromCDN = false;
     public boolean mIsRequestImage = false;
     public int mImageType = 0;
 
-    public g bba() {
-        return this.ebM;
+    public g bjz() {
+        return this.elv;
     }
 
     public void a(s sVar) {
@@ -66,29 +65,33 @@ public class b {
         }
         int netType = j.netType();
         sVar.addPostData("net_type", String.valueOf(netType));
-        String bdH = com.baidu.tbadk.coreExtra.b.a.bdE().bdH();
+        String bmn = com.baidu.tbadk.coreExtra.b.a.bmk().bmn();
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            bdH = bdH + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+            bmn = bmn + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = bdH + "ka=open";
+                str = bmn + "ka=open";
                 z = true;
             }
-            str = bdH;
+            str = bmn;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = bdH + "ka=open";
+                str = bmn + "ka=open";
                 z = true;
             }
-            str = bdH;
+            str = bmn;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-        com.baidu.adp.lib.network.a.a.bI(str);
+        com.baidu.adp.lib.network.a.a.bN(str);
         if (this.mIsNeedTbs) {
-            sVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+            if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                sVar.addPostData("tbs", com.baidu.tbadk.mutiprocess.f.getTbs());
+            } else {
+                sVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+            }
         }
         sVar.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
         sVar.addPostData("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
@@ -96,23 +99,23 @@ public class b {
         sVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         sVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
         sVar.addPostData("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
-            sVar.addPostData("z_id", FH.gz(TbadkCoreApplication.getInst()));
+        if (com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+            sVar.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
         }
     }
 
     public String getApiName() {
-        if (this.ebM.mUrl == null) {
+        if (this.elv.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.ebM.mUrl.startsWith(str)) {
-            int indexOf = this.ebM.mUrl.indexOf(63);
+        if (this.elv.mUrl.startsWith(str)) {
+            int indexOf = this.elv.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.ebM.mUrl.length();
+                indexOf = this.elv.mUrl.length();
             }
-            return this.ebM.mUrl.substring(str.length(), indexOf);
+            return this.elv.mUrl.substring(str.length(), indexOf);
         }
-        return this.ebM.mUrl;
+        return this.elv.mUrl;
     }
 }

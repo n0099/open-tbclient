@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class IdentityInputStream extends InputStream {
     public IdentityInputStream(SessionInputBuffer sessionInputBuffer) {
         throw new RuntimeException("Stub!");

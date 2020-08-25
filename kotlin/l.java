@@ -1,8 +1,8 @@
 package kotlin;
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class l {
-    public static final l nXP = new l();
+    public static final l orN = new l();
 
     private l() {
     }

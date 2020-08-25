@@ -13,7 +13,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_FAST_FORWARD = 64;
     public static final long ACTION_PAUSE = 2;
@@ -104,37 +104,37 @@ public final class PlaybackStateCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface Actions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface ErrorCode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface MediaKeyAction {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface RepeatMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface ShuffleMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface State {
     }
 
@@ -316,7 +316,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return this.mStateObj;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class CustomAction implements Parcelable {
         public static final Parcelable.Creator<CustomAction> CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -403,7 +403,7 @@ public final class PlaybackStateCompat implements Parcelable {
             return "Action:mName='" + ((Object) this.mName) + ", mIcon=" + this.mIcon + ", mExtras=" + this.mExtras;
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public static final class Builder {
             private final String mAction;
             private Bundle mExtras;
@@ -436,7 +436,7 @@ public final class PlaybackStateCompat implements Parcelable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         private long mActions;
         private long mActiveItemId;

@@ -1,39 +1,39 @@
 package com.facebook.imagepipeline.producers;
 
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class i implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ndV;
-    private final int ned;
-    private final int nee;
-    private final boolean nef;
+    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nxL;
+    private final int nxT;
+    private final int nxU;
+    private final boolean nxV;
 
     public i(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar, int i, int i2, boolean z) {
         com.facebook.common.internal.g.checkArgument(i <= i2);
-        this.ndV = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.ned = i;
-        this.nee = i2;
-        this.nef = z;
+        this.nxL = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.nxT = i;
+        this.nxU = i2;
+        this.nxV = z;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        if (akVar.dJs() && !this.nef) {
-            this.ndV.c(kVar, akVar);
+        if (akVar.dVr() && !this.nxV) {
+            this.nxL.c(kVar, akVar);
         } else {
-            this.ndV.c(new a(kVar, this.ned, this.nee), akVar);
+            this.nxL.c(new a(kVar, this.nxT, this.nxU), akVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     private static class a extends n<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-        private final int ned;
-        private final int nee;
+        private final int nxT;
+        private final int nxU;
 
         a(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, int i, int i2) {
             super(kVar);
-            this.ned = i;
-            this.nee = i2;
+            this.nxT = i;
+            this.nxU = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,15 +42,15 @@ public class i implements aj<com.facebook.common.references.a<com.facebook.image
         /* renamed from: a */
         public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
             l(aVar);
-            dJB().h(aVar, i);
+            dVA().h(aVar, i);
         }
 
         private void l(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
             com.facebook.imagepipeline.g.c cVar;
-            Bitmap dIk;
+            Bitmap dUj;
             int rowBytes;
-            if (aVar != null && aVar.isValid() && (cVar = aVar.get()) != null && !cVar.isClosed() && (cVar instanceof com.facebook.imagepipeline.g.d) && (dIk = ((com.facebook.imagepipeline.g.d) cVar).dIk()) != null && (rowBytes = dIk.getRowBytes() * dIk.getHeight()) >= this.ned && rowBytes <= this.nee) {
-                dIk.prepareToDraw();
+            if (aVar != null && aVar.isValid() && (cVar = aVar.get()) != null && !cVar.isClosed() && (cVar instanceof com.facebook.imagepipeline.g.d) && (dUj = ((com.facebook.imagepipeline.g.d) cVar).dUj()) != null && (rowBytes = dUj.getRowBytes() * dUj.getHeight()) >= this.nxT && rowBytes <= this.nxU) {
+                dUj.prepareToDraw();
             }
         }
     }

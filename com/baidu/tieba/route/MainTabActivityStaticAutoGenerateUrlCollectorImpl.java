@@ -15,6 +15,7 @@ public final class MainTabActivityStaticAutoGenerateUrlCollectorImpl implements 
         arrayList.add(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB);
         arrayList.add("n/video/opersquare?jump_to_publish_video_thread=1");
         arrayList.add("tiebavr:");
+        arrayList.add("tieba://homepage_livetab?");
         hashMap.put("com.baidu.tieba.tblauncher.MainTabActivityStatic", arrayList);
         return hashMap;
     }

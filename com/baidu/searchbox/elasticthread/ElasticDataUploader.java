@@ -1,12 +1,12 @@
 package com.baidu.searchbox.elasticthread;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ElasticDataUploader {
     private static volatile ElasticDataUploader sInstance = null;
     private IUploader mUploaderImpl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface IUploader {
         void uploadStatisticData(JSONObject jSONObject);
 

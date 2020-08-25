@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public final class z implements ap.b.a {
     final /* synthetic */ XMPushService a;
 

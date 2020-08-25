@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class f extends j {
     /* JADX WARN: Removed duplicated region for block: B:26:0x0078  */
     @Override // com.baidu.webkit.internal.b.j
@@ -29,7 +29,7 @@ public final class f extends j {
             try {
                 context.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
             return true;
         } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
@@ -46,7 +46,7 @@ public final class f extends j {
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        com.a.a.a.a.a.a.a.a(e);
+                        e.printStackTrace();
                         if (context != null) {
                         }
                         return true;

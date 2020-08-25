@@ -2,12 +2,12 @@ package com.baidu.tieba.ala.frsgamelive.c;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h fMK;
+    private h fYI;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.fMK = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.fMK.getView());
+        this.fYI = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.fYI.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fMK != null) {
-            this.fMK.onChangeSkinType(tbPageContext, i);
+        if (this.fYI != null) {
+            this.fYI.onChangeSkinType(tbPageContext, i);
         }
     }
 
     public void c(com.baidu.tieba.ala.e eVar) {
-        if (this.fMK != null) {
-            this.fMK.d(eVar);
+        if (this.fYI != null) {
+            this.fYI.d(eVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dLK != null && this.fMK != null) {
-            this.fMK.a(cVar.dLK);
+        if (cVar != null && cVar.dUS != null && this.fYI != null) {
+            this.fYI.a(cVar.dUS);
         }
     }
 
@@ -52,12 +52,12 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     /* loaded from: classes4.dex */
-    public static class a extends ad.a {
-        public g fML;
+    public static class a extends af.a {
+        public g fYJ;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.fML = gVar;
+            this.fYJ = gVar;
         }
     }
 }

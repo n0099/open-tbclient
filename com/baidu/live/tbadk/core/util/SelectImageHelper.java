@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SelectImageHelper {
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";
@@ -32,7 +32,7 @@ public class SelectImageHelper {
                 if (CreateFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.i.sdk_error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -69,7 +69,7 @@ public class SelectImageHelper {
                 if (z) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
                 }
             }
             if (!z) {

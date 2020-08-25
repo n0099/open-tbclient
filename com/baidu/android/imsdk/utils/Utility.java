@@ -1,6 +1,5 @@
 package com.baidu.android.imsdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -10,8 +9,6 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Looper;
-import android.support.v4.app.ActivityCompat;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.ChatObjectCache;
@@ -28,7 +25,7 @@ import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.io.File;
 import java.net.InetAddress;
@@ -41,7 +38,7 @@ import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class Utility {
     private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
@@ -52,7 +49,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -60,7 +57,8 @@ public final class Utility {
     public static boolean syncUserProfileTime(Context context, String str, String str2) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - readLongData(context, str + BaseUtils.getMd5(str2), -1L) >= BdKVCache.MILLS_1Hour * Constants.SYNC_USERS_PROFILE_RANDTIME) {
-            return writeLongData(context, str + BaseUtils.getMd5(str2), currentTimeMillis);
+            writeLongData(context, str + BaseUtils.getMd5(str2), currentTimeMillis);
+            return true;
         }
         return false;
     }
@@ -128,7 +126,8 @@ public final class Utility {
     }
 
     public static boolean setCuidAuthority(Context context, int i) {
-        return writeIntData(context, Constants.KEY_CUID_AUTHORITY, i);
+        writeIntData(context, Constants.KEY_CUID_AUTHORITY, i);
+        return true;
     }
 
     public static int getCuidAuthority(Context context) {
@@ -136,7 +135,8 @@ public final class Utility {
     }
 
     public static boolean setZhidaAppid(Context context, long j) {
-        return writeLongData(context, Constants.KEY_CURRENT_ZHIDAID, j);
+        writeLongData(context, Constants.KEY_CURRENT_ZHIDAID, j);
+        return true;
     }
 
     public static long getZhidaAppid(Context context) {
@@ -148,11 +148,13 @@ public final class Utility {
     }
 
     public static boolean setPaid(Context context, long j) {
-        return writeLongData(context, Constants.KEY_CURRENT_PAID, j);
+        writeLongData(context, Constants.KEY_CURRENT_PAID, j);
+        return true;
     }
 
     public static boolean setNotifyPaid(Context context, long j) {
-        return writeLongData(context, Constants.KEY_NOTIFY_PAID, j);
+        writeLongData(context, Constants.KEY_NOTIFY_PAID, j);
+        return true;
     }
 
     public static long getNotifyPaid(Context context) {
@@ -164,19 +166,22 @@ public final class Utility {
     }
 
     public static boolean writeAccessToken(Context context, String str) {
-        return writeStringData(context, "access_token", str);
+        writeStringData(context, "access_token", str);
+        return true;
     }
 
     public static boolean writeLoginFrom(Context context, String str) {
-        return writeStringData(context, Constants.EXTRA_LOGIN_FROM, str);
+        writeStringData(context, Constants.EXTRA_LOGIN_FROM, str);
+        return true;
     }
 
     public static boolean writeLoginCFrom(Context context, String str) {
-        return writeStringData(context, Constants.EXTRA_LOGIN_CFROM, str);
+        writeStringData(context, Constants.EXTRA_LOGIN_CFROM, str);
+        return true;
     }
 
-    public static boolean writeStringData(Context context, String str, String str2) {
-        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putString(str, str2).commit();
+    public static void writeStringData(Context context, String str, String str2) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putString(str, str2).apply();
     }
 
     public static void clear(Context context) {
@@ -199,12 +204,12 @@ public final class Utility {
         writeLongData(context, "uk", j);
     }
 
-    public static boolean writeLongData(Context context, String str, long j) {
-        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putLong(str, j).commit();
+    public static void writeLongData(Context context, String str, long j) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putLong(str, j).apply();
     }
 
-    public static boolean writeIntData(Context context, String str, int i) {
-        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i).commit();
+    public static void writeIntData(Context context, String str, int i) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i).apply();
     }
 
     public static void writeBooleanData(Context context, String str, boolean z) {
@@ -343,7 +348,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            IMService.enqueueWork(context, new Intent(context, IMService.class));
+            a.al(context).e(context, new Intent(context, a.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -356,7 +361,7 @@ public final class Utility {
     }
 
     public static Intent creatMethodIntent(Context context, int i) {
-        Intent intent = new Intent(context, IMService.class);
+        Intent intent = new Intent(context, a.class);
         intent.putExtra("method", i);
         intent.putExtra(Constants.EXTRA_SERVICE, 2);
         intent.setPackage(context.getPackageName());
@@ -364,7 +369,7 @@ public final class Utility {
     }
 
     public static Intent createMcastMethodIntent(Context context, int i) {
-        Intent intent = new Intent(context, IMService.class);
+        Intent intent = new Intent(context, a.class);
         intent.putExtra("method", i);
         intent.putExtra(Constants.EXTRA_SERVICE, 3);
         intent.setPackage(context.getPackageName());
@@ -376,7 +381,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            IMService.enqueueWork(context, creatMethodIntent);
+            a.al(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -458,7 +463,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            IMService.enqueueWork(context, creatMethodIntent);
+            a.al(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);
@@ -643,10 +648,13 @@ public final class Utility {
     }
 
     public static void clearFileCache(Context context) {
-        String str;
+        String str = null;
         if (Environment.getExternalStorageState().equals("mounted")) {
             if (isAndroidQAndAbove()) {
-                str = context.getExternalFilesDir("imcache").getAbsolutePath();
+                File externalFilesDir = context.getExternalFilesDir("imcache");
+                if (externalFilesDir != null) {
+                    str = externalFilesDir.getAbsolutePath();
+                }
             } else {
                 str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/implugin";
             }
@@ -683,22 +691,6 @@ public final class Utility {
             LogUtils.e("Utils", "getAppVersionName NameNotFoundException", e);
             return null;
         }
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:13:0x0025 -> B:9:0x001e). Please submit an issue!!! */
-    @SuppressLint({"HardwareIds"})
-    public static String getImei(Context context) {
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
-                if (Build.VERSION.SDK_INT >= 26 && ActivityCompat.checkSelfPermission(context, "android.permission.READ_PHONE_STATE") == 0) {
-                    return telephonyManager.getImei();
-                }
-                return telephonyManager.getDeviceId();
-            }
-        } catch (Exception e) {
-        }
-        return "";
     }
 
     public static String getLoginCookie(Context context) {
@@ -741,19 +733,17 @@ public final class Utility {
         return readStringData(context, Constants.KEY_CUID_GENERATE_TOKEN, "");
     }
 
-    public static void writeLoginFlag(final Context context, final String str, final String str2) {
+    public static void writeLoginFlag(final Context context, String str, final String str2) {
         if (isUploadIMTrack(context)) {
             try {
                 if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
                     TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.utils.Utility.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (Utility.writeStringData(context, Constants.KEY_LOGIN_FLAG, System.currentTimeMillis() + ":" + str)) {
-                                Utility.writeStringData(context, Constants.KEY_LOGIN_FLAG_EXT, str2);
-                            }
+                            Utility.writeStringData(context, Constants.KEY_LOGIN_FLAG_EXT, str2);
                         }
                     });
-                } else if (writeStringData(context, Constants.KEY_LOGIN_FLAG, System.currentTimeMillis() + ":" + str)) {
+                } else {
                     writeStringData(context, Constants.KEY_LOGIN_FLAG_EXT, str2);
                 }
             } catch (Throwable th) {

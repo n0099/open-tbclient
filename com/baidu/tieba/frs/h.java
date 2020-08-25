@@ -1,14 +1,19 @@
 package com.baidu.tieba.frs;
+/* loaded from: classes2.dex */
+public class h implements com.baidu.tbadk.core.flow.a.a {
+    private String hSd;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
-/* loaded from: classes.dex */
-public class h {
-    private HashMap<String, Drawable> hET = new HashMap<>();
+    public h(String str) {
+        this.hSd = str;
+    }
 
-    public void destory() {
-        if (!this.hET.isEmpty()) {
-            this.hET.clear();
-        }
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.hSd;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String bcC() {
+        return null;
     }
 }

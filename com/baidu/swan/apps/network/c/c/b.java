@@ -11,27 +11,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final b cxD = new b();
-    private a cxC;
-    private final List<d> cxz = new ArrayList();
-    private final Map<String, d> cxA = new HashMap();
-    private boolean cxB = false;
+    private static final b cFx = new b();
+    private final List<d> cFt = new ArrayList();
+    private final Map<String, d> cFu = new HashMap();
+    private boolean cFv = false;
+    private a cFw;
 
     private b() {
     }
 
-    public static b ann() {
-        return cxD;
+    public static b avi() {
+        return cFx;
     }
 
     public void reset() {
-        this.cxB = false;
-        synchronized (this.cxz) {
-            this.cxz.clear();
-            this.cxA.clear();
+        this.cFv = false;
+        synchronized (this.cFt) {
+            this.cFt.clear();
+            this.cFu.clear();
         }
         if (DEBUG) {
             Log.d("MaUpdateRecorder", "reset");
@@ -39,10 +39,10 @@ public class b {
     }
 
     public void done() {
-        this.cxB = true;
-        synchronized (this.cxz) {
-            this.cxz.clear();
-            this.cxA.clear();
+        this.cFv = true;
+        synchronized (this.cFt) {
+            this.cFt.clear();
+            this.cFu.clear();
         }
         if (DEBUG) {
             Log.d("MaUpdateRecorder", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
@@ -50,12 +50,12 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.cxC = aVar;
+        this.cFw = aVar;
     }
 
-    public String mP(String str) {
+    public String oO(String str) {
         String str2 = null;
-        if (!this.cxB) {
+        if (!this.cFv) {
             if (DEBUG) {
                 Log.d("MaUpdateRecorder", "begin update scope id - " + str);
             }
@@ -63,9 +63,9 @@ public class b {
                 long currentTimeMillis = System.currentTimeMillis();
                 str2 = Thread.currentThread().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + UUID.randomUUID().toString();
                 d dVar = new d(str);
-                dVar.bk(currentTimeMillis);
-                synchronized (this.cxz) {
-                    this.cxA.put(str2, dVar);
+                dVar.bp(currentTimeMillis);
+                synchronized (this.cFt) {
+                    this.cFu.put(str2, dVar);
                 }
                 if (DEBUG) {
                     Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
@@ -76,19 +76,19 @@ public class b {
         return str2;
     }
 
-    public void mQ(String str) {
-        if (!this.cxB) {
+    public void oP(String str) {
+        if (!this.cFv) {
             if (DEBUG) {
                 Log.d("MaUpdateRecorder", "end update uni tag - " + str);
             }
             if (!TextUtils.isEmpty(str)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                synchronized (this.cxz) {
-                    d dVar = this.cxA.get(str);
+                synchronized (this.cFt) {
+                    d dVar = this.cFu.get(str);
                     if (dVar != null) {
-                        dVar.bl(currentTimeMillis);
-                        this.cxz.add(dVar);
-                        this.cxA.remove(str);
+                        dVar.bq(currentTimeMillis);
+                        this.cFt.add(dVar);
+                        this.cFu.remove(str);
                     }
                 }
                 if (DEBUG) {
@@ -99,22 +99,22 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public void b(HybridUbcFlow hybridUbcFlow) {
         if (hybridUbcFlow != null) {
-            JSONArray ano = ano();
-            if (ano != null && ano.length() > 0) {
-                hybridUbcFlow.bH("ma_update_recorder", ano.toString());
+            JSONArray avj = avj();
+            if (avj != null && avj.length() > 0) {
+                hybridUbcFlow.bW("ma_update_recorder", avj.toString());
             }
             done();
         }
     }
 
-    private JSONArray ano() {
+    private JSONArray avj() {
         JSONArray jSONArray = new JSONArray();
-        synchronized (this.cxz) {
+        synchronized (this.cFt) {
             try {
-                for (d dVar : this.cxz) {
-                    if (dVar != null && (this.cxC == null || this.cxC.a(dVar))) {
+                for (d dVar : this.cFt) {
+                    if (dVar != null && (this.cFw == null || this.cFw.a(dVar))) {
                         jSONArray.put(dVar.toJson());
                     }
                 }

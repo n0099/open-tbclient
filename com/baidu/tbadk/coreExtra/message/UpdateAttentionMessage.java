@@ -5,17 +5,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.a.c;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public String blockUrl;
-        public c ebJ;
-        public BlockPopInfoData erH;
+        public BlockPopInfoData eCa;
+        public c els;
         public String errorString;
+        public boolean eyb;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
         public boolean isSucc;
@@ -55,12 +56,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!as.isEmpty(optString) && !as.isEmpty(this.blockUrl) && !as.isEmpty(optString2) && !as.isEmpty(optString3)) {
-                    this.erH = new BlockPopInfoData();
-                    this.erH.block_info = optString;
-                    this.erH.ahead_url = this.blockUrl;
-                    this.erH.ahead_info = optString2;
-                    this.erH.ok_info = optString3;
+                if (!at.isEmpty(optString) && !at.isEmpty(this.blockUrl) && !at.isEmpty(optString2) && !at.isEmpty(optString3)) {
+                    this.eCa = new BlockPopInfoData();
+                    this.eCa.block_info = optString;
+                    this.eCa.ahead_url = this.blockUrl;
+                    this.eCa.ahead_info = optString2;
+                    this.eCa.ok_info = optString3;
                 }
             }
         }

@@ -9,7 +9,9 @@ public final class FrsMemberStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
-        hashMap.put("com.baidu.tieba.forumMember.member.FrsMemberStatic", new ArrayList());
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("ForumMemberActivityConfig");
+        hashMap.put("com.baidu.tieba.forumMember.member.FrsMemberStatic", arrayList);
         return hashMap;
     }
 
@@ -19,6 +21,7 @@ public final class FrsMemberStaticAutoGenerateUrlCollectorImpl implements d {
         new ArrayList();
         hashMap.put("2003008", "com.baidu.tieba.forumMember.member.FrsMemberStatic");
         hashMap.put("2003011", "com.baidu.tieba.forumMember.member.FrsMemberStatic");
+        hashMap.put("2002001", "com.baidu.tieba.forumMember.member.FrsMemberStatic");
         return hashMap;
     }
 }

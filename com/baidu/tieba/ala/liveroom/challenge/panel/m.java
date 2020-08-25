@@ -1,33 +1,33 @@
 package com.baidu.tieba.ala.liveroom.challenge.panel;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface m {
-    void V(long j);
+    void BY();
 
-    void bE(int i, int i2);
+    void W(long j);
 
-    void bGu();
+    void bM(int i, int i2);
 
-    void bGv();
+    void bPZ();
 
-    void bGw();
+    void bQa();
 
-    void bGx();
+    void bQb();
 
-    void bGy();
+    void bQc();
 
-    void bGz();
+    void bQd();
 
-    void bS(int i);
+    void bQe();
 
-    void dT(long j);
+    void dE(int i);
 
-    void dU(long j);
+    void ee(long j);
 
-    void er(String str);
+    void ef(long j);
 
-    void i(int i, int i2, String str);
+    void fJ(String str);
+
+    void h(int i, int i2, String str);
 
     void removeView();
-
-    void wA();
 }

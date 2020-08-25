@@ -3,29 +3,29 @@ package com.facebook.drawee.a.a.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
-    private final List<b> mSI;
+    private final List<b> nmA;
 
     public a(b... bVarArr) {
-        this.mSI = new ArrayList(bVarArr.length);
-        Collections.addAll(this.mSI, bVarArr);
+        this.nmA = new ArrayList(bVarArr.length);
+        Collections.addAll(this.nmA, bVarArr);
     }
 
     public synchronized void a(b bVar) {
-        this.mSI.add(bVar);
+        this.nmA.add(bVar);
     }
 
     public synchronized void b(b bVar) {
-        this.mSI.remove(bVar);
+        this.nmA.remove(bVar);
     }
 
     @Override // com.facebook.drawee.a.a.a.b
     public synchronized void g(String str, int i, boolean z) {
-        int size = this.mSI.size();
+        int size = this.nmA.size();
         for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mSI.get(i2).g(str, i, z);
+                this.nmA.get(i2).g(str, i, z);
             } catch (Exception e) {
                 com.facebook.common.c.a.e("ForwardingImageOriginListener", "InternalListener exception in onImageLoaded", e);
             }

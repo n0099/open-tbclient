@@ -8,12 +8,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class CompletableCache extends a implements c {
+    static final InnerCompletableCache[] omu = new InnerCompletableCache[0];
+    static final InnerCompletableCache[] omv = new InnerCompletableCache[0];
     Throwable error;
     final AtomicReference<InnerCompletableCache[]> observers;
     final AtomicBoolean once;
     final e source;
-    static final InnerCompletableCache[] nSz = new InnerCompletableCache[0];
-    static final InnerCompletableCache[] nSA = new InnerCompletableCache[0];
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
@@ -45,7 +45,7 @@ public final class CompletableCache extends a implements c {
     public void onError(Throwable th) {
         InnerCompletableCache[] andSet;
         this.error = th;
-        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(nSA)) {
+        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(omv)) {
             if (!innerCompletableCache.get()) {
                 innerCompletableCache.actual.onError(th);
             }
@@ -55,7 +55,7 @@ public final class CompletableCache extends a implements c {
     @Override // io.reactivex.c
     public void onComplete() {
         InnerCompletableCache[] andSet;
-        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(nSA)) {
+        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(omv)) {
             if (!innerCompletableCache.get()) {
                 innerCompletableCache.actual.onComplete();
             }
@@ -67,7 +67,7 @@ public final class CompletableCache extends a implements c {
         InnerCompletableCache[] innerCompletableCacheArr2;
         do {
             innerCompletableCacheArr = this.observers.get();
-            if (innerCompletableCacheArr == nSA) {
+            if (innerCompletableCacheArr == omv) {
                 return false;
             }
             int length = innerCompletableCacheArr.length;
@@ -99,7 +99,7 @@ public final class CompletableCache extends a implements c {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        innerCompletableCacheArr2 = nSz;
+                        innerCompletableCacheArr2 = omu;
                     } else {
                         innerCompletableCacheArr2 = new InnerCompletableCache[length - 1];
                         System.arraycopy(innerCompletableCacheArr, 0, innerCompletableCacheArr2, 0, i);

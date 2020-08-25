@@ -12,7 +12,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwitcher.ViewFactory {
     private int mTextColor;
     private float mTextSize;

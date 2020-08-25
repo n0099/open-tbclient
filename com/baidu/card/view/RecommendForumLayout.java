@@ -14,34 +14,34 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.card.o;
+import com.baidu.card.p;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.h.f;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes15.dex */
-public class RecommendForumLayout extends LinearLayout implements o {
-    public boolean agM;
-    private PullLeftRefreshLayout aiX;
-    private com.baidu.card.b.a aiY;
-    private FrameLayout aiZ;
-    private View aja;
-    private ImageView ajb;
-    private ImageView ajc;
-    private boolean ajd;
-    private boolean aje;
-    private boolean ajf;
-    private boolean ajg;
-    private RefreshView ajh;
-    private View.OnClickListener aji;
-    private PullLeftRefreshLayout.a ajj;
+public class RecommendForumLayout extends LinearLayout implements p {
+    public boolean ahV;
+    private PullLeftRefreshLayout akm;
+    private com.baidu.card.b.a akn;
+    private FrameLayout ako;
+    private View akp;
+    private ImageView akq;
+    private ImageView akr;
+    private boolean aks;
+    private boolean akt;
+    private boolean aku;
+    private boolean akv;
+    private RefreshView akw;
+    private View.OnClickListener akx;
+    private PullLeftRefreshLayout.a aky;
     public int mFrom;
     private TbPageContext<?> mPageContext;
     private RecyclerView mRecyclerView;
@@ -49,17 +49,17 @@ public class RecommendForumLayout extends LinearLayout implements o {
     private int mTitleColorId;
     private String tabName;
 
-    public void setOnItemCoverListener(f<bh> fVar) {
-        this.aiY.setOnItemCoverListener(fVar);
+    public void setOnItemCoverListener(f<bi> fVar) {
+        this.akn.setOnItemCoverListener(fVar);
     }
 
     public void setOnClickRightArrowListener(View.OnClickListener onClickListener) {
-        this.aji = onClickListener;
+        this.akx = onClickListener;
     }
 
     public void setOnRullOkCallbackr(PullLeftRefreshLayout.a aVar) {
-        this.ajj = aVar;
-        this.aiX.setCallback(aVar);
+        this.aky = aVar;
+        this.akm.setCallback(aVar);
     }
 
     public RecommendForumLayout(TbPageContext<?> tbPageContext) {
@@ -68,10 +68,10 @@ public class RecommendForumLayout extends LinearLayout implements o {
 
     public RecommendForumLayout(TbPageContext<?> tbPageContext, @Nullable AttributeSet attributeSet) {
         super(tbPageContext.getPageActivity(), attributeSet);
-        this.ajd = true;
-        this.aje = true;
-        this.ajf = true;
-        this.ajg = false;
+        this.aks = true;
+        this.akt = true;
+        this.aku = true;
+        this.akv = false;
         this.mFrom = 0;
         this.mPageContext = tbPageContext;
         initUI();
@@ -81,46 +81,46 @@ public class RecommendForumLayout extends LinearLayout implements o {
         LayoutInflater.from(getContext()).inflate(R.layout.recommend_forum_horizontal_view, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.aiZ = (FrameLayout) findViewById(R.id.title_view);
+        this.ako = (FrameLayout) findViewById(R.id.title_view);
         this.mTitle = (TextView) findViewById(R.id.tv_title);
-        this.aja = findViewById(R.id.layout_into);
-        this.ajb = (ImageView) findViewById(R.id.iv_into);
-        this.ajc = (ImageView) findViewById(R.id.iv_into_s);
-        this.aiX = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+        this.akp = findViewById(R.id.layout_into);
+        this.akq = (ImageView) findViewById(R.id.iv_into);
+        this.akr = (ImageView) findViewById(R.id.iv_into_s);
+        this.akm = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        this.aiY = new com.baidu.card.b.a(this.mPageContext, this.mFrom);
+        this.akn = new com.baidu.card.b.a(this.mPageContext, this.mFrom);
         if (this.mFrom == 0) {
-            this.aiY.setHasLikeForum(this.agM);
+            this.akn.setHasLikeForum(this.ahV);
         } else if (this.mFrom == 1) {
-            this.aiY.setTabName(this.tabName);
+            this.akn.setTabName(this.tabName);
         }
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity(), 0, false));
-        this.mRecyclerView.setAdapter(this.aiY);
+        this.mRecyclerView.setAdapter(this.akn);
         this.mRecyclerView.setClipChildren(false);
-        this.aiY.notifyDataSetChanged();
+        this.akn.notifyDataSetChanged();
         this.mTitle.setText(this.mPageContext.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
-        this.ajc.setClickable(false);
-        this.ajh = new RefreshView(getContext());
-        this.aiX.setRefreshViewAndListener(this.ajh);
-        this.aiX.setCallback(this.ajj);
+        this.akr.setClickable(false);
+        this.akw = new RefreshView(getContext());
+        this.akm.setRefreshViewAndListener(this.akw);
+        this.akm.setCallback(this.aky);
     }
 
     public void setSquareEntranceAtStart(boolean z) {
-        this.ajd = z;
+        this.aks = z;
     }
 
     public void setShowSquareEntrance(boolean z) {
-        this.aje = z;
+        this.akt = z;
     }
 
     public void setEnableShowInto(boolean z) {
-        this.ajf = z;
+        this.aku = z;
     }
 
     public void setShowMore(boolean z) {
-        this.ajg = z;
-        if (this.aiX != null) {
-            this.aiX.setEnablePull(z);
+        this.akv = z;
+        if (this.akm != null) {
+            this.akm.setEnablePull(z);
         }
     }
 
@@ -132,77 +132,77 @@ public class RecommendForumLayout extends LinearLayout implements o {
         this.mFrom = i;
     }
 
-    public void setData(bi biVar) {
-        b(biVar);
+    public void setData(bj bjVar) {
+        b(bjVar);
     }
 
-    public void b(bi biVar) {
-        this.ajb.setOnClickListener(this.aji);
-        this.aja.setOnClickListener(this.aji);
-        if (!TextUtils.isEmpty(biVar.title) && biVar.dQB != 0) {
+    public void b(bj bjVar) {
+        this.akq.setOnClickListener(this.akx);
+        this.akp.setOnClickListener(this.akx);
+        if (!TextUtils.isEmpty(bjVar.title) && bjVar.dZU != 0) {
             this.mTitle.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds37));
-            this.mTitle.setText(biVar.title);
-            this.mTitleColorId = biVar.dQB;
-            this.aja.setVisibility(0);
-            this.ajb.setVisibility(8);
-            if (this.aiZ.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.aiZ.getLayoutParams()).topMargin = 0;
-                this.aiZ.requestLayout();
+            this.mTitle.setText(bjVar.title);
+            this.mTitleColorId = bjVar.dZU;
+            this.akp.setVisibility(0);
+            this.akq.setVisibility(8);
+            if (this.ako.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.ako.getLayoutParams()).topMargin = 0;
+                this.ako.requestLayout();
             }
         } else {
             this.mTitle.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds46));
             this.mTitle.setText(R.string.recommend_forum_title_horizontal);
             this.mTitleColorId = R.color.cp_cont_b;
-            this.aja.setVisibility(8);
-            this.ajb.setVisibility(0);
-            if (this.aiZ.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.aiZ.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-                this.aiZ.requestLayout();
+            this.akp.setVisibility(8);
+            this.akq.setVisibility(0);
+            if (this.ako.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.ako.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                this.ako.requestLayout();
             }
         }
-        if (!this.ajf) {
-            this.aja.setVisibility(8);
-            this.ajb.setVisibility(8);
+        if (!this.aku) {
+            this.akp.setVisibility(8);
+            this.akq.setVisibility(8);
         }
-        if (biVar != null && biVar.aVr() != null && biVar.aVr().size() > 0) {
+        if (bjVar != null && bjVar.bdK() != null && bjVar.bdK().size() > 0) {
             ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList = new ArrayList<>();
-            ArrayList<bh> aVr = biVar.aVr();
-            if (this.ajd) {
-                if (this.aje) {
+            ArrayList<bi> bdK = bjVar.bdK();
+            if (this.aks) {
+                if (this.akt) {
                     arrayList.add(new com.baidu.tbadk.core.data.l());
                 }
-                if (aVr != null) {
-                    arrayList.addAll(aVr);
+                if (bdK != null) {
+                    arrayList.addAll(bdK);
                 }
             } else {
-                if (aVr != null) {
-                    arrayList.addAll(aVr);
+                if (bdK != null) {
+                    arrayList.addAll(bdK);
                 }
-                if (this.aje) {
+                if (this.akt) {
                     arrayList.add(new com.baidu.tbadk.core.data.l());
                 }
             }
-            this.aiY.setData(arrayList);
+            this.akn.setData(arrayList);
         }
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.mTitle, this.mTitleColorId);
-        SvgManager.baR().a(this.ajb, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.baR().a(this.ajc, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-        this.ajh.onChangeSkinType();
-        this.aiY.notifyDataSetChanged();
+        ap.setViewTextColor(this.mTitle, this.mTitleColorId);
+        SvgManager.bjq().a(this.akq, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bjq().a(this.akr, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        this.akw.onChangeSkinType();
+        this.akn.notifyDataSetChanged();
     }
 
     public void setHasLikeForum(boolean z) {
-        this.agM = z;
+        this.ahV = z;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
     }
 
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         onChangeSkinType();
     }

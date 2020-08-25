@@ -1,15 +1,15 @@
 package kotlin.text;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class f {
-    private final kotlin.b.h nZG;
+    private final kotlin.b.h otE;
     private final String value;
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (!kotlin.jvm.internal.q.l((Object) this.value, (Object) fVar.value) || !kotlin.jvm.internal.q.l(this.nZG, fVar.nZG)) {
+                if (!kotlin.jvm.internal.q.l((Object) this.value, (Object) fVar.value) || !kotlin.jvm.internal.q.l(this.otE, fVar.otE)) {
                 }
             }
             return false;
@@ -20,18 +20,18 @@ public final class f {
     public int hashCode() {
         String str = this.value;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        kotlin.b.h hVar = this.nZG;
+        kotlin.b.h hVar = this.otE;
         return hashCode + (hVar != null ? hVar.hashCode() : 0);
     }
 
     public String toString() {
-        return "MatchGroup(value=" + this.value + ", range=" + this.nZG + ")";
+        return "MatchGroup(value=" + this.value + ", range=" + this.otE + ")";
     }
 
     public f(String str, kotlin.b.h hVar) {
         kotlin.jvm.internal.q.m(str, "value");
         kotlin.jvm.internal.q.m(hVar, "range");
         this.value = str;
-        this.nZG = hVar;
+        this.otE = hVar;
     }
 }

@@ -10,7 +10,7 @@ import com.alibaba.fastjson.parser.SymbolTable;
 import com.alibaba.fastjson.util.TypeUtils;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class HSFJSONUtils {
     static final SymbolTable typeSymbolTable = new SymbolTable(1024);
     static final char[] fieldName_argsTypes = "\"argsTypes\"".toCharArray();

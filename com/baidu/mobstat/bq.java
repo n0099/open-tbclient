@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class bq extends bn {
     private static final String a = "__Baidu_Stat_SDK_SendRem";
     private static bq b = new bq();

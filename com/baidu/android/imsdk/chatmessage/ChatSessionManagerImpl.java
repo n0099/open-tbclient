@@ -37,14 +37,14 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     private static final String TAG = "SessionManagerImpl";
     private static volatile ChatSessionManagerImpl mInstance;
@@ -71,7 +71,9 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                     }
                 }
                 LogUtils.i(ChatSessionManagerImpl.TAG, "add DialogRecord mmds : " + linkedList);
-                if (DialogRecordDBManager.getInstance(ChatMsgManagerImpl.mContext).addBatch(linkedList) > 0 && Utility.writeLongData(ChatMsgManagerImpl.mContext, "sync_max_msgid_" + Utility.getUK(ChatMsgManagerImpl.mContext), j) && Utility.writeIntData(ChatMsgManagerImpl.mContext, Constants.KEY_SYNC_FIRST_TIME, 0)) {
+                if (DialogRecordDBManager.getInstance(ChatMsgManagerImpl.mContext).addBatch(linkedList) > 0) {
+                    Utility.writeLongData(ChatMsgManagerImpl.mContext, "sync_max_msgid_" + Utility.getUK(ChatMsgManagerImpl.mContext), j);
+                    Utility.writeIntData(ChatMsgManagerImpl.mContext, Constants.KEY_SYNC_FIRST_TIME, 0);
                     for (DialogRecord dialogRecord2 : DialogRecordDBManager.getInstance(ChatMsgManagerImpl.mContext).getDialogRecord(-1)) {
                         SyncGroupMessageService.getInstance().execute(ChatMsgManagerImpl.mContext, dialogRecord2, 0);
                     }
@@ -220,11 +222,11 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                             }
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                             LogUtils.d(TAG, "FXF triggerChatSessionChange lastmsg is: " + chatSession.getLastMsg());
-                            next.onChatSessionUpdate(chatSession.m15clone(), z);
+                            next.onChatSessionUpdate(chatSession.m16clone(), z);
                         } else {
                             int state2 = SyncAllMessage.getInstance(mContext).getState();
                             boolean z2 = state2 == 0;
-                            next.onChatSessionUpdate(chatSession.m15clone(), z2);
+                            next.onChatSessionUpdate(chatSession.m16clone(), z2);
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z2 + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                         }
                     } catch (CloneNotSupportedException e) {
@@ -460,7 +462,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);

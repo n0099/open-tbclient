@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card;
 
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void a(String str, String str2, HashMap<String, Object> hashMap);
 

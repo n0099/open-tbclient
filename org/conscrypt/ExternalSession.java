@@ -9,13 +9,13 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSessionBindingEvent;
 import javax.net.ssl.SSLSessionBindingListener;
 import javax.net.ssl.SSLSessionContext;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 final class ExternalSession implements SessionDecorator {
     private final Provider provider;
     private final HashMap<String, Object> values = new HashMap<>(2);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public interface Provider {
         ConscryptSession provideSession();
     }

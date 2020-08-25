@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ALaCharmDataList extends BaseData implements Serializable {
     private static final long serialVersionUID = 2776535828072028776L;
     public boolean hasMore;

@@ -15,25 +15,27 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.a.g;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.data.l;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.p.a;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.v;
 import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private final String MultiRemoveBlockFans = "MultiRemoveBlockFans";
     private final String AppDidEnterBackground = "AppDidEnterBackground";
+    private final String AppDidBecomeActive = "AppDidBecomeActive";
     private final String reportFlutterDebugData = "reportFlutterDebugData";
     private final String BookMarkUpdate = "BookMarkUpdate";
     private final String FansCountUpdate = "FansCountUpdate";
@@ -56,49 +58,17 @@ public class NativeListeners {
     private final String kTBCDeleteFrsSection = "kTBCDeleteFrsSection";
     private final String kTBCBroadcastPublishSuccess = "kTBCBroadcastPublishSuccess";
     private final String kTBCBroadcastEdditPageResume = "kTBCBroadcastEdditPageResume";
-    private HttpMessageListener mRemoveForbiddenListener = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.example.utility_plugin.NativeListeners.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("uniqueKey", "MultiRemoveBlockFans");
-                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-            }
-        }
-    };
-    private CustomMessageListener mBackgroundListener = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.example.utility_plugin.NativeListeners.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("uniqueKey", "AppDidEnterBackground");
-                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-            }
-        }
-    };
-    private CustomMessageListener feedBackRedTipListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP_SHOW) { // from class: com.example.utility_plugin.NativeListeners.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("uniqueKey", "ServiceCenterUpdate");
-                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-            }
-        }
-    };
-    private final CustomMessageListener bookMarksGiftAndFansListener = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.example.utility_plugin.NativeListeners.4
+    private final String AutoRefreshBarEntry = "AutoRefreshBarEntry";
+    private final CustomMessageListener bookMarksGiftAndFansListener = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.example.utility_plugin.NativeListeners.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.ddy().ddu()) {
+                if (a.doQ().doM()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.ddy().ddv()) {
+                } else if (a.doQ().doN()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -106,38 +76,7 @@ public class NativeListeners {
             }
         }
     };
-    private CustomMessageListener memberCenterRedTipListener = new CustomMessageListener(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP) { // from class: com.example.utility_plugin.NativeListeners.5
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("uniqueKey", "ServiceCenterUpdate");
-                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-            }
-        }
-    };
-    private CustomMessageListener checkFeedBackListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP) { // from class: com.example.utility_plugin.NativeListeners.6
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2016560) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("uniqueKey", "ServiceCenterCheck");
-                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-            }
-        }
-    };
-    private CustomMessageListener syncFinishListener = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.example.utility_plugin.NativeListeners.7
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uniqueKey", "SyncComplete");
-            NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-        }
-    };
-    private final CustomMessageListener mSignChangedListener = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.example.utility_plugin.NativeListeners.8
+    private final CustomMessageListener mSignChangedListener = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.example.utility_plugin.NativeListeners.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -153,7 +92,7 @@ public class NativeListeners {
             }
         }
     };
-    private final CustomMessageListener mCopyBarBroadcastLinkListener = new CustomMessageListener(2921472) { // from class: com.example.utility_plugin.NativeListeners.9
+    private final CustomMessageListener mCopyBarBroadcastLinkListener = new CustomMessageListener(2921472) { // from class: com.example.utility_plugin.NativeListeners.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -166,6 +105,86 @@ public class NativeListeners {
                 hashMap.put("data", hashMap2);
                 NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
             }
+        }
+    };
+    private HttpMessageListener mRemoveForbiddenListener = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.example.utility_plugin.NativeListeners.4
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "MultiRemoveBlockFans");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener mBackgroundListener = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.example.utility_plugin.NativeListeners.5
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof BackgroundSwitchMessage) {
+                boolean booleanValue = ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
+                if (booleanValue) {
+                    try {
+                        if (booleanValue == UtilHelper.isAppForeground()) {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                }
+                if (booleanValue) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("uniqueKey", "AppDidEnterBackground");
+                    NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+                    return;
+                }
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("uniqueKey", "AppDidBecomeActive");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
+            }
+        }
+    };
+    private CustomMessageListener feedBackRedTipListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP_SHOW) { // from class: com.example.utility_plugin.NativeListeners.6
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "ServiceCenterUpdate");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener memberCenterRedTipListener = new CustomMessageListener(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP) { // from class: com.example.utility_plugin.NativeListeners.7
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "ServiceCenterUpdate");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener checkFeedBackListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP) { // from class: com.example.utility_plugin.NativeListeners.8
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage.getCmd() == 2016560) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "ServiceCenterCheck");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
+        }
+    };
+    private CustomMessageListener syncFinishListener = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.example.utility_plugin.NativeListeners.9
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uniqueKey", "SyncComplete");
+            NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
         }
     };
     private CustomMessageListener mThreadAgreeChangedListener = new CustomMessageListener(2016528) { // from class: com.example.utility_plugin.NativeListeners.10
@@ -247,7 +266,7 @@ public class NativeListeners {
             HashMap hashMap = new HashMap();
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
-                if (!x.isEmpty(gVar.mPostData)) {
+                if (!y.isEmpty(gVar.mPostData)) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
@@ -269,6 +288,17 @@ public class NativeListeners {
             hashMap3.put("data", hashMap2);
             Log.e("native", hashMap.toString());
             NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap3);
+        }
+    };
+    private CustomMessageListener mEnterForumTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.17
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 1) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("uniqueKey", "AutoRefreshBarEntry");
+                NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+            }
         }
     };
 
@@ -388,17 +418,17 @@ public class NativeListeners {
         }
         switch (c) {
             case 0:
-                u uVar = new u();
-                uVar.setFid((String) argument(obj, "payload"));
-                uVar.setLike(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar));
+                v vVar = new v();
+                vVar.setFid((String) argument(obj, "payload"));
+                vVar.setLike(1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, vVar));
                 break;
             case 1:
                 String str2 = (String) argument(obj, "payload");
-                u uVar2 = new u();
-                uVar2.setFid(str2);
-                uVar2.setLike(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar2));
+                v vVar2 = new v();
+                vVar2.setFid(str2);
+                vVar2.setLike(0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, vVar2));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, str2));
                 break;
             case 2:
@@ -477,6 +507,12 @@ public class NativeListeners {
             case 215365908:
                 if (str.equals("SyncComplete")) {
                     c = 5;
+                    break;
+                }
+                break;
+            case 353880651:
+                if (str.equals("AutoRefreshBarEntry")) {
+                    c = 16;
                     break;
                 }
                 break;
@@ -571,6 +607,8 @@ public class NativeListeners {
                 return this.mPersonDataChangedListener;
             case 15:
                 return this.mThreadWriteReplyListener;
+            case 16:
+                return this.mEnterForumTabClickListener;
             default:
                 return null;
         }

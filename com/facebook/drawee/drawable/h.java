@@ -4,12 +4,12 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class h extends g {
     private Matrix mDrawMatrix;
     private Matrix mMatrix;
-    private int mUM;
-    private int mUN;
+    private int noC;
+    private int noD;
 
     @Override // com.facebook.drawee.drawable.g
     public Drawable setCurrent(Drawable drawable) {
@@ -20,7 +20,7 @@ public class h extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        dEp();
+        dQp();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -39,8 +39,8 @@ public class h extends g {
         configureBounds();
     }
 
-    private void dEp() {
-        if (this.mUM != getCurrent().getIntrinsicWidth() || this.mUN != getCurrent().getIntrinsicHeight()) {
+    private void dQp() {
+        if (this.noC != getCurrent().getIntrinsicWidth() || this.noD != getCurrent().getIntrinsicHeight()) {
             configureBounds();
         }
     }
@@ -49,9 +49,9 @@ public class h extends g {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.mUM = intrinsicWidth;
+        this.noC = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.mUN = intrinsicHeight;
+        this.noD = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;

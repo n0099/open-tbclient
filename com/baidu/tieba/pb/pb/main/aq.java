@@ -7,18 +7,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ar;
 /* loaded from: classes16.dex */
-public class aq extends o<com.baidu.tbadk.core.data.ay, ar> {
-    private com.baidu.tieba.pb.data.f kkO;
-    private ar.a ktT;
+public class aq extends o<com.baidu.tbadk.core.data.az, ar> {
+    private com.baidu.tieba.pb.data.f kAg;
+    private ar.a kJy;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public aq(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.ktT = new ar.a() { // from class: com.baidu.tieba.pb.pb.main.aq.1
+        this.kJy = new ar.a() { // from class: com.baidu.tieba.pb.pb.main.aq.1
             @Override // com.baidu.tieba.pb.pb.main.ar.a
-            public void a(com.baidu.tbadk.core.data.ay ayVar) {
-                if (ayVar != null) {
-                    com.baidu.tieba.pb.c.a.a(aq.this.kkO, ayVar, ayVar.locate, 6);
+            public void a(com.baidu.tbadk.core.data.az azVar) {
+                if (azVar != null) {
+                    com.baidu.tieba.pb.c.a.a(aq.this.kAg, azVar, azVar.locate, 6);
                 }
             }
         };
@@ -27,25 +27,25 @@ public class aq extends o<com.baidu.tbadk.core.data.ay, ar> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cn */
+    /* renamed from: cj */
     public ar b(ViewGroup viewGroup) {
-        return new ar(this.kkb.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.ktT);
+        return new ar(this.kzt.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.kJy);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ay ayVar, ar arVar) {
-        super.a(i, view, viewGroup, (ViewGroup) ayVar, (com.baidu.tbadk.core.data.ay) arVar);
-        if (ayVar != null) {
-            ayVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.kkb.getUniqueId(), this.kkO, ayVar, ayVar.locate, 6);
-            arVar.b(ayVar);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.az azVar, ar arVar) {
+        super.a(i, view, viewGroup, (ViewGroup) azVar, (com.baidu.tbadk.core.data.az) arVar);
+        if (azVar != null) {
+            azVar.locate = i + 1;
+            com.baidu.tieba.pb.c.a.a(this.kzt.getUniqueId(), this.kAg, azVar, azVar.locate, 6);
+            arVar.b(azVar);
         }
         return view;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kkO = fVar;
+        this.kAg = fVar;
     }
 }

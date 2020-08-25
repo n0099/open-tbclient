@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.searchbox.ugc.model.UgcConstant;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BdCacheBaseStorage<T> implements BdCacheStorage<T> {
     protected final BdCacheEvictPolicy cachePolicy;
     protected final boolean prefixNameSpaceToKey;

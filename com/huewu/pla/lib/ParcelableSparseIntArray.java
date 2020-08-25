@@ -4,19 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ParcelableSparseIntArray extends SparseIntArray implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseIntArray> CREATOR = new Parcelable.Creator<ParcelableSparseIntArray>() { // from class: com.huewu.pla.lib.ParcelableSparseIntArray.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: an */
+        /* renamed from: ao */
         public ParcelableSparseIntArray createFromParcel(Parcel parcel) {
             return new ParcelableSparseIntArray(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kw */
+        /* renamed from: Na */
         public ParcelableSparseIntArray[] newArray(int i) {
             return new ParcelableSparseIntArray[i];
         }
@@ -36,10 +36,10 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeSparseArray(dMh());
+        parcel.writeSparseArray(dYi());
     }
 
-    private SparseArray<Object> dMh() {
+    private SparseArray<Object> dYi() {
         SparseArray<Object> sparseArray = new SparseArray<>();
         int size = size();
         for (int i = 0; i < size; i++) {

@@ -1,17 +1,17 @@
 package com.baidu.live.gift;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface y {
-    void bg(boolean z);
+    View Fc();
 
-    void bh(boolean z);
+    void bk(boolean z);
+
+    void bl(boolean z);
 
     void onDestroy();
 
     void onPause();
 
     void onResume();
-
-    View zz();
 }

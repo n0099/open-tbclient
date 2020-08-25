@@ -1,60 +1,73 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.at;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ad {
-    private VcodeExtra eqE;
-    private String vcode_md5 = null;
-    private String vcode_pic_url = null;
-    private String eqD = null;
+    private static final Map<ShareDialogConfig.From, Integer> eAR = new HashMap();
+    private List<Integer> bQL;
+    private int eAS;
+    private int eAT;
+    private int eAU;
+    private String mText;
 
-    public String getVcode_md5() {
-        return this.vcode_md5;
+    static {
+        eAR.put(ShareDialogConfig.From.Recommend, 1);
+        eAR.put(ShareDialogConfig.From.Concern, 2);
+        eAR.put(ShareDialogConfig.From.PB, 3);
+        eAR.put(ShareDialogConfig.From.FRS, 4);
+        eAR.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        eAR.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        eAR.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        eAR.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        eAR.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
-    public String getVcode_pic_url() {
-        return this.vcode_pic_url;
-    }
-
-    public String beo() {
-        return this.eqD;
-    }
-
-    public VcodeExtra bep() {
-        return this.eqE;
-    }
-
-    public void parserJson(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
-            }
-            parserJson(optJSONObject);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.vcode_md5 = jSONObject.optString("vcode_md5");
-                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.eqD = jSONObject.optString("vcode_type");
-                JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.eqE = new VcodeExtra();
-                this.eqE.textImg = jSONObject2.optString("textimg");
-                this.eqE.slideImg = jSONObject2.optString("slideimg");
-                this.eqE.endPoint = jSONObject2.optString("endpoint");
-                this.eqE.successImg = jSONObject2.optString("successimg");
-                this.eqE.slideEndPoint = jSONObject2.optString("slideendpoint");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            this.eAS = jSONObject.optInt("begin_time");
+            this.eAT = jSONObject.optInt("end_time");
+            this.mText = jSONObject.optString("text");
+            this.eAU = jSONObject.optInt("icon_exp");
+            AY(jSONObject.optString("page_list"));
+        }
+    }
+
+    private void AY(String str) {
+        String[] split;
+        if (!at.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
+            for (String str2 : split) {
+                int i = com.baidu.adp.lib.f.b.toInt(str2, -1);
+                if (i != -1) {
+                    if (this.bQL == null) {
+                        this.bQL = new ArrayList();
+                    }
+                    this.bQL.add(Integer.valueOf(i));
+                }
             }
         }
+    }
+
+    public boolean a(ShareDialogConfig.From from) {
+        Integer num;
+        return (this.bQL == null || (num = eAR.get(from)) == null || !this.bQL.contains(num)) ? false : true;
+    }
+
+    public boolean bmT() {
+        return System.currentTimeMillis() / 1000 >= ((long) this.eAS) && System.currentTimeMillis() / 1000 <= ((long) this.eAT);
+    }
+
+    public String getText() {
+        return this.mText;
+    }
+
+    public int bmU() {
+        return this.eAU;
     }
 }

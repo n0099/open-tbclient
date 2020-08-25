@@ -2,7 +2,7 @@ package com.baidu.tieba.live.tbean.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UserInfoData extends BaseData {
     public int is_mem;
     public int scores_total;

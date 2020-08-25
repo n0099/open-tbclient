@@ -3,7 +3,7 @@ package com.baidu.live.adp.lib.pool;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.security.InvalidParameterException;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdObjectPool<T> {
     public static final int DEFAULT_MAX_IDLE = 10;
     public static final int DEFAULT_MIN_IDLE = 0;

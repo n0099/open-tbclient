@@ -3,7 +3,7 @@ package rx.internal.operators;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.util.UtilityFunctions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static long e(AtomicLong atomicLong, long j) {
         long j2;
@@ -30,11 +30,11 @@ public final class a {
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.dYw());
+        a(atomicLong, queue, jVar, UtilityFunctions.ekA());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.dYw());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.ekA());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {

@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public class FinderPatternFinder {
     private static final int CENTER_QUORUM = 2;
     protected static final int MAX_MODULES = 57;
@@ -693,7 +693,7 @@ public class FinderPatternFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
         private final float average;
 
@@ -714,7 +714,7 @@ public class FinderPatternFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes20.dex */
     public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
         private final float average;
 

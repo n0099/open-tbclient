@@ -2,14 +2,14 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class i<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> okB;
-    final boolean olw;
+    final rx.functions.f<? super T, Boolean> oEx;
+    final boolean oFs;
 
     public i(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.okB = fVar;
-        this.olw = z;
+        this.oEx = fVar;
+        this.oFs = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public final class i<T> implements d.b<Boolean, T> {
         final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.i.1
             boolean done;
-            boolean olx;
+            boolean oFt;
 
             @Override // rx.e
             public void onNext(T t) {
                 if (!this.done) {
-                    this.olx = true;
+                    this.oFt = true;
                     try {
-                        if (i.this.okB.call(t).booleanValue()) {
+                        if (i.this.oEx.call(t).booleanValue()) {
                             this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.olw));
+                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.oFs));
                             unsubscribe();
                         }
                     } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class i<T> implements d.b<Boolean, T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    if (this.olx) {
+                    if (this.oFt) {
                         singleDelayedProducer.setValue(false);
                     } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.olw));
+                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.oFs));
                     }
                 }
             }

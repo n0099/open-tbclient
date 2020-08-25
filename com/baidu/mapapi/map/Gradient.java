@@ -2,14 +2,14 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Color;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class Gradient {
     private final int a;
     private final int[] b;
     private final float[] c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class a {
         private final int b;
         private final int c;
@@ -28,17 +28,17 @@ public class Gradient {
 
     private Gradient(int[] iArr, float[] fArr, int i) {
         if (iArr == null || fArr == null) {
-            throw new IllegalArgumentException("colors and startPoints should not be null");
+            throw new IllegalArgumentException("BDMapSDKException: colors and startPoints should not be null");
         }
         if (iArr.length != fArr.length) {
-            throw new IllegalArgumentException("colors and startPoints should be same length");
+            throw new IllegalArgumentException("BDMapSDKException: colors and startPoints should be same length");
         }
         if (iArr.length == 0) {
-            throw new IllegalArgumentException("No colors have been defined");
+            throw new IllegalArgumentException("BDMapSDKException: No colors have been defined");
         }
         for (int i2 = 1; i2 < fArr.length; i2++) {
             if (fArr[i2] <= fArr[i2 - 1]) {
-                throw new IllegalArgumentException("startPoints should be in increasing order");
+                throw new IllegalArgumentException("BDMapSDKException: startPoints should be in increasing order");
             }
         }
         this.a = i;

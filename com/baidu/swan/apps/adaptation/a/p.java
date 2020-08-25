@@ -1,10 +1,8 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.Context;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
+import android.app.Activity;
+import android.os.Bundle;
+/* loaded from: classes8.dex */
 public interface p {
-    void a(Context context, String str, com.baidu.swan.apps.aq.e.b<String> bVar);
-
-    void a(Context context, JSONArray jSONArray, com.baidu.swan.apps.aq.e.b<String> bVar);
+    void a(Activity activity, Bundle bundle, com.baidu.swan.apps.media.chooser.c.d dVar);
 }

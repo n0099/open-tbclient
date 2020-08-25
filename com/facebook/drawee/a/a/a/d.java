@@ -1,8 +1,8 @@
 package com.facebook.drawee.a.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes9.dex */
 public class d {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int Ru(String str) {
+    public static int Uy(String str) {
         char c;
         switch (str.hashCode()) {
             case -1914072202:

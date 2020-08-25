@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ac extends aa {
     public ac(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/ubcFlowJar");
@@ -80,25 +80,25 @@ public class ac extends aa {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.api.module.l.e.a(optParamsAsJo, eVar);
+                com.baidu.swan.apps.api.module.l.f.a(optParamsAsJo, eVar);
                 break;
             case 1:
-                com.baidu.swan.apps.api.module.l.e.u(optParamsAsJo.optJSONArray("data"));
+                com.baidu.swan.apps.api.module.l.f.v(optParamsAsJo.optJSONArray("data"));
                 break;
             case 2:
-                com.baidu.swan.apps.api.module.l.e.v(optParamsAsJo.optJSONArray("data"));
+                com.baidu.swan.apps.api.module.l.f.w(optParamsAsJo.optJSONArray("data"));
                 break;
             case 3:
-                com.baidu.swan.apps.api.module.l.e.w(optParamsAsJo.optJSONArray("data"));
+                com.baidu.swan.apps.api.module.l.f.x(optParamsAsJo.optJSONArray("data"));
                 break;
             case 4:
-                com.baidu.swan.apps.api.module.l.e.az(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.aF(optParamsAsJo);
                 break;
             case 5:
-                com.baidu.swan.apps.console.debugger.a.d.y(optParamsAsJo.optJSONArray("data"));
+                com.baidu.swan.apps.console.debugger.a.d.z(optParamsAsJo.optJSONArray("data"));
                 break;
             case 6:
-                com.baidu.swan.apps.api.module.l.e.ay(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.f.aE(optParamsAsJo);
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");

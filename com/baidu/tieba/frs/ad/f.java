@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.i;
@@ -26,52 +26,52 @@ import com.baidu.tieba.tbadkCore.m;
 import java.util.Date;
 /* loaded from: classes16.dex */
 public class f {
-    private com.baidu.tbadk.core.dialog.a ZV;
-    private ForumData eCv;
-    private TextView ecH;
-    private TbImageView hLt;
-    private RoundLinearLayout hLu;
-    private i hLv;
+    private com.baidu.tbadk.core.dialog.a aaB;
+    private ForumData eMU;
+    private TextView emq;
+    private i hZA;
+    private TbImageView hZy;
+    private RoundLinearLayout hZz;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 11;
-            if (view == f.this.ecH) {
-                if (f.this.ZV != null && f.this.ZV.isShowing()) {
-                    f.this.ZV.dismiss();
+            if (view == f.this.emq) {
+                if (f.this.aaB != null && f.this.aaB.isShowing()) {
+                    f.this.aaB.dismiss();
                 }
-            } else if (view == f.this.hLt && f.this.hLv != null && !StringUtils.isNull(f.this.hLv.getUrl())) {
-                bd.baV().a(f.this.mPageContext, new String[]{f.this.hLv.getUrl()}, true);
+            } else if (view == f.this.hZy && f.this.hZA != null && !StringUtils.isNull(f.this.hZA.getUrl())) {
+                be.bju().a(f.this.mPageContext, new String[]{f.this.hZA.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.hLv.getId());
+                httpMessage.addParam("id", f.this.hZA.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
-                f.this.ZV.dismiss();
-                ap apVar = new ap("common_click");
-                apVar.dn("page_type", PageStayDurationConstants.PageName.FRS);
-                apVar.dn("obj_isad", "1");
-                if (f.this.hLv.getType() != 1) {
-                    if (f.this.hLv.getType() != 2) {
-                        if (f.this.hLv.getType() == 3) {
+                f.this.aaB.dismiss();
+                aq aqVar = new aq("common_click");
+                aqVar.dD("page_type", PageStayDurationConstants.PageName.FRS);
+                aqVar.dD("obj_isad", "1");
+                if (f.this.hZA.getType() != 1) {
+                    if (f.this.hZA.getType() != 2) {
+                        if (f.this.hZA.getType() == 3) {
                             i = 13;
                         }
                     } else {
                         i = 12;
                     }
                 }
-                apVar.ah("obj_adlocate", i);
-                apVar.t("obj_id", f.this.hLv.getId());
-                apVar.ah("obj_floor", 1);
-                apVar.ah("obj_locate", 3);
-                if (f.this.eCv != null) {
-                    apVar.dn("fid", f.this.eCv.getId());
-                    apVar.dn("first_dir", f.this.eCv.getFirst_class());
-                    apVar.dn("second_dir", f.this.eCv.getSecond_class());
+                aqVar.ai("obj_adlocate", i);
+                aqVar.u("obj_id", f.this.hZA.getId());
+                aqVar.ai("obj_floor", 1);
+                aqVar.ai("obj_locate", 3);
+                if (f.this.eMU != null) {
+                    aqVar.dD("fid", f.this.eMU.getId());
+                    aqVar.dD("first_dir", f.this.eMU.getFirst_class());
+                    aqVar.dD("second_dir", f.this.eMU.getSecond_class());
                 }
-                if (f.this.hLv.getType() == 1) {
-                    apVar.dn("tid", f.this.hLv.getThreadId());
-                    apVar.ah("thread_type", f.this.hLv.getThreadType());
+                if (f.this.hZA.getType() == 1) {
+                    aqVar.dD("tid", f.this.hZA.getThreadId());
+                    aqVar.ai("thread_type", f.this.hZA.getThreadType());
                 }
-                TiebaStatic.log(apVar);
+                TiebaStatic.log(aqVar);
             }
         }
     };
@@ -86,77 +86,77 @@ public class f {
         if (mVar == null || mVar.getForum() == null || mVar.getBusinessPromot() == null) {
             return false;
         }
-        this.eCv = mVar.getForum();
-        this.hLv = mVar.getBusinessPromot();
+        this.eMU = mVar.getForum();
+        this.hZA = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
-        long j = com.baidu.tbadk.core.sharedPref.b.aZP().getLong(str, 0L);
-        if (j < 0 || !bc.b(new Date(j), new Date(System.currentTimeMillis()))) {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putLong(str, System.currentTimeMillis());
-            showDialog();
+        long j = com.baidu.tbadk.core.sharedPref.b.bik().getLong(str, 0L);
+        if (j < 0 || !bd.c(new Date(j), new Date(System.currentTimeMillis()))) {
+            com.baidu.tbadk.core.sharedPref.b.bik().putLong(str, System.currentTimeMillis());
+            Nv();
             return true;
         }
         return false;
     }
 
-    private void showDialog() {
+    private void Nv() {
         int i;
         initView();
-        this.ZV = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.ZV.hJ(true);
-        this.ZV.hK(true);
-        this.ZV.b(this.mPageContext).aYL();
-        View decorView = this.ZV.getWindow().getDecorView();
-        WindowManager.LayoutParams attributes = this.ZV.getWindow().getAttributes();
+        this.aaB = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+        this.aaB.m39if(true);
+        this.aaB.ig(true);
+        this.aaB.b(this.mPageContext).bhg();
+        View decorView = this.aaB.getWindow().getDecorView();
+        WindowManager.LayoutParams attributes = this.aaB.getWindow().getAttributes();
         if (attributes != null) {
             attributes.width = -1;
             attributes.height = -2;
             attributes.gravity = 17;
-            this.ZV.getWindow().setAttributes(attributes);
+            this.aaB.getWindow().setAttributes(attributes);
         }
         if (decorView instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) decorView;
             viewGroup.removeAllViews();
             viewGroup.addView(this.mRootView);
         }
-        ap apVar = new ap("common_exp");
-        apVar.dn("page_type", PageStayDurationConstants.PageName.FRS);
-        apVar.dn("obj_isad", "1");
-        if (this.hLv.getType() == 1) {
+        aq aqVar = new aq("common_exp");
+        aqVar.dD("page_type", PageStayDurationConstants.PageName.FRS);
+        aqVar.dD("obj_isad", "1");
+        if (this.hZA.getType() == 1) {
             i = 11;
-        } else if (this.hLv.getType() == 2) {
+        } else if (this.hZA.getType() == 2) {
             i = 12;
         } else {
-            i = this.hLv.getType() == 3 ? 13 : 11;
+            i = this.hZA.getType() == 3 ? 13 : 11;
         }
-        apVar.ah("obj_floor", 1);
-        apVar.ah("obj_adlocate", i);
-        apVar.t("obj_id", this.hLv.getId());
-        if (this.eCv != null) {
-            apVar.dn("fid", this.eCv.getId());
-            apVar.dn("first_dir", this.eCv.getFirst_class());
-            apVar.dn("second_dir", this.eCv.getSecond_class());
+        aqVar.ai("obj_floor", 1);
+        aqVar.ai("obj_adlocate", i);
+        aqVar.u("obj_id", this.hZA.getId());
+        if (this.eMU != null) {
+            aqVar.dD("fid", this.eMU.getId());
+            aqVar.dD("first_dir", this.eMU.getFirst_class());
+            aqVar.dD("second_dir", this.eMU.getSecond_class());
         }
-        if (this.hLv.getType() == 1) {
-            apVar.dn("tid", this.hLv.getThreadId());
-            apVar.ah("thread_type", this.hLv.getThreadType());
+        if (this.hZA.getType() == 1) {
+            aqVar.dD("tid", this.hZA.getThreadId());
+            aqVar.ai("thread_type", this.hZA.getThreadType());
         }
-        TiebaStatic.log(apVar);
+        TiebaStatic.log(aqVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.hLu = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.hLu.setRoundCount(8);
-        this.hLt = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.hLt.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hLt.getLayoutParams();
+        this.hZz = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.hZz.setRoundCount(8);
+        this.hZy = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.hZy.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hZy.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.hLt.setLayoutParams(layoutParams);
-        this.ecH = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
-        this.ecH.setOnClickListener(this.mClickListener);
-        if (this.hLv != null) {
-            this.hLt.startLoad(this.hLv.dkk(), 10, false);
+        this.hZy.setLayoutParams(layoutParams);
+        this.emq = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
+        this.emq.setOnClickListener(this.mClickListener);
+        if (this.hZA != null) {
+            this.hZy.startLoad(this.hZA.dvH(), 10, false);
         }
     }
 }

@@ -8,15 +8,15 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends BitmapDrawable {
     private Context mContext;
     private int mId;
     private String mKey;
     private Rect mRect = null;
     private Matrix mMatrix = null;
-    private int eUA = 0;
-    private int eUB = 0;
+    private int ffi = 0;
+    private int ffj = 0;
 
     public d(Context context, int i) {
         this.mId = 0;
@@ -45,19 +45,19 @@ public class d extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.ImageView.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c bkk = com.baidu.tbadk.imageManager.c.bkk();
-            com.baidu.adp.widget.ImageView.a zV = (bkk == null || this.mKey == null) ? null : bkk.zV(this.mKey);
-            if (zV == null) {
+            com.baidu.tbadk.imageManager.c bsW = com.baidu.tbadk.imageManager.c.bsW();
+            com.baidu.adp.widget.ImageView.a Cl = (bsW == null || this.mKey == null) ? null : bsW.Cl(this.mKey);
+            if (Cl == null) {
                 Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
                 if (resBitmap != null) {
-                    zV = new com.baidu.adp.widget.ImageView.a(resBitmap, false, (String) null);
+                    Cl = new com.baidu.adp.widget.ImageView.a(resBitmap, false, (String) null);
                 }
-                if (bkk != null && zV != null && this.mKey != null) {
-                    bkk.c(this.mKey, zV);
+                if (bsW != null && Cl != null && this.mKey != null) {
+                    bsW.c(this.mKey, Cl);
                 }
-                aVar = zV;
+                aVar = Cl;
             } else {
-                aVar = zV;
+                aVar = Cl;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();
@@ -65,10 +65,10 @@ public class d extends BitmapDrawable {
                 if (width > 0 && height > 0 && this.mRect != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > 0 || width > 0 || this.eUA != 0 || this.eUB != 0) {
+                    if (height > 0 || width > 0 || this.ffi != 0 || this.ffj != 0) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
-                            this.mMatrix.postTranslate(this.eUA, this.eUB);
+                            this.mMatrix.postTranslate(this.ffi, this.ffj);
                             float f = (this.mRect.right - this.mRect.left) / width;
                             float f2 = (this.mRect.bottom - this.mRect.top) / height;
                             if (f >= f2) {

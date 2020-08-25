@@ -5,7 +5,7 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidubce.AbstractBceClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class ExtraInfo {
     String a = "";
     String b = "";

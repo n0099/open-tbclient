@@ -1,22 +1,29 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ao {
-    public String aDo;
-    public String aDp;
-    public long aDq;
-    public String mNickName;
-    public String mPortrait;
+    public List<an> aIm;
+    public String liveId;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.mNickName = jSONObject.optString("nickname");
-            this.mPortrait = jSONObject.optString("mvp_user_portrait");
-            this.aDo = jSONObject.optString("anchor_nickname");
-            this.aDp = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
-            this.aDq = jSONObject.optLong("win_score");
+            this.liveId = jSONObject.optString("live_id");
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aIm = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        an anVar = new an();
+                        anVar.parserJson(optJSONObject);
+                        this.aIm.add(anVar);
+                    }
+                }
+            }
         }
     }
 }

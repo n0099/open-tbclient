@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.GetToken.DataReq;
 import tbclient.GetToken.GetTokenReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetTokenRequestMessage extends NetMessage {
     private String mBaiduCuid;
     private String mToken;

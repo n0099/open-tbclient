@@ -1,31 +1,27 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes11.dex */
 public class m extends com.baidu.ar.ability.c {
-    private byte[] iA;
-    private int mHeight;
-    private int mWidth;
+    private long hV;
+    private int hW;
+    private int hX;
 
-    public void a(byte[] bArr) {
-        this.iA = bArr;
+    public int bY() {
+        return this.hW;
     }
 
-    public byte[] bM() {
-        return this.iA;
+    public int bZ() {
+        return this.hX;
     }
 
-    public int getHeight() {
-        return this.mHeight;
+    public void i(long j) {
+        this.hV = j;
     }
 
-    public int getWidth() {
-        return this.mWidth;
+    public void q(int i) {
+        this.hW = i;
     }
 
-    public void setHeight(int i) {
-        this.mHeight = i;
-    }
-
-    public void setWidth(int i) {
-        this.mWidth = i;
+    public void r(int i) {
+        this.hX = i;
     }
 }

@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.h;
+import com.baidu.tieba.card.data.i;
 /* loaded from: classes18.dex */
-public class b extends com.baidu.tieba.card.b<h> {
-    private c ahO;
-    public ClickableHeaderImageView imD;
-    private MetaData iqB;
-    private h iqC;
-    private TextView iqD;
-    public CommonUserLikeButton iqw;
-    private TextView iqy;
-    private TextView iqz;
+public class b extends com.baidu.tieba.card.b<i> {
+    private c ajc;
+    public ClickableHeaderImageView iAH;
+    public CommonUserLikeButton iEA;
+    private TextView iEC;
+    private TextView iED;
+    private MetaData iEF;
+    private i iEG;
+    private TextView iEH;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,15 +35,15 @@ public class b extends com.baidu.tieba.card.b<h> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.imD = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.imD.setGodIconMargin(R.dimen.ds6);
-        this.imD.setAfterClickListener(this);
-        this.iqy = (TextView) getView().findViewById(R.id.god_name);
-        this.iqz = (TextView) getView().findViewById(R.id.god_describe);
-        this.iqD = (TextView) getView().findViewById(R.id.rec_reason);
-        this.iqw = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.ahO = new c(tbPageContext, this.iqw);
-        this.iqw.setAfterOnClickListener(this);
+        this.iAH = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.iAH.setGodIconMargin(R.dimen.ds6);
+        this.iAH.setAfterClickListener(this);
+        this.iEC = (TextView) getView().findViewById(R.id.god_name);
+        this.iED = (TextView) getView().findViewById(R.id.god_describe);
+        this.iEH = (TextView) getView().findViewById(R.id.rec_reason);
+        this.iEA = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.ajc = new c(tbPageContext, this.iEA);
+        this.iEA.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
     }
 
@@ -55,11 +55,11 @@ public class b extends com.baidu.tieba.card.b<h> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ao.setViewTextColor(this.iqy, R.color.cp_cont_b);
-            ao.setViewTextColor(this.iqz, R.color.cp_cont_d);
-            ao.setViewTextColor(this.iqD, R.color.cp_cont_d);
-            ao.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
+            ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
+            ap.setViewTextColor(this.iEC, R.color.cp_cont_b);
+            ap.setViewTextColor(this.iED, R.color.cp_cont_d);
+            ap.setViewTextColor(this.iEH, R.color.cp_cont_d);
+            ap.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -71,32 +71,32 @@ public class b extends com.baidu.tieba.card.b<h> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
-    public void a(h hVar) {
-        if (hVar != null && hVar.dSF != null && hVar.dSF.getGodUserData() != null) {
-            this.iqC = hVar;
-            this.iqB = hVar.dSF;
-            this.imD.setData(hVar.dSF);
-            this.iqy.setText(hVar.dSF.getName_show());
-            this.iqz.setText(hVar.dSF.getGodUserData().getIntro());
+    public void a(i iVar) {
+        if (iVar != null && iVar.ecb != null && iVar.ecb.getGodUserData() != null) {
+            this.iEG = iVar;
+            this.iEF = iVar.ecb;
+            this.iAH.setData(iVar.ecb);
+            this.iEC.setText(iVar.ecb.getName_show());
+            this.iED.setText(iVar.ecb.getGodUserData().getIntro());
             String string = this.mPageContext.getResources().getString(R.string.recommend_reason);
-            String recommendReason = hVar.dSF.getGodUserData().getRecommendReason();
+            String recommendReason = iVar.ecb.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.iqD.setText("");
+                this.iEH.setText("");
             } else {
-                this.iqD.setText(String.format(string, recommendReason));
+                this.iEH.setText(String.format(string, recommendReason));
             }
-            this.ahO.a(hVar.dSF);
+            this.ajc.a(iVar.ecb);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bRn() != null) {
-            bRn().a(view, this.iqC);
+        if (cbz() != null) {
+            cbz().a(view, this.iEG);
         }
-        if (view == getView() && this.iqB != null && !StringUtils.isNull(this.iqB.getName_show()) && !StringUtils.isNull(this.iqB.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.iqB.getUserId(), this.iqB.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.iEF != null && !StringUtils.isNull(this.iEF.getName_show()) && !StringUtils.isNull(this.iEF.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.iEF.getUserId(), this.iEF.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

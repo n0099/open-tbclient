@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.decoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 final class Codeword {
     private static final int BARCODE_ROW_UNKNOWN = -1;
     private final int bucket;

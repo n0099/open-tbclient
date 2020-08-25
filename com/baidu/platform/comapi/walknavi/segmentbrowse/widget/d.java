@@ -1,182 +1,301 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse.widget;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.os.Build;
-import android.text.TextUtils;
-import android.widget.TextView;
+import android.os.Bundle;
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.platform.comapi.wnplatform.p.g;
+import com.baidu.searchbox.ugc.model.UgcConstant;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
-public class d extends TextView {
-    private Context a;
-    private com.baidu.platform.comapi.walknavi.segmentbrowse.a b;
-    private int c;
+import java.util.HashMap;
+/* loaded from: classes20.dex */
+public class d {
+    private static int a;
+    private static int b = 0;
 
-    public d(Context context, com.baidu.platform.comapi.walknavi.segmentbrowse.a aVar, int i) {
-        super(context);
-        this.a = context;
-        int i2 = Build.VERSION.SDK_INT;
-        if (this.b == null) {
-            this.b = new com.baidu.platform.comapi.walknavi.segmentbrowse.a();
-        }
-        this.c = i;
-        this.b = aVar;
+    public static void a(int i) {
+        a = i;
     }
 
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        Bitmap decodeResource;
-        if (canvas != null && this.a != null && this.b != null) {
-            canvas.save();
-            Paint paint = new Paint();
-            paint.setTextSize(b.a(this.a, 22.0f));
-            if (!TextUtils.isEmpty(this.b.c())) {
-                if (this.b.e() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.a()) {
-                    if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != null) {
-                        if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
-                            decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.a(this.b.c()));
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<b> a(Bundle bundle, boolean z) {
+        int i;
+        com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "GuideUtility.getGuideLineText--->" + bundle.toString());
+        ArrayList<b> arrayList = new ArrayList<>();
+        if (bundle == null) {
+            return arrayList;
+        }
+        bundle.getInt("updatetype");
+        g.a(bundle.getInt("nRemainDist"), g.b.ZH, new StringBuffer());
+        String string = bundle.getString("usGuideText");
+        int[] intArray = bundle.getIntArray("unIdx");
+        int[] intArray2 = bundle.getIntArray("unWordCnt");
+        int[] intArray3 = bundle.getIntArray("unLineNo");
+        boolean[] booleanArray = bundle.getBooleanArray("bHighLight");
+        a(intArray, intArray2, intArray3, booleanArray);
+        String replace = string.contains(UgcConstant.AT_RULE_TAG) ? string.replace(UgcConstant.AT_RULE_TAG, StringHelper.STRING_MORE) : string;
+        if (intArray.length == 0) {
+            return arrayList;
+        }
+        int i2 = 0;
+        HashMap hashMap = new HashMap();
+        int i3 = 0;
+        for (int i4 = 0; i4 < intArray3.length; i4++) {
+            i3 += intArray2[i4];
+            if (i2 != intArray3[i4]) {
+                hashMap.put(Integer.valueOf(i2), Integer.valueOf(i3 - intArray2[i4]));
+                i2++;
+                i3 = intArray2[i4];
+            }
+            if (i4 == intArray3.length - 1) {
+                hashMap.put(Integer.valueOf(i2), Integer.valueOf(i3));
+            }
+        }
+        ArrayList arrayList2 = new ArrayList();
+        int size = hashMap.size();
+        int i5 = 0;
+        while (i5 < size) {
+            int intValue = ((Integer) hashMap.get(Integer.valueOf(i5))).intValue();
+            char[] cArr = new char[intValue];
+            int[] iArr = new int[intValue];
+            int[] iArr2 = new int[intValue];
+            for (int i6 = 0; i6 < intValue; i6++) {
+                if (i5 > 0) {
+                    i = i5 > 1 ? ((Integer) hashMap.get(Integer.valueOf(i5 - 2))).intValue() + i6 + ((Integer) hashMap.get(Integer.valueOf(i5 - 1))).intValue() : ((Integer) hashMap.get(Integer.valueOf(i5 - 1))).intValue() + i6;
+                } else {
+                    i = i6;
+                }
+                if (i < replace.length()) {
+                    cArr[i6] = replace.charAt(i);
+                }
+                iArr2[i6] = 1;
+                int i7 = 0;
+                while (true) {
+                    if (i7 >= intArray.length) {
+                        break;
+                    } else if (i7 == intArray.length - 1) {
+                        if (booleanArray[i7]) {
+                            iArr[i6] = 1;
                         } else {
-                            decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.b(this.b.c()));
+                            iArr[i6] = 0;
                         }
+                    } else if (i >= intArray[i7 + 1]) {
+                        i7++;
+                    } else if (booleanArray[i7]) {
+                        iArr[i6] = 1;
                     } else {
-                        return;
+                        iArr[i6] = 0;
                     }
-                } else {
-                    decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.platform.comapi.walknavi.g.a.c.a(this.b.c()));
-                }
-                RectF rectF = new RectF(b.a(this.a, 27.0f), b.a(this.a, 21.0f), b.a(this.a, 80.0f), b.a(this.a, 74.0f));
-                if (decodeResource != null && rectF != null) {
-                    try {
-                        canvas.drawBitmap(decodeResource, new Rect(0, 0, decodeResource.getWidth(), decodeResource.getHeight()), rectF, (Paint) null);
-                    } catch (Exception e) {
-                    }
-                } else {
-                    return;
                 }
             }
-            int i = 0;
-            int a = a(this.b) + b(this.b);
-            if (a == 1) {
-                i = b.a(this.a, 51.0f);
-            } else if (a == 2) {
-                i = b.a(this.a, 40.0f);
-            } else if (a == 3) {
-                i = b.a(this.a, 30.0f);
+            arrayList2.add(new b(cArr, iArr, iArr2));
+            i5++;
+        }
+        if (!z) {
+            a(arrayList2, hashMap);
+        }
+        for (int i8 = 0; i8 < arrayList2.size(); i8++) {
+            arrayList.add(arrayList2.get(i8));
+        }
+        int i9 = 0;
+        while (true) {
+            int i10 = i9;
+            if (i10 >= arrayList.size()) {
+                return arrayList;
             }
-            if (paint != null && canvas != null && this.b.a() != null && this.b.a().size() != 0) {
-                ArrayList<c> a2 = this.b.a();
-                int size = a2.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    c a3 = a2.get(i2).a();
-                    float a4 = b.a(this.a, 100.0f);
-                    if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING && com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == this.b.e()) {
-                        float a5 = b.a(this.a, 22.0f);
-                        int length = a3.c.length;
-                        int i3 = (int) ((((length * a5) + a4) - this.c) / a5);
-                        if (i3 > 0 && i3 < length - 1) {
-                            for (int i4 = length - i3; i4 < length; i4++) {
-                                a3.c[i4] = '.';
-                            }
-                        }
-                    }
-                    for (int i5 = 0; i5 < a3.c.length; i5++) {
-                        switch (size) {
-                            case 1:
-                                paint.setColor(-13400577);
-                                break;
-                            case 2:
-                                if (i2 == 0) {
-                                    paint.setColor(-13400577);
-                                    break;
-                                } else {
-                                    paint.setColor(-13400577);
-                                    break;
-                                }
-                            case 3:
-                                if (i2 == 0 || i2 == 1) {
-                                    paint.setColor(-13400577);
-                                    break;
-                                } else if (i5 < e.a()) {
-                                    paint.setColor(-13400577);
-                                    break;
-                                } else {
-                                    paint.setColor(-13553101);
-                                    break;
-                                }
-                        }
-                        if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
-                            paint.setColor(-13553101);
-                        }
-                        if (a3.a[i5] == 0) {
-                            paint.setTextSize(b.a(this.a, 17.0f));
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide line:" + i10 + String.valueOf(((b) arrayList.get(i10)).c));
+            i9 = i10 + 1;
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: java.util.ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<b> a(Bundle bundle) {
+        int i;
+        com.baidu.platform.comapi.wnplatform.d.a.a("GuideUtility.getGuideLineText", "" + bundle.toString());
+        ArrayList<b> arrayList = new ArrayList<>();
+        if (bundle == null) {
+            return arrayList;
+        }
+        try {
+            bundle.getInt("updatetype");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (bundle.getInt("POIIsPassingPOI") == 0) {
+            return arrayList;
+        }
+        String string = bundle.getString("usPOIGuideText");
+        int[] intArray = bundle.getIntArray("unPOIIdx");
+        int[] intArray2 = bundle.getIntArray("unPOIWordCnt");
+        int[] intArray3 = bundle.getIntArray("unPOILineNo");
+        boolean[] booleanArray = bundle.getBooleanArray("bPOIHighLight");
+        a(intArray, intArray2, intArray3, booleanArray);
+        String replace = string.contains(UgcConstant.AT_RULE_TAG) ? string.replace(UgcConstant.AT_RULE_TAG, StringHelper.STRING_MORE) : string;
+        if (intArray.length == 0) {
+            return arrayList;
+        }
+        HashMap hashMap = new HashMap();
+        int i2 = 0;
+        int i3 = 0;
+        for (int i4 = 0; i4 < intArray3.length; i4++) {
+            i2 += intArray2[i4];
+            if (i3 != intArray3[i4]) {
+                hashMap.put(Integer.valueOf(i3), Integer.valueOf(i2 - intArray2[i4]));
+                i3++;
+                i2 = intArray2[i4];
+            }
+            if (i4 == intArray3.length - 1) {
+                hashMap.put(Integer.valueOf(i3), Integer.valueOf(i2));
+            }
+        }
+        com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "poi segNumMap size:" + hashMap.size());
+        for (int i5 = 0; i5 < hashMap.size(); i5++) {
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", i5 + "==" + hashMap.get(Integer.valueOf(i5)));
+        }
+        ArrayList arrayList2 = new ArrayList();
+        int size = hashMap.size();
+        int i6 = 0;
+        while (i6 < size) {
+            int intValue = ((Integer) hashMap.get(Integer.valueOf(i6))).intValue();
+            char[] cArr = new char[intValue];
+            int[] iArr = new int[intValue];
+            int[] iArr2 = new int[intValue];
+            for (int i7 = 0; i7 < intValue; i7++) {
+                if (i6 > 0) {
+                    i = i6 > 1 ? ((Integer) hashMap.get(Integer.valueOf(i6 - 2))).intValue() + i7 + ((Integer) hashMap.get(Integer.valueOf(i6 - 1))).intValue() : ((Integer) hashMap.get(Integer.valueOf(i6 - 1))).intValue() + i7;
+                } else {
+                    i = i7;
+                }
+                if (i < replace.length()) {
+                    cArr[i7] = replace.charAt(i);
+                }
+                iArr2[i7] = 1;
+                int i8 = 0;
+                while (true) {
+                    if (i8 >= intArray.length) {
+                        break;
+                    } else if (i8 == intArray.length - 1) {
+                        if (booleanArray[i8]) {
+                            iArr[i7] = 1;
                         } else {
-                            paint.setTextSize(b.a(this.a, 23.0f));
+                            iArr[i7] = 0;
                         }
-                        if (canvas != null && a3.c != null && paint != null) {
-                            canvas.drawText(a3.c, i5, 1, a4, i, paint);
-                        }
-                        a4 += paint.measureText(String.valueOf(a3.c[i5]));
+                    } else if (i >= intArray[i8 + 1]) {
+                        i8++;
+                    } else if (booleanArray[i8]) {
+                        iArr[i7] = 1;
+                    } else {
+                        iArr[i7] = 0;
                     }
-                    i += b.a(this.a, 26.0f);
                 }
-                if (this.b.b() != null && this.b.b().size() != 0) {
-                    ArrayList<c> b = this.b.b();
-                    int size2 = b.size();
-                    int i6 = 0;
-                    int i7 = i;
-                    while (i6 < size2) {
-                        c cVar = b.get(i6);
-                        float a6 = b.a(this.a, 100.0f);
-                        if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING && com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == this.b.e()) {
-                            float a7 = b.a(this.a, 22.0f);
-                            int length2 = cVar.c.length;
-                            int i8 = (int) ((((length2 * a7) + a6) - this.c) / a7);
-                            if (i8 > 0 && i8 < length2 - 1) {
-                                for (int i9 = length2 - i8; i9 < length2; i9++) {
-                                    cVar.c[i9] = '.';
-                                }
-                            }
-                        }
-                        for (int i10 = 0; i10 < cVar.c.length; i10++) {
-                            paint.setColor(-13400577);
-                            if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE || com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
-                                paint.setColor(-13553101);
-                            }
-                            if (cVar.a[i10] == 0) {
-                                paint.setTextSize(b.a(this.a, 16.0f));
-                            } else {
-                                paint.setTextSize(b.a(this.a, 22.0f));
-                            }
-                            if (canvas != null && cVar.c != null && paint != null) {
-                                canvas.drawText(cVar.c, i10, 1, a6, i7, paint);
-                            }
-                            a6 += paint.measureText(String.valueOf(cVar.c[i10]));
-                        }
-                        i6++;
-                        i7 += b.a(this.a, 20.0f);
-                    }
-                    canvas.restore();
+            }
+            arrayList2.add(new b(cArr, iArr, iArr2));
+            i6++;
+        }
+        a(arrayList2);
+        for (int i9 = 0; i9 < arrayList2.size(); i9++) {
+            arrayList.add(arrayList2.get(i9));
+        }
+        int i10 = 0;
+        while (true) {
+            int i11 = i10;
+            if (i11 >= arrayList.size()) {
+                break;
+            }
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "poi line:" + i11 + String.valueOf(((b) arrayList.get(i11)).c));
+            i10 = i11 + 1;
+        }
+        return arrayList;
+    }
+
+    public static int a() {
+        return b;
+    }
+
+    private static void a(ArrayList<b> arrayList, HashMap<Integer, Integer> hashMap) {
+        b bVar;
+        b = 0;
+        if (hashMap.size() >= 2 && hashMap.get(1).intValue() <= 6) {
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide enter new branch1!!!");
+            b a2 = b.a(arrayList.get(0), arrayList.get(1));
+            arrayList.remove(0);
+            arrayList.remove(0);
+            arrayList.add(0, a2);
+        }
+        if (arrayList.size() >= 2 && arrayList.get(1).c.length > a) {
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide enter new branch2!!!");
+            b bVar2 = arrayList.get(1);
+            if (arrayList.size() < 3) {
+                bVar = null;
+            } else {
+                bVar = arrayList.get(2);
+            }
+            b a3 = b.a(arrayList.get(1), a);
+            b b2 = b.b(arrayList.get(1), a);
+            b = b2.c.length;
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
+            b a4 = arrayList.size() >= 3 ? b.a(b2, arrayList.get(2)) : b2;
+            arrayList.remove(bVar2);
+            if (bVar != null) {
+                arrayList.remove(bVar);
+            }
+            arrayList.add(a3);
+            arrayList.add(a4);
+        }
+    }
+
+    private static void a(ArrayList<b> arrayList) {
+        b bVar;
+        if (arrayList.size() >= 1) {
+            b a2 = b.a(arrayList.get(0), arrayList.get(1));
+            arrayList.remove(0);
+            arrayList.remove(0);
+            arrayList.add(0, a2);
+            if (arrayList.get(0).c.length > a) {
+                com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "poi enter new branch2!!!");
+                b bVar2 = arrayList.get(0);
+                if (arrayList.size() < 2) {
+                    bVar = null;
+                } else {
+                    bVar = arrayList.get(1);
                 }
+                b a3 = b.a(arrayList.get(0), a);
+                b b2 = b.b(arrayList.get(0), a);
+                com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
+                com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
+                b a4 = arrayList.size() >= 2 ? b.a(b2, arrayList.get(1)) : b2;
+                arrayList.remove(bVar2);
+                if (bVar != null) {
+                    arrayList.remove(bVar);
+                }
+                arrayList.add(a3);
+                arrayList.add(a4);
             }
         }
     }
 
-    private int a(com.baidu.platform.comapi.walknavi.segmentbrowse.a aVar) {
-        if (aVar == null || aVar.a() == null) {
-            return 0;
+    private static void a(int[] iArr, int[] iArr2, int[] iArr3, boolean[] zArr) {
+        String str = "";
+        String str2 = "";
+        String str3 = "";
+        for (int i = 0; i < iArr.length; i++) {
+            str3 = str3 + iArr[i] + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
-        return aVar.a().size();
-    }
-
-    private int b(com.baidu.platform.comapi.walknavi.segmentbrowse.a aVar) {
-        if (aVar == null || aVar.b() == null) {
-            return 0;
+        for (int i2 = 0; i2 < iArr2.length; i2++) {
+            str = str + iArr2[i2] + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
-        return aVar.b().size();
+        for (int i3 = 0; i3 < iArr3.length; i3++) {
+            str2 = str2 + iArr3[i3] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+        }
+        String str4 = "";
+        for (int i4 = 0; i4 < zArr.length; i4++) {
+            str4 = str4 + zArr[i4] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+        }
+        com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "unIdxString:" + str3);
+        com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "unWordCntString:" + str);
+        com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "unLineNoString:" + str2);
+        com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "highLightString:" + str4);
     }
 }

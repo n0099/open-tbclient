@@ -10,24 +10,24 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView aWh;
-    private LoadingView fFE;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a gDA;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a gDB;
-    private boolean gDC = false;
-    private TbListCommonPullView.ListPullRefreshListener gDD = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView bbw;
+    private LoadingView fQV;
+    private TbListCommonPullView gPZ;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a gQa;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a gQb;
+    private boolean gQc = false;
+    private TbListCommonPullView.ListPullRefreshListener gQd = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.gDB != null) {
-                a.this.gDB.refreshData();
+            if (a.this.gQb != null) {
+                a.this.gQb.refreshData();
             }
         }
     };
-    private a.InterfaceC0601a gDE = new a.InterfaceC0601a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0651a gQe = new a.InterfaceC0651a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
-    private TbListCommonPullView gvo;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -38,13 +38,13 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.aWh = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.gvo = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.gvo.changeSkin(0);
-        this.gvo.setSkinType(0);
-        this.gvo.setListPullRefreshListener(this.gDD);
-        this.aWh.setPullRefresh(this.gvo);
-        this.gDA = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.aWh);
+        this.bbw = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
+        this.gPZ = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.gPZ.changeSkin(0);
+        this.gPZ.setSkinType(0);
+        this.gPZ.setListPullRefreshListener(this.gQd);
+        this.bbw.setPullRefresh(this.gPZ);
+        this.gQa = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bbw);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -58,12 +58,12 @@ public class a implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Dj() {
+    public String IM() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Dk() {
+    public short IN() {
         return (short) 2;
     }
 
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gDB != null) {
-            this.gDB.onDestroy();
+        if (this.gQb != null) {
+            this.gQb.onDestroy();
         }
-        if (this.gDA != null) {
-            this.gDA.onDestroy();
-            this.gDA = null;
+        if (this.gQa != null) {
+            this.gQa.onDestroy();
+            this.gQa = null;
         }
-        if (this.fFE != null) {
-            this.fFE.release();
-            this.fFE = null;
+        if (this.fQV != null) {
+            this.fQV.release();
+            this.fQV = null;
         }
-        if (this.gvo != null) {
-            this.gvo = null;
+        if (this.gPZ != null) {
+            this.gPZ = null;
         }
     }
 

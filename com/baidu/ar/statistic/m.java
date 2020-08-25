@@ -3,21 +3,21 @@ package com.baidu.ar.statistic;
 import java.util.List;
 /* loaded from: classes11.dex */
 final class m extends i {
-    private long vz;
+    private long wc;
 
     public m(d dVar, int i, e eVar, boolean z) {
         super(dVar, i, eVar, z);
-        this.vz = 0L;
+        this.wc = 0L;
     }
 
     @Override // com.baidu.ar.statistic.i
-    public List<List<a>> eZ() {
+    public List<List<a>> gn() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.vz < 1000) {
+        if (currentTimeMillis - this.wc < 1000) {
             return null;
         }
-        this.vz = currentTimeMillis;
-        List<List<a>> eZ = super.eZ();
-        return eZ.size() > 1 ? eZ.subList(0, 1) : eZ;
+        this.wc = currentTimeMillis;
+        List<List<a>> gn = super.gn();
+        return gn.size() > 1 ? gn.subList(0, 1) : gn;
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static boolean eEG;
+    private static boolean ePh;
 
     static {
-        eEG = false;
-        eEG = b.aZP().getInt("key_lcs_log_switch", 0) == 1;
-        if (eEG) {
+        ePh = false;
+        ePh = b.bik().getInt("key_lcs_log_switch", 0) == 1;
+        if (ePh) {
             registerTask();
         }
     }
@@ -27,11 +27,11 @@ public class a {
     }
 
     public static void d(int i, int i2, int i3, int i4, int i5) {
-        f(i, i2, i3, i4, i5, 0);
+        e(i, i2, i3, i4, i5, 0);
     }
 
-    public static void f(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (eEG) {
+    public static void e(int i, int i2, int i3, int i4, int i5, int i6) {
+        if (ePh) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
             httpMessage.addParam("cmd", i);
             httpMessage.addParam("lcs_status", i2);

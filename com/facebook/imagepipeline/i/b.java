@@ -11,10 +11,10 @@ import com.facebook.imagepipeline.common.TooManyBitmapsException;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import java.util.Locale;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 abstract class b implements e {
-    protected static final byte[] ndQ = {-1, -39};
-    private final com.facebook.imagepipeline.memory.a ndR = com.facebook.imagepipeline.memory.b.dIJ();
+    protected static final byte[] nxG = {-1, -39};
+    private final com.facebook.imagepipeline.memory.a nxH = com.facebook.imagepipeline.memory.b.dUI();
 
     abstract Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options);
 
@@ -23,24 +23,24 @@ abstract class b implements e {
     @Override // com.facebook.imagepipeline.i.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
         BitmapFactory.Options a = a(eVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> dIr = eVar.dIr();
-        g.checkNotNull(dIr);
+        com.facebook.common.references.a<PooledByteBuffer> dUq = eVar.dUq();
+        g.checkNotNull(dUq);
         try {
-            return ah(a(dIr, a));
+            return ah(a(dUq, a));
         } finally {
-            com.facebook.common.references.a.c(dIr);
+            com.facebook.common.references.a.c(dUq);
         }
     }
 
     @Override // com.facebook.imagepipeline.i.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect, int i) {
         BitmapFactory.Options a = a(eVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> dIr = eVar.dIr();
-        g.checkNotNull(dIr);
+        com.facebook.common.references.a<PooledByteBuffer> dUq = eVar.dUq();
+        g.checkNotNull(dUq);
         try {
-            return ah(a(dIr, i, a));
+            return ah(a(dUq, i, a));
         } finally {
-            com.facebook.common.references.a.c(dIr);
+            com.facebook.common.references.a.c(dUq);
         }
     }
 
@@ -60,21 +60,21 @@ abstract class b implements e {
     /* JADX INFO: Access modifiers changed from: protected */
     public static boolean b(com.facebook.common.references.a<PooledByteBuffer> aVar, int i) {
         PooledByteBuffer pooledByteBuffer = aVar.get();
-        return i >= 2 && pooledByteBuffer.Iq(i + (-2)) == -1 && pooledByteBuffer.Iq(i + (-1)) == -39;
+        return i >= 2 && pooledByteBuffer.KU(i + (-2)) == -1 && pooledByteBuffer.KU(i + (-1)) == -39;
     }
 
     public com.facebook.common.references.a<Bitmap> ah(Bitmap bitmap) {
         try {
             Bitmaps.ag(bitmap);
-            if (!this.ndR.ab(bitmap)) {
+            if (!this.nxH.ab(bitmap)) {
                 int aj = com.facebook.d.a.aj(bitmap);
                 bitmap.recycle();
-                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(aj), Integer.valueOf(this.ndR.getCount()), Long.valueOf(this.ndR.getSize()), Integer.valueOf(this.ndR.bBV()), Integer.valueOf(this.ndR.getMaxSize())));
+                throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(aj), Integer.valueOf(this.nxH.getCount()), Long.valueOf(this.nxH.getSize()), Integer.valueOf(this.nxH.bLp()), Integer.valueOf(this.nxH.getMaxSize())));
             }
-            return com.facebook.common.references.a.a(bitmap, this.ndR.dIH());
+            return com.facebook.common.references.a.a(bitmap, this.nxH.dUG());
         } catch (Exception e) {
             bitmap.recycle();
-            throw l.x(e);
+            throw l.v(e);
         }
     }
 }

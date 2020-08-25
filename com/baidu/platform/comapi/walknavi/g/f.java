@@ -1,7 +1,10 @@
 package com.baidu.platform.comapi.walknavi.g;
+
+import com.baidu.platform.comapi.walknavi.g.a;
+import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class f implements Runnable {
+/* loaded from: classes20.dex */
+public class f implements a.InterfaceC0254a {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,14 +12,19 @@ public class f implements Runnable {
         this.a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.platform.comapi.walknavi.g.b.c cVar;
-        com.baidu.platform.comapi.walknavi.g.b.c cVar2;
-        cVar = this.a.k;
-        if (cVar != null) {
-            cVar2 = this.a.k;
-            cVar2.f();
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0254a
+    public void a() {
+        a.CountDownTimerC0251a countDownTimerC0251a;
+        a.CountDownTimerC0251a countDownTimerC0251a2;
+        a.CountDownTimerC0251a countDownTimerC0251a3;
+        countDownTimerC0251a = this.a.o;
+        if (countDownTimerC0251a != null) {
+            countDownTimerC0251a2 = this.a.o;
+            countDownTimerC0251a2.onFinish();
+            countDownTimerC0251a3 = this.a.o;
+            countDownTimerC0251a3.cancel();
+            return;
         }
+        this.a.q();
     }
 }

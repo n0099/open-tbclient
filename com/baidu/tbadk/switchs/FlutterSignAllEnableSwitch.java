@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FlutterSignAllEnableSwitch extends a {
     public static final String KEY = "flutter_signin_enable_android_112";
     public static final int TYPE_CLOSE = 0;

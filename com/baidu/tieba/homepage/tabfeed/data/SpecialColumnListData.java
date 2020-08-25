@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.aq;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
@@ -21,14 +21,14 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR = new Parcelable.Creator<SpecialColumnListData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Y */
+        /* renamed from: Z */
         public SpecialColumnListData createFromParcel(Parcel parcel) {
             return new SpecialColumnListData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: xI */
+        /* renamed from: Ac */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -60,7 +60,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
                     i = i2 + 1;
                 } else {
                     this.mResultListData.addAll(arrayList);
-                    this.mListData.addAll(x.trimToSize(arrayList, 3));
+                    this.mListData.addAll(y.trimToSize(arrayList, 3));
                     return;
                 }
             }
@@ -79,16 +79,16 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bv aTN() {
+    public bw bce() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public aq aTP() {
+    public ar bcg() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cnZ() {
+    public List<SpecialColumnItemData> cyS() {
         return this.mListData;
     }
 
@@ -96,7 +96,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bxj() {
+    public List<SpecialColumnItemData> bGi() {
         return this.mResultListData;
     }
 

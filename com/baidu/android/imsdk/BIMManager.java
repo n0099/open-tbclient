@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.IConnectListener;
@@ -51,16 +52,16 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static IConnectListener mConnectListener;
     private static Context sContext = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),
@@ -105,10 +106,9 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (isNullContext(context) || TextUtils.isEmpty(str)) {
             return false;
         }
-        Constants.IM_ENV = i;
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        IMService.isSmallFlow = false;
+        a.ayn = false;
         Log.d("imsdk", "set env as " + i + "， appId:" + j + ", cuid :" + str);
         AccountManagerImpl.getInstance(applicationContext).setAppid(j);
         Utility.setDeviceId(applicationContext, str);
@@ -121,7 +121,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            IMService.clearMsgListByLcp(context);
+            a.am(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e) {
             LogUtils.e(TAG, "imLogoutByLcp exception ", e);
@@ -512,16 +512,12 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return ConversationManagerImpl.getInstance(sContext).deleteConversation(bIMConversation);
     }
 
-    public static void registerMessageReceiveListener(IMessageReceiveListener iMessageReceiveListener) {
-        if (!isNullContext(sContext)) {
-            ChatMsgManagerImpl.getInstance(sContext).registerMessageReceiveListener(iMessageReceiveListener);
-        }
+    public static void registerMessageReceiveListener(Context context, IMessageReceiveListener iMessageReceiveListener) {
+        ChatMsgManager.registerMessageReceiveListener(context, iMessageReceiveListener);
     }
 
-    public static void unregisterMessageReceiveListener(IMessageReceiveListener iMessageReceiveListener) {
-        if (!isNullContext(sContext)) {
-            ChatMsgManagerImpl.getInstance(sContext).unregisterMessageReceiveListener(sContext, iMessageReceiveListener);
-        }
+    public static void unregisterMessageReceiveListener(Context context, IMessageReceiveListener iMessageReceiveListener) {
+        ChatMsgManager.unregisterMessageReceiveListener(context, iMessageReceiveListener);
     }
 
     public static boolean registerNotify(String str, String str2, String str3) {
@@ -563,8 +559,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void connectStatusNotify(int i) {
+        LogUtils.i(TAG, "connectStatusNotify:" + i);
+        LogUtils.i(TAG, "IConnectListener is:" + mConnectListener);
         if (mConnectListener != null) {
-            LogUtils.i(TAG, "connectStatusNotify :" + i);
+            LogUtils.i(TAG, "im login success，成功回调业务监听");
             mConnectListener.onResult(i);
         }
     }
@@ -582,14 +580,26 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void fetchMsgByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i, j, j2, j3, i2, iFetchMsgByIdListener);
+        fetchMsgByMsgid(context, i, j, j2, j3, i2, i3, iFetchMsgByIdListener, false);
+    }
+
+    public static void fetchMsgByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i, j, j2, j3, i2, iFetchMsgByIdListener, z);
     }
 
     public static void fetchMsgRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+        fetchMsgRequest(context, j, j2, i, j3, j4, j5, i2, i3, iFetchMsgByIdListener, false);
+    }
+
+    public static void fetchMsgRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener, z);
     }
 
     public static void fetchMsgByHostRequest(Context context, long j, int i, long j2, long j3, long j4, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgByHostRequest(context, j, i, j2, j3, j4, i2, i3, iFetchMsgByIdListener, false);
+    }
+
+    public static void fetchMsgByHostRequest(Context context, long j, int i, long j2, long j3, long j4, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         ChatMsgManager.fetchMsgByHostRequst(context, j, i, j2, j3, j4, i2, iFetchMsgByIdListener);
     }
 
@@ -598,6 +608,56 @@ public class BIMManager extends BaseManager implements NoProGuard {
             Utility.setStudioHostSendMsg(context, z);
             ChatMsgManager.sendMessage(context, chatMsg, iSendMessageListener);
         }
+    }
+
+    public static void sendMessage(Context context, ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        if (context != null) {
+            ChatMsgManager.sendMessage(context, chatMsg, iSendMessageListener);
+        }
+    }
+
+    public static int saveAsDraftMsg(Context context, ChatMsg chatMsg) {
+        return ChatMsgManager.saveAsDraftMsg(context, chatMsg);
+    }
+
+    public static void saveMessage(Context context, ChatMsg chatMsg) {
+        ChatMsgManager.saveMessage(context, chatMsg);
+    }
+
+    public static int deleteDraftMsg(Context context, int i, long j) {
+        return ChatMsgManager.deleteDraftMsg(context, i, j);
+    }
+
+    public static ChatMsg getDraftMsg(Context context, int i, long j) {
+        return ChatMsgManager.getDraftMsg(context, i, j);
+    }
+
+    public static int deleteMsg(Context context, ChatMsg chatMsg) {
+        return ChatMsgManager.deleteMsg(context, chatMsg);
+    }
+
+    public static int getNewMsgCount(Context context) {
+        return ChatMsgManager.getNewMsgCount(context);
+    }
+
+    public static int markMsgClicked(Context context, ChatMsg chatMsg) {
+        return ChatMsgManager.markMsgClicked(context, chatMsg);
+    }
+
+    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i, long j, int i2, ChatMsg chatMsg) {
+        return ChatMsgManager.fetchMessageSyncWithState(context, i, j, i2, chatMsg);
+    }
+
+    public static int getUnReadMsgCountByPaid(Context context, long j) {
+        return ChatMsgManager.getUnReadMsgCountByPaid(context, j);
+    }
+
+    public static void registerChatSessionListener(Context context, IChatSessionChangeListener iChatSessionChangeListener) {
+        ChatMsgManager.registerChatSessionListener(context, iChatSessionChangeListener);
+    }
+
+    public static void unregisterChatSessionListener(Context context, IChatSessionChangeListener iChatSessionChangeListener) {
+        ChatMsgManager.unregisterChatSessionListener(context, iChatSessionChangeListener);
     }
 
     public static boolean isSupportMsgType(int i) {
@@ -609,7 +669,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

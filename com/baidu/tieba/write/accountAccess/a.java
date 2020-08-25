@@ -14,136 +14,136 @@ import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.ad;
+import com.baidu.tbadk.coreExtra.data.ag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.c;
 /* loaded from: classes3.dex */
 public class a {
-    private final NewWriteModel muA;
-    private final b mux;
-    private boolean muB = false;
-    private final NewWriteModel.d eCe = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
+    private final b mML;
+    private final NewWriteModel mMO;
+    private boolean mMP = false;
+    private final NewWriteModel.d eMD = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ad adVar, WriteData writeData, AntiData antiData) {
-            if (a.this.mux != null && a.this.muA != null && a.this.muA.dhF() != null) {
-                a.this.mux.showPostThreadLoadingView(false);
-                WriteData dhF = writeData == null ? a.this.muA.dhF() : writeData;
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ag agVar, WriteData writeData, AntiData antiData) {
+            if (a.this.mML != null && a.this.mMO != null && a.this.mMO.cKZ() != null) {
+                a.this.mML.showPostThreadLoadingView(false);
+                WriteData cKZ = writeData == null ? a.this.mMO.cKZ() : writeData;
                 if (z) {
-                    a.this.muB = true;
-                    if (dhF.getType() != 0 || dhF.isUserFeedback()) {
+                    a.this.mMP = true;
+                    if (cKZ.getType() != 0 || cKZ.isUserFeedback()) {
                         if (postWriteCallBackData == null) {
-                            c.f(a.this.mux.getContext().getActivity(), a.this.mux.getContext().getResources().getString(R.string.send_success), null, null);
+                            c.g(a.this.mML.getContext().getActivity(), a.this.mML.getContext().getResources().getString(R.string.send_success), null, null);
                         } else {
-                            c.f(a.this.mux.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                            c.g(a.this.mML.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                         }
                     }
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    BaseActivity context = a.this.mux.getContext();
-                    a.this.mux.getContext();
+                    BaseActivity context = a.this.mML.getContext();
+                    a.this.mML.getContext();
                     context.setResult(-1, intent);
-                    a.this.mux.getContext().finish();
-                } else if (dhF != null && adVar != null && !TextUtils.isEmpty(adVar.beo())) {
-                    dhF.setVcodeMD5(adVar.getVcode_md5());
-                    dhF.setVcodeUrl(adVar.getVcode_pic_url());
-                    dhF.setVcodeExtra(adVar.bep());
-                    a.this.mux.getContext().setVisible(false);
-                    if (com.baidu.tbadk.t.a.Ay(adVar.beo())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.mux.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, dhF, false, adVar.beo())));
+                    a.this.mML.getContext().finish();
+                } else if (cKZ != null && agVar != null && !TextUtils.isEmpty(agVar.bmY())) {
+                    cKZ.setVcodeMD5(agVar.getVcode_md5());
+                    cKZ.setVcodeUrl(agVar.getVcode_pic_url());
+                    cKZ.setVcodeExtra(agVar.bmZ());
+                    a.this.mML.getContext().setVisible(false);
+                    if (com.baidu.tbadk.t.a.CO(agVar.bmY())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.mML.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, cKZ, false, agVar.bmY())));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.mux.getContext().getActivity(), dhF, RequestResponseCode.REQUEST_VCODE)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.mML.getContext().getActivity(), cKZ, RequestResponseCode.REQUEST_VCODE)));
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
-                    BaseActivity context2 = a.this.mux.getContext();
-                    a.this.mux.getContext();
+                    BaseActivity context2 = a.this.mML.getContext();
+                    a.this.mML.getContext();
                     context2.setResult(0, intent2);
-                    a.this.mux.getContext().finish();
+                    a.this.mML.getContext().finish();
                 } else {
                     if (postWriteCallBackData != null) {
-                        c.f(a.this.mux.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                        BaseActivity context3 = a.this.mux.getContext();
-                        a.this.mux.getContext();
+                        c.g(a.this.mML.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                        BaseActivity context3 = a.this.mML.getContext();
+                        a.this.mML.getContext();
                         context3.setResult(0, null);
                     }
-                    a.this.mux.getContext().finish();
+                    a.this.mML.getContext().finish();
                 }
             }
         }
     };
 
     public a(b bVar, NewWriteModel newWriteModel) {
-        this.mux = bVar;
-        this.muA = newWriteModel;
-        newWriteModel.b(this.eCe);
+        this.mML = bVar;
+        this.mMO = newWriteModel;
+        newWriteModel.b(this.eMD);
     }
 
-    public boolean PD(String str) {
-        if (this.mux == null || str == null) {
+    public boolean SB(String str) {
+        if (this.mML == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.mux.getContext().finish();
+            this.mML.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.mux.setWebViewMargin(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.mux.duv() != this.mux.duu()) {
-                this.mux.setRatio(this.mux.duv());
-                this.mux.duw();
+            this.mML.setWebViewMargin(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.mML.dFR() != this.mML.dFQ()) {
+                this.mML.setRatio(this.mML.dFR());
+                this.mML.dFS();
             }
-            this.mux.getWebView().setVisibility(0);
+            this.mML.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            dut();
+            dFP();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-            this.mux.getContext().finish();
-            bd.baV().b(this.mux.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
+            this.mML.getContext().finish();
+            be.bju().b(this.mML.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
             return true;
         } else {
             return true;
         }
     }
 
-    public void dur() {
-        if (this.mux != null) {
-            this.mux.showWebViewDelay(500);
+    public void dFN() {
+        if (this.mML != null) {
+            this.mML.showWebViewDelay(500);
         }
     }
 
-    public void bl(String str) {
-        if (this.mux != null) {
-            this.mux.wo(true);
-            this.mux.showWebView(false);
-            this.mux.getWebView().loadUrl(str);
+    public void bq(String str) {
+        if (this.mML != null) {
+            this.mML.xd(true);
+            this.mML.showWebView(false);
+            this.mML.getWebView().loadUrl(str);
         }
     }
 
-    public void dus() {
-        if (this.mux != null) {
-            this.mux.showPostThreadLoadingView(false);
+    public void dFO() {
+        if (this.mML != null) {
+            this.mML.showPostThreadLoadingView(false);
         }
     }
 
-    private void dut() {
-        this.muB = false;
-        if (this.mux != null && this.muA != null) {
+    private void dFP() {
+        this.mMP = false;
+        if (this.mML != null && this.mMO != null) {
             if (!l.isNetOk()) {
-                this.mux.getContext().showToast(R.string.neterror);
-                this.mux.getContext().finish();
+                this.mML.getContext().showToast(R.string.neterror);
+                this.mML.getContext().finish();
                 return;
             }
-            this.mux.showPostThreadLoadingView(true);
-            this.muA.dmx();
+            this.mML.showPostThreadLoadingView(true);
+            this.mMO.dxS();
         }
     }
 }

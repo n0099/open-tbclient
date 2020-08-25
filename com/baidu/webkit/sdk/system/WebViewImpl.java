@@ -6,6 +6,7 @@ import android.graphics.Picture;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,8 @@ import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes8.dex */
+import java.util.Objects;
+/* loaded from: classes19.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     private final WebView.DelegateAdapter mDelegate;
     private WebSettings mSettings;
@@ -38,7 +40,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     private WebViewClient mWebViewClient;
     private final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private class FindAdapter implements WebView.FindListener {
         private final WebView.FindListener mListener;
 
@@ -52,7 +54,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private class PictureAdapter implements WebView.PictureListener {
         private final WebView.PictureListener mListener;
 
@@ -66,7 +68,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         private WebView.WebViewTransport mTransport;
         private com.baidu.webkit.sdk.WebView mWebViewGeneric;
@@ -74,7 +76,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public WebViewTransportImpl(com.baidu.webkit.sdk.WebView webView, WebView.WebViewTransport webViewTransport) {
             super();
-            webView.getClass();
+            Objects.requireNonNull(webView);
             this.mTransport = webViewTransport;
         }
 
@@ -100,7 +102,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         this.mWebView = webView;
         this.mWebViewPrivateAccess = privateAccess;
         com.baidu.webkit.sdk.WebView webView2 = this.mWebView;
-        webView2.getClass();
+        Objects.requireNonNull(webView2);
         this.mDelegate = new WebView.DelegateAdapter(this);
     }
 
@@ -113,6 +115,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void addEmbeddedTitleBarFinished() {
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void addNoStatePrefetch(String str, String str2) {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -140,6 +146,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
             return super.canZoomOut();
         }
         return false;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void cancelCurrentNoStatePrefetch() {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -233,6 +243,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
+    @Override // android.webkit.WebView, android.view.ViewGroup, android.view.View
+    public final View findFocus() {
+        return super.findFocus();
+    }
+
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final View findHierarchyView(String str, int i) {
         return null;
@@ -251,6 +266,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final String getGpuInfo() {
         return null;
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final Handler getHandler() {
+        return super.getHandler();
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -285,6 +305,24 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final String getReferer() {
         return null;
+    }
+
+    @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(26)
+    public final boolean getRendererPriorityWaivedWhenNotVisible() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getRendererPriorityWaivedWhenNotVisible();
+        }
+        return false;
+    }
+
+    @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(26)
+    public final int getRendererRequestedPriority() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return super.getRendererRequestedPriority();
+        }
+        return 0;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
@@ -447,7 +485,16 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void notifyPageLeave() {
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
     public final void notifyUnsafeInvolved(int i, String str) {
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public final boolean onCheckIsTextEditor() {
+        return super.onCheckIsTextEditor();
     }
 
     @Override // android.view.ViewGroup
@@ -462,6 +509,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void onPageSwapFromWebview(com.baidu.webkit.sdk.WebView webView, String str, boolean z) {
+    }
+
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void onPause() {
@@ -470,9 +521,23 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void onPauseAll() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            super.onPause();
+        }
+    }
+
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(11)
     public final void onResume() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            super.onResume();
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewProvider
+    public final void onResumeAll() {
         if (Build.VERSION.SDK_INT >= 11) {
             super.onResume();
         }
@@ -629,6 +694,14 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     @Override // com.baidu.webkit.sdk.WebViewProvider
     public final boolean setPreviewZoomScale(float f) {
         return false;
+    }
+
+    @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(26)
+    public final void setRendererPriorityPolicy(int i, boolean z) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            super.setRendererPriorityPolicy(i, z);
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider

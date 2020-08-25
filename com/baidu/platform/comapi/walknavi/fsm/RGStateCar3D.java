@@ -3,34 +3,34 @@ package com.baidu.platform.comapi.walknavi.fsm;
 import android.graphics.Point;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
-import com.baidu.platform.comapi.wnplatform.o.e;
+import com.baidu.platform.comapi.wnplatform.p.f;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class RGStateCar3D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().Q().l();
-        b.a().Q().c(R.drawable.aiapps_clickable_toast_icon);
+        b.a().T().l();
+        b.a().T().c(R.drawable.aiapps_keyboard_number_item_selector);
         if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-            if (b.a().J() != 4) {
-                b.a().Q().a(true);
+            if (b.a().M() != 4) {
+                b.a().T().a(true);
             }
         } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-            b.a().Q().a(true);
+            b.a().T().a(true);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionNaviEngine() {
-        if (b.a().J() != 4 && c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE && c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
-            b.a().D().a(false);
+        if (b.a().M() != 4 && c.p() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE && c.p() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
+            b.a().G().a(false);
             if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
-                b.a().D().b(1);
+                b.a().G().c(1);
             } else {
-                b.a().D().b(0);
+                b.a().G().c(0);
             }
         }
     }
@@ -41,24 +41,30 @@ public class RGStateCar3D extends RGState {
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionMapStatus() {
-        b.a().Q().o();
-        b.a().G().b(true);
-        GeoPoint e = b.a().D().e();
-        MapStatus i = b.a().G().i();
+        b.a().T().o();
+        b.a().J().b(true);
+        GeoPoint e = b.a().G().e();
+        MapStatus i = b.a().J().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.top) * 0.2f)))));
-            builder.rotate(b.a().D().d());
+            builder.rotate(b.a().G().d());
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-                builder.overlook(-50.0f);
+                if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
+                    builder.overlook(0.0f);
+                } else {
+                    builder.overlook(-50.0f);
+                }
             } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
                 builder.overlook(-47.0f);
             }
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
-            builder.target(e.a(e));
-            b.a().G().a(builder.build(), FeatureCodes.VO);
+            if (e.getLongitudeE6() != 0.0d && e.getLatitudeE6() != 0.0d) {
+                builder.target(f.a(e));
+                b.a().J().a(builder.build(), FeatureCodes.VO);
+            }
         }
     }
 

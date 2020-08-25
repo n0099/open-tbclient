@@ -5,27 +5,27 @@ import android.content.res.ColorStateList;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.m;
+import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
-/* loaded from: classes.dex */
-public class SendView extends TextView implements m {
-    private EditorTools ZS;
-    private int ZT;
-    private int aho;
-    private int[] eCq;
+/* loaded from: classes2.dex */
+public class SendView extends TextView implements n {
+    private EditorTools aay;
+    private int aaz;
+    private int aiB;
+    private int[] eMP;
     private boolean[] flags;
     private int mType;
-    public static int eCr = 1;
+    public static int eMQ = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
         this.flags = new boolean[]{false, false, false, false, false};
-        this.eCq = new int[]{0, 0};
-        this.aho = 0;
+        this.eMP = new int[]{0, 0};
+        this.aiB = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -61,8 +61,8 @@ public class SendView extends TextView implements m {
                     this.flags[2] = false;
                     this.flags[3] = false;
                     this.flags[4] = false;
-                    this.eCq[0] = 0;
-                    this.eCq[1] = 0;
+                    this.eMP[0] = 0;
+                    this.eMP[1] = 0;
                     break;
                 case 10:
                     this.flags[2] = true;
@@ -73,14 +73,14 @@ public class SendView extends TextView implements m {
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.eBe != null) {
-                            if (aVar2.eBe.getChosedFiles() != null) {
-                                this.eCq[0] = aVar2.eBe.getChosedFiles().size();
+                        if (aVar2.eLD != null) {
+                            if (aVar2.eLD.getChosedFiles() != null) {
+                                this.eMP[0] = aVar2.eLD.getChosedFiles().size();
                             } else {
-                                this.eCq[0] = 0;
+                                this.eMP[0] = 0;
                             }
                         }
-                        if (this.eCq[0] > 0) {
+                        if (this.eMP[0] > 0) {
                             this.flags[1] = true;
                             break;
                         } else {
@@ -91,9 +91,9 @@ public class SendView extends TextView implements m {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.eCq;
+                    int[] iArr = this.eMP;
                     iArr[0] = iArr[0] - 1;
-                    if (this.eCq[0] > 0) {
+                    if (this.eMP[0] > 0) {
                         this.flags[1] = true;
                         break;
                     } else {
@@ -108,51 +108,51 @@ public class SendView extends TextView implements m {
                     this.flags[3] = false;
                     break;
             }
-            ob(this.mType);
+            qm(this.mType);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.ZS = editorTools;
+        this.aay = editorTools;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.ZS != null) {
-            this.ZS.b(aVar);
+        if (this.aay != null) {
+            this.aay.b(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.ZT = i;
+        this.aaz = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.ZT;
+        return this.aaz;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void init() {
         setClickable(false);
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void display() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
-        this.aho = i;
-        int color = ao.getColor(R.color.cp_link_tip_a);
+        this.aiB = i;
+        int color = ap.getColor(i, R.color.cp_link_tip_a);
         setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.l(color, 0.3f), c.l(color, 0.5f), color}));
     }
 
@@ -160,14 +160,14 @@ public class SendView extends TextView implements m {
         this.mType = i;
     }
 
-    public void ob(int i) {
+    public void qm(int i) {
         if (i == ALL) {
             if (this.flags[0] || this.flags[1] || this.flags[2] || this.flags[3] || this.flags[4]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
             }
-        } else if (i == eCr) {
+        } else if (i == eMQ) {
             if (this.flags[1]) {
                 setEnabled(true);
             } else {

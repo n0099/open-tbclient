@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.r;
-/* loaded from: classes.dex */
-public class a extends c implements r {
-    private TbPageContextSupport eGs;
-    private View eGt;
+import com.baidu.tieba.tbadkCore.s;
+/* loaded from: classes2.dex */
+public class a extends c implements s {
+    private TbPageContextSupport eQY;
+    private View eQZ;
     private int mHeight;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mParentView;
@@ -25,13 +25,13 @@ public class a extends c implements r {
     private int padding;
 
     public a(TbPageContextSupport tbPageContextSupport) {
-        this.eGs = null;
+        this.eQY = null;
         this.mTextView = null;
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.eGs = tbPageContextSupport;
-        this.padding = this.eGs.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.eQY = tbPageContextSupport;
+        this.padding = this.eQY.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
     public a(TbPageContextSupport tbPageContextSupport, ViewGroup viewGroup) {
@@ -42,9 +42,9 @@ public class a extends c implements r {
     @Override // com.baidu.adp.widget.ListView.c
     public View createView() {
         if (this.mParentView == null) {
-            this.mRoot = LayoutInflater.from(this.eGs.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.mRoot = LayoutInflater.from(this.eQY.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.mRoot = LayoutInflater.from(this.eGs.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
+            this.mRoot = LayoutInflater.from(this.eQY.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.mParentView, false);
         }
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         if (this.mHeight != 0) {
@@ -53,37 +53,37 @@ public class a extends c implements r {
             this.mRoot.setLayoutParams(layoutParams);
         }
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.eGt = this.mRoot.findViewById(R.id.pb_more_view);
-        this.eGt.setVisibility(8);
+        this.eQZ = this.mRoot.findViewById(R.id.pb_more_view);
+        this.eQZ.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        b(this.eGs.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.eGt.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        b(this.eQY.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.eQZ.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.r
+    @Override // com.baidu.tieba.tbadkCore.s
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.eGs.getPageContext().getLayoutMode().onModeChanged(this.eGt);
+        this.eQY.getPageContext().getLayoutMode().onModeChanged(this.eQZ);
         return true;
     }
 
     public void hide() {
-        this.eGt.setVisibility(8);
+        this.eQZ.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
     public void display() {
-        this.eGt.setVisibility(0);
+        this.eQZ.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void om(int i) {
+    public void qx(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.eGt.setVisibility(0);
+        this.eQZ.setVisibility(0);
     }
 
-    public void on(int i) {
+    public void qy(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

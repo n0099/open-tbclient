@@ -14,7 +14,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class UnitedSchemeSuspensionBallDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String MODULE_SUSPENSIONBALL = "suspensionBall";
     private static final String SCHEME_PATH_SUBPENSIONBALLTOAT_STATUS = "getSuspensionBallToastStatus";

@@ -9,15 +9,15 @@ public abstract class m {
 
     public abstract m a(@IdRes int i, Fragment fragment, @Nullable String str);
 
-    public abstract m a(Fragment fragment);
-
-    public abstract m ax(@AnimRes int i, @AnimRes int i2);
-
-    public abstract m b(Fragment fragment);
+    public abstract m aE(@AnimRes int i, @AnimRes int i2);
 
     public abstract m c(Fragment fragment);
 
     public abstract int commit();
 
     public abstract int commitAllowingStateLoss();
+
+    public abstract m d(Fragment fragment);
+
+    public abstract m e(Fragment fragment);
 }

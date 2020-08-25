@@ -1,15 +1,15 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public interface j {
-    void aG(float f);
+    void aM(float f);
 
     void n(int i, float f);
 
     void setRadius(float f);
 
-    void xe(boolean z);
+    void xV(boolean z);
 
-    void xf(boolean z);
+    void xW(boolean z);
 
     void z(float[] fArr);
 }

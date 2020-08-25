@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.i.u;
+import com.baidu.sofire.i.w;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public class MyService extends Service {
     private static long b = 0;
     private volatile int a = 0;
@@ -25,7 +26,7 @@ public class MyService extends Service {
     public int onStartCommand(final Intent intent, int i, int i2) {
         try {
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
         if (intent == null) {
             return super.onStartCommand(intent, i, i2);
@@ -36,7 +37,7 @@ public class MyService extends Service {
             int[] intArray = bundleExtra.getIntArray("key");
             int i3 = bundleExtra.getInt("delay");
             if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
-                com.baidu.sofire.core.e.a(getApplicationContext(), i3, stringArray[0], stringArray[1], intArray);
+                com.baidu.sofire.core.d.a(getApplicationContext(), i3, stringArray[0], stringArray[1], intArray);
                 return super.onStartCommand(intent, i, i2);
             }
         }
@@ -47,18 +48,18 @@ public class MyService extends Service {
             long j = b;
             if ("teac".equals(intent.getAction())) {
                 b = System.currentTimeMillis();
-                if (System.currentTimeMillis() - j < 3000) {
+                if (System.currentTimeMillis() - j < IMConnection.RETRY_DELAY_TIMES) {
                     return super.onStartCommand(intent, i, i2);
                 }
-                if (com.baidu.sofire.i.d.h != 0 && b - com.baidu.sofire.i.d.h > 5000) {
-                    new StringBuilder("persist process alive now:").append(b).append("init:").append(com.baidu.sofire.i.d.h);
+                if (com.baidu.sofire.i.e.j != 0 && b - com.baidu.sofire.i.e.j > 5000) {
+                    new StringBuilder("persist process alive now:").append(b).append("init:").append(com.baidu.sofire.i.e.j);
                     b.b();
                     return super.onStartCommand(intent, i, i2);
                 }
             }
             new StringBuilder().append(intent.getAction()).append(" ").append(stringExtra);
             b.a();
-            u.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
+            w.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     try {
@@ -72,13 +73,13 @@ public class MyService extends Service {
                             if (TextUtils.isEmpty(stringExtra2)) {
                                 MyService.this.a();
                             } else {
-                                com.baidu.sofire.core.e.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, intent);
+                                com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, intent);
                                 new StringBuilder("MyService#onStart2 intent=").append(intent).append(", extra=").append(intent.getExtras());
                                 b.a();
                                 MyService.this.a();
                             }
                         } else {
-                            com.baidu.sofire.core.g a = com.baidu.sofire.core.g.a();
+                            com.baidu.sofire.core.f a = com.baidu.sofire.core.f.a();
                             if (a == null) {
                                 MyService.this.a();
                             } else {
@@ -94,7 +95,7 @@ public class MyService extends Service {
                             }
                         }
                     } catch (Throwable th2) {
-                        com.baidu.sofire.i.d.a();
+                        com.baidu.sofire.i.e.a();
                         MyService.this.a();
                     }
                 }
@@ -113,7 +114,7 @@ public class MyService extends Service {
                 stopSelf();
             }
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
     }
 

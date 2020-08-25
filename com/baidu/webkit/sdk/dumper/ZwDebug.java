@@ -2,10 +2,9 @@ package com.baidu.webkit.sdk.dumper;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ZwDebug {
     private static boolean debugModel;
 
@@ -31,7 +30,7 @@ public class ZwDebug {
                     debugModel = (applicationInfo.flags & 2) != 0;
                 }
             } catch (Exception e) {
-                a.a(e);
+                e.printStackTrace();
             }
         }
     }

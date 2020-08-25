@@ -14,39 +14,39 @@ import com.airbnb.lottie.h;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class b {
-    private static final Object Ds = new Object();
-    private String Dt;
+    private static final Object Ea = new Object();
+    private String Eb;
     @Nullable
-    private c Du;
-    private final Map<String, h> Dv;
+    private c Ec;
+    private final Map<String, h> Ed;
     private final Context context;
 
     public b(Drawable.Callback callback, String str, c cVar, Map<String, h> map) {
-        this.Dt = str;
-        if (!TextUtils.isEmpty(str) && this.Dt.charAt(this.Dt.length() - 1) != '/') {
-            this.Dt += '/';
+        this.Eb = str;
+        if (!TextUtils.isEmpty(str) && this.Eb.charAt(this.Eb.length() - 1) != '/') {
+            this.Eb += '/';
         }
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.Dv = new HashMap();
+            this.Ed = new HashMap();
             this.context = null;
             return;
         }
         this.context = ((View) callback).getContext();
-        this.Dv = map;
+        this.Ed = map;
         a(cVar);
     }
 
     public void a(@Nullable c cVar) {
-        this.Du = cVar;
+        this.Ec = cVar;
     }
 
     @Nullable
     public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
         if (bitmap == null) {
-            h hVar = this.Dv.get(str);
+            h hVar = this.Ed.get(str);
             Bitmap bitmap2 = hVar.getBitmap();
             hVar.setBitmap(null);
             return bitmap2;
@@ -55,8 +55,8 @@ public class b {
     }
 
     @Nullable
-    public Bitmap be(String str) {
-        h hVar = this.Dv.get(str);
+    public Bitmap bj(String str) {
+        h hVar = this.Ed.get(str);
         if (hVar == null) {
             return null;
         }
@@ -64,8 +64,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.Du != null) {
-            Bitmap fetchBitmap = this.Du.fetchBitmap(hVar);
+        if (this.Ec != null) {
+            Bitmap fetchBitmap = this.Ec.fetchBitmap(hVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;
@@ -86,10 +86,10 @@ public class b {
             }
         }
         try {
-            if (TextUtils.isEmpty(this.Dt)) {
+            if (TextUtils.isEmpty(this.Eb)) {
                 throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
             }
-            return b(str, BitmapFactory.decodeStream(this.context.getAssets().open(this.Dt + fileName), null, options));
+            return b(str, BitmapFactory.decodeStream(this.context.getAssets().open(this.Eb + fileName), null, options));
         } catch (IOException e2) {
             Log.w("LOTTIE", "Unable to open asset.", e2);
             return null;
@@ -97,8 +97,8 @@ public class b {
     }
 
     public void recycleBitmaps() {
-        synchronized (Ds) {
-            for (Map.Entry<String, h> entry : this.Dv.entrySet()) {
+        synchronized (Ea) {
+            for (Map.Entry<String, h> entry : this.Ed.entrySet()) {
                 h value = entry.getValue();
                 Bitmap bitmap = value.getBitmap();
                 if (bitmap != null) {
@@ -109,13 +109,13 @@ public class b {
         }
     }
 
-    public boolean D(Context context) {
+    public boolean F(Context context) {
         return (context == null && this.context == null) || this.context.equals(context);
     }
 
     private Bitmap b(String str, @Nullable Bitmap bitmap) {
-        synchronized (Ds) {
-            this.Dv.get(str).setBitmap(bitmap);
+        synchronized (Ea) {
+            this.Ed.get(str).setBitmap(bitmap);
         }
         return bitmap;
     }

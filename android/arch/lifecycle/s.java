@@ -8,111 +8,111 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class s implements j {
-    private static final s za = new s();
+    private static final s zz = new s();
     private Handler mHandler;
-    private int yT = 0;
-    private int yU = 0;
-    private boolean yV = true;
-    private boolean yW = true;
-    private final k yX = new k(this);
-    private Runnable yY = new Runnable() { // from class: android.arch.lifecycle.s.1
+    private int zs = 0;
+    private int zt = 0;
+    private boolean zu = true;
+    private boolean zv = true;
+    private final k zw = new k(this);
+    private Runnable zx = new Runnable() { // from class: android.arch.lifecycle.s.1
         @Override // java.lang.Runnable
         public void run() {
-            s.this.gs();
-            s.this.gt();
+            s.this.hG();
+            s.this.hH();
         }
     };
-    private ReportFragment.a yZ = new ReportFragment.a() { // from class: android.arch.lifecycle.s.2
+    private ReportFragment.a zy = new ReportFragment.a() { // from class: android.arch.lifecycle.s.2
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onCreate() {
         }
 
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onStart() {
-            s.this.go();
+            s.this.hC();
         }
 
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onResume() {
-            s.this.gp();
+            s.this.hD();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        za.C(context);
+        zz.E(context);
     }
 
-    void go() {
-        this.yT++;
-        if (this.yT == 1 && this.yW) {
-            this.yX.b(Lifecycle.Event.ON_START);
-            this.yW = false;
+    void hC() {
+        this.zs++;
+        if (this.zs == 1 && this.zv) {
+            this.zw.b(Lifecycle.Event.ON_START);
+            this.zv = false;
         }
     }
 
-    void gp() {
-        this.yU++;
-        if (this.yU == 1) {
-            if (this.yV) {
-                this.yX.b(Lifecycle.Event.ON_RESUME);
-                this.yV = false;
+    void hD() {
+        this.zt++;
+        if (this.zt == 1) {
+            if (this.zu) {
+                this.zw.b(Lifecycle.Event.ON_RESUME);
+                this.zu = false;
                 return;
             }
-            this.mHandler.removeCallbacks(this.yY);
+            this.mHandler.removeCallbacks(this.zx);
         }
     }
 
-    void gq() {
-        this.yU--;
-        if (this.yU == 0) {
-            this.mHandler.postDelayed(this.yY, 700L);
+    void hE() {
+        this.zt--;
+        if (this.zt == 0) {
+            this.mHandler.postDelayed(this.zx, 700L);
         }
     }
 
-    void gr() {
-        this.yT--;
-        gt();
+    void hF() {
+        this.zs--;
+        hH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gs() {
-        if (this.yU == 0) {
-            this.yV = true;
-            this.yX.b(Lifecycle.Event.ON_PAUSE);
+    public void hG() {
+        if (this.zt == 0) {
+            this.zu = true;
+            this.zw.b(Lifecycle.Event.ON_PAUSE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gt() {
-        if (this.yT == 0 && this.yV) {
-            this.yX.b(Lifecycle.Event.ON_STOP);
-            this.yW = true;
+    public void hH() {
+        if (this.zs == 0 && this.zu) {
+            this.zw.b(Lifecycle.Event.ON_STOP);
+            this.zv = true;
         }
     }
 
     private s() {
     }
 
-    void C(Context context) {
+    void E(Context context) {
         this.mHandler = new Handler();
-        this.yX.b(Lifecycle.Event.ON_CREATE);
+        this.zw.b(Lifecycle.Event.ON_CREATE);
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new d() { // from class: android.arch.lifecycle.s.3
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                ReportFragment.k(activity).d(s.this.yZ);
+                ReportFragment.k(activity).d(s.this.zy);
             }
 
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityPaused(Activity activity) {
-                s.this.gq();
+                s.this.hE();
             }
 
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
-                s.this.gr();
+                s.this.hF();
             }
         });
     }
@@ -120,6 +120,6 @@ public class s implements j {
     @Override // android.arch.lifecycle.j
     @NonNull
     public Lifecycle getLifecycle() {
-        return this.yX;
+        return this.zw;
     }
 }

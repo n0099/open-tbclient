@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.timer;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LiveTimerTask {
     public long duration;
     public long liveId;

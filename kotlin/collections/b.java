@@ -3,12 +3,12 @@ package kotlin.collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State nXQ = State.NotReady;
-    private T nXR;
+    private State orO = State.NotReady;
+    private T orP;
 
-    protected abstract void dTL();
+    protected abstract void efN();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.nXQ != State.Failed) {
-            switch (this.nXQ) {
+        if (this.orO != State.Failed) {
+            switch (this.orO) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dTK();
+                    return efM();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.nXQ = State.NotReady;
-            return this.nXR;
+            this.orO = State.NotReady;
+            return this.orP;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dTK() {
-        this.nXQ = State.Failed;
-        dTL();
-        return this.nXQ == State.Ready;
+    private final boolean efM() {
+        this.orO = State.Failed;
+        efN();
+        return this.orO == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bI(T t) {
-        this.nXR = t;
-        this.nXQ = State.Ready;
+    public final void bK(T t) {
+        this.orP = t;
+        this.orO = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.nXQ = State.Done;
+        this.orO = State.Done;
     }
 }

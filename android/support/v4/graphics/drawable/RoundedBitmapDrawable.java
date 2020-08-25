@@ -16,7 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 @RequiresApi(9)
-/* loaded from: classes4.dex */
+/* loaded from: classes18.dex */
 public abstract class RoundedBitmapDrawable extends Drawable {
     private static final int DEFAULT_PAINT_FLAGS = 3;
     final Bitmap mBitmap;

@@ -9,9 +9,9 @@ import com.baidu.poly.a.f.a;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private com.baidu.poly.a.f.a bzA;
+    private com.baidu.poly.a.f.a bFg;
 
     public a(Context context) {
         File G = G(context, "bitmap");
@@ -19,23 +19,23 @@ public class a {
             G.mkdirs();
         }
         try {
-            this.bzA = com.baidu.poly.a.f.a.a(G, 1, 1, 10485760L);
+            this.bFg = com.baidu.poly.a.f.a.a(G, 1, 1, 10485760L);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void d(String str) {
-        if (this.bzA != null) {
+        if (this.bFg != null) {
             try {
-                a.c gD = this.bzA.gD(com.baidu.poly.a.g.b.g(str));
-                if (gD != null) {
-                    if (d.a(str, gD.dS(0))) {
-                        gD.commit();
+                a.c hX = this.bFg.hX(com.baidu.poly.a.g.b.g(str));
+                if (hX != null) {
+                    if (d.a(str, hX.fO(0))) {
+                        hX.commit();
                     } else {
-                        gD.abort();
+                        hX.abort();
                     }
-                    this.bzA.flush();
+                    this.bFg.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class a {
     }
 
     public Bitmap k(String str, int i, int i2) {
-        if (this.bzA == null) {
+        if (this.bFg == null) {
             return null;
         }
-        a.e gC = this.bzA.gC(com.baidu.poly.a.g.b.g(str));
-        if (gC != null) {
-            FileInputStream fileInputStream = (FileInputStream) gC.dV(0);
+        a.e hW = this.bFg.hW(com.baidu.poly.a.g.b.g(str));
+        if (hW != null) {
+            FileInputStream fileInputStream = (FileInputStream) hW.fR(0);
             if (i > 0 && i2 > 0) {
                 return com.baidu.poly.a.g.a.a(fileInputStream.getFD(), i, i2);
             }

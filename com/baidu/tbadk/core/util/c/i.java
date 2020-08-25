@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.c;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i extends a {
     private int height;
     private int procType;
@@ -23,7 +23,7 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.e.e
-    public boolean lq() {
+    public boolean mP() {
         return true;
     }
 
@@ -43,17 +43,17 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbj() {
+    public boolean bjI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbk() {
+    public boolean bjJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bbl() {
+    public int bjK() {
         return this.procType;
     }
 }

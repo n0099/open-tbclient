@@ -14,9 +14,10 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
+    public static final String CAN_GOODS = "can_goods";
     public static final String CATEGORY_ID = "category_id";
     public static final String CONTENT = "write_content";
     public static final String DISABLE_AUDIO_MESSAGE = "disable_audio_message";
@@ -29,6 +30,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String FORUM_NAME = "forum_name";
     public static final String FROM_ADD_PHOTO_LIVE_IN_MISSON = "from_add_photo_live_in_misson";
     public static final String FROM_FORUM_SHARE = "from_forum_share";
+    public static final String GOODS_LIST = "goods_list";
     public static final String HOT_TOPIC = "hot_topic";
     public static final String HOT_TOPIC_ID = "hot_topic_id";
     public static final String HOT_TOPIC_POST_FORUM = "hot_topic_forum_list";
@@ -97,6 +99,7 @@ public class WriteActivityConfig extends IntentConfig {
         } else {
             getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
+            getIntent().putExtra(CAN_GOODS, antiData.getCanGoods());
         }
         if (antiData != null) {
             getIntent().putExtra(KEY_ANTI_POLL_LEVEL, antiData.getPollLevel());
@@ -133,6 +136,10 @@ public class WriteActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra("forum_first_dir", str);
         intent.putExtra("forum_second_dir", str2);
+    }
+
+    public void setCanGoods(boolean z) {
+        getIntent().putExtra(CAN_GOODS, z);
     }
 
     public void addHotTopicInfo(PostTopicData postTopicData) {
@@ -239,5 +246,11 @@ public class WriteActivityConfig extends IntentConfig {
     public void setIntentActionActivityForwardResult() {
         setIntentAction(IntentAction.Activity);
         getIntent().addFlags(33554432);
+    }
+
+    public void setGoodsList(String str) {
+        if (!StringUtils.isNull(str)) {
+            getIntent().putExtra("goods_list", str);
+        }
     }
 }

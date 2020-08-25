@@ -1,8 +1,8 @@
 package com.baidu.sofire.d;
 
-import com.baidu.sofire.i.d;
+import com.baidu.sofire.i.e;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class a {
     public String a;
     public String b;
@@ -19,7 +19,7 @@ public final class a {
             jSONObject.put("3", aVar.e);
             jSONObject.put("4", aVar.b);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
         return jSONObject.toString();
     }
@@ -35,7 +35,7 @@ public final class a {
             aVar.b = jSONObject.optString("4");
             return aVar;
         } catch (Exception e) {
-            d.a();
+            e.a();
             return null;
         }
     }

@@ -1,30 +1,20 @@
 package com.baidu.b.a;
 
-import android.text.TextUtils;
-/* loaded from: classes8.dex */
+import java.util.Arrays;
+/* loaded from: classes20.dex */
 public class a {
-    private static a akX;
-    private String mAppName;
+    g[] acb = {new h(8, 0), new j(0, 1), new j(1, 1), new h(7, 1)};
 
-    private a() {
-    }
-
-    public static a sN() {
-        if (akX == null) {
-            synchronized (a.class) {
-                if (akX == null) {
-                    akX = new a();
-                }
-            }
+    public byte[] a(byte[] bArr) {
+        f fVar = new f();
+        byte[] a = c.a(bArr, bArr.length + ((this.acb.length + 1) * f.a));
+        c.a(a, fVar.a(), bArr.length);
+        for (int i = 0; i < this.acb.length; i++) {
+            g gVar = this.acb[i];
+            int length = bArr.length + ((i + 1) * f.a);
+            fVar.a(gVar.i(a, 0, length), gVar.a(), gVar.b(), gVar.c());
+            c.a(a, fVar.a(), length);
         }
-        return akX;
-    }
-
-    public void setAppName(String str) {
-        this.mAppName = str;
-    }
-
-    public String getAppName() {
-        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.sO().getAppName();
+        return Arrays.copyOf(fVar.a(), f.a);
     }
 }

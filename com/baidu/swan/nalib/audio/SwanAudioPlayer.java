@@ -10,7 +10,7 @@ import android.os.Message;
 import android.support.annotation.Keep;
 import android.util.SparseArray;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SwanAudioPlayer {
     private static final int DEFAULT_BUFFER_SIZE_IN_FRAMES = 192;
     private static final int DEFAULT_SAMPLE_RATE = 44100;
@@ -159,7 +159,7 @@ public class SwanAudioPlayer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class a extends Handler {
         public a(Looper looper) {
             super(looper);

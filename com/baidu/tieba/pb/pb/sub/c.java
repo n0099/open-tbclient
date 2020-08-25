@@ -2,78 +2,79 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.ab;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.adp.widget.ListView.z;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
-    private BdTypeListView frv;
-    private NewSubPbActivity kCx;
-    private com.baidu.tieba.pb.pb.sub.a.b kDn;
-    private com.baidu.tieba.pb.pb.sub.a.d kDo;
-    private z kDp;
-    private List<com.baidu.adp.widget.ListView.a> aWf = new ArrayList();
-    private View.OnClickListener aMH = null;
-    private boolean hcB = false;
-    private boolean kDq = true;
+    private BdTypeListView fCP;
+    private com.baidu.tieba.pb.pb.sub.a.b kST;
+    private com.baidu.tieba.pb.pb.sub.a.d kSU;
+    private ab kSV;
+    private NewSubPbActivity kSd;
+    private List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
+    private View.OnClickListener aRU = null;
+    private boolean hps = false;
+    private boolean kSW = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.kCx = newSubPbActivity;
-        this.frv = bdTypeListView;
+        this.kSd = newSubPbActivity;
+        this.fCP = bdTypeListView;
     }
 
-    public void DS() {
-        this.kDn = new com.baidu.tieba.pb.pb.sub.a.b(this.kCx, PostData.lNd);
-        this.kDn.z(this.aMH);
-        this.kDn.a(this.kDp);
-        this.kDn.setFromCDN(this.kDq);
-        this.aWf.add(this.kDn);
-        this.kDo = new com.baidu.tieba.pb.pb.sub.a.d(this.kCx, com.baidu.tieba.pb.pb.sub.b.b.kEe);
-        this.aWf.add(this.kDo);
-        this.aWf.add(new com.baidu.tieba.pb.pb.sub.a.c(this.kCx, com.baidu.tieba.pb.pb.sub.b.a.kEd));
-        this.frv.addAdapters(this.aWf);
+    public void Jv() {
+        this.kST = new com.baidu.tieba.pb.pb.sub.a.b(this.kSd, PostData.meN);
+        this.kST.A(this.aRU);
+        this.kST.a(this.kSV);
+        this.kST.setFromCDN(this.kSW);
+        this.bbu.add(this.kST);
+        this.kSU = new com.baidu.tieba.pb.pb.sub.a.d(this.kSd, com.baidu.tieba.pb.pb.sub.b.b.kTL);
+        this.bbu.add(this.kSU);
+        this.bbu.add(new com.baidu.tieba.pb.pb.sub.a.c(this.kSd, com.baidu.tieba.pb.pb.sub.b.a.kTK));
+        this.fCP.addAdapters(this.bbu);
     }
 
-    public void a(bv bvVar, List<q> list) {
-        this.kDn.setThreadData(bvVar);
-        if (this.kCx.cRI().cOD()) {
-            this.kDn.Li(this.kCx.cRI().cNK());
+    public void a(bw bwVar, List<q> list) {
+        this.kST.setThreadData(bwVar);
+        if (!at.isEmpty(this.kSd.dcy().cYA())) {
+            this.kST.Ob(this.kSd.dcy().cYA());
         }
-        this.frv.setData(list);
-        this.frv.getAdapter().notifyDataSetChanged();
+        this.fCP.setData(list);
+        this.fCP.getAdapter().notifyDataSetChanged();
     }
 
-    public boolean aqL() {
-        return this.hcB;
+    public boolean ayX() {
+        return this.hps;
     }
 
     public void setHasMoreData(boolean z) {
-        this.hcB = z;
+        this.hps = z;
     }
 
-    public void z(View.OnClickListener onClickListener) {
-        this.aMH = onClickListener;
+    public void A(View.OnClickListener onClickListener) {
+        this.aRU = onClickListener;
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.kDn.setOnLongClickListener(onLongClickListener);
+        this.kST.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.kDn.setOnImageClickListener(iVar);
+        this.kST.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.kDq = z;
+        this.kSW = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.frv.getAdapter() != null) {
-            this.frv.getAdapter().notifyDataSetChanged();
+        if (this.fCP.getAdapter() != null) {
+            this.fCP.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -2,17 +2,17 @@ package com.baidu.live.im;
 
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h {
-    public long aIQ;
-    public com.baidu.live.im.data.a aVG;
-    public long aVH;
-    public long aVI;
-    public double aVJ;
-    public boolean aVK;
-    public long aVL;
-    public boolean aVM = false;
-    public Set<Long> aVN = new HashSet();
+    public long aOb;
+    public com.baidu.live.im.data.a baV;
+    public long baW;
+    public long baX;
+    public double baY;
+    public boolean baZ;
+    public long bba;
+    public boolean bbb = false;
+    public Set<Long> bbc = new HashSet();
     public long count;
     public String giftId;
     public String giftName;

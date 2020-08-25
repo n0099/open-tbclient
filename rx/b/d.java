@@ -2,14 +2,14 @@ package rx.b;
 
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d<T> implements rx.e<T> {
     private boolean emitting;
-    private final rx.e<? super T> opr;
-    private a ops;
+    private final rx.e<? super T> oJm;
+    private a oJn;
     private volatile boolean terminated;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static final class a {
         Object[] array;
         int size;
@@ -37,7 +37,7 @@ public class d<T> implements rx.e<T> {
     }
 
     public d(rx.e<? super T> eVar) {
-        this.opr = eVar;
+        this.oJm = eVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:60:0x0032, code lost:
@@ -52,37 +52,37 @@ public class d<T> implements rx.e<T> {
             synchronized (this) {
                 if (!this.terminated) {
                     if (this.emitting) {
-                        a aVar = this.ops;
+                        a aVar = this.oJn;
                         if (aVar == null) {
                             aVar = new a();
-                            this.ops = aVar;
+                            this.oJn = aVar;
                         }
                         aVar.add(NotificationLite.next(t));
                         return;
                     }
                     this.emitting = true;
                     try {
-                        this.opr.onNext(t);
+                        this.oJm.onNext(t);
                         while (true) {
                             synchronized (this) {
-                                a aVar2 = this.ops;
+                                a aVar2 = this.oJn;
                                 if (aVar2 == null) {
                                     this.emitting = false;
                                     return;
                                 }
-                                this.ops = null;
+                                this.oJn = null;
                                 Object[] objArr = aVar2.array;
                                 for (Object obj : objArr) {
                                     if (obj != null) {
                                         try {
-                                            if (NotificationLite.a(this.opr, obj)) {
+                                            if (NotificationLite.a(this.oJm, obj)) {
                                                 this.terminated = true;
                                                 return;
                                             }
                                         } catch (Throwable th) {
                                             this.terminated = true;
-                                            rx.exceptions.a.K(th);
-                                            this.opr.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                            rx.exceptions.a.J(th);
+                                            this.oJm.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                             return;
                                         }
                                     }
@@ -91,7 +91,7 @@ public class d<T> implements rx.e<T> {
                         }
                     } catch (Throwable th2) {
                         this.terminated = true;
-                        rx.exceptions.a.a(th2, this.opr, t);
+                        rx.exceptions.a.a(th2, this.oJm, t);
                     }
                 }
             }
@@ -100,22 +100,22 @@ public class d<T> implements rx.e<T> {
 
     @Override // rx.e
     public void onError(Throwable th) {
-        rx.exceptions.a.K(th);
+        rx.exceptions.a.J(th);
         if (!this.terminated) {
             synchronized (this) {
                 if (!this.terminated) {
                     this.terminated = true;
                     if (this.emitting) {
-                        a aVar = this.ops;
+                        a aVar = this.oJn;
                         if (aVar == null) {
                             aVar = new a();
-                            this.ops = aVar;
+                            this.oJn = aVar;
                         }
                         aVar.add(NotificationLite.error(th));
                         return;
                     }
                     this.emitting = true;
-                    this.opr.onError(th);
+                    this.oJm.onError(th);
                 }
             }
         }
@@ -128,16 +128,16 @@ public class d<T> implements rx.e<T> {
                 if (!this.terminated) {
                     this.terminated = true;
                     if (this.emitting) {
-                        a aVar = this.ops;
+                        a aVar = this.oJn;
                         if (aVar == null) {
                             aVar = new a();
-                            this.ops = aVar;
+                            this.oJn = aVar;
                         }
-                        aVar.add(NotificationLite.dXW());
+                        aVar.add(NotificationLite.eka());
                         return;
                     }
                     this.emitting = true;
-                    this.opr.onCompleted();
+                    this.oJm.onCompleted();
                 }
             }
         }

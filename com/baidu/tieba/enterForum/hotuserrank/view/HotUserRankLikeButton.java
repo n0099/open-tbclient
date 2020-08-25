@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.commonBtn.c;
+import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 /* loaded from: classes16.dex */
@@ -26,9 +26,9 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
     @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void r(boolean z, int i) {
         if (z) {
-            c cVar = new c();
-            cVar.mX(R.color.cp_cont_d);
-            setConfig(cVar);
+            b bVar = new b();
+            bVar.pd(R.color.cp_cont_d);
+            setConfig(bVar);
             setClickable(true);
             if (i == 1) {
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -36,9 +36,9 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                 setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
             }
         } else {
-            c cVar2 = new c();
-            cVar2.mV(R.color.cp_link_tip_a);
-            setConfig(cVar2);
+            b bVar2 = new b();
+            bVar2.pb(R.color.cp_link_tip_a);
+            setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
         }

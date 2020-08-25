@@ -24,7 +24,7 @@ import java.util.TimerTask;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class LogSender {
     private static LogSender a = new LogSender();
     private boolean b = false;

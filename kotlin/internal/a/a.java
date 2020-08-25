@@ -1,11 +1,12 @@
 package kotlin.internal.a;
 
 import kotlin.h;
+import kotlin.internal.b;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes11.dex */
-public class a extends kotlin.internal.a {
-    @Override // kotlin.internal.a
+/* loaded from: classes5.dex */
+public class a extends b {
+    @Override // kotlin.internal.b
     public void addSuppressed(Throwable th, Throwable th2) {
         q.m(th, "cause");
         q.m(th2, "exception");

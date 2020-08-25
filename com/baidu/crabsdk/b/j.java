@@ -12,17 +12,17 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] dM = com.baidu.crabsdk.sender.i.dM(str);
-            if (dM == null || dM.length == 0) {
+            byte[] dY = com.baidu.crabsdk.sender.i.dY(str);
+            if (dY == null || dY.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(dM, 0);
+                String encodeToString = Base64.encodeToString(dY, 0);
                 jSONObject = a(str2, str3, str4);
                 jSONObject.put("format", 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
@@ -51,9 +51,9 @@ public final class j {
             jSONObject.put("uid", t.R());
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("isRoot", q.tk());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.ti());
-            jSONObject.put("appLabel", p.tj());
+            jSONObject.put("isRoot", q.N());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.uR());
+            jSONObject.put("appLabel", p.uS());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {

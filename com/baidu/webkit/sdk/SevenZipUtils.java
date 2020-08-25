@@ -9,7 +9,6 @@ import android.os.HandlerThread;
 import android.os.StatFs;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.ReflectUtils;
@@ -29,7 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class SevenZipUtils {
     private static final String ASSETS_NAME_PREFIX = "file:///android_assets";
     private static final int BUF_SIZE = 512;
@@ -271,7 +270,7 @@ public class SevenZipUtils {
             this.mLock = this.mChannel.tryLock();
             return this.mLock != null;
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
             LoadErrorCode.getInstance().trace("504:" + e.toString());
             return false;
         }

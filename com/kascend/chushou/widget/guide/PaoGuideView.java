@@ -22,7 +22,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
     private View d;
     private boolean e;
     private boolean f;
-    private a nIu;
+    private a ocm;
 
     public PaoGuideView(Context context) {
         super(context);
@@ -46,7 +46,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         this.b = null;
         this.e = false;
         this.f = false;
-        this.nIu = null;
+        this.ocm = null;
         this.c = null;
         this.d = null;
     }
@@ -70,10 +70,10 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
             this.c = LayoutInflater.from(context).inflate(a.h.web_guide_view, (ViewGroup) null, false);
         }
         removeAllViews();
-        this.nIu = new a();
+        this.ocm = new a();
         Bundle bundle = new Bundle();
-        bundle.putString("mH5Url", (tv.chushou.common.a.dZK() + "play-help/bang-guide.htm?") + "roomId=" + str);
-        this.nIu.setArguments(bundle);
+        bundle.putString("mH5Url", (tv.chushou.common.a.cvD() + "play-help/bang-guide.htm?") + "roomId=" + str);
+        this.ocm.setArguments(bundle);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -1);
         layoutParams.addRule(11);
         this.d.setOnClickListener(this);
@@ -83,19 +83,19 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         addView(this.d, layoutParams2);
         addView(this.c, layoutParams);
         FragmentTransaction beginTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.guide_fragment, this.nIu);
+        beginTransaction.add(a.f.guide_fragment, this.ocm);
         beginTransaction.commitAllowingStateLoss();
     }
 
     public void c() {
-        if (this.nIu != null && this.nIu.isAdded()) {
-            this.nIu.a();
+        if (this.ocm != null && this.ocm.isAdded()) {
+            this.ocm.a();
         }
     }
 
     public void d() {
         this.e = false;
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0824a.commonres_activity_exit_right);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0882a.commonres_activity_exit_right);
         loadAnimation.setAnimationListener(this);
         if (this.c != null) {
             this.c.startAnimation(loadAnimation);
@@ -108,7 +108,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
     public void e() {
         setVisibility(0);
         this.e = true;
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0824a.commonres_activity_enter_right);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0882a.commonres_activity_enter_right);
         if (this.c != null) {
             this.c.startAnimation(loadAnimation);
             if (this.d != null) {

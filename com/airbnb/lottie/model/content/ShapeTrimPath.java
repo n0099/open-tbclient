@@ -1,15 +1,15 @@
 package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.r;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class ShapeTrimPath implements b {
-    private final Type CG;
-    private final com.airbnb.lottie.model.a.b EF;
-    private final com.airbnb.lottie.model.a.b EN;
-    private final com.airbnb.lottie.model.a.b EO;
+    private final Type Dp;
+    private final com.airbnb.lottie.model.a.b Fk;
+    private final com.airbnb.lottie.model.a.b Fs;
+    private final com.airbnb.lottie.model.a.b Ft;
     private final String name;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes18.dex */
     public enum Type {
         Simultaneously,
         Individually;
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.CG = type;
-        this.EN = bVar;
-        this.EO = bVar2;
-        this.EF = bVar3;
+        this.Dp = type;
+        this.Fs = bVar;
+        this.Ft = bVar2;
+        this.Fk = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type hA() {
-        return this.CG;
+    public Type jb() {
+        return this.Dp;
     }
 
-    public com.airbnb.lottie.model.a.b iQ() {
-        return this.EO;
+    public com.airbnb.lottie.model.a.b kp() {
+        return this.Ft;
     }
 
-    public com.airbnb.lottie.model.a.b iR() {
-        return this.EN;
+    public com.airbnb.lottie.model.a.b kq() {
+        return this.Fs;
     }
 
-    public com.airbnb.lottie.model.a.b iK() {
-        return this.EF;
+    public com.airbnb.lottie.model.a.b kj() {
+        return this.Fk;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.EN + ", end: " + this.EO + ", offset: " + this.EF + "}";
+        return "Trim Path: {start: " + this.Fs + ", end: " + this.Ft + ", offset: " + this.Fk + "}";
     }
 }

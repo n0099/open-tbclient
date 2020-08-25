@@ -1,31 +1,31 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class p {
-    private o mMV = new o();
+    private o nfR = new o();
 
     public final void c(n nVar) {
-        this.mMV.a(nVar);
+        this.nfR.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.mMV.b(nVar);
+        this.nfR.b(nVar);
     }
 
-    public final List<n> dAw() {
-        return this.mMV.dAw();
+    public final List<n> dMj() {
+        return this.nfR.dMj();
     }
 
-    public final void B(String str) {
-        this.mMV.B(str);
+    public final void TP(String str) {
+        this.nfR.TP(str);
     }
 
-    public final void QR(String str) {
-        this.mMV.B(str);
+    public final void D(String str) {
+        this.nfR.TP(str);
     }
 
-    public final boolean QQ(String str) {
-        return this.mMV.QQ(str);
+    public final boolean TQ(String str) {
+        return this.nfR.TQ(str);
     }
 }

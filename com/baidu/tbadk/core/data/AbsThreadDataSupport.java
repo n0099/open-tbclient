@@ -4,8 +4,8 @@ import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
-public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.a.a.c {
+/* loaded from: classes2.dex */
+public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.a.a.d {
     public static final int BIG_IMG = 2;
     public static final int CONTENT = 1;
     public static final int HEAD_IMG = 4;
@@ -17,7 +17,7 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
     private Map<BdUniqueId, com.baidu.tbadk.a.e> mABTestMap = new HashMap();
     public SparseArray<String> feedBackReasonMap = null;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum SupportType {
         FULL,
         TOP,
@@ -26,22 +26,22 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         EXTEND
     }
 
-    public abstract bv aTN();
+    public abstract bw bce();
 
-    public abstract aq aTP();
+    public abstract ar bcg();
 
-    public String aTO() {
-        if (aTN() == null) {
+    public String bcf() {
+        if (bce() == null) {
             return null;
         }
-        return aTN().aTO();
+        return bce().bcf();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.ax.w(aTN());
+        return com.baidu.tbadk.core.util.ay.w(bce());
     }
 
-    public String aTQ() {
+    public String bch() {
         return null;
     }
 
@@ -49,15 +49,15 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         this.mSupportType = supportType;
     }
 
-    public boolean aTR() {
+    public boolean bci() {
         return this.mSupportType == SupportType.TOP;
     }
 
-    public boolean aTS() {
+    public boolean bcj() {
         return this.mSupportType == SupportType.BOTTOM;
     }
 
-    @Override // com.baidu.tbadk.a.a.c
+    @Override // com.baidu.tbadk.a.a.d
     public void a(BdUniqueId bdUniqueId, com.baidu.tbadk.a.e eVar) {
         if (bdUniqueId != null) {
             this.mABTestMap.put(bdUniqueId, eVar);
@@ -71,55 +71,55 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         return this.mABTestMap.get(bdUniqueId);
     }
 
-    public boolean aTT() {
-        bv aTN = aTN();
-        if (aTN == null) {
+    public boolean bck() {
+        bw bce = bce();
+        if (bce == null) {
             return false;
         }
-        return aTN.dUK || aTN.dUM;
+        return bce.eeg || bce.eei;
     }
 
-    public boolean aTU() {
-        bv aTN = aTN();
-        if (aTN == null) {
+    public boolean bcl() {
+        bw bce = bce();
+        if (bce == null) {
             return false;
         }
-        return aTN.dUJ || aTN.dUK || aTN.dUM || aTN.dUL || aTN.dUN;
+        return bce.eef || bce.eeg || bce.eei || bce.eeh || bce.eej;
     }
 
-    public boolean aTV() {
-        bv aTN = aTN();
-        if (aTN == null) {
+    public boolean bcm() {
+        bw bce = bce();
+        if (bce == null) {
             return false;
         }
-        return aTN.aTV();
+        return bce.bcm();
     }
 
-    public boolean aTW() {
-        bv aTN = aTN();
-        if (aTN != null && aTN.dUJ) {
-            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dIg), "11_7_index_c");
+    public boolean bcn() {
+        bw bce = bce();
+        if (bce != null && bce.eef) {
+            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dRn), "11_7_index_c");
         }
         return false;
     }
 
-    public boolean aTX() {
-        bv aTN = aTN();
-        if (aTN != null && aTN.dUJ) {
-            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dIg), "11_7_index_d");
+    public boolean bco() {
+        bw bce = bce();
+        if (bce != null && bce.eef) {
+            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dRn), "11_7_index_d");
         }
         return false;
     }
 
-    public boolean aTY() {
-        bv aTN = aTN();
-        if (aTN == null || aTN.aWl() == null || com.baidu.tbadk.core.util.ax.w(aTN)) {
+    public boolean bcp() {
+        bw bce = bce();
+        if (bce == null || bce.beE() == null || com.baidu.tbadk.core.util.ay.w(bce)) {
             return false;
         }
-        boolean z = aTN.aYf() || aTN.aUT() || aTN.aUU();
-        if (aTN.dUJ && z) {
+        boolean z = bce.bgy() || bce.bdm() || bce.bdn();
+        if (bce.eef && z) {
             return true;
         }
-        return aTN.dUL && z && !aTN.aWl().hadConcerned();
+        return bce.eeh && z && !bce.beE().hadConcerned();
     }
 }

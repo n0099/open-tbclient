@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.skin.NightModeHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class WheelView2d extends BdGallery {
     private static final int[] SHADOWS_COLORS = {-1, -1140850689, 16777215};
     private static final int[] SHADOWS_COLORS_NIGHT = {-15132391, -1155983079, 1644825};

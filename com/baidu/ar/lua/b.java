@@ -11,17 +11,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.ar.arplay.b.a {
-    private boolean aH;
-    private List<WeakReference<c>> rY;
-    private d rZ;
+    private boolean aI;
+    private d hQ;
+    private List<WeakReference<c>> sE;
 
     public b(Context context) {
         super(context);
-        this.rY = Collections.synchronizedList(new ArrayList());
-        this.aH = false;
-        bc();
-        this.rZ = new d();
-        c(this.rZ);
+        this.sE = Collections.synchronizedList(new ArrayList());
+        this.aI = false;
+        bk();
+        this.hQ = new d();
+        c(this.hQ);
     }
 
     private synchronized boolean b(int i, int i2, HashMap<String, Object> hashMap) {
@@ -56,16 +56,16 @@ public class b extends com.baidu.ar.arplay.b.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
-        com.baidu.ar.f.b.c("EngineMsgBridge", "addEngineMsgListener engineMsgListener = " + r5.hashCode());
-        r0 = r4.rY.add(new java.lang.ref.WeakReference<>(r5));
+        com.baidu.ar.g.b.c("EngineMsgBridge", "addEngineMsgListener engineMsgListener = " + r5.hashCode());
+        r0 = r4.sE.add(new java.lang.ref.WeakReference<>(r5));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean c(c cVar) {
         boolean add;
-        if (this.rY != null) {
-            Iterator<WeakReference<c>> it = this.rY.iterator();
+        if (this.sE != null) {
+            Iterator<WeakReference<c>> it = this.sE.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -83,8 +83,8 @@ public class b extends com.baidu.ar.arplay.b.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
-        com.baidu.ar.f.b.c("EngineMsgBridge", "removeEngineMsgListener engineMsgListener = " + r5.hashCode());
-        r1 = r4.rY.remove(r0);
+        com.baidu.ar.g.b.c("EngineMsgBridge", "removeEngineMsgListener engineMsgListener = " + r5.hashCode());
+        r1 = r4.sE.remove(r0);
         r0.clear();
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0054, code lost:
@@ -95,8 +95,8 @@ public class b extends com.baidu.ar.arplay.b.a {
     */
     public synchronized boolean d(c cVar) {
         boolean z;
-        if (this.rY != null) {
-            Iterator<WeakReference<c>> it = this.rY.iterator();
+        if (this.sE != null) {
+            Iterator<WeakReference<c>> it = this.sE.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -113,36 +113,36 @@ public class b extends com.baidu.ar.arplay.b.a {
         return z;
     }
 
-    public d dZ() {
-        return this.rZ;
-    }
-
     public synchronized void destroy() {
-        if (this.rZ != null) {
-            this.rZ.destroy();
-            this.rZ = null;
+        if (this.hQ != null) {
+            this.hQ.destroy();
+            this.hQ = null;
         }
-        if (this.rY != null) {
-            for (WeakReference<c> weakReference : this.rY) {
+        if (this.sE != null) {
+            for (WeakReference<c> weakReference : this.sE) {
                 weakReference.clear();
             }
-            this.rY.clear();
-            this.rY = null;
+            this.sE.clear();
+            this.sE = null;
         }
+    }
+
+    public d fl() {
+        return this.hQ;
     }
 
     @Override // com.baidu.ar.arplay.b.a, com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
     public synchronized void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
         c cVar;
-        com.baidu.ar.f.b.c("EngineMsgBridge", "handleMessage aMessageType = " + i + " && aMessageID = " + i2);
-        if (this.aH && b(i, i2, hashMap)) {
+        com.baidu.ar.g.b.c("EngineMsgBridge", "handleMessage aMessageType = " + i + " && aMessageID = " + i2);
+        if (this.aI && b(i, i2, hashMap)) {
             i = ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE;
         } else {
             super.handleMessage(i, i2, hashMap);
         }
-        if (this.rY != null) {
-            for (int i3 = 0; i3 < this.rY.size(); i3++) {
-                WeakReference<c> weakReference = this.rY.get(i3);
+        if (this.sE != null) {
+            for (int i3 = 0; i3 < this.sE.size(); i3++) {
+                WeakReference<c> weakReference = this.sE.get(i3);
                 if (weakReference != null && (cVar = weakReference.get()) != null && cVar.n() != null) {
                     for (Integer num : cVar.n()) {
                         if (i == num.intValue()) {
@@ -155,6 +155,6 @@ public class b extends com.baidu.ar.arplay.b.a {
     }
 
     public void setUserPlayAudio(boolean z) {
-        this.aH = z;
+        this.aI = z;
     }
 }

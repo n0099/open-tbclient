@@ -1,84 +1,85 @@
 package com.baidu.tieba.imMessageCenter.mention.base;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.aa;
+import com.baidu.adp.widget.ListView.ab;
+import com.baidu.adp.widget.ListView.ac;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.adp.widget.ListView.z;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.aa;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class e {
-    private BdTypeRecyclerView VT;
-    private List<com.baidu.adp.widget.ListView.a> aWf = new LinkedList();
-    private ArrayList<q> hfz;
-    private b jrA;
-    private b jrB;
-    private b jrC;
-    private b jrD;
-    private b jrE;
+    private BdTypeRecyclerView Wu;
+    private List<com.baidu.adp.widget.ListView.a> bbu = new LinkedList();
+    private ArrayList<q> hss;
+    private b jGA;
+    private b jGB;
+    private b jGC;
+    private b jGy;
+    private b jGz;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.VT = bdTypeRecyclerView;
+            this.Wu = bdTypeRecyclerView;
             x(tbPageContext);
         }
     }
 
     private void x(TbPageContext tbPageContext) {
-        this.jrA = new b(tbPageContext, a.jrj);
-        this.jrB = new b(tbPageContext, a.jrk);
-        this.jrC = new b(tbPageContext, a.jrn);
-        this.jrD = new b(tbPageContext, a.jrm);
-        this.jrE = new b(tbPageContext, a.jrl);
-        this.aWf.add(this.jrA);
-        this.aWf.add(this.jrB);
-        this.aWf.add(this.jrC);
-        this.aWf.add(this.jrD);
-        this.aWf.add(this.jrE);
-        this.VT.addAdapters(this.aWf);
+        this.jGy = new b(tbPageContext, a.jGh);
+        this.jGz = new b(tbPageContext, a.jGi);
+        this.jGA = new b(tbPageContext, a.jGl);
+        this.jGB = new b(tbPageContext, a.jGk);
+        this.jGC = new b(tbPageContext, a.jGj);
+        this.bbu.add(this.jGy);
+        this.bbu.add(this.jGz);
+        this.bbu.add(this.jGA);
+        this.bbu.add(this.jGB);
+        this.bbu.add(this.jGC);
+        this.Wu.addAdapters(this.bbu);
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aWf) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
         }
     }
 
     public void setData(ArrayList<q> arrayList) {
-        this.VT.setData(arrayList);
-        this.hfz = arrayList;
+        this.Wu.setData(arrayList);
+        this.hss = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.VT.getAdapter().notifyDataSetChanged();
+        this.Wu.getAdapter().notifyDataSetChanged();
     }
 
-    public void zF(int i) {
-        if (this.VT != null) {
-            this.VT.removeItem(i);
+    public void BY(int i) {
+        if (this.Wu != null) {
+            this.Wu.removeItem(i);
         }
     }
 
-    public void e(z zVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aWf) {
+    public void e(ab abVar) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
             if (aVar != null) {
-                aVar.a(zVar);
+                aVar.a(abVar);
             }
         }
     }
 
-    public void a(aa aaVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aWf) {
+    public void a(ac acVar) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
             if (aVar != null) {
-                aVar.a(aaVar);
+                aVar.a(acVar);
             }
         }
     }
 
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa aaVar) {
-        this.jrE.setOnCardSubClickListener(aaVar);
-        this.jrD.setOnCardSubClickListener(aaVar);
-        this.jrC.setOnCardSubClickListener(aaVar);
+    public void setOnCardSubClickListener(aa aaVar) {
+        this.jGC.setOnCardSubClickListener(aaVar);
+        this.jGB.setOnCardSubClickListener(aaVar);
+        this.jGA.setOnCardSubClickListener(aaVar);
     }
 }

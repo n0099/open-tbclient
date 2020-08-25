@@ -12,7 +12,7 @@ import com.baidu.swan.bdprivate.extensions.a.h;
 import com.baidu.swan.bdprivate.extensions.a.i;
 import com.baidu.swan.facade.a.c;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class a implements c {
     @Override // com.baidu.swan.facade.a.d
     public void a(j jVar) {
@@ -20,7 +20,7 @@ public class a implements c {
         jVar.a(new g(jVar));
         jVar.a(new com.baidu.swan.bdprivate.extensions.g.a.c(jVar));
         jVar.a(new com.baidu.swan.bdprivate.extensions.g.a.b(jVar));
-        jVar.a(new com.baidu.swan.bdprivate.extensions.c.a(jVar));
+        jVar.a(new com.baidu.swan.bdprivate.extensions.c.b(jVar));
         jVar.a(new com.baidu.swan.apps.adlanding.a(jVar));
         jVar.a(new com.baidu.swan.bdprivate.extensions.e.c(jVar));
         jVar.a(new i(jVar));

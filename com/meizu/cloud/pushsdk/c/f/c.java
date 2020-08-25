@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class c {
     private static int a = 0;
 

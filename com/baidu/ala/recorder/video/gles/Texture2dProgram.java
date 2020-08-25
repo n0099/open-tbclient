@@ -1,13 +1,13 @@
 package com.baidu.ala.recorder.video.gles;
 
+import android.annotation.TargetApi;
 import android.opengl.GLES20;
 import android.util.Log;
-import com.baidu.ala.helper.AlaLiveShaderUtil;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.LinkedList;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public class Texture2dProgram {
     private static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
@@ -15,17 +15,18 @@ public class Texture2dProgram {
     private static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
     private static final String FRAGMENT_SHADER_EXT_BW = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n";
     private static final String FRAGMENT_SHADER_EXT_FILT = "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n";
+    private static final String FRAGMENT_SHADER_MAGIC2_FILTER = "#extension GL_OES_EGL_image_external : require\nprecision lowp float;\nprecision lowp int;\nprecision lowp sampler2D;\nprecision lowp samplerCube;\nuniform samplerExternalOES sTexture;\nuniform vec2 singleStepOffset;\nuniform vec4 params;\nuniform ivec2 level;\n\nvarying  vec2 vTextureCoord;\n\nconst lowp vec3 W = vec3(0.299,0.587,0.114);\nconst mat3 saturateMatrix = mat3(\n1.1102,-0.0598,-0.061,\n-0.0774,1.0826,-0.1186,\n-0.0228,-0.0228,1.1772);\n\nfloat hardlight(float color)\n{\n  if(color <= 0.5)\n  {\n\t\tcolor = color * color * 2.0;\n\t}\n\telse\n\t{\n\t\tcolor = 1.0 - ((1.0 - color)*(1.0 - color) * 2.0);\n\t}\n\treturn color;\n}\n\nvoid main(){\n    vec3 centralColor = texture2D(sTexture, vTextureCoord).rgb;\n    float sampleColor;\n    vec2 blurCoordinates[24];\n    if (params.x==0.0) {\n        gl_FragColor = vec4(centralColor.rgb,1.0);\n    } else {\n        if (level.x==0) {\n        blurCoordinates[0] = vTextureCoord.xy + singleStepOffset * vec2(0.0, -10.0);\n        blurCoordinates[1] = vTextureCoord.xy + singleStepOffset * vec2(0.0, 10.0);\n        blurCoordinates[2] = vTextureCoord.xy + singleStepOffset * vec2(-10.0, 0.0);\n        blurCoordinates[3] = vTextureCoord.xy + singleStepOffset * vec2(10.0, 0.0);\n\n        blurCoordinates[4] = vTextureCoord.xy + singleStepOffset * vec2(5.0, -8.0);\n        blurCoordinates[5] = vTextureCoord.xy + singleStepOffset * vec2(5.0, 8.0);\n        blurCoordinates[6] = vTextureCoord.xy + singleStepOffset * vec2(-5.0, 8.0);\n        blurCoordinates[7] = vTextureCoord.xy + singleStepOffset * vec2(-5.0, -8.0);\n\n        blurCoordinates[8] = vTextureCoord.xy + singleStepOffset * vec2(8.0, -5.0);\n        blurCoordinates[9] = vTextureCoord.xy + singleStepOffset * vec2(8.0, 5.0);\n        blurCoordinates[10] = vTextureCoord.xy + singleStepOffset * vec2(-8.0, 5.0);\n        blurCoordinates[11] = vTextureCoord.xy + singleStepOffset * vec2(-8.0, -5.0);\n\n        blurCoordinates[12] = vTextureCoord.xy + singleStepOffset * vec2(0.0, -6.0);\n        blurCoordinates[13] = vTextureCoord.xy + singleStepOffset * vec2(0.0, 6.0);\n        blurCoordinates[14] = vTextureCoord.xy + singleStepOffset * vec2(6.0, 0.0);\n        blurCoordinates[15] = vTextureCoord.xy + singleStepOffset * vec2(-6.0, 0.0);\n\n        blurCoordinates[16] = vTextureCoord.xy + singleStepOffset * vec2(-4.0, -4.0);\n        blurCoordinates[17] = vTextureCoord.xy + singleStepOffset * vec2(-4.0, 4.0);\n        blurCoordinates[18] = vTextureCoord.xy + singleStepOffset * vec2(4.0, -4.0);\n        blurCoordinates[19] = vTextureCoord.xy + singleStepOffset * vec2(4.0, 4.0);\n\n        blurCoordinates[20] = vTextureCoord.xy + singleStepOffset * vec2(-2.0, -2.0);\n        blurCoordinates[21] = vTextureCoord.xy + singleStepOffset * vec2(-2.0, 2.0);\n        blurCoordinates[22] = vTextureCoord.xy + singleStepOffset * vec2(2.0, -2.0);\n        blurCoordinates[23] = vTextureCoord.xy + singleStepOffset * vec2(2.0, 2.0);\n\n\n        sampleColor = texture2D(sTexture, vTextureCoord).g * 22.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[0]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[1]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[2]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[3]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[4]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[5]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[6]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[7]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[8]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[9]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[10]).g;\n        sampleColor += texture2D(sTexture, blurCoordinates[11]).g;\n\n        sampleColor += texture2D(sTexture, blurCoordinates[12]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[13]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[14]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[15]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[16]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[17]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[18]).g * 2.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[19]).g * 2.0;\n\n        sampleColor += texture2D(sTexture, blurCoordinates[20]).g * 3.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[21]).g * 3.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[22]).g * 3.0;\n        sampleColor += texture2D(sTexture, blurCoordinates[23]).g * 3.0;\n\n        sampleColor = sampleColor / 62.0;\n        } else if ( level.x == 1 )\n        {\n \tblurCoordinates[0] = vTextureCoord.xy + singleStepOffset * vec2( 5.0, -8.0 );\n \tblurCoordinates[1] = vTextureCoord.xy + singleStepOffset * vec2( 5.0, 8.0 );\n \tblurCoordinates[2] = vTextureCoord.xy + singleStepOffset * vec2( -5.0, 8.0 );\n \tblurCoordinates[3] = vTextureCoord.xy + singleStepOffset * vec2( -5.0, -8.0 );\n \tblurCoordinates[4] = vTextureCoord.xy + singleStepOffset * vec2( 8.0, -5.0 );\n \tblurCoordinates[5] = vTextureCoord.xy + singleStepOffset * vec2( 8.0, 5.0 );\n \tblurCoordinates[6] = vTextureCoord.xy + singleStepOffset * vec2( -8.0, 5.0 );\n \tblurCoordinates[7] = vTextureCoord.xy + singleStepOffset * vec2( -8.0, -5.0 );\n \tblurCoordinates[8] = vTextureCoord.xy + singleStepOffset * vec2( -4.0, -4.0 );\n \tblurCoordinates[9] = vTextureCoord.xy + singleStepOffset * vec2( -4.0, 4.0 );\n \tblurCoordinates[10] = vTextureCoord.xy + singleStepOffset * vec2( 4.0, -4.0 );\n \tblurCoordinates[11] = vTextureCoord.xy + singleStepOffset * vec2( 4.0, 4.0 );\n \tsampleColor\t= texture2D( sTexture, vTextureCoord ).g * 22.0;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[0] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[1] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[2] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[3] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[4] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[5] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[6] ).g;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[7] ).g;\n\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[8] ).g * 2.0;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[9] ).g * 2.0;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[10] ).g * 2.0;\n \tsampleColor\t+= texture2D( sTexture, blurCoordinates[11] ).g * 2.0;\n\n         \tsampleColor\t= sampleColor / 38.0;\n\n        } else if ( level.x == 2 ) {\n         \tblurCoordinates[8] = vTextureCoord.xy + singleStepOffset * vec2( -4.0, -4.0 );\n         \tblurCoordinates[9] = vTextureCoord.xy + singleStepOffset * vec2( -4.0, 4.0 );\n         \tblurCoordinates[10] = vTextureCoord.xy + singleStepOffset * vec2( 4.0, -4.0 );\n         \tblurCoordinates[11] = vTextureCoord.xy + singleStepOffset * vec2( 4.0, 4.0 );\n            sampleColor\t= texture2D( sTexture, vTextureCoord ).g * 12.0;\n         \tsampleColor\t+= texture2D( sTexture, blurCoordinates[8] ).g * 2.0;\n         \tsampleColor\t+= texture2D( sTexture, blurCoordinates[9] ).g * 2.0;\n         \tsampleColor\t+= texture2D( sTexture, blurCoordinates[10] ).g * 2.0;\n         \tsampleColor\t+= texture2D( sTexture, blurCoordinates[11] ).g * 2.0;\n         \tsampleColor\t= sampleColor / 20.0;\n        } else {\n            sampleColor\t=  centralColor.g;\n        }\n\n    \tfloat highpass = centralColor.g - sampleColor + 0.5;\n\n        for(int i = 0; i < 5 ;i++)\n        {\n            highpass = hardlight(highpass);\n        }\n        float lumance = dot(centralColor, W);\n\n        float alpha = pow(lumance, params.r);\n\n        vec3 smoothColor = centralColor + (centralColor-vec3(highpass))*alpha*0.1;\n\n        smoothColor.r = clamp(pow(smoothColor.r, params.g),0.0,1.0);\n        smoothColor.g = clamp(pow(smoothColor.g, params.g),0.0,1.0);\n        smoothColor.b = clamp(pow(smoothColor.b, params.g),0.0,1.0);\n\n        vec3 lvse = vec3(1.0)-(vec3(1.0)-smoothColor)*(vec3(1.0)-centralColor);\n        vec3 bianliang = max(smoothColor, centralColor);\n        vec3 rouguang = 2.0*centralColor*smoothColor +  centralColor*centralColor - 2.0*centralColor*centralColor*smoothColor;\n\n        gl_FragColor = vec4(mix(centralColor, lvse, alpha), 1.0);\n        gl_FragColor.rgb = mix(gl_FragColor.rgb, bianliang, alpha);\n        gl_FragColor.rgb = mix(gl_FragColor.rgb, rouguang, params.b);\n\n        vec3 satcolor = gl_FragColor.rgb * saturateMatrix;\n        gl_FragColor.rgb = mix(gl_FragColor.rgb, satcolor, params.a);\n    }\n}";
     public static final int KERNEL_SIZE = 9;
     private static final String TAG = "Grafika";
     private static final String VERTEX_SHADER = "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
     private static final String VERTEX_SHADER_STICKER = "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nuniform mat4 uTexMatrix2;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nattribute vec4 aTextureCoord2;varying vec2 vTextureCoord2;void main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n    vTextureCoord2 = (uTexMatrix2 * aTextureCoord2).xy;\n}\n";
     int height;
     private float mColorAdjust;
-    private int mParamsLocation2;
-    private int mPowerLevelId;
+    private int mMagic2LevelLocation;
+    private int mMagic2ParamsLocation;
+    private int mMagic2StepLocation;
     private int mProgramHandle;
     private ProgramType mProgramType;
-    private int mSingleStepOffsetLocation;
     private Sticker mSticker;
     private int mStickerEnableLoc;
     private float[] mTexOffset;
@@ -48,8 +49,7 @@ public class Texture2dProgram {
     private int mInputWidth = 480;
     private int mInputHeight = 368;
     private float[] mKernel = new float[9];
-    private int mParamsLocation = -1;
-    private int mPowerLevel = 0;
+    private int mMagic2PowerLevel = 0;
     private final LinkedList<Runnable> mRunOnDraw = new LinkedList<>();
 
     /* loaded from: classes7.dex */
@@ -69,15 +69,15 @@ public class Texture2dProgram {
     public void setInputWH(int i, int i2) {
         this.mInputWidth = i;
         this.mInputHeight = i2;
-        setFloatVec2(this.mSingleStepOffsetLocation, new float[]{2.0f / this.mInputWidth, 2.0f / this.mInputHeight});
+        setFloatVec2(this.mMagic2StepLocation, new float[]{2.0f / this.mInputWidth, 2.0f / this.mInputHeight});
     }
 
     public Texture2dProgram(ProgramType programType) {
         this.textureLocation2 = 0;
         this.textureLocation = 0;
-        this.mSingleStepOffsetLocation = -1;
-        this.mParamsLocation2 = -1;
-        this.mPowerLevelId = -1;
+        this.mMagic2StepLocation = -1;
+        this.mMagic2ParamsLocation = -1;
+        this.mMagic2LevelLocation = -1;
         this.mProgramType = programType;
         switch (programType) {
             case TEXTURE_2D:
@@ -102,14 +102,7 @@ public class Texture2dProgram {
                 break;
             case TEXTURE_EXT_MAGIC_2:
                 this.mTextureTarget = 36197;
-                this.mProgramHandle = GlUtil.createProgram(AlaLiveShaderUtil.getStringFromAssert("shader/default_vertex_2.glsl"), AlaLiveShaderUtil.getStringFromAssert("shader/beautify_fragment_adaptive.glsl"));
-                this.mParamsLocation2 = GLES20.glGetUniformLocation(this.mProgramHandle, "params");
-                GlUtil.checkLocation(this.mParamsLocation2, "params");
-                this.mSingleStepOffsetLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "singleStepOffset");
-                GlUtil.checkLocation(this.mSingleStepOffsetLocation, "singleStepOffset");
-                this.mPowerLevelId = GLES20.glGetUniformLocation(this.mProgramHandle, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
-                setPowerLevel(1);
-                setBeautyLevel(1);
+                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_MAGIC2_FILTER);
                 break;
             default:
                 throw new RuntimeException("Unhandled type " + programType);
@@ -127,6 +120,16 @@ public class Texture2dProgram {
             this.maTextureCoordLoc2 = GLES20.glGetAttribLocation(this.mProgramHandle, "aTextureCoord2");
             this.textureLocation2 = GLES20.glGetUniformLocation(this.mProgramHandle, "sTexture2");
             GlUtil.checkLocation(this.maTextureCoordLoc2, "aTextureCoord2");
+        }
+        if (programType == ProgramType.TEXTURE_EXT_MAGIC_2) {
+            this.mMagic2ParamsLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "params");
+            GlUtil.checkLocation(this.mMagic2ParamsLocation, "params");
+            this.mMagic2StepLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "singleStepOffset");
+            GlUtil.checkLocation(this.mMagic2StepLocation, "singleStepOffset");
+            this.mMagic2LevelLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "level");
+            GlUtil.checkLocation(this.mMagic2StepLocation, "level");
+            setPowerLevel(1);
+            setBeautyLevel(1);
         }
         GlUtil.checkLocation(this.maTextureCoordLoc, "aTextureCoord");
         this.muMVPMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uMVPMatrix");
@@ -201,63 +204,31 @@ public class Texture2dProgram {
         this.mRunOnDraw.add(runnable);
     }
 
-    public int getPowerLevel() {
-        return this.mPowerLevel;
-    }
-
     public void setPowerLevel(int i) {
-        this.mPowerLevel = i;
-    }
-
-    public void onLowFps(int i) {
-        if (this.mPowerLevel < 2) {
-            this.mPowerLevel++;
-        }
-        Log.i("fps=", "onLowFps=" + this.mPowerLevel);
-        setIntVec2(this.mPowerLevelId, new int[]{this.mPowerLevel, 0});
+        this.mMagic2PowerLevel = i;
     }
 
     public void setBeautyLevel(int i) {
-        setFloatVec2(this.mSingleStepOffsetLocation, new float[]{2.0f / this.mInputWidth, 2.0f / this.mInputHeight});
-        setIntVec2(this.mPowerLevelId, new int[]{this.mPowerLevel, 0});
+        setFloatVec2(this.mMagic2StepLocation, new float[]{2.0f / this.mInputWidth, 2.0f / this.mInputHeight});
+        setIntVec2(this.mMagic2LevelLocation, new int[]{this.mMagic2PowerLevel, 0});
         switch (i) {
             case 0:
-                setFloat(this.mParamsLocation, 0.0f);
-                break;
-            case 1:
-                setFloat(this.mParamsLocation, 1.0f);
-                break;
-            case 2:
-                setFloat(this.mParamsLocation, 0.8f);
-                break;
-            case 3:
-                setFloat(this.mParamsLocation, 0.6f);
-                break;
-            case 4:
-                setFloat(this.mParamsLocation, 0.4f);
-                break;
-            case 5:
-                setFloat(this.mParamsLocation, 0.33f);
-                break;
-        }
-        switch (i) {
-            case 0:
-                setFloatVec4(this.mParamsLocation2, new float[]{0.0f, 0.0f, 0.0f, 0.0f});
+                setFloatVec4(this.mMagic2ParamsLocation, new float[]{0.0f, 0.0f, 0.0f, 0.0f});
                 return;
             case 1:
-                setFloatVec4(this.mParamsLocation2, new float[]{1.0f, 1.0f, 0.15f, 0.15f});
+                setFloatVec4(this.mMagic2ParamsLocation, new float[]{1.0f, 1.0f, 0.15f, 0.15f});
                 return;
             case 2:
-                setFloatVec4(this.mParamsLocation2, new float[]{0.8f, 0.9f, 0.2f, 0.2f});
+                setFloatVec4(this.mMagic2ParamsLocation, new float[]{0.8f, 0.9f, 0.2f, 0.2f});
                 return;
             case 3:
-                setFloatVec4(this.mParamsLocation2, new float[]{0.6f, 0.8f, 0.25f, 0.25f});
+                setFloatVec4(this.mMagic2ParamsLocation, new float[]{0.6f, 0.8f, 0.25f, 0.25f});
                 return;
             case 4:
-                setFloatVec4(this.mParamsLocation2, new float[]{0.4f, 0.7f, 0.38f, 0.3f});
+                setFloatVec4(this.mMagic2ParamsLocation, new float[]{0.4f, 0.7f, 0.38f, 0.3f});
                 return;
             case 5:
-                setFloatVec4(this.mParamsLocation2, new float[]{0.33f, 0.63f, 0.4f, 0.35f});
+                setFloatVec4(this.mMagic2ParamsLocation, new float[]{0.33f, 0.63f, 0.4f, 0.35f});
                 return;
             default:
                 return;
@@ -276,36 +247,6 @@ public class Texture2dProgram {
 
     public ProgramType getProgramType() {
         return this.mProgramType;
-    }
-
-    public static int createTextureObject(int i) {
-        int[] iArr = new int[1];
-        GLES20.glGenTextures(1, iArr, 0);
-        GlUtil.checkGlError("glGenTextures");
-        int i2 = iArr[0];
-        GLES20.glBindTexture(i, i2);
-        GlUtil.checkGlError("glBindTexture " + i2);
-        GLES20.glTexParameterf(36197, 10241, 9729.0f);
-        GLES20.glTexParameterf(36197, 10240, 9729.0f);
-        GLES20.glTexParameteri(36197, 10242, 33071);
-        GLES20.glTexParameteri(36197, 10243, 33071);
-        GlUtil.checkGlError("glTexParameter");
-        return i2;
-    }
-
-    public int createTextureObject() {
-        int[] iArr = new int[1];
-        GLES20.glGenTextures(1, iArr, 0);
-        GlUtil.checkGlError("glGenTextures");
-        int i = iArr[0];
-        GLES20.glBindTexture(this.mTextureTarget, i);
-        GlUtil.checkGlError("glBindTexture " + i);
-        GLES20.glTexParameterf(36197, 10241, 9729.0f);
-        GLES20.glTexParameterf(36197, 10240, 9729.0f);
-        GLES20.glTexParameteri(36197, 10242, 33071);
-        GLES20.glTexParameteri(36197, 10243, 33071);
-        GlUtil.checkGlError("glTexParameter");
-        return i;
     }
 
     public void setKernel(float[] fArr, float f) {

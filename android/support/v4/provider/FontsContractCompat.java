@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class FontsContractCompat {
     private static final int BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS = 10000;
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -72,7 +72,7 @@ public class FontsContractCompat {
         }
     };
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static final class Columns implements BaseColumns {
         public static final String FILE_ID = "file_id";
         public static final String ITALIC = "font_italic";
@@ -105,7 +105,7 @@ public class FontsContractCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static final class TypefaceResult {
         final int mResult;
         final Typeface mTypeface;
@@ -212,7 +212,7 @@ public class FontsContractCompat {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class FontInfo {
         private final boolean mItalic;
         private final int mResultCode;
@@ -253,7 +253,7 @@ public class FontsContractCompat {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class FontFamilyResult {
         public static final int STATUS_OK = 0;
         public static final int STATUS_UNEXPECTED_DATA_PROVIDED = 2;
@@ -263,7 +263,7 @@ public class FontsContractCompat {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes18.dex */
+        /* loaded from: classes3.dex */
         @interface FontResultStatus {
         }
 
@@ -282,7 +282,7 @@ public class FontsContractCompat {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class FontRequestCallback {
         public static final int FAIL_REASON_FONT_LOAD_ERROR = -3;
         public static final int FAIL_REASON_FONT_NOT_FOUND = 1;
@@ -296,7 +296,7 @@ public class FontsContractCompat {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes18.dex */
+        /* loaded from: classes3.dex */
         public @interface FontRequestFailReason {
         }
 

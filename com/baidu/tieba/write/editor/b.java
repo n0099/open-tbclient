@@ -2,80 +2,82 @@ package com.baidu.tieba.write.editor;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.lib.util.l;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c.e;
 /* loaded from: classes3.dex */
-public class b extends l {
+public class b extends m {
     private Context context;
 
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.eAT = false;
+        this.eLs = false;
         this.context = context;
-        this.eAS = 3;
-        this.ezZ = new EditorInfoContainer(context, str);
-        this.eAU = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.eLr = 3;
+        this.eKx = new EditorInfoContainer(context, str);
+        this.eLt = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void cVE() {
+    public void dgB() {
         BaseActivity baseActivity = (BaseActivity) this.context;
-        e eVar = new e(baseActivity.getPageContext(), (View) this.ezZ);
-        eVar.cS(R.drawable.bg_tip_blue_left_less_than_right_down);
-        eVar.cR(16);
-        eVar.mP(true);
-        eVar.tn(2);
+        e eVar = new e(baseActivity.getPageContext(), (View) this.eKx);
+        eVar.eL(R.drawable.bg_tip_blue_left_less_than_right_down);
+        eVar.eK(16);
+        eVar.ns(true);
+        eVar.setAnchor(2);
         eVar.setUseDirectOffset(true);
-        eVar.tr(com.baidu.adp.lib.util.l.getDimens(baseActivity, R.dimen.ds32));
-        eVar.to(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
-        eVar.tp(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
-        eVar.cT((int) 3000);
-        eVar.mO(false);
-        if (eVar.z(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
-            ((EditorInfoContainer) this.ezZ).fN(3000L);
+        eVar.vF(l.getDimens(baseActivity, R.dimen.ds32));
+        eVar.vC(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
+        eVar.vD(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
+        eVar.eM((int) IMConnection.RETRY_DELAY_TIMES);
+        eVar.nr(false);
+        if (eVar.y(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
+            ((EditorInfoContainer) this.eKx).fZ(IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     public void setFrom(String str) {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).setFrom(str);
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).setFrom(str);
         }
     }
 
-    public void bH(String str, int i) {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).bH(str, i);
+    public void bM(String str, int i) {
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).bM(str, i);
         }
     }
 
-    public void wr(boolean z) {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).wr(z);
+    public void xg(boolean z) {
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).xg(z);
         }
     }
 
-    public void bVC() {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).bVC();
+    public void cfP() {
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).cfP();
         }
     }
 
-    public void duO() {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).duO();
+    public void dGk() {
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).dGk();
         }
     }
 
-    public void duQ() {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).hide();
+    public void dGm() {
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).hide();
         }
     }
 
-    public void ws(boolean z) {
-        if (this.ezZ instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ezZ).ws(z);
+    public void xh(boolean z) {
+        if (this.eKx instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKx).xh(z);
         }
     }
 }

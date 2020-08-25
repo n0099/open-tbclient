@@ -1,5 +1,5 @@
 package com.baidu.live;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    void vg();
+    void AE();
 }

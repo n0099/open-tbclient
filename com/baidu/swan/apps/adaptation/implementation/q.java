@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
-import com.baidu.swan.apps.adaptation.a.ah;
-/* loaded from: classes7.dex */
-public class q implements ah {
-    @Override // com.baidu.swan.apps.adaptation.a.ah
-    public void TS() {
+import com.baidu.swan.apps.adaptation.a.ai;
+/* loaded from: classes8.dex */
+public class q implements ai {
+    @Override // com.baidu.swan.apps.adaptation.a.ai
+    public void ZN() {
     }
 }

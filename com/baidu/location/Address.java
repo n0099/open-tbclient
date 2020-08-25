@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class Address {
     public final String adcode;
     public final String address;
@@ -11,8 +11,9 @@ public final class Address {
     public final String province;
     public final String street;
     public final String streetNumber;
+    public final String town;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class Builder {
         private static final String BEI_JING = "北京";
         private static final String CHONG_QIN = "重庆";
@@ -28,6 +29,7 @@ public final class Address {
         private String mStreetNumber = null;
         private String mAddress = null;
         private String mAdcode = null;
+        private String mTown = null;
 
         public Builder adcode(String str) {
             this.mAdcode = str;
@@ -51,6 +53,9 @@ public final class Address {
                 } else if (!this.mCity.equals(this.mDistrict)) {
                     stringBuffer.append(this.mDistrict);
                 }
+            }
+            if (this.mTown != null) {
+                stringBuffer.append(this.mTown);
             }
             if (this.mStreet != null) {
                 stringBuffer.append(this.mStreet);
@@ -103,6 +108,11 @@ public final class Address {
             this.mStreetNumber = str;
             return this;
         }
+
+        public Builder town(String str) {
+            this.mTown = str;
+            return this;
+        }
     }
 
     private Address(Builder builder) {
@@ -116,5 +126,6 @@ public final class Address {
         this.streetNumber = builder.mStreetNumber;
         this.address = builder.mAddress;
         this.adcode = builder.mAdcode;
+        this.town = builder.mTown;
     }
 }

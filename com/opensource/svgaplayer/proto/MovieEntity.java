@@ -12,20 +12,20 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final ProtoAdapter<MovieEntity> ADAPTER = new ProtoAdapter_MovieEntity();
     public static final String DEFAULT_VERSION = "";
     private static final long serialVersionUID = 0;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dQL = WireField.Label.REPEATED, tag = 5)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", ecN = WireField.Label.REPEATED, tag = 5)
     public final List<AudioEntity> audios;
-    @WireField(dQJ = "com.squareup.wire.ProtoAdapter#STRING", dQK = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
+    @WireField(ecL = "com.squareup.wire.ProtoAdapter#STRING", ecM = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
     public final Map<String, ByteString> images;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dQL = WireField.Label.REPEATED, tag = 4)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", ecN = WireField.Label.REPEATED, tag = 4)
     public final List<SpriteEntity> sprites;
-    @WireField(dQK = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(ecM = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
@@ -36,9 +36,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         super(ADAPTER, byteString);
         this.version = str;
         this.params = movieParams;
-        this.images = a.q(TbConfig.IMAGE_CACHE_DIR_NAME, map);
-        this.sprites = a.v("sprites", list);
-        this.audios = a.v("audios", list2);
+        this.images = a.p(TbConfig.IMAGE_CACHE_DIR_NAME, map);
+        this.sprites = a.u("sprites", list);
+        this.audios = a.u("audios", list2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,9 +49,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         Builder builder = new Builder();
         builder.version = this.version;
         builder.params = this.params;
-        builder.images = a.p(TbConfig.IMAGE_CACHE_DIR_NAME, this.images);
-        builder.sprites = a.u("sprites", this.sprites);
-        builder.audios = a.u("audios", this.audios);
+        builder.images = a.o(TbConfig.IMAGE_CACHE_DIR_NAME, this.images);
+        builder.sprites = a.t("sprites", this.sprites);
+        builder.audios = a.t("audios", this.audios);
         builder.addUnknownFields(unknownFields());
         return builder;
     }
@@ -98,13 +98,13 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         return sb.replace(0, 2, "MovieEntity{").append('}').toString();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public MovieParams params;
         public String version;
-        public Map<String, ByteString> images = a.dQO();
-        public List<SpriteEntity> sprites = a.dQN();
-        public List<AudioEntity> audios = a.dQN();
+        public Map<String, ByteString> images = a.ecQ();
+        public List<SpriteEntity> sprites = a.ecP();
+        public List<AudioEntity> audios = a.ecP();
 
         public Builder version(String str) {
             this.version = str;
@@ -123,13 +123,13 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
 
         public Builder sprites(List<SpriteEntity> list) {
-            a.fI(list);
+            a.fS(list);
             this.sprites = list;
             return this;
         }
 
         public Builder audios(List<AudioEntity> list) {
-            a.fI(list);
+            a.fS(list);
             this.audios = list;
             return this;
         }
@@ -142,7 +142,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     private static final class ProtoAdapter_MovieEntity extends ProtoAdapter<MovieEntity> {
         private final ProtoAdapter<Map<String, ByteString>> images;
 
@@ -177,11 +177,11 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dQC = cVar.dQC();
+            long ecE = cVar.ecE();
             while (true) {
-                int dQD = cVar.dQD();
-                if (dQD != -1) {
-                    switch (dQD) {
+                int ecF = cVar.ecF();
+                if (ecF != -1) {
+                    switch (ecF) {
                         case 1:
                             builder.version(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -198,12 +198,12 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                             builder.audios.add(AudioEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dQE = cVar.dQE();
-                            builder.addUnknownField(dQD, dQE, dQE.rawProtoAdapter().decode(cVar));
+                            FieldEncoding ecG = cVar.ecG();
+                            builder.addUnknownField(ecF, ecG, ecG.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gu(dQC);
+                    cVar.gH(ecE);
                     return builder.build();
                 }
             }

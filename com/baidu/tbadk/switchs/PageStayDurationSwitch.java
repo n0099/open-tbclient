@@ -2,11 +2,11 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.tbadk.m.e;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PageStayDurationSwitch extends a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {
-        e.blm().setSamllFlowOpen(1 == i);
+        e.btZ().setSamllFlowOpen(1 == i);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

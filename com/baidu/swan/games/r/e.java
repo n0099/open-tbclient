@@ -6,48 +6,48 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.f.b deo;
+    private com.baidu.swan.games.f.b dox;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.deo = bVar;
-        aFT();
-        aFU();
+        this.dox = bVar;
+        aOK();
+        aOL();
     }
 
-    private boolean aFT() {
-        return cC(this.deo.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aOK() {
+        return cW(this.dox.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aFU() {
-        String ajY = com.baidu.swan.apps.v.f.akr().ajY();
-        String aFX = f.aFV().aFX();
+    private boolean aOL() {
+        String arF = com.baidu.swan.apps.v.f.arY().arF();
+        String aOO = f.aOM().aOO();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + ajY);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aFX);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + arF);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aOO);
         }
-        return cC(ajY, aFX);
+        return cW(arF, aOO);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.deo.aEk().aEw();
+        this.dox.aMZ().aNl();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.deo.aEn().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.dox.aNc().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
-    private boolean cC(String str, String str2) {
-        if (!f.aFV().aFW() || TextUtils.isEmpty(str)) {
+    private boolean cW(String str, String str2) {
+        if (!f.aOM().aON() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.deo.aEk().cp(str, str2);
+        this.dox.aMZ().cJ(str, str2);
         return true;
     }
 }

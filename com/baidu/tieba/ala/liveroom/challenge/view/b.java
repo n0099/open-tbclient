@@ -10,62 +10,62 @@ import com.baidu.tieba.ala.liveroom.challenge.b.a;
 import com.baidu.tieba.ala.liveroom.challenge.view.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b implements com.baidu.live.liveroom.d.d {
-    private long aZc;
-    private long fjn;
-    private long gdz;
-    private c gjB;
-    private com.baidu.tieba.ala.liveroom.challenge.b.a gjC;
-    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> gjD = new ArrayList();
-    private final c.a gjE = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
+    private long bew;
+    private long fuJ;
+    private long gpI;
+    private c gvH;
+    private com.baidu.tieba.ala.liveroom.challenge.b.a gvI;
+    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> gvJ = new ArrayList();
+    private final c.a gvK = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
         public void onScrollToBottom() {
-            if (b.this.gjC != null) {
-                b.this.gjC.bwE();
+            if (b.this.gvI != null) {
+                b.this.gvI.bFD();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
-        public void bGY() {
-            if (b.this.gjC != null) {
-                b.this.gjC.refresh();
+        public void bQC() {
+            if (b.this.gvI != null) {
+                b.this.gvI.refresh();
             }
         }
     };
-    private final a.InterfaceC0578a gjF = new a.InterfaceC0578a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0578a
-        public void e(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-            b.this.gjD = list;
-            if (b.this.gjB != null) {
-                b.this.gjB.completePullRefresh();
-                b.this.gjB.Gq();
+    private final a.InterfaceC0625a gvL = new a.InterfaceC0625a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0625a
+        public void f(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
+            b.this.gvJ = list;
+            if (b.this.gvH != null) {
+                b.this.gvH.completePullRefresh();
+                b.this.gvH.Me();
                 if (ListUtils.isEmpty(list)) {
-                    b.this.gjB.bX(false);
-                    b.this.gjB.bGZ();
+                    b.this.gvH.cf(false);
+                    b.this.gvH.bQD();
                     return;
                 }
                 if (z) {
-                    b.this.gjB.bwT();
+                    b.this.gvH.bFS();
                 } else {
-                    b.this.gjB.bwS();
+                    b.this.gvH.bFR();
                 }
-                b.this.gjB.setData(list);
+                b.this.gvH.setData(list);
             }
         }
 
-        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0578a
-        public void g(int i, String str, boolean z) {
-            if (b.this.gjB != null) {
-                b.this.gjB.completePullRefresh();
-                b.this.gjB.Gq();
-                b.this.gjB.bGZ();
-                if (!ListUtils.isEmpty(b.this.gjD)) {
+        @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0625a
+        public void f(int i, String str, boolean z) {
+            if (b.this.gvH != null) {
+                b.this.gvH.completePullRefresh();
+                b.this.gvH.Me();
+                b.this.gvH.bQD();
+                if (!ListUtils.isEmpty(b.this.gvJ)) {
                     BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    b.this.gjB.bX(false);
+                    b.this.gvH.cf(false);
                 } else {
-                    b.this.gjB.bX(true);
+                    b.this.gvH.cf(true);
                 }
             }
         }
@@ -78,24 +78,24 @@ public class b implements com.baidu.live.liveroom.d.d {
         this.mTbPageContext = tbPageContext;
         this.mType = i;
         this.mIsHost = z;
-        this.gjB = new c(this.mTbPageContext, this.mType, this.mIsHost);
-        this.gjB.a(this.gjE);
-        this.gjC = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
-        this.gjC.a(this.gjF);
+        this.gvH = new c(this.mTbPageContext, this.mType, this.mIsHost);
+        this.gvH.a(this.gvK);
+        this.gvI = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
+        this.gvI.a(this.gvL);
     }
 
     public void e(long j, long j2, long j3) {
-        this.gdz = j;
-        this.aZc = j2;
-        this.fjn = j3;
-        this.gjB.c(this.gdz, this.aZc, this.fjn);
-        this.gjC.c(this.gdz, this.aZc, this.fjn);
-        this.gjC.refresh();
+        this.gpI = j;
+        this.bew = j2;
+        this.fuJ = j3;
+        this.gvH.c(this.gpI, this.bew, this.fuJ);
+        this.gvI.c(this.gpI, this.bew, this.fuJ);
+        this.gvI.refresh();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.gjB.getView();
+        return this.gvH.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -104,12 +104,12 @@ public class b implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Dj() {
+    public String IM() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Dk() {
+    public short IN() {
         return (short) 0;
     }
 
@@ -123,11 +123,11 @@ public class b implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gjC != null) {
-            this.gjC.onDestroy();
+        if (this.gvI != null) {
+            this.gvI.onDestroy();
         }
-        if (this.gjB != null) {
-            this.gjB.onDestroy();
+        if (this.gvH != null) {
+            this.gvH.onDestroy();
         }
     }
 

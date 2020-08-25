@@ -1,7 +1,7 @@
 package com.baidu.ala.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaAttentionData implements Cloneable {
     public static final String FROM_IN_LIVE = "1";
     public static final String FROM_NORMAL = "0";
@@ -39,7 +39,7 @@ public class AlaAttentionData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AlaAttentionData m14clone() {
+    public AlaAttentionData m15clone() {
         try {
             return (AlaAttentionData) super.clone();
         } catch (CloneNotSupportedException e) {

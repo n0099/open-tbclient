@@ -9,11 +9,11 @@ import tbclient.AlaLiveInfo;
 import tbclient.Promotion;
 /* loaded from: classes16.dex */
 public class a extends b {
-    public static final BdUniqueId kHY = BdUniqueId.gen();
+    public static final BdUniqueId kXL = BdUniqueId.gen();
     private Long appear_time;
     private String image;
     public boolean isChushou;
-    private long kIa;
+    private long kXN;
     private String link;
     private String link_text;
     public String routeType;
@@ -22,19 +22,19 @@ public class a extends b {
     public String thirdRoomId;
     private String title;
     public long userId;
-    private boolean kHZ = false;
-    public boolean kIb = false;
+    private boolean kXM = false;
+    public boolean kXO = false;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kHY;
+        return kXL;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String cUe() {
+    public String dfb() {
         return this.sub_title;
     }
 
@@ -46,20 +46,20 @@ public class a extends b {
         return this.link;
     }
 
-    public String cUf() {
+    public String dfc() {
         return this.link_text;
     }
 
-    public Long cUg() {
+    public Long dfd() {
         return this.appear_time;
     }
 
-    public boolean cUh() {
-        return this.kHZ;
+    public boolean dfe() {
+        return this.kXM;
     }
 
-    public long cUi() {
-        return this.kIa;
+    public long dff() {
+        return this.kXN;
     }
 
     public void a(Promotion promotion) {
@@ -69,15 +69,15 @@ public class a extends b {
         this.link = promotion.link;
         this.link_text = promotion.link_text;
         this.appear_time = promotion.appear_time;
-        this.kHZ = false;
-        this.kIb = false;
+        this.kXM = false;
+        this.kXO = false;
     }
 
     public void parserProtoBuf(@NonNull AlaLiveInfo alaLiveInfo) {
         this.title = alaLiveInfo.first_headline;
         this.sub_title = alaLiveInfo.second_headline;
         this.image = alaLiveInfo.cover;
-        this.kIa = alaLiveInfo.live_id.longValue();
+        this.kXN = alaLiveInfo.live_id.longValue();
         this.userId = alaLiveInfo.user_info != null ? alaLiveInfo.user_info.user_id.longValue() : 0L;
         this.isChushou = alaLiveInfo.live_from.intValue() == 1;
         this.thirdLiveType = alaLiveInfo.third_live_type;
@@ -86,7 +86,7 @@ public class a extends b {
         this.link = "";
         this.link_text = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
         this.appear_time = 1L;
-        this.kHZ = true;
-        this.kIb = false;
+        this.kXM = true;
+        this.kXO = false;
     }
 }

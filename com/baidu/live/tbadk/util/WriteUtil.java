@@ -18,7 +18,7 @@ import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
 
@@ -35,7 +35,7 @@ public class WriteUtil {
                 if (CreateFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.i.sdk_error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -72,7 +72,7 @@ public class WriteUtil {
                 if (z) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
                 }
             }
             if (!z) {

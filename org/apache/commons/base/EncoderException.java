@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes11.dex */
+/* loaded from: classes7.dex */
 public class EncoderException extends Exception {
     private static final long serialVersionUID = 1;
 

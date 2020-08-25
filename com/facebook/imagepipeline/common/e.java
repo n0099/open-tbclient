@@ -1,50 +1,50 @@
 package com.facebook.imagepipeline.common;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private static final e naE = new e(-1, false);
-    private static final e naF = new e(-2, false);
-    private static final e naG = new e(-1, true);
+    private static final e nuu = new e(-1, false);
+    private static final e nuv = new e(-2, false);
+    private static final e nuw = new e(-1, true);
     private final int mRotation;
-    private final boolean naD;
+    private final boolean nut;
 
-    public static e dGq() {
-        return naE;
+    public static e dSp() {
+        return nuu;
     }
 
-    public static e dGr() {
-        return naF;
+    public static e dSq() {
+        return nuv;
     }
 
-    public static e dGs() {
-        return naG;
+    public static e dSr() {
+        return nuw;
     }
 
     private e(int i, boolean z) {
         this.mRotation = i;
-        this.naD = z;
+        this.nut = z;
     }
 
-    public boolean dGt() {
+    public boolean dSs() {
         return this.mRotation == -1;
     }
 
-    public boolean dGu() {
+    public boolean dSt() {
         return this.mRotation != -2;
     }
 
-    public int dGv() {
-        if (dGt()) {
+    public int dSu() {
+        if (dSs()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean dGw() {
-        return this.naD;
+    public boolean dSv() {
+        return this.nut;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.h(Integer.valueOf(this.mRotation), Boolean.valueOf(this.naD));
+        return com.facebook.common.util.a.h(Integer.valueOf(this.mRotation), Boolean.valueOf(this.nut));
     }
 
     public boolean equals(Object obj) {
@@ -53,12 +53,12 @@ public class e {
         }
         if (obj instanceof e) {
             e eVar = (e) obj;
-            return this.mRotation == eVar.mRotation && this.naD == eVar.naD;
+            return this.mRotation == eVar.mRotation && this.nut == eVar.nut;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.naD));
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.nut));
     }
 }

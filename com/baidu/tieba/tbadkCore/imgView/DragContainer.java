@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DragContainer extends LinearLayout {
     private Bitmap bm;
     private final int delay;
@@ -35,7 +35,7 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void di(View view) {
+    public void dm(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();

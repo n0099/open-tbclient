@@ -2,27 +2,42 @@ package com.baidu.platform.base;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Base64;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.district.DistrictResult;
+import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
+import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class a {
+    private SearchType f;
     private AsyncHttpClient b = new AsyncHttpClient();
     private Handler c = new Handler(Looper.getMainLooper());
     protected final Lock a = new ReentrantLock();
     private boolean d = true;
     private DistrictResult e = null;
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str) {
+        byte[] bArr = {102, 97, 105, 108, 100};
+        try {
+            bArr = AlgorithmUtil.getUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), Base64.decode(str.getBytes(), 0));
+        } catch (Exception e) {
+            Log.e("BaseSearch", "transform result failed");
+        }
+        return new String(bArr).trim();
+    }
+
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
-        asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(), protoResultCallback);
+        asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f), protoResultCallback);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -35,21 +50,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        if (b(str)) {
-            return;
-        }
-        Log.e("BaseSearch", "Permission check unfinished, try again");
-        int permissionCheck = PermissionCheck.permissionCheck();
-        if (permissionCheck != 0) {
-            Log.e("BaseSearch", "The authorized result is: " + permissionCheck);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, d dVar, Object obj, AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback) {
         SearchResult a = dVar.a(str);
-        a.status = c(str);
+        a.status = b(str);
         if (a(dVar, a)) {
             a(asyncHttpClient, protoResultCallback, a);
         } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
@@ -76,21 +79,8 @@ public abstract class a {
         return false;
     }
 
-    private boolean b(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has("SDK_InnerError") && jSONObject.optJSONObject("SDK_InnerError").has("PermissionCheckError")) {
-                Log.e("BaseSearch", "Permission check unfinished");
-                return false;
-            }
-            return true;
-        } catch (JSONException e) {
-            Log.e("BaseSearch", "Create JSONObject failed");
-            return false;
-        }
-    }
-
-    private int c(String str) {
+    private int b(String str) {
+        JSONObject optJSONObject;
         int i = 10204;
         if (str != null && !str.equals("")) {
             try {
@@ -99,8 +89,8 @@ public abstract class a {
                     i = jSONObject.getInt("status");
                 } else if (jSONObject.has("status_sp")) {
                     i = jSONObject.getInt("status_sp");
-                } else if (jSONObject.has("result")) {
-                    i = jSONObject.optJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR);
+                } else if (jSONObject.has("result") && (optJSONObject = jSONObject.optJSONObject("result")) != null) {
+                    i = optJSONObject.optInt(BdStatsConstant.StatsType.ERROR);
                 }
             } catch (JSONException e) {
                 Log.e("BaseSearch", "Create JSONObject failed when get response result status");
@@ -109,13 +99,36 @@ public abstract class a {
         return i;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean c(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.has("status") || jSONObject.has("status_sp")) {
+                switch (jSONObject.has("status") ? jSONObject.getInt("status") : jSONObject.getInt("status_sp")) {
+                    case 105:
+                    case 106:
+                        int permissionCheck = PermissionCheck.permissionCheck();
+                        if (permissionCheck != 0) {
+                            Log.e("BaseSearch", "permissionCheck result is: " + permissionCheck);
+                            break;
+                        }
+                        break;
+                }
+            }
+            return true;
+        } catch (JSONException e) {
+            return false;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(e eVar, Object obj, d dVar) {
         if (dVar == null) {
             Log.e(a.class.getSimpleName(), "The SearchParser is null, must be applied.");
             return false;
         }
-        String a = eVar.a();
+        this.f = dVar.a();
+        String a = eVar.a(this.f);
         if (a != null) {
             this.b.get(a, new b(this, dVar, obj));
             return true;

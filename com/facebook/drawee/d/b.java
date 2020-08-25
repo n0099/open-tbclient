@@ -3,7 +3,7 @@ package com.facebook.drawee.d;
 import android.graphics.drawable.Drawable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public interface b {
     Drawable getTopLevelDrawable();
 }

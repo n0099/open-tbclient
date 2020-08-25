@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e extends com.baidu.platform.base.d {
     private PoiInfo.ParentPoiInfo a(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
@@ -71,6 +71,7 @@ public class e extends com.baidu.platform.base.d {
                 poiInfo.setCity(str2);
                 poiInfo.setDirection(optJSONObject.optString("direction"));
                 poiInfo.setDistance(optJSONObject.optInt("distance"));
+                poiInfo.setTag(optJSONObject.optString("tag"));
                 poiInfo.setParentPoi(a(optJSONObject.optJSONObject("parent_poi")));
                 arrayList.add(poiInfo);
             }
@@ -125,9 +126,15 @@ public class e extends com.baidu.platform.base.d {
         reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));
         reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
         reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString("business"));
-        reverseGeoCodeResult.setAddressDetail(a(optJSONObject, "addressComponent"));
+        ReverseGeoCodeResult.AddressComponent a = a(optJSONObject, "addressComponent");
+        reverseGeoCodeResult.setAddressDetail(a);
         reverseGeoCodeResult.setLocation(d(optJSONObject, "location"));
-        reverseGeoCodeResult.setPoiList(a(optJSONObject, "pois", reverseGeoCodeResult.getAddressDetail() != null ? reverseGeoCodeResult.getAddressDetail().city : ""));
+        String str = "";
+        if (a != null) {
+            str = a.city;
+            reverseGeoCodeResult.setAdcode(a.adcode);
+        }
+        reverseGeoCodeResult.setPoiList(a(optJSONObject, "pois", str));
         reverseGeoCodeResult.setSematicDescription(optJSONObject.optString("sematic_description"));
         reverseGeoCodeResult.setPoiRegionsInfoList(b(optJSONObject, "poiRegions"));
         reverseGeoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;
@@ -158,7 +165,7 @@ public class e extends com.baidu.platform.base.d {
         if (jSONObject == null || str == null || "".equals(str) || (optJSONObject = jSONObject.optJSONObject(str)) == null) {
             return null;
         }
-        LatLng latLng = new LatLng(optJSONObject.optDouble("y"), optJSONObject.optDouble(Config.EVENT_HEAT_X));
+        LatLng latLng = new LatLng(optJSONObject.optDouble("y"), optJSONObject.optDouble("x"));
         return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(latLng) : latLng;
     }
 
@@ -194,7 +201,7 @@ public class e extends com.baidu.platform.base.d {
                         }
                     }
                 }
-                if (!a(str, (SearchResult) reverseGeoCodeResult, true)) {
+                if (!a(str, (SearchResult) reverseGeoCodeResult, false)) {
                     a(str, reverseGeoCodeResult);
                 }
             } catch (Exception e) {

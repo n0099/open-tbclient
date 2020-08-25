@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE = "from_type";
     public static final String FROM_TYPE_RECORD_VIDEO_ACTIVITY = "from_record_activity";
@@ -52,6 +52,10 @@ public class EditVideoActivityConfig extends IntentConfig {
 
     public void setFrom(String str) {
         getIntent().putExtra("from", str);
+    }
+
+    public void setForumLevel(int i) {
+        getIntent().putExtra("key_write_level", i);
     }
 
     public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {

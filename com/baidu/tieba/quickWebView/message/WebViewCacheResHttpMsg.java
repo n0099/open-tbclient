@@ -3,7 +3,7 @@ package com.baidu.tieba.quickWebView.message;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     private String mCacheDownUrl;
     private String mMd5;

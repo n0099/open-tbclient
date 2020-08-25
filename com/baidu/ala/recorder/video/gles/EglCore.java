@@ -86,7 +86,7 @@ public final class EglCore {
         iArr[11] = 0;
         iArr[12] = 12344;
         if ((i & 1) != 0) {
-            iArr[iArr.length - 3] = EGL_RECORDABLE_ANDROID;
+            iArr[iArr.length - 3] = 12610;
             iArr[iArr.length - 2] = 1;
         }
         EGLConfig[] eGLConfigArr = new EGLConfig[1];

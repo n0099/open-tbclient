@@ -5,7 +5,6 @@ import android.util.Log;
 import com.baidu.searchbox.dns.util.DnsChecker;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static int t = 0;
     private static int u = 0;
@@ -50,7 +49,7 @@ public class b {
         try {
             List<String> parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
             if (parseRawAddressList != null) {
-                hashMap.put(RecentlyVisitedForumModel.LOCAL_ACCOUNT, parseRawAddressList);
+                hashMap.put("local", parseRawAddressList);
             }
         } catch (UnknownHostException e) {
             if (v) {
@@ -74,8 +73,8 @@ public class b {
 
     public static List<String> a(Map<String, List<String>> map) {
         if (map != null) {
-            if (map.containsKey(RecentlyVisitedForumModel.LOCAL_ACCOUNT)) {
-                return map.get(RecentlyVisitedForumModel.LOCAL_ACCOUNT);
+            if (map.containsKey("local")) {
+                return map.get("local");
             }
             if (map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
                 return map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);

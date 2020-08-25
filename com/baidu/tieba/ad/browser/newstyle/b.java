@@ -12,10 +12,10 @@ import com.baidu.adp.lib.f.g;
 /* loaded from: classes15.dex */
 class b extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
-    private NewAdTbWebViewActivity fcZ;
+    private NewAdTbWebViewActivity fos;
 
     public b(NewAdTbWebViewActivity newAdTbWebViewActivity) {
-        this.fcZ = newAdTbWebViewActivity;
+        this.fos = newAdTbWebViewActivity;
     }
 
     public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
@@ -30,14 +30,14 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.fcZ.getPageContext().getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.fos.getPageContext().getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.fcZ == null || !g.a(this.fcZ.getPageContext())) {
+        if (this.fos == null || !g.a(this.fos.getPageContext())) {
             return true;
         }
         return super.onJsAlert(webView, str, str2, jsResult);
@@ -45,7 +45,7 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.fcZ == null || !g.a(this.fcZ.getPageContext())) {
+        if (this.fos == null || !g.a(this.fos.getPageContext())) {
             return true;
         }
         return super.onJsBeforeUnload(webView, str, str2, jsResult);
@@ -53,7 +53,7 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.fcZ == null || !g.a(this.fcZ.getPageContext())) {
+        if (this.fos == null || !g.a(this.fos.getPageContext())) {
             return true;
         }
         return super.onJsConfirm(webView, str, str2, jsResult);
@@ -61,7 +61,7 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.fcZ != null && g.a(this.fcZ.getPageContext())) {
+        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.fos != null && g.a(this.fos.getPageContext())) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

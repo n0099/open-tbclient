@@ -13,7 +13,7 @@ import java.nio.charset.Charset;
 /* loaded from: classes19.dex */
 public class b implements h {
     @Override // com.baidu.swan.apps.t.b.h
-    public void a(Context context, final com.baidu.swan.apps.f.a aVar) {
+    public void a(Context context, final com.baidu.swan.apps.g.a aVar) {
         if (context instanceof Activity) {
             DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, a.class, new Bundle(), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.barcode.b.1
                 @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener

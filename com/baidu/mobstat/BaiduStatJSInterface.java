@@ -26,6 +26,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
@@ -35,17 +36,17 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class BaiduStatJSInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
         void onPageStarted(WebView webView, String str, bl blVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class CustomWebViewClient extends WebViewClient {
         private WeakReference<Context> a;
         private WebViewClient b;
@@ -95,7 +96,7 @@ public class BaiduStatJSInterface {
             JSONObject jSONObject3;
             JSONObject jSONObject4 = new JSONObject(str);
             String string = jSONObject4.getString("action");
-            JSONObject jSONObject5 = jSONObject4.getJSONObject("obj");
+            JSONObject jSONObject5 = jSONObject4.getJSONObject(MapBundleKey.MapObjKey.OBJ_SL_OBJ);
             Context context = this.a.get();
             if (context != null) {
                 if ("onPageStart".equals(string)) {
@@ -319,7 +320,7 @@ public class BaiduStatJSInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
         private WeakReference<Context> a;
         private WebChromeClient b;

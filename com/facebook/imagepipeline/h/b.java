@@ -7,38 +7,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b implements c {
-    private final List<c> ncT;
+    private final List<c> nwJ;
 
     public b(Set<c> set) {
-        this.ncT = new ArrayList(set.size());
+        this.nwJ = new ArrayList(set.size());
         for (c cVar : set) {
             if (cVar != null) {
-                this.ncT.add(cVar);
+                this.nwJ.add(cVar);
             }
         }
     }
 
     public b(c... cVarArr) {
-        this.ncT = new ArrayList(cVarArr.length);
+        this.nwJ = new ArrayList(cVarArr.length);
         for (c cVar : cVarArr) {
             if (cVar != null) {
-                this.ncT.add(cVar);
+                this.nwJ.add(cVar);
             }
         }
     }
 
     public void a(c cVar) {
-        this.ncT.add(cVar);
+        this.nwJ.add(cVar);
     }
 
     @Override // com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).a(imageRequest, obj, str, z);
+                this.nwJ.get(i).a(imageRequest, obj, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestStart", e);
             }
@@ -46,11 +46,11 @@ public class b implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void fW(String str, String str2) {
-        int size = this.ncT.size();
+    public void gn(String str, String str2) {
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).fW(str, str2);
+                this.nwJ.get(i).gn(str, str2);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerStart", e);
             }
@@ -59,10 +59,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.producers.am
     public void a(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).a(str, str2, map);
+                this.nwJ.get(i).a(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithSuccess", e);
             }
@@ -71,10 +71,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.producers.am
     public void a(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).a(str, str2, th, map);
+                this.nwJ.get(i).a(str, str2, th, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithFailure", e);
             }
@@ -83,10 +83,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.producers.am
     public void a(ImageRequest imageRequest, e eVar, Throwable th, @Nullable Map<String, String> map) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).a(imageRequest, eVar, th, map);
+                this.nwJ.get(i).a(imageRequest, eVar, th, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithFailure", e);
             }
@@ -95,10 +95,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.producers.am
     public void b(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).b(str, str2, map);
+                this.nwJ.get(i).b(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithCancellation", e);
             }
@@ -107,10 +107,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.producers.am
     public void aA(String str, String str2, String str3) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).aA(str, str2, str3);
+                this.nwJ.get(i).aA(str, str2, str3);
             } catch (Exception e) {
                 l("InternalListener exception in onIntermediateChunkStart", e);
             }
@@ -118,11 +118,11 @@ public class b implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void G(String str, String str2, boolean z) {
-        int size = this.ncT.size();
+    public void F(String str, String str2, boolean z) {
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).G(str, str2, z);
+                this.nwJ.get(i).F(str, str2, z);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithSuccess", e);
             }
@@ -131,10 +131,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).a(imageRequest, str, z);
+                this.nwJ.get(i).a(imageRequest, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestSuccess", e);
             }
@@ -143,10 +143,10 @@ public class b implements c {
 
     @Override // com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        int size = this.ncT.size();
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).a(imageRequest, str, th, z);
+                this.nwJ.get(i).a(imageRequest, str, th, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestFailure", e);
             }
@@ -154,11 +154,11 @@ public class b implements c {
     }
 
     @Override // com.facebook.imagepipeline.h.c
-    public void Rw(String str) {
-        int size = this.ncT.size();
+    public void UA(String str) {
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.ncT.get(i).Rw(str);
+                this.nwJ.get(i).UA(str);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestCancellation", e);
             }
@@ -166,10 +166,10 @@ public class b implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean RB(String str) {
-        int size = this.ncT.size();
+    public boolean UF(String str) {
+        int size = this.nwJ.size();
         for (int i = 0; i < size; i++) {
-            if (this.ncT.get(i).RB(str)) {
+            if (this.nwJ.get(i).UF(str)) {
                 return true;
             }
         }

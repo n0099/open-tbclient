@@ -1,28 +1,54 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
-import android.os.Handler;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class d extends com.baidu.platform.comapi.wnplatform.o.m {
-    final /* synthetic */ c a;
+import com.baidu.mapapi.walknavi.model.RouteGuideKind;
+/* loaded from: classes20.dex */
+/* synthetic */ class d {
+    static final /* synthetic */ int[] a = new int[RouteGuideKind.values().length];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.a = cVar;
-    }
-
-    @Override // com.baidu.platform.comapi.wnplatform.o.m
-    public void a(View view) {
-        Handler handler;
-        Handler handler2;
-        if (com.baidu.platform.comapi.walknavi.b.a().t()) {
-            handler = this.a.n;
-            if (handler != null && this.a.i != null) {
-                handler2 = this.a.n;
-                handler2.removeCallbacks(this.a.i);
-            }
-            com.baidu.platform.comapi.walknavi.b.a().a(1, false);
+    static {
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_OverlineBridge.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_UndergroundPassage.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Park.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Square.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Ladder.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Ferry.ordinal()] = 6;
+        } catch (NoSuchFieldError e6) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Bridge.ordinal()] = 7;
+        } catch (NoSuchFieldError e7) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Ring.ordinal()] = 8;
+        } catch (NoSuchFieldError e8) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_SideWalk.ordinal()] = 9;
+        } catch (NoSuchFieldError e9) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Sightseeing_Bus.ordinal()] = 10;
+        } catch (NoSuchFieldError e10) {
+        }
+        try {
+            a[RouteGuideKind.NE_Maneuver_Kind_Telpher.ordinal()] = 11;
+        } catch (NoSuchFieldError e11) {
         }
     }
 }

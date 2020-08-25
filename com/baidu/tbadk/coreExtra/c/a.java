@@ -1,33 +1,24 @@
 package com.baidu.tbadk.coreExtra.c;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
 import android.net.Uri;
-import android.view.LayoutInflater;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.adp.base.e;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MsgRemindActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.g;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import java.util.Date;
+/* loaded from: classes2.dex */
 public class a {
     public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, a.b bVar, a.b bVar2, String str) {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
@@ -35,8 +26,8 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).xk(string).xl(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
-        b.aYL();
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).zy(string).zz(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.bhg();
         return b;
     }
 
@@ -53,111 +44,17 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.xk(str);
-        aVar.xl(str2);
+        aVar.zy(str);
+        aVar.zz(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
         return aVar;
     }
 
-    public static void a(final TbPageContext<?> tbPageContext, final boolean[] zArr, String str, String str2, final int i) {
-        int equipmentWidth;
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null && zArr != null && zArr.length == 2 && str2 != null) {
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.notification_permission_dialog, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.notification_permission_image);
-            TextView textView = (TextView) inflate.findViewById(R.id.permission_btn);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.close_btn);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.permission_des);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.permission_title);
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.aV(inflate);
-            aVar.lq(2);
-            aVar.hK(true);
-            aVar.hJ(true);
-            aVar.setAutoNight(true);
-            int dimens = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-            ao.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
-            tbImageView.setRadius(dimens);
-            tbImageView.setConrers(3);
-            tbImageView.setIsBitmapPic(true);
-            int dimens2 = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(tbPageContext.getPageActivity()) == 2) {
-                equipmentWidth = l.getEquipmentHeight(tbPageContext.getPageActivity()) - (dimens2 * 2);
-            } else {
-                equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity()) - (dimens2 * 2);
-            }
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = (equipmentWidth * 556) / 988;
-            tbImageView.setLayoutParams(layoutParams);
-            ao.setImageResource(tbImageView, R.drawable.pic_notification_permission);
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            Drawable mutate = tbPageContext.getResources().getDrawable(R.drawable.icon_prefession_popup_close_n).getConstantState().newDrawable().mutate();
-            Drawable mutate2 = tbPageContext.getResources().getDrawable(R.drawable.icon_prefession_popup_close_n).getConstantState().newDrawable().mutate();
-            mutate2.setAlpha(128);
-            stateListDrawable.addState(new int[]{16842919}, mutate2);
-            stateListDrawable.addState(new int[0], mutate);
-            imageView.setBackgroundDrawable(stateListDrawable);
-            com.baidu.tbadk.core.util.e.a.aI(R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50).c(textView);
-            textView2.setText(str2);
-            ao.setViewTextColor(textView2, R.color.cp_cont_j);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView3.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) textView2.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-            if (StringUtils.isNull(str)) {
-                textView3.setVisibility(8);
-                layoutParams3.addRule(3, R.id.notification_permission_image);
-                layoutParams3.topMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds68);
-                textView2.setLayoutParams(layoutParams3);
-                layoutParams4.topMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds83);
-                layoutParams4.bottomMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds81);
-                textView.setLayoutParams(layoutParams4);
-            } else {
-                textView3.setVisibility(0);
-                textView3.setText(str);
-                ao.setViewTextColor(textView3, R.color.cp_cont_b);
-                layoutParams2.topMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds70);
-                textView3.setLayoutParams(layoutParams2);
-                layoutParams3.addRule(3, R.id.permission_title);
-                layoutParams3.topMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds10);
-                textView2.setLayoutParams(layoutParams3);
-                layoutParams4.topMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds80);
-                layoutParams4.bottomMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds81);
-                textView.setLayoutParams(layoutParams4);
-            }
-            final int[] iArr = {2};
-            imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.a.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.baidu.tbadk.core.dialog.a.this.dismiss();
-                }
-            });
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.a.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (zArr[0]) {
-                        a.f(tbPageContext);
-                    } else if (zArr[1]) {
-                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MsgRemindActivityConfig(tbPageContext.getPageActivity())));
-                    }
-                    iArr[0] = 1;
-                    aVar.dismiss();
-                }
-            });
-            ap apVar = new ap("c13674");
-            apVar.ah("obj_source", i);
-            TiebaStatic.log(apVar);
-            aVar.b(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.coreExtra.c.a.3
-                @Override // android.content.DialogInterface.OnDismissListener
-                public void onDismiss(DialogInterface dialogInterface) {
-                    ap apVar2 = new ap("c13673");
-                    apVar2.ah("obj_source", i);
-                    apVar2.ah("obj_type", iArr[0]);
-                    TiebaStatic.log(apVar2);
-                }
-            });
-            aVar.b(tbPageContext).aYL();
+    public static void a(TbPageContext<?> tbPageContext, boolean[] zArr, int i) {
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null && zArr != null && zArr.length == 2) {
+            a(tbPageContext, i, 0L);
         }
     }
 
@@ -183,5 +80,75 @@ public class a {
             intent3.setData(Uri.fromParts("package", eVar.getPageActivity().getPackageName(), null));
             eVar.getPageActivity().startActivity(intent3);
         }
+    }
+
+    public static boolean w(Context context, int i) {
+        boolean z = false;
+        if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) {
+            Date date = new Date(b.bik().getLong("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(b.bik().getLong("push_permission_dialog_scene_interaction_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date3 = new Date(currentTimeMillis);
+            if (i == 0 && bd.b(date3, date2) >= 7 && !bd.c(date3, date)) {
+                z = true;
+            }
+            if (i == 1 && bd.b(date3, date) >= 7 && !bd.c(date3, date2)) {
+                z = true;
+            }
+            if (z) {
+                switch (i) {
+                    case 0:
+                        b.bik().putLong("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                        break;
+                    case 1:
+                        b.bik().putLong("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                        break;
+                }
+            }
+        }
+        return z;
+    }
+
+    public static void a(final TbPageContext<?> tbPageContext, final int i, long j) {
+        final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+        aVar.m39if(false);
+        aVar.a((String) null, (a.b) null);
+        aVar.b((String) null, (a.b) null);
+        aVar.nw(4);
+        CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
+        aVar.aX(customPushPremissionDialogView);
+        final int[] iArr = {-1};
+        customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.a.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                a.f(TbPageContext.this);
+                iArr[0] = 1;
+                aVar.dismiss();
+            }
+        });
+        customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.a.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                iArr[0] = 2;
+                aVar.dismiss();
+            }
+        });
+        aVar.c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.coreExtra.c.a.3
+            @Override // android.content.DialogInterface.OnDismissListener
+            public void onDismiss(DialogInterface dialogInterface) {
+                aq aqVar = new aq("c13673");
+                aqVar.ai("obj_source", i);
+                aqVar.ai("obj_type", iArr[0]);
+                TiebaStatic.log(aqVar);
+            }
+        });
+        if (j > 0) {
+            aVar.b(tbPageContext).cE(j);
+        } else {
+            aVar.b(tbPageContext).bhg();
+        }
+        aq aqVar = new aq("c13674");
+        aqVar.ai("obj_source", i);
+        TiebaStatic.log(aqVar);
     }
 }

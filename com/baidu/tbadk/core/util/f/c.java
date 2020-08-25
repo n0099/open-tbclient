@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.r;
 import com.baidu.adp.widget.ListView.t;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static void a(t tVar, BdUniqueId bdUniqueId, b bVar) {
         r adapter;
@@ -16,21 +16,21 @@ public class c {
                 e.log("this page don't preload ");
                 return;
             }
-            e.log("video preload switch  " + d.bbF().isOpen() + " num " + d.bbF().bbG() + " size " + d.bbF().getSize());
-            if (d.bbF().isOpen() && (adapter = tVar.getAdapter()) != null) {
+            e.log("video preload switch  " + d.bkb().isOpen() + " num " + d.bkb().bkc() + " size " + d.bkb().getSize());
+            if (d.bkb().isOpen() && (adapter = tVar.getAdapter()) != null) {
                 boolean z = tVar.getFirstVisiblePosition() == 0;
                 int lastVisiblePosition = tVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 e.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
                 if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= d.bbF().bbG(); i++) {
+                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= d.bkb().bkc(); i++) {
                         e.log("video preload  i=  " + i);
                         Object item = adapter.getItem(i);
                         if (item instanceof a) {
                             a aVar = (a) item;
                             if (!TextUtils.isEmpty(aVar.getVideoUrl())) {
                                 e.log("url: " + aVar.getVideoUrl());
-                                CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, d.bbF().getSize(), null);
+                                CyberPlayerManager.prefetch(aVar.getVideoUrl(), null, null, d.bkb().getSize(), null);
                             }
                         }
                     }

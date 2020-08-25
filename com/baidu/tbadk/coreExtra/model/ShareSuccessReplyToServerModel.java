@@ -12,9 +12,9 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
-    private HttpMessageListener esH = new HttpMessageListener(1003383) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
+    private HttpMessageListener eDf = new HttpMessageListener(1003383) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,25 +23,25 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData() != null) {
                     aVar.a(((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData());
                 } else {
-                    aVar.bgn();
+                    aVar.boY();
                 }
             }
         }
     };
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(CustomDialogData customDialogData);
 
-        void bgn();
+        void boY();
     }
 
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.esH.setTag(getUniqueId());
-        this.esH.setSelfListener(true);
-        registerListener(this.esH);
+        this.eDf.setTag(getUniqueId());
+        this.eDf.setSelfListener(true);
+        registerListener(this.eDf);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -83,7 +83,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
         private CustomDialogData mActDialogData;
 
@@ -98,7 +98,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error >= 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.mActDialogData = com.baidu.tieba.pb.b.dM(optJSONObject);
+                this.mActDialogData = com.baidu.tieba.pb.b.dX(optJSONObject);
             }
         }
 
@@ -109,7 +109,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.esH);
+        MessageManager.getInstance().unRegisterListener(this.eDf);
         return false;
     }
 }

@@ -15,7 +15,7 @@ import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class XPlatformPlugin {
     private Activity activity;
     private PlatformChannel.SystemChromeStyle currentTheme;
@@ -137,7 +137,7 @@ public class XPlatformPlugin {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setSystemChromeApplicationSwitcherDescription(PlatformChannel.AppSwitcherDescription appSwitcherDescription) {
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >= 21 && this.activity != null) {
             if (Build.VERSION.SDK_INT < 28 && Build.VERSION.SDK_INT > 21) {
                 this.activity.setTaskDescription(new ActivityManager.TaskDescription(appSwitcherDescription.label, (Bitmap) null, appSwitcherDescription.color));
             }

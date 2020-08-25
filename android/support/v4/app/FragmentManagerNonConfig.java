@@ -2,7 +2,7 @@ package android.support.v4.app;
 
 import android.arch.lifecycle.z;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes18.dex */
 public class FragmentManagerNonConfig {
     private final List<FragmentManagerNonConfig> mChildNonConfigs;
     private final List<Fragment> mFragments;

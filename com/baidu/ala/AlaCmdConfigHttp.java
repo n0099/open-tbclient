@@ -1,5 +1,5 @@
 package com.baidu.ala;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaCmdConfigHttp {
     public static final int CMD_ALA_ENTER_EFFECT_BUY_PROP = 1021145;
     public static final int CMD_ALA_FRS_STORY_LIVE_GATHER = 1021075;

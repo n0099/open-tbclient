@@ -3,39 +3,39 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.net.URL;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class v {
-    private static v ead;
-    private long dZY = 0;
-    private long dZZ = 0;
-    private String eaa = "";
-    private String eab = "";
-    private final long eac = 120000;
+    private static v ejJ;
+    private long ejE = 0;
+    private long ejF = 0;
+    private String ejG = "";
+    private String ejH = "";
+    private final long ejI = 120000;
 
-    public static v baq() {
-        if (ead == null) {
+    public static v biL() {
+        if (ejJ == null) {
             synchronized (v.class) {
-                if (ead == null) {
-                    ead = new v();
+                if (ejJ == null) {
+                    ejJ = new v();
                 }
             }
         }
-        return ead;
+        return ejJ;
     }
 
-    public String bar() {
+    public String biM() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.dZY > 120000) {
+        if (currentTimeMillis - this.ejE > 120000) {
             if (com.baidu.adp.lib.util.l.isMainThread()) {
                 return "";
             }
-            this.dZY = currentTimeMillis;
-            this.eaa = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.ejE = currentTimeMillis;
+            this.ejG = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.eaa;
+        return this.ejG;
     }
 
-    public String xJ(String str) {
+    public String zX(String str) {
         try {
             String host = new URL(str).getHost();
             if (!TextUtils.isEmpty(host)) {
@@ -47,17 +47,17 @@ public class v {
         return null;
     }
 
-    public String xK(String str) {
+    public String zY(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.dZZ > 120000) {
+        if (currentTimeMillis - this.ejF > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.isMainThread()) {
                 return "";
             }
-            this.dZZ = currentTimeMillis;
-            this.eab = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.eab;
+            this.ejF = currentTimeMillis;
+            this.ejH = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.ejH;
         }
-        return this.eab;
+        return this.ejH;
     }
 }

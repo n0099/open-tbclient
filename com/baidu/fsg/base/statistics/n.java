@@ -2,7 +2,7 @@ package com.baidu.fsg.base.statistics;
 
 import com.baidu.fsg.base.statistics.r;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class n implements r.a {
     final /* synthetic */ String a;
     final /* synthetic */ h[] b;

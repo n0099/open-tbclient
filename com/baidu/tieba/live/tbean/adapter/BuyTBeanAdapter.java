@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.view.BuyTbeanItemView;
 import com.baidu.tieba.live.tbean.view.CustomViewHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BuyTBeanAdapter extends AbsDelegateAdapter<IconInfoWrapperData, CustomViewHolder> {
     private BuyTbeanItemView mBuyTbeanItemView;
     private boolean mIsFromAlaLiveRoom;

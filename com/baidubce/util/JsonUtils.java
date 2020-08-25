@@ -1,6 +1,5 @@
 package com.baidubce.util;
 
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidubce.BceErrorResponse;
 import com.baidubce.http.BceHttpResponse;
 import com.baidubce.model.AbstractBceResponse;
@@ -89,7 +88,7 @@ public class JsonUtils {
                     BosObjectSummary bosObjectSummary = new BosObjectSummary();
                     bosObjectSummary.setETag(optJSONObject2.getString("eTag"));
                     bosObjectSummary.setKey(optJSONObject2.getString("key"));
-                    bosObjectSummary.setSize(optJSONObject2.getLong(TiebaInitialize.LogFields.SIZE));
+                    bosObjectSummary.setSize(optJSONObject2.getLong("size"));
                     bosObjectSummary.setLastModified(DateUtils.parseAlternateIso8601Date(optJSONObject2.getString("lastModified")));
                     bosObjectSummary.setStorageClass(optJSONObject2.getString("storageClass"));
                     JSONObject jSONObject3 = optJSONObject2.getJSONObject("owner");
@@ -213,7 +212,7 @@ public class JsonUtils {
                 PartSummary partSummary = new PartSummary();
                 partSummary.setPartNumber(optJSONObject5.getInt("partNumber"));
                 partSummary.setETag(optJSONObject5.getString("eTag"));
-                partSummary.setSize(optJSONObject5.getInt(TiebaInitialize.LogFields.SIZE));
+                partSummary.setSize(optJSONObject5.getInt("size"));
                 partSummary.setLastModified(DateUtils.parseAlternateIso8601Date(optJSONObject5.getString("lastModified")));
                 arrayList9.add(partSummary);
             }

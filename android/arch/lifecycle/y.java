@@ -7,7 +7,7 @@ import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class y {
     private static Application l(Activity activity) {
         Application application = activity.getApplication();

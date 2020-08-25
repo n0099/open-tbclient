@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
@@ -116,9 +116,9 @@ public class WebViewActivityConfig extends IntentConfig {
     }
 
     public static String addTiebaParams(String str) {
-        if (!as.isEmpty(str)) {
+        if (!at.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (as.isEmpty(Uri.parse(str).getQuery())) {
+                if (at.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();

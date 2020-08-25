@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
     private static Toast mToast;
     private static Handler mHandler = new Handler();

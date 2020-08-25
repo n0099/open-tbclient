@@ -4,10 +4,9 @@ import android.support.annotation.Nullable;
 import android.util.JsonReader;
 import android.util.Log;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -37,7 +36,7 @@ public class g {
                         z = true;
                         break;
                     case 3717:
-                        if (nextName.equals(Config.EXCEPTION_CRASH_CHANNEL)) {
+                        if (nextName.equals("ty")) {
                             z = false;
                             break;
                         }
@@ -192,7 +191,7 @@ public class g {
                 break;
             case 11:
                 v = v.e(jsonReader);
-                eVar.aX("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
+                eVar.bc("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
                 break;
             case '\f':
                 v = ab.v(jsonReader, eVar);

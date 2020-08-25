@@ -7,16 +7,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i implements View.OnTouchListener {
-    private final Spannable msd;
-    private com.baidu.tbadk.widget.richText.f mse = null;
-    private int msf = 0;
+    private final Spannable mKo;
+    private com.baidu.tbadk.widget.richText.f mKp = null;
+    private int mKq = 0;
 
     public i(Spannable spannable) {
-        this.msd = spannable;
+        this.mKo = spannable;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -24,10 +24,10 @@ public class i implements View.OnTouchListener {
         int action = motionEvent.getAction();
         if (view instanceof TextView) {
             TextView textView = (TextView) view;
-            if (action == 3 && this.mse != null) {
-                this.mse.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+            if (action == 3 && this.mKp != null) {
+                this.mKp.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 view.invalidate();
-                this.mse = null;
+                this.mKp = null;
                 return false;
             }
             if (action == 1 || action == 0) {
@@ -39,43 +39,43 @@ public class i implements View.OnTouchListener {
                 }
                 int totalPaddingLeft = x - textView.getTotalPaddingLeft();
                 int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), totalPaddingLeft + textView.getScrollX());
-                if (this.msd == null) {
+                if (this.mKo == null) {
                     return false;
                 }
-                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.msd.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
+                com.baidu.tbadk.widget.richText.f[] fVarArr = (com.baidu.tbadk.widget.richText.f[]) this.mKo.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.f.class);
                 if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
                     if (action == 1) {
                         fVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         fVarArr[0].onClick(textView);
                         view.invalidate();
                     } else {
-                        this.mse = fVarArr[0];
-                        if (this.mse.bpl()) {
-                            if (this.msf != 0) {
-                                fVarArr[0].setColor(ao.getColor(this.msf));
+                        this.mKp = fVarArr[0];
+                        if (this.mKp.bxZ()) {
+                            if (this.mKq != 0) {
+                                fVarArr[0].setColor(ap.getColor(this.mKq));
                             } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                                fVarArr[0].setColor(ao.getColor(R.color.cp_bg_line_c));
+                                fVarArr[0].setColor(ap.getColor(R.color.cp_bg_line_c));
                             } else {
-                                fVarArr[0].setColor(ao.getColor(R.color.cp_bg_line_z));
+                                fVarArr[0].setColor(ap.getColor(R.color.cp_bg_line_z));
                             }
                         }
-                        Selection.setSelection(this.msd, this.msd.getSpanStart(fVarArr[0]), this.msd.getSpanEnd(fVarArr[0]));
+                        Selection.setSelection(this.mKo, this.mKo.getSpanStart(fVarArr[0]), this.mKo.getSpanEnd(fVarArr[0]));
                         view.invalidate();
                     }
                     return true;
                 }
-                if (this.mse != null) {
-                    this.mse.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                if (this.mKp != null) {
+                    this.mKp.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
                 }
-                Selection.removeSelection(this.msd);
+                Selection.removeSelection(this.mKo);
             }
             return false;
         }
         return false;
     }
 
-    public void GT(int i) {
-        this.msf = i;
+    public void Jp(int i) {
+        this.mKq = i;
     }
 }

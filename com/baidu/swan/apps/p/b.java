@@ -1,90 +1,152 @@
 package com.baidu.swan.apps.p;
 
-import android.support.annotation.NonNull;
-import android.util.Log;
-import com.baidu.swan.apps.p.d;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes7.dex */
-public abstract class b<W extends d> implements ZeusPlugin {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected ZeusPlugin.Callback clZ;
-    @NonNull
-    protected W cma;
-    private boolean cmb = false;
-    private final List<ZeusPlugin.Command> cmc = new ArrayList();
-    private d.a cme = new d.a() { // from class: com.baidu.swan.apps.p.b.1
-        @Override // com.baidu.swan.apps.p.d.a
-        public void ed(boolean z) {
-            synchronized (b.this) {
-                if (b.DEBUG) {
-                    Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
-                }
-                b.this.agC();
-                b.this.cmb = true;
-                if (b.DEBUG) {
-                    Log.i("BaseInlineController", "指令flush完成=========================");
-                }
+import android.text.TextUtils;
+import com.baidu.live.adp.lib.cache.BdKVCache;
+import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.runtime.d;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.storage.c.h;
+import com.baidu.swan.apps.u.c.b;
+import com.baidu.tbadk.TbConfig;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class b {
+    private String bLF;
+    private boolean csH;
+    private boolean csI;
+    private JSONObject csJ;
+
+    public String getImageUrl() {
+        return this.bLF;
+    }
+
+    public b anw() {
+        this.csH = false;
+        this.csI = false;
+        this.bLF = null;
+        this.csJ = anz();
+        if (this.csJ != null) {
+            this.csH = any();
+            if (!this.csH) {
+                this.csI = anx();
             }
         }
-    };
-    protected c<W> clY = new c<>();
+        return this;
+    }
 
-    public b(@NonNull W w) {
-        this.cma = w;
-        if (DEBUG) {
-            Log.i("BaseInlineController", "开始初始化组件");
+    private boolean anx() {
+        if (d.azE().XP() == 0) {
+            return s(this.csJ, "bbasp_guide_");
         }
-        this.cma.a(this.cme);
+        if (d.azE().XP() == 1) {
+            return s(this.csJ, "bbaspg_guide_");
+        }
+        return false;
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void setCallback(ZeusPlugin.Callback callback) {
-        this.clZ = callback;
+    private boolean any() {
+        JSONArray optJSONArray = this.csJ.optJSONArray("custom_guide_list");
+        if (optJSONArray == null || optJSONArray.length() == 0) {
+            return false;
+        }
+        int length = optJSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            String optString = optJSONObject.optString("appid", "");
+            if (e.azK() == null || TextUtils.equals(e.azK(), optString)) {
+                return s(optJSONObject, "");
+            }
+        }
+        return false;
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
-        synchronized (this) {
-            if (command != null) {
-                if (this.cmb) {
-                    if (DEBUG) {
-                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00dd  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean s(JSONObject jSONObject, String str) {
+        boolean z;
+        b.a XZ;
+        boolean z2 = false;
+        if (jSONObject != null) {
+            String optString = jSONObject.optString(str + "count", "3");
+            int intValue = !TextUtils.isEmpty(optString) ? Integer.valueOf(optString).intValue() : 0;
+            String optString2 = jSONObject.optString(str + "interval", "72");
+            long longValue = !TextUtils.isEmpty(optString2) ? Long.valueOf(optString2).longValue() : 0L;
+            long optLong = jSONObject.optLong(str + "last_time", 0L);
+            int optInt = jSONObject.optInt(str + "shown_count", 0);
+            int optInt2 = jSONObject.optInt(str + "image_index", 0);
+            boolean z3 = System.currentTimeMillis() - optLong > longValue * BdKVCache.MILLS_1Hour;
+            if (e.azI() != null && (XZ = e.azI().XZ()) != null) {
+                String aqN = XZ.aqN();
+                if (!TextUtils.isEmpty(aqN) && !aqN.startsWith("120")) {
+                    z = false;
+                    if (optInt < intValue && z3 && !z) {
+                        z2 = true;
                     }
-                    this.clY.b(command, this.cma);
-                } else {
-                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
-                    command2.what = command.what;
-                    command2.arg1 = command.arg1;
-                    command2.arg2 = command.arg2;
-                    command2.arg3 = command.arg3;
-                    command2.arg4 = command.arg4;
-                    command2.arg5 = command.arg5;
-                    command2.obj = command.obj;
-                    this.cmc.add(command2);
-                    if (DEBUG) {
-                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
+                    if (z2) {
+                        int a = a(jSONObject, optInt2, str + TbConfig.IMAGE_CACHE_DIR_NAME);
+                        try {
+                            jSONObject.put(str + "shown_count", optInt + 1);
+                            jSONObject.put(str + "image_index", a + 1);
+                            jSONObject.put(str + "last_time", System.currentTimeMillis());
+                            p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.p.b.1
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    h.aDf().putString("swan_guide_toast", b.this.csJ.toString());
+                                }
+                            }, "swanCloseGuideRunnable");
+                        } catch (JSONException e) {
+                        }
                     }
-                    this.clY.a(command);
                 }
             }
+            z = true;
+            if (optInt < intValue) {
+                z2 = true;
+            }
+            if (z2) {
+            }
         }
+        return z2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void agC() {
-        if (this.cmc.size() != 0) {
-            Iterator<ZeusPlugin.Command> it = this.cmc.iterator();
-            while (it.hasNext()) {
-                ZeusPlugin.Command next = it.next();
-                if (DEBUG) {
-                    Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
-                }
-                this.clY.b(next, this.cma);
-                it.remove();
+    private int a(JSONObject jSONObject, int i, String str) {
+        JSONArray optJSONArray;
+        if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
+            return 0;
+        }
+        if (i >= optJSONArray.length()) {
+            i = 0;
+        }
+        this.bLF = optJSONArray.optString(i);
+        return i;
+    }
+
+    private JSONObject anz() {
+        String string = h.aDf().getString("swan_guide_toast", "");
+        if (!TextUtils.isEmpty(string)) {
+            try {
+                return new JSONObject(string);
+            } catch (JSONException e) {
             }
         }
+        return null;
+    }
+
+    public boolean isShow() {
+        return this.csI || this.csH;
+    }
+
+    public String anA() {
+        if (this.csH) {
+            return "special";
+        }
+        if (this.csI) {
+            return "normal";
+        }
+        return null;
     }
 }

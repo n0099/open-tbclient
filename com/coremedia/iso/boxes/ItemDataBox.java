@@ -5,11 +5,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ItemDataBox extends AbstractBox {
     public static final String TYPE = "idat";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     ByteBuffer data;
 
     static {
@@ -18,8 +18,8 @@ public class ItemDataBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ItemDataBox.java", ItemDataBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getData", "com.coremedia.iso.boxes.ItemDataBox", "", "", "", "java.nio.ByteBuffer"), 19);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setData", "com.coremedia.iso.boxes.ItemDataBox", "java.nio.ByteBuffer", "data", "", "void"), 23);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getData", "com.coremedia.iso.boxes.ItemDataBox", "", "", "", "java.nio.ByteBuffer"), 19);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setData", "com.coremedia.iso.boxes.ItemDataBox", "java.nio.ByteBuffer", "data", "", "void"), 23);
     }
 
     public ItemDataBox() {

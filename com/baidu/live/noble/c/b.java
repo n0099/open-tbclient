@@ -7,10 +7,10 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.noble.http.NobleUserInfoHttpResponseMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b implements a {
-    private c baC;
-    private HttpMessageListener baD;
+    private c bfX;
+    private HttpMessageListener bfY;
 
     public b() {
         registerTask();
@@ -19,38 +19,38 @@ public class b implements a {
 
     @Override // com.baidu.live.noble.c.a
     public void a(c cVar) {
-        this.baC = cVar;
+        this.bfX = cVar;
     }
 
     @Override // com.baidu.live.noble.c.a
-    public void Gi() {
+    public void LW() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021195));
     }
 
     @Override // com.baidu.live.noble.c.a
     public void release() {
-        this.baC = null;
-        Gj();
+        this.bfX = null;
+        LX();
         unregisterListener();
     }
 
     private void registerTask() {
-        Gk();
+        LY();
     }
 
-    private void Gj() {
+    private void LX() {
         MessageManager.getInstance().unRegisterTask(1021195);
     }
 
     private void registerListener() {
-        Gl();
+        LZ();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.baD);
+        MessageManager.getInstance().unRegisterListener(this.bfY);
     }
 
-    private void Gk() {
+    private void LY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021195, TbConfig.SERVER_HOST + "liveserver/noble/user");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -59,16 +59,16 @@ public class b implements a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void Gl() {
-        this.baD = new HttpMessageListener(1021195) { // from class: com.baidu.live.noble.c.b.1
+    private void LZ() {
+        this.bfY = new HttpMessageListener(1021195) { // from class: com.baidu.live.noble.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (b.this.baC != null && (httpResponsedMessage instanceof NobleUserInfoHttpResponseMessage)) {
-                    b.this.baC.b(((NobleUserInfoHttpResponseMessage) httpResponsedMessage).Gh());
+                if (b.this.bfX != null && (httpResponsedMessage instanceof NobleUserInfoHttpResponseMessage)) {
+                    b.this.bfX.b(((NobleUserInfoHttpResponseMessage) httpResponsedMessage).LV());
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.baD);
+        MessageManager.getInstance().registerListener(this.bfY);
     }
 }

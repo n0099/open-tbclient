@@ -6,32 +6,32 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class g<TResult> {
-    private static volatile a zC;
+    private static volatile a Al;
+    private Exception Am;
+    private boolean An;
+    private i Ao;
     private boolean cancelled;
     private boolean complete;
     private TResult result;
-    private Exception zD;
-    private boolean zE;
-    private i zF;
-    public static final ExecutorService zz = b.gB();
-    private static final Executor zA = b.gC();
-    public static final Executor zB = bolts.a.gz();
-    private static g<?> zH = new g<>((Object) null);
-    private static g<Boolean> zI = new g<>(true);
-    private static g<Boolean> zJ = new g<>(false);
-    private static g<?> zK = new g<>(true);
+    public static final ExecutorService Ai = b.ia();
+    private static final Executor Aj = b.ib();
+    public static final Executor Ak = bolts.a.hY();
+    private static g<?> Aq = new g<>((Object) null);
+    private static g<Boolean> Ar = new g<>(true);
+    private static g<Boolean> As = new g<>(false);
+    private static g<?> At = new g<>(true);
     private final Object lock = new Object();
-    private List<f<TResult, Void>> zG = new ArrayList();
+    private List<f<TResult, Void>> Ap = new ArrayList();
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(g<?> gVar, UnobservedTaskException unobservedTaskException);
     }
 
-    public static a gI() {
-        return zC;
+    public static a ii() {
+        return Al;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,18 +39,18 @@ public class g<TResult> {
     }
 
     private g(TResult tresult) {
-        l(tresult);
+        m(tresult);
     }
 
     private g(boolean z) {
         if (z) {
-            gN();
+            in();
         } else {
-            l(null);
+            m(null);
         }
     }
 
-    public boolean gJ() {
+    public boolean ij() {
         boolean z;
         synchronized (this.lock) {
             z = this.complete;
@@ -66,10 +66,10 @@ public class g<TResult> {
         return z;
     }
 
-    public boolean gK() {
+    public boolean ik() {
         boolean z;
         synchronized (this.lock) {
-            z = gL() != null;
+            z = il() != null;
         }
         return z;
     }
@@ -82,37 +82,37 @@ public class g<TResult> {
         return tresult;
     }
 
-    public Exception gL() {
+    public Exception il() {
         Exception exc;
         synchronized (this.lock) {
-            if (this.zD != null) {
-                this.zE = true;
-                if (this.zF != null) {
-                    this.zF.gQ();
-                    this.zF = null;
+            if (this.Am != null) {
+                this.An = true;
+                if (this.Ao != null) {
+                    this.Ao.ir();
+                    this.Ao = null;
                 }
             }
-            exc = this.zD;
+            exc = this.Am;
         }
         return exc;
     }
 
-    public static <TResult> g<TResult> k(TResult tresult) {
+    public static <TResult> g<TResult> l(TResult tresult) {
         if (tresult == null) {
-            return (g<TResult>) zH;
+            return (g<TResult>) Aq;
         }
         if (tresult instanceof Boolean) {
-            return ((Boolean) tresult).booleanValue() ? (g<TResult>) zI : (g<TResult>) zJ;
+            return ((Boolean) tresult).booleanValue() ? (g<TResult>) Ar : (g<TResult>) As;
         }
         h hVar = new h();
-        hVar.m(tresult);
-        return hVar.gO();
+        hVar.n(tresult);
+        return hVar.ip();
     }
 
     public static <TResult> g<TResult> f(Exception exc) {
         h hVar = new h();
         hVar.h(exc);
-        return hVar.gO();
+        return hVar.ip();
     }
 
     public static <TResult> g<TResult> a(Callable<TResult> callable, Executor executor) {
@@ -127,14 +127,14 @@ public class g<TResult> {
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this != null && c.this.gF()) {
-                        hVar.gP();
+                    if (c.this != null && c.this.m7if()) {
+                        hVar.iq();
                         return;
                     }
                     try {
-                        hVar.m(callable.call());
+                        hVar.n(callable.call());
                     } catch (CancellationException e) {
-                        hVar.gP();
+                        hVar.iq();
                     } catch (Exception e2) {
                         hVar.h(e2);
                     }
@@ -143,16 +143,16 @@ public class g<TResult> {
         } catch (Exception e) {
             hVar.h(new ExecutorException(e));
         }
-        return hVar.gO();
+        return hVar.ip();
     }
 
     public <TContinuationResult> g<TContinuationResult> a(final f<TResult, TContinuationResult> fVar, final Executor executor, final c cVar) {
-        boolean gJ;
+        boolean ij;
         final h hVar = new h();
         synchronized (this.lock) {
-            gJ = gJ();
-            if (!gJ) {
-                this.zG.add(new f<TResult, Void>() { // from class: bolts.g.1
+            ij = ij();
+            if (!ij) {
+                this.Ap.add(new f<TResult, Void>() { // from class: bolts.g.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // bolts.f
                     /* renamed from: b */
@@ -163,23 +163,23 @@ public class g<TResult> {
                 });
             }
         }
-        if (gJ) {
+        if (ij) {
             a(hVar, fVar, this, executor, cVar);
         }
-        return hVar.gO();
+        return hVar.ip();
     }
 
     public <TContinuationResult> g<TContinuationResult> a(f<TResult, TContinuationResult> fVar) {
-        return a(fVar, zA, (c) null);
+        return a(fVar, Aj, (c) null);
     }
 
     public <TContinuationResult> g<TContinuationResult> b(final f<TResult, g<TContinuationResult>> fVar, final Executor executor, final c cVar) {
-        boolean gJ;
+        boolean ij;
         final h hVar = new h();
         synchronized (this.lock) {
-            gJ = gJ();
-            if (!gJ) {
-                this.zG.add(new f<TResult, Void>() { // from class: bolts.g.2
+            ij = ij();
+            if (!ij) {
+                this.Ap.add(new f<TResult, Void>() { // from class: bolts.g.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // bolts.f
                     /* renamed from: b */
@@ -190,14 +190,14 @@ public class g<TResult> {
                 });
             }
         }
-        if (gJ) {
+        if (ij) {
             b(hVar, fVar, this, executor, cVar);
         }
-        return hVar.gO();
+        return hVar.ip();
     }
 
     public <TContinuationResult> g<TContinuationResult> b(f<TResult, g<TContinuationResult>> fVar) {
-        return b(fVar, zA, null);
+        return b(fVar, Aj, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -208,14 +208,14 @@ public class g<TResult> {
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this != null && c.this.gF()) {
-                        hVar.gP();
+                    if (c.this != null && c.this.m7if()) {
+                        hVar.iq();
                         return;
                     }
                     try {
-                        hVar.m(fVar.a(gVar));
+                        hVar.n(fVar.a(gVar));
                     } catch (CancellationException e) {
-                        hVar.gP();
+                        hVar.iq();
                     } catch (Exception e2) {
                         hVar.h(e2);
                     }
@@ -234,14 +234,14 @@ public class g<TResult> {
                 /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0036 -> B:18:0x0011). Please submit an issue!!! */
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this != null && c.this.gF()) {
-                        hVar.gP();
+                    if (c.this != null && c.this.m7if()) {
+                        hVar.iq();
                         return;
                     }
                     try {
                         g gVar2 = (g) fVar.a(gVar);
                         if (gVar2 == null) {
-                            hVar.m(null);
+                            hVar.n(null);
                         } else {
                             gVar2.a(new f<TContinuationResult, Void>() { // from class: bolts.g.4.1
                                 /* JADX DEBUG: Method merged with bridge method */
@@ -250,21 +250,21 @@ public class g<TResult> {
                                 @Override // bolts.f
                                 /* renamed from: b */
                                 public Void a(g<TContinuationResult> gVar3) {
-                                    if (c.this != null && c.this.gF()) {
-                                        hVar.gP();
+                                    if (c.this != null && c.this.m7if()) {
+                                        hVar.iq();
                                     } else if (gVar3.isCancelled()) {
-                                        hVar.gP();
-                                    } else if (gVar3.gK()) {
-                                        hVar.h(gVar3.gL());
+                                        hVar.iq();
+                                    } else if (gVar3.ik()) {
+                                        hVar.h(gVar3.il());
                                     } else {
-                                        hVar.m(gVar3.getResult());
+                                        hVar.n(gVar3.getResult());
                                     }
                                     return null;
                                 }
                             });
                         }
                     } catch (CancellationException e) {
-                        hVar.gP();
+                        hVar.iq();
                     } catch (Exception e2) {
                         hVar.h(e2);
                     }
@@ -275,9 +275,9 @@ public class g<TResult> {
         }
     }
 
-    private void gM() {
+    private void im() {
         synchronized (this.lock) {
-            for (f<TResult, Void> fVar : this.zG) {
+            for (f<TResult, Void> fVar : this.Ap) {
                 try {
                     fVar.a(this);
                 } catch (RuntimeException e) {
@@ -286,12 +286,12 @@ public class g<TResult> {
                     throw new RuntimeException(e2);
                 }
             }
-            this.zG = null;
+            this.Ap = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean gN() {
+    public boolean in() {
         boolean z = true;
         synchronized (this.lock) {
             if (this.complete) {
@@ -300,14 +300,14 @@ public class g<TResult> {
                 this.complete = true;
                 this.cancelled = true;
                 this.lock.notifyAll();
-                gM();
+                im();
             }
         }
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean l(TResult tresult) {
+    public boolean m(TResult tresult) {
         boolean z = true;
         synchronized (this.lock) {
             if (this.complete) {
@@ -316,7 +316,7 @@ public class g<TResult> {
                 this.complete = true;
                 this.result = tresult;
                 this.lock.notifyAll();
-                gM();
+                im();
             }
         }
         return z;
@@ -329,12 +329,12 @@ public class g<TResult> {
                 return false;
             }
             this.complete = true;
-            this.zD = exc;
-            this.zE = false;
+            this.Am = exc;
+            this.An = false;
             this.lock.notifyAll();
-            gM();
-            if (!this.zE && gI() != null) {
-                this.zF = new i(this);
+            im();
+            if (!this.An && ii() != null) {
+                this.Ao = new i(this);
             }
             return true;
         }

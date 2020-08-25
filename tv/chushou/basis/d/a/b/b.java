@@ -3,19 +3,19 @@ package tv.chushou.basis.d.a.b;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface b extends tv.chushou.basis.d.a {
-    boolean KK(int i);
+    boolean No(int i);
 
-    String aef();
+    String akP();
 
-    String dOp();
+    String ear();
 
-    String dOq();
+    String eas();
 
-    Map<String, String> dOr();
+    Map<String, String> eat();
 
-    String dOs();
+    String eau();
 
-    Map<String, String> dOt();
+    Map<String, String> eav();
 
     String getAppKey();
 

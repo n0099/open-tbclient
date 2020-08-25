@@ -5,39 +5,38 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import com.baidu.swan.apps.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = b.DEBUG;
-    private static SharedPreferences cYp = null;
+    private static SharedPreferences dhu = null;
 
     private a(Context context) {
         this.mContext = null;
         this.mContext = context;
     }
 
-    public static a dl(Context context) {
+    public static a dr(Context context) {
         return new a(context);
     }
 
-    private static SharedPreferences dm(Context context) {
-        if (cYp == null) {
-            cYp = context.getSharedPreferences("downgradefile", 0);
+    private static SharedPreferences ds(Context context) {
+        if (dhu == null) {
+            dhu = context.getSharedPreferences("downgradefile", 0);
         }
-        return cYp;
+        return dhu;
     }
 
-    private int dn(Context context) {
-        int i = dm(context).getInt("old_versioncode_key", 0);
+    private int dt(Context context) {
+        int i = ds(context).getInt("old_versioncode_key", 0);
         if (DEBUG) {
             Log.d(TAG, "get old versioncode:" + i);
         }
         return i;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public static int m29do(Context context) {
+    public static int du(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
@@ -52,49 +51,49 @@ public class a {
         if (DEBUG) {
             Log.d(TAG, "set new versioncode:" + i);
         }
-        SharedPreferences.Editor edit = dm(context).edit();
+        SharedPreferences.Editor edit = ds(context).edit();
         edit.putInt("old_versioncode_key", i);
         edit.apply();
     }
 
-    public void azd() {
-        int m29do = m29do(this.mContext);
-        int dn = dn(this.mContext);
+    public void aHi() {
+        int du = du(this.mContext);
+        int dt = dt(this.mContext);
         if (DEBUG) {
-            Log.d(TAG, "处理升级逻辑：newVersionCode=" + m29do + " /oldVersionCode=" + dn);
+            Log.d(TAG, "处理升级逻辑：newVersionCode=" + du + " /oldVersionCode=" + dt);
         }
-        if (dn == 0) {
-            iv(m29do);
-            n(this.mContext, m29do);
-            o(this.mContext, dn);
-        } else if (m29do > dn) {
-            an(m29do, dn);
-            n(this.mContext, m29do);
-            o(this.mContext, dn);
-        } else if (m29do < dn) {
-            ap(m29do, dn);
-            n(this.mContext, m29do);
-            o(this.mContext, dn);
+        if (dt == 0) {
+            kD(du);
+            n(this.mContext, du);
+            o(this.mContext, dt);
+        } else if (du > dt) {
+            at(du, dt);
+            n(this.mContext, du);
+            o(this.mContext, dt);
+        } else if (du < dt) {
+            av(du, dt);
+            n(this.mContext, du);
+            o(this.mContext, dt);
         } else {
-            aze();
+            aHj();
         }
     }
 
-    private void an(int i, int i2) {
-        com.baidu.swan.apps.ap.a.an(i2, i);
-        com.baidu.swan.e.b.aOZ();
+    private void at(int i, int i2) {
+        com.baidu.swan.apps.ao.a.at(i2, i);
+        com.baidu.swan.d.a.aXw();
     }
 
-    private void ap(int i, int i2) {
+    private void av(int i, int i2) {
     }
 
-    private void iv(int i) {
-        com.baidu.swan.apps.ap.a.an(0, i);
+    private void kD(int i) {
+        com.baidu.swan.apps.ao.a.at(0, i);
     }
 
-    private void aze() {
+    private void aHj() {
         if (DEBUG) {
-            Log.d(TAG, "新旧版本一样:" + dn(this.mContext));
+            Log.d(TAG, "新旧版本一样:" + dt(this.mContext));
         }
     }
 
@@ -102,7 +101,7 @@ public class a {
         if (DEBUG) {
             Log.d(TAG, "set last version code:" + i);
         }
-        SharedPreferences.Editor edit = dm(context).edit();
+        SharedPreferences.Editor edit = ds(context).edit();
         edit.putInt("last_versioncode_key", i);
         edit.apply();
     }

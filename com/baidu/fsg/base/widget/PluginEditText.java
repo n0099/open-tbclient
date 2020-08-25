@@ -17,7 +17,7 @@ import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PluginEditText extends EditText implements View.OnTouchListener {
     private String a;
     private boolean b;

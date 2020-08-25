@@ -2,7 +2,6 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.a.a.a.a.a.a.a;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
@@ -11,7 +10,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class HttpDnsCacheForHost implements INetListener {
     private static final String JSON_KEY_DATA = "data";
     private static final String JSON_KEY_EXTINFO = "ext-info";
@@ -63,7 +62,7 @@ public class HttpDnsCacheForHost implements INetListener {
             }
             bdNet.start(bdNetTask, true);
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -99,7 +98,7 @@ public class HttpDnsCacheForHost implements INetListener {
         try {
             WebSettingsGlobalBlink.setHttpDnsDnFailed(this.mExternalHost);
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -145,7 +144,7 @@ public class HttpDnsCacheForHost implements INetListener {
             }
             WebSettingsGlobalBlink.setHttpDnsCache(str, 3);
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
     }
 

@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private volatile C0510b eEi;
+    private volatile C0556b eOJ;
     private Queue<a> imagesWaitingForLoad = new ConcurrentLinkedQueue();
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.bkk().zV(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.bsW().Cl(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -25,8 +25,8 @@ public class b {
                 return null;
             }
             a aVar = new a();
-            aVar.eEk = bVar;
-            aVar.eEj = imageFileInfo;
+            aVar.eOL = bVar;
+            aVar.eOK = imageFileInfo;
             aVar.includePersistActions = z;
             this.imagesWaitingForLoad.add(aVar);
             notifyNewTaskAdded();
@@ -40,27 +40,27 @@ public class b {
     }
 
     protected void notifyNewTaskAdded() {
-        if (this.eEi == null && !this.imagesWaitingForLoad.isEmpty()) {
-            this.eEi = new C0510b(this.imagesWaitingForLoad);
-            this.eEi.execute(new Void[0]);
+        if (this.eOJ == null && !this.imagesWaitingForLoad.isEmpty()) {
+            this.eOJ = new C0556b(this.imagesWaitingForLoad);
+            this.eOJ.execute(new Void[0]);
         }
     }
 
     public void cancelAllAsyncTask() {
         this.imagesWaitingForLoad = new ConcurrentLinkedQueue();
-        if (this.eEi != null) {
-            this.eEi.cancel(true);
-            this.eEi = null;
+        if (this.eOJ != null) {
+            this.eOJ.cancel(true);
+            this.eOJ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class C0510b extends BdAsyncTask<Void, a, a> {
+    /* loaded from: classes2.dex */
+    public class C0556b extends BdAsyncTask<Void, a, a> {
         final Queue<a> imagesWaitingForLoadRef;
 
-        public C0510b(Queue<a> queue) {
+        public C0556b(Queue<a> queue) {
             this.imagesWaitingForLoadRef = queue;
             super.setPriority(2);
         }
@@ -80,15 +80,15 @@ public class b {
                     this.imagesWaitingForLoadRef.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.ImageView.a zV = com.baidu.tbadk.imageManager.c.bkk().zV(poll.eEj.toCachedKey(poll.includePersistActions));
-                    if (zV != null) {
-                        poll.eEl = zV;
+                    com.baidu.adp.widget.ImageView.a Cl = com.baidu.tbadk.imageManager.c.bsW().Cl(poll.eOK.toCachedKey(poll.includePersistActions));
+                    if (Cl != null) {
+                        poll.eOM = Cl;
                         poll.isFromCache = true;
                     } else {
-                        Bitmap b = b.this.b(poll.eEj, poll.includePersistActions);
+                        Bitmap b = b.this.b(poll.eOK, poll.includePersistActions);
                         if (b != null) {
                             try {
-                                i = BitmapHelper.readPictureDegree(poll.eEj.getFilePath());
+                                i = BitmapHelper.readPictureDegree(poll.eOK.getFilePath());
                                 if (i != 0) {
                                     try {
                                         bitmap = BitmapHelper.rotateBitmapBydegree(b, i);
@@ -110,9 +110,9 @@ public class b {
                                 i = 0;
                             }
                             if (i != 0 && bitmap != null) {
-                                poll.eEl = new com.baidu.adp.widget.ImageView.a(bitmap, poll.eEj.isGif(), poll.eEj.getFilePath());
+                                poll.eOM = new com.baidu.adp.widget.ImageView.a(bitmap, poll.eOK.isGif(), poll.eOK.getFilePath());
                             } else {
-                                poll.eEl = new com.baidu.adp.widget.ImageView.a(b, poll.eEj.isGif(), poll.eEj.getFilePath());
+                                poll.eOM = new com.baidu.adp.widget.ImageView.a(b, poll.eOK.isGif(), poll.eOK.getFilePath());
                             }
                         }
                     }
@@ -128,7 +128,7 @@ public class b {
         /* renamed from: a */
         public void onPostExecute(a aVar) {
             super.onPostExecute(aVar);
-            b.this.eEi = null;
+            b.this.eOJ = null;
             b.this.notifyNewTaskAdded();
         }
 
@@ -139,12 +139,12 @@ public class b {
         public void onProgressUpdate(a... aVarArr) {
             if (aVarArr != null) {
                 for (a aVar : aVarArr) {
-                    com.baidu.adp.widget.ImageView.a aVar2 = aVar.eEl;
+                    com.baidu.adp.widget.ImageView.a aVar2 = aVar.eOM;
                     if (aVar2 != null && !aVar.isFromCache) {
-                        com.baidu.tbadk.imageManager.c.bkk().c(aVar.eEj.toCachedKey(aVar.includePersistActions), aVar2);
+                        com.baidu.tbadk.imageManager.c.bsW().c(aVar.eOK.toCachedKey(aVar.includePersistActions), aVar2);
                     }
-                    if (aVar.eEk != null) {
-                        aVar.eEk.a(aVar2, aVar.eEj.toCachedKey(aVar.includePersistActions), aVar.isFromCache);
+                    if (aVar.eOL != null) {
+                        aVar.eOL.a(aVar2, aVar.eOK.toCachedKey(aVar.includePersistActions), aVar.isFromCache);
                     }
                 }
             }
@@ -154,12 +154,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            b.this.eEi = null;
+            b.this.eOJ = null;
             while (true) {
                 a poll = this.imagesWaitingForLoadRef.poll();
                 if (poll != null) {
-                    if (poll.eEk != null) {
-                        poll.eEk.a(null, poll.eEj.toCachedKey(poll.includePersistActions), false);
+                    if (poll.eOL != null) {
+                        poll.eOL.a(null, poll.eOK.toCachedKey(poll.includePersistActions), false);
                     }
                 } else {
                     return;
@@ -181,14 +181,14 @@ public class b {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.bkm().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.bsY().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.bkm().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.bsY().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -199,11 +199,11 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a {
-        ImageFileInfo eEj;
-        com.baidu.tbadk.imageManager.b eEk;
-        com.baidu.adp.widget.ImageView.a eEl;
+        ImageFileInfo eOK;
+        com.baidu.tbadk.imageManager.b eOL;
+        com.baidu.adp.widget.ImageView.a eOM;
         boolean includePersistActions;
         boolean isFromCache;
 

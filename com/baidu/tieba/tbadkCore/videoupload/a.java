@@ -7,63 +7,63 @@ import com.baidu.tbadk.switchs.ChunkUploadSwitch;
 import com.baidu.tieba.k.h;
 import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static int lQn = 524288;
-    private static int lQo = 6144000;
-    private static int lQp = 524288;
-    private h lOv;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b lQq;
+    private static int mhW = 524288;
+    private static int mhX = 6144000;
+    private static int mhY = 524288;
+    private h mgf;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b mhZ;
 
     public a(h hVar) {
-        this.lOv = hVar;
+        this.mgf = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.lQq = new d(str2, lQp, this.lOv);
+                this.mhZ = new d(str2, mhY, this.mgf);
             } else {
-                this.lQq = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, lQn, lQo, this.lOv);
+                this.mhZ = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, mhW, mhX, this.mgf);
             }
-            this.lQq.a(eVar);
-            return this.lQq.bD(str2, i);
+            this.mhZ.a(eVar);
+            return this.mhZ.bI(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.lOv != null) {
-                this.lOv.m(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.s(e));
+            if (this.mgf != null) {
+                this.mgf.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.r(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.lQq != null) {
-            this.lQq.cancel();
+        if (this.mhZ != null) {
+            this.mhZ.cancel();
         }
     }
 
-    public static void FF(int i) {
+    public static void Ic(int i) {
         if (i <= 0) {
-            lQp = 524288;
+            mhY = 524288;
         } else {
-            lQp = i;
+            mhY = i;
         }
     }
 
-    public static void FG(int i) {
+    public static void Id(int i) {
         if (i <= 0) {
-            lQn = 524288;
+            mhW = 524288;
         } else {
-            lQn = i;
+            mhW = i;
         }
     }
 
-    public static void FH(int i) {
+    public static void Ie(int i) {
         if (i <= 0) {
-            lQo = 6144000;
+            mhX = 6144000;
         } else {
-            lQo = i;
+            mhX = i;
         }
     }
 }

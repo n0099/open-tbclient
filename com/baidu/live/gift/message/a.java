@@ -2,7 +2,7 @@ package com.baidu.live.gift.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends HttpMessage {
     private String loc;
 

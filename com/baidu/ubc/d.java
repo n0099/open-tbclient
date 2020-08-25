@@ -16,19 +16,19 @@ import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class d {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private static volatile d mLM;
-    private ExecutorService dAG;
-    private int dAI;
+    private static volatile d neI;
+    private ExecutorService dJP;
+    private int dJR;
     private Context mContext;
     public ExecutorService mExecutorService;
-    private com.baidu.ubc.g mLN;
-    private com.baidu.ubc.c mLO;
-    private boolean dAJ = false;
-    private ad mLz = new ad();
+    private com.baidu.ubc.g neJ;
+    private com.baidu.ubc.c neK;
+    private boolean dJS = false;
+    private ad nev = new ad();
 
     static /* synthetic */ int d(d dVar) {
-        int i = dVar.dAI;
-        dVar.dAI = i + 1;
+        int i = dVar.dJR;
+        dVar.dJR = i + 1;
         return i;
     }
 
@@ -36,15 +36,15 @@ public class d {
         init(UBC.getContext());
     }
 
-    public static d dzY() {
-        if (mLM == null) {
+    public static d dLL() {
+        if (neI == null) {
             synchronized (d.class) {
-                if (mLM == null) {
-                    mLM = new d();
+                if (neI == null) {
+                    neI = new d();
                 }
             }
         }
-        return mLM;
+        return neI;
     }
 
     private void init(Context context) {
@@ -54,19 +54,19 @@ public class d {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.dAI = QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+            this.dJR = QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
             this.mExecutorService = Executors.newSingleThreadExecutor();
             this.mExecutorService.execute(new g(this, null));
-            this.dAG = Executors.newSingleThreadExecutor();
+            this.dJP = Executors.newSingleThreadExecutor();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void j(String str, String str2, int i) {
-        if (!ac(str, i)) {
+    public void k(String str, String str2, int i) {
+        if (!ae(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.mLN != null && this.mLN.uU(str)) {
-                bVar.gN(true);
+            if (this.neJ != null && this.neJ.xf(str)) {
+                bVar.hh(true);
             }
             this.mExecutorService.execute(bVar);
         }
@@ -74,13 +74,13 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g(String str, String str2, String str3, int i) {
-        if (!ac(str, i)) {
+        if (!ae(str, i)) {
             b bVar = new b(str, str2, i);
             if (!TextUtils.isEmpty(str3)) {
-                bVar.Qy(str3);
+                bVar.Tx(str3);
             }
-            if (this.mLN != null && this.mLN.uU(str)) {
-                bVar.gN(true);
+            if (this.neJ != null && this.neJ.xf(str)) {
+                bVar.hh(true);
             }
             this.mExecutorService.execute(bVar);
         }
@@ -88,24 +88,24 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, JSONObject jSONObject, int i) {
-        if (!ac(str, i)) {
+        if (!ae(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.mLN != null && this.mLN.uU(str)) {
-                bVar.gN(true);
+            if (this.neJ != null && this.neJ.xf(str)) {
+                bVar.hh(true);
             }
             this.mExecutorService.execute(bVar);
         }
     }
 
-    boolean ac(String str, int i) {
-        if (this.mLN == null || this.mLN.ab(str, i)) {
-            if ((i & 16) == 0 || UBC.getUBCContext().mR(str)) {
-                if (this.mLz.dAn() && this.mLN != null && this.mLN.uS(str) > 0) {
-                    if (new Random().nextInt(100) >= this.mLN.uS(str)) {
+    boolean ae(String str, int i) {
+        if (this.neJ == null || this.neJ.ad(str, i)) {
+            if ((i & 16) == 0 || UBC.getUBCContext().oQ(str)) {
+                if (this.nev.dMa() && this.neJ != null && this.neJ.xd(str) > 0) {
+                    if (new Random().nextInt(100) >= this.neJ.xd(str)) {
                         return true;
                     }
                 }
-                return this.mLN != null && this.mLN.uT(str);
+                return this.neJ != null && this.neJ.xe(str);
             }
             return true;
         }
@@ -122,52 +122,52 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized Flow beginFlow(String str, String str2, int i) {
-        Flow bJ;
-        bJ = bJ(str, i);
-        if (bJ != null && bJ.getValid()) {
-            RunnableC0795d runnableC0795d = new RunnableC0795d(bJ, str2);
-            if (this.mLN != null && this.mLN.uU(str)) {
-                runnableC0795d.gN(true);
+        Flow bO;
+        bO = bO(str, i);
+        if (bO != null && bO.getValid()) {
+            RunnableC0848d runnableC0848d = new RunnableC0848d(bO, str2);
+            if (this.neJ != null && this.neJ.xf(str)) {
+                runnableC0848d.hh(true);
             }
-            this.mExecutorService.execute(runnableC0795d);
+            this.mExecutorService.execute(runnableC0848d);
         }
-        return bJ;
+        return bO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        Flow bJ;
-        bJ = bJ(str, i);
-        if (bJ != null && bJ.getValid()) {
-            RunnableC0795d runnableC0795d = new RunnableC0795d(bJ, jSONObject);
-            if (this.mLN != null && this.mLN.uU(str)) {
-                runnableC0795d.gN(true);
+        Flow bO;
+        bO = bO(str, i);
+        if (bO != null && bO.getValid()) {
+            RunnableC0848d runnableC0848d = new RunnableC0848d(bO, jSONObject);
+            if (this.neJ != null && this.neJ.xf(str)) {
+                runnableC0848d.hh(true);
             }
-            this.mExecutorService.execute(runnableC0795d);
+            this.mExecutorService.execute(runnableC0848d);
         }
-        return bJ;
+        return bO;
     }
 
-    Flow bJ(String str, int i) {
-        Flow flow = new Flow(str, this.dAI, i);
-        if (this.mLN != null && !this.mLN.ab(str, i)) {
+    Flow bO(String str, int i) {
+        Flow flow = new Flow(str, this.dJR, i);
+        if (this.neJ != null && !this.neJ.ad(str, i)) {
             flow.setValid(false);
-        } else if ((i & 16) != 0 && !UBC.getUBCContext().mR(str)) {
+        } else if ((i & 16) != 0 && !UBC.getUBCContext().oQ(str)) {
             flow.setValid(false);
         } else {
-            if (this.mLz.dAn() && this.mLN != null && this.mLN.uS(str) > 0) {
-                int uS = this.mLN.uS(str);
+            if (this.nev.dMa() && this.neJ != null && this.neJ.xd(str) > 0) {
+                int xd = this.neJ.xd(str);
                 int nextInt = new Random().nextInt(100);
                 if (DEBUG) {
-                    Log.d("UBCBehaviorProcessor", "ubc id " + str + " random value " + nextInt + " rate = " + uS);
+                    Log.d("UBCBehaviorProcessor", "ubc id " + str + " random value " + nextInt + " rate = " + xd);
                 }
-                if (nextInt >= uS) {
+                if (nextInt >= xd) {
                     flow.setValid(false);
                 }
             }
-            if (this.mLN != null && this.mLN.uT(str)) {
+            if (this.neJ != null && this.neJ.xe(str)) {
                 flow.setValid(false);
-            } else if (this.mLN != null && !this.mLN.QA(str)) {
+            } else if (this.neJ != null && !this.neJ.Tz(str)) {
                 flow.setValid(false);
             }
         }
@@ -182,26 +182,26 @@ public class d {
         this.mExecutorService.execute(new e(str, i, jSONArray));
     }
 
-    public void G(String str, int i) {
+    public void H(String str, int i) {
         this.mExecutorService.execute(new c(str, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ubc.d$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class AnonymousClass1 implements Runnable {
-        final /* synthetic */ d mLP;
+        final /* synthetic */ d neL;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.mLP.mLO == null) {
+            if (this.neL.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "upload#ubc init not finish");
                     return;
                 }
                 return;
             }
-            this.mLP.mLO.aMW();
+            this.neL.neK.aVw();
         }
     }
 
@@ -211,12 +211,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dU(JSONObject jSONObject) {
-        C(jSONObject, null);
+    public void ef(JSONObject jSONObject) {
+        E(jSONObject, null);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void C(JSONObject jSONObject, String str) {
+    public void E(JSONObject jSONObject, String str) {
         a(jSONObject, str, false, (n) null, (t) null);
     }
 
@@ -231,68 +231,68 @@ public class d {
             Log.d("UBCDEBUG", jSONObject.toString());
         }
         boolean z2 = true;
-        r dzZ = dzZ();
-        if (dzZ != null && !dzZ.dia()) {
+        r dLM = dLM();
+        if (dLM != null && !dLM.dtv()) {
             z2 = false;
         }
         if (z2) {
-            this.dAG.execute(new Runnable() { // from class: com.baidu.ubc.d.2
+            this.dJP.execute(new Runnable() { // from class: com.baidu.ubc.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.mLO == null) {
+                    if (d.this.neK == null) {
                         if (d.DEBUG) {
                             Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
                             return;
                         }
                         return;
                     }
-                    d.this.mLO.a(jSONObject, str, z, nVar, tVar);
+                    d.this.neK.a(jSONObject, str, z, nVar, tVar);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aMZ() {
+    public void aVz() {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.ubc.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.mLO == null) {
+                if (d.this.neK == null) {
                     if (d.DEBUG) {
                         Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
                         return;
                     }
                     return;
                 }
-                d.this.mLO.aMZ();
+                d.this.neK.aVz();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ak(final String str, final boolean z) {
+    public void ao(final String str, final boolean z) {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.ubc.d.4
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.mLO == null) {
+                if (d.this.neK == null) {
                     if (d.DEBUG) {
                         Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
                     }
                 } else if (z) {
-                    d.this.mLO.uM(str);
+                    d.this.neK.wX(str);
                 } else {
-                    d.this.mLO.uN(str);
+                    d.this.neK.wY(str);
                 }
             }
         });
     }
 
-    private static final r dzZ() {
-        return com.baidu.tieba.q.j.dib();
+    private static final r dLM() {
+        return com.baidu.tieba.q.j.dtw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class g implements Runnable {
         private g() {
         }
@@ -304,67 +304,67 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.mLN = com.baidu.ubc.g.dAa();
-            d.this.mLO = new com.baidu.ubc.c(d.this.mContext);
-            d.this.mLO.aNa();
+            d.this.neJ = com.baidu.ubc.g.dLN();
+            d.this.neK = new com.baidu.ubc.c(d.this.mContext);
+            d.this.neK.aVA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class b implements Runnable {
-        private n mLX;
+        private n neT;
 
         b(String str, String str2, int i) {
-            this.mLX = new n(str, str2, i);
+            this.neT = new n(str, str2, i);
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.mLX = new n(str, jSONObject, i);
+            this.neT = new n(str, jSONObject, i);
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.mLX = new n(str, str2, i, str3, i2);
+            this.neT = new n(str, str2, i, str3, i2);
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.mLX = new n(str, str2, i, str3, j, i2);
+            this.neT = new n(str, str2, i, str3, j, i2);
         }
 
-        public void gN(boolean z) {
-            if (this.mLX != null) {
-                this.mLX.gN(z);
+        public void hh(boolean z) {
+            if (this.neT != null) {
+                this.neT.hh(z);
             }
         }
 
-        public void Qy(String str) {
-            if (this.mLX != null) {
-                this.mLX.setFileName(str);
+        public void Tx(String str) {
+            if (this.neT != null) {
+                this.neT.setFileName(str);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.mLO == null) {
+            if (d.this.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            this.mLX.aNv();
-            String id = this.mLX.getId();
+            this.neT.aVV();
+            String id = this.neT.getId();
             if (!TextUtils.isEmpty(id)) {
-                String uR = d.this.mLN.uR(id);
-                if (!TextUtils.isEmpty(uR)) {
-                    this.mLX.setCategory(uR);
+                String xc = d.this.neJ.xc(id);
+                if (!TextUtils.isEmpty(xc)) {
+                    this.neT.setCategory(xc);
                 }
-                if ((this.mLX.getOption() & 8) != 0) {
-                    d.this.mLO.b(this.mLX);
-                } else if (this.mLX == null || !d.this.mLN.QB(id)) {
-                    d.this.mLO.a(this.mLX);
+                if ((this.neT.getOption() & 8) != 0) {
+                    d.this.neK.b(this.neT);
+                } else if (this.neT == null || !d.this.neJ.TA(id)) {
+                    d.this.neK.a(this.neT);
                 } else {
-                    d.this.mLO.c(this.mLX);
+                    d.this.neK.c(this.neT);
                 }
             }
         }
@@ -372,148 +372,148 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ubc.d$d  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class RunnableC0795d implements Runnable {
-        private p mLY;
+    /* loaded from: classes18.dex */
+    public class RunnableC0848d implements Runnable {
+        private p neU;
 
-        RunnableC0795d(Flow flow, String str) {
-            this.mLY = new p(flow.getId(), flow.getHandle(), str, flow.getOption());
-            this.mLY.cg(flow.getStartTime());
-            this.mLY.va("1");
+        RunnableC0848d(Flow flow, String str) {
+            this.neU = new p(flow.getId(), flow.getHandle(), str, flow.getOption());
+            this.neU.cq(flow.getStartTime());
+            this.neU.xl("1");
             d.d(d.this);
         }
 
-        RunnableC0795d(Flow flow, JSONObject jSONObject) {
-            this.mLY = new p(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
-            this.mLY.cg(flow.getStartTime());
-            this.mLY.va("1");
+        RunnableC0848d(Flow flow, JSONObject jSONObject) {
+            this.neU = new p(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
+            this.neU.cq(flow.getStartTime());
+            this.neU.xl("1");
             d.d(d.this);
         }
 
-        public void gN(boolean z) {
-            if (this.mLY != null) {
-                this.mLY.gN(z);
+        public void hh(boolean z) {
+            if (this.neU != null) {
+                this.neU.hh(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.mLO == null) {
+            if (d.this.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "FlowCreateRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            this.mLY.aNv();
-            if (!TextUtils.isEmpty(d.this.mLN.uR(this.mLY.getId()))) {
-                this.mLY.setCategory(d.this.mLN.uR(this.mLY.getId()));
+            this.neU.aVV();
+            if (!TextUtils.isEmpty(d.this.neJ.xc(this.neU.getId()))) {
+                this.neU.setCategory(d.this.neJ.xc(this.neU.getId()));
             }
-            d.this.mLO.a(this.mLY);
-            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, d.this.dAI);
+            d.this.neK.a(this.neU);
+            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, d.this.dJR);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class f implements Runnable {
-        private String dAy;
-        private int dAz;
+        private String dJH;
+        private int dJI;
         private String mValue;
 
         f(String str, int i, String str2) {
-            this.dAy = str;
-            this.dAz = i;
+            this.dJH = str;
+            this.dJI = i;
             this.mValue = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.mLO == null) {
+            if (d.this.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.mLO.f(this.dAy, this.dAz, this.mValue);
+            d.this.neK.f(this.dJH, this.dJI, this.mValue);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class e implements Runnable {
-        private JSONArray dAE;
-        private String dAy;
-        private int dAz;
+        private String dJH;
+        private int dJI;
+        private JSONArray dJN;
         private long mEndTime = System.currentTimeMillis();
 
         e(String str, int i, JSONArray jSONArray) {
-            this.dAy = str;
-            this.dAz = i;
-            this.dAE = jSONArray;
+            this.dJH = str;
+            this.dJI = i;
+            this.dJN = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.mLO == null) {
+            if (d.this.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.mLO.a(this.dAy, this.dAz, this.mEndTime, this.dAE);
+            d.this.neK.a(this.dJH, this.dJI, this.mEndTime, this.dJN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class c implements Runnable {
-        private String dAy;
-        private int dAz;
+        private String dJH;
+        private int dJI;
 
         c(String str, int i) {
-            this.dAy = str;
-            this.dAz = i;
+            this.dJH = str;
+            this.dJI = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.mLO == null) {
+            if (d.this.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.mLO.G(this.dAy, this.dAz);
+            d.this.neK.H(this.dJH, this.dJI);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public class a implements Runnable {
-        private v mLU;
-        private boolean mLV;
-        private s mLW;
+        private v neQ;
+        private boolean neR;
+        private s neS;
 
         a(v vVar, boolean z, s sVar) {
-            this.mLU = vVar;
-            this.mLV = z;
-            this.mLW = sVar;
+            this.neQ = vVar;
+            this.neR = z;
+            this.neS = sVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.mLO == null) {
+            if (d.this.neK == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.mLO.a(this.mLU, this.mLV, this.mLW);
+            d.this.neK.a(this.neQ, this.neR, this.neS);
         }
     }
 }

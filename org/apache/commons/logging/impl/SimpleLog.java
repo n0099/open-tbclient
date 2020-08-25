@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.util.Properties;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class SimpleLog implements Serializable, Log {
     protected static final String DEFAULT_DATE_TIME_FORMAT = "yyyy/MM/dd HH:mm:ss:SSS zzz";
     public static final int LOG_LEVEL_ALL = 0;

@@ -13,55 +13,56 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout ewV;
-    protected TextView ewW;
-    private boolean ewY;
-    protected ImageView ewZ;
+    protected ImageView eHA;
+    protected LinearLayout eHv;
+    protected TextView eHw;
+    private boolean eHy;
+    private int eHz;
     protected Context mContext;
     private View mTopLine;
     protected TextView textView;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ewY = true;
+        this.eHy = true;
         this.mContext = context;
-        bhn();
+        bpZ();
         e(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.ewY = true;
+        this.eHy = true;
         this.mContext = context;
-        bhn();
+        bpZ();
     }
 
     public void displayTip() {
-        if (this.ewW != null) {
-            this.ewW.setVisibility(0);
+        if (this.eHw != null) {
+            this.eHw.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.ewW != null) {
-            this.ewW.setTextColor(i);
+        if (this.eHw != null) {
+            this.eHw.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.ewW != null) {
+        if (this.eHw != null) {
         }
     }
 
     public void u(int i, int i2, int i3, int i4) {
-        if (this.ewW != null) {
+        if (this.eHw != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.ewW.setLayoutParams(layoutParams);
+            this.eHw.setLayoutParams(layoutParams);
         }
     }
 
@@ -69,7 +70,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.ewZ.setVisibility(8);
+        this.eHA.setVisibility(8);
     }
 
     public void setText(String str) {
@@ -81,23 +82,23 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.ewW.setText(str);
+        this.eHw.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.ewW.getText();
+        return this.eHw.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.ewW.setBackgroundDrawable(drawable);
+        this.eHw.setBackgroundDrawable(drawable);
     }
 
-    protected void bhn() {
+    protected void bpZ() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.ewV = (LinearLayout) findViewById(R.id.container);
+        this.eHv = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.ewW = (TextView) findViewById(R.id.tip);
-        this.ewZ = (ImageView) findViewById(R.id.arrow2);
+        this.eHw = (TextView) findViewById(R.id.tip);
+        this.eHA = (ImageView) findViewById(R.id.arrow2);
         this.mTopLine = findViewById(R.id.top_line_ll);
     }
 
@@ -110,15 +111,15 @@ public class TbSettingTextTipView extends FrameLayout {
                 this.textView.setText(string);
             }
             if (string2 != null) {
-                this.ewW.setText(string2);
+                this.eHw.setText(string2);
             }
-            this.ewY = obtainStyledAttributes.getBoolean(R.styleable.TbSettingView_settingShowArraw, true);
+            this.eHy = obtainStyledAttributes.getBoolean(R.styleable.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.ewV.setClickable(false);
-        this.ewV.setFocusable(false);
-        if (!this.ewY) {
-            this.ewZ.setVisibility(4);
+        this.eHv.setClickable(false);
+        this.eHv.setFocusable(false);
+        if (!this.eHy) {
+            this.eHA.setVisibility(4);
         }
     }
 
@@ -135,28 +136,33 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setTipTextSize(float f) {
-        this.ewW.setTextSize(0, f);
+        this.eHw.setTextSize(0, f);
     }
 
-    public void bho() {
+    public void bqa() {
         int dimens = l.getDimens(this.mContext, R.dimen.tbds42);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds33);
         setMainTextSize(dimens);
         setTipTextSize(dimens2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.ewW.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
-        this.ewV.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.eHw.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
+        this.eHv.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
-        ao.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_e);
-        ao.setViewTextColor(this.textView, R.color.cp_cont_b);
-        ao.setViewTextColor(this.ewW, R.color.cp_cont_d);
-        SvgManager.baR().a(this.ewZ, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        if (this.ewV != null) {
-            this.ewV.setBackgroundDrawable(ao.lM(R.color.cp_bg_line_e));
+        ap.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_e);
+        ap.setViewTextColor(this.textView, R.color.cp_cont_b);
+        ap.setViewTextColor(this.eHw, this.eHz == 0 ? R.color.cp_cont_d : this.eHz);
+        SvgManager.bjq().a(this.eHA, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.eHv != null) {
+            this.eHv.setBackgroundDrawable(ap.nT(R.color.cp_bg_line_e));
         }
+    }
+
+    public void setTipViewColor(int i) {
+        this.eHz = i;
+        ap.setViewTextColor(this.eHw, this.eHz);
     }
 }

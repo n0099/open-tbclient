@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import android.os.Build;
 import android.util.AndroidRuntimeException;
-import com.a.a.a.a.a.a.a;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import dalvik.system.BaseDexClassLoader;
@@ -12,7 +11,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
     static Class DexPathListClass = null;
     static Class ElementClass = null;
@@ -110,7 +109,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
                 setField(DexPathListClass, field, "dexElementsSuppressedExceptions", null);
             }
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
             throw new AndroidRuntimeException(e);
         }
     }

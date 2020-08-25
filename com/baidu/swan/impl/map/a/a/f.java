@@ -8,7 +8,7 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.e> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
 
-    public static f aIO() {
+    public static f aRE() {
         return new f();
     }
 
@@ -18,20 +18,20 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.e> {
             com.baidu.swan.apps.console.c.e("map", "model is invalid");
             return false;
         }
-        com.baidu.swan.impl.map.c.a.aa(a(eVar)).aIV();
+        com.baidu.swan.impl.map.c.a.Z(a(eVar)).aRL();
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction end");
         return true;
     }
 
     private Bundle a(com.baidu.swan.apps.w.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.bVm);
-        bundle.putDouble("latitude", eVar.cpG.latitude);
-        bundle.putDouble("longitude", eVar.cpG.longitude);
-        bundle.putDouble("scale", eVar.cpH);
-        bundle.putString("name", eVar.cpW);
-        bundle.putString("address", eVar.cpX);
-        bundle.putStringArrayList("ignoredApps", eVar.cpY);
+        bundle.putString("slaveId", eVar.caU);
+        bundle.putDouble("latitude", eVar.cxw.latitude);
+        bundle.putDouble("longitude", eVar.cxw.longitude);
+        bundle.putDouble("scale", eVar.cxx);
+        bundle.putString("name", eVar.cxM);
+        bundle.putString("address", eVar.cxN);
+        bundle.putStringArrayList("ignoredApps", eVar.cxO);
         return bundle;
     }
 

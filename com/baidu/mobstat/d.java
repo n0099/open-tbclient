@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class d {
     static d a = new d();
 
@@ -104,7 +104,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         private String a;
         private String b;
@@ -128,7 +128,7 @@ public class d {
                 jSONObject.put("n", this.a);
                 jSONObject.put("v", this.b);
                 jSONObject.put("c", this.c);
-                jSONObject.put(Config.APP_VERSION_CODE, this.d);
+                jSONObject.put("a", this.d);
                 return jSONObject;
             } catch (JSONException e) {
                 bb.c().b(e);

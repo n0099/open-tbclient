@@ -12,12 +12,13 @@ public class DefaultParams {
     private boolean aC = true;
     private boolean aD = false;
     private EGLContext aE = null;
-    private JSONObject aF = null;
-    private boolean aG = true;
-    private boolean aH = false;
+    private String aF = null;
+    private JSONObject aG = null;
+    private boolean aH = true;
+    private boolean aI = false;
 
     public void enableLog(boolean z) {
-        this.aG = z;
+        this.aH = z;
     }
 
     public String getFaceAlgoModelPath() {
@@ -25,11 +26,15 @@ public class DefaultParams {
     }
 
     public JSONObject getGradingConfig() {
-        return this.aF;
+        return this.aG;
     }
 
     public String getMdlAlgoModelPath() {
         return this.ay;
+    }
+
+    public String getRenderPipeline() {
+        return this.aF;
     }
 
     public EGLContext getShareContext() {
@@ -37,7 +42,7 @@ public class DefaultParams {
     }
 
     public boolean isLogEnable() {
-        return this.aG;
+        return this.aH;
     }
 
     public boolean isUseBeautyFilter() {
@@ -61,7 +66,7 @@ public class DefaultParams {
     }
 
     public boolean isUserPlayAudio() {
-        return this.aH;
+        return this.aI;
     }
 
     public void setFaceAlgoModelPath(String str) {
@@ -69,11 +74,15 @@ public class DefaultParams {
     }
 
     public void setGradingConfig(JSONObject jSONObject) {
-        this.aF = jSONObject;
+        this.aG = jSONObject;
     }
 
     public void setMdlAlgoModelPath(String str) {
         this.ay = str;
+    }
+
+    public void setRenderPipeline(String str) {
+        this.aF = str;
     }
 
     public void setShareContext(EGLContext eGLContext) {
@@ -101,6 +110,6 @@ public class DefaultParams {
     }
 
     public void setUserPlayAudio(boolean z) {
-        this.aH = z;
+        this.aI = z;
     }
 }

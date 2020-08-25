@@ -21,7 +21,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MediaStoreLoader {
     public static final int LOEDER_TYPE_ALL = 0;
     public static final int LOEDER_TYPE_NOT_IMAGE = 1;
@@ -41,9 +41,10 @@ public class MediaStoreLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ResutMediaStore getAllMediaList() {
+    public synchronized ResutMediaStore getAllMediaList() {
+        ResutMediaStore resutMediaStore;
         this.mAlbumHashMap.clear();
-        ResutMediaStore resutMediaStore = new ResutMediaStore();
+        resutMediaStore = new ResutMediaStore();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
         if (this.mMediaLoaderType != 2) {
@@ -270,7 +271,7 @@ public class MediaStoreLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class MediaLoadAsyncTask extends BdAsyncTask<Object, Integer, ResutMediaStore> {
         private final MediaStoreLoadCallback mCallBack;
 

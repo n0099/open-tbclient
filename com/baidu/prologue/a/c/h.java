@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [54=4] */
-    public static String o(File file) {
+    public static String p(File file) {
         Exception exc;
         int read;
         if (!file.exists()) {
@@ -31,7 +31,7 @@ public class h {
                     } catch (Exception e) {
                         fileInputStream = fileInputStream2;
                         exc = e;
-                        if (com.baidu.prologue.a.b.a.bEI.get().OY()) {
+                        if (com.baidu.prologue.a.b.a.bKi.get().UU()) {
                             throw new RuntimeException(exc);
                         }
                         if (fileInputStream != null) {
@@ -57,17 +57,17 @@ public class h {
                         throw th;
                     }
                 } while (read > 0);
-                String D = D(messageDigest.digest());
+                String E = E(messageDigest.digest());
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
-                        return D;
+                        return E;
                     } catch (IOException e4) {
                         e4.printStackTrace();
-                        return D;
+                        return E;
                     }
                 }
-                return D;
+                return E;
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -76,7 +76,7 @@ public class h {
         }
     }
 
-    public static String D(byte[] bArr) {
+    public static String E(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b : bArr) {

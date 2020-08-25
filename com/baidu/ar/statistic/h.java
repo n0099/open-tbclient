@@ -7,20 +7,20 @@ import java.util.List;
 /* loaded from: classes11.dex */
 class h implements Runnable {
     private Object mLock;
-    private WeakReference<Context> uW;
-    private int vl;
-    private volatile boolean vm;
-    private i[] vn;
+    private int vO;
+    private volatile boolean vP;
+    private i[] vQ;
+    private WeakReference<Context> vz;
 
     public h(Context context, Object obj, i[] iVarArr) {
         if (iVarArr == null) {
             throw new NullPointerException();
         }
-        this.uW = new WeakReference<>(context);
-        this.vl = 0;
-        this.vm = false;
+        this.vz = new WeakReference<>(context);
+        this.vO = 0;
+        this.vP = false;
         this.mLock = obj;
-        this.vn = iVarArr;
+        this.vQ = iVarArr;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:34:0x007b  */
@@ -34,12 +34,12 @@ class h implements Runnable {
         i iVar;
         int i;
         int i2;
-        if (this.vn.length == 0) {
+        if (this.vQ.length == 0) {
             return;
         }
         Process.setThreadPriority(19);
         while (!Thread.currentThread().isInterrupted()) {
-            i[] iVarArr = this.vn;
+            i[] iVarArr = this.vQ;
             int length = iVarArr.length;
             int i3 = 0;
             boolean z = false;
@@ -50,20 +50,20 @@ class h implements Runnable {
                     break;
                 }
                 i iVar2 = iVarArr[i3];
-                List<List<a>> eZ = iVar2.eZ();
-                if (iVar2.fa()) {
+                List<List<a>> gn = iVar2.gn();
+                if (iVar2.go()) {
                     z = true;
                 }
-                if (eZ != null && eZ.size() > 0) {
+                if (gn != null && gn.size() > 0) {
                     iVar = iVar2;
-                    list = eZ;
+                    list = gn;
                     break;
                 }
                 i3++;
-                list = eZ;
+                list = gn;
             }
             if (list != null && list.size() > 0 && iVar != null) {
-                Context context = this.uW.get();
+                Context context = this.vz.get();
                 if (context == null) {
                     break;
                 }
@@ -76,16 +76,16 @@ class h implements Runnable {
                         } catch (Exception e) {
                             e = e;
                             i = i2;
-                            this.vl++;
+                            this.vO++;
                             e.printStackTrace(System.out);
                             i2 = i;
                             if (i2 > 0) {
                             }
-                            if (this.vl <= 0) {
+                            if (this.vO <= 0) {
                             }
                         }
                     }
-                    this.vl = 0;
+                    this.vO = 0;
                 } catch (Exception e2) {
                     e = e2;
                     i = 0;
@@ -93,13 +93,13 @@ class h implements Runnable {
                 if (i2 > 0) {
                     iVar.update(i2);
                 }
-                if (this.vl <= 0) {
-                    if (this.vm) {
+                if (this.vO <= 0) {
+                    if (this.vP) {
                         break;
                     }
                     try {
-                        int i4 = this.vl * 2000;
-                        if (this.vl >= 7) {
+                        int i4 = this.vO * 2000;
+                        if (this.vO >= 7) {
                             i4 = 60000;
                         }
                         Thread.currentThread();
@@ -111,7 +111,7 @@ class h implements Runnable {
                 } else {
                     continue;
                 }
-            } else if (this.vm) {
+            } else if (this.vP) {
                 break;
             } else if (z) {
                 try {
@@ -132,12 +132,12 @@ class h implements Runnable {
                 }
             }
         }
-        for (i iVar3 : this.vn) {
+        for (i iVar3 : this.vQ) {
             iVar3.save();
         }
     }
 
     public void shutdown() {
-        this.vm = true;
+        this.vP = true;
     }
 }

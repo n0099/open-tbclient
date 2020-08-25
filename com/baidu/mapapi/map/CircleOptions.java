@@ -3,7 +3,8 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+import java.util.List;
+/* loaded from: classes20.dex */
 public final class CircleOptions extends OverlayOptions {
     private static final String d = CircleOptions.class.getSimpleName();
     int a;
@@ -11,28 +12,56 @@ public final class CircleOptions extends OverlayOptions {
     private LatLng e;
     private int g;
     private Stroke h;
+    private List<HoleOptions> k;
+    private HoleOptions l;
     private int f = ViewCompat.MEASURED_STATE_MASK;
+    private boolean i = false;
+    private int j = 0;
     boolean b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Circle circle = new Circle();
-        circle.x = this.b;
-        circle.w = this.a;
-        circle.y = this.c;
+        circle.B = this.b;
+        circle.A = this.a;
+        circle.C = this.c;
         circle.b = this.f;
         circle.a = this.e;
         circle.c = this.g;
         circle.d = this.h;
+        circle.e = this.i;
+        circle.f = this.j;
+        circle.g = this.k;
+        circle.h = this.l;
         return circle;
+    }
+
+    public CircleOptions addHoleOption(HoleOptions holeOptions) {
+        this.l = holeOptions;
+        return this;
+    }
+
+    public CircleOptions addHoleOptions(List<HoleOptions> list) {
+        this.k = list;
+        return this;
     }
 
     public CircleOptions center(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("circle center can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: circle center can not be null");
         }
         this.e = latLng;
+        return this;
+    }
+
+    public CircleOptions dottedStroke(boolean z) {
+        this.i = z;
+        return this;
+    }
+
+    public CircleOptions dottedStrokeType(CircleDottedStrokeType circleDottedStrokeType) {
+        this.j = circleDottedStrokeType.ordinal();
         return this;
     }
 

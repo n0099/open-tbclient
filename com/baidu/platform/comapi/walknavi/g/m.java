@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class m implements Runnable {
     final /* synthetic */ a a;
 
@@ -18,9 +18,9 @@ public class m implements Runnable {
         Handler handler2;
         Message obtain = Message.obtain();
         obtain.what = 1;
-        handler = this.a.Q;
+        handler = this.a.G;
         if (handler != null) {
-            handler2 = this.a.Q;
+            handler2 = this.a.G;
             handler2.dispatchMessage(obtain);
         }
     }

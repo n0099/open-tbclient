@@ -17,32 +17,32 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
     final TimeUnit unit;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dSS()));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.eeU()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
+    public static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, org.b.d {
         private static final long serialVersionUID = -9102637559663639004L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         boolean done;
         volatile long index;
-        org.a.d s;
+        org.b.d s;
         final long timeout;
         final SequentialDisposable timer = new SequentialDisposable();
         final TimeUnit unit;
         final v.c worker;
 
-        DebounceTimedSubscriber(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v.c cVar2) {
+        DebounceTimedSubscriber(org.b.c<? super T> cVar, long j, TimeUnit timeUnit, v.c cVar2) {
             this.actual = cVar;
             this.timeout = j;
             this.unit = timeUnit;
             this.worker = cVar2;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -50,7 +50,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 long j = 1 + this.index;
@@ -66,7 +66,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -77,7 +77,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
             this.worker.dispose();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -94,14 +94,14 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this, j);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.s.cancel();
             this.worker.dispose();

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.element.eruption.strategy;
 
 import android.util.Pair;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategy;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseEruptionStrategy implements IEruptionStrategy {
     protected Random mRandom = new Random();
 
@@ -70,7 +71,7 @@ public abstract class BaseEruptionStrategy implements IEruptionStrategy {
             return null;
         }
         if (i > i2) {
-            i2 += 360;
+            i2 += EncoderTextureDrawer.X264_WIDTH;
         }
         int i4 = (i2 - i) / i3;
         ArrayList arrayList = new ArrayList();

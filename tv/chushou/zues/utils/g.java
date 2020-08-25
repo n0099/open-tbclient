@@ -14,18 +14,18 @@ import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes6.dex */
 public class g {
     public static void y(CharSequence charSequence) {
-        a.d(h.dZF(), charSequence);
+        a.d(h.elJ(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
         a.d(context, charSequence);
     }
 
-    public static void Mc(@StringRes int i) {
-        a.showToast(h.dZF(), i);
+    public static void OF(@StringRes int i) {
+        a.showToast(h.elJ(), i);
     }
 
-    public static void F(Context context, @StringRes int i) {
+    public static void H(Context context, @StringRes int i) {
         a.showToast(context, i);
     }
 
@@ -67,41 +67,41 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static CharSequence oth;
-        private static Toast oti = null;
-        private static long otj = 0;
+        private static CharSequence oMZ;
+        private static Toast oNa = null;
+        private static long oNb = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dZF();
+                    context = h.elJ();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.oti == null) {
-                                Toast unused = a.oti = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.oti);
-                                a.oti.setText(charSequence);
-                                a.oti.show();
-                                CharSequence unused2 = a.oth = charSequence;
-                                long unused3 = a.otj = System.currentTimeMillis();
+                            if (a.oNa == null) {
+                                Toast unused = a.oNa = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.oNa);
+                                a.oNa.setText(charSequence);
+                                a.oNa.show();
+                                CharSequence unused2 = a.oMZ = charSequence;
+                                long unused3 = a.oNb = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.oth)) {
-                                if (currentTimeMillis - a.otj > 2000) {
-                                    a.oti.show();
-                                    long unused4 = a.otj = currentTimeMillis;
+                            if (charSequence.equals(a.oMZ)) {
+                                if (currentTimeMillis - a.oNb > 2000) {
+                                    a.oNa.show();
+                                    long unused4 = a.oNb = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.oth = charSequence;
-                            a.oti.setText(charSequence);
-                            a.oti.show();
-                            long unused6 = a.otj = currentTimeMillis;
+                            CharSequence unused5 = a.oMZ = charSequence;
+                            a.oNa.setText(charSequence);
+                            a.oNa.show();
+                            long unused6 = a.oNb = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.eaj().getString(i));
+                d(context, h.emm().getString(i));
             }
         }
     }

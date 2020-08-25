@@ -1,9 +1,9 @@
 package com.baidu.live.sdk.goods.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends HttpMessage {
-    public String aIO;
+    public String aNZ;
     public String gid;
     public long liveId;
 
@@ -13,7 +13,7 @@ public class b extends HttpMessage {
     }
 
     public void c(long j, String str, String str2) {
-        this.aIO = str;
+        this.aNZ = str;
         this.liveId = j;
         this.gid = str2;
         addParam("feed_id", str);

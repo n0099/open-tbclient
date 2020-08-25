@@ -66,7 +66,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f953common = getCommon();
+        builder.f950common = getCommon();
         builder.fid = Long.valueOf(this.fid);
         if (this.prefix != null) {
             builder.prefix = this.prefix;

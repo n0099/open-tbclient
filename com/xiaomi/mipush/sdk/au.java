@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 /* synthetic */ class au {
     static final /* synthetic */ int[] a = new int[av.values().length];
 

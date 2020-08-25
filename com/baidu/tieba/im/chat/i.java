@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     BaseActivity mActivity;
     String mUrl;
@@ -19,7 +19,7 @@ public class i {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
                 showToast(this.mActivity.getPageContext().getString(R.string.save_fail));
             }
-            com.baidu.adp.lib.e.c.ln().a(this.mUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
+            com.baidu.adp.lib.e.c.mM().a(this.mUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b

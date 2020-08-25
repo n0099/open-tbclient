@@ -5,31 +5,31 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes16.dex */
 public class a {
-    private int ijb = -1;
-    private long ijc = -1;
-    private int iiY = b.aZP().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> iiZ = new HashSet();
-    private Set<String> ija = new HashSet();
+    private int ixf = -1;
+    private long ixg = -1;
+    private int ixc = b.bik().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> ixd = new HashSet();
+    private Set<String> ixe = new HashSet();
 
-    public void bf(int i, String str) {
-        this.ija.add(str);
-        if (this.ijb < 0 && this.iiY == this.ija.size()) {
-            this.ijb = i;
+    public void bd(int i, String str) {
+        this.ixe.add(str);
+        if (this.ixf < 0 && this.ixc == this.ixe.size()) {
+            this.ixf = i;
         }
     }
 
-    public int cjU() {
-        return this.ijb;
+    public int cuy() {
+        return this.ixf;
     }
 
-    public void ey(long j) {
-        this.ijc = j;
+    public void eK(long j) {
+        this.ixg = j;
     }
 
-    public void cjV() {
-        int i = b.aZP().getInt("nani_key_download_show_rate", 2);
-        if (this.ijc > 0 && i != 1) {
-            b.aZP().putLong("key_horizontal_shown_time", this.ijc);
+    public void cuz() {
+        int i = b.bik().getInt("nani_key_download_show_rate", 2);
+        if (this.ixg > 0 && i != 1) {
+            b.bik().putLong("key_horizontal_shown_time", this.ixg);
         }
     }
 }

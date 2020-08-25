@@ -5,31 +5,32 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public abstract class aa extends d<com.baidu.swan.apps.scheme.j> {
+/* loaded from: classes8.dex */
+public abstract class aa extends d<UnitedSchemeBaseDispatcher> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 
-    public aa(com.baidu.swan.apps.scheme.j jVar, String str) {
-        super(jVar, str);
+    public aa(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
+        super(unitedSchemeBaseDispatcher, str);
     }
 
-    public com.baidu.swan.apps.runtime.e aad() {
-        return com.baidu.swan.apps.runtime.e.arv();
+    public com.baidu.swan.apps.runtime.e agn() {
+        return com.baidu.swan.apps.runtime.e.azI();
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         boolean d;
         try {
             if (TextUtils.equals(this.name, str)) {
-                d = a(context, unitedSchemeEntity, callbackHandler, aad());
+                d = a(context, unitedSchemeEntity, callbackHandler, agn());
             } else {
-                d = d(context, unitedSchemeEntity, callbackHandler, str, aad());
+                d = d(context, unitedSchemeEntity, callbackHandler, str, agn());
             }
             return d;
         } catch (Throwable th) {

@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.c;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static long dLg = 604800000;
+    private static long dUo = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void K(File file) {
+    public static void L(File file) {
         if (file != null) {
             try {
                 if (file.isDirectory()) {
@@ -22,7 +22,7 @@ public class a {
                     if (listFiles != null) {
                         for (int i = 0; i < listFiles.length; i++) {
                             if (listFiles[i].isDirectory()) {
-                                K(listFiles[i]);
+                                L(listFiles[i]);
                             } else if (!listFiles[i].delete()) {
                             }
                         }
@@ -44,25 +44,25 @@ public class a {
             /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.j.a$1$1] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                long j = b.aZP().getLong("key_clear_resource", 0L);
+                long j = b.bik().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (j == 0) {
-                    b.aZP().putLong("key_clear_resource", currentTimeMillis);
+                    b.bik().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
-                if (currentTimeMillis - j > a.dLg) {
+                if (currentTimeMillis - j > a.dUo) {
                     new Thread() { // from class: com.baidu.tbadk.j.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.aZW();
-                                a.K(TbadkCoreApplication.getInst().getCacheDir());
+                                c.bir();
+                                a.L(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }
                         }
                     }.start();
-                    b.aZP().putLong("key_clear_resource", currentTimeMillis);
+                    b.bik().putLong("key_clear_resource", currentTimeMillis);
                 }
             }
         });

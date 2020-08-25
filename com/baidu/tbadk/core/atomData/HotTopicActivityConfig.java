@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HotTopicActivityConfig extends IntentConfig {
     public static final String FROM_BANG = "5";
     public static final String FROM_OTHER_CARD = "1";

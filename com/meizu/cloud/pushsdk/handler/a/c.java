@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -177,7 +177,7 @@ public class c extends a<MessageV3> {
             return 0;
         }
         if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getEndShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification expire", 2200, messageV3.getTaskId(), messageV3.getDeviceId());
             return 1;
         } else if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getStartShowTime()).longValue()) {
             com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());

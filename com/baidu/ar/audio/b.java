@@ -7,10 +7,12 @@ import android.os.Message;
 /* loaded from: classes11.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private static volatile b iH;
-    private c iE;
-    private HandlerThread iF;
-    private Handler iG;
+    private static volatile b iq;
+    private c in;
+
+    /* renamed from: io  reason: collision with root package name */
+    private HandlerThread f960io;
+    private Handler ip;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
@@ -26,16 +28,16 @@ public class b {
                     b.this.a((AudioParams) message.obj);
                     return;
                 case 1002:
-                    b.this.bT();
+                    b.this.cl();
                     return;
                 case 1003:
-                    b.this.bU();
+                    b.this.cm();
                     return;
                 case 1004:
-                    b.this.bV();
+                    b.this.cn();
                     return;
                 case 1005:
-                    b.this.bW();
+                    b.this.co();
                     return;
                 default:
                     return;
@@ -48,116 +50,116 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AudioParams audioParams) {
-        if (this.iE != null) {
-            this.iE.b(audioParams);
+        if (this.in != null) {
+            this.in.b(audioParams);
         }
     }
 
-    public static b bO() {
-        if (iH == null) {
+    public static b cg() {
+        if (iq == null) {
             synchronized (b.class) {
-                if (iH == null) {
-                    iH = new b();
+                if (iq == null) {
+                    iq = new b();
                 }
             }
         }
-        return iH;
+        return iq;
     }
 
-    private void bP() {
-        this.iF = new HandlerThread("AudioHandlerThread");
-        this.iF.start();
-        this.iG = new a(this.iF.getLooper());
+    private void ch() {
+        this.f960io = new HandlerThread("AudioHandlerThread");
+        this.f960io.start();
+        this.ip = new a(this.f960io.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bT() {
-        if (this.iE != null) {
-            this.iE.bX();
+    public void cl() {
+        if (this.in != null) {
+            this.in.cp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bU() {
-        if (this.iE != null) {
-            this.iE.bY();
+    public void cm() {
+        if (this.in != null) {
+            this.in.cq();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bV() {
-        if (this.iE != null) {
-            this.iE.bZ();
+    public void cn() {
+        if (this.in != null) {
+            this.in.cr();
         }
-        this.iE = null;
+        this.in = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bW() {
+    public void co() {
         releaseInstance();
-        if (this.iG != null) {
-            this.iG.removeCallbacksAndMessages(null);
-            this.iG = null;
+        if (this.ip != null) {
+            this.ip.removeCallbacksAndMessages(null);
+            this.ip = null;
         }
-        if (this.iF != null) {
-            this.iF.quit();
-            this.iF = null;
+        if (this.f960io != null) {
+            this.f960io.quit();
+            this.f960io = null;
         }
     }
 
     private static void releaseInstance() {
-        iH = null;
+        iq = null;
     }
 
     public boolean a(AudioParams audioParams, com.baidu.ar.audio.a aVar) {
         if (isRunning()) {
-            com.baidu.ar.f.b.b(TAG, "setupAudio error! As last audio thread is alive!");
+            com.baidu.ar.g.b.b(TAG, "setupAudio error! As last audio thread is alive!");
             return false;
         }
-        if (this.iE == null) {
-            this.iE = new c();
+        if (this.in == null) {
+            this.in = new c();
         }
-        this.iE.a(aVar);
-        bP();
-        this.iG.sendMessage(this.iG.obtainMessage(1001, audioParams));
+        this.in.a(aVar);
+        ch();
+        this.ip.sendMessage(this.ip.obtainMessage(1001, audioParams));
         return true;
     }
 
-    public void bQ() {
-        bU();
+    public void ci() {
+        cm();
     }
 
-    public void bR() {
-        if (this.iG != null) {
-            this.iG.removeCallbacksAndMessages(null);
-            this.iG.sendMessage(this.iG.obtainMessage(1004));
-            this.iG.sendMessage(this.iG.obtainMessage(1005));
+    public void cj() {
+        if (this.ip != null) {
+            this.ip.removeCallbacksAndMessages(null);
+            this.ip.sendMessage(this.ip.obtainMessage(1004));
+            this.ip.sendMessage(this.ip.obtainMessage(1005));
         }
     }
 
-    public AudioParams bS() {
-        if (this.iE != null) {
-            return this.iE.bS();
+    public AudioParams ck() {
+        if (this.in != null) {
+            return this.in.ck();
         }
         return null;
     }
 
     public boolean isRunning() {
-        return this.iF != null && this.iF.isAlive();
+        return this.f960io != null && this.f960io.isAlive();
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {
         if (volumeListener != null) {
-            if (this.iE == null) {
-                this.iE = new c();
+            if (this.in == null) {
+                this.in = new c();
             }
-            this.iE.setVolumeListener(volumeListener);
+            this.in.setVolumeListener(volumeListener);
         }
     }
 
     public void startAudio() {
-        if (this.iG != null) {
-            this.iG.sendMessage(this.iG.obtainMessage(1002));
+        if (this.ip != null) {
+            this.ip.sendMessage(this.ip.obtainMessage(1002));
         }
     }
 }

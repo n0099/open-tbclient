@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteCacheRespMsg<T> extends CustomResponsedMessage<T> {
     private boolean isSuccess;
 

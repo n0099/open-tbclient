@@ -3,25 +3,25 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class aj extends a {
-    private float bUi;
-    private float bUj;
-    private float bUk;
-    private float bUl;
-    private int bUm;
-    private int bUn;
+    private float bZQ;
+    private float bZR;
+    private float bZS;
+    private float bZT;
+    private int bZU;
+    private int bZV;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 6) {
-                this.bUi = (float) jSONArray.optDouble(0);
-                this.bUj = (float) jSONArray.optDouble(1);
-                this.bUk = (float) jSONArray.optDouble(2);
-                this.bUl = (float) jSONArray.optDouble(3);
-                this.bUm = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(4));
-                this.bUn = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(5));
+                this.bZQ = (float) jSONArray.optDouble(0);
+                this.bZR = (float) jSONArray.optDouble(1);
+                this.bZS = (float) jSONArray.optDouble(2);
+                this.bZT = (float) jSONArray.optDouble(3);
+                this.bZU = com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(4));
+                this.bZV = com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(5));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -32,14 +32,14 @@ public class aj extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.WF() == 0) {
-            bVar.eF(canvas.save());
+        if (bVar.acL() == 0) {
+            bVar.gD(canvas.save());
         } else {
-            canvas.restoreToCount(bVar.WF());
-            bVar.eF(canvas.save());
+            canvas.restoreToCount(bVar.acL());
+            bVar.gD(canvas.save());
         }
         Matrix matrix = new Matrix();
-        matrix.setValues(new float[]{this.bUi, this.bUk, this.bUm, this.bUj, this.bUl, this.bUn, 0.0f, 0.0f, 1.0f});
+        matrix.setValues(new float[]{this.bZQ, this.bZS, this.bZU, this.bZR, this.bZT, this.bZV, 0.0f, 0.0f, 1.0f});
         canvas.concat(matrix);
     }
 }

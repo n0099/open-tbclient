@@ -22,7 +22,7 @@ import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes16.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private CustomMessageListener jmr;
+    private CustomMessageListener jBp;
     private MessageRedDotView tipView;
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -46,13 +46,13 @@ public class ImMessageCenterDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.eFm = this.mIndicator;
+        aVar.ePQ = this.mIndicator;
         aVar.view = this.tipView;
         aVar.isRight = true;
         this.mIndicator.b("msg", aVar);
         this.tipView.setVisibility(4);
         if (!TbSingleton.getInstance().isShowVivoBadge()) {
-            A(this.tipView.getContext(), 0);
+            C(this.tipView.getContext(), 0);
         }
         return this.mIndicator;
     }
@@ -67,13 +67,13 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        customMessageListener.setPriority(6);
+        customMessageListener.setPriority(7);
         MessageManager.getInstance().registerListener(customMessageListener);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.jmr = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.jBp = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -98,7 +98,7 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.jmr);
+        MessageManager.getInstance().registerListener(this.jBp);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,19 +109,19 @@ public class ImMessageCenterDelegateStatic extends b {
                 this.tipView.refresh(i);
                 this.tipView.setVisibility(0);
                 if (TbSingleton.getInstance().isShowVivoBadge()) {
-                    A(this.tipView.getContext(), i);
+                    C(this.tipView.getContext(), i);
                     return;
                 }
                 return;
             }
             this.tipView.setVisibility(8);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                A(this.tipView.getContext(), 0);
+                C(this.tipView.getContext(), 0);
             }
         }
     }
 
-    private void A(Context context, int i) {
+    private void C(Context context, int i) {
         Intent intent = new Intent();
         intent.setAction("launcher.action.CHANGE_APPLICATION_NOTIFICATION_NUM");
         intent.putExtra("packageName", "com.baidu.tieba");
@@ -134,6 +134,6 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.jmr);
+        MessageManager.getInstance().unRegisterListener(this.jBp);
     }
 }

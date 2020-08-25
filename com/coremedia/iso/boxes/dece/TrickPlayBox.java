@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class TrickPlayBox extends AbstractFullBox {
     public static final String TYPE = "trik";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -24,9 +24,9 @@ public class TrickPlayBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrickPlayBox.java", TrickPlayBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "java.util.List", "entries", "", "void"), 32);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.util.List"), 36);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", FieldUtil.TYPE_STRING), 103);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "java.util.List", "entries", "", "void"), 32);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.util.List"), 36);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", FieldUtil.TYPE_STRING), 103);
     }
 
     public TrickPlayBox() {
@@ -44,7 +44,7 @@ public class TrickPlayBox extends AbstractFullBox {
         return this.entries;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         private int value;
 

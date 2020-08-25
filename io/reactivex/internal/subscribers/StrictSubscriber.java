@@ -8,22 +8,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public class StrictSubscriber<T> extends AtomicInteger implements j<T>, d {
     private static final long serialVersionUID = -4945028590049415624L;
-    final org.a.c<? super T> actual;
+    final org.b.c<? super T> actual;
     volatile boolean done;
     final AtomicThrowable error = new AtomicThrowable();
     final AtomicLong requested = new AtomicLong();
     final AtomicReference<d> s = new AtomicReference<>();
     final AtomicBoolean once = new AtomicBoolean();
 
-    public StrictSubscriber(org.a.c<? super T> cVar) {
+    public StrictSubscriber(org.b.c<? super T> cVar) {
         this.actual = cVar;
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         if (j <= 0) {
             cancel();
@@ -33,14 +33,14 @@ public class StrictSubscriber<T> extends AtomicInteger implements j<T>, d {
         SubscriptionHelper.deferredRequest(this.s, this.requested, j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         if (!this.done) {
             SubscriptionHelper.cancel(this.s);
         }
     }
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
         if (this.once.compareAndSet(false, true)) {
             this.actual.onSubscribe(this);
@@ -52,18 +52,18 @@ public class StrictSubscriber<T> extends AtomicInteger implements j<T>, d {
         onError(new IllegalStateException("§2.12 violated: onSubscribe must be called at most once"));
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onNext(T t) {
         e.a(this.actual, t, this, this.error);
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         this.done = true;
-        e.a((org.a.c<?>) this.actual, th, (AtomicInteger) this, this.error);
+        e.a((org.b.c<?>) this.actual, th, (AtomicInteger) this, this.error);
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         this.done = true;
         e.a(this.actual, this, this.error);

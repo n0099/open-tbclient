@@ -19,12 +19,12 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             this.mData = new h();
-            this.mData.fyW = jSONObject.optInt("concern_live_show") == 1;
+            this.mData.fKo = jSONObject.optInt("concern_live_show") == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
                 a aVar = new a();
                 aVar.parse(optJSONObject);
-                this.mData.fyV = aVar;
+                this.mData.fKn = aVar;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -43,14 +43,14 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null) {
                 AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
                 alaUserInfoData.parserJson(optJSONObject2);
-                this.mData.fyY = alaUserInfoData;
+                this.mData.fKq = alaUserInfoData;
             }
-            this.mData.fyX = jSONObject.optInt("is_like") == 1;
+            this.mData.fKp = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
                 i iVar = new i();
                 iVar.parserJson(optJSONObject3);
-                this.mData.fyZ = iVar;
+                this.mData.fKr = iVar;
             }
         }
     }

@@ -2,10 +2,9 @@ package com.baidu.tieba.image;
 
 import android.content.Context;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes15.dex */
 public class c {
-    private AdvertAppInfo jrY;
+    private AdvertAppInfo jGW;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -16,35 +15,30 @@ public class c {
         this.mPostId = str2;
     }
 
-    public void d(AdvertAppInfo advertAppInfo) {
-        this.jrY = advertAppInfo;
+    public void c(AdvertAppInfo advertAppInfo) {
+        this.jGW = advertAppInfo;
     }
 
-    public void czx() {
-        Iy("click");
-        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.c(this.jrY, 2, 0));
+    public void Lo(String str) {
+        Lq("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jGW, 2, 0);
+        c.PK(str);
+        com.baidu.tieba.recapp.report.d.doi().a(c);
     }
 
-    public void czy() {
-        Iy("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jrY, 2, 0);
-        c.MN("title");
-        com.baidu.tieba.recapp.report.d.dcY().a(c);
+    public void Lp(String str) {
+        Lq("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jGW, 706, 0);
+        c.PK(str);
+        com.baidu.tieba.recapp.report.d.doi().a(c);
     }
 
-    public void YW() {
-        Iy("show");
-        com.baidu.tieba.recapp.report.d.dcY().a(com.baidu.tieba.recapp.report.g.c(this.jrY, 3, 0));
+    public void aff() {
+        Lq("show");
+        com.baidu.tieba.recapp.report.d.doi().a(com.baidu.tieba.recapp.report.g.c(this.jGW, 3, 0));
     }
 
-    public void czz() {
-    }
-
-    public void Ix(String str) {
-        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
-    }
-
-    public void Iy(String str) {
-        com.baidu.tbadk.distribute.a.biw().a(this.jrY, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
+    public void Lq(String str) {
+        com.baidu.tbadk.distribute.a.bri().a(this.jGW, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
     }
 }

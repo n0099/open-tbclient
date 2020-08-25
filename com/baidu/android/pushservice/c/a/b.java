@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.c.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class b {
     public long a;
     public long b;

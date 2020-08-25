@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class GroundOverlayOptions extends OverlayOptions {
     int a;
     Bundle c;
@@ -22,21 +22,21 @@ public final class GroundOverlayOptions extends OverlayOptions {
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         GroundOverlay groundOverlay = new GroundOverlay();
-        groundOverlay.x = this.b;
-        groundOverlay.w = this.a;
-        groundOverlay.y = this.c;
+        groundOverlay.B = this.b;
+        groundOverlay.A = this.a;
+        groundOverlay.C = this.c;
         if (this.d == null) {
-            throw new IllegalStateException("when you add ground overlay, you must set the image");
+            throw new IllegalStateException("BDMapSDKException: when you add ground overlay, you must set the image");
         }
         groundOverlay.b = this.d;
         if (this.j != null || this.e == null) {
             if (this.e != null || this.j == null) {
-                throw new IllegalStateException("when you add ground overlay, you must set one of position or bounds");
+                throw new IllegalStateException("BDMapSDKException: when you add ground overlay, you must set one of position or bounds");
             }
             groundOverlay.h = this.j;
             groundOverlay.a = 1;
         } else if (this.f <= 0 || this.g <= 0) {
-            throw new IllegalArgumentException("when you add ground overlay, the width and height must greater than 0");
+            throw new IllegalArgumentException("BDMapSDKException: when you add ground overlay, the width and height must greater than 0");
         } else {
             groundOverlay.c = this.e;
             groundOverlay.f = this.h;
@@ -116,7 +116,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
 
     public GroundOverlayOptions image(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("image can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: image can not be null");
         }
         this.d = bitmapDescriptor;
         return this;
@@ -128,7 +128,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
 
     public GroundOverlayOptions position(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
         this.e = latLng;
         return this;
@@ -136,7 +136,7 @@ public final class GroundOverlayOptions extends OverlayOptions {
 
     public GroundOverlayOptions positionFromBounds(LatLngBounds latLngBounds) {
         if (latLngBounds == null) {
-            throw new IllegalArgumentException("bounds can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
         }
         this.j = latLngBounds;
         return this;

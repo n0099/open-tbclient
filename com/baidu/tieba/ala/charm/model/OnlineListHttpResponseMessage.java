@@ -4,11 +4,11 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.k;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData ayC;
-    private k fFO;
-    private long fFP;
+    private AlaLiveUserInfoData aDE;
+    private k fRf;
+    private long fRg;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.fFO = new k();
-                this.fFO.parserJson(optJSONObject);
+                this.fRf = new k();
+                this.fRf.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.ayC = new AlaLiveUserInfoData();
-                this.ayC.parserJson(optJSONObject2);
+                this.aDE = new AlaLiveUserInfoData();
+                this.aDE.parserJson(optJSONObject2);
             }
-            this.fFP = optJSONObject.optLong("live_total_price");
+            this.fRg = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bzr() {
+    public long bIu() {
         return this.mAudienceCount;
     }
 
-    public k bzs() {
-        return this.fFO;
+    public k bIv() {
+        return this.fRf;
     }
 
-    public AlaLiveUserInfoData bzt() {
-        return this.ayC;
+    public AlaLiveUserInfoData bIw() {
+        return this.aDE;
     }
 
-    public long bzu() {
-        return this.fFP;
+    public long bIx() {
+        return this.fRg;
     }
 }

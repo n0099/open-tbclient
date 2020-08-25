@@ -2,7 +2,7 @@ package com.coremedia.iso;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import java.nio.ByteBuffer;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 

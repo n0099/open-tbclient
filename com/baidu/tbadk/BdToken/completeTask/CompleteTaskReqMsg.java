@@ -4,11 +4,11 @@ import android.util.Base64;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.ah;
+import com.baidu.tbadk.util.ai;
 import com.baidu.tbadk.util.t;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CompleteTaskReqMsg extends NetMessage {
     public static final int TASK_TYPE_DEFAULT = 0;
     public static final int TASK_TYPE_SHARE = 2;
@@ -31,7 +31,7 @@ public class CompleteTaskReqMsg extends NetMessage {
     protected Object encode(boolean z) {
         if (z) {
             try {
-                getHttpMessage().setUserAgent(ah.getUserAgent());
+                getHttpMessage().setUserAgent(ai.getUserAgent());
             } catch (Exception e) {
                 return null;
             }

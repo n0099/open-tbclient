@@ -4,7 +4,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.platform.core.e.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ShareUrlSearch extends l {
     private boolean b = false;
     com.baidu.platform.core.e.a a = new h();
@@ -37,46 +37,46 @@ public class ShareUrlSearch extends l {
 
     public boolean requestLocationShareUrl(LocationShareURLOption locationShareURLOption) {
         if (this.a == null) {
-            throw new IllegalStateException("searcher has been destroyed");
+            throw new IllegalStateException("BDMapSDKException: searcher has been destroyed");
         }
         if (locationShareURLOption == null || locationShareURLOption.mLocation == null || locationShareURLOption.mName == null || locationShareURLOption.mSnippet == null) {
-            throw new IllegalArgumentException("option or name or snippet  can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: option or name or snippet  can not be null");
         }
         return this.a.a(locationShareURLOption);
     }
 
     public boolean requestPoiDetailShareUrl(PoiDetailShareURLOption poiDetailShareURLOption) {
         if (this.a == null) {
-            throw new IllegalStateException("searcher has been destroyed");
+            throw new IllegalStateException("BDMapSDKException: searcher has been destroyed");
         }
         if (poiDetailShareURLOption == null || poiDetailShareURLOption.mUid == null) {
-            throw new IllegalArgumentException("option or uid can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: option or uid can not be null");
         }
         return this.a.a(poiDetailShareURLOption);
     }
 
     public boolean requestRouteShareUrl(RouteShareURLOption routeShareURLOption) {
         if (this.a == null) {
-            throw new IllegalStateException("searcher has been destroyed");
+            throw new IllegalStateException("BDMapSDKException: searcher has been destroyed");
         }
         if (routeShareURLOption == null) {
-            throw new IllegalArgumentException("option is null");
+            throw new IllegalArgumentException("BDMapSDKException: option is null");
         }
         if (routeShareURLOption.getmMode().ordinal() < 0) {
             return false;
         }
         if (routeShareURLOption.mFrom == null || routeShareURLOption.mTo == null) {
-            throw new IllegalArgumentException("start or end point can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: start or end point can not be null");
         }
         if (routeShareURLOption.mMode == RouteShareURLOption.RouteShareMode.BUS_ROUTE_SHARE_MODE) {
             if ((routeShareURLOption.mFrom.getLocation() == null || routeShareURLOption.mTo.getLocation() == null) && routeShareURLOption.mCityCode < 0) {
-                throw new IllegalArgumentException("city code can not be null if don't set start or end point");
+                throw new IllegalArgumentException("BDMapSDKException: city code can not be null if don't set start or end point");
             }
         } else if (routeShareURLOption.mFrom.getLocation() == null && !a(routeShareURLOption.mFrom.getCity())) {
-            throw new IllegalArgumentException("start cityCode must be set if not set start location");
+            throw new IllegalArgumentException("BDMapSDKException: start cityCode must be set if not set start location");
         } else {
             if (routeShareURLOption.mTo.getLocation() == null && !a(routeShareURLOption.mTo.getCity())) {
-                throw new IllegalArgumentException("end cityCode must be set if not set end location");
+                throw new IllegalArgumentException("BDMapSDKException: end cityCode must be set if not set end location");
             }
         }
         return this.a.a(routeShareURLOption);
@@ -84,10 +84,10 @@ public class ShareUrlSearch extends l {
 
     public void setOnGetShareUrlResultListener(OnGetShareUrlResultListener onGetShareUrlResultListener) {
         if (this.a == null) {
-            throw new IllegalStateException("searcher has been destroyed");
+            throw new IllegalStateException("BDMapSDKException: searcher has been destroyed");
         }
         if (onGetShareUrlResultListener == null) {
-            throw new IllegalArgumentException("listener can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
         this.a.a(onGetShareUrlResultListener);
     }

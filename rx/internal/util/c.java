@@ -2,56 +2,56 @@ package rx.internal.util;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     final int capacityHint;
-    Object[] nWr;
-    Object[] nWs;
-    int nWt;
+    Object[] oqo;
+    Object[] oqp;
+    int oqq;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.nWr = new Object[this.capacityHint + 1];
-            this.nWs = this.nWr;
-            this.nWr[0] = obj;
-            this.nWt = 1;
+            this.oqo = new Object[this.capacityHint + 1];
+            this.oqp = this.oqo;
+            this.oqo[0] = obj;
+            this.oqq = 1;
             this.size = 1;
-        } else if (this.nWt == this.capacityHint) {
+        } else if (this.oqq == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.nWs[this.capacityHint] = objArr;
-            this.nWs = objArr;
-            this.nWt = 1;
+            this.oqp[this.capacityHint] = objArr;
+            this.oqp = objArr;
+            this.oqq = 1;
             this.size++;
         } else {
-            this.nWs[this.nWt] = obj;
-            this.nWt++;
+            this.oqp[this.oqq] = obj;
+            this.oqq++;
             this.size++;
         }
     }
 
-    public Object[] dTr() {
-        return this.nWr;
+    public Object[] eft() {
+        return this.oqo;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> dYp() {
+    List<Object> ekt() {
         int i = this.capacityHint;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] dTr = dTr();
+        Object[] eft = eft();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(dTr[i4]);
+            arrayList.add(eft[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                dTr = (Object[]) dTr[i];
+                eft = (Object[]) eft[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return dYp().toString();
+        return ekt().toString();
     }
 }

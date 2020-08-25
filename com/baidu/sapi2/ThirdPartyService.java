@@ -3,53 +3,31 @@ package com.baidu.sapi2;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.social.FacebookSSOLoginActivity;
+import com.baidu.sapi2.activity.social.GoogleSSOLoginActivity;
 import com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity;
 import com.baidu.sapi2.activity.social.MeizuSSOLoginActivity;
 import com.baidu.sapi2.activity.social.QQSSOLoginActivity;
 import com.baidu.sapi2.activity.social.SinaSSOLoginActivity;
+import com.baidu.sapi2.activity.social.TwitterSSOLoginActivity;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.SocialType;
-import java.net.HttpCookie;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
     private static final long MIN_INVOKE_INTER_TIME = 500;
     private long lastInvokeTime = 0;
 
     public ThirdPartyService() {
-        PassportSDK.getInstance().setThirdPartyService(this);
-    }
-
-    public List<HttpCookie> getCookies(Context context, SapiConfiguration sapiConfiguration) {
-        ArrayList arrayList = new ArrayList();
-        if (Build.VERSION.SDK_INT >= 9) {
-            String deviceInfo = SapiContext.getInstance().getDeviceInfo();
-            HttpCookie httpCookie = new HttpCookie("cuid", SapiUtils.getClientId(sapiConfiguration.context));
-            if (deviceInfo == null) {
-                deviceInfo = "";
-            }
-            HttpCookie httpCookie2 = new HttpCookie("DVIF", deviceInfo);
-            String replaceAll = sapiConfiguration.environment.getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
-            String replaceAll2 = sapiConfiguration.environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
-            httpCookie.setDomain(replaceAll);
-            httpCookie.setPath("/");
-            httpCookie2.setDomain(replaceAll2);
-            httpCookie2.setPath("/");
-            arrayList.add(httpCookie);
-            arrayList.add(httpCookie2);
-        }
-        return arrayList;
+        CoreViewRouter.getInstance().setThirdPartyService(this);
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
@@ -125,6 +103,12 @@ public class ThirdPartyService implements AbstractThirdPartyService {
                 intent = new Intent(context, MeizuSSOLoginActivity.class);
             } else if (socialType == SocialType.FACEBOOK) {
                 intent = new Intent(context, FacebookSSOLoginActivity.class);
+            } else if (socialType == SocialType.XIAOMI) {
+                intent = new Intent(context, XiaomiSSOLoginActivity.class);
+            } else if (socialType == SocialType.TWITTER) {
+                intent = new Intent(context, TwitterSSOLoginActivity.class);
+            } else if (socialType == SocialType.GOOGLE) {
+                intent = new Intent(context, GoogleSSOLoginActivity.class);
             } else {
                 throw new IllegalArgumentException(socialType.getName() + " type login not support");
             }

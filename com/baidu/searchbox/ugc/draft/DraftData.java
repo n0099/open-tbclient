@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class DraftData implements Parcelable {
     public static final Parcelable.Creator<DraftData> CREATOR = new Parcelable.Creator<DraftData>() { // from class: com.baidu.searchbox.ugc.draft.DraftData.1
         /* JADX DEBUG: Method merged with bridge method */

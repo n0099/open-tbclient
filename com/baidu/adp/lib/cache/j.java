@@ -3,59 +3,59 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.e;
 /* loaded from: classes.dex */
 public class j<T> extends d<T> {
-    protected final c<T> JH;
+    protected final c<T> Kk;
 
     public j(c<T> cVar, e eVar, boolean z) {
         super(eVar, z);
-        this.JH = cVar;
+        this.Kk = cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public g<T> bs(String str) {
-        return this.JH.br(str);
+    public g<T> bx(String str) {
+        return this.Kk.bw(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void c(g<T> gVar) {
-        this.JH.b(gVar);
+        this.Kk.b(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void removeByUniqueKey(String str) {
-        this.JH.deleteCacheItem(str);
+        this.Kk.deleteCacheItem(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     protected void removeExpiredItem(String str) {
-        this.JH.addItemIdToDeleteList(str, true);
+        this.Kk.addItemIdToDeleteList(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void clearAndClose(String str) {
-        this.JH.clearAllForNameSpace(str);
+        this.Kk.clearAllForNameSpace(str);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void startup(final String str) {
-        if (this.JG instanceof e.b) {
-            com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
+        if (this.Kj instanceof e.b) {
+            com.baidu.adp.lib.f.h.mT().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.JH.performPump(str);
+                    j.this.Kk.performPump(str);
                 }
             });
         }
-        if (this.JG instanceof e.a) {
-            com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
+        if (this.Kj instanceof e.a) {
+            com.baidu.adp.lib.f.h.mT().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.JH.performEvict(str);
+                    j.this.Kk.performEvict(str);
                 }
             });
         }
     }
 
-    public c<T> ku() {
-        return this.JH;
+    public c<T> lT() {
+        return this.Kk;
     }
 }

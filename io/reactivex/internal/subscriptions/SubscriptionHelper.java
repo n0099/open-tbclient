@@ -5,16 +5,16 @@ import io.reactivex.exceptions.ProtocolViolationException;
 import io.reactivex.internal.util.b;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public enum SubscriptionHelper implements d {
     CANCELLED;
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
     }
 

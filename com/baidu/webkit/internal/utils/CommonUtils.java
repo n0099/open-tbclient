@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class CommonUtils implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String TAG = "CommonUtils";
@@ -133,7 +133,7 @@ public final class CommonUtils implements INoProGuard {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return "0.8";
         }
     }

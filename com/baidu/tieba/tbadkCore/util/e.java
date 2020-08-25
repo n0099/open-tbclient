@@ -1,17 +1,17 @@
 package com.baidu.tieba.tbadkCore.util;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
-    private static boolean lQj = false;
+    private static boolean mhS = false;
 
-    public static void dmo() {
-        lQj = true;
+    public static void dxJ() {
+        mhS = true;
     }
 
-    public static void dmp() {
-        lQj = false;
+    public static void dxK() {
+        mhS = false;
     }
 
-    public static boolean dmq() {
-        return lQj;
+    public static boolean dxL() {
+        return mhS;
     }
 }

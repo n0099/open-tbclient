@@ -5,10 +5,10 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/hideToast");
@@ -24,7 +24,7 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.b.1
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.b.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.swan.apps.res.widget.b.d.cancelToast();

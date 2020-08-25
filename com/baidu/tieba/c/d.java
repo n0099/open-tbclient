@@ -11,47 +11,47 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private RelativeLayout hcG;
-    private ImageView hcH;
-    private MessageRedDotView hcI;
+    private RelativeLayout hpx;
+    private ImageView hpy;
+    private MessageRedDotView hpz;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.hcG = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
-        this.hcH = (ImageView) this.mRootView.findViewById(R.id.img_message);
-        this.hcI = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
-        this.hcI.setShadowEnabled(true);
+        this.hpx = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
+        this.hpy = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.hpz = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.hpz.setShadowEnabled(true);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView bSN() {
-        return this.hcH;
+    public ImageView ccZ() {
+        return this.hpy;
     }
 
-    public MessageRedDotView bSO() {
-        return this.hcI;
+    public MessageRedDotView cda() {
+        return this.hpz;
     }
 
     public void x(boolean z, int i) {
         if (z) {
-            this.hcI.refresh(i);
-            this.hcI.setVisibility(0);
+            this.hpz.refresh(i);
+            this.hpz.setVisibility(0);
             return;
         }
-        this.hcI.setVisibility(8);
+        this.hpz.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.hcI.onChangeSkinType();
-        SvgManager.baR().a(this.hcH, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.hpz.onChangeSkinType();
+        SvgManager.bjq().a(this.hpy, R.drawable.icon_pure_topbar_information44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setVisibility(int i) {
@@ -62,9 +62,9 @@ public class d {
 
     public void a(NavigationBar.ControlAlign controlAlign, boolean z) {
         if (!z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.hcH.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.hcI.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            this.hcG.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
+            ((RelativeLayout.LayoutParams) this.hpy.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.hpz.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            this.hpx.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
         }
     }
 }

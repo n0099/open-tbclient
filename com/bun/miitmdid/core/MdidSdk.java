@@ -11,7 +11,7 @@ import com.bun.miitmdid.supplier.b;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.a;
 @Keep
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class MdidSdk implements SupplierListener {
     private IIdentifierListener _InnerListener;
     private b _setting;
@@ -47,11 +47,11 @@ public class MdidSdk implements SupplierListener {
         if (a == b.a.UNSUPPORT) {
             return _InnerFailed(ErrorCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, new com.bun.miitmdid.supplier.a());
         }
-        com.bun.miitmdid.a.a fT = com.bun.miitmdid.a.a.fT(context);
-        if (fT == null) {
+        com.bun.miitmdid.a.a gh = com.bun.miitmdid.a.a.gh(context);
+        if (gh == null) {
             return _InnerFailed(ErrorCode.INIT_ERROR_LOAD_CONFIGFILE, new com.bun.miitmdid.supplier.a());
         }
-        this._setting = fT;
+        this._setting = gh;
         InnerIdSupplier innerIdSupplier = null;
         switch (a) {
             case XIAOMI:

@@ -2,24 +2,24 @@ package com.baidu.tbadk.coreExtra.share;
 
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
-    private static int bgP() {
-        if (as.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+    private static int bpB() {
+        if (at.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return 3;
         }
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+        return com.baidu.tbadk.core.sharedPref.b.bik().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
     }
 
-    public static int bgQ() {
-        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().bej()) {
+    public static int bpC() {
+        if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().bmT()) {
             return -1;
         }
-        int bgP = bgP();
+        int bpB = bpB();
         int i = R.drawable.icon_mask_share_wechat40_svg;
-        switch (bgP) {
+        switch (bpB) {
             case 2:
                 return R.drawable.icon_mask_share_circle40_svg;
             case 3:
@@ -37,9 +37,9 @@ public class f {
         }
     }
 
-    public static void ny(int i) {
-        if (i > 0 && !as.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+    public static void pJ(int i) {
+        if (i > 0 && !at.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            com.baidu.tbadk.core.sharedPref.b.bik().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
         }
     }
 }

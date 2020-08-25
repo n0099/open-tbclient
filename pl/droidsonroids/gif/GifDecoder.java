@@ -5,7 +5,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.io.IOException;
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public class GifDecoder {
     private final GifInfoHandle mGifInfoHandle;
 

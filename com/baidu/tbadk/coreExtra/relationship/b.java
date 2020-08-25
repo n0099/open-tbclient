@@ -1,5 +1,5 @@
 package com.baidu.tbadk.coreExtra.relationship;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private String distance;
     private int hide;
@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int bgK() {
+    public int bpv() {
         return this.hide;
     }
 }

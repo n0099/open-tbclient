@@ -4,45 +4,45 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class f {
-    private RelativeLayout kgX;
-    private TextView kgY;
-    private TextView kgZ;
-    private ImageView kha;
+    private RelativeLayout kwq;
+    private TextView kwr;
+    private TextView kws;
+    private ImageView kwt;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.kgX = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
-        this.kgY = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
-        this.kgZ = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
-        this.kha = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
+        this.kwq = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
+        this.kwr = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
+        this.kws = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
+        this.kwt = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
     }
 
-    public void P(View.OnClickListener onClickListener) {
-        this.kgX.setOnClickListener(onClickListener);
+    public void Q(View.OnClickListener onClickListener) {
+        this.kwq.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
         this.rootView.setVisibility(z ? 0 : 8);
     }
 
-    public void Q(View.OnClickListener onClickListener) {
-        this.kha.setOnClickListener(onClickListener);
+    public void R(View.OnClickListener onClickListener) {
+        this.kwt.setOnClickListener(onClickListener);
     }
 
-    public void Kq(String str) {
-        this.kgZ.setText(str);
+    public void Nj(String str) {
+        this.kws.setText(str);
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.rootView, R.drawable.bg_rec_lick);
-        ao.setBackgroundResource(this.kgX, R.drawable.bg_rec_comment);
-        ao.setViewTextColor(this.kgY, R.color.cp_cont_c, 1);
-        ao.setViewTextColor(this.kgZ, R.color.cp_cont_e, 1);
-        ao.setImageResource(this.kha, R.drawable.recommend_pb_share_selector);
+        ap.setBackgroundResource(this.rootView, R.drawable.bg_rec_lick);
+        ap.setBackgroundResource(this.kwq, R.drawable.bg_rec_comment);
+        ap.setViewTextColor(this.kwr, R.color.cp_cont_c, 1);
+        ap.setViewTextColor(this.kws, R.color.cp_cont_e, 1);
+        ap.setImageResource(this.kwt, R.drawable.recommend_pb_share_selector);
     }
 }

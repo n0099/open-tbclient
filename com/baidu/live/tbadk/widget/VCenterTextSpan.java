@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VCenterTextSpan extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
     private int paddingLeft;

@@ -8,12 +8,12 @@ public class a implements com.baidu.tieba.r.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private static class C0523a {
-        private static a fdW = new a();
+    private static class C0569a {
+        private static a fpo = new a();
     }
 
-    public static a bsu() {
-        return C0523a.fdW;
+    public static a bBr() {
+        return C0569a.fpo;
     }
 
     @Override // com.baidu.tieba.r.a
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dx(String str, String str2) {
+    public void dN(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dy(String str, String str2) {
+    public void dO(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -45,7 +45,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dz(String str, String str2) {
+    public void dP(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);

@@ -3,33 +3,31 @@ package com.baidu.ar.filter;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class FilterModel {
-    private String im;
-
-    /* renamed from: pl  reason: collision with root package name */
-    private String f963pl;
-    private List<Object> pm;
+    private String hE;
+    private String pX;
+    private List<Object> pY;
 
     public String getFilterName() {
-        return this.im;
+        return this.hE;
     }
 
     public String getFilterType() {
-        return this.f963pl;
+        return this.pX;
     }
 
     public List<Object> getUniformList() {
-        return this.pm;
+        return this.pY;
     }
 
     public void setFilterName(String str) {
-        this.im = str;
+        this.hE = str;
     }
 
     public void setFilterType(String str) {
-        this.f963pl = str;
+        this.pX = str;
     }
 
     public void setUniformList(List<Object> list) {
-        this.pm = list;
+        this.pY = list;
     }
 }

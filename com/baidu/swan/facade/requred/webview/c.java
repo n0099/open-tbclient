@@ -1,21 +1,25 @@
 package com.baidu.swan.facade.requred.webview;
 
-import com.baidu.swan.apps.adaptation.a.au;
-/* loaded from: classes4.dex */
-public class c implements au {
-    @Override // com.baidu.swan.apps.adaptation.a.au
-    public boolean UC() {
-        return !b.azJ().isNeedDownload();
+import com.baidu.swan.apps.adaptation.a.az;
+/* loaded from: classes20.dex */
+public class c implements az {
+    @Override // com.baidu.swan.apps.adaptation.a.az
+    public boolean aaE() {
+        return !b.aHT().isNeedDownload();
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.au
-    public boolean UD() {
-        return UC() || com.baidu.swan.e.b.aOY();
+    @Override // com.baidu.swan.apps.adaptation.a.az
+    public boolean aaF() {
+        return aaE() || com.baidu.swan.apps.env.b.c.cpW.mm("zeus");
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.au
-    public void a(com.baidu.swan.apps.core.k.c cVar) {
-        com.baidu.swan.a.c.setDownloadUrl(b.azJ().getDownloadUrl());
-        b.azJ().b(cVar);
+    @Override // com.baidu.swan.apps.adaptation.a.az
+    public void a(boolean z, com.baidu.swan.apps.core.k.c cVar) {
+        b.aHT().b(z, cVar);
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.az
+    public com.baidu.swan.pms.e.b aaG() {
+        return b.aHT().aaG();
     }
 }

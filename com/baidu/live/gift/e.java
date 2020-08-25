@@ -1,9 +1,9 @@
 package com.baidu.live.gift;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private int aHF;
+    private int aMP;
     private int isLandScape;
     public String videoMd5;
     public String videoUrl;
@@ -19,7 +19,7 @@ public class e {
             this.videoUrl = jSONObject.optString("video_url");
             this.videoMd5 = jSONObject.optString("video_md5");
             this.isLandScape = jSONObject.optInt("is_landscape");
-            this.aHF = jSONObject.optInt("need_download");
+            this.aMP = jSONObject.optInt("need_download");
         }
     }
 
@@ -27,7 +27,7 @@ public class e {
         return this.isLandScape == 1;
     }
 
-    public boolean xW() {
-        return this.aHF == 1;
+    public boolean Dz() {
+        return this.aMP == 1;
     }
 }

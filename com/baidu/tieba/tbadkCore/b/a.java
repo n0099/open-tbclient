@@ -24,20 +24,20 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static c lMq;
+    private static c mea;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0753a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0806a {
         void onRefresh();
     }
 
-    public static void a(final TbPageContext tbPageContext, View view, final boolean z, InterfaceC0753a interfaceC0753a) {
+    public static void a(final TbPageContext tbPageContext, View view, final boolean z, InterfaceC0806a interfaceC0806a) {
         int defaultBubbleEndTime;
         final SpannableString spannableString;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && (defaultBubbleEndTime = TbadkCoreApplication.getInst().getDefaultBubbleEndTime()) > 0) {
@@ -46,20 +46,20 @@ public class a {
                 MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RESET_BUBBLE, TbPageContext.class, tbPageContext);
                 TbadkCoreApplication.getInst().setDefaultBubble(null);
                 TbadkCoreApplication.getInst().setDefaultBubbleEndTime(0);
-                if (interfaceC0753a != null) {
-                    interfaceC0753a.onRefresh();
+                if (interfaceC0806a != null) {
+                    interfaceC0806a.onRefresh();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.hK(false);
+                aVar.ig(false);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(R.id.tip1);
                 TextView textView2 = (TextView) inflate.findViewById(R.id.tip2);
-                ao.setViewTextColor(textView, R.color.cp_cont_b, 1);
-                ao.setViewTextColor(textView2, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(textView, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(textView2, R.color.cp_cont_b, 1);
                 textView.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip));
                 textView2.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip2));
                 textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize32));
-                aVar.aV(inflate);
+                aVar.aX(inflate);
                 aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.tbadkCore.b.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -77,31 +77,31 @@ public class a {
                     }
                 });
                 aVar.b(tbPageContext);
-                aVar.aYL();
+                aVar.bhg();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
-            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != b.aZP().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != b.bik().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 int i2 = R.color.cp_cont_g;
                 int i3 = R.color.cp_link_tip_d;
                 final int i4 = R.drawable.pop_float_arrow;
                 if (i == 0) {
                     if (new Date(currentTimeMillis).getDay() == new Date(defaultBubbleEndTime).getDay()) {
                         spannableString = new SpannableString(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip_today));
-                        spannableString.setSpan(new ForegroundColorSpan(ao.getColor(i2)), 0, spannableString.length(), 34);
-                        spannableString.setSpan(new ForegroundColorSpan(ao.getColor(i3)), 9, 13, 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(i2)), 0, spannableString.length(), 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(i3)), 9, 13, 34);
                     } else {
                         spannableString = new SpannableString(String.format(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip), 1));
-                        spannableString.setSpan(new ForegroundColorSpan(ao.getColor(i2)), 0, spannableString.length(), 34);
-                        spannableString.setSpan(new ForegroundColorSpan(ao.getColor(i3)), 10, 14, 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(i2)), 0, spannableString.length(), 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(i3)), 10, 14, 34);
                     }
                 } else {
                     spannableString = new SpannableString(String.format(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip), Integer.valueOf(i)));
-                    spannableString.setSpan(new ForegroundColorSpan(ao.getColor(i2)), 0, spannableString.length(), 34);
-                    spannableString.setSpan(new ForegroundColorSpan(ao.getColor(i3)), 10, 14, 34);
+                    spannableString.setSpan(new ForegroundColorSpan(ap.getColor(i2)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(ap.getColor(i3)), 10, 14, 34);
                 }
                 d dVar = new d();
-                dVar.y(view).ah(0).af(false);
+                dVar.y(view).aj(0).ag(false);
                 dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.tbadkCore.b.a.3
                     @Override // com.baidu.adp.lib.guide.b
                     public View getView(LayoutInflater layoutInflater) {
@@ -121,12 +121,12 @@ public class a {
                         textView3.setGravity(17);
                         textView3.setText(spannableString);
                         textView3.setCompoundDrawablePadding(dimensionPixelSize);
-                        textView3.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(i4), (Drawable) null);
+                        textView3.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(i4), (Drawable) null);
                         textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                if (a.lMq != null) {
-                                    a.lMq.dismiss();
+                                if (a.mea != null) {
+                                    a.mea.dismiss();
                                 }
                                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) TbPageContext.this.getPageActivity(), true, (int) RequestResponseCode.REQUEST_PAY_BUBBLE_CODE, "expiring");
                                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -156,31 +156,31 @@ public class a {
                         return z ? 5 : 30;
                     }
                 });
-                dVar.ae(true);
-                dVar.ag(false);
-                lMq = dVar.kE();
+                dVar.af(true);
+                dVar.ah(false);
+                mea = dVar.md();
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.k(TbPageContext.this.getPageActivity(), z);
+                        a.l(TbPageContext.this.getPageActivity(), z);
                     }
                 }, 1000L);
-                b.aZP().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
+                b.bik().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void k(Activity activity, boolean z) {
-        if (lMq != null) {
-            lMq.show(activity);
+    public static void l(Activity activity, boolean z) {
+        if (mea != null) {
+            mea.show(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.lMq != null) {
-                        a.lMq.dismiss();
+                    if (a.mea != null) {
+                        a.mea.dismiss();
                     }
                 }
             }, 5000L);

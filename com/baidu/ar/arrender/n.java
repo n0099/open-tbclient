@@ -1,30 +1,31 @@
 package com.baidu.ar.arrender;
-
-import android.view.Surface;
-import com.baidu.ar.DuMixOutput;
 /* loaded from: classes11.dex */
-class n {
-    private DuMixOutput aa;
-    private Surface gV;
-    private String iB;
+public class n extends com.baidu.ar.ability.c {
+    private byte[] hY;
+    private int mHeight;
+    private int mWidth;
 
-    public n(DuMixOutput duMixOutput) {
-        this.aa = duMixOutput;
+    public void a(byte[] bArr) {
+        this.hY = bArr;
     }
 
-    public void N(String str) {
-        this.iB = str;
+    public byte[] ca() {
+        return this.hY;
     }
 
-    public String bN() {
-        return this.iB;
+    public int getHeight() {
+        return this.mHeight;
     }
 
-    public Surface getSurface() {
-        return this.gV;
+    public int getWidth() {
+        return this.mWidth;
     }
 
-    public void setSurface(Surface surface) {
-        this.gV = surface;
+    public void setHeight(int i) {
+        this.mHeight = i;
+    }
+
+    public void setWidth(int i) {
+        this.mWidth = i;
     }
 }

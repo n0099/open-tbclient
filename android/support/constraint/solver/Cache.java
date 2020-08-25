@@ -1,7 +1,7 @@
 package android.support.constraint.solver;
 
 import android.support.constraint.solver.Pools;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Cache {
     Pools.Pool<ArrayRow> arrayRowPool = new Pools.SimplePool(256);
     Pools.Pool<SolverVariable> solverVariablePool = new Pools.SimplePool(256);

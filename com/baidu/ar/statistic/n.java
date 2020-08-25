@@ -1,5 +1,6 @@
 package com.baidu.ar.statistic;
 
+import com.baidu.ar.g.s;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import java.net.URLEncoder;
@@ -18,18 +19,18 @@ final class n extends j implements e {
     }
 
     @Override // com.baidu.ar.statistic.j
-    protected Map<String, Object> h(List<a> list) {
-        return null;
-    }
-
-    @Override // com.baidu.ar.statistic.j
     protected void h(JSONObject jSONObject) {
         IHttpRequest newRequest = HttpFactory.newRequest();
         if (newRequest == null) {
             return;
         }
-        String fC = com.baidu.ar.f.q.fC();
-        newRequest.setUrl(fC).setMethod("POST").setBody("info=" + URLEncoder.encode(jSONObject.toString(), "UTF-8")).addHeader("Content-Type: application/x-www-form-urlencoded");
+        String gR = s.gR();
+        newRequest.setUrl(gR).setMethod("POST").setBody("info=" + URLEncoder.encode(jSONObject.toString(), "UTF-8")).addHeader("Content-Type: application/x-www-form-urlencoded");
         newRequest.execute();
+    }
+
+    @Override // com.baidu.ar.statistic.j
+    protected Map<String, Object> i(List<a> list) {
+        return null;
     }
 }

@@ -7,100 +7,100 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes15.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a eWu = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a fhc = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.eWu.context = context;
-        this.eWu.eWv = eVar;
+        this.fhc.context = context;
+        this.fhc.fhd = eVar;
     }
 
     public a a(boolean[] zArr) {
-        this.eWu.eWC = zArr;
+        this.fhc.fhk = zArr;
         return this;
     }
 
-    public a jB(boolean z) {
-        this.eWu.eXj = z;
+    public a jZ(boolean z) {
+        this.fhc.fhR = z;
         return this;
     }
 
-    public a D(ViewGroup viewGroup) {
-        this.eWu.decorView = viewGroup;
+    public a E(ViewGroup viewGroup) {
+        this.fhc.decorView = viewGroup;
         return this;
     }
 
-    public a pl(int i) {
-        this.eWu.eXe = i;
+    public a rx(int i) {
+        this.fhc.fhM = i;
         return this;
     }
 
-    public a pm(int i) {
-        this.eWu.eXi = i;
+    public a ry(int i) {
+        this.fhc.fhQ = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.eWu.eWD = calendar;
+        this.fhc.fhl = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.eWu.eWW = i;
-        this.eWu.eWx = aVar;
+        this.fhc.fhE = i;
+        this.fhc.fhf = aVar;
         return this;
     }
 
-    public a ae(float f) {
-        this.eWu.lineSpacingMultiplier = f;
+    public a aj(float f) {
+        this.fhc.lineSpacingMultiplier = f;
         return this;
     }
 
-    public a po(int i) {
-        this.eWu.dividerColor = i;
+    public a rz(int i) {
+        this.fhc.dividerColor = i;
         return this;
     }
 
-    public a pp(int i) {
-        this.eWu.backgroundId = i;
+    public a rA(int i) {
+        this.fhc.backgroundId = i;
         return this;
     }
 
-    public a pq(int i) {
-        this.eWu.textColorCenter = i;
+    public a rB(int i) {
+        this.fhc.textColorCenter = i;
         return this;
     }
 
-    public a pr(int i) {
-        this.eWu.textColorOut = i;
+    public a rC(int i) {
+        this.fhc.textColorOut = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.eWu.eWK = str;
-        this.eWu.eWL = str2;
-        this.eWu.eWM = str3;
-        this.eWu.eWN = str4;
-        this.eWu.eWO = str5;
-        this.eWu.eWP = str6;
+        this.fhc.fhs = str;
+        this.fhc.fht = str2;
+        this.fhc.fhu = str3;
+        this.fhc.fhv = str4;
+        this.fhc.fhw = str5;
+        this.fhc.fhx = str6;
         return this;
     }
 
-    public a g(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.eWu.eWQ = i;
-        this.eWu.eWR = i2;
-        this.eWu.eWS = i3;
-        this.eWu.eWT = i4;
-        this.eWu.eWU = i5;
-        this.eWu.eWV = i6;
+    public a f(int i, int i2, int i3, int i4, int i5, int i6) {
+        this.fhc.fhy = i;
+        this.fhc.fhz = i2;
+        this.fhc.fhA = i3;
+        this.fhc.fhB = i4;
+        this.fhc.fhC = i5;
+        this.fhc.fhD = i6;
         return this;
     }
 
-    public a jC(boolean z) {
-        this.eWu.isCenterLabel = z;
+    public a ka(boolean z) {
+        this.fhc.isCenterLabel = z;
         return this;
     }
 
-    public b bpL() {
-        return new b(this.eWu);
+    public b byz() {
+        return new b(this.fhc);
     }
 }

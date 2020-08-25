@@ -3,7 +3,7 @@ package com.bun.miitmdid.supplier.h.a;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class a {
     private Context a;
 

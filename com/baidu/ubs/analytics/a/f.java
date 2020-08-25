@@ -4,41 +4,41 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class f {
-    private static f mMP;
-    private static SQLiteOpenHelper mMQ;
-    private AtomicInteger mMR = new AtomicInteger();
-    private SQLiteDatabase mMS;
+    private static f nfL;
+    private static SQLiteOpenHelper nfM;
+    private AtomicInteger nfN = new AtomicInteger();
+    private SQLiteDatabase nfO;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (mMP == null) {
-                mMP = new f();
-                mMQ = new d(context);
+            if (nfL == null) {
+                nfL = new f();
+                nfM = new d(context);
             }
         }
     }
 
-    public static synchronized f dAx() {
+    public static synchronized f dMk() {
         f fVar;
         synchronized (f.class) {
-            if (mMP == null) {
-                b(com.baidu.ubs.analytics.d.dAv().getContext());
+            if (nfL == null) {
+                b(com.baidu.ubs.analytics.d.dMi().getContext());
             }
-            fVar = mMP;
+            fVar = nfL;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase aec() {
-        if (this.mMR.incrementAndGet() == 1) {
+    public final synchronized SQLiteDatabase akM() {
+        if (this.nfN.incrementAndGet() == 1) {
             com.baidu.ubs.analytics.d.b.H("***************新建立了 一个数据库的实例****************");
-            this.mMS = mMQ.getWritableDatabase();
+            this.nfO = nfM.getWritableDatabase();
         }
-        return this.mMS;
+        return this.nfO;
     }
 }

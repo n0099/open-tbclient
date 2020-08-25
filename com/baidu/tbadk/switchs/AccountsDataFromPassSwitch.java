@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AccountsDataFromPassSwitch extends a {
     public static final String ACCOUNT_DATA_FROM_PASS = "switch_account_data_from_pass";
     public static final int DEFAULT_TYPE = 0;

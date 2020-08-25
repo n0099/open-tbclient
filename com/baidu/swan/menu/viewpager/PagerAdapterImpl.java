@@ -5,12 +5,12 @@ import android.support.v4.view.PagerAdapter;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    private c<View> duD = new c<>(5);
-    private SparseArray<View> csE = new SparseArray<>();
+    private c<View> dEz = new c<>(5);
+    private SparseArray<View> cAs = new SparseArray<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void recycle();
     }
@@ -36,17 +36,17 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.duD.recycle(view);
-        this.csE.remove(i);
+        this.dEz.recycle(view);
+        this.cAs.remove(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.duD.get();
+        View view = this.dEz.get();
         if (view == null) {
             view = f(viewGroup, i);
         }
-        this.csE.put(i, view);
+        this.cAs.put(i, view);
         viewGroup.addView(view);
         f(view, i);
         return view;

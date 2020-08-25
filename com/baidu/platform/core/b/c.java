@@ -1,7 +1,7 @@
 package com.baidu.platform.core.b;
 
 import com.baidu.mapapi.search.geocode.GeoCodeOption;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c extends com.baidu.platform.base.e {
     public c(GeoCodeOption geoCodeOption) {
         a(geoCodeOption);

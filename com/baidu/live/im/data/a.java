@@ -4,17 +4,18 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements IAdapterData {
-    private com.baidu.live.data.a aWA;
-    private com.baidu.live.data.a aWY;
-    private List<Long> aWZ;
-    private long aXb;
-    private double aXc;
-    private long aXd;
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
+    private com.baidu.live.data.a bbP;
+    private com.baidu.live.data.a bcn;
+    private List<Long> bco;
+    private long bcq;
+    private double bcr;
+    private long bcs;
+    private boolean bct;
     private long bornTime;
     private String content;
     private boolean hasRead;
@@ -34,7 +35,7 @@ public abstract class a implements IAdapterData {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean aXa = false;
+    private boolean bcp = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -118,20 +119,20 @@ public abstract class a implements IAdapterData {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a Eh() {
-        return this.aWA;
+    public com.baidu.live.data.a JK() {
+        return this.bbP;
     }
 
     public void e(com.baidu.live.data.a aVar) {
-        this.aWA = aVar;
+        this.bbP = aVar;
     }
 
-    public com.baidu.live.data.a Ei() {
-        return this.aWY;
+    public com.baidu.live.data.a JL() {
+        return this.bcn;
     }
 
     public void f(com.baidu.live.data.a aVar) {
-        this.aWY = aVar;
+        this.bcn = aVar;
     }
 
     public int getMsgType() {
@@ -208,47 +209,47 @@ public abstract class a implements IAdapterData {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.aWZ == null) {
-                this.aWZ = new ArrayList();
+            if (this.bco == null) {
+                this.bco = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.aWZ.add(Long.valueOf(optLong));
+                    this.bco.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> Ej() {
-        return this.aWZ;
+    public List<Long> JM() {
+        return this.bco;
     }
 
-    public boolean Ek() {
-        return this.aXa;
+    public boolean JN() {
+        return this.bcp;
     }
 
-    public void bL(boolean z) {
-        this.aXa = z;
+    public void bR(boolean z) {
+        this.bcp = z;
     }
 
-    public int El() {
+    public int JO() {
         return this.barrageType;
     }
 
-    public void cG(int i) {
+    public void ew(int i) {
         this.barrageType = i;
     }
 
-    public String Em() {
+    public String JP() {
         return this.barrageId;
     }
 
-    public void fw(String str) {
+    public void gR(String str) {
         this.barrageId = str;
     }
 
-    public b En() {
+    public b JQ() {
         return this.barrageCardInfo;
     }
 
@@ -256,7 +257,7 @@ public abstract class a implements IAdapterData {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Eo() {
+    public String[] JR() {
         return this.imEffect;
     }
 
@@ -264,27 +265,35 @@ public abstract class a implements IAdapterData {
         this.imEffect = strArr;
     }
 
-    public long Ep() {
-        return this.aXb;
-    }
-
-    public void ai(long j) {
-        this.aXb = j;
-    }
-
-    public double Eq() {
-        return this.aXc;
-    }
-
-    public void i(double d) {
-        this.aXc = d;
-    }
-
-    public long Er() {
-        return this.aXd;
+    public long JS() {
+        return this.bcq;
     }
 
     public void aj(long j) {
-        this.aXd = j;
+        this.bcq = j;
+    }
+
+    public double JT() {
+        return this.bcr;
+    }
+
+    public void o(double d) {
+        this.bcr = d;
+    }
+
+    public long JU() {
+        return this.bcs;
+    }
+
+    public void ak(long j) {
+        this.bcs = j;
+    }
+
+    public boolean JV() {
+        return this.bct;
+    }
+
+    public void JW() {
+        this.bct = true;
     }
 }

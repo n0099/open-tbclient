@@ -10,23 +10,23 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class FlowableScanSeed<T, R> extends a<T, R> {
     final io.reactivex.c.c<R, ? super T, R> accumulator;
-    final Callable<R> nTy;
+    final Callable<R> onu;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super R> cVar) {
+    protected void a(org.b.c<? super R> cVar) {
         try {
-            this.nSG.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.k(this.nTy.call(), "The seed supplied is null"), dSN()));
+            this.omB.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.k(this.onu.call(), "The seed supplied is null"), eeP()));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.K(th);
+            io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
     /* loaded from: classes7.dex */
-    static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
+    static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, org.b.d {
         private static final long serialVersionUID = -1776795561228106469L;
         final io.reactivex.c.c<R, ? super T, R> accumulator;
-        final org.a.c<? super R> actual;
+        final org.b.c<? super R> actual;
         volatile boolean cancelled;
         int consumed;
         volatile boolean done;
@@ -35,10 +35,10 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
         final int prefetch;
         final io.reactivex.internal.a.f<R> queue;
         final AtomicLong requested;
-        org.a.d s;
+        org.b.d s;
         R value;
 
-        ScanSeedSubscriber(org.a.c<? super R> cVar, io.reactivex.c.c<R, ? super T, R> cVar2, R r, int i) {
+        ScanSeedSubscriber(org.b.c<? super R> cVar, io.reactivex.c.c<R, ? super T, R> cVar2, R r, int i) {
             this.actual = cVar;
             this.accumulator = cVar2;
             this.value = r;
@@ -49,8 +49,8 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             this.requested = new AtomicLong();
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -58,7 +58,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 try {
@@ -67,14 +67,14 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
                     this.queue.offer(r);
                     drain();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     this.s.cancel();
                     onError(th);
                 }
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -85,7 +85,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             drain();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -93,7 +93,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.cancelled = true;
             this.s.cancel();
@@ -102,7 +102,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -155,7 +155,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             Throwable th;
             if (getAndIncrement() == 0) {
                 int i = 1;
-                org.a.c<? super R> cVar = this.actual;
+                org.b.c<? super R> cVar = this.actual;
                 io.reactivex.internal.a.f<R> fVar = this.queue;
                 int i2 = this.limit;
                 int i3 = this.consumed;

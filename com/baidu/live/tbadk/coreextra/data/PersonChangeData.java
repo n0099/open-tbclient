@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.coreextra.data;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonChangeData implements Serializable {
     public static final String TAG_PERSON_INFO = "person_change_data";
     private static final long serialVersionUID = 4345761658406426272L;

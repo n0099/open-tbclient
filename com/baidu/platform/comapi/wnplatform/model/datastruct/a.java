@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.wnplatform.model.datastruct;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a implements Cloneable {
     public double a;
     public double b;

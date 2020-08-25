@@ -9,7 +9,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.c;
+import org.b.c;
 /* loaded from: classes7.dex */
 public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
@@ -55,7 +55,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                 this.it = it;
                 drain();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 this.actual.onError(th);
             }
         }
@@ -71,7 +71,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
             this.actual.onComplete();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -79,7 +79,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.cancelled = true;
             this.d.dispose();
@@ -98,7 +98,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.K(th);
+                            io.reactivex.exceptions.a.J(th);
                             cVar.onError(th);
                             return;
                         }
@@ -106,7 +106,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.K(th2);
+                    io.reactivex.exceptions.a.J(th2);
                     cVar.onError(th2);
                     return;
                 }
@@ -144,7 +144,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.K(th);
+                                            io.reactivex.exceptions.a.J(th);
                                             cVar.onError(th);
                                             return;
                                         }
@@ -152,7 +152,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
                                         return;
                                     }
                                 } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.K(th2);
+                                    io.reactivex.exceptions.a.J(th2);
                                     cVar.onError(th2);
                                     return;
                                 }

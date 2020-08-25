@@ -7,7 +7,7 @@ import android.view.animation.Interpolator;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class f extends c {
     private Animator a = null;
     private long b = 0;
@@ -95,7 +95,7 @@ public class f extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void b(int i) {
-        if (i > 0) {
+        if (i > 0 || i == -1) {
             this.f = i;
         }
     }

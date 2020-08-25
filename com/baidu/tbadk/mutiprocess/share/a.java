@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements b<ShareEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mutiprocess.b

@@ -2,7 +2,7 @@ package com.baidu.searchbox.ui.wheelview3d.timer;
 
 import com.baidu.searchbox.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class InertiaTimerTask extends TimerTask {
     private float mCurrentVelocityY = 2.1474836E9f;
     private final float mFirstVelocityY;

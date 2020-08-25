@@ -18,9 +18,9 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private String aYY;
+    private String ber;
     private boolean mIsHost;
     private List<com.baidu.live.noble.data.a> mList = new ArrayList();
     private String mLiveId;
@@ -29,7 +29,7 @@ public class a extends BaseAdapter {
     public a(TbPageContext tbPageContext, String str, String str2, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.aYY = str2;
+        this.ber = str2;
         this.mIsHost = z;
     }
 
@@ -64,31 +64,31 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0172a c0172a;
+        C0180a c0180a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_noble_item_layout, (ViewGroup) null);
-            c0172a = new C0172a();
-            c0172a.aZW = (HeadImageView) view.findViewById(a.g.avatar_noble);
-            c0172a.aZX = (TextView) view.findViewById(a.g.tv_noble_name);
-            c0172a.aZZ = (ImageView) view.findViewById(a.g.avatar_noble_wrapper_box);
-            c0172a.aZY = (TbImageView) view.findViewById(a.g.mark_noble);
-            c0172a.aZY.setDefaultBgResource(a.f.ala_noble_ulist_default_mark_bg);
-            a(c0172a.aZW);
-            view.setTag(c0172a);
+            c0180a = new C0180a();
+            c0180a.bfr = (HeadImageView) view.findViewById(a.g.avatar_noble);
+            c0180a.bft = (TextView) view.findViewById(a.g.tv_noble_name);
+            c0180a.bfv = (ImageView) view.findViewById(a.g.avatar_noble_wrapper_box);
+            c0180a.bfu = (TbImageView) view.findViewById(a.g.mark_noble);
+            c0180a.bfu.setDefaultBgResource(a.f.ala_noble_ulist_default_mark_bg);
+            a(c0180a.bfr);
+            view.setTag(c0180a);
         } else {
-            c0172a = (C0172a) view.getTag();
+            c0180a = (C0180a) view.getTag();
         }
         final com.baidu.live.noble.data.a aVar = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (aVar != null) {
-            c0172a.aZX.setText(aVar.bam);
-            c0172a.aZY.startLoad(aVar.icon_url, 10, false);
-            c0172a.aZW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.noble.a.a.1
+            c0180a.bft.setText(aVar.bfI);
+            c0180a.bfu.startLoad(aVar.icon_url, 10, false);
+            c0180a.bfr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.noble.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     a.this.a(aVar);
                 }
             });
-            a(aVar, c0172a.aZW, c0172a.aZZ);
+            a(aVar, c0180a.bfr, c0180a.bfv);
         }
         return view;
     }
@@ -103,21 +103,21 @@ public class a extends BaseAdapter {
 
     private void a(com.baidu.live.noble.data.a aVar, HeadImageView headImageView, ImageView imageView) {
         if (aVar != null && headImageView != null && imageView != null) {
-            headImageView.startLoad(aVar.bal, 10, false);
+            headImageView.startLoad(aVar.bfH, 10, false);
             int dimens = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds8);
-            if (aVar.ban == 7) {
+            if (aVar.bfJ == 7) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_king);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.ban == 6) {
+            } else if (aVar.bfJ == 6) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_duke);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.ban == 5) {
+            } else if (aVar.bfJ == 5) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_marquis);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.ban == 4) {
+            } else if (aVar.bfJ == 4) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_earl);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
@@ -131,19 +131,19 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.noble.data.a aVar) {
         if (aVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), aVar.user_id + "", aVar.bam, aVar.bal, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.aYY != null && this.aYY.equals(TbadkCoreApplication.getCurrentAccount()), this.aYY, null, aVar.bam, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), aVar.user_id + "", aVar.bfI, aVar.bfH, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.ber != null && this.ber.equals(TbadkCoreApplication.getCurrentAccount()), this.ber, null, aVar.bfI, "")));
         }
     }
 
     /* renamed from: com.baidu.live.noble.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private class C0172a {
-        public HeadImageView aZW;
-        public TextView aZX;
-        public TbImageView aZY;
-        public ImageView aZZ;
+    /* loaded from: classes7.dex */
+    private class C0180a {
+        public HeadImageView bfr;
+        public TextView bft;
+        public TbImageView bfu;
+        public ImageView bfv;
 
-        private C0172a() {
+        private C0180a() {
         }
     }
 }

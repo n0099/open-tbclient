@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class RequestService implements IRequestService {
     private static IRequestService iRequestService;
     private ExecutorService fixedThreadPool;

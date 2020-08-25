@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public abstract class HttpCommonRequest<T extends HttpCommonRequestBuilder> extends HttpRequest<T> {
     protected RequestBody requestBody;
 

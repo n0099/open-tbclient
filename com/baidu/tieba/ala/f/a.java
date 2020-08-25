@@ -10,31 +10,31 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0553a fKH;
-    private HttpMessageListener gBK;
+    private InterfaceC0599a fWF;
+    private HttpMessageListener gOh;
 
     /* renamed from: com.baidu.tieba.ala.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0553a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0599a {
         void a(int i, String str, Object obj);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0553a interfaceC0553a) {
+    public a(TbPageContext tbPageContext, InterfaceC0599a interfaceC0599a) {
         super(tbPageContext);
-        this.gBK = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.f.a.1
+        this.gOh = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.f.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
-                    a.this.fKH.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    a.this.fWF.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.fKH = interfaceC0553a;
+        this.fWF = interfaceC0599a;
         registerTask();
-        registerListener(this.gBK);
+        registerListener(this.gOh);
     }
 
     private void registerTask() {
@@ -46,7 +46,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Ec(String str) {
+    public void GB(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

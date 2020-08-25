@@ -2,9 +2,9 @@ package com.baidu.swan.apps.favordata;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static Map<String, String> A(String str, String str2, String str3) {
+    public static Map<String, String> C(String str, String str2, String str3) {
         HashMap hashMap = new HashMap();
         hashMap.put("type", "fminapp");
         hashMap.put("third_id", str);
@@ -18,7 +18,7 @@ public class a {
         return hashMap;
     }
 
-    public static Map<String, String> bl(String str, String str2) {
+    public static Map<String, String> bu(String str, String str2) {
         if (str == null || str2 == null) {
             return new HashMap();
         }

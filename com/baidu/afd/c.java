@@ -2,20 +2,20 @@ package com.baidu.afd;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements g {
-    private final int Xq;
-    private final int Xr;
-    private final int Xs;
-    private HashMap Xt;
+    private final int XV;
+    private final int XW;
+    private final int XX;
+    private HashMap XY;
     private int floor;
     private final String tabId;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.Xq = i;
-        this.Xr = i2;
-        this.Xs = i3;
+        this.XV = i;
+        this.XW = i2;
+        this.XX = i3;
         this.tabId = str;
         this.tabName = str2;
         this.floor = i4;
@@ -26,30 +26,30 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int pH() {
-        return this.Xq;
+    public int rg() {
+        return this.XV;
     }
 
     @Override // com.baidu.afd.g
-    public int pI() {
-        return this.Xr;
+    public int rh() {
+        return this.XW;
     }
 
     @Override // com.baidu.afd.g
-    public int pJ() {
+    public int ri() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> pK() {
-        return this.Xt;
+    public Map<String, String> rj() {
+        return this.XY;
     }
 
     @Override // com.baidu.afd.g
-    public void w(HashMap hashMap) {
-        this.Xt = hashMap;
-        if (!this.Xt.containsKey("iadex")) {
-            hashMap.put("iadex", com.baidu.tbadk.util.c.bmq());
+    public void u(HashMap hashMap) {
+        this.XY = hashMap;
+        if (!this.XY.containsKey("iadex")) {
+            hashMap.put("iadex", com.baidu.tbadk.util.c.bvd());
         }
     }
 }

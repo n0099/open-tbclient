@@ -1,0 +1,297 @@
+package com.baidu.platform.comapi.map.b.b;
+
+import android.util.Log;
+import android.util.Pair;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.map.MapController;
+import com.baidu.platform.comapi.map.MapStatus;
+import com.baidu.platform.comapi.map.MapViewInterface;
+import com.baidu.platform.comapi.map.b.a;
+import com.baidu.platform.comapi.util.SysOSUtil;
+import java.util.LinkedList;
+import java.util.Queue;
+/* loaded from: classes20.dex */
+public class d extends a {
+    private GeoPoint b;
+    private int c;
+    private float d;
+    private Queue<a.c> e;
+    private a.c f;
+    private a.c g;
+    private boolean h;
+    private com.baidu.platform.comapi.map.b.a.b i;
+    private boolean j;
+    private double k;
+    private boolean l;
+    private long m;
+
+    public d(MapController mapController) {
+        super(mapController);
+        this.e = new LinkedList();
+        this.h = false;
+        this.j = false;
+        this.k = 0.0d;
+        this.l = false;
+        this.m = 0L;
+    }
+
+    private int a() {
+        if (this.j) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.addAll(this.e);
+            if (linkedList.size() < 2) {
+                return 0;
+            }
+            int i = (int) (((a.c) linkedList.get(linkedList.size() - 2)).a * 8.0d);
+            if (i >= 180) {
+                return 179;
+            }
+            if (i <= -180) {
+                return -179;
+            }
+            return i;
+        }
+        return 0;
+    }
+
+    private void a(MapStatus mapStatus) {
+        mapStatus.level = this.d + ((float) (Math.log(this.f.b) / Math.log(2.0d)));
+        mapStatus.level = mapStatus.level >= 4.0f ? mapStatus.level : 4.0f;
+    }
+
+    private void a(MapStatus mapStatus, int i) {
+        if (i != 0) {
+            mapStatus.rotation = (mapStatus.rotation + i) % EncoderTextureDrawer.X264_WIDTH;
+            this.a.setMapStatusWithAnimation(mapStatus, 600);
+        }
+    }
+
+    private void b(MapStatus mapStatus) {
+        if (this.b != null) {
+            if (Math.abs(this.g.c.a) > 0.0d || Math.abs(this.g.c.b) > 0.0d) {
+                a.b a = this.i.a.a();
+                a.b a2 = this.i.c.a();
+                double sqrt = Math.sqrt(((a2.b - a.b) * (a2.b - a.b)) + ((a2.a - a.a) * (a2.a - a.a)));
+                if (!MapController.isCompass || sqrt >= 100.0d) {
+                    if (!MapController.isCompass && !this.l) {
+                        mapStatus.centerPtX = this.b.getLongitude();
+                        mapStatus.centerPtY = this.b.getLatitude();
+                        a.b a3 = this.i.c.a();
+                        mapStatus.xOffset = (float) (a3.a - (this.a.getScreenWidth() / 2));
+                        mapStatus.yOffset = ((float) (a3.b - (this.a.getScreenHeight() / 2))) * (-1.0f);
+                        return;
+                    }
+                    this.l = false;
+                    com.baidu.platform.comapi.util.a.a().a(new com.baidu.platform.comapi.map.a.a());
+                    MapViewInterface mapView = this.a.getMapView();
+                    if (mapView != null) {
+                        a.b a4 = this.i.c.a();
+                        this.b = mapView.getProjection().fromPixels((int) a4.a, (int) a4.b);
+                    }
+                }
+            }
+        }
+    }
+
+    private void c(MapStatus mapStatus) {
+        double abs = Math.abs(new a.c(new a.C0242a(this.i.b.a, this.i.c.a), this.i.b).a);
+        double abs2 = Math.abs(new a.c(new a.C0242a(this.i.b.b, this.i.c.b), this.i.b).a);
+        if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
+            return;
+        }
+        if (this.j) {
+            mapStatus.rotation = (int) ((this.c + this.f.a) % 360.0d);
+        } else {
+            boolean z = (this.g.b < 1.0d && abs > 60.0d) || (this.g.b > 1.0d && Math.abs(abs - 180.0d) > 60.0d);
+            boolean z2 = (this.g.b > 1.0d && abs2 > 60.0d) || (this.g.b < 1.0d && Math.abs(abs2 - 180.0d) > 60.0d);
+            if (z || z2) {
+                if (Math.abs(this.f.a) > (MapController.isCompass ? 30 : 10)) {
+                    this.j = true;
+                    this.a.getGestureMonitor().c();
+                    this.c = (int) (this.c - this.f.a);
+                    if (MapController.isCompass) {
+                        this.l = true;
+                        com.baidu.platform.comapi.util.a.a().a(new com.baidu.platform.comapi.map.a.a());
+                    }
+                }
+            }
+        }
+        this.k = this.g.b;
+    }
+
+    public void a(MapStatus mapStatus, com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
+        int i;
+        int i2;
+        a.c cVar;
+        a.c cVar2;
+        if (pair != null) {
+            int a = a();
+            if (((a.d) pair.second).a * ((a.d) pair.first).a > 0.0d) {
+                if (((a.d) pair.second).b * ((a.d) pair.first).b > 0.0d) {
+                    a(mapStatus, a);
+                    return;
+                }
+            }
+            if (Math.abs(((a.d) pair.first).a - ((a.d) pair.second).a) < 1.0d || Math.abs(((a.d) pair.first).b - ((a.d) pair.second).b) < 1.0d) {
+                a(mapStatus, a);
+                return;
+            }
+            double abs = Math.abs(new a.c(new a.C0242a(bVar.b.a, bVar.c.a), bVar.b).a);
+            double abs2 = Math.abs(new a.c(new a.C0242a(bVar.b.b, bVar.c.b), bVar.b).a);
+            if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
+                a(mapStatus, a);
+                return;
+            }
+            float sqrt = ((float) Math.sqrt((((a.d) pair.second).b * ((a.d) pair.second).b) + (((a.d) pair.first).a * ((a.d) pair.first).a) + (((a.d) pair.second).a * ((a.d) pair.second).a) + (((a.d) pair.first).b * ((a.d) pair.first).b))) * 2.0f;
+            Log.d("zoom_speed:", String.valueOf(sqrt));
+            if (sqrt > (SysOSUtil.getInstance().getDensityDPI() * 100) / 320) {
+                mapStatus.hasAnimation = 1;
+                mapStatus.animationTime = 600;
+                a.c cVar3 = null;
+                a.c cVar4 = null;
+                int i3 = 0;
+                int i4 = 0;
+                int i5 = 0;
+                while (i5 < this.e.size()) {
+                    a.c poll = this.e.poll();
+                    if (poll != null) {
+                        Log.d("zoom_scale" + i5, poll.b + "");
+                        if (this.e.isEmpty() && Math.abs(poll.b - 1.0d) < 0.01d) {
+                            a(mapStatus, a);
+                            return;
+                        } else if (poll.b > 1.0d) {
+                            int i6 = i4;
+                            i2 = i3 + 1;
+                            cVar = cVar4;
+                            cVar2 = poll;
+                            i = i6;
+                        } else {
+                            cVar2 = cVar3;
+                            int i7 = i3;
+                            cVar = poll;
+                            i = i4 + 1;
+                            i2 = i7;
+                        }
+                    } else {
+                        i = i4;
+                        i2 = i3;
+                        cVar = cVar4;
+                        cVar2 = cVar3;
+                    }
+                    i5++;
+                    cVar3 = cVar2;
+                    cVar4 = cVar;
+                    i3 = i2;
+                    i4 = i;
+                }
+                if (i3 < i4) {
+                    cVar3 = cVar4;
+                }
+                if (cVar3 != null && Math.abs(cVar3.b - 1.0d) < 0.01d) {
+                    a(mapStatus, a);
+                    return;
+                }
+                boolean z = (cVar3.b < 1.0d && abs > 60.0d) || (cVar3.b > 1.0d && Math.abs(abs - 180.0d) > 60.0d);
+                if (z) {
+                    Log.d("zoom_ratote", "aMoved");
+                }
+                boolean z2 = (cVar3.b > 1.0d && abs2 > 60.0d) || (cVar3.b < 1.0d && Math.abs(abs2 - 180.0d) > 60.0d);
+                if (z2) {
+                    Log.d("zoom_ratote", "bMoved");
+                }
+                Log.d("zoom_ratote", String.valueOf(this.f.a));
+                if (z || z2) {
+                    if (Math.abs(this.f.a) > (MapController.isCompass ? 30 : 15)) {
+                        a(mapStatus, a);
+                        return;
+                    }
+                }
+                Log.d("zoom_scale", String.valueOf(cVar3.b));
+                this.h = cVar3.b > 1.0d;
+                float densityDPI = sqrt / (800000 / SysOSUtil.getInstance().getDensityDPI());
+                if (densityDPI > 2.0f) {
+                    densityDPI = 2.0f;
+                }
+                if (this.h) {
+                    mapStatus.level = densityDPI + mapStatus.level;
+                } else {
+                    mapStatus.level -= densityDPI;
+                }
+                mapStatus.level = mapStatus.level < 4.0f ? 4.0f : mapStatus.level;
+                if (a != 0) {
+                    mapStatus.rotation = (mapStatus.rotation + a) % EncoderTextureDrawer.X264_WIDTH;
+                }
+                Log.d("zoom_level:", String.valueOf(mapStatus.level));
+                this.a.setMapStatus(mapStatus);
+            }
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.map.b.b.a
+    public void a(com.baidu.platform.comapi.map.b.a.b bVar) {
+        MapViewInterface mapView = this.a.getMapView();
+        if (mapView == null) {
+            return;
+        }
+        MapStatus mapStatus = this.a.getMapStatus();
+        a.b a = bVar.a.a();
+        this.b = mapView.getProjection().fromPixels((int) a.a, (int) a.b);
+        this.d = this.a.getZoomLevel();
+        this.c = mapStatus.rotation;
+        this.k = 0.0d;
+    }
+
+    @Override // com.baidu.platform.comapi.map.b.b.a
+    public void a(com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
+        MapViewInterface mapView = this.a.getMapView();
+        if (mapView == null) {
+            return;
+        }
+        double d = 0.0d;
+        double d2 = 0.0d;
+        int x = (int) bVar.d.getX();
+        int y = (int) bVar.d.getY();
+        int i = x < 0 ? 0 : x;
+        int i2 = y < 0 ? 0 : y;
+        GeoPoint fromPixels = mapView.getProjection().fromPixels(this.a.getScreenWidth() / 2, this.a.getScreenHeight() / 2);
+        if (fromPixels != null) {
+            d = fromPixels.getLongitude();
+            d2 = fromPixels.getLatitude();
+        }
+        this.a.MapMsgProc(5, 1, (i2 << 16) | i, 0, 0, d, d2, 0.0d, 0.0d);
+        this.a.getGestureMonitor().a(this.a.getZoomLevel());
+        if (System.currentTimeMillis() - this.m > 100 || !this.a.isEnableZoom()) {
+            return;
+        }
+        a(this.a.getMapStatus(), bVar, pair);
+    }
+
+    @Override // com.baidu.platform.comapi.map.b.b.a
+    public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
+        this.i = bVar;
+        this.f = new a.c(bVar.a, bVar.c);
+        this.g = new a.c(bVar.b, bVar.c);
+        MapStatus mapStatus = this.a.getMapStatus();
+        if (this.a.isEnableZoom()) {
+            a(mapStatus);
+        }
+        if (this.a.is3DGestureEnable() && this.a.getMapControlMode() != MapController.MapControlMode.STREET) {
+            if (mapStatus.overlooking == 0 && this.a.isCanTouchMove()) {
+                b(mapStatus);
+            }
+            c(mapStatus);
+        }
+        this.a.setMapStatus(mapStatus);
+        if (this.a.isNaviMode() && this.a.getNaviMapViewListener() != null) {
+            this.a.getNaviMapViewListener().onAction(520, null);
+        }
+        this.a.mapStatusChangeStart();
+        if (this.e.size() >= 10) {
+            this.e.poll();
+        }
+        this.e.offer(this.g);
+        com.baidu.platform.comapi.util.a.a().a(new com.baidu.platform.comapi.map.a.d());
+        this.m = System.currentTimeMillis();
+    }
+}

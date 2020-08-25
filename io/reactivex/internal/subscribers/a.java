@@ -7,35 +7,35 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     protected final io.reactivex.internal.a.a<? super R> actual;
     protected boolean done;
     protected d<T> qs;
-    protected org.a.d s;
+    protected org.b.d s;
     protected int sourceMode;
 
     public a(io.reactivex.internal.a.a<? super R> aVar) {
         this.actual = aVar;
     }
 
-    @Override // io.reactivex.j, org.a.c
-    public final void onSubscribe(org.a.d dVar) {
+    @Override // io.reactivex.j, org.b.c
+    public final void onSubscribe(org.b.d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dSY()) {
+            if (efa()) {
                 this.actual.onSubscribe(this);
-                dSZ();
+                efb();
             }
         }
     }
 
-    protected boolean dSY() {
+    protected boolean efa() {
         return true;
     }
 
-    protected void dSZ() {
+    protected void efb() {
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         if (this.done) {
             io.reactivex.e.a.onError(th);
@@ -46,13 +46,13 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void L(Throwable th) {
-        io.reactivex.exceptions.a.K(th);
+    public final void K(Throwable th) {
+        io.reactivex.exceptions.a.J(th);
         this.s.cancel();
         onError(th);
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         if (!this.done) {
             this.done = true;
@@ -61,7 +61,7 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Lj(int i) {
+    public final int NM(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;
@@ -74,12 +74,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
         return requestFusion;
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         this.s.request(j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         this.s.cancel();
     }

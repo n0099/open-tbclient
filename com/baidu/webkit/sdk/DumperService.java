@@ -7,11 +7,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.IBinder;
 import android.telephony.TelephonyManager;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
 import com.baidu.webkit.sdk.dumper.ZwDebug;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class DumperService extends Service implements ZeusLogUploader.OnFinishedListener {
     private static final String CALLBACK = "CRASH_CALLBACK";
     private static final String CRASHLOGENCRYPT = "CRASHLOGENCRYPT";
@@ -62,7 +61,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             try {
                 obj = Class.forName(this.mCallback).newInstance();
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
             }
         }
         String str3 = (!this.mCrashLogFailedEncrypt || i != 3 || this.mLogUploader == null || this.mLogUploader.encryptUploadFailedFile(str, true) == 6) ? str2 : "Failed to encrypt file.";
@@ -95,7 +94,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         try {
             this.mCrashImei = ((TelephonyManager) getSystemService("phone")).getDeviceId();
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
         this.mCrashImei = this.mCrashImei == null ? "0" : this.mCrashImei;
         if (!isNetworkConnected(getApplicationContext())) {

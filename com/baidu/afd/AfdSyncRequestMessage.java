@@ -16,7 +16,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AfdSyncRequestMessage extends HttpMessage {
     private static String _ANDROID_ID = "";
     private static final TbHttpMessageTask task = new TbHttpMessageTask(1003397, "http://afd.baidu.com/afd/entry");
@@ -28,15 +28,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam("pid", "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pH());
+        addParam("ft", gVar.rg());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pJ()));
-        addParam("fc", String.valueOf(gVar.pJ()));
+        addParam("flr", String.valueOf(gVar.ri()));
+        addParam("fc", String.valueOf(gVar.ri()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pK().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.rj().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

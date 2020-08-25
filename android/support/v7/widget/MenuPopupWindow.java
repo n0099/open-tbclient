@@ -21,7 +21,7 @@ import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverListener {
     private static final String TAG = "MenuPopupWindow";
     private static Method sSetTouchModalMethod;
@@ -87,7 +87,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static class MenuDropDownListView extends DropDownListView {
         final int mAdvanceKey;
         private MenuItemHoverListener mHoverListener;

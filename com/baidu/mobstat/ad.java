@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.lang.Thread;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 class ad implements Thread.UncaughtExceptionHandler {
     private static final ad a = new ad();
     private Thread.UncaughtExceptionHandler b;

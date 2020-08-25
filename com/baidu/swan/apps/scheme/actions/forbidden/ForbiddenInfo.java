@@ -2,19 +2,20 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+import com.baidu.swan.apps.u.c.b;
+/* loaded from: classes8.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new Parcelable.Creator<ForbiddenInfo>() { // from class: com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: w */
+        /* renamed from: x */
         public ForbiddenInfo createFromParcel(Parcel parcel) {
             return new ForbiddenInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hi */
+        /* renamed from: jp */
         public ForbiddenInfo[] newArray(int i) {
             return new ForbiddenInfo[i];
         }
@@ -33,7 +34,7 @@ public class ForbiddenInfo implements Parcelable {
         this.enableSlidingFlag = 0;
     }
 
-    public ForbiddenInfo(com.baidu.swan.apps.u.c.b bVar, String str, String str2) {
+    public ForbiddenInfo(b bVar, String str, String str2) {
         this.enableSlidingFlag = 0;
         l(bVar);
         this.forbiddenReason = str;
@@ -69,21 +70,21 @@ public class ForbiddenInfo implements Parcelable {
         parcel.writeInt(this.enableSlidingFlag);
     }
 
-    private void l(com.baidu.swan.apps.u.c.b bVar) {
+    private void l(b bVar) {
         if (bVar != null) {
             this.appId = bVar.getAppId();
             this.appKey = bVar.getAppKey();
-            this.appTitle = bVar.aee();
+            this.appTitle = bVar.akO();
             this.launchPath = bVar.getPage();
-            this.launchSource = bVar.ajg();
+            this.launchSource = bVar.aqN();
         }
     }
 
-    public boolean aaF() {
+    public boolean agP() {
         return this.enableSlidingFlag == 0;
     }
 
     public String toString() {
-        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + aaF() + "'}";
+        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + agP() + "'}";
     }
 }

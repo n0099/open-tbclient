@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public class IntentUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "IntentUtils";

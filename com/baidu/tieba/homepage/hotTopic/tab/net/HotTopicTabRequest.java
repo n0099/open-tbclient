@@ -8,11 +8,14 @@ import tbclient.HotThreadList.HotThreadListReqIdl;
 /* loaded from: classes16.dex */
 public class HotTopicTabRequest extends NetMessage {
     public static final String HOT_COMMENT_TAB_ID = "2";
+    public static final String HOT_TAB_CODE_ALL = "all";
     public static final String HOT_THREAD_TAB_ID = "1";
-    private String tabId;
+    public String tabCode;
+    public String tabId;
 
     public HotTopicTabRequest() {
         super(CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661);
+        this.tabCode = "all";
         this.tabId = "1";
     }
 
@@ -20,10 +23,15 @@ public class HotTopicTabRequest extends NetMessage {
         this.tabId = str;
     }
 
+    public void setTabCode(String str) {
+        this.tabCode = str;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = this.tabId;
+        builder.tab_code = this.tabCode;
         if (z) {
             t.a(builder, true);
         }

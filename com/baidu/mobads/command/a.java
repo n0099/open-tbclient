@@ -9,7 +9,6 @@ import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +95,7 @@ public class a implements Serializable {
                 this.u = System.currentTimeMillis();
                 this.v = Process.myPid();
             }
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.u);
+            jSONObject.put("ts", this.u);
             jSONObject.put("clickProcId", this.v);
         } catch (Exception e) {
             this.y.d(e);
@@ -137,7 +136,7 @@ public class a implements Serializable {
                     aVar2.s = jSONObject.optBoolean("mnCfm");
                     aVar2.r = jSONObject.getInt("dlCnt");
                     aVar2.t = jSONObject.optLong("cts");
-                    aVar2.u = jSONObject.optLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+                    aVar2.u = jSONObject.optLong("ts");
                     aVar2.v = jSONObject.optInt("clickProcId");
                     return aVar2;
                 } catch (Exception e) {

@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.res.ui.FloatButton;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.res.widget.dialog.g;
@@ -23,11 +23,11 @@ import com.baidu.swan.apps.u.c.b;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
-    private FloatButton cKt;
-    private com.baidu.swan.apps.scheme.actions.d.a cKu;
-    private e cKv;
+    private FloatButton cTr;
+    private com.baidu.swan.apps.scheme.actions.d.a cTs;
+    private e cTt;
     private String mPackageName;
 
     public b(j jVar) {
@@ -57,40 +57,40 @@ public class b extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "packageName is empty");
                 return false;
             }
-            this.cKu = com.baidu.swan.apps.scheme.actions.d.a.asO();
-            this.cKu.oU(this.mPackageName);
-            if (this.cKu.asQ() != null) {
-                this.cKt = l(context, b);
+            this.cTs = com.baidu.swan.apps.scheme.actions.d.a.aAX();
+            this.cTs.qR(this.mPackageName);
+            if (this.cTs.aAZ() != null) {
+                this.cTr = l(context, b);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
-            b.a Se = eVar.Se();
-            if (Se == null || TextUtils.isEmpty(Se.ajg())) {
+            b.a XZ = eVar.XZ();
+            if (XZ == null || TextUtils.isEmpty(XZ.aqN())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launchInfo or source is empty");
                 return false;
             }
-            final String ajg = Se.ajg();
-            eVar.arH().d("mapp_open_external_app", new com.baidu.swan.apps.aq.e.b<e>() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.1
+            final String aqN = XZ.aqN();
+            eVar.azU().e("mapp_open_external_app", new com.baidu.swan.apps.ap.e.b<e>() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.aq.e.b
+                @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: c */
-                public void H(e eVar2) {
+                public void I(e eVar2) {
                     if (eVar2 == null || eVar2.forbidden) {
-                        FloatButton asQ = b.this.cKu.asQ();
-                        if (asQ != null) {
-                            asQ.setVisibility(8);
+                        FloatButton aAZ = b.this.cTs.aAZ();
+                        if (aAZ != null) {
+                            aAZ.setVisibility(8);
                         }
                         c.a(10005, callbackHandler, optString);
                         h.b(10005, eVar2);
                     } else if (b.this.b(eVar2, b.optString(SuspensionBallEntity.KEY_SCHEME))) {
-                        b.this.cKv = eVar2;
+                        b.this.cTt = eVar2;
                         SwanAppActivity swanAppActivity = (SwanAppActivity) context;
-                        b.this.cKu = com.baidu.swan.apps.scheme.actions.d.a.asO();
-                        if (b.this.cKu.asQ() == null) {
-                            b.this.cKt = b.this.l(context, b);
+                        b.this.cTs = com.baidu.swan.apps.scheme.actions.d.a.aAX();
+                        if (b.this.cTs.aAZ() == null) {
+                            b.this.cTr = b.this.l(context, b);
                             b.this.a(optString, b, callbackHandler, swanAppActivity);
                         }
-                        eVar.arN().a(ajg, (Boolean) true);
+                        eVar.aAa().a(aqN, (Boolean) true);
                     } else {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, "open app scheme is not allowed").toString());
                     }
@@ -103,8 +103,8 @@ public class b extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public FloatButton l(Context context, JSONObject jSONObject) {
-        this.cKu.a((SwanAppActivity) context, jSONObject);
-        return this.cKu.asP();
+        this.cTs.a((SwanAppActivity) context, jSONObject);
+        return this.cTs.aAY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class b extends aa {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : eVar.cMm) {
+        for (String str2 : eVar.cVi) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -123,20 +123,20 @@ public class b extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final JSONObject jSONObject, final CallbackHandler callbackHandler, final Activity activity) {
         if (callbackHandler != null && !TextUtils.isEmpty(str)) {
-            this.cKt.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.2
+            this.cTr.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.2
                 @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
                 public void onClick() {
                     boolean z;
-                    if (al.isAppInstalled(activity, b.this.mPackageName)) {
+                    if (ak.isAppInstalled(activity, b.this.mPackageName)) {
                         String optString = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-                        b.this.a(activity, optString, b.this.bQ(b.this.cKv.cMn.get(0), optString), callbackHandler, str);
+                        b.this.a(activity, optString, b.this.ch(b.this.cTt.cVj.get(0), optString), callbackHandler, str);
                         return;
                     }
                     try {
                         String optString2 = jSONObject.optString("downloadUrl");
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("url", optString2);
-                        z = al.aa(activity, jSONObject2.toString());
+                        z = ak.ad(activity, jSONObject2.toString());
                     } catch (JSONException e) {
                         if (b.DEBUG) {
                             e.printStackTrace();
@@ -147,7 +147,7 @@ public class b extends aa {
                 }
 
                 @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
-                public void akg() {
+                public void arN() {
                 }
             });
         }
@@ -159,11 +159,11 @@ public class b extends aa {
             String string = activity.getString(a.h.aiapps_ok);
             String string2 = activity.getString(a.h.aiapps_cancel);
             g.a aVar = new g.a(activity);
-            aVar.ff(true).og(str2).a(new com.baidu.swan.apps.view.c.a()).fh(false);
+            aVar.fy(true).qe(str2).a(new com.baidu.swan.apps.view.c.a()).fA(false);
             aVar.a(string, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.d.a.b.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    boolean launchApp = al.launchApp(activity, str);
+                    boolean launchApp = ak.launchApp(activity, str);
                     callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(launchApp ? 0 : 1001, launchApp ? "open app success" : "open app fail").toString());
                 }
             });
@@ -173,12 +173,12 @@ public class b extends aa {
                     callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             });
-            aVar.ard();
+            aVar.azp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String bQ(String str, String str2) {
+    public String ch(String str, String str2) {
         String str3;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;

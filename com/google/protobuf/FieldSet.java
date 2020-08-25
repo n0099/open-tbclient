@@ -64,7 +64,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m41clone() {
+    public FieldSet<FieldDescriptorType> m46clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         int i = 0;
         while (true) {

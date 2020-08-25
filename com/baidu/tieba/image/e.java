@@ -12,9 +12,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.x;
@@ -25,21 +28,26 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes15.dex */
 public class e {
-    private String ajJ;
-    private boolean dDe;
-    private String dSv;
-    private String dSw;
-    private Map<String, ImageUrlData> evu;
-    private String hFr;
-    private String jsG;
-    private String jsH;
-    private String jsI;
-    private boolean jsJ;
-    private int jsL;
-    private ArrayList<String> jsu;
-    private ArrayList<AlaInfoData> jsw;
-    private String jsx;
-    private String jsy;
+    private String akY;
+    private boolean cGW;
+    private Map<String, ImageUrlData> eFT;
+    public String eMt;
+    private String ebR;
+    private String ebS;
+    private String hSH;
+    public ForumData iAy;
+    private String jHF;
+    private String jHG;
+    private String jHH;
+    private boolean jHI;
+    private int jHK;
+    public MetaData jHL;
+    public String jHM;
+    public boolean jHN;
+    private ArrayList<String> jHt;
+    private ArrayList<AlaInfoData> jHv;
+    private String jHw;
+    private String jHx;
     private String mForumId;
     private String mFrom;
     private boolean mIsReset;
@@ -51,48 +59,49 @@ public class e {
     private String mRecomWeight;
     private int mThreadType;
     private String mUserId;
-    private HashMap<String, String> jsv = new HashMap<>();
+    public int replyPrivateFlag;
+    private HashMap<String, String> jHu = new HashMap<>();
     private boolean mIsReserver = true;
-    private a jsz = null;
-    private int jsA = 0;
-    private boolean jsB = false;
-    private boolean jsC = false;
-    private b jsD = null;
-    private AdvertAppInfo jsE = null;
-    private boolean jsF = false;
-    private boolean jsK = false;
+    private a jHy = null;
+    private int jHz = 0;
+    private boolean jHA = false;
+    private boolean jHB = false;
+    private b jHC = null;
+    private AdvertAppInfo jHD = null;
+    private boolean jHE = false;
+    private boolean jHJ = false;
 
     /* loaded from: classes15.dex */
     public interface b {
         void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3);
 
-        void bl(int i, String str);
+        void bj(int i, String str);
     }
 
     public e(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, boolean z, int i2, String str8, String str9, String str10, String str11) {
-        this.dDe = false;
-        this.jsu = arrayList;
-        this.evu = map;
-        if (this.jsu == null) {
-            this.jsu = new ArrayList<>();
+        this.cGW = false;
+        this.jHt = arrayList;
+        this.eFT = map;
+        if (this.jHt == null) {
+            this.jHt = new ArrayList<>();
         }
-        Iterator<String> it = this.jsu.iterator();
+        Iterator<String> it = this.jHt.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.jsv.put(d.Iz(next), next);
+            this.jHu.put(d.Lr(next), next);
         }
-        this.ajJ = str3;
+        this.akY = str3;
         this.mNid = str4;
-        this.hFr = str2;
+        this.hSH = str2;
         this.mForumId = str;
-        this.jsy = str5;
+        this.jHx = str5;
         this.mThreadType = i;
-        this.dDe = this.jsy == null;
+        this.cGW = this.jHx == null;
         this.mUserId = str6;
         this.mFrom = str7;
         this.mIsReset = z;
-        this.jsJ = false;
-        this.jsL = i2;
+        this.jHI = false;
+        this.jHK = i2;
         this.mRecomSource = str8;
         this.mRecomAbTag = str9;
         this.mRecomWeight = str10;
@@ -100,96 +109,96 @@ public class e {
     }
 
     public void setSourceImageRectInScreen(String str) {
-        this.jsH = str;
+        this.jHG = str;
     }
 
-    public void IB(String str) {
-        this.jsI = str;
+    public void Lt(String str) {
+        this.jHH = str;
     }
 
-    public void qI(boolean z) {
-        this.jsJ = z;
+    public void ro(boolean z) {
+        this.jHI = z;
     }
 
-    public String aXT() {
-        return this.dSv;
+    public String bgm() {
+        return this.ebR;
     }
 
-    public String aXU() {
-        return this.dSw;
+    public String bgn() {
+        return this.ebS;
     }
 
-    public ArrayList<AlaInfoData> czA() {
-        return this.jsw;
+    public ArrayList<AlaInfoData> cKo() {
+        return this.jHv;
     }
 
-    public void qJ(boolean z) {
+    public void rp(boolean z) {
         this.mIsReserver = z;
     }
 
-    public void czB() {
-        this.jsF = false;
-        if (!this.dDe) {
-            c(this.ajJ, this.jsy, 10, 0);
+    public void cKp() {
+        this.jHE = false;
+        if (!this.cGW) {
+            c(this.akY, this.jHx, 10, 0);
         }
     }
 
-    public void czC() {
-        this.jsF = true;
-        String str = this.jsu.get(0);
-        if (StringUtils.isNull(this.jsx)) {
-            this.jsx = d.Iz(str);
+    public void cKq() {
+        this.jHE = true;
+        String str = this.jHt.get(0);
+        if (StringUtils.isNull(this.jHw)) {
+            this.jHw = d.Lr(str);
         }
-        c(this.ajJ, this.jsx, 0, 10);
+        c(this.akY, this.jHw, 0, 10);
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.jsz != null) {
-            if (str2 == null || !str2.equals(this.jsz.getPicId())) {
-                this.jsz.cancel();
+        if (this.jHy != null) {
+            if (str2 == null || !str2.equals(this.jHy.getPicId())) {
+                this.jHy.cancel();
             } else {
                 return;
             }
         }
-        this.jsz = new a(str, str2, i, i2);
-        this.jsz.setPriority(3);
-        this.jsz.execute(new Object[0]);
+        this.jHy = new a(str, str2, i, i2);
+        this.jHy.setPriority(3);
+        this.jHy.execute(new Object[0]);
     }
 
     public void setPostId(String str) {
         this.mPostId = str;
     }
 
-    public void qK(boolean z) {
-        this.jsB = z;
+    public void rq(boolean z) {
+        this.jHA = z;
     }
 
-    public void qL(boolean z) {
-        this.jsC = z;
+    public void rr(boolean z) {
+        this.jHB = z;
     }
 
     public void a(b bVar) {
-        this.jsD = bVar;
+        this.jHC = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public class a extends BdAsyncTask<Object, Integer, h> {
-        private String ajJ;
-        private z byq = null;
-        private int jsM;
-        private int jsN;
+        private String akY;
+        private aa bDY = null;
+        private int jHO;
+        private int jHP;
         private String mPicId;
 
         public a(String str, String str2, int i, int i2) {
-            this.ajJ = null;
+            this.akY = null;
             this.mPicId = null;
-            this.jsM = 0;
-            this.jsN = 0;
+            this.jHO = 0;
+            this.jHP = 0;
             this.mPicId = str2;
-            this.ajJ = str;
-            this.jsM = i;
-            this.jsN = i2;
+            this.akY = str;
+            this.jHO = i;
+            this.jHP = i2;
         }
 
         public String getPicId() {
@@ -199,70 +208,70 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: A */
         public h doInBackground(Object... objArr) {
-            this.byq = new z(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
-            this.byq.addPostData("kw", e.this.hFr);
-            this.byq.addPostData("tid", this.ajJ);
+            this.bDY = new aa(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
+            this.bDY.addPostData("kw", e.this.hSH);
+            this.bDY.addPostData("tid", this.akY);
             if (this.mPicId != null) {
-                this.byq.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, this.mPicId);
+                this.bDY.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, this.mPicId);
             }
             if (!TextUtils.isEmpty(e.this.mPostId) && !"0".equals(e.this.mPostId)) {
-                this.byq.addPostData("post_id", e.this.mPostId);
+                this.bDY.addPostData("post_id", e.this.mPostId);
             }
-            this.byq.addPostData("source", String.valueOf(e.this.jsC ? 1 : 2));
-            e.this.jsC = false;
-            this.byq.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.jsM));
-            this.byq.addPostData("prev", String.valueOf(this.jsN));
-            this.byq.addPostData("not_see_lz", String.valueOf(e.this.jsB ? 0 : 1));
-            this.byq.addPostData("is_top_agree", String.valueOf(e.this.jsJ ? 1 : 2));
+            this.bDY.addPostData("source", String.valueOf(e.this.jHB ? 1 : 2));
+            e.this.jHB = false;
+            this.bDY.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.jHO));
+            this.bDY.addPostData("prev", String.valueOf(this.jHP));
+            this.bDY.addPostData("not_see_lz", String.valueOf(e.this.jHA ? 0 : 1));
+            this.bDY.addPostData("is_top_agree", String.valueOf(e.this.jHI ? 1 : 2));
             if (!e.this.mIsReserver) {
-                this.byq.addPostData("r", String.valueOf(1));
+                this.bDY.addPostData("r", String.valueOf(1));
             }
             if (!StringUtils.isNull(e.this.mFrom, true)) {
-                this.byq.addPostData("obj_type", e.this.mFrom);
+                this.bDY.addPostData("obj_type", e.this.mFrom);
             } else {
-                this.byq.addPostData("obj_type", "other");
+                this.bDY.addPostData("obj_type", "other");
             }
-            if (TextUtils.isEmpty(e.this.jsG)) {
-                if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.aZP().getLong(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS_TIMESTAMP, 0L) < 86400000) {
-                    e.this.jsG = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS, "");
+            if (TextUtils.isEmpty(e.this.jHF)) {
+                if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bik().getLong(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS_TIMESTAMP, 0L) < 86400000) {
+                    e.this.jHF = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS, "");
                 }
             }
-            this.byq.addPostData("applist", e.this.jsG);
-            String bmQ = x.bmQ();
-            if (!TextUtils.isEmpty(bmQ)) {
-                this.byq.addPostData("oaid", bmQ);
+            this.bDY.addPostData("applist", e.this.jHF);
+            String bvD = x.bvD();
+            if (!TextUtils.isEmpty(bvD)) {
+                this.bDY.addPostData("oaid", bvD);
             }
-            this.byq.addPostData("ad_ext_params", AdExtParam.a.bmj().bmk());
-            czD();
-            this.byq.bav().baW().mNeedBackgroundLogin = false;
-            String postNetData = this.byq.postNetData();
-            if (!this.byq.bav().baX().isRequestSuccess()) {
+            this.bDY.addPostData("ad_ext_params", AdExtParam.a.buW().buX());
+            cKr();
+            this.bDY.biQ().bjv().mNeedBackgroundLogin = false;
+            String postNetData = this.bDY.postNetData();
+            if (!this.bDY.biQ().bjw().isRequestSuccess()) {
                 return null;
             }
             h hVar = new h();
-            hVar.aI(postNetData, true);
+            hVar.aM(postNetData, true);
             return hVar;
         }
 
-        private void czD() {
-            this.byq.addPostData("forum_id", e.this.mForumId);
-            this.byq.addPostData("user_id", e.this.mUserId == null ? "0" : e.this.mUserId);
-            this.byq.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-            this.byq.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-            this.byq.addPostData("q_type", String.valueOf(at.baS().baT() ? 2 : 1));
-            this.byq.addPostData("_os_version", Build.VERSION.RELEASE);
-            this.byq.addPostData("page_name", "PB");
-            this.byq.addPostData("pic_index", String.valueOf(e.this.jsu.size()));
+        private void cKr() {
+            this.bDY.addPostData("forum_id", e.this.mForumId);
+            this.bDY.addPostData("user_id", e.this.mUserId == null ? "0" : e.this.mUserId);
+            this.bDY.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+            this.bDY.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+            this.bDY.addPostData("q_type", String.valueOf(au.bjr().bjs() ? 2 : 1));
+            this.bDY.addPostData("_os_version", Build.VERSION.RELEASE);
+            this.bDY.addPostData("page_name", "PB");
+            this.bDY.addPostData("pic_index", String.valueOf(e.this.jHt.size()));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.byq != null) {
-                this.byq.cancelNetConnect();
+            if (this.bDY != null) {
+                this.bDY.cancelNetConnect();
             }
-            e.this.jsz = null;
+            e.this.jHy = null;
             super.cancel(true);
         }
 
@@ -272,75 +281,83 @@ public class e {
         /* renamed from: a */
         public void onPostExecute(h hVar) {
             super.onPostExecute(hVar);
-            if (e.this.evu != null) {
-                e.this.jsz = null;
+            if (e.this.eFT != null) {
+                e.this.jHy = null;
                 if (hVar == null) {
-                    if (e.this.jsD != null) {
+                    if (e.this.jHC != null) {
                         String str = null;
                         int i = -1;
-                        if (this.byq != null) {
-                            i = this.byq.getServerErrorCode();
+                        if (this.bDY != null) {
+                            i = this.bDY.getServerErrorCode();
                             if (this.mPicId == null) {
-                                str = this.byq.getErrorString();
+                                str = this.bDY.getErrorString();
                             }
                         }
-                        e.this.jsD.bl(i, str);
+                        e.this.jHC.bj(i, str);
                         return;
                     }
                     return;
                 }
-                boolean isEmpty = com.baidu.tbadk.core.util.x.isEmpty(hVar.czM());
+                boolean isEmpty = y.isEmpty(hVar.cKA());
                 if (e.this.mIsReset && !isEmpty) {
-                    e.this.jsu.clear();
-                    e.this.evu.clear();
-                    e.this.jsv.clear();
+                    e.this.jHt.clear();
+                    e.this.eFT.clear();
+                    e.this.jHu.clear();
                 }
                 if (hVar.getImageNum() != 0) {
-                    e.this.jsA = hVar.getImageNum();
+                    e.this.jHz = hVar.getImageNum();
                 }
-                e.this.jsE = hVar.czO();
+                e.this.jHD = hVar.cKD();
+                e.this.eMt = hVar.eMt;
+                e.this.replyPrivateFlag = hVar.cKC();
+                e.this.jHL = hVar.jHL;
+                e.this.jHM = hVar.jHM;
+                e.this.jHN = hVar.jIb == 1;
                 if (this.mPicId == null) {
-                    e.this.jsu.clear();
-                    e.this.jsv.clear();
+                    e.this.jHt.clear();
+                    e.this.jHu.clear();
                 }
-                LinkedList<f> czM = hVar.czM();
-                int size = czM.size();
+                LinkedList<f> cKA = hVar.cKA();
+                int size = cKA.size();
                 if (size <= 0) {
-                    e.this.dDe = true;
+                    e.this.cGW = true;
                 } else {
                     for (int i2 = 0; i2 < size; i2++) {
-                        f fVar = czM.get(i2);
+                        f fVar = cKA.get(i2);
                         String a = e.this.a(fVar);
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.id = fVar.czE();
-                        if (as.equals(imageUrlData.id, e.this.jsI)) {
-                            imageUrlData.setSourceImageRectInScreen(e.this.jsH);
+                        imageUrlData.id = fVar.cKs();
+                        if (at.equals(imageUrlData.id, e.this.jHH)) {
+                            imageUrlData.setSourceImageRectInScreen(e.this.jHG);
                         }
                         imageUrlData.imageUrl = a;
-                        String str2 = a + "*" + fVar.czI();
+                        String str2 = a + "*" + fVar.cKw();
                         imageUrlData.urlType = 10;
-                        imageUrlData.originalUrl = fVar.bph();
+                        imageUrlData.originalUrl = fVar.bxV();
                         imageUrlData.originalSize = fVar.getOriginalSize();
                         imageUrlData.forumId = e.this.mForumId;
-                        imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.ajJ, -1L);
+                        imageUrlData.forumName = e.this.hSH;
+                        imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.akY, -1L);
                         imageUrlData.nid = e.this.mNid;
-                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(fVar.czF(), -1L);
+                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(fVar.cKt(), -1L);
+                        imageUrlData.userId = fVar.getUserId();
+                        imageUrlData.userNameShow = StringUtils.isNull(fVar.bpu()) ? fVar.getUserName() : fVar.bpu();
                         imageUrlData.mIsReserver = e.this.mIsReserver;
-                        imageUrlData.mIsSeeHost = e.this.jsB;
-                        imageUrlData.overAllIndex = fVar.czI();
+                        imageUrlData.mIsSeeHost = e.this.jHA;
+                        imageUrlData.overAllIndex = fVar.cKw();
                         imageUrlData.mThreadType = e.this.mThreadType;
                         imageUrlData.mPicType = fVar.getPicType();
                         imageUrlData.mTagName = fVar.getTagName();
-                        imageUrlData.mIsShowOrigonButton = fVar.czG();
+                        imageUrlData.mIsShowOrigonButton = fVar.cKu();
                         imageUrlData.isLongPic = fVar.isLongPic();
-                        imageUrlData.isBlockedPic = fVar.czH();
+                        imageUrlData.isBlockedPic = fVar.cKv();
                         imageUrlData.from = e.this.mFrom;
-                        if (fVar.czK() != null) {
-                            imageUrlData.richTextArray = fVar.czK().toString();
+                        if (fVar.cKy() != null) {
+                            imageUrlData.richTextArray = fVar.cKy().toString();
                         }
-                        imageUrlData.isFirstPost = fVar.czL();
-                        if (fVar.aYc() != null) {
-                            imageUrlData.agreeData = fVar.aYc();
+                        imageUrlData.isFirstPost = fVar.cKz();
+                        if (fVar.bgv() != null) {
+                            imageUrlData.agreeData = fVar.bgv();
                             imageUrlData.agreeData.isFromImageViewer = true;
                             imageUrlData.agreeData.mImageViewerFromPage = e.this.mFrom;
                             imageUrlData.agreeData.forumId = e.this.mForumId;
@@ -348,8 +365,8 @@ public class e {
                             imageUrlData.agreeData.nid = imageUrlData.nid;
                             imageUrlData.agreeData.postId = String.valueOf(imageUrlData.postId);
                             imageUrlData.agreeData.indexOfPic = imageUrlData.overAllIndex;
-                            imageUrlData.commentNum = fVar.czJ();
-                            if (fVar.czL()) {
+                            imageUrlData.commentNum = fVar.cKx();
+                            if (fVar.cKz()) {
                                 imageUrlData.agreeData.objType = 3;
                                 imageUrlData.agreeData.isInThread = true;
                                 imageUrlData.agreeData.isInPost = false;
@@ -358,17 +375,17 @@ public class e {
                                 imageUrlData.agreeData.isInThread = false;
                                 imageUrlData.agreeData.isInPost = true;
                             }
-                            imageUrlData.agreeData.cardType = e.this.jsL;
+                            imageUrlData.agreeData.cardType = e.this.jHK;
                             imageUrlData.agreeData.recomSource = e.this.mRecomSource;
                             imageUrlData.agreeData.recomAbTag = e.this.mRecomAbTag;
                             imageUrlData.agreeData.recomExtra = e.this.mRecomExtra;
                             imageUrlData.agreeData.recomWeight = e.this.mRecomWeight;
                         }
-                        if (e.this.jsv.containsKey(imageUrlData.id)) {
-                            String str3 = (String) e.this.jsv.get(imageUrlData.id);
-                            ImageUrlData imageUrlData2 = (ImageUrlData) e.this.evu.get(str3);
+                        if (e.this.jHu.containsKey(imageUrlData.id)) {
+                            String str3 = (String) e.this.jHu.get(imageUrlData.id);
+                            ImageUrlData imageUrlData2 = (ImageUrlData) e.this.eFT.get(str3);
                             if (imageUrlData2 == null) {
-                                e.this.evu.put(str3, imageUrlData);
+                                e.this.eFT.put(str3, imageUrlData);
                             } else {
                                 imageUrlData2.imageUrl = imageUrlData.imageUrl;
                                 imageUrlData2.overAllIndex = imageUrlData.overAllIndex;
@@ -378,45 +395,53 @@ public class e {
                                 imageUrlData2.commentNum = imageUrlData.commentNum;
                                 imageUrlData2.agreeData = imageUrlData.agreeData;
                                 imageUrlData2.isFirstPost = imageUrlData.isFirstPost;
-                                if (as.equals(imageUrlData.id, e.this.jsI)) {
-                                    imageUrlData2.setSourceImageRectInScreen(e.this.jsH);
+                                imageUrlData2.userId = imageUrlData.userId;
+                                imageUrlData2.userNameShow = imageUrlData.userNameShow;
+                                imageUrlData2.forumId = e.this.mForumId;
+                                imageUrlData2.forumName = e.this.hSH;
+                                if (at.equals(imageUrlData.id, e.this.jHH)) {
+                                    imageUrlData2.setSourceImageRectInScreen(e.this.jHG);
                                 }
                             }
-                        } else if (e.this.jsK) {
-                            e.this.jsA = e.this.evu.size();
-                            e.this.jsE = null;
+                        } else if (e.this.jHJ) {
+                            e.this.jHz = e.this.eFT.size();
+                            e.this.jHD = null;
                         } else {
-                            e.this.evu.put(str2, imageUrlData);
-                            if (e.this.jsF) {
-                                e.this.jsu.add(i2, str2);
+                            e.this.eFT.put(str2, imageUrlData);
+                            if (e.this.jHE) {
+                                e.this.jHt.add(i2, str2);
                             } else {
-                                e.this.jsu.add(str2);
+                                e.this.jHt.add(str2);
                             }
-                            e.this.jsv.put(imageUrlData.id, str2);
+                            e.this.jHu.put(imageUrlData.id, str2);
                         }
                     }
-                    f fVar2 = (f) com.baidu.tbadk.core.util.x.getItem(czM, 0);
+                    f fVar2 = (f) y.getItem(cKA, 0);
                     if (fVar2 != null) {
-                        e.this.jsx = fVar2.czE();
+                        e.this.jHw = fVar2.cKs();
                     }
-                    f fVar3 = (f) com.baidu.tbadk.core.util.x.getItem(czM, size - 1);
+                    f fVar3 = (f) y.getItem(cKA, size - 1);
                     if (fVar3 != null) {
-                        e.this.jsy = fVar3.czE();
-                        e.this.dDe = ((long) e.this.jsA) == fVar3.czI();
+                        e.this.jHx = fVar3.cKs();
+                        e.this.cGW = ((long) e.this.jHz) == fVar3.cKw();
                     }
                 }
                 ImageUrlData imageUrlData3 = null;
-                for (ImageUrlData imageUrlData4 : e.this.evu.values()) {
+                for (ImageUrlData imageUrlData4 : e.this.eFT.values()) {
                     if (imageUrlData4.agreeData == null) {
                         long j = imageUrlData4.postId;
                         if (imageUrlData3 == null) {
-                            for (ImageUrlData imageUrlData5 : e.this.evu.values()) {
+                            for (ImageUrlData imageUrlData5 : e.this.eFT.values()) {
                                 if (imageUrlData5.postId != j || imageUrlData5.agreeData == null) {
                                     imageUrlData5 = imageUrlData3;
                                 } else {
                                     imageUrlData4.agreeData = imageUrlData5.agreeData;
                                     imageUrlData4.richTextArray = imageUrlData5.richTextArray;
                                     imageUrlData4.commentNum = imageUrlData5.commentNum;
+                                    imageUrlData4.userId = imageUrlData5.userId;
+                                    imageUrlData4.userNameShow = imageUrlData5.userNameShow;
+                                    imageUrlData4.forumId = e.this.mForumId;
+                                    imageUrlData4.forumName = e.this.hSH;
                                 }
                                 imageUrlData3 = imageUrlData5;
                             }
@@ -424,6 +449,10 @@ public class e {
                             imageUrlData4.agreeData = imageUrlData3.agreeData;
                             imageUrlData4.richTextArray = imageUrlData3.richTextArray;
                             imageUrlData4.commentNum = imageUrlData3.commentNum;
+                            imageUrlData4.userId = imageUrlData3.userId;
+                            imageUrlData4.userNameShow = imageUrlData3.userNameShow;
+                            imageUrlData4.forumId = e.this.mForumId;
+                            imageUrlData4.forumName = e.this.hSH;
                         }
                     }
                 }
@@ -431,20 +460,21 @@ public class e {
                 int i3 = -1;
                 if (this.mPicId == null) {
                     i3 = 0;
-                    e.this.ajJ = this.ajJ;
+                    e.this.akY = this.akY;
                     z = true;
                 }
-                int position = e.this.jsF ? com.baidu.tbadk.core.util.x.getPosition(e.this.jsu, (String) e.this.jsv.get(this.mPicId)) - 1 : i3;
-                e.this.dSv = hVar.aXT();
-                e.this.dSw = hVar.aXU();
-                if (e.this.jsw == null) {
-                    e.this.jsw = new ArrayList();
-                    if (hVar.czN() != null && hVar.czM().size() > 0) {
-                        e.this.jsw.addAll(hVar.czN());
+                int position = e.this.jHE ? y.getPosition(e.this.jHt, (String) e.this.jHu.get(this.mPicId)) - 1 : i3;
+                e.this.ebR = hVar.bgm();
+                e.this.ebS = hVar.bgn();
+                e.this.iAy = hVar.bss();
+                if (e.this.jHv == null) {
+                    e.this.jHv = new ArrayList();
+                    if (hVar.cKB() != null && hVar.cKA().size() > 0) {
+                        e.this.jHv.addAll(hVar.cKB());
                     }
                 }
-                if (e.this.jsD != null) {
-                    e.this.jsD.a(e.this.jsu, position, e.this.jsA, false, null, z, e.this.jsE, isEmpty);
+                if (e.this.jHC != null) {
+                    e.this.jHC.a(e.this.jHt, position, e.this.jHz, false, null, z, e.this.jHD, isEmpty);
                 }
                 e.this.mIsReset = false;
             }
@@ -453,8 +483,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(f fVar) {
-        if (fVar.bpb() != null && fVar.bpb().length() > 0) {
-            return fVar.bpb();
+        if (fVar.bxP() != null && fVar.bxP().length() > 0) {
+            return fVar.bxP();
         }
         StringBuilder sb = new StringBuilder(150);
         int threadImageMaxWidth = TbConfig.getThreadImageMaxWidth();
@@ -471,11 +501,11 @@ public class e {
             sb.append(String.valueOf(fVar.getHeight()));
         }
         sb.append("&src=");
-        sb.append(as.getUrlEncode(fVar.getImageUrl()));
+        sb.append(at.getUrlEncode(fVar.getImageUrl()));
         return sb.toString();
     }
 
-    public void qM(boolean z) {
-        this.jsK = z;
+    public void rs(boolean z) {
+        this.jHJ = z;
     }
 }

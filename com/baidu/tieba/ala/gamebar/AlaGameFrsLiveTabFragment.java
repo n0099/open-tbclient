@@ -28,27 +28,27 @@ import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.m.d;
 import com.baidu.tbadk.m.e;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.al;
-import com.baidu.tieba.frs.ar;
+import com.baidu.tieba.frs.an;
+import com.baidu.tieba.frs.at;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, ar {
-    private ImageView fMR;
-    private AlaGameFrsLiveTabAdapter fMS;
+public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, at {
+    private ImageView fYP;
+    private AlaGameFrsLiveTabAdapter fYQ;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
     private NavigationBar mNavigationBar;
     private FragmentTabHost mTabHost;
-    private int fMT = -1;
+    private int fYR = -1;
     private final Handler mHandler = new Handler();
-    private CustomMessageListener fMU = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.1
+    private CustomMessageListener fYS = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -63,23 +63,23 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             }
         }
     };
-    private CustomMessageListener fMV = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRA_SWITCH_TO_VIDEO) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.2
+    private CustomMessageListener fYT = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRA_SWITCH_TO_VIDEO) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (AlaGameFrsLiveTabFragment.this.mTabHost != null && AlaGameFrsLiveTabFragment.this.fMS != null && AlaGameFrsLiveTabFragment.this.fMS.getCount() >= 2) {
+            if (AlaGameFrsLiveTabFragment.this.mTabHost != null && AlaGameFrsLiveTabFragment.this.fYQ != null && AlaGameFrsLiveTabFragment.this.fYQ.getCount() >= 2) {
                 AlaGameFrsLiveTabFragment.this.mTabHost.setCurrentTab(1);
             }
         }
     };
-    private CustomMessageListener fyz = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.5
+    private CustomMessageListener fJR = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2 && "FrsGameLive".equals(split[0]) && 2 == Integer.valueOf(split[1]).intValue()) {
-                    AlaGameFrsLiveTabFragment.this.bxR();
+                    AlaGameFrsLiveTabFragment.this.bGQ();
                 }
             }
         }
@@ -105,9 +105,9 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.getDimens(getPageContext().getPageActivity(), R.dimen.ds24), 0);
-        this.fMR = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.fMR.setLayoutParams(layoutParams);
-        this.fMR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.4
+        this.fYP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.fYP.setLayoutParams(layoutParams);
+        this.fYP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!StringUtils.isNull(AlaGameFrsLiveTabFragment.this.forumId)) {
@@ -115,10 +115,10 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                 }
             }
         });
-        bAl();
+        bJG();
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        ao.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
         this.mTabHost = new FragmentTabHost(getActivity());
         this.mTabHost.setup(getChildFragmentManager());
         this.mTabHost.setOnPageChangeListener(this);
@@ -133,16 +133,16 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.fyz, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.fJR, getBaseFragmentActivity().getUniqueId());
     }
 
-    public void bxR() {
+    public void bGQ() {
         if (this.mTabHost != null) {
-            FragmentTabHost.b lF = this.mTabHost.lF(this.mTabHost.getCurrentTabIndex());
-            if (lF != null) {
-                if (lF.mType == 3) {
+            FragmentTabHost.b nL = this.mTabHost.nL(this.mTabHost.getCurrentTabIndex());
+            if (nL != null) {
+                if (nL.mType == 3) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_REFRESH, "FrsGameLiveLive_3"));
-                } else if (lF.mType == 2) {
+                } else if (nL.mType == 2) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_REFRESH, "FrsGameLiveLive_2"));
                 }
             }
@@ -153,16 +153,16 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.fMT < 0) {
+            if (this.fYR < 0) {
                 initTabSpec();
-                this.fMT = 0;
+                this.fYR = 0;
                 this.mTabHost.setCurrentTab(0);
             }
-            String string = b.aZP().getString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, null);
+            String string = b.bik().getString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, null);
             if (!TextUtils.isEmpty(string)) {
-                this.mTabHost.setCurrentTab(CL(string));
+                this.mTabHost.setCurrentTab(Fg(string));
             }
-            b.aZP().putString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, "");
+            b.bik().putString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, "");
         }
         if (isAdded() && this.mTabHost != null && (this.mTabHost.getCurrentFragment() instanceof BaseFragment)) {
             ((BaseFragment) this.mTabHost.getCurrentFragment()).setPrimary(isPrimary());
@@ -189,10 +189,10 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.fMU.setSelfListener(true);
-        registerListener(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB, this.fMU, getBaseFragmentActivity().getUniqueId());
-        registerListener(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB, this.fMU, getBaseFragmentActivity().getUniqueId());
-        registerListener(this.fMV);
+        this.fYS.setSelfListener(true);
+        registerListener(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB, this.fYS, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB, this.fYS, getBaseFragmentActivity().getUniqueId());
+        registerListener(this.fYT);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -202,19 +202,19 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             this.mTabHost.setNeedShowThemeStyle(false);
             this.mTabHost.getFragmentTabWidget().setDiverColor(i == 1 ? getResources().getColor(R.color.cp_cont_b_1) : getResources().getColor(R.color.cp_cont_b));
             this.mTabHost.onChangeSkinType(i);
-            ao.setBackgroundColor(this.mTabHost.getTabWrapper(), R.color.common_color_10274);
+            ap.setBackgroundColor(this.mTabHost.getTabWrapper(), R.color.common_color_10274);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            ao.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
+            ap.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
         }
-        if (this.fMR != null) {
-            ao.setNavbarIconSrc(this.fMR, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+        if (this.fYP != null) {
+            ap.setNavbarIconSrc(this.fYP, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
         }
-        if (this.fMS != null) {
-            int count = this.fMS.getCount();
+        if (this.fYQ != null) {
+            int count = this.fYQ.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.fMS.getItem(i2);
+                Fragment item = this.fYQ.getItem(i2);
                 if (item instanceof BaseFragment) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -232,7 +232,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.blm().getMaxCostFromServer();
+                return e.btZ().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b
@@ -255,12 +255,12 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return null;
     }
 
-    private int CL(String str) {
+    private int Fg(String str) {
         return (!"live".equals(str) && PraiseUBCHelper.SOURCE_DYNAMIC.equals(str)) ? 1 : 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String ra(int i) {
+    public String tm(int i) {
         switch (i) {
             case 0:
                 return getResources().getString(R.string.frsgame_title);
@@ -272,29 +272,29 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     }
 
     private void initTabSpec() {
-        this.fMS = new AlaGameFrsLiveTabAdapter(getChildFragmentManager());
+        this.fYQ = new AlaGameFrsLiveTabAdapter(getChildFragmentManager());
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_LIVE_TAB_ADD_TAB) { // from class: com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof al) && AlaGameFrsLiveTabFragment.this.fMS.getCount() <= 0) {
-                    al alVar = (al) customResponsedMessage.getData();
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof an) && AlaGameFrsLiveTabFragment.this.fYQ.getCount() <= 0) {
+                    an anVar = (an) customResponsedMessage.getData();
                     Message<?> message = customResponsedMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(AlaGameFrsLiveTabFragment.this.getUniqueId())) {
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
-                        if (alVar.cbb() != null) {
-                            for (com.baidu.tbadk.mainTab.b bVar : alVar.cbb()) {
+                        if (anVar.clx() != null) {
+                            for (com.baidu.tbadk.mainTab.b bVar : anVar.clx()) {
                                 if (bVar.getFragmentTabStructure().frag != null) {
                                     arrayList.add(bVar.getFragmentTabStructure().frag);
                                     arrayList2.add(Integer.valueOf(bVar.getFragmentTabStructure().type));
                                 }
                             }
                         }
-                        AlaGameFrsLiveTabFragment.this.fMS.bK(arrayList);
-                        int count = AlaGameFrsLiveTabFragment.this.fMS.getCount();
+                        AlaGameFrsLiveTabFragment.this.fYQ.bL(arrayList);
+                        int count = AlaGameFrsLiveTabFragment.this.fYQ.getCount();
                         for (int i = 0; i < count; i++) {
-                            AlaGameFrsLiveTabFragment.this.a(AlaGameFrsLiveTabFragment.this.fMS.getItem(i), ((Integer) arrayList2.get(i)).intValue(), AlaGameFrsLiveTabFragment.this.ra(i));
+                            AlaGameFrsLiveTabFragment.this.a(AlaGameFrsLiveTabFragment.this.fYQ.getItem(i), ((Integer) arrayList2.get(i)).intValue(), AlaGameFrsLiveTabFragment.this.tm(i));
                         }
                         AlaGameFrsLiveTabFragment.this.mTabHost.initViewPagerWithNoType();
                         AlaGameFrsLiveTabFragment.this.mTabHost.changeStyle(0);
@@ -305,11 +305,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         customMessageListener.setTag(getUniqueId());
         customMessageListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         registerListener(customMessageListener);
-        al alVar = new al(getPageContext().getPageActivity());
-        alVar.setForumId(this.forumId);
-        alVar.setForumName(this.forumName);
-        alVar.setForumGameLabel(this.forumGameLabel);
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_LIVE_TAB_ADD_TAB, alVar);
+        an anVar = new an(getPageContext().getPageActivity());
+        anVar.setForumId(this.forumId);
+        anVar.setForumName(this.forumName);
+        anVar.setForumGameLabel(this.forumGameLabel);
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_LIVE_TAB_ADD_TAB, anVar);
         customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -325,7 +325,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.tbds42));
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.dYX = fragmentTabIndicator;
+            bVar.eiD = fragmentTabIndicator;
             fragmentTabIndicator.setContentTvTopMargin(9);
             this.mTabHost.a(bVar);
         }
@@ -337,7 +337,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.fMT = i;
+        this.fYR = i;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -350,14 +350,14 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
 
     public void setForumName(String str) {
         this.forumName = str;
-        bAl();
+        bJG();
     }
 
     public void setForumGameLabel(String str) {
         this.forumGameLabel = str;
     }
 
-    private void bAl() {
+    private void bJG() {
         if (this.mNavigationBar != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));
@@ -365,8 +365,8 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         }
     }
 
-    @Override // com.baidu.tieba.frs.ar
-    public NavigationBar bAm() {
+    @Override // com.baidu.tieba.frs.at
+    public NavigationBar bJH() {
         return this.mNavigationBar;
     }
 }

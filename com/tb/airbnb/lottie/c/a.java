@@ -3,10 +3,10 @@ package com.tb.airbnb.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static com.tb.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -16,9 +16,9 @@ public class a {
                 arrayList.add(w.s(jsonReader, dVar));
             }
             jsonReader.endArray();
-            r.l(arrayList);
+            r.m(arrayList);
         } else {
-            arrayList.add(new com.tb.airbnb.lottie.e.a(p.g(jsonReader, com.tb.airbnb.lottie.d.f.jA())));
+            arrayList.add(new com.tb.airbnb.lottie.e.a(p.g(jsonReader, com.tb.airbnb.lottie.d.f.kZ())));
         }
         return new com.tb.airbnb.lottie.model.a.e(arrayList);
     }
@@ -41,12 +41,12 @@ public class a {
                     }
                     break;
                 case 120:
-                    if (nextName.equals(Config.EVENT_HEAT_X)) {
+                    if (nextName.equals("x")) {
                         c = 1;
                         break;
                     }
                     break;
-                case 121:
+                case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
                     if (nextName.equals("y")) {
                         c = 2;
                         break;
@@ -82,7 +82,7 @@ public class a {
         }
         jsonReader.endObject();
         if (z) {
-            dVar.aX("Lottie doesn't support expressions.");
+            dVar.bc("Lottie doesn't support expressions.");
         }
         return eVar != null ? eVar : new com.tb.airbnb.lottie.model.a.i(bVar2, bVar);
     }

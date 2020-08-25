@@ -2,11 +2,11 @@ package rx.c;
 
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g {
-    private static final g opX = new g();
+    private static final g oJR = new g();
 
-    public static rx.g dYR() {
+    public static rx.g ekV() {
         return c(new RxThreadFactory("RxComputationScheduler-"));
     }
 
@@ -17,7 +17,7 @@ public class g {
         return new rx.internal.schedulers.b(threadFactory);
     }
 
-    public static rx.g dYS() {
+    public static rx.g ekW() {
         return d(new RxThreadFactory("RxIoScheduler-"));
     }
 
@@ -28,7 +28,7 @@ public class g {
         return new rx.internal.schedulers.a(threadFactory);
     }
 
-    public static rx.g dYT() {
+    public static rx.g ekX() {
         return e(new RxThreadFactory("RxNewThreadScheduler-"));
     }
 
@@ -39,15 +39,15 @@ public class g {
         return new rx.internal.schedulers.f(threadFactory);
     }
 
-    public rx.g dYU() {
+    public rx.g ekY() {
         return null;
     }
 
-    public rx.g dYV() {
+    public rx.g ekZ() {
         return null;
     }
 
-    public rx.g dYW() {
+    public rx.g ela() {
         return null;
     }
 
@@ -56,7 +56,7 @@ public class g {
         return aVar;
     }
 
-    public static g dYX() {
-        return opX;
+    public static g elb() {
+        return oJR;
     }
 }

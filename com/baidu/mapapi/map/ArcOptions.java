@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
     int a;
@@ -19,9 +19,9 @@ public final class ArcOptions extends OverlayOptions {
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Arc arc = new Arc();
-        arc.x = this.b;
-        arc.w = this.a;
-        arc.y = this.c;
+        arc.B = this.b;
+        arc.A = this.a;
+        arc.C = this.c;
         arc.a = this.e;
         arc.b = this.f;
         arc.c = this.g;
@@ -74,10 +74,10 @@ public final class ArcOptions extends OverlayOptions {
 
     public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         if (latLng == null || latLng2 == null || latLng3 == null) {
-            throw new IllegalArgumentException("start and middle and end points can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be null");
         }
         if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
-            throw new IllegalArgumentException("start and middle and end points can not be same");
+            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
         }
         this.g = latLng;
         this.h = latLng2;

@@ -1,7 +1,7 @@
 package com.baidu.ala.widget.multicolumn.absView;
 
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class AbsFragment extends BaseFragment {
     public abstract int getPageType();
 

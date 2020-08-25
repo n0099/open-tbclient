@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IVideoConvertListener extends IInterface {
     void onConvertAborted() throws RemoteException;
 
@@ -15,7 +15,7 @@ public interface IVideoConvertListener extends IInterface {
 
     void onConvertSuccess() throws RemoteException;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IVideoConvertListener {
         private static final String DESCRIPTOR = "com.baidu.tieba.video.convert.IVideoConvertListener";
         static final int TRANSACTION_onConvertAborted = 4;
@@ -74,7 +74,7 @@ public interface IVideoConvertListener extends IInterface {
             }
         }
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         private static class Proxy implements IVideoConvertListener {
             private IBinder mRemote;
 

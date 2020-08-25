@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.a.a.a.a.a.a.a;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class VideoCloudSetting {
     private static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
     private static final String DEFAULT_ERROR_LOG_ENABLE_ALL = "enable_all";
@@ -45,7 +44,7 @@ public class VideoCloudSetting {
     public static final String TAG = "VideoCloudSettings";
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum MatchedType {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -54,7 +53,7 @@ public class VideoCloudSetting {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class VideoCloudSettingItem {
         public boolean mIsCloseAll;
         public boolean mIsEnableAll;
@@ -171,7 +170,7 @@ public class VideoCloudSetting {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class VideoSettings {
         private SparseArray<VideoCloudSettingItem> mItems = new SparseArray<>();
 
@@ -272,7 +271,7 @@ public class VideoCloudSetting {
             try {
                 i = Integer.parseInt(videoCfgValue);
             } catch (Exception e) {
-                a.a(e);
+                e.printStackTrace();
             }
         }
         Log.d(TAG, "getFeedVideoPvCount count " + i);
@@ -303,7 +302,7 @@ public class VideoCloudSetting {
             try {
                 i = Integer.parseInt(videoCfgValue);
             } catch (Exception e) {
-                a.a(e);
+                e.printStackTrace();
             }
         }
         Log.d(TAG, "getVideoPvCount count " + i);

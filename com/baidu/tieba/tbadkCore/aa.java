@@ -1,21 +1,14 @@
 package com.baidu.tieba.tbadkCore;
-
-import tbclient.SmartApp;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class aa {
-    public String avatar;
-    public Integer dGy;
-    public String id;
+    public String category;
+    public String forumId;
+    public String forumName;
+    public boolean hvJ;
+    public String imageUrl;
+    public int index;
     public String link;
+    public ab mdT;
     public String name;
-
-    public void c(SmartApp smartApp) {
-        if (smartApp != null) {
-            this.avatar = smartApp.avatar;
-            this.name = smartApp.name;
-            this.id = smartApp.id;
-            this.link = smartApp.link;
-            this.dGy = smartApp.is_game;
-        }
-    }
+    public String version;
 }

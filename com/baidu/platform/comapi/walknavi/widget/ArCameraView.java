@@ -8,9 +8,10 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
-import com.baidu.platform.comapi.wnplatform.o.g;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.baidu.platform.comapi.wnplatform.p.h;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback {
     public static final int WALK_AR_PERMISSION = 3001;
     SurfaceHolder a;
@@ -19,15 +20,15 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public ArCameraView(Context context) {
         super(context);
-        initCameraView(context);
+        a(context);
     }
 
     public ArCameraView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initCameraView(context);
+        a(context);
     }
 
-    private void initCameraView(Context context) {
+    private void a(Context context) {
         try {
             this.c = context;
             this.a = getHolder();
@@ -35,7 +36,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
             this.a.setType(3);
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
+            Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
         }
     }
 
@@ -47,7 +48,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
                 this.b = Camera.open();
             }
             Camera.Parameters parameters = this.b.getParameters();
-            Camera.Size bestPreSize = getBestPreSize(g.c(this.c), g.b(this.c), parameters.getSupportedPreviewSizes());
+            Camera.Size bestPreSize = getBestPreSize(h.c(this.c), h.b(this.c), parameters.getSupportedPreviewSizes());
             parameters.setPreviewSize(bestPreSize.width, bestPreSize.height);
             if (this.b != null) {
                 this.b.setParameters(parameters);
@@ -56,7 +57,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
             resumeCamera();
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
+            Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
         }
     }
 
@@ -103,7 +104,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.b)) {
-            setDisplayOrientation(90);
+            a(90);
         }
         resumeCamera();
     }
@@ -136,9 +137,9 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
                     break;
             }
             if (cameraInfo.facing == 1) {
-                i3 = (360 - ((i2 + cameraInfo.orientation) % 360)) % 360;
+                i3 = (360 - ((i2 + cameraInfo.orientation) % EncoderTextureDrawer.X264_WIDTH)) % EncoderTextureDrawer.X264_WIDTH;
             } else {
-                i3 = ((cameraInfo.orientation - i2) + 360) % 360;
+                i3 = ((cameraInfo.orientation - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
             }
             camera.setDisplayOrientation(i3);
         } catch (Exception e) {
@@ -165,7 +166,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
         return -1;
     }
 
-    private void setDisplayOrientation(int i) {
+    private void a(int i) {
         try {
             if (this.b != null) {
                 this.b.setDisplayOrientation(i);
@@ -188,7 +189,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.platform.comapi.wnplatform.o.b.a.a(), "相机出现错误", 0).show();
+            Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
         }
     }
 

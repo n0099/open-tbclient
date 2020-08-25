@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 /* loaded from: classes16.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
-    private ProgressBar kIN;
+    private ProgressBar kYA;
 
     public PbVideoMediaController(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     }
 
     private void init() {
-        this.kIN = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+        this.kYA = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
-    protected View em(Context context) {
+    protected View eu(Context context) {
         return View.inflate(context, R.layout.pb_video_media_controller, null);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void bq(int i, int i2) {
-        super.bq(i, i2);
-        this.kIN.setProgress(this.fdP.getProgress());
+    public void bz(int i, int i2) {
+        super.bz(i, i2);
+        this.kYA.setProgress(this.fph.getProgress());
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void azZ() {
-        super.azZ();
-        this.kIN.setProgress(0);
+    public void aIm() {
+        super.aIm();
+        this.kYA.setProgress(0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void setCurrentDuration(int i, boolean z) {
         super.setCurrentDuration(i, z);
         if (!z) {
-            this.fdP.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
-            if (this.fdN != null) {
-                this.fdN.setText(as.stringForVideoTime(i));
+            this.fph.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
+            if (this.fpf != null) {
+                this.fpf.setText(at.stringForVideoTime(i));
             }
         }
-        this.kIN.setProgress(this.fdP.getProgress());
+        this.kYA.setProgress(this.fph.getProgress());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.VideoControllerView
-    public int bss() {
-        int bss = super.bss();
-        this.kIN.setProgress(this.fdP.getProgress());
-        return bss;
+    public int bBp() {
+        int bBp = super.bBp();
+        this.kYA.setProgress(this.fph.getProgress());
+        return bBp;
     }
 
     public void setBottomBarShow(boolean z) {
-        this.kIN.setVisibility(z ? 0 : 8);
-        this.fdP.setVisibility(z ? 8 : 0);
-        this.fdN.setVisibility(z ? 8 : 0);
-        this.fdO.setVisibility(z ? 8 : 0);
+        this.kYA.setVisibility(z ? 0 : 8);
+        this.fph.setVisibility(z ? 8 : 0);
+        this.fpf.setVisibility(z ? 8 : 0);
+        this.fpg.setVisibility(z ? 8 : 0);
     }
 
-    public void an(boolean z, boolean z2) {
+    public void ar(boolean z, boolean z2) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
         int dimens = l.getDimens(getContext(), R.dimen.tbds126);
         if (z2 && z) {
             dimens = l.getDimens(getContext(), R.dimen.tbds210);
         }
         layoutParams.height = dimens;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fdN.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.fdO.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fpf.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.fpg.getLayoutParams();
         layoutParams2.leftMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
         layoutParams3.rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
     }

@@ -11,7 +11,7 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class DefaultSSLContextImpl extends OpenSSLContextImpl {
     private static KeyManager[] KEY_MANAGERS;
     private static TrustManager[] TRUST_MANAGERS;

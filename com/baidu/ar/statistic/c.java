@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes11.dex */
 class c extends Handler {
-    private b vg;
-    private Map<String, String> vh;
+    private b vJ;
+    private Map<String, String> vK;
 
     public c(Looper looper, b bVar) {
         super(looper);
-        this.vg = bVar;
-        this.vh = new HashMap();
+        this.vJ = bVar;
+        this.vK = new HashMap();
     }
 
     public void a(int i, Object obj) {
@@ -29,8 +29,8 @@ class c extends Handler {
             aVar.c("ar_id", ARConfig.getARId());
             aVar.c(ARConfigKey.AR_FROM, ARConfig.getArFrom());
             aVar.c("ar_type", String.valueOf(ARConfig.getARType()));
-            if (!this.vh.isEmpty()) {
-                aVar.a(this.vh);
+            if (!this.vK.isEmpty()) {
+                aVar.a(this.vK);
             }
         }
         Message obtainMessage = obtainMessage();
@@ -44,37 +44,37 @@ class c extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                this.vg.aV();
+                this.vJ.init();
                 return;
             case 2:
-                this.vg.c((a) message.obj);
+                this.vJ.c((a) message.obj);
                 return;
             case 3:
-                this.vg.g((a) message.obj);
+                this.vJ.g((a) message.obj);
                 return;
             case 4:
-                this.vg.h((a) message.obj);
+                this.vJ.h((a) message.obj);
                 return;
             case 5:
-                this.vg.i((a) message.obj);
+                this.vJ.i((a) message.obj);
                 return;
             case 6:
-                this.vg.e((a) message.obj);
+                this.vJ.e((a) message.obj);
                 return;
             case 20:
-                this.vg.j((a) message.obj);
+                this.vJ.j((a) message.obj);
                 return;
             case 21:
-                this.vg.g((List) message.obj);
+                this.vJ.h((List) message.obj);
                 return;
             case 97:
-                this.vg.B(((Long) message.obj).longValue());
+                this.vJ.B(((Long) message.obj).longValue());
                 return;
             case 98:
-                this.vg.C(((Long) message.obj).longValue());
+                this.vJ.C(((Long) message.obj).longValue());
                 return;
             case 99:
-                this.vg.eW();
+                this.vJ.gk();
                 StatisticApiImpl statisticApiImpl = (StatisticApiImpl) message.obj;
                 if (statisticApiImpl != null) {
                     statisticApiImpl.doRelease();
@@ -87,12 +87,12 @@ class c extends Handler {
     }
 
     public void setPubParam(String str, String str2) {
-        this.vh.put(str, str2);
+        this.vK.put(str, str2);
     }
 
     public void setPubParams(Map<String, String> map) {
         if (map != null) {
-            this.vh.putAll(map);
+            this.vK.putAll(map);
         }
     }
 }

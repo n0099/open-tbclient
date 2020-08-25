@@ -14,19 +14,19 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     private int procType;
 
-    public int bbl() {
+    public int bjK() {
         return this.procType;
     }
 
@@ -57,9 +57,9 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         Bitmap Bytes2Bitmap = bArr2 != null ? BitmapHelper.Bytes2Bitmap(bArr2) : null;
         if (Bytes2Bitmap == null) {
             if (booleanValue && str.startsWith("/")) {
-                Bytes2Bitmap = com.baidu.adp.lib.util.d.mC().getImageAbsolutePath(str);
+                Bytes2Bitmap = com.baidu.adp.lib.util.d.ob().getImageAbsolutePath(str);
                 if (Bytes2Bitmap != null && bArr2 == null) {
-                    bArr = com.baidu.adp.lib.util.d.mC().Bitmap2Bytes(Bytes2Bitmap, 100);
+                    bArr = com.baidu.adp.lib.util.d.ob().Bitmap2Bytes(Bytes2Bitmap, 100);
                 }
             } else {
                 bArr = a(str, aVar);
@@ -90,7 +90,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         boolean z;
         String str3;
         com.baidu.tbadk.core.util.a.i iVar;
-        boolean bbf;
+        boolean bjE;
         byte[] bArr;
         Bitmap Bytes2Bitmap;
         Bitmap bitmap;
@@ -101,7 +101,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             return null;
         }
         boolean booleanValue = (str == null || !str.startsWith("width=")) ? Boolean.valueOf(String.valueOf(objArr[2])).booleanValue() : false;
-        String str4 = booleanValue ? str : TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + at.baS().getUrlQuality());
+        String str4 = booleanValue ? str : TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + au.bjr().getUrlQuality());
         if (TbadkCoreApplication.getInst().getCapabilityOfWebp() && SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
             int indexOf = str4.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0) {
@@ -112,16 +112,16 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
                 str3 = str4.substring(0, lastIndexOf) + ".webp" + str4.substring(lastIndexOf + 4, str4.length());
                 iVar = new com.baidu.tbadk.core.util.a.i();
                 if (aVar != null) {
-                    aVar.LH = iVar;
+                    aVar.Mn = iVar;
                 }
-                byte[] am = iVar.am(str3, booleanValue);
-                bbf = iVar.bbf();
-                if (iVar.bbe() && iVar.errorCode == -11) {
+                byte[] aq = iVar.aq(str3, booleanValue);
+                bjE = iVar.bjE();
+                if (iVar.bjD() && iVar.errorCode == -11) {
                     BdLog.e("BIGIMAGE imagesize too big");
                     com.baidu.tbadk.core.d.a.a("gifplay", -1L, -1, "BigImageLoaderProc.getFromRemote", iVar.errorCode, "image size too large", "url", str3);
                 }
-                if (iVar.responseCode == 302 || !(17 == bbl() || 18 == bbl() || 13 == bbl() || 14 == bbl())) {
-                    bArr = am;
+                if (iVar.responseCode == 302 || !(17 == bjK() || 18 == bjK() || 13 == bjK() || 14 == bjK())) {
+                    bArr = aq;
                 } else {
                     try {
                         InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
@@ -132,33 +132,33 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
                         return null;
                     }
                 }
-                if (iVar.bbe() && iVar.responseCode != 302) {
+                if (iVar.bjD() && iVar.responseCode != 302) {
                     bArr2 = bArr;
                     bitmap = null;
-                    z2 = bbf;
+                    z2 = bjE;
                 } else {
                     Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(bArr);
                     if (z || Bytes2Bitmap != null) {
                         bitmap = Bytes2Bitmap;
                         bArr2 = bArr;
-                        z2 = bbf;
+                        z2 = bjE;
                     } else {
                         TiebaStatic.imgError(-1012, "Webp decoding failed.", str3);
                         TbadkCoreApplication.getInst().incWebpFailureCount();
-                        byte[] am2 = iVar.am(str4, !booleanValue);
-                        boolean bbf2 = iVar.bbf();
-                        if (am2 == null || !iVar.bbe()) {
+                        byte[] aq2 = iVar.aq(str4, !booleanValue);
+                        boolean bjE2 = iVar.bjE();
+                        if (aq2 == null || !iVar.bjD()) {
                             bitmap = Bytes2Bitmap;
-                            bArr2 = am2;
-                            z2 = bbf2;
+                            bArr2 = aq2;
+                            z2 = bjE2;
                         } else {
-                            bitmap = BitmapHelper.Bytes2Bitmap(am2);
-                            bArr2 = am2;
-                            z2 = bbf2;
+                            bitmap = BitmapHelper.Bytes2Bitmap(aq2);
+                            bArr2 = aq2;
+                            z2 = bjE2;
                         }
                     }
                 }
-                if (z2 && !iVar.ect) {
+                if (z2 && !iVar.emc) {
                     a(str, bArr2, false, aVar);
                 }
                 com.baidu.adp.widget.ImageView.a aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, com.baidu.adp.lib.util.l.isGif(bArr2), str, bArr2);
@@ -171,23 +171,23 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
         }
-        byte[] am3 = iVar.am(str3, booleanValue);
-        bbf = iVar.bbf();
-        if (iVar.bbe()) {
+        byte[] aq3 = iVar.aq(str3, booleanValue);
+        bjE = iVar.bjE();
+        if (iVar.bjD()) {
             BdLog.e("BIGIMAGE imagesize too big");
             com.baidu.tbadk.core.d.a.a("gifplay", -1L, -1, "BigImageLoaderProc.getFromRemote", iVar.errorCode, "image size too large", "url", str3);
         }
         if (iVar.responseCode == 302) {
         }
-        bArr = am3;
-        if (iVar.bbe()) {
+        bArr = aq3;
+        if (iVar.bjD()) {
         }
         Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(bArr);
         if (z) {
         }
         bitmap = Bytes2Bitmap;
         bArr2 = bArr;
-        z2 = bbf;
+        z2 = bjE;
         if (z2) {
             a(str, bArr2, false, aVar);
         }
@@ -197,7 +197,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public boolean lq() {
+    public boolean mP() {
         return true;
     }
 
@@ -206,12 +206,12 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel lr() {
+    public BdAsyncTaskParallel mQ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int ls() {
+    public int mR() {
         return 1;
     }
 
@@ -225,11 +225,11 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static void a(String str, byte[] bArr, boolean z, com.baidu.adp.lib.e.a aVar) {
-        String ye = ye(str);
+        String As = As(str);
         com.baidu.adp.lib.Disk.ops.c a = a(getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
         a.setGif(z);
-        if (ye != null) {
-            a.setHighQuality(yf(str));
+        if (As != null) {
+            a.setHighQuality(At(str));
         } else {
             a.setHighQuality(true);
         }
@@ -237,22 +237,22 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(a);
-            aVar.LH = eVar;
+            aVar.Mn = eVar;
         }
-        com.baidu.adp.lib.Disk.d.kh().c(a);
+        com.baidu.adp.lib.Disk.d.lG().c(a);
     }
 
     public static byte[] a(String str, com.baidu.adp.lib.e.a aVar) {
-        String ye = ye(str);
+        String As = As(str);
         byte[] bArr = new byte[0];
         com.baidu.adp.lib.Disk.ops.c a = a(getNameMd5FromUrl(str), DiskFileOperate.Action.READ);
         a.setLock(bArr);
         if (aVar != null) {
             e eVar = new e();
             eVar.f(a);
-            aVar.LH = eVar;
+            aVar.Mn = eVar;
         }
-        if (com.baidu.adp.lib.Disk.d.kh().c(a)) {
+        if (com.baidu.adp.lib.Disk.d.lG().c(a)) {
             int i = 2000;
             if (com.baidu.adp.lib.util.j.isWifiNet()) {
                 i = 500;
@@ -265,7 +265,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
                 }
             }
             if (a.isSuccess()) {
-                if (ye == null || a.isHighQuality() || !yf(str)) {
+                if (As == null || a.isHighQuality() || !At(str)) {
                     return a.getFormatedData();
                 }
                 return null;
@@ -276,14 +276,14 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static String getNameMd5FromUrl(String str) {
-        String ye = ye(str);
-        if (ye != null) {
-            str = ye;
+        String As = As(str);
+        if (As != null) {
+            str = As;
         }
-        return au.getNameMd5FromUrl(str);
+        return av.getNameMd5FromUrl(str);
     }
 
-    public static boolean yd(String str) {
+    public static boolean Ar(String str) {
         String nameMd5FromUrl = getNameMd5FromUrl(str);
         if (TextUtils.isEmpty(nameMd5FromUrl)) {
             return false;
@@ -291,7 +291,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return a(nameMd5FromUrl, DiskFileOperate.Action.INFO).call();
     }
 
-    private static String ye(String str) {
+    private static String As(String str) {
         int i;
         if (str == null) {
             return null;
@@ -319,7 +319,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    private static boolean yf(String str) {
+    private static boolean At(String str) {
         String[] split;
         if (str != null && com.baidu.tbadk.util.m.isCdn(str)) {
             String[] split2 = str.split("/");

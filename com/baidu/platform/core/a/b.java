@@ -3,17 +3,18 @@ package com.baidu.platform.core.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.district.DistrictResult;
 import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.platform.base.d {
     boolean b = false;
     String c = null;
@@ -59,7 +60,7 @@ public class b extends com.baidu.platform.base.d {
                 }
                 if (arrayList.size() > 0) {
                     districtResult.setPolylines(arrayList);
-                    districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString("geo")));
+                    districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
                     districtResult.setCityCode(optJSONObject.optInt("code"));
                     districtResult.setCityName(optJSONObject.optString("cname"));
                     districtResult.error = SearchResult.ERRORNO.NO_ERROR;
@@ -68,7 +69,7 @@ public class b extends com.baidu.platform.base.d {
             }
             districtResult.setCityName(optJSONObject.optString("uid"));
             this.c = optJSONObject.optString("cname");
-            districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString("geo")));
+            districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
             districtResult.setCityCode(optJSONObject.optInt("code"));
             return false;
         } catch (JSONException e) {
@@ -98,7 +99,7 @@ public class b extends com.baidu.platform.base.d {
                 ArrayList arrayList = new ArrayList();
                 if (this.c != null) {
                     try {
-                        decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
+                        decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString(MapBundleKey.MapObjKey.OBJ_GEO));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

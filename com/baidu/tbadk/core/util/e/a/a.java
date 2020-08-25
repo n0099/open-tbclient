@@ -1,23 +1,23 @@
 package com.baidu.tbadk.core.util.e.a;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
-    protected Drawable duE;
-    protected Drawable edj;
-    protected Drawable edk;
-    protected Drawable edl;
-    protected Drawable edm;
+    protected Drawable dEA;
+    protected Drawable emS;
+    protected Drawable emT;
+    protected Drawable emU;
+    protected Drawable emV;
     protected int mAlpha;
     protected int mType = 1;
-    protected boolean edn = false;
-    protected boolean edo = false;
-    protected boolean edp = false;
-    protected boolean edq = false;
-    protected boolean edr = false;
+    protected boolean emW = false;
+    protected boolean emX = false;
+    protected boolean emY = false;
+    protected boolean emZ = false;
+    protected boolean ena = false;
 
     public void e(Drawable drawable) {
-        if (this.edr && drawable != null) {
+        if (this.ena && drawable != null) {
             drawable.mutate().setAlpha(this.mAlpha);
         }
     }

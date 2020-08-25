@@ -4,8 +4,8 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+/* loaded from: classes20.dex */
 public final class GroundOverlay extends Overlay {
     private static final String j = GroundOverlay.class.getSimpleName();
     int a;
@@ -20,7 +20,7 @@ public final class GroundOverlay extends Overlay {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GroundOverlay() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.ground;
+        this.type = com.baidu.mapsdkplatform.comapi.map.i.ground;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,7 +42,7 @@ public final class GroundOverlay extends Overlay {
             this.g = 0.5f;
         }
         if (this.d <= 0.0d || this.e <= 0.0d) {
-            throw new IllegalStateException("when you add ground overlay, the width and height must greater than 0");
+            throw new IllegalStateException("BDMapSDKException: when you add ground overlay, the width and height must greater than 0");
         }
         bundle.putDouble("x_distance", this.d);
         if (this.e == 2.147483647E9d) {
@@ -113,7 +113,7 @@ public final class GroundOverlay extends Overlay {
 
     public void setImage(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("image can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: image can not be null");
         }
         this.b = bitmapDescriptor;
         this.listener.b(this);
@@ -121,7 +121,7 @@ public final class GroundOverlay extends Overlay {
 
     public void setPosition(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
         this.a = 2;
         this.c = latLng;
@@ -130,7 +130,7 @@ public final class GroundOverlay extends Overlay {
 
     public void setPositionFromBounds(LatLngBounds latLngBounds) {
         if (latLngBounds == null) {
-            throw new IllegalArgumentException("bounds can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
         }
         this.a = 1;
         this.h = latLngBounds;

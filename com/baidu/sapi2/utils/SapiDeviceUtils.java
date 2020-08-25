@@ -6,16 +6,18 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.webkit.internal.ETAG;
+import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Collections;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class SapiDeviceUtils {
 
-    /* loaded from: classes19.dex */
-    public static class DeviceCrypto implements com.baidu.sapi2.c {
+    /* loaded from: classes12.dex */
+    public static class DeviceCrypto implements NoProguard {
         public static String base64Encode(byte[] bArr) {
             int i;
             if (bArr != null && bArr.length != 0) {
@@ -111,114 +113,60 @@ public class SapiDeviceUtils {
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [9=4, 12=4] */
-    public static boolean a(android.content.Context r7) {
-        /*
-            r4 = 1
-            r3 = 0
-            if (r7 != 0) goto L6
-            r0 = r3
-        L5:
-            return r0
-        L6:
-            r2 = 0
-            java.io.FileInputStream r1 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L56
-            java.lang.String r0 = "/system/etc/hosts"
-            r1.<init>(r0)     // Catch: java.lang.Throwable -> L56
-            int r0 = r1.available()     // Catch: java.lang.Throwable -> L99
-            byte[] r0 = new byte[r0]     // Catch: java.lang.Throwable -> L99
-            r1.read(r0)     // Catch: java.lang.Throwable -> L99
-            java.lang.String r2 = new java.lang.String     // Catch: java.lang.Throwable -> L99
-            r2.<init>(r0)     // Catch: java.lang.Throwable -> L99
-            boolean r0 = android.text.TextUtils.isEmpty(r2)     // Catch: java.lang.Throwable -> L99
-            if (r0 != 0) goto L41
-            java.lang.String r0 = "passport.baidu.com"
-            boolean r0 = r2.contains(r0)     // Catch: java.lang.Throwable -> L99
-            if (r0 == 0) goto L41
-            r1.close()     // Catch: java.lang.Exception -> L31
-        L2f:
-            r0 = r4
-            goto L5
-        L31:
-            r0 = move-exception
-            java.lang.Object[] r1 = new java.lang.Object[r4]
-            java.lang.String r0 = r0.toString()
-            r1[r3] = r0
-            java.lang.String r0 = "SAPI"
-            com.baidu.sapi2.utils.Log.e(r0, r1)
-            goto L2f
-        L41:
-            r1.close()     // Catch: java.lang.Exception -> L46
-        L44:
-            r0 = r3
-            goto L5
-        L46:
-            r0 = move-exception
-            java.lang.Object[] r1 = new java.lang.Object[r4]
-            java.lang.String r0 = r0.toString()
-            r1[r3] = r0
-            java.lang.String r0 = "SAPI"
-            com.baidu.sapi2.utils.Log.e(r0, r1)
-            goto L44
-        L56:
-            r0 = move-exception
-            r1 = r2
-        L58:
-            java.lang.String r2 = "SAPI"
-            r5 = 1
-            java.lang.Object[] r5 = new java.lang.Object[r5]     // Catch: java.lang.Throwable -> L97
-            r6 = 0
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L97
-            r5[r6] = r0     // Catch: java.lang.Throwable -> L97
-            com.baidu.sapi2.utils.Log.e(r2, r5)     // Catch: java.lang.Throwable -> L97
-            if (r1 == 0) goto L6d
-            r1.close()     // Catch: java.lang.Exception -> L6f
-        L6d:
-            r0 = r3
-            goto L5
-        L6f:
-            r0 = move-exception
-            java.lang.Object[] r1 = new java.lang.Object[r4]
-            java.lang.String r0 = r0.toString()
-            r1[r3] = r0
-            java.lang.String r0 = "SAPI"
-            com.baidu.sapi2.utils.Log.e(r0, r1)
-            goto L6d
-        L7f:
-            r0 = move-exception
-            r1 = r2
-        L81:
-            if (r1 == 0) goto L86
-            r1.close()     // Catch: java.lang.Exception -> L87
-        L86:
-            throw r0
-        L87:
-            r1 = move-exception
-            java.lang.Object[] r2 = new java.lang.Object[r4]
-            java.lang.String r1 = r1.toString()
-            r2[r3] = r1
-            java.lang.String r1 = "SAPI"
-            com.baidu.sapi2.utils.Log.e(r1, r2)
-            goto L86
-        L97:
-            r0 = move-exception
-            goto L81
-        L99:
-            r0 = move-exception
-            goto L58
-        L9b:
-            r0 = move-exception
-            goto L81
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.utils.SapiDeviceUtils.a(android.content.Context):boolean");
+    public static boolean a(Context context) {
+        FileInputStream fileInputStream;
+        if (context == null) {
+            return false;
+        }
+        try {
+            fileInputStream = new FileInputStream("/system/etc/hosts");
+            try {
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str = new String(bArr);
+                if (!TextUtils.isEmpty(str)) {
+                    if (str.contains("passport.baidu.com")) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e) {
+                            Log.e(Log.TAG, e.toString());
+                        }
+                        return true;
+                    }
+                }
+                try {
+                    fileInputStream.close();
+                } catch (Exception e2) {
+                    Log.e(Log.TAG, e2.toString());
+                }
+                return false;
+            } catch (Throwable th) {
+                th = th;
+                try {
+                    Log.e(Log.TAG, th.toString());
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e3) {
+                            Log.e(Log.TAG, e3.toString());
+                        }
+                    }
+                    return false;
+                } catch (Throwable th2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e4) {
+                            Log.e(Log.TAG, e4.toString());
+                        }
+                    }
+                    throw th2;
+                }
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
+        }
     }
 
     public static String a() {

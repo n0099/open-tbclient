@@ -9,7 +9,7 @@ import android.graphics.Typeface;
 import android.support.v4.internal.view.SupportMenu;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class RoundProgressBar extends View {
     public static final int FILL = 1;
     private static final int MAX = 100;
@@ -84,13 +84,13 @@ public class RoundProgressBar extends View {
                     canvas.drawArc(rectF, 270.0f, (this.mProgress * (-360)) / getMax(), false, this.mPaint);
                     return;
                 } else {
-                    canvas.drawArc(rectF, 270.0f, (this.mProgress * MAX_ANGLE) / getMax(), false, this.mPaint);
+                    canvas.drawArc(rectF, 270.0f, (this.mProgress * 360) / getMax(), false, this.mPaint);
                     return;
                 }
             case 1:
                 this.mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.mProgress != 0) {
-                    canvas.drawArc(rectF, 0.0f, (this.mProgress * MAX_ANGLE) / getMax(), true, this.mPaint);
+                    canvas.drawArc(rectF, 0.0f, (this.mProgress * 360) / getMax(), true, this.mPaint);
                     return;
                 }
                 return;

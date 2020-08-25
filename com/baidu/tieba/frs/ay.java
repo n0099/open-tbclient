@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class ay {
-    public Object ext;
-    public String forumId;
-    public String forumName;
-    public boolean hKn = false;
-    public int pn;
-    public String stType;
+/* loaded from: classes2.dex */
+public interface ay {
+    void cf(int i, int i2);
+
+    void d(boolean z, boolean z2, int i);
+
+    void wW(int i);
 }

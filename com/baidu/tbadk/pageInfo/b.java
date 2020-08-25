@@ -2,29 +2,29 @@ package com.baidu.tbadk.pageInfo;
 
 import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private TbPageTag eGA;
-    private TbPageTag eGB;
+    private TbPageTag eRg;
+    private TbPageTag eRh;
     private BdUniqueId mId;
 
     public b(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
         this.mId = bdUniqueId;
-        this.eGB = tbPageTag;
-        G(intent);
+        this.eRh = tbPageTag;
+        I(intent);
     }
 
-    private void G(Intent intent) {
+    private void I(Intent intent) {
         if (intent != null) {
-            this.eGA = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+            this.eRg = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
         }
     }
 
-    public TbPageTag blj() {
-        return this.eGB;
+    public TbPageTag btW() {
+        return this.eRh;
     }
 
     public TbPageTag getPrePageTag() {
-        return this.eGA;
+        return this.eRg;
     }
 }

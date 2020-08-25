@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class b implements c {
-    public static final b mQS = new b();
-    private String mQT = "unknown";
-    private int mQU = 5;
+    public static final b nkN = new b();
+    private String nkO = "unknown";
+    private int nkP = 5;
 
-    public static b dCB() {
-        return mQS;
+    public static b dOB() {
+        return nkN;
     }
 
     private b() {
@@ -18,22 +18,22 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.mQU <= i;
+        return this.nkP <= i;
     }
 
     @Override // com.facebook.common.c.c
     public void v(String str, String str2) {
-        q(2, str, str2);
+        println(2, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void d(String str, String str2) {
-        q(3, str, str2);
+        println(3, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void w(String str, String str2) {
-        q(5, str, str2);
+        println(5, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -43,7 +43,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public void e(String str, String str2) {
-        q(6, str, str2);
+        println(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -53,7 +53,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public void wtf(String str, String str2) {
-        q(6, str, str2);
+        println(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -61,17 +61,17 @@ public class b implements c {
         b(6, str, str2, th);
     }
 
-    private void q(int i, String str, String str2) {
-        Log.println(i, Rn(str), str2);
+    private void println(int i, String str, String str2) {
+        Log.println(i, Ur(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, Rn(str), j(str2, th));
+        Log.println(i, Ur(str), j(str2, th));
     }
 
-    private String Rn(String str) {
-        if (this.mQT != null) {
-            return this.mQT + ":" + str;
+    private String Ur(String str) {
+        if (this.nkO != null) {
+            return this.nkO + ":" + str;
         }
         return str;
     }

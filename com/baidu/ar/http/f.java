@@ -13,24 +13,24 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 class f implements IHttpRequest {
-    private IProgressCallback pS;
-    private HttpRequestFactory qb;
-    private l qe;
-    private o qc = new o();
-    private k qd = null;
-    private g pP = new g();
+    private HttpRequestFactory qG;
+    private l qJ;
+    private IProgressCallback qx;
+    private o qH = new o();
+    private k qI = null;
+    private g qu = new g();
 
     public f(HttpRequestFactory httpRequestFactory) {
-        this.qb = httpRequestFactory;
-        this.pP.method = "GET";
-        this.pP.qi = new HashMap();
-        this.pP.qh = new h();
-        this.qe = null;
+        this.qG = httpRequestFactory;
+        this.qu.method = "GET";
+        this.qu.qN = new HashMap();
+        this.qu.qM = new h();
+        this.qJ = null;
     }
 
     private IHttpRequest a(byte[] bArr, String str) {
-        if (ah(str)) {
-            ((n) this.qd).setData(bArr);
+        if (al(str)) {
+            ((n) this.qI).setData(bArr);
         }
         return this;
     }
@@ -40,77 +40,77 @@ class f implements IHttpRequest {
     }
 
     private void addHeader(String str, String str2) {
-        this.pP.qi.put(str, str2);
+        this.qu.qN.put(str, str2);
     }
 
-    private boolean ag(String str) {
-        if (this.qd != null && !(this.qd instanceof m)) {
-            this.pP.ai(a(this.qd));
+    private boolean ak(String str) {
+        if (this.qI != null && !(this.qI instanceof m)) {
+            this.qu.am(a(this.qI));
             return false;
         }
-        if (this.qd == null) {
-            this.qd = new m();
-            this.qd.a(this.pP.qg);
-            m mVar = (m) this.qd;
+        if (this.qI == null) {
+            this.qI = new m();
+            this.qI.a(this.qu.qL);
+            m mVar = (m) this.qI;
             if (!TextUtils.isEmpty(str)) {
-                mVar.am(str);
+                mVar.aq(str);
             }
         } else if (!TextUtils.isEmpty(str)) {
-            m mVar2 = (m) this.qd;
+            m mVar2 = (m) this.qI;
             if (!mVar2.isEmpty() && !str.equals(mVar2.getBoundary())) {
-                this.pP.ai("已经添加请求体内容，不能再更改boundary");
+                this.qu.am("已经添加请求体内容，不能再更改boundary");
                 return false;
             }
         }
         return true;
     }
 
-    private boolean ah(String str) {
-        if (this.qd != null && !(this.qd instanceof n)) {
-            this.pP.ai(a(this.qd));
+    private boolean al(String str) {
+        if (this.qI != null && !(this.qI instanceof n)) {
+            this.qu.am(a(this.qI));
             return false;
         }
-        if (this.qd == null) {
-            this.qd = new n();
-            this.qd.a(this.pP.qg);
+        if (this.qI == null) {
+            this.qI = new n();
+            this.qI.a(this.qu.qL);
         }
-        if (!TextUtils.isEmpty(str) && !this.pP.qi.containsKey("Content-Type")) {
+        if (!TextUtils.isEmpty(str) && !this.qu.qN.containsKey("Content-Type")) {
             addHeader("Content-Type", str);
         }
         return true;
     }
 
-    private boolean dC() {
-        if (this.qd != null && !(this.qd instanceof b)) {
-            this.pP.ai(a(this.qd));
+    private boolean eM() {
+        if (this.qI != null && !(this.qI instanceof b)) {
+            this.qu.am(a(this.qI));
             return false;
         }
-        if (this.qd == null) {
-            this.qd = new b();
-            this.qd.a(this.pP.qg);
+        if (this.qI == null) {
+            this.qI = new b();
+            this.qI.a(this.qu.qL);
         }
         return true;
     }
 
-    private g dD() {
-        if (this.pP.hasError()) {
-            throw new HttpException(3, this.pP.dE());
+    private g eN() {
+        if (this.qu.hasError()) {
+            throw new HttpException(3, this.qu.eO());
         }
-        if (this.pP.qg != null) {
-            addHeader("charset", this.pP.qg.name());
+        if (this.qu.qL != null) {
+            addHeader("charset", this.qu.qL.name());
         }
         try {
-            this.pP.url = this.qc.dF();
-            if (this.qd != null) {
-                if (!this.pP.qi.containsKey("Content-Type")) {
-                    String contentType = this.qd.getContentType();
+            this.qu.url = this.qH.eP();
+            if (this.qI != null) {
+                if (!this.qu.qN.containsKey("Content-Type")) {
+                    String contentType = this.qI.getContentType();
                     if (!TextUtils.isEmpty(contentType)) {
-                        this.pP.qi.put("Content-Type", contentType);
+                        this.qu.qN.put("Content-Type", contentType);
                     }
                 }
-                this.pP.qj = this.qd;
+                this.qu.qO = this.qI;
             }
-            return this.pP;
+            return this.qu;
         } catch (MalformedURLException e) {
             throw new HttpException(3, e);
         }
@@ -118,27 +118,27 @@ class f implements IHttpRequest {
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addFile(String str, String str2) {
-        if (ag(null)) {
-            ((m) this.qd).f(str, str2);
+        if (ak(null)) {
+            ((m) this.qI).h(str, str2);
         }
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addFile(String str, byte[] bArr) {
-        if (ag(null)) {
-            ((m) this.qd).a(str, bArr);
+        if (ak(null)) {
+            ((m) this.qI).a(str, bArr);
         }
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addFormData(Map<String, Object> map) {
-        if (map != null && dC()) {
-            b bVar = (b) this.qd;
+        if (map != null && eM()) {
+            b bVar = (b) this.qI;
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 if (entry.getValue() != null) {
-                    bVar.d(entry.getKey(), entry.getValue().toString());
+                    bVar.f(entry.getKey(), entry.getValue().toString());
                 }
             }
         }
@@ -147,19 +147,19 @@ class f implements IHttpRequest {
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addFormField(String str, Object obj) {
-        if (!TextUtils.isEmpty(str) && obj != null && dC()) {
-            ((b) this.qd).d(str, obj.toString());
+        if (!TextUtils.isEmpty(str) && obj != null && eM()) {
+            ((b) this.qI).f(str, obj.toString());
         }
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addHeader(String str) {
-        String[] aj = j.aj(str);
-        if (aj == null) {
-            this.pP.ai(String.format("Header 格式必须是： \\\"Name: Value\\\". Found: \\\"%s\\\"", str));
+        String[] an = j.an(str);
+        if (an == null) {
+            this.qu.am(String.format("Header 格式必须是： \\\"Name: Value\\\". Found: \\\"%s\\\"", str));
         } else {
-            addHeader(aj[0], aj[1]);
+            addHeader(an[0], an[1]);
         }
         return this;
     }
@@ -176,19 +176,19 @@ class f implements IHttpRequest {
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addPart(String str, Object obj) {
-        if (obj != null && ag(null)) {
-            ((m) this.qd).e(str, obj.toString());
+        if (obj != null && ak(null)) {
+            ((m) this.qI).g(str, obj.toString());
         }
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addPartMap(Map<String, Object> map) {
-        if (map != null && ag(null)) {
-            m mVar = (m) this.qd;
+        if (map != null && ak(null)) {
+            m mVar = (m) this.qI;
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 if (entry.getValue() != null) {
-                    mVar.e(entry.getKey(), entry.getValue().toString());
+                    mVar.g(entry.getKey(), entry.getValue().toString());
                 }
             }
         }
@@ -198,7 +198,7 @@ class f implements IHttpRequest {
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest addQueryField(String str, Object obj) {
         if (obj != null) {
-            this.qc.g(str, obj.toString());
+            this.qH.i(str, obj.toString());
         }
         return this;
     }
@@ -208,7 +208,7 @@ class f implements IHttpRequest {
         if (map != null) {
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 if (entry.getValue() != null) {
-                    this.qc.g(entry.getKey(), entry.getValue().toString());
+                    this.qH.i(entry.getKey(), entry.getValue().toString());
                 }
             }
         }
@@ -217,46 +217,46 @@ class f implements IHttpRequest {
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public void cancel() {
-        this.pS = null;
-        if (this.qe != null) {
-            this.qe.cancel();
+        this.qx = null;
+        if (this.qJ != null) {
+            this.qJ.cancel();
         }
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public void enqueue(com.baidu.ar.ihttp.a aVar) {
-        if (this.qe != null) {
-            this.qe.cancel();
+        if (this.qJ != null) {
+            this.qJ.cancel();
         }
-        e executor = this.qb.getExecutor();
+        e executor = this.qG.getExecutor();
         try {
-            g dD = dD();
-            if (dD != null) {
-                this.qe = executor.a(dD, aVar, this.pS);
+            g eN = eN();
+            if (eN != null) {
+                this.qJ = executor.a(eN, aVar, this.qx);
             }
         } catch (HttpException e) {
-            this.qe = executor.a(e, aVar);
+            this.qJ = executor.a(e, aVar);
         }
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpResponse execute() {
-        if (this.qe != null) {
-            this.qe.cancel();
+        if (this.qJ != null) {
+            this.qJ.cancel();
         }
-        this.qe = this.qb.getExecutor().a(dD(), this.pS);
-        return this.qe.dy();
+        this.qJ = this.qG.getExecutor().a(eN(), this.qx);
+        return this.qJ.eI();
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setAsMultipart() {
-        return (this.qd == null || !(this.qd instanceof m)) ? setAsMultipart(d.MULTIPART_BOUNDARY) : this;
+        return (this.qI == null || !(this.qI instanceof m)) ? setAsMultipart(d.MULTIPART_BOUNDARY) : this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setAsMultipart(String str) {
-        if (ag(str)) {
-            ((m) this.qd).am(str);
+        if (ak(str)) {
+            ((m) this.qI).aq(str);
         }
         return this;
     }
@@ -264,7 +264,7 @@ class f implements IHttpRequest {
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setBody(String str) {
         if (!TextUtils.isEmpty(str)) {
-            a(str.getBytes(this.pP.qg), "application/x-www-form-urlencoded");
+            a(str.getBytes(this.qu.qL), "application/x-www-form-urlencoded");
         }
         return this;
     }
@@ -272,7 +272,7 @@ class f implements IHttpRequest {
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setBody(JSONObject jSONObject) {
         if (jSONObject != null) {
-            a(jSONObject.toString().getBytes(this.pP.qg), HttpHelper.CONTENT_JSON);
+            a(jSONObject.toString().getBytes(this.qu.qL), HttpHelper.CONTENT_JSON);
         }
         return this;
     }
@@ -284,48 +284,48 @@ class f implements IHttpRequest {
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setCharset(Charset charset) {
-        this.pP.qg = charset;
-        this.qc.a(charset);
-        if (this.qd != null) {
-            this.qd.a(charset);
+        this.qu.qL = charset;
+        this.qH.a(charset);
+        if (this.qI != null) {
+            this.qI.a(charset);
         }
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setConnectionTimeout(int i) {
-        this.pP.qh.ql = i;
+        this.qu.qM.qQ = i;
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setMethod(String str) {
         if (str != null) {
-            this.pP.method = str.toUpperCase();
+            this.qu.method = str.toUpperCase();
         }
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public void setProgressCallback(IProgressCallback iProgressCallback) {
-        this.pS = iProgressCallback;
+        this.qx = iProgressCallback;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setReadTimeout(int i) {
-        this.pP.qh.qm = i;
+        this.qu.qM.qR = i;
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setUrl(String str) {
-        this.qc.an(str);
+        this.qH.ar(str);
         return this;
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
     public IHttpRequest setUseCache(boolean z) {
-        this.pP.qh.qn = z;
+        this.qu.qM.qS = z;
         return this;
     }
 }

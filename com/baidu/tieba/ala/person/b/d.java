@@ -10,72 +10,72 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private BdUniqueId fFJ;
-    private CustomMessageListener fYE = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private BdUniqueId fRa;
+    private int gQW;
+    private b gRa;
+    private CustomMessageListener gkC = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.gEA != null && d.this.gEA.isEmpty() && !d.this.gEA.isLoading()) {
-                d.this.gEA.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.gRa != null && d.this.gRa.isEmpty() && !d.this.gRa.isLoading()) {
+                d.this.gRa.refreshData();
             }
         }
     };
-    private b gEA;
-    private int gEw;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.fFJ = null;
+        this.fRa = null;
         this.mPageContext = tbPageContext;
-        this.gEw = i;
+        this.gQW = i;
         this.mUserId = str;
-        this.fFJ = bdUniqueId;
-        this.gEA = new b(this.mPageContext, this.gEw, this.mUserId, this.fFJ);
-        if (this.gEA != null && this.gEA.isEmpty() && !this.gEA.isLoading()) {
-            this.gEA.refreshData();
+        this.fRa = bdUniqueId;
+        this.gRa = new b(this.mPageContext, this.gQW, this.mUserId, this.fRa);
+        if (this.gRa != null && this.gRa.isEmpty() && !this.gRa.isLoading()) {
+            this.gRa.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.fYE);
+        MessageManager.getInstance().registerListener(this.gkC);
     }
 
-    public void as(String str, boolean z) {
-        if (this.gEA != null) {
-            this.gEA.as(str, z);
+    public void aw(String str, boolean z) {
+        if (this.gRa != null) {
+            this.gRa.aw(str, z);
         }
     }
 
     public int getTabType() {
-        return this.gEw;
+        return this.gQW;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gEA == null) {
+        if (this.gRa == null) {
             return null;
         }
-        return this.gEA.bcE();
+        return this.gRa.blc();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.gEw == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
+        return this.gQW == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Dj() {
+    public String IM() {
         return null;
     }
 
-    public void a(a.InterfaceC0599a interfaceC0599a) {
-        if (this.gEA != null) {
-            this.gEA.a(interfaceC0599a);
+    public void a(a.InterfaceC0649a interfaceC0649a) {
+        if (this.gRa != null) {
+            this.gRa.a(interfaceC0649a);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Dk() {
+    public short IN() {
         return (short) 0;
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fYE);
-        if (this.gEA != null) {
-            this.gEA.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.gkC);
+        if (this.gRa != null) {
+            this.gRa.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.gEA != null) {
-            this.gEA.onChangeSkinType(i);
+        if (this.gRa != null) {
+            this.gRa.onChangeSkinType(i);
         }
     }
 }

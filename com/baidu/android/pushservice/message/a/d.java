@@ -24,7 +24,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2) {

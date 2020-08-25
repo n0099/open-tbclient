@@ -21,36 +21,36 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes15.dex */
 public class b implements d {
-    private Camera camera;
     private Context context;
-    private int gQF;
-    private Camera.Parameters gQI;
-    private e gQJ;
-    private a gQL;
-    private View gQM;
-    private d.a gQN;
-    private Camera.Size gQP;
-    private SurfaceTexture gQT;
-    private int gQE = 0;
+    private e hdA;
+    private a hdC;
+    private View hdD;
+    private d.a hdE;
+    private Camera.Size hdG;
+    private SurfaceTexture hdK;
+    private int hdv;
+    private Camera hdy;
+    private Camera.Parameters hdz;
+    private int hdu = 0;
     private int cameraId = 0;
-    private AtomicBoolean gQG = new AtomicBoolean(false);
-    private AtomicBoolean gQH = new AtomicBoolean(false);
-    private Rect gQK = new Rect();
+    private AtomicBoolean hdw = new AtomicBoolean(false);
+    private AtomicBoolean hdx = new AtomicBoolean(false);
+    private Rect hdB = new Rect();
     private int rotation = 0;
-    private int gQO = 0;
-    private final int gQQ = 0;
-    private final int gQR = 1;
-    private int gQS = 0;
+    private int hdF = 0;
+    private final int hdH = 0;
+    private final int hdI = 1;
+    private int hdJ = 0;
     private byte[] buffer = null;
-    Camera.PreviewCallback previewCallback = new Camera.PreviewCallback() { // from class: com.baidu.tieba.barselect.idCard.b.2
+    Camera.PreviewCallback hdL = new Camera.PreviewCallback() { // from class: com.baidu.tieba.barselect.idCard.b.2
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(final byte[] bArr, Camera camera) {
-            if (!b.this.gQH.get() && b.d(b.this) % 5 == 0 && bArr.length == b.this.gQI.getPreviewSize().width * b.this.gQI.getPreviewSize().height * 1.5d) {
+            if (!b.this.hdx.get() && b.d(b.this) % 5 == 0 && bArr.length == b.this.hdz.getPreviewSize().width * b.this.hdz.getPreviewSize().height * 1.5d) {
                 camera.addCallbackBuffer(b.this.buffer);
                 c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.aa(bArr);
+                        b.this.ab(bArr);
                     }
                 });
             }
@@ -59,15 +59,15 @@ public class b implements d {
     private TextureView.SurfaceTextureListener surfaceTextureListener = new TextureView.SurfaceTextureListener() { // from class: com.baidu.tieba.barselect.idCard.b.3
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-            b.this.gQT = surfaceTexture;
-            b.this.bQQ();
+            b.this.hdK = surfaceTexture;
+            b.this.cbc();
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-            b.this.bL(b.this.gQL.getWidth(), b.this.gQL.getHeight());
-            b.this.mx(false);
-            b.this.bQO();
+            b.this.bT(b.this.hdC.getWidth(), b.this.hdC.getHeight());
+            b.this.na(false);
+            b.this.cba();
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
@@ -77,10 +77,10 @@ public class b implements d {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            b.this.bQO();
+            b.this.cba();
         }
     };
-    private Comparator<Camera.Size> gQU = new Comparator<Camera.Size>() { // from class: com.baidu.tieba.barselect.idCard.b.5
+    private Comparator<Camera.Size> hdM = new Comparator<Camera.Size>() { // from class: com.baidu.tieba.barselect.idCard.b.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
@@ -90,21 +90,21 @@ public class b implements d {
     };
 
     static /* synthetic */ int d(b bVar) {
-        int i = bVar.gQO;
-        bVar.gQO = i + 1;
+        int i = bVar.hdF;
+        bVar.hdF = i + 1;
         return i;
     }
 
-    public int bQJ() {
+    public int caU() {
         return this.rotation;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aa(byte[] bArr) {
+    public void ab(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2 = null;
-        if (this.camera != null && bArr != null && this.gQP != null) {
-            YuvImage yuvImage = new YuvImage(bArr, 17, this.gQP.width, this.gQP.height, null);
+        if (this.hdy != null && bArr != null && this.hdG != null) {
+            YuvImage yuvImage = new YuvImage(bArr, 17, this.hdG.width, this.hdG.height, null);
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream(bArr.length);
             } catch (OutOfMemoryError e) {
@@ -113,9 +113,9 @@ public class b implements d {
                 byteArrayOutputStream = null;
             }
             try {
-                yuvImage.compressToJpeg(new Rect(0, 0, this.gQP.width, this.gQP.height), 80, byteArrayOutputStream);
-                if (this.gQN.i(byteArrayOutputStream.toByteArray(), bQJ()) == 0) {
-                    bQP();
+                yuvImage.compressToJpeg(new Rect(0, 0, this.hdG.width, this.hdG.height), 80, byteArrayOutputStream);
+                if (this.hdE.i(byteArrayOutputStream.toByteArray(), caU()) == 0) {
+                    cbb();
                 }
                 if (byteArrayOutputStream != null) {
                     try {
@@ -148,8 +148,8 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void setDisplayOrientation(int i) {
-        this.gQE = i;
+    public void vk(int i) {
+        this.hdu = i;
         switch (i) {
             case 0:
                 this.rotation = 90;
@@ -164,171 +164,171 @@ public class b implements d {
                 this.rotation = 0;
                 break;
         }
-        this.gQL.requestLayout();
+        this.hdC.requestLayout();
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void bQK() {
-        mx(true);
+    public void caV() {
+        na(true);
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void sW(int i) {
-        if (this.gQF != i) {
-            this.gQF = i;
-            sX(i);
+    public void vl(int i) {
+        if (this.hdv != i) {
+            this.hdv = i;
+            vm(i);
         }
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public int bQL() {
-        return this.gQF;
+    public int caW() {
+        return this.hdv;
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
     public void start() {
-        mx(false);
+        na(false);
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
     public void stop() {
-        if (this.camera != null) {
-            this.camera.setPreviewCallback(null);
-            stopPreview();
-            Camera camera = this.camera;
-            this.camera = null;
+        if (this.hdy != null) {
+            this.hdy.setPreviewCallback(null);
+            caX();
+            Camera camera = this.hdy;
+            this.hdy = null;
             camera.release();
-            this.camera = null;
+            this.hdy = null;
             this.buffer = null;
         }
     }
 
-    private void stopPreview() {
-        if (this.camera != null) {
-            this.camera.stopPreview();
+    private void caX() {
+        if (this.hdy != null) {
+            this.hdy.stopPreview();
         }
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
     public void pause() {
-        if (this.camera != null) {
-            stopPreview();
+        if (this.hdy != null) {
+            caX();
         }
-        sW(0);
+        vl(0);
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
     public void resume() {
-        this.gQG.set(false);
-        if (this.camera == null) {
-            Rd();
+        this.hdw.set(false);
+        if (this.hdy == null) {
+            WZ();
             return;
         }
-        this.gQL.gRa.setSurfaceTextureListener(this.surfaceTextureListener);
-        if (this.gQL.gRa.isAvailable()) {
-            mx(false);
+        this.hdC.hdS.setSurfaceTextureListener(this.surfaceTextureListener);
+        if (this.hdC.hdS.isAvailable()) {
+            na(false);
         }
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public View bQM() {
-        return this.gQM;
+    public View caY() {
+        return this.hdD;
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
     public void a(final d.b bVar) {
-        if (!this.gQG.get()) {
-            switch (this.gQE) {
+        if (!this.hdw.get()) {
+            switch (this.hdu) {
                 case 0:
-                    this.gQI.setRotation(90);
+                    this.hdz.setRotation(90);
                     break;
                 case 90:
-                    this.gQI.setRotation(0);
+                    this.hdz.setRotation(0);
                     break;
                 case 270:
-                    this.gQI.setRotation(180);
+                    this.hdz.setRotation(180);
                     break;
             }
             try {
-                Camera.Size ce = ce(this.camera.getParameters().getSupportedPictureSizes());
-                this.gQI.setPictureSize(ce.width, ce.height);
-                this.camera.setParameters(this.gQI);
-                this.gQG.set(true);
-                bQR();
+                Camera.Size cg = cg(this.hdy.getParameters().getSupportedPictureSizes());
+                this.hdz.setPictureSize(cg.width, cg.height);
+                this.hdy.setParameters(this.hdz);
+                this.hdw.set(true);
+                cbd();
                 c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.1
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            b.this.camera.takePicture(null, null, new Camera.PictureCallback() { // from class: com.baidu.tieba.barselect.idCard.b.1.1
+                            b.this.hdy.takePicture(null, null, new Camera.PictureCallback() { // from class: com.baidu.tieba.barselect.idCard.b.1.1
                                 @Override // android.hardware.Camera.PictureCallback
                                 public void onPictureTaken(byte[] bArr, Camera camera) {
-                                    b.this.mx(false);
-                                    b.this.gQG.set(false);
+                                    b.this.na(false);
+                                    b.this.hdw.set(false);
                                     if (bVar != null) {
-                                        bVar.ab(bArr);
+                                        bVar.ac(bArr);
                                     }
                                 }
                             });
                         } catch (Exception e) {
                             e.printStackTrace();
-                            b.this.mx(false);
-                            b.this.gQG.set(false);
+                            b.this.na(false);
+                            b.this.hdw.set(false);
                         }
                     }
                 });
             } catch (RuntimeException e) {
                 e.printStackTrace();
-                mx(false);
-                this.gQG.set(false);
+                na(false);
+                this.hdw.set(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
     public void a(e eVar) {
-        this.gQJ = eVar;
+        this.hdA = eVar;
     }
 
     public b(Context context) {
         this.context = context;
-        this.gQL = new a(context);
-        Rd();
+        this.hdC = new a(context);
+        WZ();
     }
 
-    private void Rd() {
-        bQN();
+    private void WZ() {
+        caZ();
     }
 
-    private void bQN() {
+    private void caZ() {
         TextureView textureView = new TextureView(this.context);
-        this.gQL.gRa = textureView;
-        this.gQL.a(textureView);
-        this.gQM = this.gQL;
+        this.hdC.hdS = textureView;
+        this.hdC.a(textureView);
+        this.hdD = this.hdC;
         textureView.setSurfaceTextureListener(this.surfaceTextureListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQO() {
+    public void cba() {
         if (this.buffer == null) {
-            this.buffer = new byte[((this.gQM.getWidth() * this.gQM.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
+            this.buffer = new byte[((this.hdD.getWidth() * this.hdD.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
         }
-        if (this.camera != null && this.gQS == 1) {
-            this.camera.addCallbackBuffer(this.buffer);
-            this.camera.setPreviewCallback(this.previewCallback);
+        if (this.hdy != null && this.hdJ == 1) {
+            this.hdy.addCallbackBuffer(this.buffer);
+            this.hdy.setPreviewCallback(this.hdL);
         }
     }
 
-    private void bQP() {
-        if (this.camera != null && this.gQS == 1) {
-            this.camera.setPreviewCallback(null);
-            stopPreview();
+    private void cbb() {
+        if (this.hdy != null && this.hdJ == 1) {
+            this.hdy.setPreviewCallback(null);
+            caX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQQ() {
+    public void cbc() {
         try {
-            if (this.camera == null) {
+            if (this.hdy == null) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                 for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
                     Camera.getCameraInfo(i, cameraInfo);
@@ -336,48 +336,48 @@ public class b implements d {
                         this.cameraId = i;
                     }
                 }
-                this.camera = Camera.open(this.cameraId);
+                this.hdy = Camera.open(this.cameraId);
             }
-            if (this.gQI == null) {
-                this.gQI = this.camera.getParameters();
-                this.gQI.setPreviewFormat(17);
+            if (this.hdz == null) {
+                this.hdz = this.hdy.getParameters();
+                this.hdz.setPreviewFormat(17);
             }
-            bL(this.gQL.getWidth(), this.gQL.getHeight());
-            this.camera.setPreviewTexture(this.gQT);
-            bQO();
-            mx(false);
+            bT(this.hdC.getWidth(), this.hdC.getHeight());
+            this.hdy.setPreviewTexture(this.hdK);
+            cba();
+            na(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mx(boolean z) {
+    public void na(boolean z) {
         if (ActivityCompat.checkSelfPermission(this.context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
-            if (z && this.gQJ != null) {
-                this.gQJ.bRe();
+            if (z && this.hdA != null) {
+                this.hdA.cbq();
             }
-        } else if (this.camera == null) {
-            bQQ();
+        } else if (this.hdy == null) {
+            cbc();
         } else {
-            this.camera.startPreview();
-            bQS();
+            this.hdy.startPreview();
+            cbe();
         }
     }
 
-    private void bQR() {
-        this.camera.cancelAutoFocus();
-        c.bRf();
+    private void cbd() {
+        this.hdy.cancelAutoFocus();
+        c.cbr();
     }
 
-    private void bQS() {
-        c.u(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.4
+    private void cbe() {
+        c.r(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.4
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (b.this) {
-                    if (b.this.camera != null && !b.this.gQG.get()) {
+                    if (b.this.hdy != null && !b.this.hdw.get()) {
                         try {
-                            b.this.camera.autoFocus(new Camera.AutoFocusCallback() { // from class: com.baidu.tieba.barselect.idCard.b.4.1
+                            b.this.hdy.autoFocus(new Camera.AutoFocusCallback() { // from class: com.baidu.tieba.barselect.idCard.b.4.1
                                 @Override // android.hardware.Camera.AutoFocusCallback
                                 public void onAutoFocus(boolean z, Camera camera) {
                                 }
@@ -391,26 +391,26 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bL(int i, int i2) {
-        if (this.gQI != null && this.camera != null && i > 0) {
+    public void bT(int i, int i2) {
+        if (this.hdz != null && this.hdy != null && i > 0) {
             try {
-                this.gQP = ce(this.camera.getParameters().getSupportedPreviewSizes());
-                this.gQI.setPreviewSize(this.gQP.width, this.gQP.height);
-                this.gQL.setRatio((1.0f * this.gQP.width) / this.gQP.height);
-                this.camera.setDisplayOrientation(bQT());
-                stopPreview();
-                this.camera.setParameters(this.gQI);
+                this.hdG = cg(this.hdy.getParameters().getSupportedPreviewSizes());
+                this.hdz.setPreviewSize(this.hdG.width, this.hdG.height);
+                this.hdC.setRatio((1.0f * this.hdG.width) / this.hdG.height);
+                this.hdy.setDisplayOrientation(cbf());
+                caX();
+                this.hdy.setParameters(this.hdz);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private Camera.Size ce(List<Camera.Size> list) {
+    private Camera.Size cg(List<Camera.Size> list) {
         float f;
-        int width = this.gQL.gRa.getWidth();
-        int height = this.gQL.gRa.getHeight();
-        float f2 = this.gQL.gRb;
+        int width = this.hdC.hdS.getWidth();
+        int height = this.hdC.hdS.getHeight();
+        float f2 = this.hdC.hdT;
         Camera.Size size = list.get(0);
         ArrayList arrayList = new ArrayList();
         for (Camera.Size size2 : list) {
@@ -421,7 +421,7 @@ public class b implements d {
             }
         }
         if (!arrayList.isEmpty()) {
-            return (Camera.Size) Collections.min(arrayList, this.gQU);
+            return (Camera.Size) Collections.min(arrayList, this.hdM);
         }
         Camera.Size size3 = size;
         float f3 = f2;
@@ -442,26 +442,26 @@ public class b implements d {
         return size3;
     }
 
-    private void sX(int i) {
+    private void vm(int i) {
         switch (i) {
             case 0:
-                this.gQI.setFlashMode("off");
+                this.hdz.setFlashMode("off");
                 break;
             case 1:
-                this.gQI.setFlashMode("torch");
+                this.hdz.setFlashMode("torch");
                 break;
             case 2:
-                this.gQI.setFlashMode("auto");
+                this.hdz.setFlashMode("auto");
                 break;
             default:
-                this.gQI.setFlashMode("auto");
+                this.hdz.setFlashMode("auto");
                 break;
         }
-        this.camera.setParameters(this.gQI);
+        this.hdy.setParameters(this.hdz);
     }
 
-    private int bQT() {
-        switch (this.gQE) {
+    private int cbf() {
+        switch (this.hdu) {
             case 0:
             default:
                 return 90;
@@ -475,60 +475,60 @@ public class b implements d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public class a extends FrameLayout {
-        private TextureView gRa;
-        private float gRb;
+        private TextureView hdS;
+        private float hdT;
 
         void a(TextureView textureView) {
-            this.gRa = textureView;
+            this.hdS = textureView;
             removeAllViews();
             addView(textureView);
         }
 
         void setRatio(float f) {
-            this.gRb = f;
+            this.hdT = f;
             requestLayout();
-            bM(getWidth(), getHeight());
+            bU(getWidth(), getHeight());
         }
 
         public a(Context context) {
             super(context);
-            this.gRb = 0.75f;
+            this.hdT = 0.75f;
         }
 
         @Override // android.view.View
         protected void onSizeChanged(int i, int i2, int i3, int i4) {
             super.onSizeChanged(i, i2, i3, i4);
-            bM(i, i2);
+            bU(i, i2);
         }
 
-        private void bM(int i, int i2) {
+        private void bU(int i, int i2) {
             if (i < i2) {
-                i2 = (int) (i * this.gRb);
+                i2 = (int) (i * this.hdT);
             } else {
-                i = (int) (i2 * this.gRb);
+                i = (int) (i2 * this.hdT);
             }
             int width = (getWidth() - i) / 2;
             int height = (getHeight() - i2) / 2;
-            b.this.gQK.left = width;
-            b.this.gQK.top = height;
-            b.this.gQK.right = width + i;
-            b.this.gQK.bottom = height + i2;
+            b.this.hdB.left = width;
+            b.this.hdB.top = height;
+            b.this.hdB.right = width + i;
+            b.this.hdB.bottom = height + i2;
         }
 
         @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
         protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
             super.onLayout(z, i, i2, i3, i4);
-            this.gRa.layout(b.this.gQK.left, b.this.gQK.top, b.this.gQK.right, b.this.gQK.bottom);
+            this.hdS.layout(b.this.hdB.left, b.this.hdB.top, b.this.hdB.right, b.this.hdB.bottom);
         }
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public Rect bQU() {
-        return this.gQK;
+    public Rect cbg() {
+        return this.hdB;
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void bQV() {
-        this.gQG.set(false);
+    public void cbh() {
+        this.hdw.set(false);
     }
 }

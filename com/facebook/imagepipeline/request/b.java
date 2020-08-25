@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.request;
 import android.graphics.Bitmap;
 import com.facebook.imagepipeline.b.f;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface b {
     com.facebook.common.references.a<Bitmap> a(Bitmap bitmap, f fVar);
 
     @Nullable
-    com.facebook.cache.common.b dJo();
+    com.facebook.cache.common.b dVn();
 
     String getName();
 }

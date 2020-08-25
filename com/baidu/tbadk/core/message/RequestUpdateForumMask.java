@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpdateForumMask.DataReq;
 import protobuf.UpdateForumMask.UpdateForumMaskReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestUpdateForumMask extends TbSocketMessage {
     public static final int TYPE_FORUM_BROADCAST = 1;
     private boolean flag;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public class ApkInfo {
     public ActivityInfo[] activities;
     public String apkMD5;
@@ -19,7 +19,7 @@ public class ApkInfo {
     public int duration;
     public Context hostContext;
     public int initStatus;
-    public List<h> intentFilters;
+    public List<g> intentFilters;
     public boolean isMem;
     public boolean isNextLoad;
     public int isOnce;

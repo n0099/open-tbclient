@@ -1,7 +1,7 @@
 package com.baidu.ubs.analytics.d;
 
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class f {
     public static String encode(String str) {
         if (str != null && str.length() != 0) {

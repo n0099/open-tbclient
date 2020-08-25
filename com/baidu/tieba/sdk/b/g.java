@@ -1,5 +1,5 @@
 package com.baidu.tieba.sdk.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface g {
-    void IV(String str);
+    void LN(String str);
 }

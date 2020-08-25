@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DriftingBottleSwitch extends a {
     public static final String DRIFTING_BOTTLE_SWITCH_KEY = "android_bottle_enable";
     public static final int TYPE_OFF = 0;

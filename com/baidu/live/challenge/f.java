@@ -1,5 +1,5 @@
 package com.baidu.live.challenge;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface f {
-    j wg();
+    j BE();
 }

@@ -11,12 +11,12 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class AppleDataReferenceBox extends AbstractFullBox {
     public static final String TYPE = "rdrf";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     private String dataReference;
     private int dataReferenceSize;
     private String dataReferenceType;
@@ -27,9 +27,9 @@ public class AppleDataReferenceBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleDataReferenceBox.java", AppleDataReferenceBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", FieldUtil.TYPE_STRING), 67);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", FieldUtil.TYPE_STRING), 71);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", FieldUtil.TYPE_STRING), 67);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", FieldUtil.TYPE_STRING), 71);
     }
 
     public AppleDataReferenceBox() {

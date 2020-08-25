@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterJNI {
     private static final String TAG = "FlutterJNI";
     @Nullable
@@ -43,14 +43,14 @@ public class FlutterJNI {
     @Nullable
     private PlatformMessageHandler platformMessageHandler;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface AccessibilityDelegate {
         void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
 
         void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface AsyncWaitForVsyncDelegate {
         void asyncWaitForVsync(long j);
     }

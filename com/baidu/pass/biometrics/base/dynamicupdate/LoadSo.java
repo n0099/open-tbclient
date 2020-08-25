@@ -9,144 +9,145 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class LoadSo {
-    static final String[] SO_NAME_ARRAY = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
-    static final String ZIP_VERSION = "3.0.0";
-    private Bundle bundle;
-    private Context context;
-    private StatService statService;
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=4] */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean load(Context context, Bundle bundle) {
-        this.context = context;
-        this.statService = new StatService();
-        this.statService.hostVersion = "3.0.0";
-        this.bundle = bundle;
-        SdkConfigOptions bioOptions = LocalConfigOptions.getInstance(context).getBioOptions();
-        try {
-            if (!bioOptions.globalEnable || !bioOptions.enable || inWhitePkgLoadDefaultSO(context)) {
-                this.statService.zipVersion = bioOptions.zipVersion;
-                this.statService.loadSoSuccess = true;
-                loadDefaultSo();
-                return true;
-            }
-            if (!bioOptions.updateFail) {
-                loadPathSo(bioOptions);
-            } else if ("3.0.0".compareTo(bioOptions.zipVersion) > 0) {
-                this.statService.zipVersion = "3.0.0";
-                loadDefaultSo();
-            } else {
-                loadPathSo(bioOptions);
-            }
-            this.statService.loadSoSuccess = true;
-            return true;
-        } catch (Throwable th) {
-            try {
-                th.printStackTrace();
-                this.statService.exceptionInfo = Log.getStackTraceString(th);
-                this.statService.execptionZipVersion = this.statService.zipVersion;
-                this.statService.loadSoSuccess = false;
-                return false;
-            } finally {
-                this.statService.startStatService();
-            }
-        }
-    }
-
-    private void loadDefaultSo() {
-        for (String str : SO_NAME_ARRAY) {
-            System.loadLibrary(str);
-        }
-        this.statService.loadDefaultSo = true;
-    }
-
-    private void loadPathSo(SdkConfigOptions sdkConfigOptions) {
-        String[] strArr;
-        boolean z = true;
-        try {
-            int length = SO_NAME_ARRAY.length;
-            for (int i = 0; i < length; i++) {
-                System.load(LocalConfigOptions.getLoadSoPath(this.context) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
-            }
-            this.statService.zipVersion = sdkConfigOptions.zipVersion;
-        } catch (Throwable th) {
-            this.statService.loadDownloadSoSuc = false;
-            this.statService.zipVersion = sdkConfigOptions.zipVersion;
-            this.statService.exceptionInfo = Log.getStackTraceString(th);
-            this.statService.execptionZipVersion = sdkConfigOptions.zipVersion;
-            z = false;
-        }
-        if (!z) {
-            loadDefaultSo();
-        }
-    }
+    static final String a = "3.0.0";
+    static final String[] b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
+    private Context c;
+    private StatService d;
+    private Bundle e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes20.dex */
     public class StatService {
-        private static final String EXCEPTION_INFO = "exception_info";
-        private static final String EXCEPTION_ZIP_VERSION = "execption_zip_version";
-        private static final String HOST_VERSION = "host_version";
-        private static final String LIVENESS_CUID = "bio_cuid";
-        private static final String LIVENESS_DEVICE_MODEL = "device_model";
-        private static final String LIVENESS_PHONO_SYS = "phone_sys";
-        private static final String LIVENESS_PROCESS_ID = "bio_processid";
-        private static final String LIVENESS_SUBPRO = "liveness_subpro";
-        private static final String LIVENESS_TPL = "tpl";
-        private static final String LOAD_DEFAULT_SO = "load_default_so";
-        private static final String LOAD_DOWNLOAD_SO_SUC = "load_download_so_suc";
-        private static final String LOAD_SO_SUCCESS = "load_so_success";
-        private static final String MODLE_NAME = "modle_name";
-        private static final String STAT_NAME_LIVENESS_FACE = "sapi_bio_dynamic_load_so";
-        private static final String ZIP_VERSION = "zip_version";
-        private String exceptionInfo;
-        private String execptionZipVersion;
-        private String hostVersion;
-        private boolean loadDefaultSo;
-        private boolean loadDownloadSoSuc;
-        private boolean loadSoSuccess;
-        private String productId;
-        private String tpl;
-        private String uuid;
-        private String zipVersion;
+        private static final String a = "sapi_bio_dynamic_load_so";
+        private static final String b = "host_version";
+        private static final String c = "zip_version";
+        private static final String d = "modle_name";
+        private static final String e = "load_default_so";
+        private static final String f = "load_so_success";
+        private static final String g = "load_download_so_suc";
+        private static final String h = "exception_info";
+        private static final String i = "execption_zip_version";
+        private static final String j = "bio_processid";
+        private static final String k = "liveness_subpro";
+        private static final String l = "tpl";
+        private static final String m = "bio_cuid";
+        private static final String n = "device_model";
+        private static final String o = "phone_sys";
+        private String p;
+        private String q;
+        private boolean r;
+        private boolean s;
+        private boolean t;
+        private String u;
+        private String v;
+        private String w;
+        private String x;
+        private String y;
 
         private StatService() {
-            this.loadDefaultSo = false;
-            this.loadDownloadSoSuc = true;
+            this.s = false;
+            this.t = true;
         }
 
-        private Map<String, String> prepareData() {
-            if (LoadSo.this.bundle != null) {
-                this.uuid = LoadSo.this.bundle.getString("uuid");
-                this.tpl = LoadSo.this.bundle.getString("tpl");
-                this.productId = LoadSo.this.bundle.getString("productId");
+        private Map<String, String> a() {
+            if (LoadSo.this.e != null) {
+                this.w = LoadSo.this.e.getString("uuid");
+                this.y = LoadSo.this.e.getString("tpl");
+                this.x = LoadSo.this.e.getString("productId");
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("host_version", this.hostVersion);
-            hashMap.put("zip_version", this.zipVersion);
-            hashMap.put(LOAD_DEFAULT_SO, this.loadDefaultSo ? "1" : "-1");
-            hashMap.put(LOAD_SO_SUCCESS, this.loadSoSuccess ? "1" : "-1");
-            hashMap.put(LOAD_DOWNLOAD_SO_SUC, this.loadDownloadSoSuc ? "1" : "-1");
-            hashMap.put(EXCEPTION_INFO, this.exceptionInfo);
-            hashMap.put(EXCEPTION_ZIP_VERSION, this.execptionZipVersion);
-            hashMap.put(LIVENESS_PROCESS_ID, this.uuid);
-            hashMap.put(LIVENESS_SUBPRO, this.productId);
-            hashMap.put("tpl", this.tpl);
-            hashMap.put(LIVENESS_CUID, PassBiometricUtil.getClientId(LoadSo.this.context));
-            hashMap.put(LIVENESS_DEVICE_MODEL, PassBiometricUtil.getOSModel());
-            hashMap.put(LIVENESS_PHONO_SYS, PassBiometricUtil.getOSVersion());
+            hashMap.put("host_version", this.p);
+            hashMap.put("zip_version", this.q);
+            hashMap.put(e, this.s ? "1" : "-1");
+            hashMap.put(f, this.r ? "1" : "-1");
+            hashMap.put(g, this.t ? "1" : "-1");
+            hashMap.put(h, this.u);
+            hashMap.put(i, this.v);
+            hashMap.put(j, this.w);
+            hashMap.put(k, this.x);
+            hashMap.put("tpl", this.y);
+            hashMap.put(m, PassBiometricUtil.getClientId(LoadSo.this.c));
+            hashMap.put(n, PassBiometricUtil.getOSModel());
+            hashMap.put(o, PassBiometricUtil.getOSVersion());
             return hashMap;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void startStatService() {
-            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.context, STAT_NAME_LIVENESS_FACE, prepareData());
+        public void b() {
+            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, a, a());
         }
     }
 
-    static boolean inWhitePkgLoadDefaultSO(Context context) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean a(Context context, Bundle bundle) {
+        this.c = context;
+        this.d = new StatService();
+        this.d.p = "3.0.0";
+        this.e = bundle;
+        SdkConfigOptions bioOptions = LocalConfigOptions.getInstance(context).getBioOptions();
+        try {
+            if (bioOptions.globalEnable && bioOptions.enable && !a(context)) {
+                if (bioOptions.updateFail) {
+                    if ("3.0.0".compareTo(bioOptions.zipVersion) > 0) {
+                        this.d.q = "3.0.0";
+                        a();
+                    } else {
+                        a(bioOptions);
+                    }
+                } else {
+                    a(bioOptions);
+                }
+                this.d.r = true;
+                return true;
+            }
+            this.d.q = bioOptions.zipVersion;
+            this.d.r = true;
+            a();
+            return true;
+        } catch (Throwable th) {
+            try {
+                this.d.u = Log.getStackTraceString(th);
+                this.d.v = this.d.q;
+                this.d.r = false;
+                return false;
+            } finally {
+                this.d.b();
+            }
+        }
+    }
+
+    private void a() {
+        for (String str : b) {
+            System.loadLibrary(str);
+        }
+        this.d.s = true;
+    }
+
+    private void a(SdkConfigOptions sdkConfigOptions) {
+        String[] strArr;
+        boolean z = true;
+        try {
+            int length = b.length;
+            for (int i = 0; i < length; i++) {
+                System.load(LocalConfigOptions.getLoadSoPath(this.c) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+            }
+            this.d.q = sdkConfigOptions.zipVersion;
+        } catch (Throwable th) {
+            this.d.t = false;
+            this.d.q = sdkConfigOptions.zipVersion;
+            this.d.u = Log.getStackTraceString(th);
+            this.d.v = sdkConfigOptions.zipVersion;
+            z = false;
+        }
+        if (z) {
+            return;
+        }
+        a();
+    }
+
+    static boolean a(Context context) {
         ArrayList<String> arrayList = new ArrayList();
         arrayList.add("com.baidu.searchbox(.*)");
         arrayList.add("com.baidu.BaiduMap(.*)");

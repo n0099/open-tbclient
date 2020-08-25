@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DragLayer extends FrameLayout {
-    private a lOX;
-    private b lPt;
+    private a mgH;
+    private b mhd;
 
     public DragLayer(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.lOX.onInterceptTouchEvent(motionEvent);
+        return this.mgH.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.lOX.onTouchEvent(motionEvent);
+        return this.mgH.onTouchEvent(motionEvent);
     }
 
     public a getDragController() {
-        return this.lOX;
+        return this.mgH;
     }
 
     public void setDragController(a aVar) {
-        this.lOX = aVar;
+        this.mgH = aVar;
     }
 
     public void setDragObject(b bVar) {
-        this.lPt = bVar;
+        this.mhd = bVar;
         invalidate();
     }
 
     public b getDragObject() {
-        return this.lPt;
+        return this.mhd;
     }
 
-    public void dlJ() {
-        if (this.lPt != null) {
-            if (this.lPt.bm != null) {
-                this.lPt.bm.recycle();
-                this.lPt.bm = null;
+    public void dxg() {
+        if (this.mhd != null) {
+            if (this.mhd.bm != null) {
+                this.mhd.bm.recycle();
+                this.mhd.bm = null;
             }
-            this.lPt = null;
+            this.mhd = null;
         }
     }
 
@@ -73,14 +73,14 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.lPt != null && this.lOX.lOO) {
-            this.lPt.draw(canvas);
+        if (this.mhd != null && this.mgH.mgy) {
+            this.mhd.draw(canvas);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        dlJ();
+        dxg();
     }
 }

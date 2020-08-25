@@ -2,8 +2,8 @@ package com.baidu.mapapi.utils;
 
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.basestruct.Point;
+/* loaded from: classes20.dex */
 public class DistanceUtil {
     public static double getDistance(LatLng latLng, LatLng latLng2) {
         if (latLng == null || latLng2 == null) {

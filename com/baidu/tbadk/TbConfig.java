@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
 import com.baidu.tieba.R;
 import java.util.HashSet;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -160,6 +160,7 @@ public class TbConfig {
     public static final String GET_BOOK_DOWNLOAD_INFO = "c/e/tbread/getBookDownloadInfo";
     public static final String GET_BOOK_PAY_PANEL = "c/e/tbread/getPayPanel";
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
+    public static final String GET_CHANNEL_ADDRESS = "c/s/channelIconConfig";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FEEDBACK_TIP = "mo/q/msg/remindnumber";
     public static final String GET_FORBIDDEN_FANS = "c/u/fans/blockPage";
@@ -408,7 +409,7 @@ public class TbConfig {
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
     public static final String SMART_APP_URL = "c/f/frs/smartapplist";
-    public static final String SQUARE_SEARCH_PAGE = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=";
+    public static final String SQUARE_SEARCH_PAGE = "n/apage-runtime/page/205?keyword=";
     public static final String STAT_CLIENT_START = "c/c/forum/statClientStartTimes";
     public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
     public static final String ST_PARAM_TAB_MSG_CREATE_CHAT = "2";
@@ -544,10 +545,12 @@ public class TbConfig {
     public static final String URL_UEG_REPORT = "c/f/ueg/checkjubao";
     public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/n/apage-runtime/page/ueg_service_center";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
+    public static final String URL_URL_PARSER = "c/s/urlParser";
     public static final String URL_USER_REPORT = "c/c/user/complaint";
     public static final String URL_VIDEO_HOLY_CARD = "c/s/dashengVideo";
     public static final String URL_VIDEO_MONITOR_REPORT = "c/c/video/vlog";
     public static final String URL_VIDEO_TAB = "c/f/excellent/recomVideo";
+    public static final String URL_YOUNGSTER_VERIFY_AUTHID = "c/c/user/passAuthidVerify";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
@@ -569,6 +572,7 @@ public class TbConfig {
     public static final String VOTE_EMOTION_PACKAGE = "c/e/meme/commitVote";
     public static final String VOTE_GRAFFITI = "c/c/graffiti/vote";
     public static final int WEBP_FAILURE_MAX = 5;
+    public static final String WEBVIEW_CACHE_URL = "c/s/getWebviewCacheInfo";
     public static final String WEB_URL_DELETE_THREAD_PAGE = "https://tieba.baidu.com/mo/q/pmc";
     public static final String WEB_URL_FANS = "http://tieba.baidu.com/n/fans-party/prizeshow?nonavigationbar=1&from=native";
     public static final String WEB_URL_MAIN_THREAD_PRAISE_LIST = "https://tieba.baidu.com/n/apage-runtime/page/agree_list?";
@@ -582,6 +586,7 @@ public class TbConfig {
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
     public static String SERVER_ADDRESS_FAKE = "http://fakedata.tieba.baidu.com/";
+    public static String SERVER_ADDRESS_CUSTOM = "";
     public static long MILLS_7DAYS = 604800000;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
@@ -646,9 +651,10 @@ public class TbConfig {
     public static final String RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
     public static String GET_HOT_GOD = "c/u/user/getHotGod";
     public static String GET_BFB_INFO = "c/f/forum/getUserBfbInfo";
+    public static String HTTPS_QUICK_WEBVIEW_PREFIX = "https://tieba.baidu.com/";
     public static final String CHECK_SHARE_SDK_URL = SERVER_ADDRESS + "c/s/checkAppValid";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
@@ -781,7 +787,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bkk().setPhotoMaxNum(i);
+            c.bsW().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -1002,7 +1008,7 @@ public class TbConfig {
         return BROADCAST_CHANGESKIN;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class DownFlowCmd {
         public static HashSet<Integer> sInterruptCMDs = new HashSet<>();
 

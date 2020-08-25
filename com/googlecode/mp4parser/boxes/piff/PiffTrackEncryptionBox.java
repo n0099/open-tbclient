@@ -4,9 +4,9 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -14,7 +14,7 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("PiffTrackEncryptionBox.java", PiffTrackEncryptionBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFlags", "com.googlecode.mp4parser.boxes.piff.PiffTrackEncryptionBox", "", "", "", "int"), 29);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getFlags", "com.googlecode.mp4parser.boxes.piff.PiffTrackEncryptionBox", "", "", "", "int"), 29);
     }
 
     public PiffTrackEncryptionBox() {

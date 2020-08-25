@@ -1,11 +1,11 @@
 package com.baidu.live.data;
 
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
-    private String ayb;
-    private ArrayList<Integer> ayc;
-    private boolean ayd;
+    private String aDd;
+    private ArrayList<Integer> aDe;
+    private boolean aDf;
     private int categoryId;
 
     public void setCategoryId(int i) {
@@ -13,26 +13,26 @@ public class f {
     }
 
     public void setCategoryName(String str) {
-        this.ayb = str;
+        this.aDd = str;
     }
 
-    public void f(ArrayList<Integer> arrayList) {
-        this.ayc = arrayList;
+    public void k(ArrayList<Integer> arrayList) {
+        this.aDe = arrayList;
     }
 
     public String getCategoryName() {
-        return this.ayb;
+        return this.aDd;
     }
 
     public int getCategoryId() {
         return this.categoryId;
     }
 
-    public ArrayList<Integer> wW() {
-        return this.ayc;
+    public ArrayList<Integer> Cu() {
+        return this.aDe;
     }
 
-    public void bb(boolean z) {
-        this.ayd = z;
+    public void bg(boolean z) {
+        this.aDf = z;
     }
 }

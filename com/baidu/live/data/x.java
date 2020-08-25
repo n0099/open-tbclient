@@ -1,24 +1,19 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import android.text.TextUtils;
+/* loaded from: classes7.dex */
 public class x {
-    public int azs;
-    public int azt;
-    public String mAppid;
-    public int mOpenType;
+    public String aEx;
+    public String endColor;
+    public String imageUrl;
+    public String startColor;
+    public String url;
 
-    public String toJsonString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt("live_type", Integer.valueOf(this.azs));
-            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
-            jSONObject.putOpt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION, Integer.valueOf(this.azt));
-            jSONObject.putOpt("appid", this.mAppid);
-            return jSONObject.toString();
-        } catch (Exception e) {
-            return "";
-        }
+    public String getLabelName() {
+        return (TextUtils.isEmpty(this.aEx) || this.aEx.length() <= 4) ? this.aEx : this.aEx.substring(0, 4);
+    }
+
+    public String toString() {
+        return "AlaSceneData{url='" + this.url + "', sceneName='" + this.aEx + "', imageUrl='" + this.imageUrl + "', startColor='" + this.startColor + "', endColor='" + this.endColor + "'}";
     }
 }

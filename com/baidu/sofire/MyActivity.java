@@ -5,9 +5,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.mobstat.Config;
-import com.baidu.sofire.i.u;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.w;
+/* loaded from: classes20.dex */
 public class MyActivity extends Activity {
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
     protected void attachBaseContext(Context context) {
@@ -25,9 +24,9 @@ public class MyActivity extends Activity {
                 intent2.setComponent(new ComponentName(getApplicationContext().getPackageName(), MyService.class.getCanonicalName()));
                 startService(intent2);
             }
-            if (Config.APP_VERSION_CODE.equals(intent.getStringExtra("t"))) {
+            if ("a".equals(intent.getStringExtra("t"))) {
                 final Context applicationContext = getApplicationContext();
-                u.a().a(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
+                w.a().a(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {
@@ -35,11 +34,11 @@ public class MyActivity extends Activity {
                             b.a();
                             String stringExtra = intent.getStringExtra("c");
                             Intent intent3 = new Intent();
-                            intent3.putExtra("t", Config.APP_VERSION_CODE);
+                            intent3.putExtra("t", "a");
                             intent3.putExtra("c", stringExtra);
                             a.a(applicationContext.getApplicationContext(), intent3);
                         } catch (Throwable th) {
-                            com.baidu.sofire.i.d.a();
+                            com.baidu.sofire.i.e.a();
                         }
                     }
                 });
@@ -47,7 +46,7 @@ public class MyActivity extends Activity {
             super.onCreate(bundle);
             b.a();
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
         finish();
     }

@@ -12,7 +12,7 @@ import com.baidu.cyberplayer.sdk.CyberVRRenderProvider;
 import com.baidu.cyberplayer.sdk.b.a;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class VrVideoView extends com.baidu.cyberplayer.sdk.b.a {
     protected CyberVRRenderProvider a;
 

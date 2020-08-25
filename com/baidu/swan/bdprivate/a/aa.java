@@ -1,7 +1,6 @@
 package com.baidu.swan.bdprivate.a;
-/* loaded from: classes11.dex */
-public interface aa {
-    void a(y yVar);
-
-    void onFailure(String str);
+/* loaded from: classes3.dex */
+public class aa {
+    public String aYk;
+    public String displayName;
 }

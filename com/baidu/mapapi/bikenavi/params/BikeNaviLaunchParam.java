@@ -3,17 +3,13 @@ package com.baidu.mapapi.bikenavi.params;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.walknavi.e.a;
 import com.baidu.platform.comapi.walknavi.e.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BikeNaviLaunchParam {
     private LatLng a;
     private LatLng b;
-    private int c;
-    private int d = 0;
-    private int e;
-
-    public int getEndCityCode() {
-        return this.e;
-    }
+    private BikeRouteNodeInfo c;
+    private BikeRouteNodeInfo d;
+    private int e = 0;
 
     public LatLng getStartPt() {
         return this.a;
@@ -23,8 +19,12 @@ public class BikeNaviLaunchParam {
         return this.b;
     }
 
-    public int getStartCityCode() {
+    public BikeRouteNodeInfo getStartNodeInfo() {
         return this.c;
+    }
+
+    public BikeRouteNodeInfo getEndNodeInfo() {
+        return this.d;
     }
 
     public BikeNaviLaunchParam stPt(LatLng latLng) {
@@ -37,23 +37,23 @@ public class BikeNaviLaunchParam {
         return this;
     }
 
+    public BikeNaviLaunchParam startNodeInfo(BikeRouteNodeInfo bikeRouteNodeInfo) {
+        this.c = bikeRouteNodeInfo;
+        return this;
+    }
+
+    public BikeNaviLaunchParam endNodeInfo(BikeRouteNodeInfo bikeRouteNodeInfo) {
+        this.d = bikeRouteNodeInfo;
+        return this;
+    }
+
     public BikeNaviLaunchParam vehicle(int i) {
-        this.d = i;
+        this.e = i;
         return this;
     }
 
     public int getVehicle() {
-        return this.d;
-    }
-
-    public BikeNaviLaunchParam stCityCode(int i) {
-        this.c = i;
-        return this;
-    }
-
-    public BikeNaviLaunchParam endCityCode(int i) {
-        this.e = i;
-        return this;
+        return this.e;
     }
 
     public static a create() {

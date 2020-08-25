@@ -8,7 +8,7 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class JSONWriter implements Closeable, Flushable {
     private JSONStreamContext context;
     private JSONSerializer serializer;
@@ -28,7 +28,7 @@ public class JSONWriter implements Closeable, Flushable {
             beginStructure();
         }
         this.context = new JSONStreamContext(this.context, 1001);
-        this.writer.write(123);
+        this.writer.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
     }
 
     public void endObject() {

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.suspensionball.ioc;
 
 import android.app.Activity;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public interface ISuspensionBallDataInit {
     boolean enableInitSuspensionData(Activity activity);
 

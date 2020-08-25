@@ -1,7 +1,7 @@
 package com.baidu.ala.dumixar;
 
 import com.baidu.minivideo.arface.bean.BeautyType;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.pass.biometrics.face.liveness.c.a;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class ARNetKey2BeautyType {
@@ -17,7 +17,7 @@ public class ARNetKey2BeautyType {
         sKeyMap.put("upCount", BeautyType.upCount);
         sKeyMap.put("whiten", BeautyType.whiten);
         sKeyMap.put("smooth", BeautyType.smooth);
-        sKeyMap.put(LivenessStat.TYPE_LIVING_EYE, BeautyType.eye);
+        sKeyMap.put(a.h, BeautyType.eye);
         sKeyMap.put("thinFace", BeautyType.thinFace);
         sKeyMap.put("faceWidth", BeautyType.faceWidth);
         sKeyMap.put("chinHeight", BeautyType.chinHeight);

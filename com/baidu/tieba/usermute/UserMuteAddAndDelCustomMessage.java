@@ -2,7 +2,7 @@ package com.baidu.tieba.usermute;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.CustomMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UserMuteAddAndDelCustomMessage extends CustomMessage {
     public static final int PB = 1;
     public static final int PERSON_INFO = 0;

@@ -23,14 +23,14 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes16.dex */
 public class ForumTestWebView extends WebView {
-    private g hhF;
-    private b hhG;
-    private d hhH;
-    private c hhI;
-    private e hhJ;
-    private f hhK;
-    protected com.baidu.tieba.enterForum.forumtest.js.a hhL;
-    private com.baidu.tieba.enterForum.forumtest.js.c hhM;
+    private d huA;
+    private c huB;
+    private e huC;
+    private f huD;
+    protected com.baidu.tieba.enterForum.forumtest.js.a huE;
+    private com.baidu.tieba.enterForum.forumtest.js.c huF;
+    private g huy;
+    private b huz;
     private WebViewClient mWebViewClient;
 
     /* loaded from: classes16.dex */
@@ -45,7 +45,7 @@ public class ForumTestWebView extends WebView {
 
     /* loaded from: classes16.dex */
     public interface d {
-        void b(WebView webView, String str);
+        void onPageStarted(WebView webView, String str);
     }
 
     /* loaded from: classes16.dex */
@@ -55,16 +55,16 @@ public class ForumTestWebView extends WebView {
 
     /* loaded from: classes16.dex */
     public interface f {
-        void fY(String str);
+        void ht(String str);
     }
 
     public ForumTestWebView(Context context) {
         super(context);
-        this.hhM = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
+        this.huF = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
             @Override // com.baidu.tieba.enterForum.forumtest.js.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                if (ForumTestWebView.this.hhL != null) {
-                    return ForumTestWebView.this.hhL.a(str, jsPromptResult);
+                if (ForumTestWebView.this.huE != null) {
+                    return ForumTestWebView.this.huE.a(str, jsPromptResult);
                 }
                 return false;
             }
@@ -73,11 +73,11 @@ public class ForumTestWebView extends WebView {
 
     public ForumTestWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hhM = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
+        this.huF = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
             @Override // com.baidu.tieba.enterForum.forumtest.js.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                if (ForumTestWebView.this.hhL != null) {
-                    return ForumTestWebView.this.hhL.a(str, jsPromptResult);
+                if (ForumTestWebView.this.huE != null) {
+                    return ForumTestWebView.this.huE.a(str, jsPromptResult);
                 }
                 return false;
             }
@@ -86,11 +86,11 @@ public class ForumTestWebView extends WebView {
 
     public ForumTestWebView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hhM = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
+        this.huF = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
             @Override // com.baidu.tieba.enterForum.forumtest.js.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                if (ForumTestWebView.this.hhL != null) {
-                    return ForumTestWebView.this.hhL.a(str, jsPromptResult);
+                if (ForumTestWebView.this.huE != null) {
+                    return ForumTestWebView.this.huE.a(str, jsPromptResult);
                 }
                 return false;
             }
@@ -116,10 +116,10 @@ public class ForumTestWebView extends WebView {
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
         this.mWebViewClient = new a();
         setWebViewClient(this.mWebViewClient);
-        this.hhF = new g();
-        setWebChromeClient(this.hhF);
-        this.hhL = new com.baidu.tieba.enterForum.forumtest.js.a();
-        this.hhL.b(bVar);
+        this.huy = new g();
+        setWebChromeClient(this.huy);
+        this.huE = new com.baidu.tieba.enterForum.forumtest.js.a();
+        this.huE.b(bVar);
         com.baidu.tbadk.browser.a.initCookie(getContext());
         removeJavascriptInterface("searchBoxJavaBridge_");
         removeJavascriptInterface("accessibility");
@@ -156,13 +156,13 @@ public class ForumTestWebView extends WebView {
     public void destroy() {
         super.destroy();
         this.mWebViewClient = null;
-        this.hhF = null;
-        this.hhG = null;
-        this.hhH = null;
-        this.hhI = null;
-        this.hhJ = null;
-        this.hhK = null;
-        this.hhM = null;
+        this.huy = null;
+        this.huz = null;
+        this.huA = null;
+        this.huB = null;
+        this.huC = null;
+        this.huD = null;
+        this.huF = null;
     }
 
     /* loaded from: classes16.dex */
@@ -209,7 +209,7 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            if (ForumTestWebView.this.hhM == null || !ForumTestWebView.this.hhM.onJsPrompt(str2, jsPromptResult)) {
+            if (ForumTestWebView.this.huF == null || !ForumTestWebView.this.huF.onJsPrompt(str2, jsPromptResult)) {
                 jsPromptResult.cancel();
             }
             return true;
@@ -218,16 +218,16 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i) {
             super.onProgressChanged(webView, i);
-            if (ForumTestWebView.this.hhJ != null) {
-                ForumTestWebView.this.hhJ.onProgressChanged(webView, i);
+            if (ForumTestWebView.this.huC != null) {
+                ForumTestWebView.this.huC.onProgressChanged(webView, i);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
-            if (ForumTestWebView.this.hhK != null) {
-                ForumTestWebView.this.hhK.fY(str);
+            if (ForumTestWebView.this.huD != null) {
+                ForumTestWebView.this.huD.ht(str);
             }
         }
     }
@@ -240,8 +240,8 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (ForumTestWebView.this.hhH != null) {
-                ForumTestWebView.this.hhH.b(webView, str);
+            if (ForumTestWebView.this.huA != null) {
+                ForumTestWebView.this.huA.onPageStarted(webView, str);
             }
         }
 
@@ -253,14 +253,14 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (ForumTestWebView.this.hhI != null) {
-                ForumTestWebView.this.hhI.onPageFinished(webView, str);
+            if (ForumTestWebView.this.huB != null) {
+                ForumTestWebView.this.huB.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            return ForumTestWebView.this.hhG != null ? ForumTestWebView.this.hhG.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
+            return ForumTestWebView.this.huz != null ? ForumTestWebView.this.huz.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
         }
 
         @Override // android.webkit.WebViewClient

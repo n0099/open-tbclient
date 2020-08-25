@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PostUrlSwitch extends a {
     public static final String KEY_POST_URL_SWITCH = "android_url_post";
     public static final int TYPE_OFF = 0;

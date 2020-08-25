@@ -4,7 +4,7 @@ import com.baidu.searchbox.network.AbstractHttpManager;
 import com.baidu.searchbox.network.core.MediaType;
 import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.RequestBody;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class PostByteRequest extends HttpRequest<PostByteRequestBuilder> {
     private static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
     private byte[] content;
@@ -50,7 +50,7 @@ public class PostByteRequest extends HttpRequest<PostByteRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class PostByteRequestBuilder extends HttpRequestBuilder<PostByteRequestBuilder> {
         private byte[] contentBuffer;
         private MediaType mediaType;

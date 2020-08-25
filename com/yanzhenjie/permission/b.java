@@ -4,30 +4,30 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private static final c nQG;
+    private static final c okB;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         h a(com.yanzhenjie.permission.b.b bVar);
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            nQG = new C0892b();
+            okB = new C0950b();
         } else {
-            nQG = new a();
+            okB = new a();
         }
     }
 
     @NonNull
-    public static h gs(@NonNull Context context) {
-        return nQG.a(new com.yanzhenjie.permission.b.a(context));
+    public static h gL(@NonNull Context context) {
+        return okB.a(new com.yanzhenjie.permission.b.a(context));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class a implements c {
         private a() {
         }
@@ -40,9 +40,9 @@ public class b {
 
     @RequiresApi(api = 23)
     /* renamed from: com.yanzhenjie.permission.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private static class C0892b implements c {
-        private C0892b() {
+    /* loaded from: classes4.dex */
+    private static class C0950b implements c {
+        private C0950b() {
         }
 
         @Override // com.yanzhenjie.permission.b.c

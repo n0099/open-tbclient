@@ -8,7 +8,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
     final long start;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super Long> cVar) {
+    public void a(org.b.c<? super Long> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
             cVar.onSubscribe(new RangeConditionalSubscription((io.reactivex.internal.a.a) cVar, this.start, this.end));
         } else {
@@ -58,7 +58,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
             this.index = this.end;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
@@ -69,7 +69,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public final void cancel() {
             this.cancelled = true;
         }
@@ -78,9 +78,9 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
     /* loaded from: classes7.dex */
     static final class RangeSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
-        final org.a.c<? super Long> actual;
+        final org.b.c<? super Long> actual;
 
-        RangeSubscription(org.a.c<? super Long> cVar, long j, long j2) {
+        RangeSubscription(org.b.c<? super Long> cVar, long j, long j2) {
             super(j, j2);
             this.actual = cVar;
         }
@@ -88,7 +88,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         @Override // io.reactivex.internal.operators.flowable.FlowableRangeLong.BaseRangeSubscription
         void fastPath() {
             long j = this.end;
-            org.a.c<? super Long> cVar = this.actual;
+            org.b.c<? super Long> cVar = this.actual;
             for (long j2 = this.index; j2 != j; j2++) {
                 if (!this.cancelled) {
                     cVar.onNext(Long.valueOf(j2));
@@ -105,7 +105,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         void slowPath(long j) {
             long j2 = this.end;
             long j3 = this.index;
-            org.a.c<? super Long> cVar = this.actual;
+            org.b.c<? super Long> cVar = this.actual;
             long j4 = 0;
             while (true) {
                 if (j4 != j && j3 != j2) {

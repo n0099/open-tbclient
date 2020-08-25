@@ -3,5 +3,6 @@ package com.baidu.ar;
 public enum DuMixErrorType {
     LibraryError,
     LoadCaseError,
-    AbilitySchemeFetchFail
+    AbilitySchemeFetchFail,
+    MMLLibraryError
 }

@@ -3,7 +3,7 @@ package android.support.v4.view.accessibility;
 import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public final class AccessibilityEventCompat {
     public static final int CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION = 4;
     public static final int CONTENT_CHANGE_TYPE_SUBTREE = 1;

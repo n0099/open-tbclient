@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.mapapi.map.Overlay;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a implements Overlay.a {
     final /* synthetic */ BaiduMap a;
 
@@ -15,25 +15,30 @@ public class a implements Overlay.a {
 
     @Override // com.baidu.mapapi.map.Overlay.a
     public void a(Overlay overlay) {
+        boolean z;
         List list;
         List list2;
         List list3;
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        com.baidu.mapsdkplatform.comapi.map.e eVar2;
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        com.baidu.mapsdkplatform.comapi.map.d dVar2;
         List list4;
         List list5;
         List list6;
-        com.baidu.mapsdkplatform.comapi.map.e eVar3;
+        com.baidu.mapsdkplatform.comapi.map.d dVar3;
         List list7;
-        com.baidu.mapsdkplatform.comapi.map.e eVar4;
+        com.baidu.mapsdkplatform.comapi.map.d dVar4;
+        z = this.a.U;
+        if (z) {
+            return;
+        }
         if (overlay != null) {
             list6 = this.a.k;
             if (list6.contains(overlay)) {
                 Bundle a = overlay.a();
-                eVar3 = this.a.i;
-                if (eVar3 != null) {
-                    eVar4 = this.a.i;
-                    eVar4.d(a);
+                dVar3 = this.a.j;
+                if (dVar3 != null) {
+                    dVar4 = this.a.j;
+                    dVar4.d(a);
                 }
                 list7 = this.a.k;
                 list7.remove(overlay);
@@ -50,15 +55,15 @@ public class a implements Overlay.a {
             list = this.a.l;
             if (list.contains(overlay)) {
                 Marker marker = (Marker) overlay;
-                if (marker.o != null) {
+                if (marker.p != null) {
                     list2 = this.a.l;
                     list2.remove(marker);
                     list3 = this.a.l;
                     if (list3.size() == 0) {
-                        eVar = this.a.i;
-                        if (eVar != null) {
-                            eVar2 = this.a.i;
-                            eVar2.b(false);
+                        dVar = this.a.j;
+                        if (dVar != null) {
+                            dVar2 = this.a.j;
+                            dVar2.b(false);
                         }
                     }
                 }
@@ -68,45 +73,55 @@ public class a implements Overlay.a {
 
     @Override // com.baidu.mapapi.map.Overlay.a
     public void b(Overlay overlay) {
+        boolean z;
         List list;
         List list2;
         List list3;
         List list4;
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        com.baidu.mapsdkplatform.comapi.map.e eVar2;
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        boolean z2;
+        com.baidu.mapsdkplatform.comapi.map.d dVar2;
         List list5;
         List list6;
-        com.baidu.mapsdkplatform.comapi.map.e eVar3;
-        com.baidu.mapsdkplatform.comapi.map.e eVar4;
+        com.baidu.mapsdkplatform.comapi.map.d dVar3;
+        com.baidu.mapsdkplatform.comapi.map.d dVar4;
         List list7;
-        com.baidu.mapsdkplatform.comapi.map.e eVar5;
-        boolean z;
-        com.baidu.mapsdkplatform.comapi.map.e eVar6;
+        com.baidu.mapsdkplatform.comapi.map.d dVar5;
+        boolean z3;
+        boolean z4;
+        com.baidu.mapsdkplatform.comapi.map.d dVar6;
         List list8;
+        z = this.a.U;
+        if (z) {
+            return;
+        }
         if (overlay != null) {
             list4 = this.a.k;
             if (list4.contains(overlay)) {
-                boolean z2 = false;
+                boolean z5 = false;
                 if (overlay instanceof Marker) {
                     Marker marker = (Marker) overlay;
                     if (marker.b != null) {
-                        if (marker.o != null && marker.o.size() > 1) {
+                        if (marker.p != null && marker.p.size() > 1) {
                             Bundle bundle = new Bundle();
-                            eVar5 = this.a.i;
-                            if (eVar5 != null) {
-                                marker.remove();
-                                marker.o.clear();
-                                eVar6 = this.a.i;
-                                eVar6.b(overlay.a(bundle));
-                                list8 = this.a.k;
-                                list8.add(overlay);
-                                z = true;
-                            } else {
-                                z = false;
+                            dVar5 = this.a.j;
+                            if (dVar5 != null) {
+                                z4 = this.a.U;
+                                if (!z4) {
+                                    marker.remove();
+                                    marker.p.clear();
+                                    dVar6 = this.a.j;
+                                    dVar6.b(overlay.a(bundle));
+                                    list8 = this.a.k;
+                                    list8.add(overlay);
+                                    z3 = true;
+                                    z5 = z3;
+                                }
                             }
-                            z2 = z;
+                            z3 = false;
+                            z5 = z3;
                         }
-                    } else if (marker.o != null && marker.o.size() != 0) {
+                    } else if (marker.p != null && marker.p.size() != 0) {
                         list5 = this.a.l;
                         if (list5.contains(marker)) {
                             list7 = this.a.l;
@@ -114,18 +129,21 @@ public class a implements Overlay.a {
                         }
                         list6 = this.a.l;
                         list6.add(marker);
-                        eVar3 = this.a.i;
-                        if (eVar3 != null) {
-                            eVar4 = this.a.i;
-                            eVar4.b(true);
+                        dVar3 = this.a.j;
+                        if (dVar3 != null) {
+                            dVar4 = this.a.j;
+                            dVar4.b(true);
                         }
                     }
                 }
-                eVar = this.a.i;
-                if (eVar != null && !z2) {
-                    Bundle bundle2 = new Bundle();
-                    eVar2 = this.a.i;
-                    eVar2.c(overlay.a(bundle2));
+                dVar = this.a.j;
+                if (dVar != null && !z5) {
+                    z2 = this.a.U;
+                    if (!z2) {
+                        Bundle bundle2 = new Bundle();
+                        dVar2 = this.a.j;
+                        dVar2.c(overlay.a(bundle2));
+                    }
                 }
             }
         }
@@ -138,5 +156,19 @@ public class a implements Overlay.a {
             list2 = this.a.m;
             list2.add((Marker) overlay);
         }
+    }
+
+    @Override // com.baidu.mapapi.map.Overlay.a
+    public boolean c(Overlay overlay) {
+        List list;
+        List list2;
+        list = this.a.k;
+        if (list != null) {
+            list2 = this.a.k;
+            if (!list2.contains(overlay)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

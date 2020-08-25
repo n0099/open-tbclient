@@ -6,10 +6,10 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class DataEntryUrlBox extends AbstractFullBox {
     public static final String TYPE = "url ";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();
@@ -17,7 +17,7 @@ public class DataEntryUrlBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("DataEntryUrlBox.java", DataEntryUrlBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.DataEntryUrlBox", "", "", "", FieldUtil.TYPE_STRING), 51);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.DataEntryUrlBox", "", "", "", FieldUtil.TYPE_STRING), 51);
     }
 
     public DataEntryUrlBox() {

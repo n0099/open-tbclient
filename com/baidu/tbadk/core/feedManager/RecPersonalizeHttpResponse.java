@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.feedManager;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     private DataRes resultData;
 

@@ -14,7 +14,7 @@ import com.baidu.android.pushservice.i.m;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private static final List<a.c> a = new CopyOnWriteArrayList();
 
@@ -31,7 +31,7 @@ public final class a {
     }
 
     private a.c a(String str, String str2, long j, String str3, long j2) {
-        return a.c.s().a(a.e.ACK).a(a.C0050a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build();
+        return a.c.s().a(a.e.ACK).a(a.C0046a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build();
     }
 
     private a.c a(String str, String str2, String str3, String str4, long j, long j2, long j3, String str5, long j4) {

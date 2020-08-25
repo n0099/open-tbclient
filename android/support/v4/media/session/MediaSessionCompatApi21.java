@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 class MediaSessionCompatApi21 {
     static final String TAG = "MediaSessionCompatApi21";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     interface Callback {
         void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver);
 
@@ -173,7 +173,7 @@ class MediaSessionCompatApi21 {
         return false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     static class CallbackProxy<T extends Callback> extends MediaSession.Callback {
         protected final T mCallback;
 
@@ -257,7 +257,7 @@ class MediaSessionCompatApi21 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     static class QueueItem {
         QueueItem() {
         }

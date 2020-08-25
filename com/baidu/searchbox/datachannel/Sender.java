@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class Sender {
     public static boolean sendBroadcast(Context context, String str, String str2) {
         if (context == null || TextUtils.isEmpty(str)) {

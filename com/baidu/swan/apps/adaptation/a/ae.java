@@ -1,5 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes7.dex */
+
+import android.os.Message;
+/* loaded from: classes8.dex */
 public interface ae {
-    void TL();
+    boolean l(Message message);
 }

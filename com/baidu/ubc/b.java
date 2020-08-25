@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.config.AppConfig;
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,7 +13,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class b {
     private static final boolean DEBUG = AppConfig.isDebug();
     private Context mContext;
@@ -60,19 +61,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.aNt() != null) {
-                jSONObject.put("content", nVar.aNt().toString());
+            } else if (nVar.aVT() != null) {
+                jSONObject.put("content", nVar.aVT().toString());
             }
-            if (!TextUtils.isEmpty(nVar.aNs())) {
-                jSONObject.put("abtest", nVar.aNs());
+            if (!TextUtils.isEmpty(nVar.aVS())) {
+                jSONObject.put("abtest", nVar.aVS());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.aNo()) {
-                jSONObject.put("of", "1");
+            if (nVar.aVO()) {
+                jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", g.dAa().uV(nVar.getId()));
+            jSONObject.put("idtype", g.dLN().xg(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -159,7 +160,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ahVar.vg("1");
+                                ahVar.xr("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -170,7 +171,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            ahVar.cK(jSONObject);
+                            ahVar.cQ(jSONObject);
                             a = true;
                         } catch (Exception e) {
                             e = e;
@@ -202,7 +203,7 @@ public class b {
                         throw th;
                     }
                 }
-                ahVar.t(j, j2);
+                ahVar.u(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -249,7 +250,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ahVar.vg("1");
+                                ahVar.xr("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -263,7 +264,7 @@ public class b {
                             if (DEBUG) {
                                 Log.d("UBCFileData", jSONObject.toString());
                             }
-                            ahVar.cK(jSONObject);
+                            ahVar.cQ(jSONObject);
                             i++;
                         } catch (Throwable th) {
                             th = th;
@@ -288,7 +289,7 @@ public class b {
                         }
                     }
                 } while (i < 10);
-                ahVar.t(j, j2);
+                ahVar.u(j, j2);
                 if (DEBUG) {
                     Log.d("UBCFileData", "line num " + i + " delete file ");
                 }
@@ -311,7 +312,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void gL(boolean z) {
+    public void hf(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

@@ -9,13 +9,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 import rx.exceptions.CompositeException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     final int bufferSize;
     final rx.functions.j<? extends R> combiner;
     final boolean delayError;
-    final Iterable<? extends rx.d<? extends T>> nSH;
-    final rx.d<? extends T>[] okp;
+    final rx.d<? extends T>[] oEl;
+    final Iterable<? extends rx.d<? extends T>> omC;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -26,17 +26,17 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         int length;
         rx.d<? extends T>[] dVarArr;
         rx.d<? extends T>[] dVarArr2;
-        rx.d<? extends T>[] dVarArr3 = this.okp;
+        rx.d<? extends T>[] dVarArr3 = this.oEl;
         if (dVarArr3 == null) {
-            if (this.nSH instanceof List) {
-                List list = (List) this.nSH;
+            if (this.omC instanceof List) {
+                List list = (List) this.omC;
                 rx.d<? extends T>[] dVarArr4 = (rx.d[]) list.toArray(new rx.d[list.size()]);
                 length = dVarArr4.length;
                 dVarArr = dVarArr4;
             } else {
                 int i = 0;
                 rx.d<? extends T>[] dVarArr5 = new rx.d[8];
-                for (rx.d<? extends T> dVar : this.nSH) {
+                for (rx.d<? extends T> dVar : this.omC) {
                     if (i == dVarArr5.length) {
                         dVarArr2 = new rx.d[(i >> 2) + i];
                         System.arraycopy(dVarArr5, 0, dVarArr2, 0, i);
@@ -62,7 +62,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class LatestCoordinator<T, R> extends AtomicInteger implements rx.f, rx.k {
         static final Object MISSING = new Object();
         private static final long serialVersionUID = 8567835998786448817L;
@@ -297,14 +297,14 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T, R> extends rx.j<T> {
         boolean done;
         final int index;
-        final LatestCoordinator<T, R> okq;
+        final LatestCoordinator<T, R> oEm;
 
         public a(LatestCoordinator<T, R> latestCoordinator, int i) {
-            this.okq = latestCoordinator;
+            this.oEm = latestCoordinator;
             this.index = i;
             request(latestCoordinator.bufferSize);
         }
@@ -312,7 +312,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.okq.combine(NotificationLite.next(t), this.index);
+                this.oEm.combine(NotificationLite.next(t), this.index);
             }
         }
 
@@ -322,16 +322,16 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 rx.c.c.onError(th);
                 return;
             }
-            this.okq.onError(th);
+            this.oEm.onError(th);
             this.done = true;
-            this.okq.combine(null, this.index);
+            this.oEm.combine(null, this.index);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.okq.combine(null, this.index);
+                this.oEm.combine(null, this.index);
             }
         }
 

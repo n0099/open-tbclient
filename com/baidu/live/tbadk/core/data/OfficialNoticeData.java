@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialNoticeData extends BaseData {
     public String content;
     public String copyContent;

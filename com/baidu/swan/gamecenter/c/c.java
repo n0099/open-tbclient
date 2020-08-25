@@ -1,41 +1,41 @@
 package com.baidu.swan.gamecenter.c;
 
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.adaptation.a.ar;
+import com.baidu.swan.apps.adaptation.a.aw;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
-public class c implements ar {
-    private static volatile c ddz;
-    private com.baidu.swan.gamecenter.a.b ddA;
-    private b ddB;
+/* loaded from: classes3.dex */
+public class c implements aw {
+    private static volatile c dnH;
+    private com.baidu.swan.gamecenter.a.b dnI;
+    private b dnJ;
 
     public c() {
         init();
     }
 
     private void init() {
-        this.ddA = new com.baidu.swan.gamecenter.a.b();
-        this.ddB = new b();
+        this.dnI = new com.baidu.swan.gamecenter.a.b();
+        this.dnJ = new b();
     }
 
-    public static c aBQ() {
-        if (ddz == null) {
+    public static c aKF() {
+        if (dnH == null) {
             synchronized (c.class) {
-                if (ddz == null) {
-                    ddz = new c();
+                if (dnH == null) {
+                    dnH = new c();
                 }
             }
         }
-        return ddz;
+        return dnH;
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ar
-    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
-        if (this.ddA.sc(str)) {
-            return this.ddA.a(str, jSONObject, bVar);
+    @Override // com.baidu.swan.apps.adaptation.a.aw
+    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
+        if (this.dnI.uu(str)) {
+            return this.dnI.a(str, jSONObject, bVar);
         }
-        if (this.ddA.aBP()) {
-            return this.ddB.a(str, jSONObject, bVar);
+        if (this.dnI.aKE()) {
+            return this.dnJ.a(str, jSONObject, bVar);
         }
         return new com.baidu.swan.apps.api.c.b(10001, "authorize fail.");
     }

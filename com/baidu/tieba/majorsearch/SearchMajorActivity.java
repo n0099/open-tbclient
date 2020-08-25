@@ -9,51 +9,51 @@ import com.baidu.tieba.majorsearch.model.SearchMajorModel;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.a {
-    private com.baidu.tieba.majorsearch.b.a jHW;
-    private SearchMajorModel jHX;
+    private com.baidu.tieba.majorsearch.b.a jXn;
+    private SearchMajorModel jXo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jHW = new com.baidu.tieba.majorsearch.b.a(this);
-        this.jHX = new SearchMajorModel(getPageContext(), this);
+        this.jXn = new com.baidu.tieba.majorsearch.b.a(this);
+        this.jXo = new SearchMajorModel(getPageContext(), this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jHW.onResume();
+        this.jXn.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jHW != null) {
-            this.jHW.onChangeSkinType(i);
+        if (this.jXn != null) {
+            this.jXn.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void bd(List<String> list) {
-        if (this.jHW != null && this.jHW.cEv() != null) {
-            this.jHW.dX(list);
-            hideNetRefreshView(this.jHW.cEv().cEq());
+        if (this.jXn != null && this.jXn.cPm() != null) {
+            this.jXn.ef(list);
+            hideNetRefreshView(this.jXn.cPm().cPh());
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void b(ErrorData errorData) {
-        if (this.jHW != null && this.jHW.cEv() != null) {
-            this.jHW.d(errorData);
-            getRefreshView().oj(R.drawable.new_pic_emotion_07);
-            showNetRefreshViewNoClick(this.jHW.cEv().cEq(), null);
-            getRefreshView().zX(getString(R.string.search_major_no_data));
+        if (this.jXn != null && this.jXn.cPm() != null) {
+            this.jXn.d(errorData);
+            getRefreshView().qu(R.drawable.new_pic_emotion_07);
+            showNetRefreshViewNoClick(this.jXn.cPm().cPh(), null);
+            getRefreshView().Cn(getString(R.string.search_major_no_data));
         }
     }
 
-    public void ab(Intent intent) {
+    public void ad(Intent intent) {
         setResult(-1, intent);
         finish();
     }

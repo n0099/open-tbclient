@@ -1,29 +1,34 @@
 package com.baidu.ar.b.b;
-
-import java.util.HashMap;
 /* loaded from: classes11.dex */
-public abstract class b extends d {
-    public b(int i) {
-        super(i);
-        this.level = 2;
+public abstract class b extends com.baidu.ar.c.a<a> {
+    private int cD;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes11.dex */
+    public class a {
+        int cE;
+        int type;
+
+        a(int i, int i2) {
+            this.type = i;
+            this.cE = i2;
+        }
     }
 
-    public abstract HashMap aA();
+    public b(int i) {
+        this.cD = i;
+    }
 
-    @Override // com.baidu.ar.b.b.d
-    public void execute() {
-        if (com.baidu.ar.b.a.aq().d(this.cX)) {
-            final HashMap aA = aA();
-            com.baidu.ar.b.a.aq().b(new Runnable() { // from class: com.baidu.ar.b.b.b.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.baidu.ar.b.a.a aVar;
-                    if (b.this.cY == null || (aVar = b.this.cY.get()) == null) {
-                        return;
-                    }
-                    aVar.e(aA);
-                }
-            });
+    public abstract int a(com.baidu.ar.mdl.a aVar);
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.ar.c.a
+    /* renamed from: ay */
+    public a ax() {
+        int i = 0;
+        if (!com.baidu.ar.b.a.ar().b(this.cD) && (i = a(com.baidu.ar.b.a.ar().f(this.cD))) == 0) {
+            com.baidu.ar.b.a.ar().c(this.cD);
         }
+        return new a(this.cD, i);
     }
 }

@@ -8,31 +8,31 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface i {
-    void am(Context context, String str);
-
-    void an(Context context, String str);
-
-    void ao(Context context, String str);
-
-    void ap(Context context, String str);
-
     void aq(Context context, String str);
 
-    int bpt();
+    void ar(Context context, String str);
 
-    com.baidu.adp.lib.d.b<ImageView> bpu();
+    void as(Context context, String str);
 
-    com.baidu.adp.lib.d.b<TextView> bpv();
+    void at(Context context, String str);
 
-    com.baidu.adp.lib.d.b<GifView> bpw();
+    void au(Context context, String str);
 
-    com.baidu.adp.lib.d.b<View> bpx();
+    int byh();
 
-    com.baidu.adp.lib.d.b<LinearLayout> bpy();
+    com.baidu.adp.lib.d.b<ImageView> byi();
 
-    com.baidu.adp.lib.d.b<RelativeLayout> bpz();
+    com.baidu.adp.lib.d.b<TextView> byj();
+
+    com.baidu.adp.lib.d.b<GifView> byk();
+
+    com.baidu.adp.lib.d.b<View> byl();
+
+    com.baidu.adp.lib.d.b<LinearLayout> bym();
+
+    com.baidu.adp.lib.d.b<RelativeLayout> byn();
 
     void f(Context context, String str, boolean z);
 

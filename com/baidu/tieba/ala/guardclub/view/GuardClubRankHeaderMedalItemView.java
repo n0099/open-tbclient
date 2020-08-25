@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GuardClubRankHeaderMedalItemView extends LinearLayout {
-    private ImageView fRN;
-    private TextView fRO;
-    private TextView fRP;
+    private ImageView gdL;
+    private TextView gdM;
+    private TextView gdN;
 
     public GuardClubRankHeaderMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,16 +21,16 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setMedalResource(int i) {
-        this.fRN.setImageResource(i);
+        this.gdL.setImageResource(i);
     }
 
     public void setStyle(int i) {
         switch (i) {
             case 17:
-                this.fRP.setTextColor(-2856249);
+                this.gdN.setTextColor(-2856249);
                 return;
             case 18:
-                this.fRP.setTextColor(-3970070);
+                this.gdN.setTextColor(-3970070);
                 return;
             default:
                 return;
@@ -38,14 +38,14 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setData(int i, String str, String str2) {
-        this.fRO.setText(str);
-        this.fRP.setText(str2);
+        this.gdM.setText(str);
+        this.gdN.setText(str2);
         switch (i) {
             case 1:
-                this.fRO.setTextColor(-838860801);
+                this.gdM.setTextColor(-838860801);
                 return;
             case 2:
-                this.fRO.setTextColor(-1);
+                this.gdM.setTextColor(-1);
                 return;
             default:
                 return;
@@ -57,8 +57,8 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
         setGravity(1);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_rank_header_medal_item, (ViewGroup) this, true);
-        this.fRN = (ImageView) findViewById(a.g.iv_medal);
-        this.fRO = (TextView) findViewById(a.g.tv_name);
-        this.fRP = (TextView) findViewById(a.g.tv_value);
+        this.gdL = (ImageView) findViewById(a.g.iv_medal);
+        this.gdM = (TextView) findViewById(a.g.tv_name);
+        this.gdN = (TextView) findViewById(a.g.tv_value);
     }
 }

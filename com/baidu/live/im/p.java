@@ -10,13 +10,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class p {
-    public static List<a> a(com.baidu.d.a.b.a.c cVar) {
+    public static List<a> a(com.baidu.h.a.b.a.c cVar) {
         return a(cVar, false);
     }
 
-    public static List<a> a(com.baidu.d.a.b.a.c cVar, boolean z) {
+    public static List<a> a(com.baidu.h.a.b.a.c cVar, boolean z) {
         int i = JavaTypesHelper.toInt(cVar.type, 0);
         if (TbConfig.IM_LOG) {
             Log.i("imlog", "@.@ IM消息 接收: 消息类型：  " + i);
@@ -46,9 +46,9 @@ public class p {
         }
     }
 
-    private static final List<a> b(com.baidu.d.a.b.a.c cVar) {
-        int i = cVar.brc.brp;
-        String str = cVar.brc.brq;
+    private static final List<a> b(com.baidu.h.a.b.a.c cVar) {
+        int i = cVar.bwS.bxf;
+        String str = cVar.bwS.bxg;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -58,7 +58,7 @@ public class p {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.F(optJSONObject)) {
+                    if (aVar.H(optJSONObject)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -70,8 +70,8 @@ public class p {
         return null;
     }
 
-    private static final List<a> c(com.baidu.d.a.b.a.c cVar) {
-        String str = cVar.brd;
+    private static final List<a> c(com.baidu.h.a.b.a.c cVar) {
+        String str = cVar.bwT;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -81,7 +81,7 @@ public class p {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.F(optJSONObject)) {
+                    if (aVar.H(optJSONObject)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -106,8 +106,8 @@ public class p {
         return null;
     }
 
-    private static final List<a> d(com.baidu.d.a.b.a.c cVar) {
-        int i = cVar.brc.feedback;
+    private static final List<a> d(com.baidu.h.a.b.a.c cVar) {
+        int i = cVar.bwS.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -126,10 +126,10 @@ public class p {
         return arrayList;
     }
 
-    private static final List<a> e(com.baidu.d.a.b.a.c cVar) {
+    private static final List<a> e(com.baidu.h.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.brc != null) {
-            String str = cVar.brc.brr;
+        if (cVar != null && cVar.bwS != null) {
+            String str = cVar.bwS.bxh;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import org.apache.http.cookie.Cookie;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public interface CookieStore {
     void addCookie(Cookie cookie);
 

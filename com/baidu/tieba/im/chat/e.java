@@ -3,67 +3,67 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected long flq;
-    protected com.baidu.adp.lib.b.a iQD;
-    protected com.baidu.adp.lib.b.b iQE;
-    private boolean iQK;
-    private boolean iQL;
-    protected int iQM;
+    protected long fwM;
+    protected com.baidu.adp.lib.b.a jfA;
+    protected com.baidu.adp.lib.b.b jfB;
+    private boolean jfH;
+    private boolean jfI;
+    protected int jfJ;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ad.a aVar) {
+    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, af.a aVar) {
         return a(i, view, viewGroup, chatMessage, (a) ((a) aVar));
     }
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iQD = null;
-        this.iQE = null;
-        this.flq = 0L;
-        this.iQK = false;
-        this.iQL = false;
+        this.jfA = null;
+        this.jfB = null;
+        this.fwM = 0L;
+        this.jfH = false;
+        this.jfI = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.iQD = aVar;
+        this.jfA = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.iQE = bVar;
+        this.jfB = bVar;
     }
 
-    private void cqX() {
-        this.flq = System.currentTimeMillis() / 1000;
+    private void cBP() {
+        this.fwM = System.currentTimeMillis() / 1000;
     }
 
-    public boolean cqY() {
-        return this.iQK;
+    public boolean cBQ() {
+        return this.jfH;
     }
 
-    public void px(boolean z) {
-        this.iQK = z;
+    public void qd(boolean z) {
+        this.jfH = z;
     }
 
-    public boolean cqZ() {
-        return this.iQL;
+    public boolean cBR() {
+        return this.jfI;
     }
 
-    public void py(boolean z) {
-        this.iQL = z;
+    public void qe(boolean z) {
+        this.jfI = z;
     }
 
-    public void yq(int i) {
-        this.iQM = i;
+    public void AK(int i) {
+        this.jfJ = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,21 +71,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        cqX();
+        cBP();
         return view;
     }
 
-    /* loaded from: classes.dex */
-    public static class a<T> extends ad.a {
-        private T iQN;
+    /* loaded from: classes2.dex */
+    public static class a<T> extends af.a {
+        private T jfK;
 
         public a(View view, T t) {
             super(view);
-            this.iQN = t;
+            this.jfK = t;
         }
 
-        public T cra() {
-            return this.iQN;
+        public T cBS() {
+            return this.jfK;
         }
     }
 }

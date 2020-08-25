@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.tbadk.core.sharedPref.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BigdaySwitch extends a {
     public static final String BIGDAY_KEY = "android_bigday_switch";
     public static final int OFF_TYPE = 0;
@@ -24,7 +24,7 @@ public class BigdaySwitch extends a {
 
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected int getDefaultType() {
-        return b.aZP().getInt("key_bigday_sync_switch", 0);
+        return b.bik().getInt("key_bigday_sync_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

@@ -2,6 +2,7 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.net.URLDecoder;
@@ -78,11 +79,11 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b BA = b.BA(com.baidu.tieba.advert.sdk.c.a.btm());
-        if (TextUtils.isEmpty(BA.videoLocalPath)) {
+        b DU = b.DU(com.baidu.tieba.advert.sdk.c.a.bCh());
+        if (TextUtils.isEmpty(DU.videoLocalPath)) {
             return true;
         }
-        return TextUtils.isEmpty(BA.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !BA.adVideoUrl.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(DU.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !DU.adVideoUrl.equals(this.adVideoUrl);
     }
 
     public void parseFromJson(JSONObject jSONObject) {
@@ -97,7 +98,7 @@ public class AdInfo implements Serializable {
         if (jSONObject != null) {
             try {
                 JSONObject jSONObject7 = jSONObject.getJSONObject("res");
-                if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray("ad")) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
+                if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray(MapBundleKey.MapObjKey.OBJ_AD)) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
                     if (jSONObject3.has("advisible")) {
                         this.advisible = jSONObject3.getInt("advisible");
                     } else {

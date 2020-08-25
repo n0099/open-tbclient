@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class d<DispatcherT extends UnitedSchemeAbsDispatcher> {
     public final DispatcherT dispatcher;
     public final String name;

@@ -5,10 +5,10 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes15.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a.a<f>> {
-    private f hbm;
+    private f hod;
     private TbPageContext<?> mPageContext;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a<f> aVar) {
@@ -23,18 +23,18 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aK */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
-        this.hbm = new f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a(this.hbm);
+        this.hod = new f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a(this.hod);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.bSs() == null) {
+        if (aVar == null || aVar.ccE() == null) {
             return null;
         }
-        aVar.bSs().a(eVar);
+        aVar.ccE().a(eVar);
         return aVar.getView();
     }
 }

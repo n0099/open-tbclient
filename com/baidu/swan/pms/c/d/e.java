@@ -8,30 +8,30 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class e extends com.baidu.swan.pms.c.d.b {
     @WorkerThread
-    public e(List<b> list, @Nullable com.baidu.swan.pms.f.a aVar) {
+    public e(List<b> list, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super((List<? extends b.a>) list, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d.b
-    public void a(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, com.baidu.swan.pms.model.f> map2, @NonNull b.a aVar, @Nullable com.baidu.swan.pms.f.a aVar2) {
-        int us;
+    public void a(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, com.baidu.swan.pms.model.f> map2, @NonNull b.a aVar, @Nullable com.baidu.swan.pms.utils.a aVar2) {
+        int wB;
         super.a(map, map2, aVar, aVar2);
         if (aVar instanceof b) {
             b bVar = (b) aVar;
-            if (bVar.aEE() != null && bVar.aLT() == null && (us = com.baidu.swan.pms.database.a.aKS().us(bVar.getBundleId())) >= 0) {
-                bVar.ay(a.ax(com.baidu.swan.pms.database.a.aKS().aa(bVar.getBundleId(), us)));
+            if (bVar.aNs() != null && bVar.aUs() == null && (wB = com.baidu.swan.pms.database.a.aTt().wB(bVar.getBundleId())) >= 0) {
+                bVar.ay(a.ax(com.baidu.swan.pms.database.a.aTt().ac(bVar.getBundleId(), wB)));
             }
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public static class b extends b.a {
         @Nullable
-        private List<a> dxn;
+        private List<a> dGs;
         @Nullable
         private String[] mPaths;
 
@@ -40,36 +40,36 @@ public class e extends com.baidu.swan.pms.c.d.b {
         }
 
         @Nullable
-        public String[] aEE() {
+        public String[] aNs() {
             return this.mPaths;
         }
 
-        public void z(@Nullable String[] strArr) {
+        public void A(@Nullable String[] strArr) {
             this.mPaths = strArr;
         }
 
         @Nullable
-        public List<a> aLT() {
-            return this.dxn;
+        public List<a> aUs() {
+            return this.dGs;
         }
 
         public void ay(@Nullable List<a> list) {
-            this.dxn = list;
+            this.dGs = list;
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public static class a {
-        private final String dxm;
+        private final String dGr;
         private String mType;
-        private int mVersion = 0;
+        private long mVersion = 0;
 
         public a(String str) {
-            this.dxm = str;
+            this.dGr = str;
         }
 
-        public String aLS() {
-            return this.dxm;
+        public String aUr() {
+            return this.dGr;
         }
 
         public String getType() {
@@ -80,12 +80,12 @@ public class e extends com.baidu.swan.pms.c.d.b {
             this.mType = str;
         }
 
-        public int getVersion() {
+        public long getVersion() {
             return this.mVersion;
         }
 
-        public void setVersion(int i) {
-            this.mVersion = i;
+        public void cn(long j) {
+            this.mVersion = j;
         }
 
         @NonNull
@@ -96,9 +96,9 @@ public class e extends com.baidu.swan.pms.c.d.b {
             }
             for (com.baidu.swan.pms.model.g gVar : list) {
                 if (gVar != null) {
-                    a aVar = new a(gVar.dvZ);
-                    aVar.setType(gVar.dwl ? "independent" : "normal");
-                    aVar.setVersion(gVar.versionCode);
+                    a aVar = new a(gVar.dFj);
+                    aVar.setType(gVar.dFo ? "independent" : "normal");
+                    aVar.cn(gVar.versionCode);
                     arrayList.add(aVar);
                 }
             }

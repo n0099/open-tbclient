@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IVideoCompositeService extends IInterface {
     void abortConvert() throws RemoteException;
 
@@ -16,7 +16,7 @@ public interface IVideoCompositeService extends IInterface {
 
     void setIVideoConvertListener(IVideoConvertListener iVideoConvertListener) throws RemoteException;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IVideoCompositeService {
         private static final String DESCRIPTOR = "com.baidu.tieba.video.convert.IVideoCompositeService";
         static final int TRANSACTION_abortConvert = 2;
@@ -77,7 +77,7 @@ public interface IVideoCompositeService extends IInterface {
             }
         }
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         private static class Proxy implements IVideoCompositeService {
             private IBinder mRemote;
 

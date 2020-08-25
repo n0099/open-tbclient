@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
     private static final String TAG = "DartMessenger";
     @NonNull
@@ -99,7 +99,7 @@ public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
         return this.pendingReplies.size();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     private static class Reply implements BinaryMessenger.BinaryReply {
         private final AtomicBoolean done = new AtomicBoolean(false);
         @NonNull

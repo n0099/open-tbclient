@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.searchbox.ugc.utils.UgcUriUtils;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class ImageStruct implements Parcelable {
     public static final Parcelable.Creator<ImageStruct> CREATOR = new Parcelable.Creator<ImageStruct>() { // from class: com.baidu.searchbox.ugc.model.ImageStruct.1
         /* JADX DEBUG: Method merged with bridge method */

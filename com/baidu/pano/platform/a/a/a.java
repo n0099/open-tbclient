@@ -24,7 +24,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a implements com.baidu.pano.platform.a.i {
     protected static final boolean a = w.b;
     private static int d = 3000;

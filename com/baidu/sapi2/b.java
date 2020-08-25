@@ -1,129 +1,48 @@
 package com.baidu.sapi2;
-
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import java.util.Iterator;
-import java.util.Stack;
-/* loaded from: classes19.dex */
-public class b implements Application.ActivityLifecycleCallbacks {
-    private Stack<Activity> a;
-
-    /* loaded from: classes19.dex */
-    private static class a {
-        public static b a = new b();
-
-        private a() {
-        }
+/* loaded from: classes12.dex */
+final class b extends com.baidu.sapi2.share.a {
+    @Override // com.baidu.sapi2.share.a
+    protected String a(SapiAccount sapiAccount) {
+        return sapiAccount.extra;
     }
 
-    public static b b() {
-        return a.a;
+    @Override // com.baidu.sapi2.share.a
+    protected String b(SapiAccount sapiAccount) {
+        return sapiAccount.ptoken;
     }
 
-    public void a(Application application) {
-        application.registerActivityLifecycleCallbacks(this);
+    @Override // com.baidu.sapi2.share.a
+    protected void c(SapiAccount sapiAccount, String str) {
+        sapiAccount.ptoken = str;
     }
 
-    public boolean c(Activity activity) {
-        return this.a.remove(activity);
+    @Override // com.baidu.sapi2.share.a
+    protected void d(SapiAccount sapiAccount, String str) {
+        sapiAccount.stoken = str;
     }
 
-    public int d(Activity activity) {
-        return this.a.search(activity);
+    @Override // com.baidu.sapi2.share.a
+    protected void a(SapiAccount sapiAccount, SapiAccount sapiAccount2) {
+        sapiAccount.updateSession(sapiAccount2);
     }
 
-    public Activity e() {
-        if (this.a.isEmpty()) {
-            return null;
-        }
-        return this.a.lastElement();
+    @Override // com.baidu.sapi2.share.a
+    protected void b(SapiAccount sapiAccount, String str) {
+        sapiAccount.extra = str;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        a(activity);
+    @Override // com.baidu.sapi2.share.a
+    protected String c(SapiAccount sapiAccount) {
+        return sapiAccount.stoken;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        c(activity);
+    @Override // com.baidu.sapi2.share.a
+    protected void d(SapiAccount sapiAccount) {
+        sapiAccount.a();
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
-    }
-
-    private b() {
-        this.a = new Stack<>();
-    }
-
-    public void a(Activity activity) {
-        this.a.add(activity);
-    }
-
-    public void b(Application application) {
-        application.unregisterActivityLifecycleCallbacks(this);
-    }
-
-    public Activity c() {
-        if (this.a.isEmpty() || this.a.size() < 2) {
-            return null;
-        }
-        Stack<Activity> stack = this.a;
-        return stack.get(stack.size() - 2);
-    }
-
-    public Activity d() {
-        int size = this.a.size();
-        if (size < 2) {
-            return e();
-        }
-        for (int i = size - 1; i >= 0; i--) {
-            Activity activity = this.a.get(i);
-            if (activity != null && !activity.isFinishing()) {
-                return activity;
-            }
-        }
-        return null;
-    }
-
-    public void a(Class<Activity> cls) {
-        if (cls != null) {
-            Iterator<Activity> it = this.a.iterator();
-            while (it.hasNext()) {
-                Activity next = it.next();
-                if (next.getClass().equals(cls)) {
-                    it.remove();
-                    b(next);
-                }
-            }
-        }
-    }
-
-    public void b(Activity activity) {
-        this.a.pop().finish();
-    }
-
-    public void a() {
-        while (!this.a.isEmpty()) {
-            this.a.pop().finish();
-        }
+    @Override // com.baidu.sapi2.share.a
+    protected void a(SapiAccount sapiAccount, String str) {
+        sapiAccount.setAccountPkg(str);
     }
 }

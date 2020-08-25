@@ -25,12 +25,12 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public class Session {
-    long nic;
-    final q nis;
+    long nBU;
+    final q nCj;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     enum a {
         END_OF_LIST(0);
         
@@ -40,7 +40,7 @@ public class Session {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     enum b {
         SUCCESS(0, null),
         ERROR_INVALID_ARGUMENT(-1, IllegalArgumentException.class),
@@ -86,7 +86,7 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     static abstract class c {
         final int b;
         private final Class<?> h;
@@ -167,7 +167,7 @@ public class Session {
 
     native long[] nativeAcquireAllTrackables(long j, int i);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public enum Feature {
         FRONT_CAMERA(1),
         SHARED_CAMERA(1000);
@@ -180,9 +180,9 @@ public class Session {
     }
 
     protected void finalize() throws Throwable {
-        if (this.nic != 0) {
-            nativeDestroySession(this.nic);
-            this.nic = 0L;
+        if (this.nBU != 0) {
+            nativeDestroySession(this.nBU);
+            this.nBU = 0L;
         }
         super.finalize();
     }

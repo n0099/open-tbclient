@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes17.dex */
 public class l extends BaseAdapter {
-    private String[] iWp;
-    private GroupAddressEditActivity iWr;
+    private String[] jlo;
+    private GroupAddressEditActivity jlq;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.iWp = null;
-        this.iWr = null;
-        this.iWr = groupAddressEditActivity;
-        this.iWp = strArr;
+        this.jlo = null;
+        this.jlq = null;
+        this.jlq = groupAddressEditActivity;
+        this.jlo = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iWp != null) {
-            return this.iWp.length;
+        if (this.jlo != null) {
+            return this.jlo.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.iWp == null || i <= -1 || i >= this.iWp.length) ? "" : this.iWp[i];
+        return (this.jlo == null || i <= -1 || i >= this.jlo.length) ? "" : this.jlo[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,23 +38,23 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.iWr);
-            view = aVar.bCf();
+            aVar = new a(this.jlq);
+            view = aVar.bLz();
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.Hn(getItem(i).toString());
-        if (this.iWr.csK() == i) {
-            aVar.pI(true);
+        aVar.Kf(getItem(i).toString());
+        if (this.jlq.cDB() == i) {
+            aVar.qo(true);
         } else {
-            aVar.pI(false);
+            aVar.qo(false);
         }
-        cm(view);
+        co(view);
         return view;
     }
 
-    private void cm(View view) {
-        this.iWr.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iWr.getLayoutMode().onModeChanged(view);
+    private void co(View view) {
+        this.jlq.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jlq.getLayoutMode().onModeChanged(view);
     }
 }

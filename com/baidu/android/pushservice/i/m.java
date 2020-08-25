@@ -65,7 +65,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class m {
     public static int a = -1;
     private static final String[] b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};

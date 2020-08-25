@@ -19,13 +19,13 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.data.RedPktSendHttpResponseMessage;
 import com.baidu.tieba.ala.data.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
     private Activity activity;
-    private d fHC;
+    private d fST;
     private String liveId;
     private String roomId;
-    private HttpMessageListener fHD = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.c.c.1
+    private HttpMessageListener fSU = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.c.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class c {
                 return;
             }
             if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                com.baidu.live.m.a.a(c.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).fJR, ((RedPktSendHttpResponseMessage) httpResponsedMessage).fJS, "send_redpacket");
+                com.baidu.live.m.a.a(c.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).fVi, ((RedPktSendHttpResponseMessage) httpResponsedMessage).fVj, "send_redpacket");
                 c.this.activity.finish();
                 return;
             }
@@ -46,8 +46,8 @@ public class c {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(c.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (c.this.fHC != null) {
-                c.this.fHC.kC(true);
+            if (c.this.fST != null) {
+                c.this.fST.la(true);
             }
         }
     };
@@ -69,7 +69,7 @@ public class c {
     public c(Activity activity) {
         this.activity = activity;
         initView();
-        bzB();
+        bIE();
     }
 
     private void initView() {
@@ -78,10 +78,10 @@ public class c {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.fHC = new d(this.activity, this);
+        this.fST = new d(this.activity, this);
     }
 
-    private static void bzA() {
+    private static void bID() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -91,46 +91,46 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bzB() {
-        bzA();
-        MessageManager.getInstance().registerListener(this.fHD);
+    private void bIE() {
+        bID();
+        MessageManager.getInstance().registerListener(this.fSU);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1021159);
-        MessageManager.getInstance().unRegisterListener(this.fHD);
+        MessageManager.getInstance().unRegisterListener(this.fSU);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        if (this.fHC != null) {
-            return this.fHC.getView();
+        if (this.fST != null) {
+            return this.fST.getView();
         }
         return null;
     }
 
     public void a(p pVar) {
         if (pVar != null) {
-            pVar.eH(this.liveId);
-            pVar.fx(this.roomId);
+            pVar.gb(this.liveId);
+            pVar.gS(this.roomId);
             pVar.setParams();
             MessageManager.getInstance().sendMessage(pVar);
-            if (this.fHC != null) {
-                this.fHC.kC(false);
+            if (this.fST != null) {
+                this.fST.la(false);
             }
         }
     }
 
-    public void zN() {
-        if (this.fHC != null) {
-            this.fHC.zN();
+    public void Fq() {
+        if (this.fST != null) {
+            this.fST.Fq();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fHC != null) {
-            this.fHC.onKeyboardVisibilityChanged(z);
+        if (this.fST != null) {
+            this.fST.onKeyboardVisibilityChanged(z);
         }
     }
 }

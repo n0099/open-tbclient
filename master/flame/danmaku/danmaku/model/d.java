@@ -2,141 +2,141 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class d {
     public int index;
-    public boolean jVk;
-    public long obL;
-    public String[] obM;
-    public float obN;
-    public int obO;
-    public g obS;
-    public n<?> obX;
-    public boolean obY;
-    public String obZ;
+    public boolean kkG;
     public Object obj;
-    protected f obr;
-    public boolean oca;
-    public boolean ocg;
+    public long ovJ;
+    public String[] ovK;
+    public float ovL;
+    public int ovM;
+    public g ovQ;
+    public n<?> ovV;
+    public boolean ovW;
+    public String ovX;
+    public boolean ovY;
+    protected f ovp;
+    public boolean owe;
     public float rotationY;
     public Object tag;
     public CharSequence text;
     public int textColor;
     private long time;
     public int visibility;
-    public boolean obK = false;
+    public boolean ovI = false;
     public int underlineColor = 0;
-    public float bnP = -1.0f;
+    public float btB = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte obP = 0;
-    public float obQ = -1.0f;
-    public float obR = -1.0f;
-    private int obT = 0;
-    public int obU = 0;
-    public int obV = 0;
-    public int obW = -1;
+    public byte ovN = 0;
+    public float ovO = -1.0f;
+    public float ovP = -1.0f;
+    private int ovR = 0;
+    public int ovS = 0;
+    public int ovT = 0;
+    public int ovU = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int ocb = 0;
-    public int occ = -1;
-    public j ocd = null;
-    public int oce = 0;
-    public int ocf = -1;
+    public int ovZ = 0;
+    public int owa = -1;
+    public j owb = null;
+    public int owc = 0;
+    public int owd = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float dVA();
+    public abstract float ehD();
 
-    public abstract float dVB();
+    public abstract float ehE();
 
-    public abstract float dVC();
+    public abstract float ehF();
 
-    public abstract float dVD();
+    public abstract float ehG();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.obS.value;
+        return this.ovQ.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean dVu() {
-        return this.obQ > -1.0f && this.obR > -1.0f && this.obU == this.ocd.ocp;
+    public boolean ehw() {
+        return this.ovO > -1.0f && this.ovP > -1.0f && this.ovS == this.owb.own;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.obU = this.ocd.ocp;
+        this.ovS = this.owb.own;
     }
 
     public boolean isPrepared() {
-        return this.obW == this.ocd.ocv;
+        return this.ovU == this.owb.ows;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.obW = this.ocd.ocv;
+        this.ovU = this.owb.ows;
     }
 
-    public n<?> dVv() {
-        return this.obX;
+    public n<?> ehx() {
+        return this.ovV;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.obT == this.ocd.ocq;
+        return this.visibility == 1 && this.ovR == this.owb.owo;
     }
 
-    public boolean isTimeOut() {
-        return this.obr == null || gF(this.obr.och);
+    public boolean ehy() {
+        return this.ovp == null || gS(this.ovp.owf);
     }
 
-    public boolean gF(long j) {
-        return j - dVF() >= this.obS.value;
+    public boolean gS(long j) {
+        return j - ehI() >= this.ovQ.value;
     }
 
-    public boolean dVw() {
-        return this.obr == null || gG(this.obr.och);
+    public boolean ehz() {
+        return this.ovp == null || gT(this.ovp.owf);
     }
 
-    public boolean gG(long j) {
-        long dVF = j - dVF();
-        return dVF <= 0 || dVF >= this.obS.value;
+    public boolean gT(long j) {
+        long ehI = j - ehI();
+        return ehI <= 0 || ehI >= this.ovQ.value;
     }
 
-    public boolean dVx() {
-        return this.obr == null || this.obr.och < dVF();
+    public boolean ehA() {
+        return this.ovp == null || this.ovp.owf < ehI();
     }
 
-    public boolean dVy() {
-        if (this.occ != this.ocd.ocs) {
-            this.ocb = 0;
+    public boolean ehB() {
+        if (this.owa != this.owb.owp) {
+            this.ovZ = 0;
             return false;
         }
         return true;
     }
 
-    public boolean dVz() {
-        return this.occ == this.ocd.ocs && this.ocb != 0;
+    public boolean ehC() {
+        return this.owa == this.owb.owp && this.ovZ != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.obT = this.ocd.ocq;
+            this.ovR = this.owb.owo;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f dVE() {
-        return this.obr;
+    public f ehH() {
+        return this.ovp;
     }
 
     public void c(f fVar) {
-        this.obr = fVar;
+        this.ovp = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void gH(long j) {
-        this.obL = j;
-        this.obV = this.ocd.ocu;
+    public void gU(long j) {
+        this.ovJ = j;
+        this.ovT = this.owb.owr;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.obL = 0L;
+        this.ovJ = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long dVF() {
-        return (this.ocd == null || this.ocd.ocu != this.obV) ? this.time : this.time + this.obL;
+    public long ehI() {
+        return (this.owb == null || this.owb.owr != this.ovT) ? this.time : this.time + this.ovJ;
     }
 
-    public boolean dVG() {
-        if (this.ocd == null || this.ocd.ocu != this.obV) {
+    public boolean ehJ() {
+        if (this.owb == null || this.owb.owr != this.ovT) {
             return false;
         }
-        return this.ocg;
+        return this.owe;
     }
 }

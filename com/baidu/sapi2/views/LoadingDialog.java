@@ -6,12 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.g.a.a;
-/* loaded from: classes19.dex */
-public class LoadingDialog extends Dialog implements com.baidu.sapi2.c {
+import com.baidu.k.a.a;
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public class LoadingDialog extends Dialog implements NoProguard {
 
-    /* loaded from: classes19.dex */
-    public static class Builder implements com.baidu.sapi2.c {
+    /* loaded from: classes12.dex */
+    public static class Builder implements NoProguard {
         private Context a;
         private String b;
         private boolean c = true;
@@ -56,10 +57,6 @@ public class LoadingDialog extends Dialog implements com.baidu.sapi2.c {
             this.c = z;
             return this;
         }
-    }
-
-    public LoadingDialog(Context context) {
-        super(context);
     }
 
     public LoadingDialog(Context context, int i) {

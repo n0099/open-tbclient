@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class CroppedTrack extends AbstractTrack {
     static final /* synthetic */ boolean $assertionsDisabled;
     private int fromSample;

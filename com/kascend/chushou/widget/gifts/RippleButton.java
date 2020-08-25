@@ -28,7 +28,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
     private float i;
     private float j;
     private float k;
-    private View.OnClickListener nHj;
+    private View.OnClickListener obc;
 
     public RippleButton(@NonNull Context context) {
         this(context, null);
@@ -62,7 +62,7 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
-        this.nHj = onClickListener;
+        this.obc = onClickListener;
         this.g.setOnClickListener(this);
     }
 
@@ -98,8 +98,8 @@ public class RippleButton extends FrameLayout implements View.OnClickListener {
             }
         });
         ofFloat.start();
-        if (this.nHj != null) {
-            this.nHj.onClick(this);
+        if (this.obc != null) {
+            this.obc.onClick(this);
         }
     }
 

@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 class IconFontDrawable extends Drawable {
     private static final int DEFAULT_COLOR = -16777216;
     private Context mContext;

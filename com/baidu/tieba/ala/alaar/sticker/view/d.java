@@ -17,33 +17,31 @@ import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.ala.alaar.sticker.view.c;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d extends BaseAdapter {
-    private int avK;
-    private int fns;
-    private FuFaceItem fos;
-    private c.a fot;
-    private int fou;
+    private int aAM;
+    private int fyN;
+    private FuFaceItem fzP;
+    private c.b fzQ;
+    private int fzR;
     private Context mContext;
     private LinkedList<FuFaceItem> mList = new LinkedList<>();
-    private int foq = -1;
+    private int fzN = -1;
+    private int fzO = -1;
 
-    /* renamed from: for  reason: not valid java name */
-    private int f3for = -1;
-
-    public d(Context context, int i, c.a aVar) {
+    public d(Context context, int i, c.b bVar) {
         this.mContext = context;
-        this.fns = i;
-        this.fot = aVar;
-        if (this.fns == 1) {
-            this.avK = BdUtilHelper.dip2px(this.mContext, 110.0f);
-            this.fou = BdUtilHelper.dip2px(this.mContext, 75.0f);
-        } else if (this.fns == 2) {
-            this.avK = BdUtilHelper.dip2px(this.mContext, 170.0f);
-            this.fou = BdUtilHelper.dip2px(this.mContext, 72.0f);
-        } else if (this.fns == 3) {
-            this.avK = BdUtilHelper.dip2px(this.mContext, 60.0f);
-            this.fou = BdUtilHelper.dip2px(this.mContext, 60.0f);
+        this.fyN = i;
+        this.fzQ = bVar;
+        if (this.fyN == 1) {
+            this.aAM = BdUtilHelper.dip2px(this.mContext, 110.0f);
+            this.fzR = BdUtilHelper.dip2px(this.mContext, 75.0f);
+        } else if (this.fyN == 2) {
+            this.aAM = BdUtilHelper.dip2px(this.mContext, 170.0f);
+            this.fzR = BdUtilHelper.dip2px(this.mContext, 72.0f);
+        } else if (this.fyN == 3) {
+            this.aAM = BdUtilHelper.dip2px(this.mContext, 60.0f);
+            this.fzR = BdUtilHelper.dip2px(this.mContext, 60.0f);
         }
     }
 
@@ -62,7 +60,7 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qh */
+    /* renamed from: st */
     public FuFaceItem getItem(int i) {
         return (FuFaceItem) ListUtils.getItem(this.mList, i);
     }
@@ -77,11 +75,11 @@ public class d extends BaseAdapter {
         final g gVar;
         View view2;
         if (view == null) {
-            if (this.fns == 1) {
+            if (this.fyN == 1) {
                 View inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_sticker_pic_item_layout, (ViewGroup) null);
                 view2 = inflate;
                 gVar = new g(inflate);
-            } else if (this.fns == 2) {
+            } else if (this.fyN == 2) {
                 View inflate2 = LayoutInflater.from(this.mContext).inflate(a.h.ala_sticker_txt_item_layout, (ViewGroup) null);
                 view2 = inflate2;
                 gVar = new h(inflate2);
@@ -92,10 +90,10 @@ public class d extends BaseAdapter {
             }
             AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
             if (layoutParams == null) {
-                view2.setLayoutParams(new AbsListView.LayoutParams(this.avK, this.fou));
+                view2.setLayoutParams(new AbsListView.LayoutParams(this.aAM, this.fzR));
             } else {
-                layoutParams.width = this.avK;
-                layoutParams.height = this.fou;
+                layoutParams.width = this.aAM;
+                layoutParams.height = this.fzR;
             }
             view2.setTag(gVar);
         } else {
@@ -105,17 +103,17 @@ public class d extends BaseAdapter {
         view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
-                if (d.this.fot != null && !d.this.fot.bvT()) {
+                if (d.this.fzQ != null && !d.this.fzQ.bEO()) {
                     BdUtilHelper.showToast(d.this.mContext, a.i.txt_punish_sticker_using);
                 } else if ((gVar instanceof g) || (gVar instanceof h)) {
-                    if (d.this.fot != null) {
-                        d.this.fot.a(d.this.getItem(i), d.this.getItem(i).getFilePath());
+                    if (d.this.fzQ != null) {
+                        d.this.fzQ.a(d.this.getItem(i), d.this.getItem(i).getFilePath());
                     }
-                    d.this.foq = i;
+                    d.this.fzN = i;
                     d.this.notifyDataSetChanged();
                 } else if (i != 0 || !d.this.getItem(i).isCancelItem) {
-                    d.this.fos = null;
-                    if (i != d.this.foq) {
+                    d.this.fzP = null;
+                    if (i != d.this.fzN) {
                         d.this.a(d.this.getItem(i), i, (f) gVar);
                     }
                 } else {
@@ -125,31 +123,31 @@ public class d extends BaseAdapter {
         });
         gVar.d(getItem(i));
         if ((gVar instanceof g) || (gVar instanceof h)) {
-            if (this.foq == i) {
-                gVar.fpr.setVisibility(0);
+            if (this.fzN == i) {
+                gVar.fAO.setVisibility(0);
             } else {
-                gVar.fpr.setVisibility(4);
+                gVar.fAO.setVisibility(4);
             }
-        } else if (i != 0 && this.foq == i && this.fos == null) {
-            gVar.fpr.setVisibility(0);
+        } else if (i != 0 && this.fzN == i && this.fzP == null) {
+            gVar.fAO.setVisibility(0);
         } else {
-            gVar.fpr.setVisibility(4);
+            gVar.fAO.setVisibility(4);
         }
         return view2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(FuFaceItem fuFaceItem, int i, f fVar) {
-        this.f3for = i;
+        this.fzO = i;
         if (fuFaceItem.isResLoaded()) {
-            if (this.fot != null) {
-                this.fot.a(fuFaceItem, fuFaceItem.getFilePath());
+            if (this.fzQ != null) {
+                this.fzQ.a(fuFaceItem, fuFaceItem.getFilePath());
             }
-            this.foq = i;
+            this.fzN = i;
             notifyDataSetChanged();
-        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bvx().isRunning(fuFaceItem.file)) {
-            if (this.fot != null) {
-                this.fot.bvU();
+        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bEs().isRunning(fuFaceItem.file)) {
+            if (this.fzQ != null) {
+                this.fzQ.bEP();
             }
             a(fuFaceItem, fVar, i);
         }
@@ -163,27 +161,27 @@ public class d extends BaseAdapter {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.g.a
                 /* renamed from: b */
-                public void av(FuFaceItem fuFaceItem2) {
+                public void ax(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onStarted:" + fuFaceItem2.name);
                     if (fVar != null) {
-                        fVar.startLoadingAnim();
+                        fVar.bFb();
                     }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.g.a
                 /* renamed from: c */
-                public void aw(FuFaceItem fuFaceItem2) {
+                public void ay(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onCompleted:" + fuFaceItem2.name);
-                    if (d.this.fot == null || d.this.fot.bvT()) {
-                        if (d.this.f3for != i) {
+                    if (d.this.fzQ == null || d.this.fzQ.bEO()) {
+                        if (d.this.fzO != i) {
                             d.this.notifyDataSetChanged();
                             return;
                         }
-                        d.this.foq = i;
+                        d.this.fzN = i;
                         d.this.notifyDataSetChanged();
-                        if (d.this.fot != null) {
-                            d.this.fot.a(fuFaceItem, fuFaceItem2.getFilePath());
+                        if (d.this.fzQ != null) {
+                            d.this.fzQ.a(fuFaceItem, fuFaceItem2.getFilePath());
                             return;
                         }
                         return;
@@ -202,12 +200,12 @@ public class d extends BaseAdapter {
     }
 
     public void a(boolean z, FuFaceItem fuFaceItem) {
-        this.fos = null;
-        this.foq = -1;
-        this.f3for = -1;
+        this.fzP = null;
+        this.fzN = -1;
+        this.fzO = -1;
         notifyDataSetChanged();
-        if (z && this.fot != null) {
-            this.fot.a(fuFaceItem, "none");
+        if (z && this.fzQ != null) {
+            this.fzQ.a(fuFaceItem, "none");
         }
     }
 }

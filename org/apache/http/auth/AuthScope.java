@@ -1,6 +1,6 @@
 package org.apache.http.auth;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class AuthScope {
     public static final int ANY_PORT = -1;
     public static final AuthScope ANY = null;

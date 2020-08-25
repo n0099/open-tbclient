@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class TrainInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<TrainInfo> CREATOR = new n();
     private double a;

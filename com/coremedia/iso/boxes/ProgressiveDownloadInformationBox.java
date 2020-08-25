@@ -11,12 +11,12 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ProgressiveDownloadInformationBox extends AbstractFullBox {
     public static final String TYPE = "pdin";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     List<Entry> entries;
 
     static {
@@ -25,9 +25,9 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ProgressiveDownloadInformationBox.java", ProgressiveDownloadInformationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.ProgressiveDownloadInformationBox", "", "", "", "java.util.List"), 38);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.ProgressiveDownloadInformationBox", "java.util.List", "entries", "", "void"), 42);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.ProgressiveDownloadInformationBox", "", "", "", FieldUtil.TYPE_STRING), 112);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.coremedia.iso.boxes.ProgressiveDownloadInformationBox", "", "", "", "java.util.List"), 38);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.coremedia.iso.boxes.ProgressiveDownloadInformationBox", "java.util.List", "entries", "", "void"), 42);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.ProgressiveDownloadInformationBox", "", "", "", FieldUtil.TYPE_STRING), 112);
     }
 
     public ProgressiveDownloadInformationBox() {
@@ -68,7 +68,7 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         long initialDelay;
         long rate;

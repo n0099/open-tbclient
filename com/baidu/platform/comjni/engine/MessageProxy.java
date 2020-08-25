@@ -1,0 +1,65 @@
+package com.baidu.platform.comjni.engine;
+
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.util.SparseArray;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes20.dex */
+public class MessageProxy {
+    private static final SparseArray<List<Handler>> a = new SparseArray<>();
+
+    public static void destroy() {
+        int size = a.size();
+        for (int i = 0; i < size; i++) {
+            List<Handler> list = a.get(a.keyAt(i));
+            if (list != null) {
+                list.clear();
+            }
+        }
+        a.clear();
+    }
+
+    public static void dispatchMessage(int i, int i2, int i3, long j) {
+        if (i == 2000 || i == 2008 || i == 4099) {
+            Log.d("BaseEngine", "Msg Receive, what: " + i);
+        }
+        synchronized (a) {
+            List<Handler> list = a.get(i);
+            if (list != null && !list.isEmpty()) {
+                for (Handler handler : list) {
+                    Message.obtain(handler, i, i2, i3, Long.valueOf(j)).sendToTarget();
+                }
+            }
+        }
+    }
+
+    public static void registerMessageHandler(int i, Handler handler) {
+        if (handler == null) {
+            return;
+        }
+        synchronized (a) {
+            List<Handler> list = a.get(i);
+            if (list == null) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(handler);
+                a.put(i, arrayList);
+            } else if (!list.contains(handler)) {
+                list.add(handler);
+            }
+        }
+    }
+
+    public static void unRegisterMessageHandler(int i, Handler handler) {
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            synchronized (a) {
+                List<Handler> list = a.get(i);
+                if (list != null) {
+                    list.remove(handler);
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AdTbWebViewActivityConfig extends WebViewActivityConfig {
     public AdTbWebViewActivityConfig(Context context, String str, String str2, boolean z) {
         super(context, str, str2, z);

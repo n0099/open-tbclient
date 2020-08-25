@@ -3,13 +3,12 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VersionData implements Serializable {
     private static final int FORCE_UPDATE = 1;
     private static final int HAS_NEW_VERSION = 1;
@@ -39,9 +38,9 @@ public class VersionData implements Serializable {
                 this.forceUpdate = jSONObject.optInt("force_update", 0);
                 this.strategy = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY, 0);
                 this.newVer = jSONObject.optString("new_version", null);
-                this.size = jSONObject.optString(TiebaInitialize.LogFields.SIZE, null);
+                this.size = jSONObject.optString("size", null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!as.isEmpty(optString)) {
+                if (!at.isEmpty(optString)) {
                     this.newVer = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");

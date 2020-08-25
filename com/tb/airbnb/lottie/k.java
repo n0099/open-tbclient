@@ -2,7 +2,7 @@ package com.tb.airbnb.lottie;
 
 import android.support.annotation.Nullable;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class k<V> {
     @Nullable
     private final Throwable exception;
@@ -25,7 +25,7 @@ public final class k<V> {
     }
 
     @Nullable
-    public Throwable hl() {
+    public Throwable iM() {
         return this.exception;
     }
 
@@ -36,10 +36,10 @@ public final class k<V> {
         if (obj instanceof k) {
             k kVar = (k) obj;
             if (getValue() == null || !getValue().equals(kVar.getValue())) {
-                if (hl() == null || kVar.hl() == null) {
+                if (iM() == null || kVar.iM() == null) {
                     return false;
                 }
-                return hl().toString().equals(hl().toString());
+                return iM().toString().equals(iM().toString());
             }
             return true;
         }
@@ -47,6 +47,6 @@ public final class k<V> {
     }
 
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{getValue(), hl()});
+        return Arrays.hashCode(new Object[]{getValue(), iM()});
     }
 }

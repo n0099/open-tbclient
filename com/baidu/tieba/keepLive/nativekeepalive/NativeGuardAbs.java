@@ -2,7 +2,7 @@ package com.baidu.tieba.keepLive.nativekeepalive;
 
 import android.content.Context;
 import com.baidu.tieba.keepLive.nativekeepalive.IGuard;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NativeGuardAbs {
     protected Context mContext;
 

@@ -6,76 +6,77 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.k.h;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
-    protected String eKO;
-    protected LinearLayout ftw;
-    private h ftx;
-    protected String ftz;
+    protected String eVt;
+    protected LinearLayout fEP;
+    private h fEQ;
+    protected String fES;
     protected Context mContext;
-    protected boolean fsR = false;
-    protected boolean fty = false;
-    protected CustomMessageListener ftA = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
+    public final String fEO = "c13008";
+    protected boolean fEl = false;
+    protected boolean fER = false;
+    protected CustomMessageListener fET = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.fty = false;
+                LiveTabBaseSubFragment.this.fER = false;
             }
         }
     };
 
-    public abstract void IH();
+    public abstract void OA();
 
-    public abstract void bxd();
+    public abstract void bGc();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bxb() {
-        this.ftw.setVisibility(0);
-        if (this.ftx == null) {
-            this.ftx = new h(this.mContext, null);
+    public void bGa() {
+        this.fEP.setVisibility(0);
+        if (this.fEQ == null) {
+            this.fEQ = new h(this.mContext, null);
         }
-        this.ftx.hideRefreshButton();
-        this.ftx.oi(R.drawable.new_pic_emotion_03);
-        this.ftx.zX(this.mContext.getResources().getString(R.string.no_data_common_txt));
-        this.ftx.onChangeSkinType();
+        this.fEQ.hideRefreshButton();
+        this.fEQ.qt(R.drawable.new_pic_emotion_03);
+        this.fEQ.Cn(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.fEQ.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.ftx.getAttachedView() != null && this.ftx.getAttachedView().getParent() == null) {
-            this.ftw.addView(this.ftx.getAttachedView(), layoutParams);
+        if (this.fEQ.getAttachedView() != null && this.fEQ.getAttachedView().getParent() == null) {
+            this.fEP.addView(this.fEQ.getAttachedView(), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideEmptyView() {
-        this.ftw.setVisibility(8);
+        this.fEP.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bxc() {
+    public void bGb() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-        this.fty = true;
+        this.fER = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ftx != null) {
-            this.ftx.onChangeSkinType();
+        if (this.fEQ != null) {
+            this.fEQ.onChangeSkinType();
         }
     }
 
-    public void dC(String str, String str2) {
-        this.eKO = str;
-        this.ftz = str2;
+    public void dS(String str, String str2) {
+        this.eVt = str;
+        this.fES = str2;
     }
 
-    public boolean aTV() {
-        return (as.isEmpty(this.eKO) || as.isEmpty(this.ftz)) ? false : true;
+    public boolean bcm() {
+        return (at.isEmpty(this.eVt) || at.isEmpty(this.fES)) ? false : true;
     }
 }

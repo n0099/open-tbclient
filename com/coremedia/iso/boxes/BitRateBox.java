@@ -7,15 +7,15 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public final class BitRateBox extends AbstractBox {
     public static final String TYPE = "btrt";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
     private long avgBitrate;
     private long bufferSizeDb;
     private long maxBitrate;
@@ -26,12 +26,12 @@ public final class BitRateBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("BitRateBox.java", BitRateBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 74);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 74);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
     }
 
     public BitRateBox() {
@@ -63,7 +63,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setBufferSizeDb(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gY(j)));
         this.bufferSizeDb = j;
     }
 
@@ -73,7 +73,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setMaxBitrate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.gY(j)));
         this.maxBitrate = j;
     }
 
@@ -83,7 +83,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setAvgBitrate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.gY(j)));
         this.avgBitrate = j;
     }
 }

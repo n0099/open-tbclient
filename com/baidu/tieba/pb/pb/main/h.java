@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class h extends o<com.baidu.tbadk.core.data.n, i> {
     private int from;
-    private com.baidu.tieba.pb.data.f kli;
-    private boolean klj;
+    private com.baidu.tieba.pb.data.f kAA;
+    private boolean kAB;
 
     public h(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
@@ -22,9 +22,9 @@ public class h extends o<com.baidu.tbadk.core.data.n, i> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ce */
+    /* renamed from: ca */
     public i b(ViewGroup viewGroup) {
-        i iVar = new i(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.kmE.cNt());
+        i iVar = new i(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.kBW.cYi());
         a(iVar);
         return iVar;
     }
@@ -33,16 +33,16 @@ public class h extends o<com.baidu.tbadk.core.data.n, i> {
         if (iVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (iVar.mSkinType != skinType) {
-                com.baidu.tbadk.core.util.ao.setBackgroundColor(iVar.ipt, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.ao.setBackgroundColor(iVar.klu, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.ao.setViewTextColor(iVar.klw, R.color.cp_link_tip_a, 1, skinType);
-                com.baidu.tbadk.core.util.ao.setViewTextColor(iVar.aTu, R.color.cp_cont_b, 1, skinType);
-                iVar.ixr.setImageDrawable(SvgManager.baR().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-                com.baidu.tbadk.core.util.ao.setViewTextColor(iVar.kls, R.color.cp_cont_a, 1, skinType);
-                com.baidu.tbadk.core.util.ao.setViewTextColor(iVar.klx, R.color.cp_cont_d, 1, skinType);
-                com.baidu.tbadk.core.util.ao.setViewTextColor(iVar.kly, R.color.cp_cont_d, 1, skinType);
-                com.baidu.tbadk.core.util.ao.b(iVar.jAo, R.color.cp_bg_line_e, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.e.a.bbr().ma(0).i(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).mf(com.baidu.adp.lib.util.l.getDimens(this.kmE.cNt(), R.dimen.tbds10)).aX(iVar.klq);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(iVar.iDx, R.color.cp_bg_line_c, skinType);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(iVar.kAM, R.color.cp_bg_line_c, skinType);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(iVar.kAO, R.color.cp_link_tip_a, 1, skinType);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(iVar.aYI, R.color.cp_cont_b, 1, skinType);
+                iVar.iMc.setImageDrawable(SvgManager.bjq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+                com.baidu.tbadk.core.util.ap.setViewTextColor(iVar.kAK, R.color.cp_cont_a, 1, skinType);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(iVar.kAP, R.color.cp_cont_d, 1, skinType);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(iVar.kAQ, R.color.cp_cont_d, 1, skinType);
+                com.baidu.tbadk.core.util.ap.b(iVar.jPI, R.color.cp_bg_line_e, R.color.cp_bg_line_c, skinType);
+                com.baidu.tbadk.core.util.e.a.bjQ().oe(0).i(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).oj(com.baidu.adp.lib.util.l.getDimens(this.kBW.cYi(), R.dimen.tbds10)).aZ(iVar.kAI);
             }
             iVar.mSkinType = skinType;
         }
@@ -60,12 +60,12 @@ public class h extends o<com.baidu.tbadk.core.data.n, i> {
         a(iVar);
         iVar.a(nVar);
         iVar.setBjhFrom(this.from);
-        iVar.sg(this.klj);
-        if (this.kli != null) {
-            iVar.Kx(this.kli.getThreadId());
-            iVar.sh(this.kli.cKX());
-            if (this.kli.cKx() != null && this.kli.cKx().getBaijiahaoData() != null) {
-                iVar.setNid(this.kli.cKx().getBaijiahaoData().oriUgcNid);
+        iVar.sN(this.kAB);
+        if (this.kAA != null) {
+            iVar.Nq(this.kAA.getThreadId());
+            iVar.sO(this.kAA.cVL());
+            if (this.kAA.cVl() != null && this.kAA.cVl().getBaijiahaoData() != null) {
+                iVar.setNid(this.kAA.cVl().getBaijiahaoData().oriUgcNid);
             }
             if (this.from == 2) {
                 i2 = 1;
@@ -73,30 +73,30 @@ public class h extends o<com.baidu.tbadk.core.data.n, i> {
                 i2 = this.from == 3 ? 3 : 4;
             }
             if (nVar.threadType == 40) {
-                com.baidu.tbadk.core.util.ap.xP("c13536").dn("tid", nVar.getTid()).t("fid", nVar.getFid()).ah("obj_source", i2).ah("obj_locate", nVar.getFloorNum()).dn("obj_id", this.kli.getThreadId()).ah("obj_type", nVar.aYf() ? 1 : 0).baO();
+                com.baidu.tbadk.core.util.aq.Ad("c13536").dD("tid", nVar.getTid()).u("fid", nVar.getFid()).ai("obj_source", i2).ai("obj_locate", nVar.getFloorNum()).dD("obj_id", this.kAA.getThreadId()).ai("obj_type", nVar.bgy() ? 1 : 0).bjn();
             } else {
-                com.baidu.tbadk.core.util.ap.xP("c13533").dn("tid", nVar.getTid()).t("fid", nVar.getFid()).ah("obj_source", i2).ah("obj_locate", nVar.getFloorNum()).dn("obj_id", this.kli.getThreadId()).baO();
+                com.baidu.tbadk.core.util.aq.Ad("c13533").dD("tid", nVar.getTid()).u("fid", nVar.getFid()).ai("obj_source", i2).ai("obj_locate", nVar.getFloorNum()).dD("obj_id", this.kAA.getThreadId()).bjn();
             }
-            if (this.kli.cKX()) {
-                com.baidu.tbadk.core.util.ap apVar = new com.baidu.tbadk.core.util.ap("c13588");
-                if (nVar.aXZ() != null) {
-                    apVar.dn("fid", nVar.aXZ().getForumId());
+            if (this.kAA.cVL()) {
+                com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13588");
+                if (nVar.bgs() != null) {
+                    aqVar.dD("fid", nVar.bgs().getForumId());
                 }
-                apVar.dn("tid", nVar.getTid());
-                apVar.dn("obj_param1", nVar.mRecomWeight);
-                apVar.dn("obj_source", nVar.mRecomSource);
-                apVar.ah("obj_locate", nVar.getFloorNum());
-                apVar.t(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-                apVar.dn("obj_id", this.kli.getThreadId());
-                apVar.dn("uid", TbadkCoreApplication.getCurrentAccount());
-                if (nVar.aTN().getBaijiahaoData() != null) {
-                    apVar.dn("obj_param4", nVar.aTN().getBaijiahaoData().oriUgcNid);
-                    apVar.dn("obj_param5", nVar.aTN().getBaijiahaoData().oriUgcVid);
+                aqVar.dD("tid", nVar.getTid());
+                aqVar.dD("obj_param1", nVar.mRecomWeight);
+                aqVar.dD("obj_source", nVar.mRecomSource);
+                aqVar.ai("obj_locate", nVar.getFloorNum());
+                aqVar.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
+                aqVar.dD("obj_id", this.kAA.getThreadId());
+                aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                if (nVar.bce().getBaijiahaoData() != null) {
+                    aqVar.dD("obj_param4", nVar.bce().getBaijiahaoData().oriUgcNid);
+                    aqVar.dD("obj_param5", nVar.bce().getBaijiahaoData().oriUgcVid);
                 }
-                apVar.ah("obj_param6", nVar.aYl());
-                apVar.dn("ab_tag", nVar.mRecomAbTag);
-                apVar.dn("extra", nVar.mRecomExtra);
-                TiebaStatic.log(apVar);
+                aqVar.ai("obj_param6", nVar.bgE());
+                aqVar.dD("ab_tag", nVar.mRecomAbTag);
+                aqVar.dD("extra", nVar.mRecomExtra);
+                TiebaStatic.log(aqVar);
                 return view;
             }
             return view;
@@ -105,14 +105,14 @@ public class h extends o<com.baidu.tbadk.core.data.n, i> {
     }
 
     public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.kli = fVar;
+        this.kAA = fVar;
     }
 
     public void setFrom(int i) {
         this.from = i;
     }
 
-    public void sg(boolean z) {
-        this.klj = z;
+    public void sN(boolean z) {
+        this.kAB = z;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class EventAnalysis {
     private Map<String, a> a = new HashMap();
 
@@ -80,7 +80,7 @@ public class EventAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         String a;
         String b;
@@ -116,7 +116,7 @@ public class EventAnalysis {
                 jSONObject2.put(Config.EVENT_H5_VIEW_HIERARCHY, str8);
             }
             jSONObject2.put("p", str4);
-            jSONObject2.put(Config.EVENT_H5_PAGE, str5);
+            jSONObject2.put("p2", str5);
             jSONObject2.put("rn", str6);
             jSONObject2.put("v", i2);
             jSONObject2.put("at", i3);
@@ -197,7 +197,7 @@ public class EventAnalysis {
                 str2 = jSONObject.optString(Config.EVENT_H5_VIEW_HIERARCHY);
             }
             String optString3 = jSONObject.optString("p");
-            String optString4 = jSONObject.optString(Config.EVENT_H5_PAGE);
+            String optString4 = jSONObject.optString("p2");
             String optString5 = jSONObject.optString("rn");
             int optInt2 = jSONObject.optInt("v");
             String optString6 = jSONObject.optString("ext");
@@ -254,7 +254,7 @@ public class EventAnalysis {
                 }
                 String optString = jSONObject2.optString("h");
                 String optString2 = jSONObject2.optString("p");
-                String optString3 = jSONObject2.optString(Config.EVENT_H5_PAGE);
+                String optString3 = jSONObject2.optString("p2");
                 String optString4 = jSONObject2.optString("rn");
                 int optInt = jSONObject2.optInt("v");
                 int optInt2 = jSONObject2.optInt("at");

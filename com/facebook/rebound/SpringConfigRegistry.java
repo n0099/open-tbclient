@@ -3,7 +3,7 @@ package com.facebook.rebound;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SpringConfigRegistry {
     private static final SpringConfigRegistry INSTANCE = new SpringConfigRegistry(true);
     private final Map<SpringConfig, String> mSpringConfigMap = new HashMap();

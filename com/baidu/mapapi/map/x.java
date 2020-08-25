@@ -1,25 +1,35 @@
 package com.baidu.mapapi.map;
 
 import android.view.View;
-import com.baidu.mapsdkplatform.comapi.map.ab;
+import com.baidu.mapapi.map.SwipeDismissTouchListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ WearMapView a;
+/* loaded from: classes20.dex */
+public class x implements SwipeDismissTouchListener.DismissCallbacks {
+    final /* synthetic */ SwipeDismissView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(WearMapView wearMapView) {
-        this.a = wearMapView;
+    public x(SwipeDismissView swipeDismissView) {
+        this.a = swipeDismissView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
-        com.baidu.mapsdkplatform.comapi.map.j jVar2;
-        jVar = this.a.e;
-        ab E = jVar.a().E();
-        E.a -= 1.0f;
-        jVar2 = this.a.e;
-        jVar2.a().a(E, 300);
+    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
+    public boolean canDismiss(Object obj) {
+        return true;
+    }
+
+    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
+    public void onDismiss(View view, Object obj) {
+        if (this.a.a == null) {
+            return;
+        }
+        this.a.a.onDismiss();
+    }
+
+    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
+    public void onNotify() {
+        if (this.a.a == null) {
+            return;
+        }
+        this.a.a.onNotify();
     }
 }

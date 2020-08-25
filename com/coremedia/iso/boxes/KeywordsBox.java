@@ -10,14 +10,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class KeywordsBox extends AbstractFullBox {
     public static final String TYPE = "kywd";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
     private String[] keywords;
     private String language;
 
@@ -27,11 +27,11 @@ public class KeywordsBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("KeywordsBox.java", KeywordsBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.KeywordsBox", "", "", "", FieldUtil.TYPE_STRING), 40);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getKeywords", "com.coremedia.iso.boxes.KeywordsBox", "", "", "", "[Ljava.lang.String;"), 44);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.KeywordsBox", FieldUtil.TYPE_STRING, "language", "", "void"), 48);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setKeywords", "com.coremedia.iso.boxes.KeywordsBox", "[Ljava.lang.String;", "keywords", "", "void"), 52);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.KeywordsBox", "", "", "", FieldUtil.TYPE_STRING), 87);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.KeywordsBox", "", "", "", FieldUtil.TYPE_STRING), 40);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getKeywords", "com.coremedia.iso.boxes.KeywordsBox", "", "", "", "[Ljava.lang.String;"), 44);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.KeywordsBox", FieldUtil.TYPE_STRING, "language", "", "void"), 48);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setKeywords", "com.coremedia.iso.boxes.KeywordsBox", "[Ljava.lang.String;", "keywords", "", "void"), 52);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.KeywordsBox", "", "", "", FieldUtil.TYPE_STRING), 87);
     }
 
     public KeywordsBox() {

@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j {
-    public static void xA(String str) {
+    public static void zO(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -41,13 +41,13 @@ public class j {
             }
         }
         if (i > 0) {
-            ap apVar = new ap(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            apVar.ah("obj_param1", i);
-            TiebaStatic.log(apVar);
+            aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            aqVar.ai("obj_param1", i);
+            TiebaStatic.log(aqVar);
         }
     }
 
-    public static void bad() {
+    public static void biy() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -66,10 +66,10 @@ public class j {
                             try {
                                 mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.close(cursor);
-                                ap apVar = new ap(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                apVar.dn("uid", TbadkCoreApplication.getCurrentAccount());
-                                apVar.ah("obj_param1", i);
-                                TiebaStatic.log(apVar);
+                                aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                                aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                                aqVar.ai("obj_param1", i);
+                                TiebaStatic.log(aqVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.close(cursor);
                                 throw th3;
@@ -82,10 +82,10 @@ public class j {
                     th = th4;
                     i = 0;
                 }
-                ap apVar2 = new ap(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                apVar2.dn("uid", TbadkCoreApplication.getCurrentAccount());
-                apVar2.ah("obj_param1", i);
-                TiebaStatic.log(apVar2);
+                aq aqVar2 = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                aqVar2.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                aqVar2.ai("obj_param1", i);
+                TiebaStatic.log(aqVar2);
             }
         }).start();
     }

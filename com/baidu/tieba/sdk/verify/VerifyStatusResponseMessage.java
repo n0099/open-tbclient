@@ -3,7 +3,7 @@ package com.baidu.tieba.sdk.verify;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.sapi2.views.SmsLoginView;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VerifyStatusResponseMessage extends JsonHttpResponsedMessage {
     private int verifyStatus;
 

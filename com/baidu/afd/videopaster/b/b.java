@@ -4,57 +4,57 @@ import android.support.annotation.NonNull;
 /* loaded from: classes15.dex */
 public class b {
     public void e(@NonNull a aVar) {
-        aVar.Yv = 3;
+        aVar.Za = 3;
         com.baidu.afd.videopaster.b.a(aVar);
         if (n(aVar)) {
-            aVar.Yv = 31;
+            aVar.Za = 31;
             com.baidu.afd.videopaster.b.c(aVar);
         }
     }
 
     public void f(@NonNull a aVar) {
         if (n(aVar)) {
-            aVar.Yv = 32;
+            aVar.Za = 32;
             com.baidu.afd.videopaster.b.d(aVar);
         }
     }
 
     public void g(@NonNull a aVar) {
         if (n(aVar)) {
-            aVar.Yv = 33;
+            aVar.Za = 33;
             com.baidu.afd.videopaster.b.d(aVar);
         }
     }
 
     public void h(@NonNull a aVar) {
         if (n(aVar)) {
-            aVar.Yv = 34;
+            aVar.Za = 34;
             com.baidu.afd.videopaster.b.d(aVar);
         }
     }
 
     public void i(@NonNull a aVar) {
-        aVar.Yv = 5;
+        aVar.Za = 5;
         com.baidu.afd.videopaster.b.b(aVar);
     }
 
     public void j(@NonNull a aVar) {
-        aVar.Yv = 2;
+        aVar.Za = 2;
         com.baidu.afd.videopaster.b.a(aVar, "image");
     }
 
     public void k(@NonNull a aVar) {
-        aVar.Yv = 2;
+        aVar.Za = 2;
         com.baidu.afd.videopaster.b.a(aVar, "title");
     }
 
     public void l(@NonNull a aVar) {
-        aVar.Yv = 2;
+        aVar.Za = 2;
         com.baidu.afd.videopaster.b.a(aVar, "button");
     }
 
     public void b(@NonNull a aVar, int i) {
-        aVar.Yv = 7;
+        aVar.Za = 7;
         com.baidu.afd.videopaster.b.a(aVar, i);
     }
 
@@ -66,6 +66,6 @@ public class b {
     }
 
     private boolean n(@NonNull a aVar) {
-        return aVar.YD == 1;
+        return aVar.Zj == 1;
     }
 }

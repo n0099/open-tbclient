@@ -16,7 +16,7 @@ import android.support.v7.appcompat.R;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class DrawerArrowDrawable extends Drawable {
     public static final int ARROW_DIRECTION_END = 3;
     public static final int ARROW_DIRECTION_LEFT = 0;
@@ -38,7 +38,7 @@ public class DrawerArrowDrawable extends Drawable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public @interface ArrowDirection {
     }
 

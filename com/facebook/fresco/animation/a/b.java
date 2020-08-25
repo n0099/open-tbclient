@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.IntRange;
 import com.facebook.fresco.animation.a.a;
 import javax.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b<T extends a> implements a {
     @IntRange(from = -1, to = 255)
     private int mAlpha = -1;
@@ -16,85 +16,85 @@ public class b<T extends a> implements a {
     @Nullable
     private ColorFilter mColorFilter;
     @Nullable
-    private T mWS;
+    private T nqH;
 
     public b(@Nullable T t) {
-        this.mWS = t;
+        this.nqH = t;
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getFrameCount() {
-        if (this.mWS == null) {
+        if (this.nqH == null) {
             return 0;
         }
-        return this.mWS.getFrameCount();
+        return this.nqH.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.a.d
-    public int IQ(int i) {
-        if (this.mWS == null) {
+    public int Lu(int i) {
+        if (this.nqH == null) {
             return 0;
         }
-        return this.mWS.IQ(i);
+        return this.nqH.Lu(i);
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getLoopCount() {
-        if (this.mWS == null) {
+        if (this.nqH == null) {
             return 0;
         }
-        return this.mWS.getLoopCount();
+        return this.nqH.getLoopCount();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        return this.mWS != null && this.mWS.a(drawable, canvas, i);
+        return this.nqH != null && this.nqH.a(drawable, canvas, i);
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void setAlpha(@IntRange(from = 0, to = 255) int i) {
-        if (this.mWS != null) {
-            this.mWS.setAlpha(i);
+        if (this.nqH != null) {
+            this.nqH.setAlpha(i);
         }
         this.mAlpha = i;
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void setColorFilter(ColorFilter colorFilter) {
-        if (this.mWS != null) {
-            this.mWS.setColorFilter(colorFilter);
+        if (this.nqH != null) {
+            this.nqH.setColorFilter(colorFilter);
         }
         this.mColorFilter = colorFilter;
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void setBounds(@Nullable Rect rect) {
-        if (this.mWS != null) {
-            this.mWS.setBounds(rect);
+        if (this.nqH != null) {
+            this.nqH.setBounds(rect);
         }
         this.mBounds = rect;
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void clear() {
-        if (this.mWS != null) {
-            this.mWS.clear();
+        if (this.nqH != null) {
+            this.nqH.clear();
         }
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public int getIntrinsicWidth() {
-        if (this.mWS == null) {
+        if (this.nqH == null) {
             return -1;
         }
-        return this.mWS.getIntrinsicWidth();
+        return this.nqH.getIntrinsicWidth();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public int getIntrinsicHeight() {
-        if (this.mWS == null) {
+        if (this.nqH == null) {
             return -1;
         }
-        return this.mWS.getIntrinsicHeight();
+        return this.nqH.getIntrinsicHeight();
     }
 }

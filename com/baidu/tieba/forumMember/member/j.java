@@ -1,25 +1,25 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.v;
 /* loaded from: classes17.dex */
 public class j implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId hBM = BdUniqueId.gen();
+    public static final BdUniqueId hPb = BdUniqueId.gen();
     private String forumId;
     private String forumName;
-    private u hBN;
+    private v hPc;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hBM;
+        return hPb;
     }
 
-    public u bZQ() {
-        return this.hBN;
+    public v ckm() {
+        return this.hPc;
     }
 
-    public void a(u uVar) {
-        this.hBN = uVar;
+    public void a(v vVar) {
+        this.hPc = vVar;
     }
 
     public String getForumId() {

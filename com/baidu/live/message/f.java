@@ -2,22 +2,22 @@ package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f extends HttpMessage {
-    private int aZm;
+    private int beG;
     private int mCommand;
 
     public f(int i, int i2) {
         super(1021047);
-        this.aZm = i;
+        this.beG = i;
         this.mCommand = i2;
         addParam("is_audio", i);
         addParam("command", i2);
         addParam("tbs", TbadkCoreApplication.getInst().getTbs());
     }
 
-    public boolean FS() {
-        return this.aZm == 1;
+    public boolean LG() {
+        return this.beG == 1;
     }
 
     public boolean isSwitchOpen() {

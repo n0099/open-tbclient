@@ -1,21 +1,21 @@
 package com.baidu.tbadk.b;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements d {
-    public static final AtomicReference<d> dIj = new AtomicReference<>(null);
-    private static final d dIk = aRW();
+    public static final AtomicReference<d> dRq = new AtomicReference<>(null);
+    private static final d dRr = ban();
 
     private b() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        private static b dIl = new b();
+        private static b dRs = new b();
     }
 
-    public static b aRW() {
-        return a.dIl;
+    public static b ban() {
+        return a.dRs;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.http.statistics;
 
 import okhttp3.Headers;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public interface NetworkStat<T> {
     void onConnect(T t, long j, String str);
 

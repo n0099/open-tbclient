@@ -1,26 +1,26 @@
 package com.baidu.swan.facade.init.a;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.adaptation.a.y;
+import com.baidu.swan.apps.adaptation.a.ab;
 import com.baidu.swan.facade.init.SwanAppInitHelper;
-/* loaded from: classes4.dex */
-public class a implements y {
-    @Override // com.baidu.swan.apps.adaptation.a.y
-    public void Ut() {
-        azf();
+/* loaded from: classes20.dex */
+public class a implements ab {
+    @Override // com.baidu.swan.apps.adaptation.a.ab
+    public void aav() {
+        aHk();
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.y
-    public void Uu() {
-        azf();
+    @Override // com.baidu.swan.apps.adaptation.a.ab
+    public void aaw() {
+        aHk();
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.y
-    public void Uv() {
-        azf();
+    @Override // com.baidu.swan.apps.adaptation.a.ab
+    public void aax() {
+        aHk();
     }
 
-    private void azf() {
+    private void aHk() {
         synchronized (SwanAppInitHelper.class) {
             if (SwanAppInitHelper.isDelayInit()) {
                 SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);

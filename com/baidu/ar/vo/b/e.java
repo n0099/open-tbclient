@@ -7,15 +7,15 @@ import android.os.Message;
 import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
-import com.baidu.ar.c.j;
 import com.baidu.ar.callback.ICallbackWith;
+import com.baidu.ar.d.j;
 import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes11.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
-    private HandlerThread kO;
-    private a xF;
-    private b xG;
+    private HandlerThread lx;
+    private a ye;
+    private b yf;
 
     /* loaded from: classes11.dex */
     private static final class a extends Handler {
@@ -48,67 +48,67 @@ public class e extends j {
     }
 
     public e(com.baidu.ar.vo.a.b bVar, b bVar2) {
-        this.xG = bVar2;
-        this.mm = new PixelReadParams(PixelType.NV21);
-        this.mm.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
-        this.mm.setOutputHeight(720);
+        this.yf = bVar2;
+        this.mU = new PixelReadParams(PixelType.NV21);
+        this.mU.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        this.mU.setOutputHeight(720);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(FramePixels framePixels) {
-        if (this.xG != null) {
-            this.xG.a(framePixels, new ICallbackWith<f>() { // from class: com.baidu.ar.vo.b.e.3
+    public void n(FramePixels framePixels) {
+        if (this.yf != null) {
+            this.yf.a(framePixels, new ICallbackWith<f>() { // from class: com.baidu.ar.vo.b.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.ar.callback.ICallbackWith
                 /* renamed from: a */
                 public void run(f fVar) {
-                    if (e.this.ly == null || e.this.xG == null) {
+                    if (e.this.mg == null || e.this.yf == null) {
                         return;
                     }
                     if (fVar != null) {
-                        fVar.S(e.this.getName());
+                        fVar.T(e.this.getName());
                     }
-                    e.this.ly.a(fVar);
+                    e.this.mg.a(fVar);
                 }
             });
         }
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void al() {
-        this.kO = new HandlerThread(TAG);
-        this.kO.start();
-        this.xF = new a(this.kO.getLooper());
-        this.xF.a(1001, new Runnable() { // from class: com.baidu.ar.vo.b.e.1
+    @Override // com.baidu.ar.d.j
+    protected void am() {
+        this.lx = new HandlerThread(TAG);
+        this.lx.start();
+        this.ye = new a(this.lx.getLooper());
+        this.ye.a(1001, new Runnable() { // from class: com.baidu.ar.vo.b.e.1
             @Override // java.lang.Runnable
             public void run() {
-                e.this.xG.aV();
+                e.this.yf.init();
             }
         });
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void an() {
-        if (this.xF != null) {
-            this.xF.release();
-            this.xF = null;
+    @Override // com.baidu.ar.d.j
+    protected void ao() {
+        if (this.ye != null) {
+            this.ye.release();
+            this.ye = null;
         }
-        if (this.xG != null) {
-            this.xG = null;
+        if (this.yf != null) {
+            this.yf = null;
         }
-        if (this.kO != null) {
-            this.kO.quit();
-            this.kO = null;
+        if (this.lx != null) {
+            this.lx.quit();
+            this.lx = null;
         }
     }
 
-    @Override // com.baidu.ar.c.j
+    @Override // com.baidu.ar.d.j
     protected boolean c(final FramePixels framePixels) {
-        if (this.xG != null) {
-            this.xF.a(1002, new Runnable() { // from class: com.baidu.ar.vo.b.e.2
+        if (this.yf != null) {
+            this.ye.a(1002, new Runnable() { // from class: com.baidu.ar.vo.b.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.this.e(framePixels);
+                    e.this.n(framePixels);
                 }
             });
             return true;
@@ -116,7 +116,7 @@ public class e extends j {
         return true;
     }
 
-    @Override // com.baidu.ar.c.k
+    @Override // com.baidu.ar.d.k
     public String getName() {
         return TAG;
     }

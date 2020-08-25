@@ -9,8 +9,8 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.data.bj;
-import com.baidu.live.data.q;
+import com.baidu.live.data.bl;
+import com.baidu.live.data.r;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -18,46 +18,46 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.anchortask.message.GetAnchorTaskInfoHttpResponseMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.live.b.a {
-    private q azj;
+    private r aEt;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a fCi;
-    private com.baidu.tieba.ala.anchortask.b.b fCj;
-    private String fCk;
-    private int fCm;
-    private int fCn;
+    private com.baidu.tieba.ala.anchortask.c.a fNA;
+    private com.baidu.tieba.ala.anchortask.b.b fNB;
+    private String fNC;
+    private int fNE;
+    private int fNF;
     private Handler handler = new Handler();
-    private boolean fCl = false;
+    private boolean fND = false;
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.byf();
+            a.this.bHe();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private View.OnClickListener eve = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private View.OnClickListener eFC = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.fCk)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.fCk));
+            if (!TextUtils.isEmpty(a.this.fNC)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.fNC));
             }
-            a.this.byf();
+            a.this.bHe();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private HttpMessageListener fCo = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
+    private HttpMessageListener fNG = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.fCi != null) {
-                a.this.fCj = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).fCj;
-                if (a.this.fCj != null && a.this.fCj.fCM != null) {
-                    a.this.fCk = a.this.fCj.fCk;
-                    a.this.byg();
-                    a.this.fCi.a(a.this.fCj.fCM);
-                    if (a.this.fCj.fCM.fCA == 2) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.fNA != null) {
+                a.this.fNB = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).fNB;
+                if (a.this.fNB != null && a.this.fNB.fOd != null) {
+                    a.this.fNC = a.this.fNB.fNC;
+                    a.this.bHf();
+                    a.this.fNA.a(a.this.fNB.fOd);
+                    if (a.this.fNB.fOd.fNR == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
@@ -68,37 +68,37 @@ public class a implements com.baidu.live.b.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.fCi = new com.baidu.tieba.ala.anchortask.c.a(context);
-        if (this.fCi.getView() != null) {
-            this.fCi.getView().setOnClickListener(this.eve);
+        this.fNA = new com.baidu.tieba.ala.anchortask.c.a(context);
+        if (this.fNA.getView() != null) {
+            this.fNA.getView().setOnClickListener(this.eFC);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         boolean z = true;
-        bj bjVar = com.baidu.live.v.a.Hs().beo.aEy;
-        if (bjVar != null) {
+        bl blVar = com.baidu.live.w.a.Nk().bka.aJI;
+        if (blVar != null) {
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                if (bjVar.aEY != 1) {
+                if (blVar.aKi != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-                if (bjVar.aEZ != 1) {
+                if (blVar.aKj != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                if (bjVar.aFa != 1) {
+                if (blVar.aKk != 1) {
                     z = false;
                 }
             } else if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 z = false;
-            } else if (bjVar.aFb != 1) {
+            } else if (blVar.aKl != 1) {
                 z = false;
             }
             if (z) {
-                if (this.fCi != null) {
-                    viewGroup.addView(this.fCi.getView(), layoutParams);
+                if (this.fNA != null) {
+                    viewGroup.addView(this.fNA.getView(), layoutParams);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
             }
@@ -106,8 +106,8 @@ public class a implements com.baidu.live.b.a {
     }
 
     @Override // com.baidu.live.b.a
-    public void a(q qVar) {
-        this.azj = qVar;
+    public void a(r rVar) {
+        this.aEt = rVar;
     }
 
     private void initTasks() {
@@ -117,15 +117,15 @@ public class a implements com.baidu.live.b.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.fCo);
+        MessageManager.getInstance().registerListener(this.fNG);
     }
 
-    public void byf() {
-        if (this.azj != null) {
-            long j = this.azj.mLiveInfo.live_id;
-            long j2 = this.azj.mLiveInfo.user_id;
+    public void bHe() {
+        if (this.aEt != null) {
+            long j = this.aEt.mLiveInfo.live_id;
+            long j2 = this.aEt.mLiveInfo.user_id;
             com.baidu.tieba.ala.anchortask.message.a aVar = new com.baidu.tieba.ala.anchortask.message.a();
-            aVar.af(j2);
+            aVar.ag(j2);
             aVar.setLiveId(j);
             aVar.setParams();
             MessageManager.getInstance().sendMessage(aVar);
@@ -133,25 +133,25 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byg() {
-        if (this.fCj != null && this.fCj.fCM != null) {
-            if (!this.fCl) {
-                this.fCl = true;
-                this.fCm = this.fCj.fCM.fCy;
-                this.fCn = this.fCj.fCM.fCz;
+    public void bHf() {
+        if (this.fNB != null && this.fNB.fOd != null) {
+            if (!this.fND) {
+                this.fND = true;
+                this.fNE = this.fNB.fOd.fNP;
+                this.fNF = this.fNB.fOd.fNQ;
             }
-            int i = this.fCj.fCM.fCA;
-            int i2 = this.fCj.fCM.fCB;
-            int i3 = this.fCj.fCM.fCC;
+            int i = this.fNB.fOd.fNR;
+            int i2 = this.fNB.fOd.fNS;
+            int i3 = this.fNB.fOd.fNT;
             String str = null;
-            if (this.fCm == 1 && i == 2) {
+            if (this.fNE == 1 && i == 2) {
                 str = this.context.getString(a.i.txt_im_identity_is_mcn);
-            } else if (this.fCm == 2 && i == 1) {
+            } else if (this.fNE == 2 && i == 1) {
                 str = String.format(this.context.getString(a.i.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.fCm == 1 && i == 1) {
-                if (i2 > this.fCn) {
+            } else if (this.fNE == 1 && i == 1) {
+                if (i2 > this.fNF) {
                     str = String.format(this.context.getString(a.i.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.fCn) {
+                } else if (i2 < this.fNF) {
                     str = String.format(this.context.getString(a.i.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
@@ -165,31 +165,31 @@ public class a implements com.baidu.live.b.a {
                     e.printStackTrace();
                 }
             }
-            this.fCm = i;
-            this.fCn = i2;
+            this.fNE = i;
+            this.fNF = i2;
         }
     }
 
     @Override // com.baidu.live.b.a
     public void setCanVisible(boolean z) {
-        if (this.fCi != null) {
-            this.fCi.setCanVisible(z);
+        if (this.fNA != null) {
+            this.fNA.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void refreshUI() {
-        if (this.fCi != null) {
-            this.fCi.refreshUI();
+        if (this.fNA != null) {
+            this.fNA.refreshUI();
         }
     }
 
     @Override // com.baidu.live.b.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.fCo);
-        if (this.fCi != null) {
-            this.fCi.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.fNG);
+        if (this.fNA != null) {
+            this.fNA.onDestroy();
         }
     }
 }

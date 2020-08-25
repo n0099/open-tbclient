@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -149,7 +148,7 @@ public class f {
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", Config.APP_VERSION_CODE);
+        bundle.putString("sdkp", "a");
         new Thread() { // from class: com.tencent.open.utils.f.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {

@@ -2,59 +2,66 @@ package com.baidu.ar.anime;
 
 import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
+import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.engine.pixel.PixelType;
-import com.baidu.ar.c.j;
-import com.baidu.ar.c.l;
+import com.baidu.ar.d.j;
+import com.baidu.ar.d.l;
 import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes11.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
-    private int co = 720;
-    private int cp = PlatformPlugin.DEFAULT_SYSTEM_UI;
-    private boolean cq = true;
-    private InterfaceC0073a cr = null;
+    private int cf = 720;
+    private int cg = PlatformPlugin.DEFAULT_SYSTEM_UI;
+    private boolean ch = true;
+    private InterfaceC0069a ci = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0073a {
+    public interface InterfaceC0069a {
         void b(FramePixels framePixels);
     }
 
     public a() {
-        this.mm = new PixelReadParams(PixelType.RGBA);
-        this.mm.setOutputWidth(this.co);
-        this.mm.setOutputHeight(this.cp);
+        this.mU = new PixelReadParams(PixelType.RGBA);
+        this.mU.setOutputWidth(this.cf);
+        this.mU.setOutputHeight(this.cg);
     }
 
-    public void a(InterfaceC0073a interfaceC0073a) {
-        this.cr = interfaceC0073a;
+    public void a(InterfaceC0069a interfaceC0069a) {
+        this.ci = interfaceC0069a;
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void al() {
-        if (this.ly != null) {
-            this.ly.a(new l(getName(), true));
+    public void al() {
+        this.mU.setOutputWidth(this.cg);
+        this.mU.setOutputHeight(this.cf);
+        this.mU.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
+    }
+
+    @Override // com.baidu.ar.d.j
+    protected void am() {
+        if (this.mg != null) {
+            this.mg.a(new l(getName(), true));
         }
     }
 
-    @Override // com.baidu.ar.c.j
-    public boolean am() {
-        return this.cq;
+    @Override // com.baidu.ar.d.j
+    public boolean an() {
+        return this.ch;
     }
 
-    @Override // com.baidu.ar.c.j
-    protected void an() {
-        if (this.ly != null) {
-            this.ly.b(new l(getName(), true));
+    @Override // com.baidu.ar.d.j
+    protected void ao() {
+        if (this.mg != null) {
+            this.mg.b(new l(getName(), true));
         }
     }
 
-    @Override // com.baidu.ar.c.j
+    @Override // com.baidu.ar.d.j
     protected final boolean c(FramePixels framePixels) {
-        if (this.cq) {
-            this.cq = false;
-            if (this.cr != null) {
-                this.cr.b(framePixels);
+        if (this.ch) {
+            this.ch = false;
+            if (this.ci != null) {
+                this.ci.b(framePixels);
                 return true;
             }
             return true;
@@ -62,12 +69,12 @@ public class a extends j {
         return true;
     }
 
-    @Override // com.baidu.ar.c.k
+    @Override // com.baidu.ar.d.k
     public String getName() {
         return TAG;
     }
 
-    public void s(String str) {
-        this.mm.setPreFilterID(str);
+    public void t(String str) {
+        this.mU.setPreFilterID(str);
     }
 }

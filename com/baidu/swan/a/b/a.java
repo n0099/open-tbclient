@@ -1,22 +1,31 @@
 package com.baidu.swan.a.b;
 
-import android.content.pm.ApplicationInfo;
-import android.os.Build;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import java.util.Map;
+import okhttp3.RequestBody;
+/* loaded from: classes4.dex */
 public class a {
-    public static String ayZ() {
-        if (Build.VERSION.SDK_INT < 21) {
-            return Build.CPU_ABI;
-        }
-        ApplicationInfo applicationInfo = AppRuntime.getAppContext().getApplicationInfo();
-        try {
-            Field declaredField = ApplicationInfo.class.getDeclaredField("primaryCpuAbi");
-            declaredField.setAccessible(true);
-            return (String) declaredField.get(applicationInfo);
-        } catch (IllegalAccessException | NoSuchFieldException e) {
-            return null;
-        }
+    public ResponseCallback dEN;
+    public Map<String, String> headers;
+    public RequestBody requestBody;
+    public Object tag;
+    public String url;
+    public String method = "GET";
+    public boolean dEO = false;
+    public boolean dEP = false;
+    public boolean dEQ = false;
+
+    public a() {
+    }
+
+    public a(String str, ResponseCallback responseCallback) {
+        this.url = str;
+        this.dEN = responseCallback;
+    }
+
+    public a(String str, RequestBody requestBody, ResponseCallback responseCallback) {
+        this.url = str;
+        this.requestBody = requestBody;
+        this.dEN = responseCallback;
     }
 }

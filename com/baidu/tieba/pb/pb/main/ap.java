@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ao;
 /* loaded from: classes16.dex */
 public class ap extends o<am, ao> {
-    private com.baidu.tieba.pb.data.f kkO;
-    private ao.a ktQ;
+    private com.baidu.tieba.pb.data.f kAg;
+    private ao.a kJv;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ap(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.ktQ = new ao.a() { // from class: com.baidu.tieba.pb.pb.main.ap.1
+        this.kJv = new ao.a() { // from class: com.baidu.tieba.pb.pb.main.ap.1
             @Override // com.baidu.tieba.pb.pb.main.ao.a
             public void b(am amVar) {
                 if (amVar != null) {
-                    com.baidu.tieba.pb.c.a.a(ap.this.kkO, amVar, amVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(ap.this.kAg, amVar, amVar.locate, 5);
                 }
             }
         };
@@ -28,9 +28,9 @@ public class ap extends o<am, ao> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cm */
+    /* renamed from: ci */
     public ao b(ViewGroup viewGroup) {
-        return new ao(this.kkb.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.ktQ);
+        return new ao(this.kzt.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.kJv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class ap extends o<am, ao> {
         super.a(i, view, viewGroup, (ViewGroup) amVar, (am) aoVar);
         if (amVar != null) {
             amVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.kkb.getUniqueId(), this.kkO, amVar, amVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.kzt.getUniqueId(), this.kAg, amVar, amVar.locate, 5);
             aoVar.a(amVar);
             aoVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -48,6 +48,6 @@ public class ap extends o<am, ao> {
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kkO = fVar;
+        this.kAg = fVar;
     }
 }

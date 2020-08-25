@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.walknavi.g;
-/* loaded from: classes10.dex */
-class k implements Runnable {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes20.dex */
+public class k implements Runnable {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,6 +11,8 @@ class k implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.platform.comapi.walknavi.b.a().F().runEntryState();
+        if (com.baidu.platform.comapi.walknavi.b.a().G().f()) {
+            com.baidu.platform.comapi.walknavi.b.a().I().run("[回车位]按钮点击");
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class c {
     public static final String a = "dim_excep_time";
     public static final String b = "dim_excep_cont";

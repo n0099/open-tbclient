@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class FCMPushHelper {
     public static void clearToken(Context context) {
-        h.m108a(context, d.ASSEMBLE_PUSH_FCM);
+        h.m113a(context, d.ASSEMBLE_PUSH_FCM);
     }
 
     public static void convertMessage(Intent intent) {
@@ -15,7 +15,7 @@ public class FCMPushHelper {
     }
 
     public static boolean isFCMSwitchOpen(Context context) {
-        return h.m110a(context, d.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
+        return h.m115a(context, d.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {

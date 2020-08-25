@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public final class fp extends fl {
     public fp() {
         a("PING", (String) null);
@@ -12,8 +12,8 @@ public final class fp extends fl {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.xiaomi.push.fl
     /* renamed from: a */
-    public ByteBuffer mo276a(ByteBuffer byteBuffer) {
-        return a().length == 0 ? byteBuffer : super.mo276a(byteBuffer);
+    public ByteBuffer mo281a(ByteBuffer byteBuffer) {
+        return a().length == 0 ? byteBuffer : super.mo281a(byteBuffer);
     }
 
     @Override // com.xiaomi.push.fl

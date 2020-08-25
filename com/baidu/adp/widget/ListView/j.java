@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.ad;
-import com.baidu.adp.widget.ListView.ad.a;
+import com.baidu.adp.widget.ListView.af;
+import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes.dex */
-public class j<V extends ad.a> extends a<i, V> {
-    private a<q, V> Vn;
+public class j<V extends af.a> extends a<i, V> {
+    private a<q, V> VQ;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.ad$a] */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.ad$a */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.af$a */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.adp.widget.ListView.a
-    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, i iVar, ad.a aVar) {
+    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, i iVar, af.a aVar) {
         return a2(i, view, viewGroup, iVar, (i) aVar);
     }
 
@@ -23,46 +23,46 @@ public class j<V extends ad.a> extends a<i, V> {
     }
 
     public void a(a aVar) {
-        this.Vn = aVar;
+        this.VQ = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
     public V b(ViewGroup viewGroup) {
-        if (this.Vn == null) {
+        if (this.VQ == null) {
             return null;
         }
-        if (this.Uh == this.Vn.pf()) {
-            return this.Vn.c(viewGroup);
+        if (this.UM == this.VQ.qE()) {
+            return this.VQ.c(viewGroup);
         }
-        if (this.Uh == this.Vn.pg()) {
-            return this.Vn.d(viewGroup);
+        if (this.UM == this.VQ.qF()) {
+            return this.VQ.d(viewGroup);
         }
-        if (this.Uh == this.Vn.ph()) {
-            return this.Vn.e(viewGroup);
+        if (this.UM == this.VQ.qG()) {
+            return this.VQ.e(viewGroup);
         }
-        if (this.Uh == this.Vn.pi()) {
-            return this.Vn.f(viewGroup);
+        if (this.UM == this.VQ.qH()) {
+            return this.VQ.f(viewGroup);
         }
-        return this.Vn.b(viewGroup);
+        return this.VQ.b(viewGroup);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public View a2(int i, View view, ViewGroup viewGroup, i iVar, V v) {
-        if (this.Vn == null) {
+        if (this.VQ == null) {
             return null;
         }
-        if (this.Uh == this.Vn.pf()) {
-            return this.Vn.b(i, view, viewGroup, iVar.pp(), v);
+        if (this.UM == this.VQ.qE()) {
+            return this.VQ.b(i, view, viewGroup, iVar.qO(), v);
         }
-        if (this.Uh == this.Vn.pg()) {
-            return this.Vn.c(i, view, viewGroup, iVar.pp(), v);
+        if (this.UM == this.VQ.qF()) {
+            return this.VQ.c(i, view, viewGroup, iVar.qO(), v);
         }
-        if (this.Uh == this.Vn.ph()) {
-            return this.Vn.d(i, view, viewGroup, iVar.pp(), v);
+        if (this.UM == this.VQ.qG()) {
+            return this.VQ.d(i, view, viewGroup, iVar.qO(), v);
         }
-        if (this.Uh == this.Vn.pi()) {
-            return this.Vn.e(i, view, viewGroup, iVar.pp(), v);
+        if (this.UM == this.VQ.qH()) {
+            return this.VQ.e(i, view, viewGroup, iVar.qO(), v);
         }
-        return this.Vn.a(i, view, viewGroup, iVar.pp(), v);
+        return this.VQ.a(i, view, viewGroup, iVar.qO(), v);
     }
 }

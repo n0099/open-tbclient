@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 final class r {
-    public static Map<String, String> fd() {
+    public static Map<String, String> gr() {
         HashMap hashMap = new HashMap();
         hashMap.put(StatisticConstants.EVENT_SDK_START, "调用SDK");
         hashMap.put(StatisticConstants.EVENT_SDK_END, "结束调用SDK");

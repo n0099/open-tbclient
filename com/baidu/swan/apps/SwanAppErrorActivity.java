@@ -7,33 +7,33 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.core.d.d;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.swan.support.v4.app.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     public static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.u.c.b bMq;
-    private ForbiddenInfo bMr;
-    private String bMs;
-    private com.baidu.swan.apps.ak.b bMo = null;
+    private com.baidu.swan.apps.u.c.b bRM;
+    private ForbiddenInfo bRN;
+    private String bRO;
+    private com.baidu.swan.apps.aj.b bRK = null;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        ac(a.C0290a.aiapps_hold, a.C0290a.aiapps_slide_out_to_bottom);
-        int releaseFixedOrientation = al.releaseFixedOrientation(this);
+        ae(a.C0331a.aiapps_hold, a.C0331a.aiapps_slide_out_to_bottom);
+        int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        al.fixedOrientation(this, releaseFixedOrientation);
+        ak.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.g.aiapps_error_activity);
         k(getIntent());
-        Sp();
-        Sr();
+        Yk();
+        Ym();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,17 +41,17 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         k(intent);
-        Sp();
+        Yk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        di(com.baidu.swan.apps.t.a.ahF().getNightModeSwitcherState());
+        dq(com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState());
     }
 
-    public void di(boolean z) {
+    public void dq(boolean z) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
@@ -60,23 +60,23 @@ public class SwanAppErrorActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.bMo == null) {
-            this.bMo = new com.baidu.swan.apps.ak.b();
+        if (this.bRK == null) {
+            this.bRK = new com.baidu.swan.apps.aj.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.bMo.y(viewGroup);
+            this.bRK.z(viewGroup);
         } else {
-            this.bMo.z(viewGroup);
+            this.bRK.A(viewGroup);
         }
     }
 
-    private void Sp() {
+    private void Yk() {
         d dVar;
-        m aMy = aMv().aMy();
+        m aUY = aUV().aUY();
         if (getIntent() != null) {
-            dVar = d.a(this.bMs, this.bMr);
-        } else if (this.bMq == null) {
+            dVar = d.a(this.bRO, this.bRN);
+        } else if (this.bRM == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorActivity", "launchInfo is null,error");
                 return;
@@ -85,26 +85,26 @@ public class SwanAppErrorActivity extends FragmentActivity {
         } else {
             dVar = new d();
         }
-        aMy.a(a.f.ai_apps_error_layout, dVar);
-        aMy.commit();
+        aUY.a(a.f.ai_apps_error_layout, dVar);
+        aUY.commit();
     }
 
     private void k(Intent intent) {
         if (intent != null) {
-            this.bMq = com.baidu.swan.apps.u.c.b.r(intent);
-            this.bMr = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
-            if (TextUtils.isEmpty(this.bMq.getAppId()) && this.bMr != null) {
-                this.bMq.lE(this.bMr.appId);
+            this.bRM = com.baidu.swan.apps.u.c.b.t(intent);
+            this.bRN = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
+            if (TextUtils.isEmpty(this.bRM.getAppId()) && this.bRN != null) {
+                this.bRM.nB(this.bRN.appId);
             }
-            this.bMs = intent.getStringExtra("swan_error_type");
+            this.bRO = intent.getStringExtra("swan_error_type");
         }
     }
 
-    public com.baidu.swan.apps.u.c.b Sq() {
-        return this.bMq;
+    public com.baidu.swan.apps.u.c.b Yl() {
+        return this.bRM;
     }
 
-    private void ac(int i, int i2) {
+    private void ae(int i, int i2) {
         this.mEnterAnimWhenFinishing = i;
         this.mExitAnimWhenFinishing = i2;
     }
@@ -123,7 +123,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         startExitActivityAnim();
     }
 
-    private void Sr() {
+    private void Ym() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

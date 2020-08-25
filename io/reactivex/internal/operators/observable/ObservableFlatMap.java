@@ -86,7 +86,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     }
                     subscribeInner(tVar);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     this.s.dispose();
                     onError(th);
                 }
@@ -201,7 +201,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     drainLoop();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 this.errors.addThrowable(th);
                 drain();
             }
@@ -344,7 +344,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.K(th);
+                                            io.reactivex.exceptions.a.J(th);
                                             innerObserver.dispose();
                                             this.errors.addThrowable(th);
                                             if (!checkTerminate()) {

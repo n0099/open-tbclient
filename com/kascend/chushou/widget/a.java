@@ -1,7 +1,7 @@
 package com.kascend.chushou.widget;
 /* loaded from: classes6.dex */
 public class a {
-    public static int KP(int i) {
+    public static int Nt(int i) {
         if (i == 401) {
             return 5;
         }

@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes20.dex */
+/* loaded from: classes11.dex */
 public @interface DimenRes {
 }

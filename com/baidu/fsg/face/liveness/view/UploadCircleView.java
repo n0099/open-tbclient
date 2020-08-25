@@ -8,8 +8,9 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class UploadCircleView extends View {
     private Paint a;
     private Paint b;
@@ -69,7 +70,7 @@ public class UploadCircleView extends View {
 
     public void setProgress(int i) {
         this.j = i + "%";
-        this.i = (i * 360) / 100;
+        this.i = (i * EncoderTextureDrawer.X264_WIDTH) / 100;
         postInvalidate();
     }
 }

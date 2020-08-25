@@ -3,11 +3,11 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ScaleAnimation extends Animation {
     public ScaleAnimation(float... fArr) {
         if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("the scales is null");
+            throw new NullPointerException("BDMapSDKException: the scales is null");
         }
         this.bdAnimation = new h(fArr);
     }

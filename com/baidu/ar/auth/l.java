@@ -1,16 +1,32 @@
 package com.baidu.ar.auth;
 
 import android.content.Context;
-import java.util.Set;
+import android.graphics.Bitmap;
+import com.baidu.ar.callback.ICallbackWith;
+import java.util.List;
 /* loaded from: classes11.dex */
-interface l {
+public interface l {
+    List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
 
-    /* loaded from: classes11.dex */
-    public interface a {
-        void a(Set<Integer> set);
-    }
+    List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2);
 
-    void a(a aVar);
+    boolean checkFeatureAuth(int i);
 
-    void doAuth(Context context, j jVar);
+    boolean checkOfflineLicenseAuth(Context context, byte[] bArr);
+
+    Bitmap createTipBitmap(Context context);
+
+    void doAuth(Context context, k kVar);
+
+    boolean enableFeature(int i);
+
+    boolean isShowAuthTip();
+
+    void loadAuthInfo(Context context);
+
+    void receiveAuthFailMessage(int i);
+
+    void release();
+
+    void setAuthLicense(byte[] bArr, String str, String str2, String str3);
 }

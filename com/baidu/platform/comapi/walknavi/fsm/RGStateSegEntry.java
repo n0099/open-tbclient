@@ -2,27 +2,27 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.graphics.Point;
 import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
-import com.baidu.platform.comapi.wnplatform.o.e;
+import com.baidu.platform.comapi.wnplatform.p.f;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class RGStateSegEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().Q().c(R.drawable.aiapps_clickable_toast_view_bg);
+        b.a().T().c(R.drawable.aiapps_loading);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionNaviEngine() {
-        b.a().D().a(true);
+        b.a().G().a(true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionMapStatus() {
-        b.a().Q().o();
-        b.a().G().b(true);
-        MapStatus i = b.a().G().i();
+        b.a().T().o();
+        b.a().J().b(true);
+        MapStatus i = b.a().J().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.overlook(0.0f);
@@ -30,12 +30,12 @@ public class RGStateSegEntry extends RGStateCar3D {
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
-            com.baidu.mapapi.model.inner.Point K = b.a().K();
-            if (K != null) {
-                builder.target(e.a(new GeoPoint(K.getmPtx(), K.getmPty())));
+            com.baidu.platform.comapi.basestruct.Point N = b.a().N();
+            if (N != null) {
+                builder.target(f.a(new GeoPoint(N.getDoubleY(), N.getDoubleX())));
             }
-            b.a().G().a(builder.build(), 500);
+            b.a().J().a(builder.build(), 500);
         }
-        b.a().D().a(true);
+        b.a().G().a(true);
     }
 }

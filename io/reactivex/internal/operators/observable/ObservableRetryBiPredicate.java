@@ -55,7 +55,7 @@ public final class ObservableRetryBiPredicate<T> extends a<T, T> {
                     subscribeNext();
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.K(th2);
+                io.reactivex.exceptions.a.J(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

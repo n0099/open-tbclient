@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes19.dex */
 public class a extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
-    public void A(@NonNull Bundle bundle) {
+    public void y(@NonNull Bundle bundle) {
         String string = bundle.getString("key_param_url");
         if (StringUtils.isNull(string)) {
             finish();

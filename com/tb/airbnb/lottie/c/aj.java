@@ -2,7 +2,7 @@ package com.tb.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 interface aj<V> {
     V b(JsonReader jsonReader, float f) throws IOException;
 }

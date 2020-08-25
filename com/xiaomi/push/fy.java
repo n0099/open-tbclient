@@ -9,7 +9,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public final class fy {
     private static int a;
     private static int b;
@@ -17,13 +17,13 @@ public final class fy {
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f382a = new Vector<>();
+    private static Vector<String> f379a = new Vector<>();
 
     static {
         a = 5000;
         b = 330000;
         try {
-            for (ClassLoader classLoader : m300a()) {
+            for (ClassLoader classLoader : m305a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -42,7 +42,7 @@ public final class fy {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f382a.add(newPullParser.nextText());
+                                    f379a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -82,7 +82,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m299a() {
+    public static String m304a() {
         return "3.1.0";
     }
 
@@ -96,7 +96,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m300a() {
+    private static ClassLoader[] m305a() {
         ClassLoader[] classLoaderArr = {fy.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

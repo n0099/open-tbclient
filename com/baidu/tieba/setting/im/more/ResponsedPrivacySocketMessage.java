@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     private a privacyData;
 
@@ -27,28 +27,28 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         }
         if (getPrivateInfoResIdl.data != null) {
             if (getPrivateInfoResIdl.data.like != null) {
-                this.privacyData.El(getPrivateInfoResIdl.data.like.intValue());
+                this.privacyData.GI(getPrivateInfoResIdl.data.like.intValue());
             }
             if (getPrivateInfoResIdl.data.group != null) {
-                this.privacyData.En(getPrivateInfoResIdl.data.group.intValue());
+                this.privacyData.GK(getPrivateInfoResIdl.data.group.intValue());
             }
             if (getPrivateInfoResIdl.data.post != null) {
-                this.privacyData.Ek(getPrivateInfoResIdl.data.post.intValue());
+                this.privacyData.GH(getPrivateInfoResIdl.data.post.intValue());
             }
             if (getPrivateInfoResIdl.data.location != null) {
-                this.privacyData.Eo(getPrivateInfoResIdl.data.location.intValue());
+                this.privacyData.GL(getPrivateInfoResIdl.data.location.intValue());
             }
             if (getPrivateInfoResIdl.data.user != null) {
                 this.privacyData.b(getPrivateInfoResIdl.data.user);
             }
             if (getPrivateInfoResIdl.data.live != null) {
-                this.privacyData.Em(getPrivateInfoResIdl.data.live.intValue());
+                this.privacyData.GJ(getPrivateInfoResIdl.data.live.intValue());
             }
             if (getPrivateInfoResIdl.data.forum_num != null) {
-                this.privacyData.Ep(getPrivateInfoResIdl.data.forum_num.intValue());
+                this.privacyData.GM(getPrivateInfoResIdl.data.forum_num.intValue());
             }
             if (getPrivateInfoResIdl.data.reply != null) {
-                this.privacyData.Eq(getPrivateInfoResIdl.data.reply.intValue());
+                this.privacyData.GN(getPrivateInfoResIdl.data.reply.intValue());
             }
         }
     }

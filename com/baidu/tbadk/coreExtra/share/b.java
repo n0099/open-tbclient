@@ -5,15 +5,15 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.at;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private a etz;
+    private a eDX;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void e(ShareItem shareItem);
     }
@@ -31,17 +31,17 @@ public class b {
                     return null;
                 }
                 String str2 = shareItem2.tid;
-                z zVar = new z();
-                zVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
+                aa aaVar = new aa();
+                aaVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
                 if (shareItem2.typeShareToSmallApp == 4) {
-                    zVar.addPostData("forum_id", shareItem.fid);
-                    zVar.addPostData("type", "2");
+                    aaVar.addPostData("forum_id", shareItem.fid);
+                    aaVar.addPostData("type", "2");
                 } else {
-                    zVar.addPostData("thread_id", str2);
-                    zVar.addPostData("type", "3");
+                    aaVar.addPostData("thread_id", str2);
+                    aaVar.addPostData("type", "3");
                 }
-                String postNetData = zVar.postNetData();
-                if (as.isEmpty(postNetData)) {
+                String postNetData = aaVar.postNetData();
+                if (at.isEmpty(postNetData)) {
                     return shareItem2;
                 }
                 try {
@@ -50,7 +50,7 @@ public class b {
                     BdLog.e(e);
                 }
                 if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.euh = str;
+                    shareItem2.eEH = str;
                     shareItem2.imageUri = Uri.parse(str);
                 }
                 return shareItem2;
@@ -62,14 +62,14 @@ public class b {
             /* renamed from: d */
             public void onPostExecute(ShareItem shareItem2) {
                 super.onPostExecute(shareItem2);
-                if (b.this.etz != null) {
-                    b.this.etz.e(shareItem2);
+                if (b.this.eDX != null) {
+                    b.this.eDX.e(shareItem2);
                 }
             }
         }.execute(shareItem);
     }
 
     public void a(a aVar) {
-        this.etz = aVar;
+        this.eDX = aVar;
     }
 }

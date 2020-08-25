@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TencentMMSwitch extends a {
     public static final String MM = "tencent_mm";
     public static final int MM_DEFAULT_TYPE = 0;

@@ -13,10 +13,10 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private TbImageView gdl;
-    private View gdm;
+    private TbImageView gpt;
+    private View gpu;
     private TbPageContext mContext;
     private TextView mTitleView;
     private String mUrl;
@@ -29,8 +29,8 @@ public class c {
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.back_to_come_button, (ViewGroup) null);
-        this.gdm = this.mView.findViewById(a.g.back_to_come_root);
-        this.gdl = (TbImageView) this.mView.findViewById(a.g.back_to_come_logo);
+        this.gpu = this.mView.findViewById(a.g.back_to_come_root);
+        this.gpt = (TbImageView) this.mView.findViewById(a.g.back_to_come_logo);
         this.mTitleView = (TextView) this.mView.findViewById(a.g.back_to_come_title);
     }
 
@@ -55,19 +55,19 @@ public class c {
     public void a(b bVar) {
         if (bVar != null) {
             if (!TextUtils.isEmpty(bVar.getImageUrl())) {
-                this.gdl.setVisibility(0);
-                this.gdl.setAutoChangeStyle(false);
-                this.gdl.startLoad(bVar.getImageUrl(), 10, false);
+                this.gpt.setVisibility(0);
+                this.gpt.setAutoChangeStyle(false);
+                this.gpt.startLoad(bVar.getImageUrl(), 10, false);
             } else if (bVar.getImageId() != 0) {
-                this.gdl.setVisibility(0);
-                this.gdl.setImageResource(bVar.getImageId());
+                this.gpt.setVisibility(0);
+                this.gpt.setImageResource(bVar.getImageId());
             } else {
-                this.gdl.setVisibility(8);
+                this.gpt.setVisibility(8);
             }
             if (!TextUtils.isEmpty(bVar.getTitle())) {
                 this.mTitleView.setText(bVar.getTitle());
-            } else if (bVar.bFw() != 0) {
-                this.mTitleView.setText(bVar.bFw());
+            } else if (bVar.bPb() != 0) {
+                this.mTitleView.setText(bVar.bPb());
             }
             if (!TextUtils.isEmpty(bVar.getScheme())) {
                 this.mUrl = bVar.getScheme();
@@ -75,7 +75,7 @@ public class c {
         }
     }
 
-    public void bFx() {
+    public void bPc() {
         try {
             if (!TextUtils.isEmpty(this.mUrl) && this.mContext != null) {
                 Intent intent = new Intent();
@@ -92,7 +92,7 @@ public class c {
         return this.mView;
     }
 
-    public View bFy() {
-        return this.gdm;
+    public View bPd() {
+        return this.gpu;
     }
 }

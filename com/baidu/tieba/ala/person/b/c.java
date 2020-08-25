@@ -7,52 +7,52 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private List<com.baidu.live.liveroom.d.d> awp = new LinkedList();
-    private AlaLiveRoomPanelTabHost aws;
-    private BdUniqueId fFJ;
+    private List<com.baidu.live.liveroom.d.d> aBr = new LinkedList();
+    private AlaLiveRoomPanelTabHost aBu;
+    private BdUniqueId fRa;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public c(TbPageContext tbPageContext, String str, BdUniqueId bdUniqueId) {
-        this.fFJ = null;
+        this.fRa = null;
         this.mPageContext = tbPageContext;
         this.mUserId = str;
-        this.fFJ = bdUniqueId;
+        this.fRa = bdUniqueId;
         initView();
     }
 
     private void initView() {
-        this.aws = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        bzw();
+        this.aBu = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
+        bIz();
     }
 
-    private void bzw() {
-        this.awp.add(new d(this.mPageContext, 0, this.mUserId, this.fFJ));
-        this.awp.add(new d(this.mPageContext, 1, this.mUserId, this.fFJ));
-        this.aws.setData(this.awp);
+    private void bIz() {
+        this.aBr.add(new d(this.mPageContext, 0, this.mUserId, this.fRa));
+        this.aBr.add(new d(this.mPageContext, 1, this.mUserId, this.fRa));
+        this.aBu.setData(this.aBr);
     }
 
-    public void a(a.InterfaceC0599a interfaceC0599a) {
-        for (com.baidu.live.liveroom.d.d dVar : this.awp) {
+    public void a(a.InterfaceC0649a interfaceC0649a) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aBr) {
             if (dVar != null && (dVar instanceof d)) {
-                ((d) dVar).a(interfaceC0599a);
+                ((d) dVar).a(interfaceC0649a);
             }
         }
     }
 
-    public void sy(int i) {
-        if (this.awp != null && this.aws != null) {
+    public void uM(int i) {
+        if (this.aBr != null && this.aBu != null) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < this.awp.size()) {
-                    com.baidu.live.liveroom.d.d dVar = this.awp.get(i3);
+                if (i3 < this.aBr.size()) {
+                    com.baidu.live.liveroom.d.d dVar = this.aBr.get(i3);
                     if (dVar == null || !(dVar instanceof d) || ((d) dVar).getTabType() != i) {
                         i2 = i3 + 1;
                     } else {
-                        this.aws.setCurrentIndex(i3);
+                        this.aBu.setCurrentIndex(i3);
                         return;
                     }
                 } else {
@@ -62,24 +62,24 @@ public class c {
         }
     }
 
-    public void as(String str, boolean z) {
-        for (com.baidu.live.liveroom.d.d dVar : this.awp) {
+    public void aw(String str, boolean z) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aBr) {
             if (dVar != null && (dVar instanceof d)) {
-                ((d) dVar).as(str, z);
+                ((d) dVar).aw(str, z);
             }
         }
     }
 
     public View getView() {
-        return this.aws;
+        return this.aBu;
     }
 
     public void enterForeground() {
-        this.aws.enterForeground();
+        this.aBu.enterForeground();
     }
 
     public void onDestory() {
-        for (com.baidu.live.liveroom.d.d dVar : this.awp) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aBr) {
             if (dVar != null) {
                 dVar.onDestroy();
             }
@@ -87,6 +87,6 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        this.aws.onChangeSkinType(i);
+        this.aBu.onChangeSkinType(i);
     }
 }

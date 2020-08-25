@@ -3,7 +3,7 @@ package com.baidu.tieba.video;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.VideoView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CustomVideoView extends VideoView {
     private int mVideoHeight;
     private int mVideoWidth;

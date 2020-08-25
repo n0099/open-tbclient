@@ -1,16 +1,16 @@
 package com.baidu.sapi2.social;
 
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.c;
-/* loaded from: classes19.dex */
-public class SocialLoginBase extends BaseActivity implements c {
-    private static WXInvokeCallback r;
+/* loaded from: classes12.dex */
+public class SocialLoginBase extends BaseActivity implements NoProguard {
+    private static WXInvokeCallback p;
 
     public static WXInvokeCallback getWXinvokeCallback() {
-        return r;
+        return p;
     }
 
     public static void setWXLoginCallback(WXInvokeCallback wXInvokeCallback) {
-        r = wXInvokeCallback;
+        p = wXInvokeCallback;
     }
 }

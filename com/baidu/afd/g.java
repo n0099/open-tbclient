@@ -2,15 +2,15 @@ package com.baidu.afd;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface g {
-    int pH();
+    int rg();
 
-    int pI();
+    int rh();
 
-    int pJ();
+    int ri();
 
-    Map<String, String> pK();
+    Map<String, String> rj();
 
-    void w(HashMap hashMap);
+    void u(HashMap hashMap);
 }

@@ -11,43 +11,43 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.live.personcenter.admin.message.AlaAdminListResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener fEf;
-    private a fUA;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a fUF;
+    private HttpMessageListener fPw;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a ggE;
+    private a ggz;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void ao(int i, String str);
+        void am(int i, String str);
 
-        void kq(boolean z);
+        void kO(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fEf = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.fPw = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.fUA != null) {
-                            b.this.fUA.ao(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.ggz != null) {
+                            b.this.ggz.am(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.fUF = alaAdminListResponseMessage.bBW();
-                    if (b.this.fUA != null) {
-                        b.this.fUA.kq(false);
+                    b.this.ggE = alaAdminListResponseMessage.bLq();
+                    if (b.this.ggz != null) {
+                        b.this.ggz.kO(false);
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.fEf);
+        registerListener(this.fPw);
     }
 
     private void registerTask() {
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bBX() {
+    public void bLr() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bBX();
+        bLr();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.fUF.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.ggE.getUserList()) : new ArrayList();
     }
 
-    public int bBV() {
+    public int bLp() {
         if (hasData()) {
-            return this.fUF.bBV();
+            return this.ggE.bLp();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.fUA = aVar;
+        this.ggz = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.fUF.getUserList().remove(bVar);
-            if (this.fUA != null) {
-                this.fUA.kq(false);
+            this.ggE.getUserList().remove(bVar);
+            if (this.ggz != null) {
+                this.ggz.kO(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.fUF == null || this.fUF.getUserList() == null || this.fUF.getUserList().isEmpty()) ? false : true;
+        return (this.ggE == null || this.ggE.getUserList() == null || this.ggE.getUserList().isEmpty()) ? false : true;
     }
 }

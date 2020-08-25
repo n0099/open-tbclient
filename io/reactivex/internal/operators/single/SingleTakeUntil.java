@@ -8,17 +8,17 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class SingleTakeUntil<T, U> extends w<T> {
-    final org.a.b<U> nTg;
+    final org.b.b<U> onb;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(yVar);
         yVar.onSubscribe(takeUntilMainObserver);
-        this.nTg.subscribe(takeUntilMainObserver.other);
+        this.onb.subscribe(takeUntilMainObserver.other);
         this.source.a(takeUntilMainObserver);
     }
 
@@ -87,26 +87,26 @@ public final class SingleTakeUntil<T, U> extends w<T> {
             this.parent = takeUntilMainObserver;
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(Object obj) {
             if (SubscriptionHelper.cancel(this)) {
                 this.parent.otherError(new CancellationException());
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.parent.otherError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (get() != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);

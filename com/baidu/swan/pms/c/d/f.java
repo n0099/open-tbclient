@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class f extends g {
-    private String dxf;
-    private int dxg;
-    private String dxi;
-    private String dxj;
-    private int dxk;
-    private String dxm;
+    private String dGk;
+    private String dGn;
+    private String dGo;
+    private int dGp;
+    private String dGr;
+    private int dGt;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.dxk = -1;
-        this.dxf = str;
-        this.dxm = str2;
-        this.dxg = i;
+        this.dGp = -1;
+        this.dGk = str;
+        this.dGr = str2;
+        this.dGt = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.dxk = -1;
-        this.dxf = str;
-        this.dxm = str3;
+        this.dGp = -1;
+        this.dGk = str;
+        this.dGr = str3;
         try {
-            this.dxg = Integer.valueOf(str2).intValue();
+            this.dGt = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.dxg = 0;
+            this.dGt = 0;
         }
     }
 
-    public f uC(String str) {
-        this.dxi = str;
+    public f wL(String str) {
+        this.dGn = str;
         return this;
     }
 
-    public int aLN() {
-        return this.dxk;
+    public int aUm() {
+        return this.dGp;
     }
 
-    public void uD(String str) {
-        this.dxj = str;
+    public void wM(String str) {
+        this.dGo = str;
     }
 
     public String getBundleId() {
-        return this.dxf;
+        return this.dGk;
     }
 
-    public String aLS() {
-        return this.dxm;
+    public String aUr() {
+        return this.dGr;
     }
 
-    public int aLL() {
-        return this.dxg;
+    public int aUt() {
+        return this.dGt;
     }
 
-    public String aLO() {
-        return this.dxi;
+    public String aUn() {
+        return this.dGn;
     }
 
-    public String aLP() {
-        return this.dxj;
+    public String aUo() {
+        return this.dGo;
     }
 }

@@ -1,4 +1,4 @@
 package com.google.ar.core.exceptions;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public class UnavailableException extends Exception {
 }

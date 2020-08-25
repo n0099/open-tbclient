@@ -57,9 +57,9 @@ public class d {
         }
     }
 
-    public static String li() {
-        String lj = lj();
-        return lj + lk();
+    public static String mH() {
+        String mI = mI();
+        return mI + mJ();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x00b0  */
@@ -67,7 +67,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String lj() {
+    private static String mI() {
         HttpGet httpGet;
         long currentTimeMillis;
         String str;
@@ -255,7 +255,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String lk() {
+    private static String mJ() {
         InputStream inputStream;
         Exception e;
         byte[] bArr;
@@ -436,7 +436,7 @@ public class d {
         throw new SocketException();
     }
 
-    public static String bH(String str) {
+    public static String bM(String str) {
         if (k.isEmpty(str)) {
             return "";
         }

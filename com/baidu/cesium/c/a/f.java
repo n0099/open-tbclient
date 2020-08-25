@@ -1,13 +1,13 @@
 package com.baidu.cesium.c.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 abstract class f {
-    final b akC;
+    final b alG;
     final int c;
     byte[] d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.akC = bVar;
+        this.alG = bVar;
         this.c = bVar.a();
     }
 

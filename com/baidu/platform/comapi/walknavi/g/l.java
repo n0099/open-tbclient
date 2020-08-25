@@ -1,9 +1,6 @@
 package com.baidu.platform.comapi.walknavi.g;
-
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class l implements Runnable {
+/* loaded from: classes20.dex */
+class l implements Runnable {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,6 +10,6 @@ public class l implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a(true, R.string.abc_action_menu_overflow_description);
+        com.baidu.platform.comapi.walknavi.b.a().I().runEntryState();
     }
 }

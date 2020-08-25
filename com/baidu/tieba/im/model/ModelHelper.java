@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ModelHelper {
     private static volatile ModelHelper sInstance;
     private IUpdatesModel mUpdatesModel;

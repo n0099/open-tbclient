@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.load.library;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LoadLibraryManager {
     private ILoadLibraryCallback mCallback;
     private IFaceUnityCallBack mFaceUnityCallBack;
@@ -24,7 +24,7 @@ public class LoadLibraryManager {
         return this.mFaceUnityCallBack;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InstanceHolder {
         private static final LoadLibraryManager sInst = new LoadLibraryManager();
     }

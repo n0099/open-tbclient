@@ -1,11 +1,13 @@
 package com.baidu.android.imsdk.upload.action;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMTrackManager {
     private static final int FAIL_MAX_COUNT = 3;
     private static final int RETRY_MAX_COUNT = 1;
@@ -72,24 +74,28 @@ public class IMTrackManager {
         retryCount = 0;
     }
 
-    public static void uploadIMInitAction(final Context context) {
+    public static void uploadIMRealAction(final Context context, @NonNull final IMPushPb.Action action) {
         if (context != null && RequsetNetworkUtils.isConnected(context)) {
             TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    IMTrackManager.requestInitIMUpload(context);
+                    IMTrackManager.requestIMRealUpload(context, action);
                 }
             });
         }
     }
 
-    public static void requestInitIMUpload(Context context) {
-        byte[] generateInitIMClient = new IMPbGenerator().generateInitIMClient(context);
-        if (generateInitIMClient != null && generateInitIMClient.length < 307200) {
-            IMPushUploadManager.getInstance(context).requestUpload(null, generateInitIMClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.4
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void requestIMRealUpload(final Context context, @NonNull IMPushPb.Action action) {
+        final byte[] generateIMRealClient = new IMPbGenerator().generateIMRealClient(context, action);
+        if (generateIMRealClient != null && generateIMRealClient.length < 307200) {
+            IMPushUploadManager.getInstance(context).requestUpload(null, generateIMRealClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.4
                 @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
                 public void uploadResponse(int i, String str) {
-                    LogUtils.d(IMTrackManager.TAG, "uploadInitData response :" + i + ", msg :" + str);
+                    LogUtils.d(IMTrackManager.TAG, "uploadIMRealAction response :" + i + ", msg :" + str);
+                    if (i != 0) {
+                        IMPushUploadManager.getInstance(context).requestUpload(null, generateIMRealClient, "", null);
+                    }
                 }
             });
         }

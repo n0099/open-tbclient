@@ -5,16 +5,17 @@ import android.support.media.ExifInterface;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.e;
-import com.baidu.sofire.core.g;
-import com.baidu.sofire.i.d;
+import com.baidu.sofire.core.c;
+import com.baidu.sofire.core.d;
+import com.baidu.sofire.core.f;
+import com.baidu.sofire.i.e;
 import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public class FH {
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
     public static final int INVOKE_METHOD_ERROR_ILLGEAL_METHOD_NAME = -3;
@@ -29,11 +30,11 @@ public class FH {
     }
 
     public static void init(Context context, String str, String str2, int... iArr) {
-        e.a(context, 0, str, str2, iArr);
+        d.a(context, 0, str, str2, iArr);
     }
 
     public static void initDelay(Context context, int i, String str, String str2, int... iArr) {
-        e.a(context, i, str, str2, iArr);
+        d.a(context, i, str, str2, iArr);
     }
 
     public static boolean call(int i, String str) {
@@ -45,7 +46,7 @@ public class FH {
     }
 
     public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
-        return e.a(i, str, clsArr, objArr);
+        return d.a(i, str, clsArr, objArr);
     }
 
     public static boolean call(int i, String str, Callback callback) {
@@ -57,11 +58,11 @@ public class FH {
     }
 
     public static boolean call(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
-        return e.a(i, str, callback, clsArr, objArr);
+        return d.a(i, str, callback, clsArr, objArr);
     }
 
     public static boolean isInitSuc(int i) {
-        return d.a(i);
+        return e.a(i);
     }
 
     public static Object getPInfo(int i, int i2) {
@@ -71,7 +72,7 @@ public class FH {
                     return "";
                 }
                 try {
-                    g a = g.a();
+                    f a = f.a();
                     if (a == null) {
                         return "";
                     }
@@ -89,7 +90,7 @@ public class FH {
                     }
                     return "";
                 } catch (Throwable th) {
-                    d.a();
+                    e.a();
                     return "";
                 }
             default:
@@ -98,39 +99,43 @@ public class FH {
     }
 
     public static String getVersion(Context context) {
-        return "3.3.9.8.2";
+        return "3.4.4.1";
     }
 
     public static String gzfi(Context context, String str, int i, String str2) {
-        return e.a(context, str, i, str2);
+        return d.a(context, str, i, str2);
     }
 
     public static String gzfi(Context context, String str, int i) {
-        return e.a(context, str, i, (String) null);
+        return d.a(context, str, i, (String) null);
     }
 
     public static String gz(Context context) {
-        return e.b(context);
+        return d.b(context);
     }
 
     public static String gd(Context context) {
-        return e.a(context);
+        return d.a(context);
     }
 
     public static String gt(Context context, String str, String str2, int i, String str3) {
-        return e.a(context, str, str2, i, str3);
+        return d.a(context, str, str2, i, str3);
     }
 
     public static String xgz(Context context, String str) {
-        return e.a(context, str);
+        return d.a(context, str);
     }
 
     public static void bc(Context context, boolean z) {
-        e.a(context, z);
+        d.a(context, z);
     }
 
     public static void setAgreePolicy(Context context, boolean z) {
-        e.b(context, z);
+        d.b(context, z);
+    }
+
+    public static void setDid(Context context, String str) {
+        d.b(context, str);
     }
 
     public static Pair<Integer, String> invokeMethod(Context context, String str) {
@@ -138,14 +143,14 @@ public class FH {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("f");
-            if (TextUtils.isEmpty(optString) || c.l.equals(optString) || "initDelay".equals(optString) || NotificationCompat.CATEGORY_CALL.equals(optString)) {
+            if (TextUtils.isEmpty(optString) || OneKeyLoginSdkCall.l.equals(optString) || "initDelay".equals(optString) || NotificationCompat.CATEGORY_CALL.equals(optString)) {
                 return new Pair<>(-3, "");
             }
             Method method = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("p");
             if (optString.equals("callSync")) {
-                if (com.baidu.sofire.core.d.b == null && context != null) {
-                    com.baidu.sofire.core.d.b = context.getApplicationContext();
+                if (c.b == null && context != null) {
+                    c.b = context.getApplicationContext();
                 }
                 if (optJSONArray != null && optJSONArray.length() == 2) {
                     method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -206,10 +211,10 @@ public class FH {
             }
             return new Pair<>(0, invoke.toString());
         } catch (IllegalArgumentException e) {
-            d.a();
+            e.a();
             return new Pair<>(-6, "");
         } catch (Throwable th) {
-            d.a();
+            e.a();
             return new Pair<>(-1, "");
         }
     }
@@ -229,8 +234,8 @@ public class FH {
                 if (cls.equals(Context.class)) {
                     if (context != null) {
                         objArr[i3] = context;
-                    } else if (com.baidu.sofire.core.d.b != null) {
-                        objArr[i3] = com.baidu.sofire.core.d.b;
+                    } else if (c.b != null) {
+                        objArr[i3] = c.b;
                     } else {
                         throw new IllegalArgumentException("method request context");
                     }
@@ -316,7 +321,7 @@ public class FH {
             }
             return objArr;
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException(th.getMessage());
         }
     }
@@ -339,7 +344,7 @@ public class FH {
             }
             return (byte) intValue;
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse byte fail:" + str);
         }
     }
@@ -351,7 +356,7 @@ public class FH {
             }
             return str.charAt(0);
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse char fail:" + str);
         }
     }
@@ -360,7 +365,7 @@ public class FH {
         try {
             return Short.valueOf(str).shortValue();
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse short fail:" + str);
         }
     }
@@ -369,7 +374,7 @@ public class FH {
         try {
             return Integer.valueOf(str).intValue();
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse int fail:" + str);
         }
     }
@@ -378,7 +383,7 @@ public class FH {
         try {
             return Long.valueOf(str).longValue();
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse long fail:" + str);
         }
     }
@@ -387,7 +392,7 @@ public class FH {
         try {
             return Float.valueOf(str).floatValue();
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse float fail:" + str);
         }
     }
@@ -396,7 +401,7 @@ public class FH {
         try {
             return Double.valueOf(str).doubleValue();
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse double fail:" + str);
         }
     }
@@ -440,7 +445,7 @@ public class FH {
             }
             return clsArr;
         } catch (Throwable th) {
-            d.a();
+            e.a();
             throw new IllegalArgumentException("parse classArray fail:" + str);
         }
     }

@@ -10,7 +10,7 @@ import java.util.Map;
 import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UpdateClientInfoMessage extends TbSocketMessage {
     private String bduss;
     private final Map<String, String> device;

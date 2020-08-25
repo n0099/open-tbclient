@@ -1,7 +1,7 @@
 package com.alibaba.fastjson.parser.deserializer;
 
 import java.lang.reflect.Type;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public interface PropertyProcessable extends ParseProcess {
     void apply(String str, Object obj);
 

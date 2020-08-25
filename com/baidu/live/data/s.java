@@ -1,8 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+
+import android.app.Activity;
+/* loaded from: classes7.dex */
 public class s {
-    public String azk;
-    public String azl;
-    public String dialogTitle;
-    public String iconUrl;
+    public r aEt;
+    public Activity activity;
 }

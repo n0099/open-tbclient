@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private l fwX;
-    private l fwY;
+    private l fIp;
+    private l fIq;
     private ViewGroup rootView;
 
     public j(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.fwX = new l(tbPageContext, i);
-        this.fwY = new l(tbPageContext, i);
+        this.fIp = new l(tbPageContext, i);
+        this.fIq = new l(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.fwX.getView());
+        this.rootView.addView(this.fIp.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.fwY.getView());
+        this.rootView.addView(this.fIq.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.fwX.onChangeSkinType(tbPageContext, i);
-        this.fwY.onChangeSkinType(tbPageContext, i);
+        ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
+        this.fIp.onChangeSkinType(tbPageContext, i);
+        this.fIq.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -40,8 +40,8 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.fwX.a(eVar.ftf);
-            this.fwY.a(eVar.ftg);
+            this.fIp.a(eVar.fEz);
+            this.fIq.a(eVar.fEA);
         }
     }
 

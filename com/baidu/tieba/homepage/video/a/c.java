@@ -3,34 +3,33 @@ package com.baidu.tieba.homepage.video.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.ListView.ab;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.adp.widget.ListView.z;
 import com.baidu.card.a.a;
-import com.baidu.card.ai;
-import com.baidu.card.ak;
+import com.baidu.card.aj;
+import com.baidu.card.al;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
-import com.baidu.tieba.card.data.k;
+import com.baidu.tieba.card.data.l;
 /* loaded from: classes16.dex */
-public class c extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
-    private aa<k> adN;
-    private v ajt;
-    public BdUniqueId eEU;
+public class c extends com.baidu.adp.widget.ListView.a<l, al<l>> {
+    private aa<l> aeT;
+    private v akI;
+    public BdUniqueId ePv;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.adN = new aa<k>() { // from class: com.baidu.tieba.homepage.video.a.c.1
+        this.aeT = new aa<l>() { // from class: com.baidu.tieba.homepage.video.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
-            public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.aTN() != null) {
-                    c.this.c(view, kVar);
+            public void a(View view, l lVar) {
+                if (view != null && lVar != null && lVar.bce() != null) {
+                    c.this.c(view, lVar);
                 }
             }
         };
@@ -38,17 +37,17 @@ public class c extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
     }
 
     public void a(v vVar) {
-        this.ajt = vVar;
+        this.akI = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(View view, k kVar) {
-        if (kVar != null) {
+    public void c(View view, l lVar) {
+        if (lVar != null) {
             int id = view.getId();
             if (view.getId() == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                com.baidu.tieba.homepage.video.c.a.p(kVar);
+                com.baidu.tieba.homepage.video.c.a.p(lVar);
             } else if (id == R.id.forum_head_image || id == R.id.forum_head_barname || id == R.id.forum_head_info_attention || id == R.id.forum_head_info_thread) {
-                com.baidu.tieba.homepage.video.c.a.q(kVar);
+                com.baidu.tieba.homepage.video.c.a.q(lVar);
             }
         }
     }
@@ -56,49 +55,49 @@ public class c extends com.baidu.adp.widget.ListView.a<k, ak<k>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
-    public ak b(ViewGroup viewGroup) {
-        ai.a aVar = new ai.a(this.mPageContext.getPageActivity());
-        aVar.se().bp(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds30));
-        aVar.a(new com.baidu.card.k(this.mPageContext.getPageActivity()));
-        ai a = aVar.a(false, viewGroup, this.ajt);
+    /* renamed from: aQ */
+    public al b(ViewGroup viewGroup) {
+        aj.a aVar = new aj.a(this.mPageContext.getPageActivity());
+        aVar.tP().bu(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds30));
+        aVar.a(new com.baidu.card.l(this.mPageContext.getPageActivity()));
+        aj a = aVar.a(false, viewGroup, this.akI);
         a.setSourceForPb(19);
-        ak akVar = new ak(a);
-        akVar.setPageId(this.eEU);
-        a(new z() { // from class: com.baidu.tieba.homepage.video.a.c.2
-            @Override // com.baidu.adp.widget.ListView.z
+        al alVar = new al(a);
+        alVar.setPageId(this.ePv);
+        a(new ab() { // from class: com.baidu.tieba.homepage.video.a.c.2
+            @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((qVar instanceof k) && (view.getTag() instanceof ak)) {
-                    ak akVar2 = (ak) view.getTag();
-                    k kVar = (k) qVar;
-                    kVar.objType = 1;
-                    if (c.this.adN != null) {
-                        c.this.adN.a(akVar2.getView(), kVar);
+                if ((qVar instanceof l) && (view.getTag() instanceof al)) {
+                    al alVar2 = (al) view.getTag();
+                    l lVar = (l) qVar;
+                    lVar.objType = 1;
+                    if (c.this.aeT != null) {
+                        c.this.aeT.a(alVar2.getView(), lVar);
                     }
-                    com.baidu.tieba.homepage.video.c.a.a(kVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    akVar2.sg().b(new a.C0096a(1));
+                    com.baidu.tieba.homepage.video.c.a.a(lVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
+                    alVar2.tR().b(new a.C0095a(1));
                 }
             }
         });
-        return akVar;
+        return alVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, k kVar, ak<k> akVar) {
-        if (kVar == null || akVar == null || akVar.getView() == null || kVar.dLK == null) {
+    public View a(int i, View view, ViewGroup viewGroup, l lVar, al<l> alVar) {
+        if (lVar == null || alVar == null || alVar.getView() == null || lVar.dUS == null) {
             return null;
         }
-        kVar.tj(kVar.position + 1);
-        akVar.sg().setPosition(i);
-        akVar.b((ak<k>) kVar);
-        akVar.sg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        akVar.sg().a(this.adN);
-        return akVar.getView();
+        lVar.vy(lVar.position + 1);
+        alVar.tR().setPosition(i);
+        alVar.b((al<l>) lVar);
+        alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        alVar.tR().a(this.aeT);
+        return alVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eEU = bdUniqueId;
+        this.ePv = bdUniqueId;
     }
 }

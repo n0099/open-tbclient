@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
@@ -17,26 +17,26 @@ import com.baidu.swan.apps.u.c.b;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends m {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final boolean cHd;
-    SwanAppConfigData cHe;
-    com.baidu.swan.games.t.a.a cHf;
-    private com.baidu.swan.apps.storage.c cHg;
-    private com.baidu.swan.apps.storage.b.c cHh;
-    private com.baidu.swan.apps.setting.a cHi;
-    private com.baidu.swan.apps.a.b cHj;
-    private com.baidu.swan.apps.network.j cHk;
-    private com.baidu.swan.games.network.b cHl;
-    private com.baidu.swan.apps.ah.a.a cHm;
-    private com.baidu.swan.apps.media.audio.d cHn;
-    private com.baidu.swan.apps.network.k cHo;
-    private g cHp;
-    private Map<String, String> cHq;
-    private final k cHr;
-    protected final b.a cHs;
-    private boolean cHt;
+    public final boolean cQc;
+    SwanAppConfigData cQd;
+    com.baidu.swan.games.t.a.a cQe;
+    private com.baidu.swan.apps.storage.c cQf;
+    private com.baidu.swan.apps.storage.b.c cQg;
+    private com.baidu.swan.apps.setting.a cQh;
+    private com.baidu.swan.apps.a.b cQi;
+    private com.baidu.swan.apps.network.j cQj;
+    private com.baidu.swan.games.network.b cQk;
+    private com.baidu.swan.apps.ag.a.a cQl;
+    private com.baidu.swan.apps.media.audio.d cQm;
+    private com.baidu.swan.apps.network.k cQn;
+    private g cQo;
+    private Map<String, String> cQp;
+    private final k cQq;
+    protected final b.a cQr;
+    private boolean cQs;
     public final String id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,33 +44,33 @@ public class e extends m {
     public e(h hVar, String str) {
         super(hVar);
         boolean z = false;
-        this.cHr = new k(this);
-        this.cHs = new b.a();
-        this.cHt = false;
+        this.cQq = new k(this);
+        this.cQr = new b.a();
+        this.cQs = false;
         this.id = str == null ? "" : str;
-        this.cHd = (!TextUtils.isEmpty(this.id) || TextUtils.equals(this.id, "swan_id_unknown")) ? true : true;
-        if (this.cHd) {
-            this.cHm = new com.baidu.swan.apps.ah.a.a();
-            this.cHm.oF(this.id);
+        this.cQc = (!TextUtils.isEmpty(this.id) || TextUtils.equals(this.id, "swan_id_unknown")) ? true : true;
+        if (this.cQc) {
+            this.cQl = new com.baidu.swan.apps.ag.a.a();
+            this.cQl.qC(this.id);
         }
     }
 
     @Deprecated
-    public static e arv() {
-        return arw();
+    public static e azI() {
+        return azJ();
     }
 
-    public static e arw() {
-        d arr = d.arr();
-        if (arr.apU()) {
-            return arr.arn();
+    public static e azJ() {
+        d azE = d.azE();
+        if (azE.axR()) {
+            return azE.azA();
         }
         return null;
     }
 
     @Deprecated
-    public static String arx() {
-        return d.arr().getAppId();
+    public static String azK() {
+        return d.azE().getAppId();
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
@@ -79,407 +79,409 @@ public class e extends m {
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public boolean apU() {
-        return this.cHd;
+    public boolean axR() {
+        return this.cQc;
     }
 
-    public boolean VF() {
-        com.baidu.swan.apps.framework.c RV;
-        if (com.baidu.swan.apps.core.prefetch.a.a.acD() == 0) {
-            return false;
+    public boolean abL() {
+        com.baidu.swan.apps.framework.c XQ;
+        if (com.baidu.swan.apps.core.prefetch.a.a.isOn()) {
+            SwanAppActivity azC = azC();
+            return azC == null || (XQ = azC.XQ()) == null || !XQ.ana().hasStarted();
         }
-        SwanAppActivity arp = arp();
-        return arp == null || (RV = arp.RV()) == null || !RV.afT().hasStarted();
+        return false;
     }
 
-    public boolean ary() {
-        com.baidu.swan.apps.framework.c RV;
-        SwanAppActivity arp = arp();
-        if (arp == null || (RV = arp.RV()) == null) {
+    public boolean azL() {
+        com.baidu.swan.apps.framework.c XQ;
+        SwanAppActivity azC = azC();
+        if (azC == null || (XQ = azC.XQ()) == null) {
             return false;
         }
-        return RV.afT().hasCreated();
+        return XQ.ana().hasCreated();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String w(String... strArr) {
+    public String x(String... strArr) {
         if (DEBUG) {
             Log.d("SwanApp", "——> release client Id " + this.id);
         }
-        SwanAppActivity arp = arp();
-        if (arp != null && !arp.isDestroyed() && !arp.isFinishing() && arp.RW()) {
-            arp.o(strArr);
+        SwanAppActivity azC = azC();
+        if (azC != null && !azC.isDestroyed() && !azC.isFinishing() && azC.XR()) {
+            azC.o(strArr);
         }
         com.baidu.swan.apps.v.f.release();
-        if (this.cHp != null) {
-            this.cHp.onDestroy();
+        if (this.cQo != null) {
+            this.cQo.onDestroy();
         }
-        com.baidu.swan.d.d.deleteFile(com.baidu.swan.apps.storage.b.pH(this.id));
-        if (this.cHn != null) {
-            this.cHn.release();
+        com.baidu.swan.c.d.deleteFile(com.baidu.swan.apps.storage.b.rH(this.id));
+        if (this.cQm != null) {
+            this.cQm.release();
         }
-        if (this.cHm != null) {
-            this.cHm.release();
+        if (this.cQl != null) {
+            this.cQl.release();
         }
-        if (this.cHo != null) {
-            this.cHo.release();
+        if (this.cQn != null) {
+            this.cQn.release();
         }
-        this.cHg = null;
-        this.cHi = null;
-        this.cHl = null;
-        this.cHt = false;
+        this.cQf = null;
+        this.cQh = null;
+        this.cQk = null;
+        this.cQs = false;
         return this.id;
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public SwanAppCores apV() {
+    public SwanAppCores axS() {
         SwanAppCores swanAppCores = new SwanAppCores();
-        swanAppCores.a(arz().adQ());
-        swanAppCores.a(arz().adR());
+        swanAppCores.a(azM().akn());
+        swanAppCores.a(azM().ako());
         return swanAppCores;
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public e arn() {
+    public e azA() {
         return this;
     }
 
     @NonNull
-    public b.a arz() {
-        return this.cHs;
+    public b.a azM() {
+        return this.cQr;
     }
 
     @NonNull
     @Deprecated
-    public b.a Se() {
-        return arz();
+    public b.a XZ() {
+        return azM();
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public int RU() {
-        if (this.cHd) {
-            return arz().getAppFrameType();
+    public int XP() {
+        if (this.cQc) {
+            return azM().getAppFrameType();
         }
         return -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean b(Bundle bundle, String str, boolean z) {
-        boolean contains = cHv.contains(str);
-        b.a arz = arz();
-        HybridUbcFlow mX = com.baidu.swan.apps.performance.i.mX("startup");
-        mX.f(new UbcFlowEvent("swan_app_update_info_start").eI(true));
-        if (TextUtils.equals("update_tag_by_activity_on_new_intent", str) && this.cHr.arX() && ary()) {
-            if (arz.containsKey("swanCoreVersion")) {
+        boolean contains = cQu.contains(str);
+        b.a azM = azM();
+        HybridUbcFlow oW = com.baidu.swan.apps.performance.i.oW("startup");
+        oW.f(new UbcFlowEvent("swan_app_update_info_start").fb(true));
+        if (TextUtils.equals("update_tag_by_activity_on_new_intent", str) && this.cQq.aAk() && azL()) {
+            if (azM.containsKey("swanCoreVersion")) {
                 bundle.remove("swanCoreVersion");
                 bundle.remove("extensionCore");
             }
-            if (arz.containsKey("pms_db_info_onload")) {
+            if (azM.containsKey("pms_db_info_onload")) {
                 bundle.remove("pms_db_info_onload");
             }
         }
-        arz.F(bundle);
-        mX.f(new UbcFlowEvent("swan_app_update_info_end").eI(true));
+        azM.D(bundle);
+        oW.f(new UbcFlowEvent("swan_app_update_info_end").fb(true));
         if (z) {
-            oi("event_on_app_occupied");
+            qg("event_on_app_occupied");
         }
-        if (this.cHd && !this.cHr.arX() && !this.cHr.arV()) {
-            mX.f(new UbcFlowEvent("swan_app_maintain_start").eI(true));
-            this.cHr.arY();
-            mX.f(new UbcFlowEvent("swan_app_maintain_return").eI(true));
+        if (this.cQc && !this.cQq.aAk() && !this.cQq.aAi()) {
+            oW.f(new UbcFlowEvent("swan_app_maintain_start").fb(true));
+            this.cQq.aAl();
+            oW.f(new UbcFlowEvent("swan_app_maintain_return").fb(true));
             return true;
         }
-        if (this.cHr.arX() && contains) {
-            k.a(arz, arz.ajw(), false, false, false);
+        if (this.cQq.aAk() && contains) {
+            k.a(azM, azM.ard(), false, false, false);
         }
-        return this.cHr.arV();
+        return this.cQq.aAi();
     }
 
-    public com.baidu.swan.apps.u.c.b U(Bundle bundle) {
-        b.a arz = arz();
-        arz.F(bundle);
-        return arz;
-    }
-
-    @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public void aro() {
-        arH().atg();
-        arG().av(true);
+    public com.baidu.swan.apps.u.c.b S(Bundle bundle) {
+        b.a azM = azM();
+        azM.D(bundle);
+        return azM;
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public void oi(String str) {
-        g(str, arD());
+    public void azB() {
+        azU().aBo();
+        azT().aw(true);
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
-    public void g(String str, Bundle bundle) {
+    public void qg(String str) {
+        f(str, azQ());
+    }
+
+    @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
+    public void f(String str, Bundle bundle) {
         if (bundle == null) {
-            bundle = arD();
+            bundle = azQ();
         } else {
-            bundle.putAll(arD());
+            bundle.putAll(azQ());
         }
-        super.g(str, bundle);
+        super.f(str, bundle);
     }
 
     @Override // com.baidu.swan.apps.runtime.m, com.baidu.swan.apps.runtime.h
     public void i(i.a aVar) {
-        super.i((i.a) aVar.F(arD()));
+        super.i((i.a) aVar.D(azQ()));
     }
 
-    public boolean arA() {
-        return this.cHr.arV();
+    public boolean azN() {
+        return this.cQq.aAi();
     }
 
-    public boolean arB() {
-        return this.cHr.arW();
+    public boolean azO() {
+        return this.cQq.aAj();
     }
 
-    public int arC() {
-        return this.cHr.arC();
+    public int azP() {
+        return this.cQq.azP();
     }
 
-    private Bundle arD() {
+    private Bundle azQ() {
         Bundle bundle = new Bundle();
         bundle.putString("mAppId", this.id);
         return bundle;
     }
 
     public void onActivityResume(Activity activity) {
-        arH().onActivityResume(activity);
+        azU().onActivityResume(activity);
     }
 
-    public void f(SwanAppConfigData swanAppConfigData) {
-        this.cHe = swanAppConfigData;
+    public void g(SwanAppConfigData swanAppConfigData) {
+        this.cQd = swanAppConfigData;
     }
 
-    public SwanAppConfigData arE() {
-        return this.cHe;
+    public SwanAppConfigData azR() {
+        return this.cQd;
     }
 
     public void a(com.baidu.swan.games.t.a.a aVar) {
-        this.cHf = aVar;
+        this.cQe = aVar;
     }
 
-    public com.baidu.swan.games.t.a.a arF() {
-        return this.cHf;
+    public com.baidu.swan.games.t.a.a azS() {
+        return this.cQe;
     }
 
-    public com.baidu.swan.apps.storage.c arG() {
-        if (this.cHg == null) {
-            this.cHg = new com.baidu.swan.apps.storage.c(this);
+    public com.baidu.swan.apps.storage.c azT() {
+        if (this.cQf == null) {
+            this.cQf = new com.baidu.swan.apps.storage.c(this);
         }
-        return this.cHg;
+        return this.cQf;
     }
 
-    public com.baidu.swan.apps.storage.b.c ajX() {
-        if (this.cHh == null) {
-            if (arO()) {
-                this.cHh = new com.baidu.swan.games.i.l();
+    public com.baidu.swan.apps.storage.b.c arE() {
+        if (this.cQg == null) {
+            if (aAb()) {
+                this.cQg = new com.baidu.swan.games.i.l();
             } else {
-                this.cHh = new com.baidu.swan.apps.storage.b.e();
+                this.cQg = new com.baidu.swan.apps.storage.b.e();
             }
         }
-        return this.cHh;
+        return this.cQg;
     }
 
     @NonNull
-    public com.baidu.swan.apps.setting.a arH() {
-        if (this.cHi == null) {
-            this.cHi = new com.baidu.swan.apps.setting.a(this);
+    public com.baidu.swan.apps.setting.a azU() {
+        if (this.cQh == null) {
+            this.cQh = new com.baidu.swan.apps.setting.a(this);
         }
-        return this.cHi;
+        return this.cQh;
     }
 
-    public com.baidu.swan.apps.a.b arI() {
-        if (this.cHj == null) {
-            this.cHj = new com.baidu.swan.apps.a.b(this);
+    public com.baidu.swan.apps.a.b azV() {
+        if (this.cQi == null) {
+            this.cQi = new com.baidu.swan.apps.a.b(this);
         }
-        return this.cHj;
+        return this.cQi;
     }
 
-    public synchronized com.baidu.swan.apps.network.j arJ() {
-        if (this.cHk == null) {
-            this.cHk = new com.baidu.swan.apps.network.j(this);
+    public synchronized com.baidu.swan.apps.network.j azW() {
+        if (this.cQj == null) {
+            this.cQj = new com.baidu.swan.apps.network.j(this);
         }
-        return this.cHk;
+        return this.cQj;
     }
 
-    public synchronized com.baidu.swan.games.network.b arK() {
-        if (this.cHl == null) {
-            this.cHl = com.baidu.swan.games.network.b.aFL();
+    public synchronized com.baidu.swan.games.network.b azX() {
+        if (this.cQk == null) {
+            this.cQk = com.baidu.swan.games.network.b.aOC();
         }
-        return this.cHl;
+        return this.cQk;
     }
 
-    public com.baidu.swan.apps.network.k arL() {
-        if (this.cHo == null) {
-            this.cHo = new com.baidu.swan.apps.network.k();
+    public com.baidu.swan.apps.network.k azY() {
+        if (this.cQn == null) {
+            this.cQn = new com.baidu.swan.apps.network.k();
         }
-        return this.cHo;
+        return this.cQn;
     }
 
-    public com.baidu.swan.apps.media.audio.d arM() {
-        if (this.cHn == null) {
-            this.cHn = new com.baidu.swan.apps.media.audio.d(this);
+    public com.baidu.swan.apps.media.audio.d azZ() {
+        if (this.cQm == null) {
+            this.cQm = new com.baidu.swan.apps.media.audio.d(this);
         }
-        return this.cHn;
+        return this.cQm;
     }
 
     @NonNull
-    public g arN() {
-        if (this.cHp == null) {
-            this.cHp = new g(this);
+    public g aAa() {
+        if (this.cQo == null) {
+            this.cQo = new g(this);
         }
-        return this.cHp;
+        return this.cQo;
     }
 
     public String getAppKey() {
-        return arz().getAppKey();
+        return azM().getAppKey();
     }
 
-    public boolean arO() {
-        return arz().getAppFrameType() == 1;
+    public boolean aAb() {
+        return azM().getAppFrameType() == 1;
     }
 
     public String getName() {
-        return arz().aee();
+        return azM().akO();
     }
 
     public String getVersion() {
-        return arz().getVersion();
+        return azM().getVersion();
     }
 
-    public com.baidu.swan.apps.ah.a.a arP() {
-        if (this.cHm == null) {
-            this.cHm = new com.baidu.swan.apps.ah.a.a();
+    public com.baidu.swan.apps.ag.a.a aAc() {
+        if (this.cQl == null) {
+            this.cQl = new com.baidu.swan.apps.ag.a.a();
         }
-        return this.cHm;
+        return this.cQl;
     }
 
-    public boolean oj(String str) {
-        if (TextUtils.isEmpty(str) || this.cHe == null || this.cHe.cHS == null) {
+    public boolean qh(String str) {
+        if (TextUtils.isEmpty(str) || this.cQd == null || this.cQd.cQR == null) {
             return false;
         }
-        return this.cHe.cHS.oD(str);
+        return this.cQd.cQR.qA(str);
     }
 
-    public boolean ok(String str) {
-        if (TextUtils.isEmpty(str) || this.cHe == null || this.cHe.cHT == null || this.cHe.cHT.cIu == null || !this.cHe.cHT.cIu.containsKey(str)) {
+    public boolean qi(String str) {
+        if (TextUtils.isEmpty(str) || this.cQd == null || this.cQd.cQS == null || this.cQd.cQS.cRt == null || !this.cQd.cQS.cRt.containsKey(str)) {
             return false;
         }
         if (DEBUG) {
             Log.i("SwanApp", "内存中查询分包是否存在信息");
         }
-        return this.cHe.cHT.cIu.get(str).booleanValue();
+        return this.cQd.cQS.cRt.get(str).booleanValue();
     }
 
-    public boolean ol(String str) {
+    public boolean qj(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.swan.pms.database.a.aKS().W(this.id, getVersion(), str);
+        return com.baidu.swan.pms.database.a.aTt().W(this.id, getVersion(), str);
     }
 
-    public boolean om(String str) {
-        return new File(com.baidu.swan.apps.v.f.akr().ajY(), str).exists();
+    public boolean qk(String str) {
+        return new File(com.baidu.swan.apps.v.f.arY().arF(), str).exists();
     }
 
-    public void Q(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.cHe != null && this.cHe.cHT != null && this.cHe.cHT.cIu != null) {
+    public void V(String str, boolean z) {
+        if (!TextUtils.isEmpty(str) && this.cQd != null && this.cQd.cQS != null && this.cQd.cQS.cRt != null) {
             if (DEBUG) {
                 Log.i("SwanApp", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.cHe.cHT.cIu.put(str, Boolean.valueOf(z));
+            this.cQd.cQS.cRt.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String hq(String str) {
-        if (this.cHe == null || this.cHe.cHT == null || this.cHe.cHT.cIv == null) {
+    public String iM(String str) {
+        if (this.cQd == null || this.cQd.cQS == null || this.cQd.cQS.cRu == null) {
             return null;
         }
-        return this.cHe.cHT.cIv.get(com.baidu.swan.apps.scheme.actions.k.j.oZ(str));
+        return this.cQd.cQS.cRu.get(com.baidu.swan.apps.scheme.actions.k.j.qW(str));
     }
 
-    public String oo(String str) {
-        if (this.cHe == null || this.cHe.cHU == null || this.cHe.cHU.cIx == null) {
+    public String ql(String str) {
+        if (this.cQd == null || this.cQd.cQT == null || this.cQd.cQT.cRw == null) {
             return null;
         }
-        return this.cHe.cHU.cIx.get(str);
+        return this.cQd.cQT.cRw.get(str);
     }
 
-    public String op(String str) {
-        if (this.cHe == null) {
+    public String qm(String str) {
+        if (this.cQd == null) {
             return "";
         }
-        return this.cHe.op(str);
+        return this.cQd.qm(str);
     }
 
-    public boolean oq(String str) {
-        if (TextUtils.isEmpty(str) || this.cHe == null) {
+    public boolean qn(String str) {
+        if (TextUtils.isEmpty(str) || this.cQd == null) {
             return false;
         }
-        return this.cHe.oz(str);
+        return this.cQd.qw(str);
     }
 
-    public boolean arQ() {
-        return oq(com.baidu.swan.apps.v.f.akr().akw());
+    public boolean aAd() {
+        return qn(com.baidu.swan.apps.v.f.arY().asd());
     }
 
-    public String arR() {
-        b.a arz = arz();
-        return arz != null ? he(arz.getType()) : "0";
+    public String aAe() {
+        b.a azM = azM();
+        return azM != null ? jl(azM.getType()) : "0";
     }
 
-    private String he(int i) {
+    private String jl(int i) {
         if (i == 0) {
-            String versionCode = this.cHs != null ? this.cHs.getVersionCode() : "";
+            String versionCode = this.cQr != null ? this.cQr.getVersionCode() : "";
             if (TextUtils.isEmpty(versionCode)) {
                 versionCode = getVersion();
             }
-            String qJ = al.qJ(versionCode);
-            com.baidu.swan.apps.console.c.d("SwanApp", TextUtils.isEmpty(qJ) ? " version is empty " : qJ);
-            return qJ;
+            String sL = ak.sL(versionCode);
+            Object[] objArr = new Object[1];
+            objArr[0] = TextUtils.isEmpty(sL) ? " version is empty " : sL;
+            com.baidu.swan.apps.console.c.d("SwanApp", objArr);
+            return sL;
         }
         return "0";
     }
 
-    public void bO(String str, String str2) {
+    public void ce(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.cHq == null) {
-                this.cHq = new HashMap();
+            if (this.cQp == null) {
+                this.cQp = new HashMap();
             }
             if (DEBUG) {
                 Log.d("SwanApp", "update initData, page: " + str2 + " initDta : " + str);
             }
-            this.cHq.put(str2, str);
+            this.cQp.put(str2, str);
         }
     }
 
     @Nullable
-    public String or(String str) {
-        if (TextUtils.isEmpty(str) || this.cHq == null) {
+    public String qo(String str) {
+        if (TextUtils.isEmpty(str) || this.cQp == null) {
             return null;
         }
-        return this.cHq.get(str);
+        return this.cQp.get(str);
     }
 
     public boolean available() {
-        return this.cHd && this.cHr.arX() && RU() > -1;
+        return this.cQc && this.cQq.aAk() && XP() > -1;
     }
 
     @Deprecated
     public Activity getActivity() {
-        return arp();
+        return azC();
     }
 
-    public e fr(boolean z) {
-        this.cHt = z;
-        oi("event_first_action_launched");
+    public e fK(boolean z) {
+        this.cQs = z;
+        qg("event_first_action_launched");
         return this;
     }
 
-    public boolean arS() {
-        return this.cHt;
+    public boolean aAf() {
+        return this.cQs;
     }
 }

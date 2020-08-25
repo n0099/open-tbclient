@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImgLogSwitch extends a {
     public static final String IMG_LOG = "img_log";
     public static final int OFF_TYPE = 1;

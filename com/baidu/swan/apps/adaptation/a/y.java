@@ -1,9 +1,10 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes7.dex */
+
+import android.content.ContentValues;
+import android.support.annotation.Nullable;
+import java.util.List;
+/* loaded from: classes8.dex */
 public interface y {
-    void Ut();
-
-    void Uu();
-
-    void Uv();
+    @Nullable
+    List<ContentValues> ZL();
 }

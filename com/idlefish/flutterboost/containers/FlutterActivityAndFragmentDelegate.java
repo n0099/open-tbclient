@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     private static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
@@ -52,7 +52,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     private XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
@@ -189,10 +189,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.v(TAG, "onResume()");
         ensureAlive();
         this.flutterEngine.getLifecycleChannel().appIsResumed();
-        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != this.host.getActivity().hashCode()) {
+        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != this.host.hashCode()) {
             this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
             this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), new androidx.lifecycle.a(this.host.getLifecycle()));
-            ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.getActivity().hashCode();
+            ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.hashCode();
         }
         if (this.platformPlugin != null) {
             this.platformPlugin.attachToActivity(this.host.getActivity());
@@ -230,7 +230,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             this.platformPlugin.detachActivity(getContextActivity());
             this.platformPlugin = null;
         }
-        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == this.host.getActivity().hashCode()) {
+        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == this.host.hashCode()) {
             this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
         }
         Utils.fixInputMethodManagerLeak(this.host.getActivity());

@@ -27,16 +27,16 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.HotTopicBussinessData;
-import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.data.au;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.av;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.widget.TbImageView;
@@ -65,38 +65,38 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes15.dex */
 public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements BdListView.e, UserIconBox.b, HotRelateThreadModel.a, HotRelateThreadModel.b, HotTopicModel.a, a, FrsCommonImageLayout.c {
-    private long dEQ;
-    private com.baidu.adp.lib.d.b<TbImageView> elu;
+    private long dNY;
+    private com.baidu.adp.lib.d.b<TbImageView> evp;
     private long fid;
     private String firstDir;
-    private b iIZ;
-    private BlessModel iJq;
-    private LikeModel iJr;
-    private com.baidu.adp.lib.d.b<TbImageView> iJs;
+    private b iXX;
+    private BlessModel iYo;
+    private LikeModel iYp;
+    private com.baidu.adp.lib.d.b<TbImageView> iYq;
     private List<HotTopicBussinessData> mDataList;
     private List<e> mHotTopicDataList;
     private String secondDir;
-    private com.baidu.tieba.hottopic.view.c iJn = null;
-    private HotTopicModel iJo = null;
-    private HotRelateThreadModel iJp = null;
-    private String eeI = null;
-    private String dQI = null;
+    private com.baidu.tieba.hottopic.view.c iYl = null;
+    private HotTopicModel iYm = null;
+    private HotRelateThreadModel iYn = null;
+    private String eoj = null;
+    private String eab = null;
     private String mFrom = "";
     private long lastResumeTime = 0;
     private int mIsGlobalBlock = 0;
-    private boolean iJt = true;
-    private AntiHelper.a hGU = new AntiHelper.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.1
+    private boolean iYr = true;
+    private AntiHelper.a hUk = new AntiHelper.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.1
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ah("obj_locate", aw.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ai("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ah("obj_locate", aw.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ai("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
     };
-    private final com.baidu.adp.framework.listener.a hdf = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.2
+    private final com.baidu.adp.framework.listener.a hpZ = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
@@ -120,15 +120,15 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             }
         }
     };
-    private com.baidu.adp.base.d hiv = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.3
+    private com.baidu.adp.base.d hvu = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.3
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
-            if (!AntiHelper.bB(HotTopicActivity.this.iJr.getErrorCode(), HotTopicActivity.this.iJr.getErrorString())) {
-                if (!StringUtils.isNull(HotTopicActivity.this.iJr.getErrorString())) {
-                    l.showToast(TbadkCoreApplication.getInst(), HotTopicActivity.this.iJr.getErrorString());
+            if (!AntiHelper.bz(HotTopicActivity.this.iYp.getErrorCode(), HotTopicActivity.this.iYp.getErrorString())) {
+                if (!StringUtils.isNull(HotTopicActivity.this.iYp.getErrorString())) {
+                    l.showToast(TbadkCoreApplication.getInst(), HotTopicActivity.this.iYp.getErrorString());
                 }
-            } else if (AntiHelper.a(HotTopicActivity.this.getActivity(), HotTopicActivity.this.iJr.getErrorString(), HotTopicActivity.this.iJr.getErrorCode(), HotTopicActivity.this.hGU) != null) {
-                TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ah("obj_locate", aw.a.LOCATE_LIKE_PERSON));
+            } else if (AntiHelper.a(HotTopicActivity.this.getActivity(), HotTopicActivity.this.iYp.getErrorString(), HotTopicActivity.this.iYp.getErrorCode(), HotTopicActivity.this.hUk) != null) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ai("obj_locate", ax.a.LOCATE_LIKE_PERSON));
             }
         }
     };
@@ -153,69 +153,69 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
         if (i != 0) {
             showToast(str);
-        } else if (this.iJn != null && x.getItem(this.mHotTopicDataList, this.iJn.getCurrentTab()) != null && this.iJn.cpC() != null) {
-            e eVar = (e) x.getItem(this.mHotTopicDataList, this.iJn.getCurrentTab());
-            ar arVar = new ar();
+        } else if (this.iYl != null && y.getItem(this.mHotTopicDataList, this.iYl.getCurrentTab()) != null && this.iYl.cAu() != null) {
+            e eVar = (e) y.getItem(this.mHotTopicDataList, this.iYl.getCurrentTab());
+            as asVar = new as();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
             builder.author = builder2.build(true);
-            arVar.a(builder.build(true));
-            eVar.aC(arVar);
-            this.iJn.cpC().d(eVar);
+            asVar.a(builder.build(true));
+            eVar.aD(asVar);
+            this.iYl.cAu().d(eVar);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        at(bundle);
-        this.iJn = new com.baidu.tieba.hottopic.view.c(getPageContext(), this.eeI);
-        this.iJo = new HotTopicModel(this);
-        this.iJo.a(this);
-        this.iJr = new LikeModel(getPageContext());
-        this.iJr.setLoadDataCallBack(this.hiv);
-        this.iJp = new HotRelateThreadModel(this);
-        this.iJp.a((HotRelateThreadModel.a) this);
-        this.iJp.a((HotRelateThreadModel.b) this);
-        this.iIZ = new b(this);
-        this.iJq = new BlessModel(this);
-        bCM();
-        coK();
+        as(bundle);
+        this.iYl = new com.baidu.tieba.hottopic.view.c(getPageContext(), this.eoj);
+        this.iYm = new HotTopicModel(this);
+        this.iYm.a(this);
+        this.iYp = new LikeModel(getPageContext());
+        this.iYp.setLoadDataCallBack(this.hvu);
+        this.iYn = new HotRelateThreadModel(this);
+        this.iYn.a((HotRelateThreadModel.a) this);
+        this.iYn.a((HotRelateThreadModel.b) this);
+        this.iXX = new b(this);
+        this.iYo = new BlessModel(this);
+        bMg();
+        czD();
     }
 
-    private void coK() {
-        showLoadingView(this.iJn.cpv(), false);
+    private void czD() {
+        showLoadingView(this.iYl.cAo(), false);
         if (!j.isNetworkAvailableForImmediately()) {
-            hideLoadingView(this.iJn.cpv());
-            showNetRefreshView(this.iJn.cpv(), getResources().getString(R.string.neterror), true);
+            hideLoadingView(this.iYl.cAo());
+            showNetRefreshView(this.iYl.cAo(), getResources().getString(R.string.neterror), true);
             setNetRefreshViewTopMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-            this.iJn.yc(8);
+            this.iYl.Aw(8);
             return;
         }
-        this.iJn.yc(0);
-        coM();
+        this.iYl.Aw(0);
+        czF();
     }
 
-    private void at(Bundle bundle) {
+    private void as(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.eeI = intent.getStringExtra("topic_id");
-            this.dQI = intent.getStringExtra("topic_name");
+            this.eoj = intent.getStringExtra("topic_id");
+            this.eab = intent.getStringExtra("topic_name");
             this.fid = intent.getLongExtra("topic_fid", 0L);
             this.firstDir = intent.getStringExtra("topic_first_dir");
             this.secondDir = intent.getStringExtra("topic_second_dir");
             this.mFrom = intent.getStringExtra("from");
-            this.dEQ = intent.getLongExtra(IntentConfig.TOPIC_TID, 0L);
+            this.dNY = intent.getLongExtra(IntentConfig.TOPIC_TID, 0L);
         } else if (bundle != null) {
-            this.eeI = bundle.getString("topic_id");
-            this.dQI = bundle.getString("topic_name");
+            this.eoj = bundle.getString("topic_id");
+            this.eab = bundle.getString("topic_name");
             this.fid = bundle.getLong("topic_fid", 0L);
             this.firstDir = bundle.getString("topic_first_dir");
             this.secondDir = bundle.getString("topic_second_dir");
             this.mFrom = bundle.getString("from");
             this.mFrom = bundle.getString("from");
-            this.dEQ = bundle.getLong(IntentConfig.TOPIC_TID, 0L);
+            this.dNY = bundle.getLong(IntentConfig.TOPIC_TID, 0L);
         }
     }
 
@@ -223,8 +223,8 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     protected void onResume() {
         this.lastResumeTime = System.currentTimeMillis();
         super.onResume();
-        if (this.iJn != null) {
-            this.iJn.resume();
+        if (this.iYl != null) {
+            this.iYl.resume();
         }
     }
 
@@ -235,7 +235,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         } else {
             this.mDataList.clear();
         }
-        this.mDataList.add(new HotTopicBussinessData(0L, "", eVar.cpf().dQI, this.mIsGlobalBlock));
+        this.mDataList.add(new HotTopicBussinessData(0L, "", eVar.czY().eab, this.mIsGlobalBlock));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -255,15 +255,15 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                             long j = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getPostId(), 0L);
                             long j2 = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getThreadId(), 0L);
                             long j3 = 0;
-                            if (this.iJn != null && x.getItem(this.mDataList, this.iJn.getCurrentTab()) != null) {
-                                j3 = com.baidu.adp.lib.f.b.toLong(String.valueOf(((HotTopicBussinessData) x.getItem(this.mDataList, this.iJn.getCurrentTab())).mForumId), 0L);
+                            if (this.iYl != null && y.getItem(this.mDataList, this.iYl.getCurrentTab()) != null) {
+                                j3 = com.baidu.adp.lib.f.b.toLong(String.valueOf(((HotTopicBussinessData) y.getItem(this.mDataList, this.iYl.getCurrentTab())).mForumId), 0L);
                             }
                             if (j != 0 && j2 != 0) {
                                 int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
                                 int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
                                 float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                                 int i3 = 1;
-                                if (at.baS().baT()) {
+                                if (au.bjr().bjs()) {
                                     i3 = 2;
                                 }
                                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
@@ -283,14 +283,14 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     }
                     return;
                 case RequestResponseCode.REQUEST_SELECT_IM_CHAT_GROUP_CODE /* 23003 */:
-                    if (intent != null && !x.isEmpty(this.mHotTopicDataList)) {
-                        this.iIZ.a(coL(), intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L), this.mHotTopicDataList.get(0));
+                    if (intent != null && !y.isEmpty(this.mHotTopicDataList)) {
+                        this.iXX.a(czE(), intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L), this.mHotTopicDataList.get(0));
                         return;
                     }
                     return;
                 case RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM /* 23007 */:
-                    if (intent != null && !x.isEmpty(this.mHotTopicDataList)) {
-                        this.iIZ.a(coL(), intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME), intent.getStringExtra("name_show"), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT), this.mHotTopicDataList.get(0));
+                    if (intent != null && !y.isEmpty(this.mHotTopicDataList)) {
+                        this.iXX.a(czE(), intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME), intent.getStringExtra("name_show"), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT), this.mHotTopicDataList.get(0));
                         return;
                     }
                     return;
@@ -303,34 +303,34 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onPause() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-        TiebaStatic.log(new ap("c10817").dn("obj_duration", String.valueOf(System.currentTimeMillis() - this.lastResumeTime)));
+        TiebaStatic.log(new aq("c10817").dD("obj_duration", String.valueOf(System.currentTimeMillis() - this.lastResumeTime)));
         setRequestedOrientation(1);
-        if (this.iJn != null) {
-            this.iJn.pause();
+        if (this.iYl != null) {
+            this.iYl.pause();
         }
         super.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onDestroy() {
-        s.bRL().bva();
-        if (this.iJn != null) {
-            this.iJn.destroy();
+        s.cbX().bDV();
+        if (this.iYl != null) {
+            this.iYl.destroy();
         }
         super.onDestroy();
     }
 
-    public ShareFromTopicMsgData coL() {
-        f cpf;
-        if (!x.isEmpty(this.mHotTopicDataList) && (cpf = this.mHotTopicDataList.get(0).cpf()) != null) {
+    public ShareFromTopicMsgData czE() {
+        f czY;
+        if (!y.isEmpty(this.mHotTopicDataList) && (czY = this.mHotTopicDataList.get(0).czY()) != null) {
             StringBuilder sb = new StringBuilder();
             ShareFromTopicMsgData shareFromTopicMsgData = new ShareFromTopicMsgData();
-            shareFromTopicMsgData.setContent(cpf.shareTitle);
-            shareFromTopicMsgData.setImageUrl(cpf.iEj);
-            shareFromTopicMsgData.setTitle(cpf.dQI);
-            shareFromTopicMsgData.setHotTopicID(cpf.eeI);
-            shareFromTopicMsgData.setHotTopicName(cpf.dQI);
-            sb.append("http://tieba.baidu.com/").append("mo/q/hotMessage?topic_id=").append(cpf.eeI).append("&topic_name=").append(cpf.dQI);
+            shareFromTopicMsgData.setContent(czY.shareTitle);
+            shareFromTopicMsgData.setImageUrl(czY.iTh);
+            shareFromTopicMsgData.setTitle(czY.eab);
+            shareFromTopicMsgData.setHotTopicID(czY.eoj);
+            shareFromTopicMsgData.setHotTopicName(czY.eab);
+            sb.append("http://tieba.baidu.com/").append("mo/q/hotMessage?topic_id=").append(czY.eoj).append("&topic_name=").append(czY.eab);
             shareFromTopicMsgData.setLinkUrl(sb.toString());
             return shareFromTopicMsgData;
         }
@@ -340,13 +340,13 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iJn.onChangeSkinType(i);
+        this.iYl.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.hottopic.controller.HotTopicModel.a
     public void a(boolean z, e eVar) {
-        hideLoadingView(this.iJn.cpv());
-        if (this.iJn != null) {
+        hideLoadingView(this.iYl.cAo());
+        if (this.iYl != null) {
             if (this.mHotTopicDataList == null) {
                 this.mHotTopicDataList = new ArrayList();
             }
@@ -366,52 +366,52 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             } else {
                 this.mHotTopicDataList.set(1, eVar);
             }
-            this.mIsGlobalBlock = eVar.cpp();
-            if (eVar.cph() != null && eVar.cpi() != null) {
-                this.iJn.a(8, true, 0L, 0);
-            } else if (eVar.cph() != null) {
-                this.iJn.a(0, true, eVar.cph().totalNum, eVar.cph().iJM);
-            } else if (eVar.cpi() != null) {
-                this.iJn.a(0, false, eVar.cpi().totalNum, eVar.cpi().iJM);
+            this.mIsGlobalBlock = eVar.cAi();
+            if (eVar.cAa() != null && eVar.cAb() != null) {
+                this.iYl.a(8, true, 0L, 0);
+            } else if (eVar.cAa() != null) {
+                this.iYl.a(0, true, eVar.cAa().totalNum, eVar.cAa().iYK);
+            } else if (eVar.cAb() != null) {
+                this.iYl.a(0, false, eVar.cAb().totalNum, eVar.cAb().iYK);
             }
-            this.iJn.dn(this.mHotTopicDataList);
-            this.iJn.c(eVar);
-            this.iJn.cpx();
+            this.iYl.du(this.mHotTopicDataList);
+            this.iYl.c(eVar);
+            this.iYl.cAq();
             a(eVar.sortType, eVar.getPageData());
         }
     }
 
-    public void coM() {
-        if (j.isNetWorkAvailable() && this.iJo != null) {
-            this.iJo.a(this.eeI, this.dQI, getSortType(), this.fid, this.firstDir, this.secondDir, this.mFrom, this.dEQ);
+    public void czF() {
+        if (j.isNetWorkAvailable() && this.iYm != null) {
+            this.iYm.a(this.eoj, this.eab, getSortType(), this.fid, this.firstDir, this.secondDir, this.mFrom, this.dNY);
         }
     }
 
-    public void coN() {
-        if (this.iJq != null && !x.isEmpty(this.mHotTopicDataList) && j.isNetWorkAvailable()) {
-            com.baidu.tieba.hottopic.data.a cph = this.mHotTopicDataList.get(0).cph();
-            com.baidu.tieba.hottopic.data.a cpi = this.mHotTopicDataList.get(0).cpi();
-            if (cph != null) {
-                this.iJq.a(cph.pkId, Long.parseLong(this.eeI), 1, 0, 1, cph.userPkId);
-            } else if (cpi != null) {
-                this.iJq.a(cpi.pkId, Long.parseLong(this.eeI), 1, 0, 1, cpi.userPkId);
+    public void czG() {
+        if (this.iYo != null && !y.isEmpty(this.mHotTopicDataList) && j.isNetWorkAvailable()) {
+            com.baidu.tieba.hottopic.data.a cAa = this.mHotTopicDataList.get(0).cAa();
+            com.baidu.tieba.hottopic.data.a cAb = this.mHotTopicDataList.get(0).cAb();
+            if (cAa != null) {
+                this.iYo.a(cAa.pkId, Long.parseLong(this.eoj), 1, 0, 1, cAa.userPkId);
+            } else if (cAb != null) {
+                this.iYo.a(cAb.pkId, Long.parseLong(this.eoj), 1, 0, 1, cAb.userPkId);
             }
         }
     }
 
-    public void coO() {
-        i cpg;
-        if (this.iJq != null && !x.isEmpty(this.mHotTopicDataList) && j.isNetWorkAvailable() && (cpg = this.mHotTopicDataList.get(0).cpg()) != null) {
-            this.iJq.a(cpg.pkId, Long.parseLong(this.eeI), cpg.iJM, 0, 0, cpg.userPkId);
+    public void czH() {
+        i czZ;
+        if (this.iYo != null && !y.isEmpty(this.mHotTopicDataList) && j.isNetWorkAvailable() && (czZ = this.mHotTopicDataList.get(0).czZ()) != null) {
+            this.iYo.a(czZ.pkId, Long.parseLong(this.eoj), czZ.iYK, 0, 0, czZ.userPkId);
         }
     }
 
-    private void bCM() {
-        this.iJn.b(new View.OnTouchListener() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.4
+    private void bMg() {
+        this.iYl.b(new View.OnTouchListener() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.4
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 e eVar;
-                if (!bf.checkUpIsLogin(HotTopicActivity.this.getActivity()) || motionEvent.getAction() != 1 || (eVar = (e) x.getItem(HotTopicActivity.this.mHotTopicDataList, HotTopicActivity.this.iJn.getCurrentTab())) == null) {
+                if (!bg.checkUpIsLogin(HotTopicActivity.this.getActivity()) || motionEvent.getAction() != 1 || (eVar = (e) y.getItem(HotTopicActivity.this.mHotTopicDataList, HotTopicActivity.this.iYl.getCurrentTab())) == null) {
                     return true;
                 }
                 if (!j.isNetWorkAvailable()) {
@@ -420,162 +420,162 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                 HotTopicActivity.this.b(eVar);
                 WriteActivityConfig writeActivityConfig = new WriteActivityConfig(HotTopicActivity.this.getPageContext().getPageActivity(), 9, String.valueOf(0), "", null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
                 writeActivityConfig.getIntent().putExtra("hot_topic_forum_list", (Serializable) HotTopicActivity.this.mDataList);
-                writeActivityConfig.getIntent().putExtra(WriteActivityConfig.HOT_TOPIC_ID, HotTopicActivity.this.eeI);
+                writeActivityConfig.getIntent().putExtra(WriteActivityConfig.HOT_TOPIC_ID, HotTopicActivity.this.eoj);
                 writeActivityConfig.setCallFrom("1");
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
-                ap apVar = new ap(CommonStatisticKey.KEY_ENTRANCE_CLICKED);
-                apVar.ah("obj_locate", 6).ah("obj_type", 1);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED);
+                aqVar.ai("obj_locate", 6).ai("obj_type", 1);
+                TiebaStatic.log(aqVar);
                 return true;
             }
         });
-        this.iJn.g(new NoNetworkView.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.5
+        this.iYl.g(new NoNetworkView.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicActivity.5
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                HotTopicActivity.this.iJn.ps(!z);
-                if (z && HotTopicActivity.this.iJo != null && x.getItem(HotTopicActivity.this.mHotTopicDataList, HotTopicActivity.this.iJn.getCurrentTab()) != null) {
-                    e eVar = (e) HotTopicActivity.this.mHotTopicDataList.get(HotTopicActivity.this.iJn.getCurrentTab());
-                    if (eVar == null || x.isEmpty(eVar.cpm())) {
-                        HotTopicActivity.this.iJn.bwX();
-                        HotTopicActivity.this.iJn.showLoadingView();
-                        HotTopicActivity.this.coM();
+                HotTopicActivity.this.iYl.pY(!z);
+                if (z && HotTopicActivity.this.iYm != null && y.getItem(HotTopicActivity.this.mHotTopicDataList, HotTopicActivity.this.iYl.getCurrentTab()) != null) {
+                    e eVar = (e) HotTopicActivity.this.mHotTopicDataList.get(HotTopicActivity.this.iYl.getCurrentTab());
+                    if (eVar == null || y.isEmpty(eVar.cAf())) {
+                        HotTopicActivity.this.iYl.bFW();
+                        HotTopicActivity.this.iYl.showLoadingView();
+                        HotTopicActivity.this.czF();
                     }
                 }
             }
         });
-        this.hdf.getSocketMessageListener().setSelfListener(true);
-        this.hdf.getHttpMessageListener().setSelfListener(true);
-        registerListener(this.hdf);
+        this.hpZ.getSocketMessageListener().setSelfListener(true);
+        this.hpZ.getHttpMessageListener().setSelfListener(true);
+        registerListener(this.hpZ);
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.d.b<TbImageView> caJ() {
-        if (this.iJs == null) {
-            this.iJs = FrsCommonImageLayout.B(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.d.b<TbImageView> clf() {
+        if (this.iYq == null) {
+            this.iYq = FrsCommonImageLayout.D(getPageContext().getPageActivity(), 12);
         }
-        return this.iJs;
+        return this.iYq;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.d.b<TbImageView> bcF() {
-        if (this.elu == null) {
-            this.elu = UserIconBox.t(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.d.b<TbImageView> bld() {
+        if (this.evp == null) {
+            this.evp = UserIconBox.u(getPageContext().getPageActivity(), 8);
         }
-        return this.elu;
+        return this.evp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     /* renamed from: getListView */
-    public ListView bcE() {
+    public ListView blc() {
         return null;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.iJn == null || x.isEmpty(this.mHotTopicDataList) || !j.isNetWorkAvailable()) {
-            coP();
+        if (this.iYl == null || y.isEmpty(this.mHotTopicDataList) || !j.isNetWorkAvailable()) {
+            czI();
             return;
         }
-        e eVar = (e) x.getItem(this.mHotTopicDataList, this.iJn.getCurrentTab());
+        e eVar = (e) y.getItem(this.mHotTopicDataList, this.iYl.getCurrentTab());
         if (eVar == null || eVar.getPageData() == null) {
-            coP();
-        } else if (eVar.iKn && this.iJt) {
-            this.iJp.b(eVar, getSortType());
-            this.iJt = false;
+            czI();
+        } else if (eVar.iZl && this.iYr) {
+            this.iYn.b(eVar, getSortType());
+            this.iYr = false;
         }
     }
 
     public int getSortType() {
-        return this.iJn.getCurrentTab() == 0 ? 1 : 0;
+        return this.iYl.getCurrentTab() == 0 ? 1 : 0;
     }
 
-    public int xW(int i) {
+    public int Aq(int i) {
         return i == 1 ? 0 : 1;
     }
 
     @Override // com.baidu.tieba.hottopic.controller.HotRelateThreadModel.a
     public void complete() {
-        this.iJt = true;
+        this.iYr = true;
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (!StringUtils.isNull(this.dQI) || !StringUtils.isNull(this.eeI)) {
-            bundle.putString("topic_id", this.eeI);
-            bundle.putString("topic_name", this.dQI);
+        if (!StringUtils.isNull(this.eab) || !StringUtils.isNull(this.eoj)) {
+            bundle.putString("topic_id", this.eoj);
+            bundle.putString("topic_name", this.eab);
         }
     }
 
     @Override // com.baidu.tieba.hottopic.controller.HotRelateThreadModel.b
     public void a(boolean z, com.baidu.tieba.hottopic.data.d dVar, int i) {
-        if (!z || dVar == null || x.isEmpty(this.mHotTopicDataList) || x.getCount(dVar.eZc) == 0) {
-            this.iJn.xU(xW(i));
+        if (!z || dVar == null || y.isEmpty(this.mHotTopicDataList) || y.getCount(dVar.fku) == 0) {
+            this.iYl.Ao(Aq(i));
             return;
         }
-        e eVar = (e) x.getItem(this.mHotTopicDataList, xW(i));
+        e eVar = (e) y.getItem(this.mHotTopicDataList, Aq(i));
         if (eVar == null) {
-            this.iJn.xU(xW(i));
+            this.iYl.Ao(Aq(i));
             return;
         }
         eVar.a(dVar);
-        this.iJn.dn(this.mHotTopicDataList);
+        this.iYl.du(this.mHotTopicDataList);
         a(i, dVar.pageData);
     }
 
-    private void a(int i, au auVar) {
-        if (auVar != null) {
-            int xW = xW(i);
-            e eVar = (e) x.getItem(this.mHotTopicDataList, xW);
+    private void a(int i, av avVar) {
+        if (avVar != null) {
+            int Aq = Aq(i);
+            e eVar = (e) y.getItem(this.mHotTopicDataList, Aq);
             if (eVar != null) {
-                eVar.a(auVar);
+                eVar.a(avVar);
             }
-            if (auVar.aVb() != 0) {
-                this.iJn.xS(xW);
+            if (avVar.bdu() != 0) {
+                this.iYl.Am(Aq);
                 return;
             }
-            this.iJn.xU(xW);
-            this.iJn.xT(xW);
+            this.iYl.Ao(Aq);
+            this.iYl.An(Aq);
         }
     }
 
-    private void coP() {
-        int xW = xW(getSortType());
-        e eVar = (e) x.getItem(this.mHotTopicDataList, xW);
+    private void czI() {
+        int Aq = Aq(getSortType());
+        e eVar = (e) y.getItem(this.mHotTopicDataList, Aq);
         if (eVar == null || eVar.getPageData() == null) {
-            this.iJn.xU(xW);
+            this.iYl.Ao(Aq);
             return;
         }
-        if (eVar.getPageData().aVb() != 0) {
-            this.iJn.xU(xW);
+        if (eVar.getPageData().bdu() != 0) {
+            this.iYl.Ao(Aq);
             return;
         }
-        this.iJn.xU(xW);
-        this.iJn.xT(xW);
+        this.iYl.Ao(Aq);
+        this.iYl.An(Aq);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (j.isNetWorkAvailable() && this.iJn != null) {
-            this.iJn.bwX();
-            this.iJn.yc(0);
-            coM();
+        if (j.isNetWorkAvailable() && this.iYl != null) {
+            this.iYl.bFW();
+            this.iYl.Aw(0);
+            czF();
         }
     }
 
-    public String coQ() {
-        return this.eeI;
+    public String czJ() {
+        return this.eoj;
     }
 
     public String getTopicName() {
-        return this.dQI;
+        return this.eab;
     }
 
-    public void coH() {
-        f cpf;
-        if (!x.isEmpty(this.mHotTopicDataList) && (cpf = this.mHotTopicDataList.get(0).cpf()) != null) {
-            this.iIZ.b(cpf.eeI, cpf.dQI, null, cpf.iEj, cpf.shareTitle, true);
+    public void czA() {
+        f czY;
+        if (!y.isEmpty(this.mHotTopicDataList) && (czY = this.mHotTopicDataList.get(0).czY()) != null) {
+            this.iXX.b(czY.eoj, czY.eab, null, czY.iTh, czY.shareTitle, true);
         }
     }
 
@@ -589,24 +589,24 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     }
 
     public void s(com.baidu.tieba.card.data.c cVar) {
-        if (cVar != null && cVar.aTN() != null) {
-            ap apVar = new ap("c13021");
-            apVar.dn("tid", cVar.aTN().getTid()).t("fid", cVar.aTN().getFid()).dn("obj_source", cVar.aTN().mRecomSource).dn("obj_locate", getFrom()).dn("obj_name", getTopicName()).dn(TiebaInitialize.Params.OBJ_PARAM3, m.bRC()).dn("ab_tag", cVar.bRY());
-            s.bRL().e(apVar);
+        if (cVar != null && cVar.bce() != null) {
+            aq aqVar = new aq("c13021");
+            aqVar.dD("tid", cVar.bce().getTid()).u("fid", cVar.bce().getFid()).dD("obj_source", cVar.bce().mRecomSource).dD("obj_locate", getFrom()).dD("obj_name", getTopicName()).dD(TiebaInitialize.Params.OBJ_PARAM3, m.cbO()).dD("ab_tag", cVar.cck());
+            s.cbX().e(aqVar);
         }
     }
 
     public void t(com.baidu.tieba.card.data.c cVar) {
-        if (cVar != null && cVar.aTN() != null) {
-            com.baidu.tieba.hottopic.b.b.a(cVar.aTN(), getTopicName(), getFrom(), cVar.objType);
+        if (cVar != null && cVar.bce() != null) {
+            com.baidu.tieba.hottopic.b.b.a(cVar.bce(), getTopicName(), getFrom(), cVar.objType);
         }
     }
 
     private boolean d(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || as.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+        if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || at.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
             return false;
         }
-        if (com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+        if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this).createNormalConfig("from_hottopic", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }

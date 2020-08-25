@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class SupportMenuInflater extends MenuInflater {
     static final String LOG_TAG = "SupportMenuInflater";
     static final int NO_ID = 0;
@@ -108,7 +108,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0070, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_ITEM) == false) goto L24;
+        if (r3.equals("item") == false) goto L24;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0072, code lost:
         r7.readItem(r12);
@@ -146,7 +146,7 @@ public class SupportMenuInflater extends MenuInflater {
         r3 = r5;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x00b0, code lost:
-        if (r3.equals(android.support.v7.view.SupportMenuInflater.XML_ITEM) == false) goto L52;
+        if (r3.equals("item") == false) goto L52;
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x00b6, code lost:
         if (r7.hasAddedItem() != false) goto L10;
@@ -225,7 +225,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static class InflatedOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         private static final Class<?>[] PARAM_TYPES = {MenuItem.class};
         private Method mMethod;
@@ -258,7 +258,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class MenuState {
         private static final int defaultGroupId = 0;
         private static final int defaultItemCategory = 0;

@@ -8,15 +8,15 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks atK;
+    private static Application.ActivityLifecycleCallbacks ayM;
 
     public static void d(Application application) {
-        if (atK == null) {
-            atK = new C0155a();
+        if (ayM == null) {
+            ayM = new C0163a();
         }
-        application.registerActivityLifecycleCallbacks(atK);
+        application.registerActivityLifecycleCallbacks(ayM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,18 +36,18 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0155a implements Application.ActivityLifecycleCallbacks {
-        private n atL;
-        private CustomMessageListener atM;
+    /* loaded from: classes7.dex */
+    public static class C0163a implements Application.ActivityLifecycleCallbacks {
+        private n ayN;
+        private CustomMessageListener ayO;
 
-        private C0155a() {
-            this.atM = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
+        private C0163a() {
+            this.ayO = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0155a.this.atL != null) {
-                        C0155a.this.atL.DP();
+                    if (C0163a.this.ayN != null) {
+                        C0163a.this.ayN.Js();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.p(activity)) {
-                if (this.atL == null) {
-                    this.atL = new n();
+                if (this.ayN == null) {
+                    this.ayN = new n();
                 }
-                this.atL.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.atM);
+                this.ayN.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.ayO);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.p(activity)) {
-                if (this.atL != null) {
-                    this.atL.destroy(String.valueOf(activity.hashCode()));
+                if (this.ayN != null) {
+                    this.ayN.destroy(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.atM);
+                MessageManager.getInstance().unRegisterListener(this.ayO);
             }
         }
     }

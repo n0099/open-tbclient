@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
     public static final String TYPE = "mfro";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     private long mfraSize;
 
     static {
@@ -20,8 +20,8 @@ public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MovieFragmentRandomAccessOffsetBox.java", MovieFragmentRandomAccessOffsetBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "", "", "", "long"), 56);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "long", "mfraSize", "", "void"), 60);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "", "", "", "long"), 56);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "long", "mfraSize", "", "void"), 60);
     }
 
     public MovieFragmentRandomAccessOffsetBox() {
@@ -51,7 +51,7 @@ public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
     }
 
     public void setMfraSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gY(j)));
         this.mfraSize = j;
     }
 }

@@ -21,11 +21,11 @@ import kotlin.jvm.internal.v;
 @h
 /* loaded from: classes6.dex */
 public final class a extends com.facebook.imagepipeline.request.a {
-    public static final C0857a nGY = new C0857a(null);
+    public static final C0915a oaR = new C0915a(null);
     private final int c;
     private final int d;
     private final String e;
-    private com.facebook.cache.common.b nGX;
+    private com.facebook.cache.common.b oaQ;
 
     public a(int i, int i2, String str) {
         this.c = i;
@@ -36,11 +36,11 @@ public final class a extends com.facebook.imagepipeline.request.a {
     @h
     /* renamed from: com.kascend.chushou.widget.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0857a {
-        private C0857a() {
+    public static final class C0915a {
+        private C0915a() {
         }
 
-        public /* synthetic */ C0857a(o oVar) {
+        public /* synthetic */ C0915a(o oVar) {
             this();
         }
     }
@@ -51,25 +51,25 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dJo() {
-        String TP;
-        if (this.nGX == null) {
-            v vVar = v.nYG;
+    public com.facebook.cache.common.b dVn() {
+        String WT;
+        if (this.oaQ == null) {
+            v vVar = v.osE;
             Locale locale = Locale.CHINA;
             q.l((Object) locale, "Locale.CHINA");
             Object[] objArr = new Object[1];
             String str = this.e;
             if (str == null || str.length() == 0) {
-                TP = SchemeCollecter.CLASSIFY_EMPTY;
+                WT = SchemeCollecter.CLASSIFY_EMPTY;
             } else {
-                TP = tv.chushou.zues.toolkit.b.a.otc.TP(this.e);
+                WT = tv.chushou.zues.toolkit.b.a.oMU.WT(this.e);
             }
-            objArr[0] = TP;
+            objArr[0] = WT;
             String format = String.format(locale, "%s", Arrays.copyOf(objArr, objArr.length));
             q.l((Object) format, "java.lang.String.format(locale, format, *args)");
-            this.nGX = new g(format);
+            this.oaQ = new g(format);
         }
-        return this.nGX;
+        return this.oaQ;
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
@@ -81,7 +81,7 @@ public final class a extends com.facebook.imagepipeline.request.a {
         int i = this.c;
         int i2 = this.c;
         if (config == null) {
-            config = com.facebook.imagepipeline.request.a.nfZ;
+            config = com.facebook.imagepipeline.request.a.nzO;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(i, i2, config);
         if (c == null) {
@@ -119,18 +119,18 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     private final Bitmap a(String str, int i) {
-        File af = tv.chushou.zues.widget.fresco.a.af(i.RK(str));
+        File af = tv.chushou.zues.widget.fresco.a.af(i.UO(str));
         if (af != null) {
-            return tv.chushou.zues.utils.c.A(af.getAbsolutePath(), i, i);
+            return tv.chushou.zues.utils.c.z(af.getAbsolutePath(), i, i);
         }
-        File c = com.kascend.chushou.d.c.nnE.c();
-        tv.chushou.a.a.d.a.as(c);
-        File file = new File(c, tv.chushou.zues.toolkit.b.a.otc.TP(str));
+        File c = com.kascend.chushou.d.c.nHv.c();
+        tv.chushou.a.a.d.a.at(c);
+        File file = new File(c, tv.chushou.zues.toolkit.b.a.oMU.WT(str));
         if (file.isFile() && file.exists()) {
-            return tv.chushou.zues.utils.c.A(file.getAbsolutePath(), i, i);
+            return tv.chushou.zues.utils.c.z(file.getAbsolutePath(), i, i);
         }
         if (tv.chushou.zues.widget.fresco.a.s(str, file)) {
-            return tv.chushou.zues.utils.c.A(file.getAbsolutePath(), i, i);
+            return tv.chushou.zues.utils.c.z(file.getAbsolutePath(), i, i);
         }
         return null;
     }

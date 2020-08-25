@@ -4,7 +4,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class GzipSource implements Source {
     private static final byte FCOMMENT = 4;
     private static final byte FEXTRA = 2;

@@ -3,10 +3,9 @@ package com.baidu.mapapi.search.poi;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class PoiFilter implements Parcelable {
     private String a;
     private String b;
@@ -16,7 +15,7 @@ public final class PoiFilter implements Parcelable {
     private static Map<SortName, String> f = new HashMap();
     public static final Parcelable.Creator<PoiFilter> CREATOR = new c();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder {
         private String a;
         private String b;
@@ -26,7 +25,7 @@ public final class PoiFilter implements Parcelable {
 
         public Builder() {
             PoiFilter.f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
@@ -97,17 +96,17 @@ public final class PoiFilter implements Parcelable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum IndustryType {
         HOTEL,
         CATER,
         LIFE
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface SortName {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes20.dex */
         public enum CaterSortName implements SortName {
             DEFAULT,
             CATER_PRICE,
@@ -117,7 +116,7 @@ public final class PoiFilter implements Parcelable {
             CATER_SERVICE_RATING
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes20.dex */
         public enum HotelSortName implements SortName {
             DEFAULT,
             HOTEL_PRICE,
@@ -127,7 +126,7 @@ public final class PoiFilter implements Parcelable {
             HOTEL_HEALTH_SCORE
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes20.dex */
         public enum LifeSortName implements SortName {
             DEFAULT,
             PRICE,

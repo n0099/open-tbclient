@@ -3,11 +3,11 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface am {
-    void G(String str, String str2, boolean z);
+    void F(String str, String str2, boolean z);
 
-    boolean RB(String str);
+    boolean UF(String str);
 
     void a(ImageRequest imageRequest, com.facebook.imagepipeline.g.e eVar, Throwable th, @Nullable Map<String, String> map);
 
@@ -19,5 +19,5 @@ public interface am {
 
     void b(String str, String str2, @Nullable Map<String, String> map);
 
-    void fW(String str, String str2);
+    void gn(String str, String str2);
 }

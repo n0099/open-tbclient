@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public interface IComboPraiseContext {
     boolean getPraiseSwitchState();
 

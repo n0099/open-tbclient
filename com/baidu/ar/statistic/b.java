@@ -12,45 +12,45 @@ import java.util.Map;
 import java.util.UUID;
 /* loaded from: classes11.dex */
 class b implements k.a {
-    private WeakReference<Context> uW;
-    private d uY;
-    private String uZ;
-    private String va;
-    private String[][] vb;
-    private Map<String, String> vc;
-    private k vf;
-    private Map<String, a> uX = new HashMap();
-    private long vd = 0;
-    private long ve = 0;
+    private d vB;
+    private String vC;
+    private String vD;
+    private String[][] vE;
+    private Map<String, String> vF;
+    private k vI;
+    private WeakReference<Context> vz;
+    private Map<String, a> vA = new HashMap();
+    private long vG = 0;
+    private long vH = 0;
 
     public b(Context context, d dVar, String[][] strArr, Map<String, String> map, k kVar) {
-        this.uW = new WeakReference<>(context);
-        this.uY = dVar;
-        this.vb = strArr;
-        this.vc = map == null ? new HashMap<>() : map;
-        this.vf = kVar;
-        this.vf.a(this);
+        this.vz = new WeakReference<>(context);
+        this.vB = dVar;
+        this.vE = strArr;
+        this.vF = map == null ? new HashMap<>() : map;
+        this.vI = kVar;
+        this.vI.a(this);
     }
 
     private void A(long j) {
-        if (j < this.vd) {
-            j = this.vd;
+        if (j < this.vG) {
+            j = this.vG;
         }
-        this.ve = j;
+        this.vH = j;
     }
 
     private Pair<Long, Long> a(long j, long j2) {
         long j3;
         long j4;
-        if (this.vd <= 0 || j > this.vd) {
+        if (this.vG <= 0 || j > this.vG) {
             j3 = j2 - j;
             j4 = 0;
-        } else if (this.ve <= 0 || j2 < this.ve) {
-            j3 = this.vd - j;
-            j4 = j2 - this.vd;
+        } else if (this.vH <= 0 || j2 < this.vH) {
+            j3 = this.vG - j;
+            j4 = j2 - this.vG;
         } else {
-            j3 = (this.ve - j2) + (this.vd - j);
-            j4 = this.ve - this.vd;
+            j3 = (this.vH - j2) + (this.vG - j);
+            j4 = this.vH - this.vG;
         }
         if (j3 < 0) {
             j3 = 0;
@@ -58,11 +58,11 @@ class b implements k.a {
         return new Pair<>(Long.valueOf(j3), Long.valueOf(j4 >= 0 ? j4 : 0L));
     }
 
-    private ArrayList<String> aA(String str) {
+    private ArrayList<String> aE(String str) {
         String[][] strArr;
         ArrayList<String> arrayList = new ArrayList<>();
-        if (this.vb != null && this.vb.length > 0) {
-            for (String[] strArr2 : this.vb) {
+        if (this.vE != null && this.vE.length > 0) {
+            for (String[] strArr2 : this.vE) {
                 if (strArr2 != null && strArr2.length >= 2 && str.equals(strArr2[0])) {
                     for (int i = 1; i < strArr2.length; i++) {
                         arrayList.add(strArr2[i]);
@@ -73,10 +73,10 @@ class b implements k.a {
         return arrayList;
     }
 
-    private String aB(String str) {
+    private String aF(String str) {
         Object[][] objArr;
-        if (this.vb != null && this.vb.length > 0) {
-            for (Object[] objArr2 : this.vb) {
+        if (this.vE != null && this.vE.length > 0) {
+            for (Object[] objArr2 : this.vE) {
                 if (objArr2 != null && objArr2.length >= 2) {
                     for (int i = 1; i < objArr2.length; i++) {
                         if (str.equals(objArr2[i])) {
@@ -91,49 +91,49 @@ class b implements k.a {
     }
 
     private void b(a... aVarArr) {
-        synchronized (this.uY) {
-            this.uY.eX();
+        synchronized (this.vB) {
+            this.vB.gl();
             for (a aVar : aVarArr) {
-                this.uY.k(aVar);
+                this.vB.k(aVar);
             }
-            this.uY.notifyAll();
+            this.vB.notifyAll();
         }
     }
 
     private void d(a aVar) {
         f(aVar);
-        if (aVar.ax("event_label") || !this.vc.containsKey(aVar.eR())) {
+        if (aVar.aB("event_label") || !this.vF.containsKey(aVar.gf())) {
             return;
         }
-        aVar.c("event_label", this.vc.get(aVar.eR()));
-    }
-
-    private String eV() {
-        if (this.uZ == null) {
-            Context context = this.uW.get();
-            if (context == null) {
-                return "";
-            }
-            UUID fl = new com.baidu.ar.f.e(context).fl();
-            this.uZ = fl == null ? "" : fl.toString();
-        }
-        return this.uZ;
+        aVar.c("event_label", this.vF.get(aVar.gf()));
     }
 
     private void f(a aVar) {
-        aVar.c("request_id", this.va);
+        aVar.c("request_id", this.vD);
+    }
+
+    private String gj() {
+        if (this.vC == null) {
+            Context context = this.vz.get();
+            if (context == null) {
+                return "";
+            }
+            UUID gz = new com.baidu.ar.g.g(context).gz();
+            this.vC = gz == null ? "" : gz.toString();
+        }
+        return this.vC;
     }
 
     private void z(long j) {
-        this.vd = j;
+        this.vG = j;
     }
 
     public void B(long j) {
         z(j);
-        synchronized (this.uY) {
-            this.uY.flush();
+        synchronized (this.vB) {
+            this.vB.flush();
         }
-        eW();
+        gk();
     }
 
     public void C(long j) {
@@ -141,19 +141,12 @@ class b implements k.a {
     }
 
     @Override // com.baidu.ar.statistic.k.a
-    public void M(int i) {
+    public void O(int i) {
         if (i > 0) {
-            synchronized (this.uY) {
-                this.uY.notifyAll();
+            synchronized (this.vB) {
+                this.vB.notifyAll();
             }
         }
-    }
-
-    public void aV() {
-        if (this.uW.get() == null) {
-            return;
-        }
-        this.va = com.baidu.ar.f.j.aM(eV() + String.valueOf(System.currentTimeMillis()));
     }
 
     public void c(a aVar) {
@@ -163,85 +156,85 @@ class b implements k.a {
 
     public void e(a aVar) {
         d(aVar);
-        synchronized (this.uY) {
-            this.uY.eX();
-            String eR = aVar.eR();
-            long longValue = ((Number) aVar.av("_db_period")).longValue();
+        synchronized (this.vB) {
+            this.vB.gl();
+            String gf = aVar.gf();
+            long longValue = ((Number) aVar.az("_db_period")).longValue();
             ArrayList arrayList = new ArrayList();
-            int size = this.uY.size();
+            int size = this.vB.size();
             for (int i = 0; i < size; i++) {
-                a aVar2 = this.uY.get(i);
-                if (eR.equals(aVar2.eR()) && longValue == aVar2.aw("_db_period") && aVar.getTimestamp() - aVar2.getTimestamp() < longValue) {
+                a aVar2 = this.vB.get(i);
+                if (gf.equals(aVar2.gf()) && longValue == aVar2.aA("_db_period") && aVar.getTimestamp() - aVar2.getTimestamp() < longValue) {
                     arrayList.add(Integer.valueOf(i));
                 }
             }
             if (!arrayList.isEmpty()) {
                 for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {
                     int intValue = ((Integer) arrayList.get(size2)).intValue();
-                    this.uY.remove(intValue);
-                    a.a(this.uY.get(intValue));
+                    this.vB.remove(intValue);
+                    a.a(this.vB.get(intValue));
                 }
             }
-            this.uY.k(aVar);
-            this.uY.notifyAll();
+            this.vB.k(aVar);
+            this.vB.notifyAll();
         }
     }
 
-    public void eW() {
-        this.vf.fb();
-    }
-
     public void g(a aVar) {
-        String eR = aVar.eR();
-        a aVar2 = this.uX.get(eR);
-        boolean equals = "1".equals(aVar.av("__stt"));
+        String gf = aVar.gf();
+        a aVar2 = this.vA.get(gf);
+        boolean equals = "1".equals(aVar.az("__stt"));
         if (aVar2 == null) {
             if (equals) {
-                this.uX.put(eR, aVar);
+                this.vA.put(gf, aVar);
                 a clone = aVar.clone();
-                clone.at(eR);
-                clone.ay("__stt");
-                clone.ay("__falseev");
+                clone.ax(gf);
+                clone.aC("__stt");
+                clone.aC("__falseev");
                 c(clone);
             }
         } else if (equals) {
         } else {
-            String au = aVar.au("__falseev");
-            if (au != null && !au.isEmpty()) {
+            String ay = aVar.ay("__falseev");
+            if (ay != null && !ay.isEmpty()) {
                 a clone2 = aVar.clone();
-                clone2.at(au);
-                clone2.ay("__stt");
-                clone2.ay("__falseev");
+                clone2.ax(ay);
+                clone2.aC("__stt");
+                clone2.aC("__falseev");
                 c(clone2);
             }
-            this.uX.remove(eR);
+            this.vA.remove(gf);
             a.a(aVar2);
         }
     }
 
-    public void g(List<String> list) {
-        this.vf.i(list);
+    public void gk() {
+        this.vI.gp();
     }
 
     public void h(a aVar) {
-        String eR = aVar.eR();
-        ArrayList<String> aA = aA(eR);
-        if (aA.isEmpty()) {
+        String gf = aVar.gf();
+        ArrayList<String> aE = aE(gf);
+        if (aE.isEmpty()) {
             return;
         }
         c(aVar.clone());
-        Iterator<String> it = aA.iterator();
+        Iterator<String> it = aE.iterator();
         while (it.hasNext()) {
-            this.uX.put(eR + ":" + it.next(), aVar);
+            this.vA.put(gf + ":" + it.next(), aVar);
         }
+    }
+
+    public void h(List<String> list) {
+        this.vI.j(list);
     }
 
     public void i(a aVar) {
         String str;
         a aVar2;
-        String eR = aVar.eR();
-        String aB = aB(eR);
-        if (aB == null || aB.isEmpty() || (aVar2 = this.uX.get((aB + ":" + eR))) == null) {
+        String gf = aVar.gf();
+        String aF = aF(gf);
+        if (aF == null || aF.isEmpty() || (aVar2 = this.vA.get((aF + ":" + gf))) == null) {
             return;
         }
         Pair<Long, Long> a = a(aVar2.getTimestamp(), aVar.getTimestamp());
@@ -249,15 +242,22 @@ class b implements k.a {
         aVar.c("duration", String.valueOf(((Long) a.first).longValue()));
         aVar.c("_pausedt", String.valueOf(((Long) a.second).longValue()));
         c(aVar);
-        this.uX.remove(str);
+        this.vA.remove(str);
         a.a(aVar2);
+    }
+
+    public void init() {
+        if (this.vz.get() == null) {
+            return;
+        }
+        this.vD = com.baidu.ar.g.l.aQ(gj() + String.valueOf(System.currentTimeMillis()));
     }
 
     public void j(a aVar) {
         boolean n;
         f(aVar);
-        synchronized (this.vf) {
-            n = this.vf.n(aVar);
+        synchronized (this.vI) {
+            n = this.vI.n(aVar);
         }
         if (n) {
             return;

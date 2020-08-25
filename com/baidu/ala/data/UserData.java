@@ -1,4 +1,4 @@
 package com.baidu.ala.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UserData {
 }

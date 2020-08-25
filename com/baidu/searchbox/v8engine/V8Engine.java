@@ -30,7 +30,7 @@ import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class V8Engine implements JSRuntime {
     public static final String ACTION_CONSTRUCTOR_DONE = "v8_constructor_done";
     public static final String ACTION_NATIVE_INIT = "v8_native_init";
@@ -94,12 +94,12 @@ public class V8Engine implements JSRuntime {
     private WorkerFactory mWorkerFactoryDelegate = null;
     private boolean mIsWorker = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface JavaScriptExceptionDelegate {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -114,7 +114,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -123,7 +123,7 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface WorkerFactory {
         V8Engine onCreateWorker();
     }
@@ -245,7 +245,7 @@ public class V8Engine implements JSRuntime {
         this.mCodeCacheSetting = codeCacheSetting;
         if (this.mCodeCacheSetting.id != null && this.mCodeCacheSetting.pathList != null) {
             File dir = getAppContext().getDir(ALTERNATIVE_CACHE_PATH, 0);
-            if (!a.gZ(getBuildInV8BinPath())) {
+            if (!a.it(getBuildInV8BinPath())) {
                 dir = getAppContext().getDir(MARIO_CACHE_PATH, 0);
                 dir.mkdirs();
             }
@@ -435,10 +435,10 @@ public class V8Engine implements JSRuntime {
     }
 
     public void startEngineInternal() {
-        Log.i(TAG, "[V8Dispose][mario] java version = 1.3.1.14, nativeVersion = " + nativeGetVersionName());
+        Log.i(TAG, "[V8Dispose][mario] java version = 1.3.1.15, nativeVersion = " + nativeGetVersionName());
         try {
             if (!checkVersion()) {
-                throw new Exception("[mario] java version and native version dismatch  version: 1.3.1.14 nativeVersion: " + nativeGetVersionName());
+                throw new Exception("[mario] java version and native version dismatch  version: 1.3.1.15 nativeVersion: " + nativeGetVersionName());
             }
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
@@ -480,7 +480,7 @@ public class V8Engine implements JSRuntime {
             try {
                 String str = this.mExternalV8BinPath;
                 String buildInV8BinPath = str == null ? getBuildInV8BinPath() : str;
-                if (buildInV8BinPath == null || !a.gZ(buildInV8BinPath)) {
+                if (buildInV8BinPath == null || !a.it(buildInV8BinPath)) {
                     Log.i(TAG, "can't find v8bin'AssetManager, path = " + buildInV8BinPath);
                     return null;
                 }
@@ -494,8 +494,8 @@ public class V8Engine implements JSRuntime {
     }
 
     private boolean checkVersion() {
-        Log.w(TAG, "[mario] version: 1.3.1.14 nativeVersion: " + nativeGetVersionName());
-        return "1.3.1.14".equals(nativeGetVersionName()) && 14 == nativeGetVersionCode();
+        Log.w(TAG, "[mario] version: 1.3.1.15 nativeVersion: " + nativeGetVersionName());
+        return "1.3.1.15".equals(nativeGetVersionName()) && 15 == nativeGetVersionCode();
     }
 
     public synchronized boolean isPaused() {
@@ -1042,7 +1042,7 @@ public class V8Engine implements JSRuntime {
     }
 
     @NotProguard
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     static class MemoryInfo {
         @V8JavascriptField
         public int dalvikPrivateDirty;

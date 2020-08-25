@@ -5,25 +5,25 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.j;
+import com.baidu.tieba.frs.k;
 /* loaded from: classes16.dex */
-public class d extends j<c, com.baidu.tieba.card.a.a<b>> {
-    private b hLf;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hLg;
-    private com.baidu.adp.lib.d.b<TbImageView> hLh;
+public class d extends k<c, com.baidu.tieba.card.a.a<b>> {
+    private b hZk;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> hZl;
+    private com.baidu.adp.lib.d.b<TbImageView> hZm;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hLg = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
+        this.hZl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cdX */
+            /* renamed from: coB */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(d.this.mPageContext.getPageActivity());
             }
@@ -49,14 +49,14 @@ public class d extends j<c, com.baidu.tieba.card.a.a<b>> {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.hLh = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.ad.d.2
+        this.hZm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.ad.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bcD */
+            /* renamed from: blb */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(d.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(ao.getColor(R.color.common_color_10264));
+                tbImageView.setBorderColor(ap.getColor(R.color.common_color_10264));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
                 return tbImageView;
             }
@@ -91,21 +91,21 @@ public class d extends j<c, com.baidu.tieba.card.a.a<b>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aK */
     public com.baidu.tieba.card.a.a<b> b(ViewGroup viewGroup) {
-        this.hLf = new b(this.mPageContext);
-        this.hLf.setSingleImageRatio(0.75d);
-        this.hLf.setConstrainLayoutPool(this.hLg);
-        this.hLf.setConstrainImagePool(this.hLh);
-        return new com.baidu.tieba.card.a.a<>(this.hLf);
+        this.hZk = new b(this.mPageContext);
+        this.hZk.setSingleImageRatio(0.75d);
+        this.hZk.setConstrainLayoutPool(this.hZl);
+        this.hZk.setConstrainImagePool(this.hZm);
+        return new com.baidu.tieba.card.a.a<>(this.hZk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, com.baidu.tieba.card.a.a<b> aVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (c) aVar);
-        aVar.bSs().a(cVar);
+        aVar.ccE().a(cVar);
         return aVar.getView();
     }
 }

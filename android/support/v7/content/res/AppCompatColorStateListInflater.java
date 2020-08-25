@@ -11,10 +11,11 @@ import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.util.StateSet;
 import android.util.Xml;
+import com.baidu.platform.comapi.map.MapController;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 final class AppCompatColorStateListInflater {
     private static final int DEFAULT_COLOR = -65536;
 
@@ -58,7 +59,7 @@ final class AppCompatColorStateListInflater {
             int next = xmlPullParser.next();
             if (next == 1 || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
                 break;
-            } else if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
+            } else if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals(MapController.ITEM_LAYER_TAG)) {
                 TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R.styleable.ColorStateListItem);
                 int color = obtainAttributes.getColor(R.styleable.ColorStateListItem_android_color, -65281);
                 float f = 1.0f;

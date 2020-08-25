@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class a {
     protected String a = "";
     protected String b;

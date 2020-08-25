@@ -4,7 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.ba;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class m {
     private static int a = -1;
 
@@ -31,7 +31,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m113a(Context context) {
+    public static boolean m118a(Context context) {
         Object a2 = ba.a(ba.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
         Object a3 = ba.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
         if (a3 == null || !(a3 instanceof Integer)) {

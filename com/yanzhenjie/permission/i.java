@@ -1,5 +1,5 @@
 package com.yanzhenjie.permission;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface i {
     void cancel();
 

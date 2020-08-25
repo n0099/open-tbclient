@@ -1,49 +1,52 @@
 package com.baidu.tbadk.coreExtra.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class k {
-    private ArrayList<String> dPy;
-    private AntiData epR = new AntiData();
-    private UserData mUser;
+    public static int eAd = 0;
+    public static int eAe = 1;
+    public static int eAf = 2;
+    private String akY;
+    private int eAg;
+    private String eAh;
+    private String eAi;
+    private String mIcon;
 
-    public k() {
-        this.mUser = null;
-        this.dPy = null;
-        this.mUser = new UserData();
-        this.dPy = new ArrayList<>(3);
+    public int bmG() {
+        return this.eAg;
     }
 
-    public ArrayList<String> bea() {
-        return this.dPy;
+    public void px(int i) {
+        this.eAg = i;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public String getIcon() {
+        return this.mIcon;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.dPy.add(optJSONArray.optString(i, null));
-                }
-            }
-            this.epR.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public void setIcon(String str) {
+        this.mIcon = str;
+    }
+
+    public String bmH() {
+        return this.eAh;
+    }
+
+    public void setTabCode(String str) {
+        this.eAh = str;
+    }
+
+    public String getPopText() {
+        return this.eAi;
+    }
+
+    public void AT(String str) {
+        this.eAi = str;
+    }
+
+    public String getTid() {
+        return this.akY;
+    }
+
+    public void setTid(String str) {
+        this.akY = str;
     }
 }

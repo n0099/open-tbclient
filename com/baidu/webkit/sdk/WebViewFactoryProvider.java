@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public abstract class WebViewFactoryProvider extends Observable {
     private static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
@@ -33,6 +33,7 @@ public abstract class WebViewFactoryProvider extends Observable {
     public static final String SETTING_NA2_WEB_ENABLE = "NA2WebEnable";
     public static final String SETTING_NIGHT_THEME = "NightTheme";
     public static final String SETTING_NO_IMAGE_MODE = "NoImageMode";
+    public static final String SETTING_PAGE_FREEZE = "PageFreeze";
     public static final String SETTING_PROXY_TYPE = "ProxyType";
     public static final String SETTING_SAVE_FLOW = "SaveFlow";
     public static final String SETTING_SPDY = "Spdy";
@@ -58,7 +59,7 @@ public abstract class WebViewFactoryProvider extends Observable {
     public static final Boolean SETTING_NO_IMAGE_MODE_VALUE = new Boolean(false);
     public static final Boolean SETTING_NA2_WEB_VALUE = new Boolean(false);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface SettingsStatics {
         boolean canUseFreeFlow();
 
@@ -216,6 +217,8 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         String getZeusResourceUrl();
 
+        boolean hasQuicAltService(String str);
+
         void initCronet(Context context);
 
         boolean isFeedNoProxyAdUrl(String str);
@@ -245,6 +248,8 @@ public abstract class WebViewFactoryProvider extends Observable {
         void setAltServiceToBlink(String str);
 
         void setAppId(String str);
+
+        void setAppStatus(boolean z);
 
         void setBackupDnsJobDelayTime(int i);
 
@@ -387,9 +392,11 @@ public abstract class WebViewFactoryProvider extends Observable {
         boolean useCronet();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
+
+        void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map);
 
         void addVirtualMemoryListener(WebView.IVirtualMemoryListener iVirtualMemoryListener);
 
@@ -419,6 +426,8 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void initPageCacheCounts(Context context);
 
+        boolean isInWebCache(String str);
+
         void makeMF30Inited();
 
         void onMemoryPresure(int i, Activity activity);
@@ -427,11 +436,13 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         Uri[] parseFileChooserResult(int i, Intent intent);
 
-        void preconnectUrl(String str);
+        void preconnectUrl(String str, int i);
 
         void prefetch(String str, Map<String, String> map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener);
 
         void prefetchResource(String str, String[] strArr, Map<String, String> map);
+
+        void removeFromWebCache(String str);
 
         void removeVirtualMemoryWatcher(WebView.IVirtualMemoryListener iVirtualMemoryListener);
 
@@ -441,6 +452,9 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public void RecordUrl(String str) {
+    }
+
+    public void commonInitialize() {
     }
 
     public CookieSyncManager createCookieSyncManager(Context context) {
@@ -497,6 +511,10 @@ public abstract class WebViewFactoryProvider extends Observable {
         return null;
     }
 
+    public ServiceWorkerController getServiceWorkerController() {
+        return null;
+    }
+
     public SettingsStatics getSettingsStatics() {
         return null;
     }
@@ -512,11 +530,19 @@ public abstract class WebViewFactoryProvider extends Observable {
         return null;
     }
 
+    public TracingController getTracingController() {
+        return null;
+    }
+
     public WebIconDatabase getWebIconDatabase() {
         return null;
     }
 
     public WebStorage getWebStorage() {
+        return null;
+    }
+
+    public ClassLoader getWebViewClassLoader() {
         return null;
     }
 

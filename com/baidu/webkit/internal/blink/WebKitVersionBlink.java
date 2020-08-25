@@ -4,7 +4,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class WebKitVersionBlink implements INoProGuard {
     private static final String TAG = "WebKitBlinkVer";
 
@@ -14,7 +14,7 @@ public class WebKitVersionBlink implements INoProGuard {
                 WebViewFactory.getLoadedPackageInfo();
                 return WebViewFactory.getLoadedPackageInfo().versionName;
             } catch (Throwable th) {
-                com.a.a.a.a.a.a.a.a(th);
+                th.printStackTrace();
             }
         }
         return GlobalConstants.DEFAULT_VERSION;
@@ -26,7 +26,7 @@ public class WebKitVersionBlink implements INoProGuard {
                 WebViewFactory.getLoadedPackageInfo();
                 return WebViewFactory.getLoadedPackageInfo().versionName;
             } catch (Throwable th) {
-                com.a.a.a.a.a.a.a.a(th);
+                th.printStackTrace();
             }
         }
         return GlobalConstants.ZEUS_VERSION_NAME;

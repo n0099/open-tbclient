@@ -23,7 +23,7 @@ public class RequestRecommendMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1197common = this.f976common;
+        builder.f1201common = this.f976common;
         if (z) {
             t.a(builder, true);
         }

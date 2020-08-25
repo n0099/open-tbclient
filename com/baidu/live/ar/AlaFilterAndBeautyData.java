@@ -4,7 +4,6 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.img.effect.FilterImageAction;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,82 +11,82 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaFilterAndBeautyData extends BaseData {
-    public static HashMap<BeautyAdjustKey, b> auD = new HashMap<>();
-    public String auB;
-    public String auC;
-    public BdUniqueId auE;
-    public boolean auF;
-    public String auw;
-    public a aux;
-    public List<f> auy = new ArrayList();
-    public List<e> auz = new ArrayList();
-    public ConcurrentHashMap<String, Object> auA = new ConcurrentHashMap<>();
+    public static HashMap<BeautyAdjustKey, b> azF = new HashMap<>();
+    public List<f> azA = new ArrayList();
+    public List<e> azB = new ArrayList();
+    public ConcurrentHashMap<String, Object> azC = new ConcurrentHashMap<>();
+    public String azD;
+    public String azE;
+    public BdUniqueId azG;
+    public boolean azH;
+    public String azy;
+    public a azz;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public int auG;
-        public int auH;
-        public int auI;
+        public int azI;
+        public int azJ;
+        public int azK;
         public String mText;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.auw = jSONObject.optString("ar_token");
+            this.azy = jSONObject.optString("ar_token");
             JSONObject optJSONObject = jSONObject.optJSONObject("bubble");
             if (optJSONObject != null) {
-                this.aux = new a();
-                this.aux.auG = optJSONObject.optInt("is_show");
-                this.aux.mText = optJSONObject.optString("text");
-                this.aux.auH = optJSONObject.optInt("subitem_red_dot");
-                this.aux.auI = optJSONObject.optInt("beauty_tab_red_dot");
+                this.azz = new a();
+                this.azz.azI = optJSONObject.optInt("is_show");
+                this.azz.mText = optJSONObject.optString("text");
+                this.azz.azJ = optJSONObject.optInt("subitem_red_dot");
+                this.azz.azK = optJSONObject.optInt("beauty_tab_red_dot");
             }
             JSONArray optJSONArray = jSONObject.optJSONArray(FilterImageAction.ACTION_NAME);
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
-                ListUtils.clear(this.auy);
+                ListUtils.clear(this.azA);
                 for (int i = 0; i < length; i++) {
                     JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                     if (jSONObject2 != null) {
                         f fVar = new f();
                         fVar.parseJson(jSONObject2);
-                        this.auy.add(fVar);
+                        this.azA.add(fVar);
                     }
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ARBeauty");
             if (optJSONObject2 != null) {
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("default");
-                this.auB = optJSONObject3.optString("file");
-                this.auC = optJSONObject3.optString("file_token");
-                this.auA.clear();
-                this.auA.putAll(t(optJSONObject3));
+                this.azD = optJSONObject3.optString("file");
+                this.azE = optJSONObject3.optString("file_token");
+                this.azC.clear();
+                this.azC.putAll(u(optJSONObject3));
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("adjust");
                 if (optJSONObject4 != null) {
-                    auD.clear();
+                    azF.clear();
                     int length2 = BeautyAdjustKey.values().length;
                     for (int i2 = 0; i2 < length2; i2++) {
                         JSONObject optJSONObject5 = optJSONObject4.optJSONObject(BeautyAdjustKey.values()[i2].getKey());
                         if (optJSONObject5 != null) {
                             b bVar = new b();
-                            bVar.bH(optJSONObject5.optInt("current"));
-                            bVar.x(t(optJSONObject5.optJSONObject("subitems")));
-                            auD.put(BeautyAdjustKey.values()[i2], bVar);
+                            bVar.dt(optJSONObject5.optInt("current"));
+                            bVar.v(u(optJSONObject5.optJSONObject("subitems")));
+                            azF.put(BeautyAdjustKey.values()[i2], bVar);
                         }
                     }
                 }
                 JSONArray optJSONArray2 = optJSONObject2.optJSONArray("face_feature");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                     int length3 = optJSONArray2.length();
-                    ListUtils.clear(this.auz);
+                    ListUtils.clear(this.azB);
                     for (int i3 = 0; i3 < length3; i3++) {
                         JSONObject jSONObject3 = (JSONObject) optJSONArray2.opt(i3);
                         if (jSONObject3 != null) {
                             e eVar = new e();
                             eVar.parseJson(jSONObject3);
-                            this.auz.add(eVar);
+                            this.azB.add(eVar);
                         }
                     }
                 }
@@ -95,7 +94,7 @@ public class AlaFilterAndBeautyData extends BaseData {
         }
     }
 
-    private static HashMap<String, Object> t(JSONObject jSONObject) {
+    private static HashMap<String, Object> u(JSONObject jSONObject) {
         HashMap<String, Object> hashMap = new HashMap<>();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
@@ -111,25 +110,25 @@ public class AlaFilterAndBeautyData extends BaseData {
     public void parserJson(JSONObject jSONObject) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
-        int auJ;
-        HashMap<String, Object> auK;
+        int azL;
+        HashMap<String, Object> azM;
 
-        public int vn() {
-            return this.auJ;
+        public int AL() {
+            return this.azL;
         }
 
-        public void bH(int i) {
-            this.auJ = i;
+        public void dt(int i) {
+            this.azL = i;
         }
 
-        public HashMap<String, Object> vo() {
-            return this.auK;
+        public HashMap<String, Object> AM() {
+            return this.azM;
         }
 
-        public void x(HashMap<String, Object> hashMap) {
-            this.auK = hashMap;
+        public void v(HashMap<String, Object> hashMap) {
+            this.azM = hashMap;
         }
     }
 
@@ -137,10 +136,10 @@ public class AlaFilterAndBeautyData extends BaseData {
         if (hashMap == null || beautyAdjustKey == null || hashMap.get(beautyAdjustKey) == null) {
             return 0;
         }
-        return hashMap.get(beautyAdjustKey).auJ;
+        return hashMap.get(beautyAdjustKey).azL;
     }
 
-    public static BeautyAdjustKey eh(String str) {
+    public static BeautyAdjustKey fz(String str) {
         BeautyAdjustKey[] values;
         for (BeautyAdjustKey beautyAdjustKey : BeautyAdjustKey.values()) {
             if (beautyAdjustKey.getJsonKey().equals(str)) {
@@ -150,7 +149,7 @@ public class AlaFilterAndBeautyData extends BaseData {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public enum BeautyAdjustKey {
         whiten("whiten_slider", "white_percent"),
         smooth("smooth_slider", "blur_level"),
@@ -161,7 +160,7 @@ public class AlaFilterAndBeautyData extends BaseData {
         vFace("vface_slider", "v_face"),
         threeCounts("threeCounts_slider", "face_three_counts"),
         cheekboneWidth("cheekbone_slider", "cheek_bone"),
-        mouthWidth("mouthWidth_slider", LivenessStat.TYPE_LIVING_MOUTH),
+        mouthWidth("mouthWidth_slider", com.baidu.pass.biometrics.face.liveness.c.a.i),
         faceWidth("faceWidth_slider", "face_width"),
         noseLength("noseLength_slider", "nose_length"),
         upCount("upCount_slider", "up_count"),

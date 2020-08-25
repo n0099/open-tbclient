@@ -1,10 +1,10 @@
 package com.baidu.live.q;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public String aIO;
-    public long bbP;
+    public String aNZ;
+    public long bhn;
     public Context context;
     public boolean isHost;
     public int liveType;
@@ -29,7 +29,7 @@ public class a {
         this.isHost = z;
         this.portrait = str;
         this.otherParams = str2;
-        this.aIO = str3;
-        this.bbP = j2;
+        this.aNZ = str3;
+        this.bhn = j2;
     }
 }

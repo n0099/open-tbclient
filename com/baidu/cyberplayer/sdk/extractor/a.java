@@ -1,5 +1,5 @@
 package com.baidu.cyberplayer.sdk.extractor;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static a a = null;
 

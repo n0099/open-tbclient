@@ -7,9 +7,9 @@ import com.baidu.mobstat.Config;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static InetAddress Ou() {
+    private static InetAddress Uo() {
         InetAddress inetAddress;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,11 +49,11 @@ public class a {
         }
     }
 
-    private static String Ov() {
+    private static String Up() {
         byte[] hardwareAddress;
         try {
-            InetAddress Ou = Ou();
-            if (Ou == null || (hardwareAddress = NetworkInterface.getByInetAddress(Ou).getHardwareAddress()) == null) {
+            InetAddress Uo = Uo();
+            if (Uo == null || (hardwareAddress = NetworkInterface.getByInetAddress(Uo).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -73,11 +73,7 @@ public class a {
         }
     }
 
-    private static String Ow() {
-        return ((WifiManager) g.OA().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-    }
-
-    private static String Ox() {
+    private static String Uq() {
         byte[] hardwareAddress;
         try {
             NetworkInterface byName = NetworkInterface.getByName("wlan0");
@@ -98,20 +94,24 @@ public class a {
         }
     }
 
-    private static boolean gF(String str) {
-        return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
+    private static String getMac() {
+        return ((WifiManager) g.Us().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getMacAddress() {
-        String Ox;
+        String Uq;
         if (Build.VERSION.SDK_INT < 23) {
-            Ox = Ow();
+            Uq = getMac();
         } else {
-            Ox = Ox();
+            Uq = Uq();
         }
-        if (!gF(Ox)) {
-            Ox = Ov();
+        if (!hZ(Uq)) {
+            Uq = Up();
         }
-        return !TextUtils.isEmpty(Ox) ? Ox.toUpperCase() : Ox;
+        return !TextUtils.isEmpty(Uq) ? Uq.toUpperCase() : Uq;
+    }
+
+    private static boolean hZ(String str) {
+        return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 }

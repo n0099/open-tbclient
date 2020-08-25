@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void JF(String str) {
+    public static void Mx(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -58,7 +58,7 @@ public class d {
         }
     }
 
-    public static String W(File file) {
+    public static String X(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -97,21 +97,21 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray JG(String str) {
+    public static JSONArray My(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String W = W(file);
-            String[] split = W.split("\n");
+            String X = X(file);
+            String[] split = X.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     c(str2, jSONArray);
                 }
             } else {
-                c(W, jSONArray);
+                c(X, jSONArray);
             }
             n.deleteFile(file);
             return jSONArray;
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void JH(String str) {
+    public static void Mz(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(g.a.jRS + g.a.jRI + str));
+            n.deleteFileOrDir(new File(g.a.kho + g.a.khe + str));
         }
     }
 }

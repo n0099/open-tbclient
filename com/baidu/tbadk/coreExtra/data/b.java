@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private String dotTimestamp;
     private String enterForumText;

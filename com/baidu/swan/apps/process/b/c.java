@@ -10,51 +10,45 @@ import com.baidu.swan.apps.runtime.h;
 import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.apps.runtime.m;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends m implements com.baidu.swan.apps.process.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, String> cAP;
-    private final HashMap<String, b> cAQ;
+    private final HashMap<String, String> cIY;
+    private final HashMap<String, b> cIZ;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        static c cAS = new c(d.arr());
+        static c cJb = new c(d.azE());
     }
 
-    private static c apv() {
-        return a.cAS;
+    private static c axr() {
+        return a.cJb;
     }
 
     public c(h hVar) {
         super(hVar);
-        this.cAP = new HashMap<>();
-        this.cAQ = new HashMap<>();
-        log("SwanIpc");
-        o(new com.baidu.swan.apps.runtime.b().a(new com.baidu.swan.apps.aq.e.b<i.a>() { // from class: com.baidu.swan.apps.process.b.c.2
+        this.cIY = new HashMap<>();
+        this.cIZ = new HashMap<>();
+        if (DEBUG) {
+            log("SwanIpc");
+        }
+        v(new com.baidu.swan.apps.runtime.b().a(new com.baidu.swan.apps.ap.e.b<i.a>() { // from class: com.baidu.swan.apps.process.b.c.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
+            @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: b */
-            public void H(i.a aVar) {
-                if (com.baidu.swan.apps.performance.b.b.aoo()) {
-                    if (c.DEBUG) {
-                        c.this.log("onEventCallback msg" + aVar);
-                    }
-                } else {
+            public void I(i.a aVar) {
+                if (c.DEBUG) {
                     c.this.log("onEventCallback msg" + aVar);
                 }
                 c.this.g(aVar);
             }
-        }, "event_messenger_call_out").a(new com.baidu.swan.apps.aq.e.b<i.a>() { // from class: com.baidu.swan.apps.process.b.c.1
+        }, "event_messenger_call_out").a(new com.baidu.swan.apps.ap.e.b<i.a>() { // from class: com.baidu.swan.apps.process.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
+            @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: b */
-            public void H(i.a aVar) {
-                if (com.baidu.swan.apps.performance.b.b.aoo()) {
-                    if (c.DEBUG) {
-                        c.this.log("onEventCallback msg" + aVar);
-                    }
-                } else {
+            public void I(i.a aVar) {
+                if (c.DEBUG) {
                     c.this.log("onEventCallback msg" + aVar);
                 }
                 c.this.f(aVar);
@@ -63,74 +57,70 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     }
 
     public static void init() {
-        apv();
+        axr();
     }
 
-    public static synchronized b nJ(@NonNull String str) {
-        b nL;
+    public static synchronized b pH(@NonNull String str) {
+        b pJ;
         synchronized (c.class) {
-            nL = apv().nL(str);
+            pJ = axr().pJ(str);
         }
-        return nL;
+        return pJ;
     }
 
-    public static synchronized b nK(@NonNull String str) {
-        b f;
+    public static synchronized b pI(@NonNull String str) {
+        b e;
         synchronized (c.class) {
-            f = apv().f(str, null);
+            e = axr().e(str, (Bundle) null);
         }
-        return f;
+        return e;
     }
 
-    public static synchronized b N(@NonNull Bundle bundle) {
-        b O;
+    public static synchronized b L(@NonNull Bundle bundle) {
+        b M;
         synchronized (c.class) {
-            O = apv().O(bundle);
+            M = axr().M(bundle);
         }
-        return O;
+        return M;
     }
 
-    public static synchronized boolean bN(@NonNull String str, @NonNull String str2) {
+    public static synchronized boolean cc(@NonNull String str, @NonNull String str2) {
         boolean a2;
         synchronized (c.class) {
-            a2 = apv().a(nK(str), str2);
+            a2 = axr().a(pI(str), str2);
         }
         return a2;
     }
 
-    public static synchronized boolean c(@NonNull Bundle bundle, @NonNull String str) {
+    public static synchronized boolean d(@NonNull Bundle bundle, @NonNull String str) {
         boolean a2;
         synchronized (c.class) {
-            a2 = apv().a(N(bundle), str);
+            a2 = axr().a(L(bundle), str);
         }
         return a2;
     }
 
-    private synchronized b nL(String str) {
-        b O;
-        O = O(null);
-        a(O, str);
-        if (com.baidu.swan.apps.performance.b.b.aoo()) {
-            if (DEBUG) {
-                C("topic", str + " session=" + O);
-            }
-        } else {
-            C("topic", str + " session=" + O);
+    private synchronized b pJ(String str) {
+        b M;
+        M = M(null);
+        a(M, str);
+        if (DEBUG) {
+            E("topic", str + " session=" + M);
         }
-        return O;
+        return M;
     }
 
-    private synchronized b O(Bundle bundle) {
-        return f(bundle == null ? null : bundle.getString("ipc_session_id"), bundle);
+    private synchronized b M(Bundle bundle) {
+        return e(bundle == null ? null : bundle.getString("ipc_session_id"), bundle);
     }
 
-    private synchronized b f(String str, Bundle bundle) {
+    private synchronized b e(String str, Bundle bundle) {
         b bVar;
-        b bVar2 = TextUtils.isEmpty(str) ? null : this.cAQ.get(str);
+        b bVar2 = TextUtils.isEmpty(str) ? null : this.cIZ.get(str);
         if (bVar2 == null || !bVar2.valid()) {
             a(bVar2, new IllegalStateException("invalid session"));
             b bVar3 = new b(this, str);
-            this.cAQ.put(bVar3.apq(), bVar3);
+            this.cIZ.put(bVar3.axm(), bVar3);
             bVar = bVar3;
         } else {
             bVar = bVar2;
@@ -139,18 +129,14 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         if (z) {
             int i = bundle.getInt("ipc_session_repal", SwanAppProcessInfo.UNKNOWN.index);
             if (SwanAppProcessInfo.checkProcessId(i)) {
-                bVar.gA(i);
+                bVar.iG(i);
             } else if (SwanAppProcessInfo.SERVICE.index == i) {
-                bVar.eU(true);
+                bVar.fn(true);
             }
         }
-        bVar.bu(z ? bundle.getLong("ipc_session_timeout") : cAF);
-        if (com.baidu.swan.apps.performance.b.b.aoo()) {
-            if (DEBUG) {
-                C("session", "id=" + str + " session=" + bundle + " session=" + bVar);
-            }
-        } else {
-            C("session", "id=" + str + " session=" + bundle + " session=" + bVar);
+        bVar.bB(z ? bundle.getLong("ipc_session_timeout") : cIO);
+        if (DEBUG) {
+            E("session", "id=" + str + " session=" + bundle + " session=" + bVar);
         }
         return bVar;
     }
@@ -158,9 +144,9 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c a(b bVar, Exception exc) {
         if (bVar != null) {
-            synchronized (this.cAQ) {
-                bVar.r(exc);
-                this.cAQ.remove(bVar.apq());
+            synchronized (this.cIZ) {
+                bVar.u(exc);
+                this.cIZ.remove(bVar.axm());
             }
         }
         return this;
@@ -168,11 +154,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String c(@NonNull b bVar) {
-        return nM(bVar.apq());
+        return pK(bVar.axm());
     }
 
-    String nM(@NonNull String str) {
-        return this.cAP.get(str);
+    String pK(@NonNull String str) {
+        return this.cIY.get(str);
     }
 
     private synchronized boolean a(@NonNull b bVar, @NonNull Bundle bundle) {
@@ -186,12 +172,12 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     private synchronized boolean a(@NonNull b bVar, @NonNull String str) {
         boolean z;
         if (bVar.valid()) {
-            String apq = bVar.apq();
-            String str2 = this.cAP.get(apq);
+            String axm = bVar.axm();
+            String str2 = this.cIY.get(axm);
             boolean z2 = !TextUtils.isEmpty(str2);
             z = !z2 || TextUtils.equals(str2, str);
             if (z && !z2 && !TextUtils.isEmpty(str)) {
-                this.cAP.put(apq, str);
+                this.cIY.put(axm, str);
             }
         } else {
             z = false;
@@ -201,34 +187,26 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(i.a aVar) {
-        if (com.baidu.swan.apps.performance.b.b.aoo()) {
-            if (DEBUG) {
-                C("onCallIn", "msg=" + aVar);
-            }
-        } else {
-            C("onCallIn", "msg=" + aVar);
+        if (DEBUG) {
+            E("onCallIn", "msg=" + aVar);
         }
         if (aVar != null) {
             Bundle bundle = aVar.toBundle();
             i.a aVar2 = new i.a("event_messenger_call", bundle);
-            b N = N(bundle);
-            if (!a(N, bundle) || !N.e(aVar2)) {
-                d.arr().i(aVar2);
+            b L = L(bundle);
+            if (!a(L, bundle) || !L.e(aVar2)) {
+                d.azE().i(aVar2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(i.a aVar) {
-        if (com.baidu.swan.apps.performance.b.b.aoo()) {
-            if (DEBUG) {
-                C("onCallOut", "msg=" + aVar);
-            }
-        } else {
-            C("onCallOut", "msg=" + aVar);
+        if (DEBUG) {
+            E("onCallOut", "msg=" + aVar);
         }
         if (aVar != null) {
-            N(aVar.toBundle()).apr();
+            L(aVar.toBundle()).axn();
         }
     }
 
@@ -239,7 +217,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         }
     }
 
-    private void C(String str, String str2) {
+    private void E(String str, String str2) {
         log(str + ": " + str2);
     }
 }

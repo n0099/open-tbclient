@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class MovieExtendsHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mehd";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     private long fragmentDuration;
 
     static {
@@ -20,8 +20,8 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MovieExtendsHeaderBox.java", MovieExtendsHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "long", "fragmentDuration", "", "void"), 69);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "long", "fragmentDuration", "", "void"), 69);
     }
 
     public MovieExtendsHeaderBox() {
@@ -55,7 +55,7 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
     }
 
     public void setFragmentDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gL(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.gY(j)));
         this.fragmentDuration = j;
     }
 }

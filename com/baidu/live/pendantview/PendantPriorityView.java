@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PendantPriorityView extends LinearLayout {
-    protected int bbg;
+    protected int bgC;
 
     public PendantPriorityView(Context context) {
         this(context, null);
@@ -19,7 +19,7 @@ public class PendantPriorityView extends LinearLayout {
 
     public PendantPriorityView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bbg = 0;
+        this.bgC = 0;
         setOrientation(1);
     }
 
@@ -30,14 +30,14 @@ public class PendantPriorityView extends LinearLayout {
             super.addView(view, T, layoutParams);
             if (view instanceof PendantChildView) {
                 PendantChildView pendantChildView = (PendantChildView) view;
-                if (this.bbg >= 0) {
+                if (this.bgC >= 0) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pendantChildView.getLayoutParams();
                     if (layoutParams2 != null) {
                         int priority = pendantChildView.getPriority();
                         if (priority == 105 || priority == 0 || priority == 100 || priority == 20 || priority == 90) {
                             layoutParams2.bottomMargin = 0;
                         } else {
-                            layoutParams2.bottomMargin = this.bbg;
+                            layoutParams2.bottomMargin = this.bgC;
                         }
                     }
                     view.setLayoutParams(layoutParams2);
@@ -47,10 +47,14 @@ public class PendantPriorityView extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.bbg = i;
+        this.bgC = i;
     }
 
     protected int T(View view) {
+        return U(view);
+    }
+
+    private int U(View view) {
         if (!(view instanceof PendantChildView)) {
             return -1;
         }

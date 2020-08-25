@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.d;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
@@ -29,8 +29,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class a {
     private static final String USER_ICON_WEBVIEW = d.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW;
-    private final com.baidu.tieba.pb.pb.a kzY;
-    public final View.OnClickListener hps = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
+    private final com.baidu.tieba.pb.pb.a kPD;
+    public final View.OnClickListener hCj = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
@@ -50,30 +50,30 @@ public class a {
                 AlaInfoData alaInfo = ((HeadImageView) view).getAlaInfo();
                 int liveStatus = ((HeadImageView) view).getLiveStatus();
                 if (alaInfo != null && (liveStatus == 1 || alaInfo.live_status == 1)) {
-                    ap apVar = new ap("c13715");
-                    apVar.dn("fid", fid);
-                    apVar.dn("fname", fName);
-                    apVar.t("obj_param1", alaInfo.user_info != null ? alaInfo.user_info.user_id : 0L);
-                    apVar.dn("uid", TbadkCoreApplication.getCurrentAccount());
-                    apVar.dn("tid", tid);
-                    apVar.ah(TiebaInitialize.Params.OBJ_PARAM2, floor);
-                    TiebaStatic.log(apVar);
+                    aq aqVar = new aq("c13715");
+                    aqVar.dD("fid", fid);
+                    aqVar.dD("fname", fName);
+                    aqVar.u("obj_param1", alaInfo.user_info != null ? alaInfo.user_info.user_id : 0L);
+                    aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                    aqVar.dD("tid", tid);
+                    aqVar.ai(TiebaInitialize.Params.OBJ_PARAM2, floor);
+                    TiebaStatic.log(aqVar);
                     i = liveStatus;
                     str3 = userId;
                     alaInfoData = alaInfo;
                     str2 = userName;
-                } else if (as.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                } else if (at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     i = liveStatus;
                     str3 = userId;
                     alaInfoData = alaInfo;
                     str2 = userName;
                 } else {
-                    ap apVar2 = new ap("c13267");
-                    apVar2.dn("uid", TbadkCoreApplication.getCurrentAccount());
-                    apVar2.dn("fid", fid);
-                    apVar2.dn("tid", tid);
-                    apVar2.dn("obj_source", TbadkCoreApplication.getInst().getTaskId());
-                    TiebaStatic.log(apVar2);
+                    aq aqVar2 = new aq("c13267");
+                    aqVar2.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                    aqVar2.dD("fid", fid);
+                    aqVar2.dD("tid", tid);
+                    aqVar2.dD("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                    TiebaStatic.log(aqVar2);
                     i = liveStatus;
                     str3 = userId;
                     alaInfoData = alaInfo;
@@ -100,13 +100,13 @@ public class a {
                     str3 = (String) ((SparseArray) view.getTag()).get(R.id.tag_user_id);
                 }
             }
-            if (view.getTag(R.id.tag_statistic_item) instanceof ap) {
-                TiebaStatic.log((ap) view.getTag(R.id.tag_statistic_item));
+            if (view.getTag(R.id.tag_statistic_item) instanceof aq) {
+                TiebaStatic.log((aq) view.getTag(R.id.tag_statistic_item));
             }
             if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                 String str6 = (String) view.getTag(R.id.tag_nick_name_activity);
-                if (!TextUtils.isEmpty(str6) && bf.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(a.this.kzY.getPageContext().getPageActivity(), null, str6, true)));
+                if (!TextUtils.isEmpty(str6) && bg.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(a.this.kPD.getPageContext().getPageActivity(), null, str6, true)));
                     return;
                 }
             }
@@ -116,13 +116,13 @@ public class a {
                 str4 = (String) view.getTag(R.id.tag_virtual_user_url);
             }
             if (str4 != null) {
-                if (bf.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    bd.baV().b(a.this.kzY.getPageContext(), new String[]{str4});
+                if (bg.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+                    be.bju().b(a.this.kPD.getPageContext(), new String[]{str4});
                 }
             } else if (str3 != null) {
                 if (alaInfoData != null && (i == 1 || alaInfoData.live_status == 1)) {
                     if (alaInfoData.isChushou) {
-                        bd.baV().b(a.this.kzY.getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + alaInfoData.thirdRoomId + "&livetype=" + alaInfoData.thirdLiveType});
+                        be.bju().b(a.this.kPD.getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + alaInfoData.thirdRoomId + "&livetype=" + alaInfoData.thirdLiveType});
                         return;
                     } else if (alaInfoData.live_id > 0) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -133,42 +133,42 @@ public class a {
                         return;
                     }
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.kzY.getPageContext().getPageActivity(), str3, str2, a.this.kzY.cLG(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.kPD.getPageContext().getPageActivity(), str3, str2, a.this.kPD.cWu(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     };
-    public final View.OnClickListener kzZ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
+    public final View.OnClickListener kPE = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(R.id.tag_user_id) instanceof String) {
                 com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.USER_ICON_WEBVIEW + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
-                TiebaStatic.log(new ap(CommonStatisticKey.USER_ICON_VISIT).ah("obj_type", 2));
+                TiebaStatic.log(new aq(CommonStatisticKey.USER_ICON_VISIT).ai("obj_type", 2));
             }
         }
     };
-    public final View.OnClickListener kAa = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
+    public final View.OnClickListener kPF = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.b.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (bf.checkUpIsLogin(TbadkCoreApplication.getInst())) {
+            if (bg.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                 String str = null;
                 if (view.getTag() != null) {
                     str = (String) view.getTag();
                 }
                 if (str != null) {
-                    bd.baV().b(a.this.kzY.getPageContext(), new String[]{str});
+                    be.bju().b(a.this.kPD.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.kzY.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.kPD.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
             }
         }
     };
-    public final TbRichTextView.h kAb = new TbRichTextView.h() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
+    public final TbRichTextView.h kPG = new TbRichTextView.h() { // from class: com.baidu.tieba.pb.pb.main.b.a.4
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.h
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(a.this.kzY.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(a.this.kPD.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
         }
     };
 
     public a(com.baidu.tieba.pb.pb.a aVar) {
-        this.kzY = aVar;
+        this.kPD = aVar;
     }
 }

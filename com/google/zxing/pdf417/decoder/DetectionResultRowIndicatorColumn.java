@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.decoder;
 
 import com.google.zxing.ResultPoint;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 final class DetectionResultRowIndicatorColumn extends DetectionResultColumn {
     private final boolean isLeft;
 

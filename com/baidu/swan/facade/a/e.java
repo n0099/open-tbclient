@@ -4,18 +4,18 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.scheme.j;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class e implements com.baidu.swan.apps.t.b.c {
     @Override // com.baidu.swan.apps.t.b.c
     public void a(j jVar) {
-        a.aza().a(jVar);
-        a.azb().a(jVar);
+        a.aHf().a(jVar);
+        a.aHg().a(jVar);
     }
 
     @Override // com.baidu.swan.apps.t.b.c
     public Map<String, Object> getWebviewApiModules(@NonNull com.baidu.swan.apps.api.a.b bVar) {
-        Map<String, Object> webviewApiModules = a.aza().getWebviewApiModules(bVar);
-        Map<String, Object> webviewApiModules2 = a.azb().getWebviewApiModules(bVar);
+        Map<String, Object> webviewApiModules = a.aHf().getWebviewApiModules(bVar);
+        Map<String, Object> webviewApiModules2 = a.aHg().getWebviewApiModules(bVar);
         HashMap hashMap = new HashMap();
         if (webviewApiModules != null) {
             hashMap.putAll(webviewApiModules);
@@ -28,8 +28,8 @@ public class e implements com.baidu.swan.apps.t.b.c {
 
     @Override // com.baidu.swan.apps.t.b.c
     public Map<String, Object> getV8ApiModules(@NonNull com.baidu.swan.apps.api.a.b bVar) {
-        Map<String, Object> v8ApiModules = a.aza().getV8ApiModules(bVar);
-        Map<String, Object> v8ApiModules2 = a.azb().getV8ApiModules(bVar);
+        Map<String, Object> v8ApiModules = a.aHf().getV8ApiModules(bVar);
+        Map<String, Object> v8ApiModules2 = a.aHg().getV8ApiModules(bVar);
         HashMap hashMap = new HashMap();
         if (v8ApiModules != null) {
             hashMap.putAll(v8ApiModules);

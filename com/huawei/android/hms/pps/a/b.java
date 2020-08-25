@@ -3,18 +3,18 @@ package com.huawei.android.hms.pps.a;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes11.dex */
     public static abstract class a {
 
         /* renamed from: com.huawei.android.hms.pps.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes19.dex */
-        public static class C0823a implements b {
+        /* loaded from: classes11.dex */
+        public static class C0881a implements b {
             private IBinder a;
 
-            public C0823a(IBinder iBinder) {
+            public C0881a(IBinder iBinder) {
                 this.a = iBinder;
             }
 

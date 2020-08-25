@@ -1,13 +1,12 @@
 package com.xiaomi.push.service;
 
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.gp;
 import com.xiaomi.push.gq;
 import com.xiaomi.push.gu;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class e implements gp {
     public static gg a(XmlPullParser xmlPullParser) {
         String str;
@@ -52,7 +51,7 @@ public class e implements gp {
     }
 
     public void a() {
-        gq.a().a(SchemeCollecter.CLASSIFY_ALL, "xm:chat", this);
+        gq.a().a("all", "xm:chat", this);
     }
 
     public gg b(XmlPullParser xmlPullParser) {

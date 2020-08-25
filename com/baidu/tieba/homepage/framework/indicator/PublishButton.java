@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class PublishButton extends TBSpecificationBtn {
@@ -25,10 +26,10 @@ public class PublishButton extends TBSpecificationBtn {
     }
 
     private void init() {
-        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        bVar.k(R.drawable.ic_icon_pure_send12, 0, true);
-        bVar.mR(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds27));
-        setConfig(bVar);
+        com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
+        aVar.a(R.drawable.ic_icon_pure_send12, 0, TBSpecificationButtonConfig.IconType.SVG);
+        aVar.oX(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds27));
+        setConfig(aVar);
         setTextSize(R.dimen.tbds36);
         setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_publish_dynamic));
     }

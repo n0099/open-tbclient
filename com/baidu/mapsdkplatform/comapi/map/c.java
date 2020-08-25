@@ -1,9 +1,8 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes10.dex */
-public class c extends d {
-    public c() {
-        this.c = 4;
-        this.b = "poiindoormarklayer";
-        this.d = 100;
-    }
+/* loaded from: classes20.dex */
+public abstract class c {
+    long a;
+    String b;
+    int c;
+    int d;
 }

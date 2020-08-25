@@ -1,27 +1,13 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes11.dex */
 public class l extends com.baidu.ar.ability.c {
-    private long ix;
-    private int iy;
-    private int iz;
+    private float[] hU;
 
-    public int bK() {
-        return this.iy;
+    public float[] getMatrix() {
+        return this.hU;
     }
 
-    public int bL() {
-        return this.iz;
-    }
-
-    public void i(long j) {
-        this.ix = j;
-    }
-
-    public void t(int i) {
-        this.iy = i;
-    }
-
-    public void u(int i) {
-        this.iz = i;
+    public void setMatrix(float[] fArr) {
+        this.hU = fArr;
     }
 }

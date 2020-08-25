@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PersonalBackgroundPreviewActivityConfig extends IntentConfig {
     public static final int FROM_BACKGROUND_ALL = 0;
     public static final int FROM_BACKGROUND_GROUP = 1;

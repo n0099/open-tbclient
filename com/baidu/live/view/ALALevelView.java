@@ -10,45 +10,45 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.data.AlaLiveMarkData;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.af;
+import com.baidu.live.data.ah;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ALALevelView extends LinearLayout {
-    private int bmP;
-    private int bmQ;
-    private FrameLayout bmR;
-    private ImageView bmS;
-    private TextView bmT;
-    private TextView bmU;
-    private TbImageView bmV;
-    private TbImageView bmW;
-    private TextView bmX;
-    private ImageView bmY;
-    private int bmZ;
-    private int bna;
-    private AlaLiveMarkData bnb;
+    private TbImageView bsA;
+    private TbImageView bsB;
+    private TextView bsC;
+    private ImageView bsD;
+    private int bsE;
+    private int bsF;
+    private AlaLiveMarkData bsG;
+    private int bsu;
+    private int bsv;
+    private FrameLayout bsw;
+    private ImageView bsx;
+    private TextView bsy;
+    private TextView bsz;
 
     public ALALevelView(Context context) {
         super(context);
-        this.bmP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds38);
-        this.bmQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds7);
+        this.bsu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds38);
+        this.bsv = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds7);
         init(context);
     }
 
     public ALALevelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bmP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds38);
-        this.bmQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds7);
+        this.bsu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds38);
+        this.bsv = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds7);
         init(context);
     }
 
     public ALALevelView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bmP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds38);
-        this.bmQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds7);
+        this.bsu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds38);
+        this.bsv = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds7);
         init(context);
     }
 
@@ -57,23 +57,23 @@ public class ALALevelView extends LinearLayout {
         setOrientation(0);
     }
 
-    public void setData(af afVar) {
-        if (afVar == null) {
+    public void setData(ah ahVar) {
+        if (ahVar == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.bmZ = 0;
-        this.bna = 0;
-        T(afVar.live_mark_info_new);
+        this.bsE = 0;
+        this.bsF = 0;
+        U(ahVar.live_mark_info_new);
         removeAllViews();
-        if (TextUtils.isEmpty(afVar.third_app_id)) {
-            setupLevelIcon(afVar.level_id);
-            setupOfficialIcon(afVar.is_official == 1);
-            KD();
+        if (TextUtils.isEmpty(ahVar.third_app_id)) {
+            setupLevelIcon(ahVar.level_id);
+            setupOfficialIcon(ahVar.is_official == 1);
+            Qv();
             return;
         }
-        KE();
+        Qw();
     }
 
     public void setData(com.baidu.live.data.a aVar) {
@@ -83,17 +83,17 @@ public class ALALevelView extends LinearLayout {
         }
         setVisibility(0);
         removeAllViews();
-        this.bmZ = 0;
-        this.bna = 0;
-        T(aVar.axQ);
+        this.bsE = 0;
+        this.bsF = 0;
+        U(aVar.aCS);
         if (TextUtils.isEmpty(aVar.appId)) {
             setupLevelIcon(aVar.level_id);
-            setupOfficialIcon(aVar.axN);
-            KD();
-            E(aVar.tagName, aVar.axP);
+            setupOfficialIcon(aVar.aCP);
+            Qv();
+            F(aVar.tagName, aVar.aCR);
             return;
         }
-        KE();
+        Qw();
     }
 
     public void setData(AlaLiveUserInfoData alaLiveUserInfoData) {
@@ -102,19 +102,19 @@ public class ALALevelView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.bmZ = 0;
-        this.bna = 0;
-        T(alaLiveUserInfoData.live_mark_info_new);
+        this.bsE = 0;
+        this.bsF = 0;
+        U(alaLiveUserInfoData.live_mark_info_new);
         removeAllViews();
         setupLevelIconImage(alaLiveUserInfoData.levelId);
         setupClubIcon(alaLiveUserInfoData.clubMemberLevel);
-        KD();
+        Qv();
     }
 
-    public void T(List<AlaLiveMarkData> list) {
+    public void U(List<AlaLiveMarkData> list) {
         int i;
         if (list == null) {
-            this.bnb = null;
+            this.bsG = null;
             return;
         }
         int i2 = 0;
@@ -127,121 +127,121 @@ public class ALALevelView extends LinearLayout {
             if (alaLiveMarkData.type != 2) {
                 i2 = i + 1;
             } else {
-                this.bnb = alaLiveMarkData;
+                this.bsG = alaLiveMarkData;
                 break;
             }
         }
         if (i >= list.size()) {
-            this.bnb = null;
+            this.bsG = null;
         }
     }
 
     public void setupLevelIcon(int i) {
-        if (this.bmT == null) {
-            this.bmT = new TextView(getContext());
-            this.bmT.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_tbfontsize22));
-            this.bmT.setGravity(49);
-            this.bmT.setPadding(0, getResources().getDimensionPixelSize(a.e.sdk_tbds4), 0, 0);
-            this.bmT.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+        if (this.bsy == null) {
+            this.bsy = new TextView(getContext());
+            this.bsy.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_tbfontsize22));
+            this.bsy.setGravity(49);
+            this.bsy.setPadding(0, getResources().getDimensionPixelSize(a.e.sdk_tbds4), 0, 0);
+            this.bsy.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
         }
-        if (this.bmT.getParent() == null) {
-            addView(this.bmT, 0);
+        if (this.bsy.getParent() == null) {
+            addView(this.bsy, 0);
         }
-        this.bmT.setText(i + "");
-        this.bmT.getPaint().setFakeBoldText(true);
+        this.bsy.setText(i + "");
+        this.bsy.getPaint().setFakeBoldText(true);
         if (i <= 10) {
-            this.bmT.setBackgroundResource(a.f.sdk_icon_live_im_level1);
+            this.bsy.setBackgroundResource(a.f.sdk_icon_live_im_level1);
         } else if (i <= 20) {
-            this.bmT.setBackgroundResource(a.f.sdk_icon_live_im_level2);
+            this.bsy.setBackgroundResource(a.f.sdk_icon_live_im_level2);
         } else if (i <= 30) {
-            this.bmT.setBackgroundResource(a.f.sdk_icon_live_im_level3);
+            this.bsy.setBackgroundResource(a.f.sdk_icon_live_im_level3);
         } else if (i <= 40) {
-            this.bmT.setBackgroundResource(a.f.sdk_icon_live_im_level4);
+            this.bsy.setBackgroundResource(a.f.sdk_icon_live_im_level4);
         } else {
-            this.bmT.setBackgroundResource(a.f.sdk_icon_live_im_level5);
+            this.bsy.setBackgroundResource(a.f.sdk_icon_live_im_level5);
         }
-        this.bmZ++;
+        this.bsE++;
     }
 
     public void setupLevelIconImage(int i) {
-        if (this.bmR == null) {
-            this.bmR = new FrameLayout(getContext());
-            this.bmR.setBackgroundColor(0);
+        if (this.bsw == null) {
+            this.bsw = new FrameLayout(getContext());
+            this.bsw.setBackgroundColor(0);
         }
-        if (this.bmS == null) {
-            this.bmS = new ImageView(getContext());
-            this.bmS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        if (this.bsx == null) {
+            this.bsx = new ImageView(getContext());
+            this.bsx.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        if (this.bmS.getParent() == null) {
+        if (this.bsx.getParent() == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelOffset(a.e.sdk_ds26), getResources().getDimensionPixelOffset(a.e.sdk_ds30));
             layoutParams.gravity = 17;
-            this.bmR.addView(this.bmS, layoutParams);
+            this.bsw.addView(this.bsx, layoutParams);
         }
-        if (this.bmT == null) {
-            this.bmT = new TextView(getContext());
-            this.bmT.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
-            this.bmT.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_tbfontsize26));
-            this.bmT.setGravity(17);
-            this.bmT.getPaint().setFakeBoldText(true);
+        if (this.bsy == null) {
+            this.bsy = new TextView(getContext());
+            this.bsy.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+            this.bsy.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_tbfontsize26));
+            this.bsy.setGravity(17);
+            this.bsy.getPaint().setFakeBoldText(true);
         }
-        if (this.bmT.getParent() == null) {
+        if (this.bsy.getParent() == null) {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 17;
-            this.bmR.addView(this.bmT, layoutParams2);
+            this.bsw.addView(this.bsy, layoutParams2);
         }
-        if (this.bmR.getParent() == null) {
-            addView(this.bmR, 0);
+        if (this.bsw.getParent() == null) {
+            addView(this.bsw, 0);
         }
         if (i <= 10) {
-            this.bmS.setImageResource(a.f.sdk_icon_live_im_level1);
+            this.bsx.setImageResource(a.f.sdk_icon_live_im_level1);
         } else if (i <= 20) {
-            this.bmS.setImageResource(a.f.sdk_icon_live_im_level2);
+            this.bsx.setImageResource(a.f.sdk_icon_live_im_level2);
         } else if (i <= 30) {
-            this.bmS.setImageResource(a.f.sdk_icon_live_im_level3);
+            this.bsx.setImageResource(a.f.sdk_icon_live_im_level3);
         } else if (i <= 40) {
-            this.bmS.setImageResource(a.f.sdk_icon_live_im_level4);
+            this.bsx.setImageResource(a.f.sdk_icon_live_im_level4);
         } else {
-            this.bmS.setImageResource(a.f.sdk_icon_live_im_level5);
+            this.bsx.setImageResource(a.f.sdk_icon_live_im_level5);
         }
-        this.bmT.setText(i + "");
-        this.bmZ++;
+        this.bsy.setText(i + "");
+        this.bsE++;
     }
 
     private void setupOfficialIcon(boolean z) {
         if (z) {
-            if (this.bmU == null) {
-                this.bmU = new TextView(getContext());
-                this.bmU.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_tbfontsize26));
-                this.bmU.setGravity(17);
-                this.bmU.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
-                this.bmU.setBackgroundResource(a.f.sdk_bg_ala_official);
-                this.bmU.setText(a.i.sdk_official);
+            if (this.bsz == null) {
+                this.bsz = new TextView(getContext());
+                this.bsz.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_tbfontsize26));
+                this.bsz.setGravity(17);
+                this.bsz.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+                this.bsz.setBackgroundResource(a.f.sdk_bg_ala_official);
+                this.bsz.setText(a.i.sdk_official);
             }
-            if (this.bmU.getParent() == null) {
-                addView(this.bmU, i(false, false));
-                this.bmZ++;
+            if (this.bsz.getParent() == null) {
+                addView(this.bsz, j(false, false));
+                this.bsE++;
             }
-        } else if (this.bmU != null && this.bmU.getParent() != null) {
-            ((ViewGroup) this.bmU.getParent()).removeView(this.bmU);
+        } else if (this.bsz != null && this.bsz.getParent() != null) {
+            ((ViewGroup) this.bsz.getParent()).removeView(this.bsz);
         }
     }
 
-    private void KD() {
-        if (this.bnb == null || this.bnb.type != 2) {
-            a(this.bmV);
-        } else if (TextUtils.isEmpty(this.bnb.mark_pic)) {
-            a(this.bmV);
+    private void Qv() {
+        if (this.bsG == null || this.bsG.type != 2) {
+            a(this.bsA);
+        } else if (TextUtils.isEmpty(this.bsG.mark_pic)) {
+            a(this.bsA);
         } else {
-            if (this.bmV == null) {
-                this.bmV = new TbImageView(getContext());
-                this.bmV.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            if (this.bsA == null) {
+                this.bsA = new TbImageView(getContext());
+                this.bsA.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             } else {
-                this.bmV.stopLoad();
+                this.bsA.stopLoad();
             }
-            this.bmV.startLoad(this.bnb.mark_pic, 10, false);
-            if (this.bmV.getParent() == null) {
-                addView(this.bmV, b(false, false, getResources().getDimensionPixelOffset(a.e.sdk_tbds54)));
-                this.bmZ++;
+            this.bsA.startLoad(this.bsG.mark_pic, 10, false);
+            if (this.bsA.getParent() == null) {
+                addView(this.bsA, b(false, false, getResources().getDimensionPixelOffset(a.e.sdk_tbds54)));
+                this.bsE++;
             }
         }
     }
@@ -253,35 +253,35 @@ public class ALALevelView extends LinearLayout {
     }
 
     private void setupClubIcon(int i) {
-        String cB = com.baidu.live.guardclub.g.CJ().cB(i);
-        if (TextUtils.isEmpty(cB)) {
-            a(this.bmW);
+        String er = com.baidu.live.guardclub.g.Im().er(i);
+        if (TextUtils.isEmpty(er)) {
+            a(this.bsB);
             return;
         }
-        if (this.bmW == null) {
-            this.bmW = new TbImageView(getContext());
-            this.bmW.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        if (this.bsB == null) {
+            this.bsB = new TbImageView(getContext());
+            this.bsB.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         } else {
-            this.bmW.stopLoad();
+            this.bsB.stopLoad();
         }
-        this.bmW.startLoad(cB, 10, false);
-        if (this.bmW.getParent() == null) {
-            addView(this.bmW, b(false, false, getResources().getDimensionPixelOffset(a.e.sdk_tbds62)));
-            this.bmZ++;
+        this.bsB.startLoad(er, 10, false);
+        if (this.bsB.getParent() == null) {
+            addView(this.bsB, b(false, false, getResources().getDimensionPixelOffset(a.e.sdk_tbds62)));
+            this.bsE++;
         }
     }
 
-    private void E(String str, int i) {
+    private void F(String str, int i) {
         int i2;
         if (!TextUtils.isEmpty(str)) {
             if (str.length() > 5) {
                 str = str.substring(0, 5);
             }
-            if (this.bmX == null) {
-                this.bmX = new TextView(getContext());
-                this.bmX.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_tbfontsize26));
-                this.bmX.setGravity(17);
-                this.bmX.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+            if (this.bsC == null) {
+                this.bsC = new TextView(getContext());
+                this.bsC.setTextSize(0, getResources().getDimensionPixelSize(a.e.sdk_tbfontsize26));
+                this.bsC.setGravity(17);
+                this.bsC.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
             }
             switch (i) {
                 case 1:
@@ -294,32 +294,32 @@ public class ALALevelView extends LinearLayout {
                     i2 = a.f.sdk_bg_ala_user_type_3;
                     break;
                 default:
-                    if (this.bmX != null && this.bmX.getParent() != null) {
-                        this.bmX.setBackgroundDrawable(null);
-                        ((ViewGroup) this.bmX.getParent()).removeView(this.bmX);
+                    if (this.bsC != null && this.bsC.getParent() != null) {
+                        this.bsC.setBackgroundDrawable(null);
+                        ((ViewGroup) this.bsC.getParent()).removeView(this.bsC);
                         return;
                     }
                     return;
             }
-            if (this.bmX.getParent() == null) {
-                this.bmX.setText(str);
-                this.bmX.setBackgroundResource(i2);
-                this.bmX.setPadding(this.bmQ, 0, this.bmQ, 6);
-                addView(this.bmX, i(false, true));
-                this.bna = str.length();
+            if (this.bsC.getParent() == null) {
+                this.bsC.setText(str);
+                this.bsC.setBackgroundResource(i2);
+                this.bsC.setPadding(this.bsv, 0, this.bsv, 6);
+                addView(this.bsC, j(false, true));
+                this.bsF = str.length();
             }
         }
     }
 
-    private ViewGroup.LayoutParams i(boolean z, boolean z2) {
-        return b(z, z2, this.bmP);
+    private ViewGroup.LayoutParams j(boolean z, boolean z2) {
+        return b(z, z2, this.bsu);
     }
 
     private ViewGroup.LayoutParams b(boolean z, boolean z2, int i) {
         if (z2) {
             i = -2;
         }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, this.bmP);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, this.bsu);
         layoutParams.gravity = 16;
         if (!z) {
             layoutParams.leftMargin = getResources().getDimensionPixelSize(a.e.sdk_tbds10);
@@ -327,33 +327,33 @@ public class ALALevelView extends LinearLayout {
         return layoutParams;
     }
 
-    public void KE() {
-        if (this.bmY == null) {
-            this.bmY = new ImageView(getContext());
-            this.bmY.setImageResource(a.f.sdk_icon_live_im_visitors_14);
+    public void Qw() {
+        if (this.bsD == null) {
+            this.bsD = new ImageView(getContext());
+            this.bsD.setImageResource(a.f.sdk_icon_live_im_visitors_14);
         }
-        if (this.bmY.getParent() == null) {
-            addView(this.bmY, i(true, false));
-            this.bmZ++;
+        if (this.bsD.getParent() == null) {
+            addView(this.bsD, j(true, false));
+            this.bsE++;
         }
     }
 
     public void b(int i, float f) {
-        this.bmT.setTextColor(getResources().getColor(i));
-        this.bmT.setAlpha(f);
+        this.bsy.setTextColor(getResources().getColor(i));
+        this.bsy.setAlpha(f);
     }
 
     public int getIconCount() {
-        return this.bmZ;
+        return this.bsE;
     }
 
     public int getUserTypeTxtCount() {
-        return this.bna;
+        return this.bsF;
     }
 
     public void setTextLayoutParams(int i, int i2, int i3, int i4) {
-        if (this.bmT != null) {
-            this.bmT.setPadding(i, i2, i3, i4);
+        if (this.bsy != null) {
+            this.bsy.setPadding(i, i2, i3, i4);
         }
     }
 }

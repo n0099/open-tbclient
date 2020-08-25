@@ -3,8 +3,8 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+/* loaded from: classes20.dex */
 public final class Dot extends Overlay {
     LatLng a;
     int b;
@@ -12,7 +12,7 @@ public final class Dot extends Overlay {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Dot() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.dot;
+        this.type = com.baidu.mapsdkplatform.comapi.map.i.dot;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,7 +41,7 @@ public final class Dot extends Overlay {
 
     public void setCenter(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("dot center can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
         }
         this.a = latLng;
         this.listener.b(this);

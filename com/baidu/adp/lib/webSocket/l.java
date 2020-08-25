@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String OO;
-    private boolean PD;
-    private int PE;
-    private int PF;
-    private boolean PG;
-    private boolean PH;
-    private int Px;
-    private int Py;
-    private boolean Pz;
+    private String Ps;
+    private int Qh;
+    private int Qi;
+    private boolean Qj;
+    private boolean Qk;
+    private int Ql;
+    private int Qm;
+    private boolean Qn;
+    private boolean Qo;
 
     public l() {
-        this.OO = null;
-        this.Px = 32768;
-        this.Py = 131072;
-        this.Pz = false;
-        this.PD = true;
-        this.PE = 30000;
-        this.PF = 30000;
-        this.PG = true;
-        this.PH = true;
-        this.OO = null;
+        this.Ps = null;
+        this.Qh = 32768;
+        this.Qi = 131072;
+        this.Qj = false;
+        this.Qk = true;
+        this.Ql = 30000;
+        this.Qm = 30000;
+        this.Qn = true;
+        this.Qo = true;
+        this.Ps = null;
     }
 
     public l(l lVar) {
-        this.OO = null;
-        this.Px = lVar.Px;
-        this.Py = lVar.Py;
-        this.Pz = lVar.Pz;
-        this.PD = lVar.PD;
-        this.PE = lVar.PE;
-        this.PF = lVar.PF;
-        this.PG = lVar.PG;
-        this.PH = lVar.PH;
-        this.OO = lVar.OO;
+        this.Ps = null;
+        this.Qh = lVar.Qh;
+        this.Qi = lVar.Qi;
+        this.Qj = lVar.Qj;
+        this.Qk = lVar.Qk;
+        this.Ql = lVar.Ql;
+        this.Qm = lVar.Qm;
+        this.Qn = lVar.Qn;
+        this.Qo = lVar.Qo;
+        this.Ps = lVar.Ps;
     }
 
-    public boolean nl() {
-        return this.Pz;
+    public boolean oL() {
+        return this.Qj;
     }
 
-    public int nm() {
-        return this.Px;
+    public int oM() {
+        return this.Qh;
     }
 
-    public int nn() {
-        return this.Py;
+    public int oN() {
+        return this.Qi;
     }
 
     public boolean getTcpNoDelay() {
-        return this.PD;
+        return this.Qk;
     }
 
-    public int no() {
-        return this.PE;
+    public int oO() {
+        return this.Ql;
     }
 
-    public int np() {
-        return this.PF;
+    public int oP() {
+        return this.Qm;
     }
 
-    public boolean nq() {
-        return this.PG;
+    public boolean oQ() {
+        return this.Qn;
     }
 
-    public boolean nr() {
-        return this.PH;
+    public boolean oR() {
+        return this.Qo;
     }
 
-    public String ns() {
-        return this.OO;
+    public String oS() {
+        return this.Ps;
     }
 
-    public void cc(String str) {
-        this.OO = str;
+    public void ch(String str) {
+        this.Ps = str;
     }
 }

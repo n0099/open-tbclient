@@ -10,16 +10,16 @@ import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private boolean ejP;
-    private TextView joA;
-    private TextView joB;
-    private TextView joy;
-    private ImageView joz;
+    private boolean etK;
+    private TextView jDw;
+    private ImageView jDx;
+    private TextView jDy;
+    private TextView jDz;
     private ArrayList<a> networkChangeListeners;
 
     /* loaded from: classes16.dex */
@@ -47,21 +47,21 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.joz = (ImageView) findViewById(R.id.no_network_icon);
-        this.joA = (TextView) findViewById(R.id.no_network_guide1);
-        this.joB = (TextView) findViewById(R.id.no_network_guide2);
-        this.joy = (TextView) findViewById(R.id.no_network_showmore);
+        this.jDx = (ImageView) findViewById(R.id.no_network_icon);
+        this.jDy = (TextView) findViewById(R.id.no_network_guide1);
+        this.jDz = (TextView) findViewById(R.id.no_network_guide2);
+        this.jDw = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.joy != null) {
-            this.joy.setOnClickListener(onClickListener);
+        if (this.jDw != null) {
+            this.jDw.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.ejP) {
-            this.ejP = z;
+        if (z != this.etK) {
+            this.etK = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ao.setImageResource(this.joz, R.drawable.icon_error);
-        ao.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
+        ap.setImageResource(this.jDx, R.drawable.icon_error);
+        ap.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.joA.setTextColor(-10523526);
-            this.joB.setTextColor(-8682095);
-            this.joy.setTextColor(-10523526);
+            this.jDy.setTextColor(-10523526);
+            this.jDz.setTextColor(-8682095);
+            this.jDw.setTextColor(-10523526);
             return;
         }
-        this.joA.setTextColor(-14277082);
-        this.joB.setTextColor(-5065030);
-        this.joy.setTextColor(-14277082);
+        this.jDy.setTextColor(-14277082);
+        this.jDz.setTextColor(-5065030);
+        this.jDw.setTextColor(-14277082);
     }
 }

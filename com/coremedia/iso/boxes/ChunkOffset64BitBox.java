@@ -7,10 +7,10 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ChunkOffset64BitBox extends ChunkOffsetBox {
     public static final String TYPE = "co64";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
     private long[] chunkOffsets;
 
     static {
@@ -19,7 +19,7 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ChunkOffset64BitBox.java", ChunkOffset64BitBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getChunkOffsets", "com.coremedia.iso.boxes.ChunkOffset64BitBox", "", "", "", "[J"), 23);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getChunkOffsets", "com.coremedia.iso.boxes.ChunkOffset64BitBox", "", "", "", "[J"), 23);
     }
 
     public ChunkOffset64BitBox() {

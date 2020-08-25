@@ -7,31 +7,31 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.y;
-import com.baidu.tieba.frs.j;
+import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
-public class c extends j<bv, com.baidu.tieba.ala.livecard.a.a> implements y {
-    private com.baidu.tieba.ala.livecard.b.b fWJ;
-    private aa<bv> fWK;
+public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
+    private com.baidu.tieba.ala.livecard.b.b giI;
+    private aa<bw> giJ;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fWK = new aa<bv>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.giJ = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
-            public void a(View view, bv bvVar) {
-                if (view != null && bvVar != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_LIVE_START, Integer.valueOf(bvVar.getThreadType())));
+            public void a(View view, bw bwVar) {
+                if (view != null && bwVar != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_TAB_LIVE_START, Integer.valueOf(bwVar.getThreadType())));
                 }
             }
         };
     }
 
-    @Override // com.baidu.tieba.frs.j
+    @Override // com.baidu.tieba.frs.k
     public void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super.a(tbPageContext, bdUniqueId);
     }
@@ -39,26 +39,26 @@ public class c extends j<bv, com.baidu.tieba.ala.livecard.a.a> implements y {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: am */
+    /* renamed from: an */
     public com.baidu.tieba.ala.livecard.a.a b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.fWJ = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.fWJ.p(this.mPageId);
-        this.fWJ.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.fWJ);
+        this.giI = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.giI.p(this.mPageId);
+        this.giI.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.giI);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bv bvVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.fWW.a(bvVar);
-        aVar.fWW.setForumName(this.mForumName);
-        aVar.fWW.c(this.fWK);
-        if (bvVar != null) {
-            bvVar.aXx();
+    @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.ala.livecard.a.a aVar) {
+        aVar.giV.a(bwVar);
+        aVar.giV.setForumName(this.mForumName);
+        aVar.giV.c(this.giJ);
+        if (bwVar != null) {
+            bwVar.bfQ();
         }
         return aVar.getView();
     }
@@ -69,6 +69,6 @@ public class c extends j<bv, com.baidu.tieba.ala.livecard.a.a> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public void rn(int i) {
+    public void tz(int i) {
     }
 }

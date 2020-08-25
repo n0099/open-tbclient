@@ -9,10 +9,9 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.platform.base.d {
     private static final String b = b.class.getSimpleName();
     private String c;
@@ -59,7 +58,7 @@ public class b extends com.baidu.platform.base.d {
             geoCodeResult.setAddress(this.c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
-            geoCodeResult.setLevel(optJSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL));
+            geoCodeResult.setLevel(optJSONObject.optString("level"));
             geoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;
             return true;
         } catch (JSONException e) {

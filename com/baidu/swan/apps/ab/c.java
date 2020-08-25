@@ -1,58 +1,95 @@
 package com.baidu.swan.apps.ab;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.core.d.i;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class c extends i {
-    /* JADX WARN: Type inference failed for: r0v6, types: [com.baidu.swan.apps.adaptation.b.d] */
-    @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
-        inflate.findViewById(a.f.ai_apps_title_bar_root).setVisibility(8);
-        this.ccA = UI();
-        this.ccA.a(Vh());
-        this.bMv = this.ccA.UP();
-        this.ccA.loadUrl(this.mUrl);
-        this.ccA.a((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.bMv.covertToView());
-        return enableSliding(immersionEnabled() ? initImmersion(inflate) : inflate, this);
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.SparseArray;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public final class c {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static volatile c cHO;
+    private SparseArray<a> cHM = new SparseArray<>();
+    private Set<String> cHN = new HashSet();
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f UI() {
-        return com.baidu.swan.apps.core.turbo.d.adw().adx().bl(getContext());
-    }
-
-    @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d Vh() {
-        return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.ab.c.1
-            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean fZ(String str) {
-                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
-                    Map<String, String> stringToMap = aj.stringToMap(aj.getParams(str));
-                    if (stringToMap != null && stringToMap.get("statusCode") != null) {
-                        try {
-                            e.any().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                            e.any().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
-                        }
-                    } else {
-                        e.any().onPayResult(6, null);
-                    }
-                    i.abo();
-                    return true;
+    public static c awC() {
+        if (cHO == null) {
+            synchronized (com.baidu.swan.games.audio.b.b.class) {
+                if (cHO == null) {
+                    cHO = new c();
                 }
-                return super.fZ(str);
             }
-        };
+        }
+        return cHO;
+    }
+
+    @TargetApi(23)
+    public void a(Activity activity, int i, @NonNull String[] strArr, a aVar) {
+        if (aVar != null) {
+            if (!t(strArr)) {
+                this.cHM.put(i, aVar);
+                activity.requestPermissions(strArr, i);
+                if (DEBUG) {
+                    Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+                    return;
+                }
+                return;
+            }
+            aVar.onRequestPermissionsResult(i, strArr, new int[]{-1});
+        }
+    }
+
+    private boolean t(@NonNull String[] strArr) {
+        if (strArr.length <= 0) {
+            return true;
+        }
+        for (String str : strArr) {
+            if (!TextUtils.isEmpty(str) && this.cHN.contains(str)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void a(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            a(activity, strArr, iArr);
+        }
+        a aVar = this.cHM.get(i);
+        if (aVar != null) {
+            if (strArr.length > 0 && iArr.length > 0) {
+                aVar.onRequestPermissionsResult(i, strArr, iArr);
+            }
+            this.cHM.remove(i);
+        }
+        if (DEBUG) {
+            Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+            Log.d("SwanAppPermission", "onRequestPermissionsResult grantResults: " + Arrays.toString(iArr));
+        }
+    }
+
+    @RequiresApi(api = 23)
+    private void a(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
+        int length;
+        if (Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
+            for (int i = 0; i < length; i++) {
+                int i2 = iArr[i];
+                String str = strArr[i];
+                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
+                    this.cHN.add(str);
+                }
+            }
+        }
     }
 }

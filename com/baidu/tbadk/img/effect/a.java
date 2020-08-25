@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.plugins.MotuPlugin;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends b {
     private String filterLabel = "";
 
@@ -33,7 +33,7 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.bkk().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.bsW().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         if ("normal".equals(this.filterLabel)) {
             return bitmap;
         }

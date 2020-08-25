@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d extends IntentConfig {
     public d(Context context, int i, int i2) {
         super(context);
@@ -18,11 +18,11 @@ public class d extends IntentConfig {
         getIntent().putStringArrayListExtra("key_used_gift_list", arrayList);
     }
 
-    public void bJ(int i) {
+    public void dv(int i) {
         getIntent().putExtra("key_chosen_gift_num", i);
     }
 
-    public void bK(int i) {
+    public void dw(int i) {
         getIntent().putExtra("key_chosen_date", i);
     }
 }

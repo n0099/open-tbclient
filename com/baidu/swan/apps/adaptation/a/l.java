@@ -1,13 +1,22 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+import com.baidu.swan.apps.core.container.a.a;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+/* loaded from: classes8.dex */
 public interface l {
-    File K(Context context, String str);
+    int Ys();
 
-    JSONObject L(Context context, String str);
+    boolean Yt();
 
-    void aP(String str, String str2);
+    boolean Yu();
+
+    int Yv();
+
+    VideoPlayerFactory Yw();
+
+    void a(a.InterfaceC0382a interfaceC0382a);
+
+    void ds(boolean z);
+
+    void gq(int i);
 }

@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.swan.apps.a;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
-    private CommonOverflowMenuView cCK;
+    private CommonOverflowMenuView cKY;
     private int mDelatX;
     private int mDelatY;
     private int mGravity;
@@ -16,7 +16,7 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
     protected View getMenuView(Context context) {
         CommonOverflowMenuView commonOverflowMenuView = new CommonOverflowMenuView(context);
         commonOverflowMenuView.setOrientation(1);
-        this.cCK = commonOverflowMenuView;
+        this.cKY = commonOverflowMenuView;
         return commonOverflowMenuView;
     }
 

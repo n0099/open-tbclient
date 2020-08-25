@@ -1,18 +1,18 @@
 package com.baidu.live.view.web;
 
 import android.webkit.JsResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class c implements b {
     @Override // com.baidu.live.view.web.b
-    public void fX(String str) {
+    public void hr(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void dE(int i) {
+    public void fy(int i) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void fH(String str) {
+    public void hs(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -20,7 +20,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void Hn() {
+    public void QS() {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -29,16 +29,16 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void fY(String str) {
+    public void ht(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean fZ(String str) {
+    public boolean hu(String str) {
         return false;
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean v(String str, boolean z) {
+    public boolean A(String str, boolean z) {
         return false;
     }
 }

@@ -47,7 +47,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String DEFAULT_MULTIPROCESS_MODELS = "TRT-AL00A,TRT-AL00,TRT-TL10A,TRT-TL10,SLA-AL00,SLA-TL10,DLI-AL10,DLI-TL20,SM-C5000";
@@ -72,6 +72,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     private static final String SKELENTON_JS_URL = "https://browserkernel.baidu.com/skeleton/collect_link.js?";
     private static final String ZEUS_RESOURCE_URL = "https://browserkernel.baidu.com/integration.php";
     public static int httpDnsSource = 0;
+    public static boolean isPrefetchWithoutWeakNet = false;
     private static String mBrowserVersion = null;
     private static boolean mChromiumNetInit = false;
     private static String mCloudSettings = null;
@@ -92,6 +93,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     private static long mSoHandler;
     private static boolean mUseLogSdk;
     private static boolean mUseT5Log;
+    public static boolean prefetchWithoutWeakNetSetted;
     private static HashSet<String> sBlackListModels;
     private static HashSet<String> sDeviceSet;
     private static boolean sDitingMaxHit;
@@ -135,9 +137,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().canUseFreeFlow();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -150,7 +152,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 try {
                     i = Integer.parseInt(GetCloudSettingsValue);
                 } catch (NumberFormatException e) {
-                    com.a.a.a.a.a.a.a.a(e);
+                    e.printStackTrace();
                 }
             }
             Log.i(LOGTAG, "defaultHttpDnsInterval " + i);
@@ -176,9 +178,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             mQuicCheckTime = System.currentTimeMillis();
             QuicPreConnect.tryToQuicPreConnect(WebKitFactory.getContext());
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -215,7 +217,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().clearNetworkFlow();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "clearNetworkFlow error:" + th);
         }
@@ -227,7 +229,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().clearSavingBytes();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "clearSavingBytes error:" + th);
         }
@@ -239,9 +241,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().generateBKDRHash(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return -1L;
     }
@@ -262,9 +264,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getAppId();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -305,7 +307,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return chromiunNetInit;
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.e(LOGTAG, "getChromiunNetInit error:" + th);
         }
@@ -318,9 +320,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getCloudHost();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -335,10 +337,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return CLOUD_SETTING_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return CLOUD_SETTING_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return CLOUD_SETTING_URL;
         }
     }
@@ -378,7 +380,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return false;
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return false;
         } catch (Throwable th) {
             Log.e(LOGTAG, "getCronetEnable error:" + th);
@@ -392,9 +394,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getCuid();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -405,9 +407,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getDNSStatistic();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -417,10 +419,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         try {
             return WebViewFactory.hasProvider() ? z & WebViewFactory.getProvider().getSettingsStatics().getDitingMaxForceLoadSwitch() : z;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return z;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return z;
         }
     }
@@ -437,7 +439,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                     return dnsInfoEngine;
                 }
             } catch (Throwable th) {
-                com.a.a.a.a.a.a.a.a(th);
+                th.printStackTrace();
             }
         }
         return "";
@@ -449,9 +451,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getDnsInfo(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return "";
     }
@@ -466,7 +468,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getDownTraffic();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "getDownTraffic error:" + th);
         }
@@ -479,9 +481,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getEnableEngineStat();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return true;
     }
@@ -502,9 +504,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getEnableProxy();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -519,15 +521,25 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return 0;
     }
 
+    public static boolean getEnableRetryQuicPreconnect() {
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (abTestInterface != null) {
+            boolean z = abTestInterface.getSwitch(ABTestConstants.RETRY_QUIC_PRECONNECT_KEY, false);
+            Log.i(LOGTAG, "QuicPreconnect getEnableRetryQuicPreconnect enable = " + z);
+            return z;
+        }
+        return false;
+    }
+
     public static boolean getEnableSpdy() {
         try {
             if (WebViewFactory.hasProvider()) {
                 return WebViewFactory.getProvider().getSettingsStatics().getEnableSpdy();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -538,9 +550,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getEnableZeusManager();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -555,10 +567,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return ENGINE_STAT_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return ENGINE_STAT_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return ENGINE_STAT_URL;
         }
     }
@@ -573,10 +585,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return FAKE_BAIDU_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return FAKE_BAIDU_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return FAKE_BAIDU_URL;
         }
     }
@@ -592,9 +604,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getGifOneFrameEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -609,9 +621,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getHttp2Enabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -622,9 +634,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getHttpCode();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -635,9 +647,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getHttpDnsCache();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -665,10 +677,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return HTTP_DNS_URL_HOST;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return HTTP_DNS_URL_HOST;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return HTTP_DNS_URL_HOST;
         }
     }
@@ -683,10 +695,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return HTTP_DNS_URL_IP;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return HTTP_DNS_URL_IP;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return HTTP_DNS_URL_IP;
         }
     }
@@ -701,9 +713,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getImgQuality();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return WebSettings.ImgQuality.NO_COMPRESS;
     }
@@ -718,9 +730,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getIpv6Env();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -742,9 +754,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getKeepAliveTime();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return -1;
     }
@@ -776,9 +788,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getLocalDns();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -789,7 +801,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getLogLevel();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.e(LOGTAG, "getLogLevel error:" + th);
         }
@@ -807,10 +819,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return false;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return false;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return false;
         }
     }
@@ -825,10 +837,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return ML_MODEL_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return ML_MODEL_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return ML_MODEL_URL;
         }
     }
@@ -839,9 +851,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getMainFrameIdInfo(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return "";
     }
@@ -852,9 +864,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getMainFrameIdReferrer(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return "";
     }
@@ -865,9 +877,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getMainLinkDirectEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -886,10 +898,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return MF_JS_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return MF_JS_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return MF_JS_URL;
         }
     }
@@ -900,9 +912,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getNQE();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return 0;
     }
@@ -930,7 +942,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getNetworkFlow();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "getNetworkFlow error:" + th);
         }
@@ -943,9 +955,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getNetworkRtt();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return 0;
     }
@@ -956,9 +968,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getNetworkSpeed();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return 0;
     }
@@ -969,9 +981,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getOnePacketEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -982,7 +994,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getPFLogEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.e(LOGTAG, "getPFLogEnabled error:" + th);
         }
@@ -999,10 +1011,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return PAC_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return PAC_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return PAC_URL;
         }
     }
@@ -1026,9 +1038,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getPageFeature(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1039,9 +1051,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getPageWormHoleErrors();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1052,11 +1064,21 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getPopupWindowNum();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return 0;
+    }
+
+    public static boolean getPreconnectABTestEnable() {
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (abTestInterface != null) {
+            boolean z = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_PRECONNECT_KEY, false);
+            Log.i(LOGTAG, "QuicPreconnect getPreconnectABTestEnable enable = " + z);
+            return z;
+        }
+        return false;
     }
 
     public static boolean getPrecreateContentCacheSwitch() {
@@ -1073,9 +1095,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getProxyInfo();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1090,9 +1112,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getQuicHost();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1103,9 +1125,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getQuicInfo();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1116,9 +1138,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getQuicThreshold();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return -1;
     }
@@ -1128,10 +1150,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             String rc4SecrectKey = WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getRc4SecrectKey() : null;
             return (rc4SecrectKey == null || rc4SecrectKey.length() <= 0) ? new String(Base64.decode(DEFAULT_SECRECT_KEY.getBytes(), 0)) : new String(Base64.decode(rc4SecrectKey.getBytes(), 0));
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return new String(Base64.decode(DEFAULT_SECRECT_KEY.getBytes(), 0));
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return new String(Base64.decode(DEFAULT_SECRECT_KEY.getBytes(), 0));
         }
     }
@@ -1142,9 +1164,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getRemoveAdLevel();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return WebSettings.RemoveAdLevel.DISABLE;
     }
@@ -1155,7 +1177,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSavingBytes();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "getSavingBytes error:" + th);
         }
@@ -1168,9 +1190,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSearchDnsMiss();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return 0;
     }
@@ -1181,9 +1203,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSendEngineUsageInfoEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1194,9 +1216,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSendRequestEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1207,9 +1229,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSessionHeaderEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return true;
     }
@@ -1255,10 +1277,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return SKELENTON_JS_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return SKELENTON_JS_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return SKELENTON_JS_URL;
         }
     }
@@ -1269,9 +1291,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSocketGroupNumber();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return -1;
     }
@@ -1299,9 +1321,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSpdy31Enabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1312,9 +1334,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSpdyCompressEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return true;
     }
@@ -1325,9 +1347,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSpdyEncryptionEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1343,9 +1365,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSubResourceTiming();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1356,9 +1378,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getSysProxyEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1369,9 +1391,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getTimgConfUrl();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1392,7 +1414,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getUpTraffic();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "getUpTraffic error:" + th);
         }
@@ -1423,9 +1445,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getWebessenseEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return true;
     }
@@ -1452,9 +1474,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getWormholeEnabled();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1465,9 +1487,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getWormholeForbidenHost();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1478,9 +1500,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getWormholeNum(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return 0;
     }
@@ -1491,9 +1513,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().getZeusManagerPkgName();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return null;
     }
@@ -1515,6 +1537,26 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return -1;
     }
 
+    public static int getZeusPsSwitch() {
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (abTestInterface != null) {
+            int i = abTestInterface.getSwitch(ABTestConstants.ZEUS_PS_KEY, 0);
+            Log.i(LOGTAG, "[debug] getZeusPsSwitch AbTestValue = " + i);
+            return i;
+        }
+        return 0;
+    }
+
+    public static int getZeusResourceRecordType() {
+        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+        if (abTestInterface != null) {
+            int i = abTestInterface.getSwitch(ABTestConstants.ZEUS_RESOURCE_RECORD_TYPE_KEY, 0);
+            Log.i(LOGTAG, "[debug] getZeusResourceRecordType AbTestValue = " + i);
+            return i;
+        }
+        return 0;
+    }
+
     public static String getZeusResourceUrl() {
         String str = null;
         try {
@@ -1529,12 +1571,25 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             }
             return ZEUS_RESOURCE_URL;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return ZEUS_RESOURCE_URL;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return ZEUS_RESOURCE_URL;
         }
+    }
+
+    public static boolean hasQuicAltService(String str) {
+        try {
+            if (WebViewFactory.hasProvider()) {
+                return WebViewFactory.getProvider().getSettingsStatics().hasQuicAltService(str);
+            }
+        } catch (UnsatisfiedLinkError e) {
+            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+        return false;
     }
 
     public static void initCronet(Context context) {
@@ -1600,9 +1655,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().isFeedNoProxyAdUrl(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1613,9 +1668,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().isFeedProxyAdUrl(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -1775,9 +1830,26 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().isShowWebProviderBy();
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean isSubResourcePrefetchWithoutWeakNet() {
+        if (WebViewFactory.isMainAppProcess()) {
+            if (prefetchWithoutWeakNetSetted) {
+                return isPrefetchWithoutWeakNet;
+            }
+            IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
+            if (abTestInterface != null) {
+                isPrefetchWithoutWeakNet = abTestInterface.getSwitch(ABTestConstants.SUBRESOURCE_PREFETCH_WITHOUT_WEAKNET, false);
+                prefetchWithoutWeakNetSetted = true;
+                Log.i(LOGTAG, "[maqian04-htmldata] SubResourcePrefetchWithoutWeakNet AbTestValue = " + isPrefetchWithoutWeakNet);
+                return isPrefetchWithoutWeakNet;
+            }
+            return false;
         }
         return false;
     }
@@ -1822,9 +1894,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().kernelBrotliCreate(jArr);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return ByteBuffer.allocate(0);
     }
@@ -1835,9 +1907,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().kernelBrotliDestroy(jArr);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -1847,9 +1919,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().kernelBrotliPull(jArr);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return ByteBuffer.allocate(0);
     }
@@ -1860,9 +1932,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().kernelBrotliPush(jArr, i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -1872,9 +1944,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().kernelEncrypt(bArr, i, bArr2);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -1897,10 +1969,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static void notifyPause() {
         mHttpDnsNetChangedAfterPause = false;
         mIsAlive = false;
+        setAppStatus(false);
     }
 
     public static void notifyResume() {
         mIsAlive = true;
+        setAppStatus(true);
         if (WebKitFactory.getNeedDownloadCloudResource() && mHttpDnsNetChangedAfterPause && getHttpDnsUpdateEnabled()) {
             mHttpDnsUpdateTime = System.currentTimeMillis();
             Log.i(LOGTAG, "notifyResume tryToUpdateHttpDnsCache");
@@ -1975,9 +2049,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().removeDnsInfo(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -1987,9 +2061,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().removeMainFrameIdInfo(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2010,9 +2084,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setAltServiceToBlink(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2022,9 +2096,22 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setAppId(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
+        }
+    }
+
+    public static void setAppStatus(boolean z) {
+        try {
+            Log.w(LOGTAG, "setAppStatus " + z);
+            if (WebViewFactory.hasProvider()) {
+                WebViewFactory.getProvider().getSettingsStatics().setAppStatus(z);
+            }
+        } catch (UnsatisfiedLinkError e) {
+            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
@@ -2035,9 +2122,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setBackupDnsJobDelayTime(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2049,9 +2136,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setBackupJobDelayTime(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2062,9 +2149,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setBackupLandingJobDelayTime(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2078,9 +2165,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setClientIP(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2125,9 +2212,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setCloudSettingsToT5(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2138,9 +2225,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setConThreshold(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2156,9 +2243,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setCuid(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2168,9 +2255,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setDitingMaxEnabled(z, z2, z3);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2189,9 +2276,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setEnableEngineStat(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2201,9 +2288,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setEnableProxy(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2213,9 +2300,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setEnableSpdy(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2225,9 +2312,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setEnableZeusManager(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2237,9 +2324,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setEngineStatUrl(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2249,9 +2336,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setEvilPageWhiteBlackListPath(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2261,9 +2348,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setFakeBaiduWhiteList(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2273,9 +2360,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setFastPac(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2286,9 +2373,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setFileInIOEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2299,9 +2386,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setFreeFlow(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2317,9 +2404,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setGifOneFrameEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2330,9 +2417,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 mHijackEnv = z;
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2343,9 +2430,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setHttpDnsCache(str, i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2355,9 +2442,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setHttpDnsDnFailed(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2373,9 +2460,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setIPV6CheckList(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2386,9 +2473,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setIPV6Timeout(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2398,9 +2485,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setImgQuality(imgQuality);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2411,9 +2498,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setIpv6First(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2422,7 +2509,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         try {
             CfgFileUtils.set(CfgFileUtils.KEY_HTTP_DNS_IPV6_ENV, z);
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2434,9 +2521,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setKeepAliveTime(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2451,9 +2538,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setMLModel(str, str2);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2474,9 +2561,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setMainLinkDirectEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2491,9 +2578,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setMulripleConnectEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2505,9 +2592,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setNativeHttpdnsEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2517,9 +2604,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setNavigationInterceptionEnable(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2530,9 +2617,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setNeedDownloadCloudResource(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2543,9 +2630,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setNetWorkChangeNotifyEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2555,9 +2642,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setOnePacketEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2567,9 +2654,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setPacData(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2579,9 +2666,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setPacDataFreeFlow(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2591,9 +2678,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setPacUrl(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2604,9 +2691,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setPopupWindowOptEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2617,9 +2704,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setPreConnectEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2629,9 +2716,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setProxyInfo(str, strArr);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2651,9 +2738,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 mProxyType = proxyType;
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2665,9 +2752,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setQuicDefaultOpen(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2682,9 +2769,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 QuicPreConnect.tryToQuicPreConnect(WebKitFactory.getContext());
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2694,7 +2781,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setRefererPattern(str, str2);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.w(LOGTAG, "getSavingBytes error:" + th);
         }
@@ -2706,9 +2793,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setRemoveAdLevel(removeAdLevel);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2719,9 +2806,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSearchFrameQuicEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2731,9 +2818,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSendEngineUsageInfoEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2743,9 +2830,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSessionHeaderEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2755,9 +2842,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setShowWebProviderBy(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2769,9 +2856,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSocketGroupNumber(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2781,9 +2868,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSpdyCompressEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2793,9 +2880,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSpdyEncryptionEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2805,9 +2892,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSpdyTimeout(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2817,9 +2904,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setStatisticParam(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2830,9 +2917,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setSubResourceMonitorEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2842,9 +2929,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setT5SDKSpdyEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2855,9 +2942,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setTcSpeedUpEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2867,9 +2954,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setTimgConfData(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2879,9 +2966,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setTimgConfUrl(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2896,9 +2983,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setVideoPlayerMode(i);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2908,9 +2995,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setWebessenseEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2933,9 +3020,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setWhiteAndBlackList(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2946,9 +3033,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setWormholeEnabled(z);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2958,9 +3045,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 WebViewFactory.getProvider().getSettingsStatics().setZeusManagerPkgName(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -2970,9 +3057,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 return WebViewFactory.getProvider().getSettingsStatics().shouldAccessNetworkOverSpdy(str);
             }
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
         return false;
     }
@@ -3012,7 +3099,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 }
             }
         } catch (MalformedURLException e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
         return false;
     }
@@ -3062,7 +3149,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             Log.i(LOGTAG, "[diting] recordImmediately :" + jSONObject.toString());
             SessionMonitorEngine.getInstance().recordImmediately(DpSessionDatasUploader.SAILOR_MONITOR, jSONObject.toString());
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -3078,7 +3165,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             sMf30InitInfo = jSONObject;
             Log.i(LOGTAG, "uploadMF30InitInfo :" + jSONObject.toString());
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
     }
 

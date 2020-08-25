@@ -38,44 +38,44 @@ import com.baidu.tieba.ala.view.f;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaRankListFragment extends BaseFragment implements AlaRankListHeaderView.a, AlaRankListHeaderView.b {
-    private static Set<String> fKS = new HashSet();
-    private String Ms;
-    private String aNP;
-    private int azs;
-    private String fJD;
-    private e fKK;
-    private f fKL;
-    private int fKM;
-    private BdUniqueId fKO;
-    private BdUniqueId fKP;
-    private n fKQ;
-    private n fKR;
-    private long fkg;
-    private String fki;
-    private boolean fkj;
+    private static Set<String> fWQ = new HashSet();
+    private String MY;
+    private int aED;
+    private String aTc;
+    private String fUU;
+    private e fWI;
+    private f fWJ;
+    private int fWK;
+    private BdUniqueId fWM;
+    private BdUniqueId fWN;
+    private n fWO;
+    private n fWP;
+    private long fvC;
+    private String fvE;
+    private boolean fvF;
     private String mPortrait;
     private long mUserId;
     private String otherParams;
-    private boolean fKN = true;
-    private k fKT = new k() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.2
+    private boolean fWL = true;
+    private k fWR = new k() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.2
         @Override // com.baidu.tieba.ala.f.k
         public void a(int i, String str, Object obj) {
             if (obj != null) {
                 if ((obj instanceof AlaGetRankListResponseMessage) || (obj instanceof AlaGetUserRankInfoResponseMessage)) {
                     if (i != 0 && !StringUtils.isNull(str)) {
                         AlaRankListFragment.a(AlaRankListFragment.this);
-                        if (AlaRankListFragment.this.fKL != null) {
-                            AlaRankListFragment.this.fKL.kw(false);
-                            if (AlaRankListFragment.this.fKM == 0) {
-                                AlaRankListFragment.this.fKL.bQe();
+                        if (AlaRankListFragment.this.fWJ != null) {
+                            AlaRankListFragment.this.fWJ.kU(false);
+                            if (AlaRankListFragment.this.fWK == 0) {
+                                AlaRankListFragment.this.fWJ.cap();
                             }
-                            AlaRankListFragment.this.fKL.bwX();
-                            AlaRankListFragment.this.fKL.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.2.1
+                            AlaRankListFragment.this.fWJ.bFW();
+                            AlaRankListFragment.this.fWJ.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.2.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
-                                    AlaRankListFragment.this.kH(AlaRankListFragment.this.fKN);
+                                    AlaRankListFragment.this.lh(AlaRankListFragment.this.fWL);
                                 }
                             });
                             return;
@@ -83,21 +83,21 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
                         return;
                     }
                     AlaRankListFragment.a(AlaRankListFragment.this);
-                    if (AlaRankListFragment.this.fKM == 0) {
-                        AlaRankListFragment.this.fKL.bwX();
+                    if (AlaRankListFragment.this.fWK == 0) {
+                        AlaRankListFragment.this.fWJ.bFW();
                     }
                     if (obj instanceof AlaGetRankListResponseMessage) {
                         AlaGetRankListResponseMessage alaGetRankListResponseMessage = (AlaGetRankListResponseMessage) obj;
-                        if (alaGetRankListResponseMessage.flW == null || alaGetRankListResponseMessage.flW.size() <= 0) {
-                            if (AlaRankListFragment.this.fKL != null) {
-                                AlaRankListFragment.this.fKL.bQe();
+                        if (alaGetRankListResponseMessage.fxs == null || alaGetRankListResponseMessage.fxs.size() <= 0) {
+                            if (AlaRankListFragment.this.fWJ != null) {
+                                AlaRankListFragment.this.fWJ.cap();
                                 return;
                             }
                             return;
-                        } else if (AlaRankListFragment.this.fKL != null) {
-                            AlaRankListFragment.this.fKL.a(alaGetRankListResponseMessage.flW, alaGetRankListResponseMessage.gBD, AlaRankListFragment.this);
-                            if (AlaRankListFragment.this.fKL.bQd() != null && (AlaRankListFragment.this.fKL.bQd() instanceof h)) {
-                                AlaRankListFragment.this.fKL.c(AlaRankListFragment.this.a((h) AlaRankListFragment.this.fKL.bQd(), alaGetRankListResponseMessage.flW));
+                        } else if (AlaRankListFragment.this.fWJ != null) {
+                            AlaRankListFragment.this.fWJ.a(alaGetRankListResponseMessage.fxs, alaGetRankListResponseMessage.gOa, AlaRankListFragment.this);
+                            if (AlaRankListFragment.this.fWJ.cao() != null && (AlaRankListFragment.this.fWJ.cao() instanceof h)) {
+                                AlaRankListFragment.this.fWJ.c(AlaRankListFragment.this.a((h) AlaRankListFragment.this.fWJ.cao(), alaGetRankListResponseMessage.fxs));
                                 return;
                             }
                             return;
@@ -106,41 +106,41 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
                         }
                     }
                     AlaGetUserRankInfoResponseMessage alaGetUserRankInfoResponseMessage = (AlaGetUserRankInfoResponseMessage) obj;
-                    if (alaGetUserRankInfoResponseMessage.gBF == null) {
-                        if (AlaRankListFragment.this.fKL != null) {
-                            AlaRankListFragment.this.fKL.bQe();
+                    if (alaGetUserRankInfoResponseMessage.gOc == null) {
+                        if (AlaRankListFragment.this.fWJ != null) {
+                            AlaRankListFragment.this.fWJ.cap();
                         }
-                    } else if (AlaRankListFragment.this.fKL != null) {
-                        AlaRankListFragment.this.fKL.c(AlaRankListFragment.this.a(alaGetUserRankInfoResponseMessage.gBF, AlaRankListFragment.this.fKL.boJ()));
+                    } else if (AlaRankListFragment.this.fWJ != null) {
+                        AlaRankListFragment.this.fWJ.c(AlaRankListFragment.this.a(alaGetUserRankInfoResponseMessage.gOc, AlaRankListFragment.this.fWJ.bxw()));
                     }
                 } else if (obj instanceof AlaGetHourRankListResponseMessage) {
                     AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                    n bNN = alaGetHourRankListResponseMessage.bNN();
+                    n bXN = alaGetHourRankListResponseMessage.bXN();
                     if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() != null) {
-                        if ((AlaRankListFragment.this.fKO != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fKO.getId()) || (AlaRankListFragment.this.fKP != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fKP.getId())) {
-                            if (!((AlaRankListFragment.this.fKO != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fKO.getId()) == AlaRankListFragment.this.fKN) || i == 0 || StringUtils.isNull(str)) {
-                                if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fKO.getId()) {
-                                    AlaRankListFragment.this.fKQ = bNN;
-                                    if (AlaRankListFragment.this.fKN) {
-                                        AlaRankListFragment.this.fKL.bwX();
-                                        AlaRankListFragment.this.a(AlaRankListFragment.this.fKQ);
+                        if ((AlaRankListFragment.this.fWM != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fWM.getId()) || (AlaRankListFragment.this.fWN != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fWN.getId())) {
+                            if (!((AlaRankListFragment.this.fWM != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fWM.getId()) == AlaRankListFragment.this.fWL) || i == 0 || StringUtils.isNull(str)) {
+                                if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fWM.getId()) {
+                                    AlaRankListFragment.this.fWO = bXN;
+                                    if (AlaRankListFragment.this.fWL) {
+                                        AlaRankListFragment.this.fWJ.bFW();
+                                        AlaRankListFragment.this.a(AlaRankListFragment.this.fWO);
                                     }
-                                    AlaRankListFragment.this.kH(false);
-                                } else if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fKP.getId()) {
-                                    AlaRankListFragment.this.fKR = bNN;
-                                    if (!AlaRankListFragment.this.fKN) {
-                                        AlaRankListFragment.this.fKL.bwX();
-                                        AlaRankListFragment.this.a(AlaRankListFragment.this.fKR);
+                                    AlaRankListFragment.this.lh(false);
+                                } else if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == AlaRankListFragment.this.fWN.getId()) {
+                                    AlaRankListFragment.this.fWP = bXN;
+                                    if (!AlaRankListFragment.this.fWL) {
+                                        AlaRankListFragment.this.fWJ.bFW();
+                                        AlaRankListFragment.this.a(AlaRankListFragment.this.fWP);
                                     }
                                 }
-                            } else if (AlaRankListFragment.this.fKL != null) {
-                                AlaRankListFragment.this.fKL.kw(false);
-                                AlaRankListFragment.this.fKL.bQe();
-                                AlaRankListFragment.this.fKL.bwX();
-                                AlaRankListFragment.this.fKL.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.2.2
+                            } else if (AlaRankListFragment.this.fWJ != null) {
+                                AlaRankListFragment.this.fWJ.kU(false);
+                                AlaRankListFragment.this.fWJ.cap();
+                                AlaRankListFragment.this.fWJ.bFW();
+                                AlaRankListFragment.this.fWJ.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.2.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
-                                        AlaRankListFragment.this.kH(AlaRankListFragment.this.fKN);
+                                        AlaRankListFragment.this.lh(AlaRankListFragment.this.fWL);
                                     }
                                 });
                             }
@@ -150,7 +150,7 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
             }
         }
     };
-    private f.a fKU = new f.a() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.4
+    private f.a fWS = new f.a() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.4
         @Override // com.baidu.tieba.ala.view.f.a
         public void g(View view, String str) {
             if (!TbadkCoreApplication.isLogin()) {
@@ -158,18 +158,18 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
                 return;
             }
             Intent intent = new Intent();
-            if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(AlaRankListFragment.this.fki) || SdkStaticKeys.RANK_TYPE_CHARM.equals(AlaRankListFragment.this.fki)) {
+            if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(AlaRankListFragment.this.fvE) || SdkStaticKeys.RANK_TYPE_CHARM.equals(AlaRankListFragment.this.fvE)) {
                 TiebaInitialize.log(new StatisticItem("c12962"));
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_gift_panel");
-                int i = com.baidu.live.v.a.Hs().aZn.aBu;
+                int i = com.baidu.live.w.a.Nk().beH.aGE;
                 intent.putExtra("ala_live_room_gift_panel_category_id", i);
                 intent.putExtra("ala_live_room_gift_panel_gift_id", i > 0 ? 10185 : -1);
-                AlaRankListFragment.this.bAj();
-            } else if ("hour".equals(AlaRankListFragment.this.fki) || "charm_day".equals(AlaRankListFragment.this.fki)) {
+                AlaRankListFragment.this.bJE();
+            } else if ("hour".equals(AlaRankListFragment.this.fvE) || "charm_day".equals(AlaRankListFragment.this.fvE)) {
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_gift_panel");
-                AlaRankListFragment.this.bAj();
+                AlaRankListFragment.this.bJE();
             }
-            if ("hot".equals(AlaRankListFragment.this.fki)) {
+            if ("hot".equals(AlaRankListFragment.this.fvE)) {
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_share_panel");
                 TiebaInitialize.log(new StatisticItem("c12486"));
             }
@@ -177,20 +177,20 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
             AlaRankListFragment.this.getActivity().finish();
         }
     };
-    CustomMessageListener fKV = new CustomMessageListener(2913104) { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.5
+    CustomMessageListener fWT = new CustomMessageListener(2913104) { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HourRankItemData) && "hour".equals(AlaRankListFragment.this.fki)) {
+            if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HourRankItemData) && "hour".equals(AlaRankListFragment.this.fvE)) {
                 HourRankItemData hourRankItemData = (HourRankItemData) customResponsedMessage.getData();
-                LogManager.getCommonLogger().doClickHourRankItemLog(AlaRankListFragment.this.aNP, hourRankItemData.type, AlaRankListFragment.this.fKN ? "hour" : "last_hour", hourRankItemData.position + "", AlaRankListFragment.this.otherParams);
+                LogManager.getCommonLogger().doClickHourRankItemLog(AlaRankListFragment.this.aTc, hourRankItemData.type, AlaRankListFragment.this.fWL ? "hour" : "last_hour", hourRankItemData.position + "", AlaRankListFragment.this.otherParams);
             }
         }
     };
 
     static /* synthetic */ int a(AlaRankListFragment alaRankListFragment) {
-        int i = alaRankListFragment.fKM;
-        alaRankListFragment.fKM = i - 1;
+        int i = alaRankListFragment.fWK;
+        alaRankListFragment.fWK = i - 1;
         return i;
     }
 
@@ -215,87 +215,87 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
-        this.fki = arguments.getString("rank_type");
+        this.fvE = arguments.getString("rank_type");
         this.mUserId = arguments.getLong("user_id");
-        this.Ms = arguments.getString("user_name");
-        this.fkj = arguments.getBoolean("is_from_host");
-        this.azs = arguments.getInt("list_live_type");
+        this.MY = arguments.getString("user_name");
+        this.fvF = arguments.getBoolean("is_from_host");
+        this.aED = arguments.getInt("list_live_type");
         this.mPortrait = arguments.getString("portrait");
-        this.aNP = arguments.getString("feed_id");
-        this.fkg = arguments.getLong("cur_live_id");
-        this.fJD = arguments.getString("cur_hour");
+        this.aTc = arguments.getString("feed_id");
+        this.fvC = arguments.getLong("cur_live_id");
+        this.fUU = arguments.getString("cur_hour");
         this.otherParams = arguments.getString(IntentConfig.OTHER_PARAMS);
-        if ("hour".equals(this.fki)) {
-            MessageManager.getInstance().registerListener(this.fKV);
+        if ("hour".equals(this.fvE)) {
+            MessageManager.getInstance().registerListener(this.fWT);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if ("hour".equals(this.fki)) {
-            kJ(this.fKN);
+        if ("hour".equals(this.fvE)) {
+            lj(this.fWL);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fKL = new f(getPageContext(), this.fki, this.azs, this.fKU, this.fkj, this.mUserId, this.Ms, this.mPortrait, this.fkg);
-        kH(true);
-        if ("hour".equals(this.fki)) {
-            this.fKL.a(this);
+        this.fWJ = new f(getPageContext(), this.fvE, this.aED, this.fWS, this.fvF, this.mUserId, this.MY, this.mPortrait, this.fvC);
+        lh(true);
+        if ("hour".equals(this.fvE)) {
+            this.fWJ.a(this);
         }
-        return this.fKL.getView();
+        return this.fWJ.getView();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (isAdded() && isPrimary() && SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.fki)) {
+        if (isAdded() && isPrimary() && SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.fvE)) {
             TiebaInitialize.log(new StatisticItem("12960"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kH(final boolean z) {
-        if (this.fKK == null) {
-            this.fKK = new e(getUniqueId(), this.fKT);
+    public void lh(final boolean z) {
+        if (this.fWI == null) {
+            this.fWI = new e(getUniqueId(), this.fWR);
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
-                if (TextUtils.equals(this.fki, "charm_day")) {
-                    this.fKM = 2;
+                if (TextUtils.equals(this.fvE, "charm_day")) {
+                    this.fWK = 2;
                     if (this.mUserId != 0) {
-                        this.fKK.w(SdkStaticKeys.RANK_TYPE_CHARM, this.mUserId);
+                        this.fWI.x(SdkStaticKeys.RANK_TYPE_CHARM, this.mUserId);
                     } else {
-                        this.fKM--;
-                        this.fKL.bQe();
+                        this.fWK--;
+                        this.fWJ.cap();
                     }
-                    this.fKK.f(this.fki, this.mUserId, "");
-                } else if (TextUtils.equals(this.fki, "hour")) {
+                    this.fWI.e(this.fvE, this.mUserId, "");
+                } else if (TextUtils.equals(this.fvE, "hour")) {
                     if (this.mUserId == 0) {
-                        this.fKL.bQe();
+                        this.fWJ.cap();
                     }
                     if (z) {
-                        this.fKO = BdUniqueId.gen();
-                        this.fKK.a(this.fki, this.mUserId, "", this.fKO);
+                        this.fWM = BdUniqueId.gen();
+                        this.fWI.a(this.fvE, this.mUserId, "", this.fWM);
                         return;
                     }
-                    this.fKP = BdUniqueId.gen();
-                    if (this.fKQ != null && !TextUtils.isEmpty(this.fKQ.Jp())) {
-                        this.fKK.a(this.fki, this.mUserId, StringHelper.getHourRankPreHourString(this.fKQ.Jp(), -1), this.fKP);
+                    this.fWN = BdUniqueId.gen();
+                    if (this.fWO != null && !TextUtils.isEmpty(this.fWO.Ph())) {
+                        this.fWI.a(this.fvE, this.mUserId, StringHelper.getHourRankPreHourString(this.fWO.Ph(), -1), this.fWN);
                     }
                 }
             }
-        } else if (this.fKL != null) {
-            this.fKL.bwX();
-            this.fKL.kw(false);
-            this.fKL.bQe();
-            this.fKL.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.1
+        } else if (this.fWJ != null) {
+            this.fWJ.bFW();
+            this.fWJ.kU(false);
+            this.fWJ.cap();
+            this.fWJ.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        AlaRankListFragment.this.kH(z);
+                        AlaRankListFragment.this.lh(z);
                     } else {
                         AlaRankListFragment.this.getPageContext().showToast(AlaRankListFragment.this.getResources().getString(a.i.sdk_no_network_guide));
                     }
@@ -307,43 +307,43 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
     /* JADX INFO: Access modifiers changed from: private */
     public void a(n nVar) {
         if (nVar == null) {
-            if (this.fKL != null) {
-                this.fKL.bQe();
-                this.fKL.bwX();
-                this.fKL.a(new ArrayList<>(), this.fKQ == null ? 0L : this.fKQ.bzZ(), this);
-                this.fKL.sQ(0);
-                this.fKL.kw(false);
-                this.fKL.sO(8);
-                this.fKL.sP(8);
-                this.fKL.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.3
+            if (this.fWJ != null) {
+                this.fWJ.cap();
+                this.fWJ.bFW();
+                this.fWJ.a(new ArrayList<>(), this.fWO == null ? 0L : this.fWO.bJc(), this);
+                this.fWJ.ve(0);
+                this.fWJ.kU(false);
+                this.fWJ.vc(8);
+                this.fWJ.vd(8);
+                this.fWJ.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.AlaRankListFragment.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        AlaRankListFragment.this.kH(AlaRankListFragment.this.fKN);
+                        AlaRankListFragment.this.lh(AlaRankListFragment.this.fWL);
                     }
                 });
             }
         } else if (nVar.getList() == null || nVar.getList().size() <= 0) {
-            this.fKL.bwX();
-            this.fKL.sP(0);
-            this.fKL.a(new ArrayList<>(), nVar.bzZ(), this);
-            this.fKL.sQ(0);
-            this.fKL.kw(true);
-            this.fKL.sO(8);
-            if (this.fKL != null) {
-                nVar.bAb().kE(this.fKN ? false : true);
-                this.fKL.c(nVar.bAb());
+            this.fWJ.bFW();
+            this.fWJ.vd(0);
+            this.fWJ.a(new ArrayList<>(), nVar.bJc(), this);
+            this.fWJ.ve(0);
+            this.fWJ.kU(true);
+            this.fWJ.vc(8);
+            if (this.fWJ != null) {
+                nVar.bJe().lc(this.fWL ? false : true);
+                this.fWJ.c(nVar.bJe());
             }
         } else if (nVar.getList() != null && nVar.getList().size() > 0) {
-            this.fKL.sP(0);
-            this.fKL.bwX();
-            if (this.fKL != null) {
-                this.fKL.c(nVar);
-                o bAb = nVar.bAb();
+            this.fWJ.vd(0);
+            this.fWJ.bFW();
+            if (this.fWJ != null) {
+                this.fWJ.c(nVar);
+                o bJe = nVar.bJe();
                 if (nVar.getList().size() == 1) {
-                    this.fKL.a(new ArrayList<>(), nVar.bzZ(), this);
-                    this.fKL.kw(false);
-                    if (bAb != null) {
-                        bAb.kD(true);
+                    this.fWJ.a(new ArrayList<>(), nVar.bJc(), this);
+                    this.fWJ.kU(false);
+                    if (bJe != null) {
+                        bJe.lb(true);
                     }
                 } else if (nVar.getList().size() > 1) {
                     int size = nVar.getList().size();
@@ -351,16 +351,16 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
                     for (int i = 1; i < size; i++) {
                         arrayList.add(nVar.getList().get(i));
                     }
-                    this.fKL.a(arrayList, nVar.bzZ(), this);
-                    if (bAb != null) {
-                        bAb.kD(false);
+                    this.fWJ.a(arrayList, nVar.bJc(), this);
+                    if (bJe != null) {
+                        bJe.lb(false);
                     }
                 }
-                this.fKL.sQ(0);
-                this.fKL.sO(0);
-                if (this.fKL != null) {
-                    nVar.bAb().kE(this.fKN ? false : true);
-                    this.fKL.c(bAb);
+                this.fWJ.ve(0);
+                this.fWJ.vc(0);
+                if (this.fWJ != null) {
+                    nVar.bJe().lc(this.fWL ? false : true);
+                    this.fWJ.c(bJe);
                 }
             }
         }
@@ -370,42 +370,42 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
     public h a(h hVar, ArrayList<h> arrayList) {
         hVar.a(hVar);
         if (arrayList != null && arrayList.size() > 0) {
-            if (hVar.fJJ >= 2 && hVar.fJJ < arrayList.size() + 2) {
-                hVar.dI(JavaTypesHelper.toLong(arrayList.get(hVar.fJJ - 2).point, 0L));
+            if (hVar.fVa >= 2 && hVar.fVa < arrayList.size() + 2) {
+                hVar.dT(JavaTypesHelper.toLong(arrayList.get(hVar.fVa - 2).point, 0L));
             }
-            if (hVar.fJJ < arrayList.size() && hVar.fJJ >= 0) {
-                hVar.dJ(JavaTypesHelper.toLong(arrayList.get(hVar.fJJ).point, 0L));
+            if (hVar.fVa < arrayList.size() && hVar.fVa >= 0) {
+                hVar.dU(JavaTypesHelper.toLong(arrayList.get(hVar.fVa).point, 0L));
             }
-            hVar.dK(JavaTypesHelper.toLong(arrayList.get(arrayList.size() - 1).point, 0L));
+            hVar.dV(JavaTypesHelper.toLong(arrayList.get(arrayList.size() - 1).point, 0L));
         }
         return hVar;
     }
 
-    public void bAj() {
-        if (!this.fkj && "hour".equals(this.fki)) {
-            LogManager.getCommonLogger().doClickLiveAuthorRankSupportLog(this.aNP, "hour", this.otherParams);
+    public void bJE() {
+        if (!this.fvF && "hour".equals(this.fvE)) {
+            LogManager.getCommonLogger().doClickLiveAuthorRankSupportLog(this.aTc, "hour", this.otherParams);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fKK != null) {
-            this.fKK.destory();
+        if (this.fWI != null) {
+            this.fWI.destory();
         }
-        if (this.fKL != null) {
-            this.fKL.release();
+        if (this.fWJ != null) {
+            this.fWJ.release();
         }
-        if ("hour".equals(this.fki)) {
-            MessageManager.getInstance().unRegisterListener(this.fKV);
+        if ("hour".equals(this.fvE)) {
+            MessageManager.getInstance().unRegisterListener(this.fWT);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        if ("hour".equals(this.fki)) {
-            fKS.clear();
+        if ("hour".equals(this.fvE)) {
+            fWQ.clear();
         }
     }
 
@@ -415,28 +415,28 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
     }
 
     @Override // com.baidu.tieba.ala.view.AlaRankListHeaderView.a
-    public void bAk() {
+    public void bJF() {
     }
 
     @Override // com.baidu.tieba.ala.view.AlaRankListHeaderView.b
-    public void kI(boolean z) {
+    public void li(boolean z) {
         if (isAdded()) {
-            this.fKN = z;
+            this.fWL = z;
             if (z) {
-                a(this.fKQ);
+                a(this.fWO);
             } else {
-                a(this.fKR);
+                a(this.fWP);
             }
-            kJ(z);
+            lj(z);
         }
     }
 
-    private void kJ(boolean z) {
-        if ("hour".equals(this.fki)) {
+    private void lj(boolean z) {
+        if ("hour".equals(this.fvE)) {
             String str = z ? "hour" : "last_hour";
-            if (!fKS.contains(str)) {
-                fKS.add(str);
-                LogManager.getCommonLogger().doDisplayHourRankLog(this.aNP, str, this.otherParams);
+            if (!fWQ.contains(str)) {
+                fWQ.add(str);
+                LogManager.getCommonLogger().doDisplayHourRankLog(this.aTc, str, this.otherParams);
             }
         }
     }
@@ -444,8 +444,8 @@ public class AlaRankListFragment extends BaseFragment implements AlaRankListHead
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.fKL != null) {
-            this.fKL.zc();
+        if (this.fWJ != null) {
+            this.fWJ.EF();
         }
     }
 }

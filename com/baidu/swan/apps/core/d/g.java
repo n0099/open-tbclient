@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.v;
+import com.baidu.swan.apps.ap.v;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends c {
-    private String cct;
-    private JSONObject ccu;
-    private boolean ccv = true;
+    private String ciq;
+    private JSONObject cir;
+    private boolean cis = true;
 
-    public static g bd(String str, String str2) {
+    public static g bl(String str, String str2) {
         g gVar = new g();
         if (!TextUtils.isEmpty(str2)) {
             Bundle bundle = new Bundle();
@@ -36,16 +36,16 @@ public class g extends c {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.cct = arguments.getString("plugin_fun_page_path");
-            this.ccu = v.parseString(arguments.getString("plugin_pay_params"));
+            this.ciq = arguments.getString("plugin_fun_page_path");
+            this.cir = v.parseString(arguments.getString("plugin_pay_params"));
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.swan_app_plugin_fun_page_fragment, viewGroup, false);
-        ah(inflate);
-        aj(inflate);
+        ai(inflate);
+        ak(inflate);
         if (immersionEnabled()) {
             inflate = initImmersion(inflate);
         }
@@ -67,26 +67,26 @@ public class g extends c {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.swan.apps.runtime.d.arr().arn().arH().atj();
+        com.baidu.swan.apps.runtime.d.azE().azA().azU().aBr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public void ah(View view) {
-        ak(view);
-        eZ(-1);
-        fa(ViewCompat.MEASURED_STATE_MASK);
-        jH(getString(a.h.swan_app_plugin_fun_page_title));
-        dL(true);
+    public void ai(View view) {
+        al(view);
+        gV(-1);
+        gW(ViewCompat.MEASURED_STATE_MASK);
+        lg(getString(a.h.swan_app_plugin_fun_page_title));
+        dV(true);
         setRightZoneVisibility(false);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void ZQ() {
+    protected void aga() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean Vi() {
+    protected boolean abn() {
         return false;
     }
 
@@ -96,45 +96,45 @@ public class g extends c {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean ZR() {
+    public boolean agb() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean UJ() {
-        if (this.ccv && this.ccu != null) {
-            com.baidu.swan.apps.ad.c.c.a aVar = new com.baidu.swan.apps.ad.c.c.a(this.ccu.optString("componentId"));
-            aVar.bVm = this.ccu.optString("slaveId");
-            aVar.aoJ();
+    public boolean aaM() {
+        if (this.cis && this.cir != null) {
+            com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(this.cir.optString("componentId"));
+            aVar.caU = this.cir.optString("slaveId");
+            aVar.awG();
             return false;
         }
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void Vn() {
+    protected void abt() {
     }
 
-    private void aj(View view) {
-        if (view != null && this.ccu != null) {
+    private void ak(View view) {
+        if (view != null && this.cir != null) {
             TextView textView = (TextView) view.findViewById(a.f.id_swan_app_plugin_app_name);
-            com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
-            if (arw != null) {
-                textView.setText(arw.Se().aee());
+            com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
+            if (azJ != null) {
+                textView.setText(azJ.XZ().akO());
             }
-            final JSONObject optJSONObject = this.ccu.optJSONObject("args");
+            final JSONObject optJSONObject = this.cir.optJSONObject("args");
             if (optJSONObject != null) {
                 ((TextView) view.findViewById(a.f.id_swan_app_plugin_money)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
                 TextView textView2 = (TextView) view.findViewById(a.f.id_swan_app_plugin_service_name);
-                com.baidu.swan.pms.model.h nC = com.baidu.swan.apps.ad.g.b.nC(this.ccu.optString("pluginProvider"));
-                if (nC != null) {
-                    textView2.setText(nC.appName);
+                com.baidu.swan.pms.model.h pA = com.baidu.swan.apps.ac.g.b.pA(this.cir.optString("pluginProvider"));
+                if (pA != null) {
+                    textView2.setText(pA.appName);
                 }
                 ((Button) view.findViewById(a.f.id_swan_app_plugin_pay)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.g.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.ad.c.c.b(g.this.cct, optJSONObject.toString(), g.this.ccu.optString("slaveId")).aoK());
-                        g.this.ccv = false;
+                        com.baidu.swan.apps.v.f.arY().b(new com.baidu.swan.apps.ac.c.c.b(g.this.ciq, optJSONObject.toString(), g.this.cir.optString("slaveId")).awH());
+                        g.this.cis = false;
                     }
                 });
             }

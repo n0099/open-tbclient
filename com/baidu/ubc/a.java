@@ -6,16 +6,17 @@ import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.util.io.GZIP;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected ad mLz = new ad();
+    protected ad nev = new ad();
 
     public abstract ab a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
@@ -26,15 +27,15 @@ public abstract class a implements u {
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean dAo = this.mLz.dAo();
-        if (dAo) {
+        boolean dMb = this.nev.dMb();
+        if (dMb) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
-        String processUrl = com.baidu.b.b.b.sQ().processUrl(str2);
-        if (dAo && !TextUtils.isEmpty(processUrl)) {
-            processUrl = UrlUtil.addParam(processUrl, "debug", "1");
+        String processUrl = com.baidu.d.b.b.uy().processUrl(str2);
+        if (dMb && !TextUtils.isEmpty(processUrl)) {
+            processUrl = UrlUtil.addParam(processUrl, ETAG.KEY_DEBUG, "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
@@ -66,11 +67,11 @@ public abstract class a implements u {
                     if (!DEBUG) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            String dT = dT(jSONObject);
+                            String ee = ee(jSONObject);
                             jSONObject2.put("type", "sendFail");
                             jSONObject2.put("error_no", i);
-                            if (!TextUtils.isEmpty(dT)) {
-                                jSONObject2.put("md5", dT);
+                            if (!TextUtils.isEmpty(ee)) {
+                                jSONObject2.put("md5", ee);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -93,7 +94,7 @@ public abstract class a implements u {
         }
     }
 
-    protected String dT(JSONObject jSONObject) {
+    protected String ee(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }

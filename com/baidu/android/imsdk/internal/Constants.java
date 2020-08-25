@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class Constants {
     public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
@@ -159,7 +159,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "0";
+    public static final String LITTLE_VERSION = "5";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -216,7 +216,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "0";
+    public static final String MIDDLE_VERSION = "2";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;
@@ -287,7 +287,11 @@ public final class Constants {
             LogUtils.e("Constants", "context is null!!!");
             return 0;
         }
-        return Utility.readIntData(context, KEY_ENV, 0);
+        try {
+            return Utility.readIntData(context, KEY_ENV, 0);
+        } catch (Exception e) {
+            return IM_ENV;
+        }
     }
 
     public static boolean setEnv(Context context, int i) {
@@ -322,6 +326,7 @@ public final class Constants {
                     break;
                 }
         }
+        IM_ENV = i;
         if (IM_ENV != getEnv(context)) {
             Utility.writeIntData(context, KEY_ENV, i);
         }

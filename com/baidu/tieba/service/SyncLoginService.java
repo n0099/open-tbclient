@@ -11,13 +11,12 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tbadk.coreExtra.messageCenter.d;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.g;
-import com.baidu.tieba.model.c;
+import com.baidu.tieba.model.d;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SyncLoginService extends BdBaseService {
     private static String mStatistics = null;
     private a mSyncTask = null;
@@ -63,69 +62,69 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Integer, c> {
-        z byq;
+    /* loaded from: classes2.dex */
+    public class a extends BdAsyncTask<String, Integer, d> {
+        aa bDY;
 
         private a() {
-            this.byq = null;
+            this.bDY = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: M */
-        public c doInBackground(String... strArr) {
-            c cVar;
+        /* renamed from: N */
+        public d doInBackground(String... strArr) {
+            d dVar;
             Exception e;
             try {
-                this.byq = new z(TbConfig.SERVER_ADDRESS + Config.SYNC_LOGIN);
-                this.byq.addPostData("_os_version", Build.VERSION.RELEASE);
+                this.bDY = new aa(TbConfig.SERVER_ADDRESS + Config.SYNC_LOGIN);
+                this.bDY.addPostData("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 stringBuffer.append(String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.byq.addPostData("_phone_screen", stringBuffer.toString());
-                this.byq.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-                this.byq.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.byq.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
-                if (d.bfO().bfR() > 0) {
-                    this.byq.addPostData("_msg_status", "0");
+                this.bDY.addPostData("_phone_screen", stringBuffer.toString());
+                this.bDY.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+                this.bDY.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+                this.bDY.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.boy().boB() > 0) {
+                    this.bDY.addPostData("_msg_status", "0");
                 } else {
-                    this.byq.addPostData("_msg_status", "1");
+                    this.bDY.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() < 1) {
                         activeVersion = "0";
                     }
-                    this.byq.addPostData("_active", activeVersion);
+                    this.bDY.addPostData("_active", activeVersion);
                 }
-                this.byq.addPostData("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
+                this.bDY.addPostData("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.byq.addPostData("_msg_type", SyncLoginService.mStatistics);
+                    this.bDY.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.byq.addPostData("package", packageName);
-                this.byq.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.byq.addPostData("signmd5", au.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.byq.addPostData("md5", g.getTiebaApkMd5());
-                String postNetData = this.byq.postNetData();
-                if (this.byq.bav().baX().isRequestSuccess()) {
-                    cVar = new c();
+                this.bDY.addPostData("package", packageName);
+                this.bDY.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
+                this.bDY.addPostData("signmd5", av.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.bDY.addPostData("md5", g.getTiebaApkMd5());
+                String postNetData = this.bDY.postNetData();
+                if (this.bDY.biQ().bjw().isRequestSuccess()) {
+                    dVar = new d();
                     try {
-                        cVar.parserJson(postNetData);
+                        dVar.parserJson(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return cVar;
+                        return dVar;
                     } catch (Exception e2) {
                         e = e2;
                         BdLog.e(e.getMessage());
-                        return cVar;
+                        return dVar;
                     }
                 }
                 return null;
             } catch (Exception e3) {
-                cVar = null;
+                dVar = null;
                 e = e3;
             }
         }
@@ -133,8 +132,8 @@ public class SyncLoginService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
-            if (this.byq != null) {
-                this.byq.cancelNetConnect();
+            if (this.bDY != null) {
+                this.bDY.cancelNetConnect();
             }
             super.cancel(true);
         }
@@ -143,8 +142,8 @@ public class SyncLoginService extends BdBaseService {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(c cVar) {
-            super.onPostExecute(cVar);
+        public void onPostExecute(d dVar) {
+            super.onPostExecute(dVar);
             SyncLoginService.this.mSyncTask = null;
         }
     }

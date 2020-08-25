@@ -1,9 +1,9 @@
 package com.baidu.tbadk.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public String dIf;
+    public String dRm;
 
     public e(String str) {
-        this.dIf = str;
+        this.dRm = str;
     }
 }

@@ -5,30 +5,30 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
 
     /* renamed from: com.baidu.tbadk.baseEditMark.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0489a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0535a {
         void c(boolean z, boolean z2, String str);
     }
 
     public abstract void a(MarkData markData);
 
-    public abstract void a(InterfaceC0489a interfaceC0489a);
+    public abstract void a(InterfaceC0535a interfaceC0535a);
 
-    public abstract String aSi();
+    public abstract boolean baA();
 
-    public abstract boolean aSj();
+    public abstract void baB();
 
-    public abstract void aSk();
+    public abstract void baC();
 
-    public abstract void aSl();
+    public abstract MarkData baD();
 
-    public abstract MarkData aSm();
+    public abstract String baz();
 
-    public abstract void he(boolean z);
+    public abstract void hA(boolean z);
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

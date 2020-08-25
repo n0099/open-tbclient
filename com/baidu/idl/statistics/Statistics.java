@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.idl.license.License;
 import com.baidu.idl.util.FileUtil;
@@ -49,7 +48,7 @@ public class Statistics {
         this.app = context;
         this.appId = str;
         try {
-            this.userId = CommonParam.getCUID(context);
+            this.userId = "0000";
         } catch (SecurityException e) {
             e.printStackTrace();
         }
@@ -175,7 +174,7 @@ public class Statistics {
             return;
         }
         this.workerHandler.removeMessages(2);
-        this.workerHandler.sendEmptyMessageDelayed(2, SYNC_FILE_DELAY_TIME);
+        this.workerHandler.sendEmptyMessageDelayed(2, 3000L);
     }
 
     private Statistics() {

@@ -4,7 +4,7 @@ import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.Credentials;
 import org.apache.http.client.CredentialsProvider;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class BasicCredentialsProvider implements CredentialsProvider {
     public BasicCredentialsProvider() {
         throw new RuntimeException("Stub!");

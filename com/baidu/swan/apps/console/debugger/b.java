@@ -3,72 +3,72 @@ package com.baidu.swan.apps.console.debugger;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.u;
+import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static a bWJ;
+    private static a ccr;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bWH = "";
-    private static String bWI = "";
-    private static int bWK = 0;
+    private static String ccp = "";
+    private static String ccq = "";
+    private static int cct = 0;
 
-    public static void jf(String str) {
-        bWH = str;
+    public static void kF(String str) {
+        ccp = str;
     }
 
-    public static void jg(String str) {
-        bWI = str;
+    public static void kG(String str) {
+        ccq = str;
     }
 
-    public static String XF() {
-        return bWH;
+    public static String adL() {
+        return ccp;
     }
 
-    public static String XG() {
-        return bWI;
+    public static String adM() {
+        return ccq;
     }
 
-    public static String XH() {
-        return bWJ != null ? bWJ.XE() + File.separator + bWI : "";
+    public static String adN() {
+        return ccr != null ? ccr.adK() + File.separator + ccq : "";
     }
 
-    public static String XI() {
-        return bWJ != null ? bWJ.XE() + File.separator + bWH : "";
+    public static String adO() {
+        return ccr != null ? ccr.adK() + File.separator + ccp : "";
     }
 
-    public static boolean XJ() {
-        return bWK == 2;
+    public static boolean adP() {
+        return cct == 2;
     }
 
-    public static boolean XK() {
-        return bWK == 1;
+    public static boolean adQ() {
+        return cct == 1;
     }
 
-    public static void p(Bundle bundle) {
-        String f = u.f(bundle, "extraWSUrl");
-        String f2 = u.f(bundle, "adb_debug_path");
-        if (!TextUtils.isEmpty(f)) {
-            bWJ = new d();
-            bWK = 1;
-        } else if (!TextUtils.isEmpty(f2)) {
-            bWJ = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            bWK = 2;
+    public static void n(Bundle bundle) {
+        String g = u.g(bundle, "extraWSUrl");
+        String g2 = u.g(bundle, "adb_debug_path");
+        if (!TextUtils.isEmpty(g)) {
+            ccr = new d();
+            cct = 1;
+        } else if (!TextUtils.isEmpty(g2)) {
+            ccr = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            cct = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            bWK = 0;
-            bWJ = null;
+            cct = 0;
+            ccr = null;
             return;
         }
-        bWJ.p(bundle);
+        ccr.n(bundle);
     }
 
-    public static void q(Bundle bundle) {
-        if (bWJ != null) {
-            bWJ.q(bundle);
+    public static void o(Bundle bundle) {
+        if (ccr != null) {
+            ccr.o(bundle);
         }
     }
 }

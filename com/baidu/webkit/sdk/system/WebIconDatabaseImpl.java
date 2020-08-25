@@ -4,10 +4,10 @@ import android.graphics.Bitmap;
 import android.os.Looper;
 import android.webkit.WebIconDatabase;
 import com.baidu.webkit.sdk.WebIconDatabase;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class WebIconDatabaseImpl extends WebIconDatabase {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private static class IconWrapper implements WebIconDatabase.IconListener {
         private final WebIconDatabase.IconListener mListener;
 

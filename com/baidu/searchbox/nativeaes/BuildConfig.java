@@ -1,5 +1,5 @@
 package com.baidu.searchbox.nativeaes;
-/* loaded from: classes18.dex */
+/* loaded from: classes8.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.nativeaes";
     public static final String BUILD_TYPE = "release";

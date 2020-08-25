@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.PassFriend.PassFriendReqIdl;
 import tbclient.PassFriend.ReqData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestPassFriendMessage extends TbSocketMessage {
     private long friendId;
     private String st_type;

@@ -11,6 +11,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.kascend.chushou.a;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,9 +24,9 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
     private ImageView e;
     private TextView f;
     private ImageView g;
-    private Set<Animator> nCp;
-    private a nCq;
-    private FrescoThumbnailView npp;
+    private FrescoThumbnailView nJd;
+    private Set<Animator> nWf;
+    private a nWg;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -34,19 +35,19 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
 
     public LivePKMvpView(Context context) {
         super(context);
-        this.nCp = new HashSet();
+        this.nWf = new HashSet();
         a(context);
     }
 
     public LivePKMvpView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nCp = new HashSet();
+        this.nWf = new HashSet();
         a(context);
     }
 
     public LivePKMvpView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nCp = new HashSet();
+        this.nWf = new HashSet();
         a(context);
     }
 
@@ -61,7 +62,7 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         this.a = (RelativeLayout) findViewById(a.f.rl_pk_icon);
         this.b = (ImageView) findViewById(a.f.iv_pk_left);
         this.c = (ImageView) findViewById(a.f.iv_pk_right);
-        this.npp = (FrescoThumbnailView) findViewById(a.f.iv_pk_icon);
+        this.nJd = (FrescoThumbnailView) findViewById(a.f.iv_pk_icon);
         this.e = (ImageView) findViewById(a.f.iv_pk_water);
         this.f = (TextView) findViewById(a.f.tv_pk_nickname);
         this.g = (ImageView) findViewById(a.f.iv_pk_mvp_tag);
@@ -71,22 +72,22 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         clearAnimation();
         setVisibility(0);
         this.f.setText(str2);
-        this.npp.bS(str, tv.chushou.widget.a.c.dZW());
+        this.nJd.bX(str, tv.chushou.widget.a.c.elZ());
         this.e.setVisibility(0);
         this.e.setAlpha(0.0f);
         this.g.setVisibility(0);
         this.g.setAlpha(0.0f);
         this.a.setVisibility(0);
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.a, PropertyValuesHolder.ofFloat("scaleX", 0.3f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.3f, 1.0f));
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.b, "rotation", 20.0f, 0.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.c, "rotation", -20.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.b, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 20.0f, 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.c, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, -20.0f, 0.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(ofPropertyValuesHolder, ofFloat, ofFloat2);
         animatorSet.setDuration(200L);
         animatorSet.setInterpolator(new LinearInterpolator());
         ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.a, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.1f, 1.0f, 1.05f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.1f, 1.0f, 1.05f, 1.0f));
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.b, "rotation", 0.0f, 20.0f, 0.0f, 20.0f, 0.0f);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.c, "rotation", 0.0f, -20.0f, 0.0f, -20.0f, 0.0f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.b, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 20.0f, 0.0f, 20.0f, 0.0f);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.c, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, -20.0f, 0.0f, -20.0f, 0.0f);
         ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f, 1.0f, 1.0f, 1.0f), PropertyValuesHolder.ofFloat("scaleX", 0.3f, 1.1f, 1.0f, 1.05f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.3f, 1.1f, 1.0f, 1.05f, 1.0f));
         AnimatorSet animatorSet2 = new AnimatorSet();
         animatorSet2.playTogether(ofPropertyValuesHolder2, ofFloat3, ofFloat4, ofPropertyValuesHolder3);
@@ -100,8 +101,8 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
         ofPropertyValuesHolder4.setInterpolator(new LinearInterpolator());
         ofPropertyValuesHolder4.setStartDelay(1600L);
         ofPropertyValuesHolder4.start();
-        this.nCp.add(animatorSet3);
-        this.nCp.add(ofPropertyValuesHolder4);
+        this.nWf.add(animatorSet3);
+        this.nWf.add(ofPropertyValuesHolder4);
         postDelayed(this, 2600L);
     }
 
@@ -114,22 +115,22 @@ public class LivePKMvpView extends RelativeLayout implements Runnable {
     @Override // android.view.View
     public void clearAnimation() {
         super.clearAnimation();
-        for (Animator animator : this.nCp) {
+        for (Animator animator : this.nWf) {
             animator.cancel();
         }
-        this.nCp.clear();
+        this.nWf.clear();
         removeCallbacks(this);
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a();
-        if (this.nCq != null) {
-            this.nCq.a();
+        if (this.nWg != null) {
+            this.nWg.a();
         }
     }
 
     public void setCallback(a aVar) {
-        this.nCq = aVar;
+        this.nWg = aVar;
     }
 }

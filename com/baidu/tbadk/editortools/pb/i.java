@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.atomData.AtListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i extends com.baidu.tbadk.editortools.c {
-    public String eCI;
-    private boolean eCw;
+    private boolean eMV;
+    public String eNh;
     private boolean isBJH;
 
     public i() {
@@ -31,46 +31,46 @@ public class i extends com.baidu.tbadk.editortools.c {
     }
 
     public i(boolean z) {
-        this.eCw = false;
+        this.eMV = false;
         this.isBJH = false;
         this.isBJH = z;
     }
 
     @Override // com.baidu.tbadk.editortools.c
-    protected com.baidu.tbadk.editortools.d dU(Context context) {
+    protected com.baidu.tbadk.editortools.e ed(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setIsFromPb(true);
         editorTools.setBarMaxLauCount(5);
         editorTools.setBackgroundColorId(0);
         editorTools.setBarLauncherType(this.isBJH ? 5 : 2);
         editorTools.setBarBackgroundColorId(R.color.cp_bg_line_h);
-        editorTools.iK(false);
+        editorTools.ji(false);
         h hVar = new h(editorTools);
         hVar.isBJH = this.isBJH;
         return hVar;
     }
 
     @Override // com.baidu.tbadk.editortools.c
-    protected void b(com.baidu.tbadk.editortools.d dVar) {
-        if (dVar != null) {
-            final EditorTools biJ = dVar.biJ();
-            final h hVar = (h) dVar;
+    protected void b(com.baidu.tbadk.editortools.e eVar) {
+        if (eVar != null) {
+            final EditorTools brv = eVar.brv();
+            final h hVar = (h) eVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tbadk.editortools.pb.i.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
-                    l nT;
+                    m qe;
                     if (aVar != null) {
                         switch (aVar.code) {
                             case 4:
                                 if (aVar.data instanceof j) {
                                     hVar.a((j) aVar.data);
                                 } else if (aVar.data instanceof String) {
-                                    hVar.zJ((String) aVar.data);
+                                    hVar.BZ((String) aVar.data);
                                 } else if (aVar.data instanceof SpanGroupManager) {
-                                    hVar.zJ(aVar.data.toString());
+                                    hVar.BZ(aVar.data.toString());
                                     hVar.setSpanGroupManager((SpanGroupManager) aVar.data);
                                 }
-                                i.this.eCw = false;
+                                i.this.eMV = false;
                                 return;
                             case 5:
                             case 6:
@@ -82,12 +82,12 @@ public class i extends com.baidu.tbadk.editortools.c {
                             default:
                                 return;
                             case 7:
-                                hVar.bdZ().showToast(R.string.over_limit_tip);
-                                i.this.eCw = true;
+                                hVar.bmF().showToast(R.string.over_limit_tip);
+                                i.this.eMV = true;
                                 return;
                             case 8:
-                                if (i.this.a(hVar.bdZ(), 11001)) {
-                                    hVar.bjI();
+                                if (i.this.a(hVar.bmF(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
+                                    hVar.bsu();
                                     TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
                                     return;
                                 }
@@ -101,17 +101,17 @@ public class i extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 11:
                                 hVar.setVoiceModel(null);
-                                if (biJ != null && (nT = biJ.nT(6)) != null && nT.ezZ != null) {
-                                    nT.ezZ.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+                                if (brv != null && (qe = brv.qe(6)) != null && qe.eKx != null) {
+                                    qe.eKx.a(new com.baidu.tbadk.editortools.a(52, 0, null));
                                     return;
                                 }
                                 return;
                             case 16:
-                                if (i.this.eCw) {
-                                    hVar.bdZ().showToast(R.string.over_limit_tip);
+                                if (i.this.eMV) {
+                                    hVar.bmF().showToast(R.string.over_limit_tip);
                                 }
-                                if (i.this.a(hVar.bdZ(), (int) RequestResponseCode.REQUEST_LOGIN_PB_AT)) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(hVar.bdZ().getPageActivity(), RequestResponseCode.REQUEST_SUB_PB_AT_SELECT, true)));
+                                if (i.this.a(hVar.bmF(), (int) RequestResponseCode.REQUEST_LOGIN_PB_AT)) {
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(hVar.bmF().getPageActivity(), RequestResponseCode.REQUEST_SUB_PB_AT_SELECT, true)));
                                     return;
                                 }
                                 return;
@@ -119,43 +119,43 @@ public class i extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            biJ.setActionListener(4, bVar);
-            biJ.setActionListener(7, bVar);
-            biJ.setActionListener(16, bVar);
-            biJ.setActionListener(8, bVar);
-            biJ.setActionListener(10, bVar);
-            biJ.setActionListener(11, bVar);
+            brv.setActionListener(4, bVar);
+            brv.setActionListener(7, bVar);
+            brv.setActionListener(16, bVar);
+            brv.setActionListener(8, bVar);
+            brv.setActionListener(10, bVar);
+            brv.setActionListener(11, bVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
-    protected void a(com.baidu.tbadk.editortools.d dVar) {
+    protected void a(com.baidu.tbadk.editortools.e eVar) {
         CustomResponsedMessage runTask;
-        l lVar;
-        EditorTools biJ = dVar.biJ();
+        m mVar;
+        EditorTools brv = eVar.brv();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        biJ.bc(arrayList);
-        l nT = biJ.nT(5);
-        if (nT != null) {
-            nT.iM(false);
-            nT.eAR = 1;
+        brv.bc(arrayList);
+        m qe = brv.qe(5);
+        if (qe != null) {
+            qe.jk(false);
+            qe.eLq = 1;
         }
         if (!this.isBJH) {
-            if (com.baidu.tieba.tbadkCore.voice.c.dmw() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, biJ.getContext()), l.class)) != null && (lVar = (l) runTask.getData()) != null) {
-                lVar.eAR = 2;
-                biJ.b(lVar);
+            if (com.baidu.tieba.tbadkCore.voice.c.dxR() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, brv.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+                mVar.eLq = 2;
+                brv.b(mVar);
             }
-            biJ.b(new com.baidu.tbadk.editortools.a.a(biJ.getContext(), 4));
+            brv.b(new com.baidu.tbadk.editortools.a.a(brv.getContext(), 4));
         }
-        f fVar = new f(biJ.getContext(), this.isBJH, false);
-        if (!as.isEmpty(this.eCI)) {
-            fVar.setHint(this.eCI);
+        f fVar = new f(brv.getContext(), this.isBJH, false);
+        if (!at.isEmpty(this.eNh)) {
+            fVar.setHint(this.eNh);
         }
-        biJ.b(fVar);
-        biJ.build();
-        biJ.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-        biJ.bhl();
+        brv.b(fVar);
+        brv.build();
+        brv.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        brv.bpX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -169,6 +169,6 @@ public class i extends com.baidu.tbadk.editortools.c {
     }
 
     public void setHintText(String str) {
-        this.eCI = str;
+        this.eNh = str;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdNetWorkError {
     public static final int NETWORK_CONNECT_EXCEPTION = -22;
     public static final int NETWORK_IO_EXCEPTION = -19;

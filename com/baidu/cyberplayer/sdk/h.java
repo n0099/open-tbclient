@@ -8,7 +8,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class h extends TextureView implements i {
     private a a;
     private SurfaceTexture b;
@@ -17,7 +17,7 @@ public class h extends TextureView implements i {
     private f e;
     private boolean f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     private class a implements TextureView.SurfaceTextureListener {
         public a() {
         }

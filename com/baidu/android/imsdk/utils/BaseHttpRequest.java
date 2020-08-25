@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     protected Context mContext;
     protected boolean mIsNeedSaveToDb;

@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.kascend.chushou.a;
 import com.kascend.chushou.player.ui.pk.CustomCircle;
 import com.kascend.chushou.player.ui.pk.b;
@@ -40,9 +41,9 @@ public class PaoPaoView extends FrameLayout implements b {
     private List<CustomCircle> l;
     private int m;
     private int n;
-    final Queue<WeakReference<ImageView>> nxS;
-    private Random nxT;
-    private i<PaoPaoView> nxU;
+    final Queue<WeakReference<ImageView>> nRJ;
+    private Random nRK;
+    private i<PaoPaoView> nRL;
     private final int o;
     private final int p;
 
@@ -57,13 +58,13 @@ public class PaoPaoView extends FrameLayout implements b {
     public PaoPaoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = new ArrayDeque();
-        this.nxS = new ArrayDeque();
+        this.nRJ = new ArrayDeque();
         this.c = new Object();
         this.d = false;
         this.g = tv.chushou.zues.utils.a.dip2px(getContext(), 188.0f);
         this.h = tv.chushou.zues.utils.a.dip2px(getContext(), 220.0f);
-        this.nxT = new Random();
-        this.nxU = new i<>(this);
+        this.nRK = new Random();
+        this.nRL = new i<>(this);
         this.k = new ArrayList();
         this.l = new ArrayList();
         this.o = 0;
@@ -86,16 +87,16 @@ public class PaoPaoView extends FrameLayout implements b {
         if (this.l != null && this.l.size() > 0) {
             for (int i = 0; i < this.l.size(); i++) {
                 int randDelayTime = getRandDelayTime();
-                if (this.nxU != null) {
+                if (this.nRL != null) {
                     Message obtain = Message.obtain();
                     obtain.obj = Integer.valueOf(i);
                     obtain.what = 1;
-                    this.nxU.sendMessageDelayed(obtain, randDelayTime);
+                    this.nRL.sendMessageDelayed(obtain, randDelayTime);
                 }
             }
         }
-        if (this.nxU != null) {
-            this.nxU.sendEmptyMessageDelayed(0, 10000L);
+        if (this.nRL != null) {
+            this.nRL.sendEmptyMessageDelayed(0, 10000L);
         }
     }
 
@@ -309,11 +310,11 @@ public class PaoPaoView extends FrameLayout implements b {
         if (customCircle != null && customCircle2 != null && customCircle3 != null) {
             setVisibility(0);
             while (true) {
-                if (this.nxS.isEmpty()) {
+                if (this.nRJ.isEmpty()) {
                     imageView = null;
                     break;
                 }
-                WeakReference<ImageView> poll = this.nxS.poll();
+                WeakReference<ImageView> poll = this.nRJ.poll();
                 if (poll != null && poll.get() != null) {
                     imageView = poll.get();
                     if (imageView.getParent() != null) {
@@ -353,7 +354,7 @@ public class PaoPaoView extends FrameLayout implements b {
                     if (this.e != null && PaoPaoView.this.getContext() != null) {
                         ImageView imageView2 = (ImageView) this.e;
                         PaoPaoView.this.removeView(imageView2);
-                        PaoPaoView.this.nxS.offer(new WeakReference<>(imageView2));
+                        PaoPaoView.this.nRJ.offer(new WeakReference<>(imageView2));
                         if (PaoPaoView.this.f == imageView2) {
                             PaoPaoView.this.f = null;
                         }
@@ -387,9 +388,9 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public void b() {
-        if (this.nxU != null) {
-            this.nxU.removeMessages(1);
-            this.nxU.removeMessages(0);
+        if (this.nRL != null) {
+            this.nRL.removeMessages(1);
+            this.nRL.removeMessages(0);
         }
         synchronized (this.c) {
             if (this.d) {
@@ -402,8 +403,8 @@ public class PaoPaoView extends FrameLayout implements b {
         if (this.a != null) {
             this.a.clear();
         }
-        if (this.nxS != null) {
-            this.nxS.clear();
+        if (this.nRJ != null) {
+            this.nRJ.clear();
         }
         if (this.k != null) {
             this.k.clear();
@@ -427,22 +428,22 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public int getRandBubbleTotal() {
-        return this.nxT.nextInt(3) + 6;
+        return this.nRK.nextInt(3) + 6;
     }
 
     public int getRandOffsetAngle() {
-        return this.nxT.nextInt(20) - 10;
+        return this.nRK.nextInt(20) - 10;
     }
 
     public int getRandDelayTime() {
-        return this.nxT.nextInt(2000);
+        return this.nRK.nextInt(2000);
     }
 
     public float getRandScale() {
-        return (this.nxT.nextFloat() / 2.0f) + 0.5f;
+        return (this.nRK.nextFloat() / 2.0f) + 0.5f;
     }
 
-    public float h(float f, float f2, float f3) {
+    public float a(float f, float f2, float f3) {
         return (int) (f + (f2 * Math.cos((f3 * 3.14d) / 180.0d)));
     }
 
@@ -454,21 +455,21 @@ public class PaoPaoView extends FrameLayout implements b {
         this.l.clear();
         this.k.clear();
         this.m = getRandBubbleTotal();
-        int i = 360 / this.m;
+        int i = EncoderTextureDrawer.X264_WIDTH / this.m;
         float endRadius = getEndRadius();
         float startRadius = getStartRadius();
         for (int i2 = 0; i2 < this.m; i2++) {
             this.n = getRandOffsetAngle();
             CustomCircle customCircle = new CustomCircle();
             customCircle.d = startRadius;
-            customCircle.c = ((i * i2) + this.n) % 360;
-            customCircle.a = h(this.g, startRadius, customCircle.c);
+            customCircle.c = ((i * i2) + this.n) % EncoderTextureDrawer.X264_WIDTH;
+            customCircle.a = a(this.g, startRadius, customCircle.c);
             customCircle.b = i(this.h, startRadius, customCircle.c);
             this.k.add(customCircle);
             CustomCircle customCircle2 = new CustomCircle();
             customCircle2.d = endRadius;
-            customCircle2.c = ((i * i2) + this.n) % 360;
-            customCircle2.a = h(this.g, endRadius, customCircle2.c);
+            customCircle2.c = ((i * i2) + this.n) % EncoderTextureDrawer.X264_WIDTH;
+            customCircle2.a = a(this.g, endRadius, customCircle2.c);
             customCircle2.b = i(this.h, endRadius, customCircle2.c);
             this.l.add(customCircle2);
         }
@@ -476,7 +477,7 @@ public class PaoPaoView extends FrameLayout implements b {
 
     public float getEndRadius() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) tv.chushou.basis.d.b.dZF().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) tv.chushou.basis.d.b.elJ().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.widthPixels / 2.0f;
     }
 

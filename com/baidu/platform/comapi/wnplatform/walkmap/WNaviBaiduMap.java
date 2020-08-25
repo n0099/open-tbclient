@@ -6,14 +6,14 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
+import com.baidu.platform.comjni.map.basemap.NABaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class WNaviBaiduMap {
     private static long b;
     private static WNaviBaiduMap c;
-    private JNIBaseMap a = new JNIBaseMap();
+    private NABaseMap a = new NABaseMap();
 
     public void setId(long j) {
         b = j;
@@ -118,6 +118,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.a.GetZoomToBound(b, bundle);
+        return this.a.getZoomToBound(b, bundle, i, i2);
     }
 }

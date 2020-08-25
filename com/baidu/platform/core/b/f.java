@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class f extends com.baidu.platform.base.e {
     public f(ReverseGeoCodeOption reverseGeoCodeOption) {
         a(reverseGeoCodeOption);
@@ -24,7 +24,7 @@ public class f extends com.baidu.platform.base.e {
         this.a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
         this.a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
         this.a.a("pois", "1");
-        this.a.a("output", "json");
+        this.a.a("output", "jsonaes");
         this.a.a("from", "android_map_sdk");
         this.a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
         this.a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));

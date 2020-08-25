@@ -12,7 +12,6 @@ import android.os.Process;
 import android.os.StrictMode;
 import android.support.annotation.RequiresApi;
 import android.util.AndroidRuntimeException;
-import com.a.a.a.a.a.a.a;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.ApisInteractWithMario;
@@ -34,7 +33,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class WebViewFactory {
     private static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
     private static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
@@ -60,6 +59,7 @@ public final class WebViewFactory {
     private static String sProcessSuffix;
     private static boolean sProcessSuffixDone;
     private static boolean sUsingSystemWebView;
+    private static boolean sWebViewDisabled;
     private static boolean sforceMainProcessNoZeus;
     private static final String SPLASH = File.separator;
     private static final Object mProviderLock = new Object();
@@ -68,7 +68,7 @@ public final class WebViewFactory {
     private static int sIsPreInitWebViewEnable = -1;
     private static final Object sProviderLock = new Object();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -86,7 +86,7 @@ public final class WebViewFactory {
                 try {
                     j = file.length();
                 } catch (Throwable th) {
-                    a.a(th);
+                    th.printStackTrace();
                     j = 0;
                 }
                 Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
@@ -114,7 +114,7 @@ public final class WebViewFactory {
             SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).a.d);
             throw new Exception("sdk and native library dismatch " + str + ", " + zeusJarVersion + ", " + zeusNativeLibraryVersion);
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
             throw new Exception("sdk and zeus jar dismatch " + str + ", 9.0.0.0");
         }
     }
@@ -133,6 +133,16 @@ public final class WebViewFactory {
         FileUtils.deleteDir(optFile, optFile);
         LoadErrorCode.getInstance().trace(500);
         return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void disableWebView() {
+        synchronized (sProviderLock) {
+            if (mProvider != null) {
+                throw new IllegalStateException("Can't disable WebView: WebView already initialized");
+            }
+            sWebViewDisabled = true;
+        }
     }
 
     private static void fetchDefaultPackageInfo() {
@@ -185,7 +195,7 @@ public final class WebViewFactory {
                         try {
                             mPackageInfo = (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, null);
                         } catch (Exception e) {
-                            a.a(e);
+                            e.printStackTrace();
                         }
                     } catch (Throwable th) {
                     }
@@ -205,7 +215,7 @@ public final class WebViewFactory {
                     declaredMethod2.setAccessible(isAccessible2);
                     mPackageInfo = (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, null);
                 } catch (Throwable th3) {
-                    a.a(th3);
+                    th3.printStackTrace();
                 }
             }
         }
@@ -234,7 +244,7 @@ public final class WebViewFactory {
             synchronized (mZeusProviderLock) {
                 ZeusPerformanceTiming.forceInitT7();
                 d.a(mContext).a();
-                ZeusPerformanceTiming.initProviderStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_GET_PROVIDER);
                 ZeusCrashHandler.init();
                 LoadErrorCode.Statistics.init(getContext());
                 if (mContext == null) {
@@ -246,7 +256,7 @@ public final class WebViewFactory {
                     if (zeusProviderImpl != null && !isRendererProcess()) {
                         ApisInteractWithMario.initialize();
                     }
-                    ZeusPerformanceTiming.initProviderEnd();
+                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_GET_PROVIDER);
                     mIsZeusProvideInit = true;
                     r0 = zeusProviderImpl != null;
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
@@ -421,42 +431,44 @@ public final class WebViewFactory {
             if (mProvider != null) {
                 ZeusPerformanceTiming.setIsGetProviderHitSynchronized(true);
                 return mProvider;
-            }
-            if (!sUsingSystemWebView) {
-                ZeusPerformanceTiming.initProviderStart();
-            }
-            if (!isRendererProcess()) {
-                ZeusCrashHandler.init();
-                LoadErrorCode.Statistics.init(getContext());
-            }
-            if (mContext == null) {
-                throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider(), or invoke getProvider() on MainThread.");
-            }
-            StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
-            try {
-                WebViewFactoryProvider providerImpl = getProviderImpl();
-                if (providerImpl != null && !isRendererProcess()) {
-                    ApisInteractWithMario.initialize();
-                }
+            } else if (sWebViewDisabled) {
+                throw new IllegalStateException("WebView.disableWebView() was called: WebView is disabled");
+            } else {
                 if (!sUsingSystemWebView) {
-                    ZeusPerformanceTiming.initProviderEnd();
+                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_GET_PROVIDER);
                 }
-                StrictMode.setThreadPolicy(allowThreadDiskReads);
-                return providerImpl;
-            } catch (Exception e) {
-                throw new AndroidRuntimeException(e);
+                if (!isRendererProcess()) {
+                    ZeusCrashHandler.init();
+                    LoadErrorCode.Statistics.init(getContext());
+                }
+                if (mContext == null) {
+                    throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider(), or invoke getProvider() on MainThread.");
+                }
+                StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
+                try {
+                    WebViewFactoryProvider providerImpl = getProviderImpl();
+                    if (providerImpl != null && !isRendererProcess()) {
+                        ApisInteractWithMario.initialize();
+                    }
+                    if (!sUsingSystemWebView) {
+                        ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_GET_PROVIDER);
+                    }
+                    StrictMode.setThreadPolicy(allowThreadDiskReads);
+                    return providerImpl;
+                } catch (Exception e) {
+                    throw new AndroidRuntimeException(e);
+                }
             }
         }
     }
 
     private static WebViewFactoryProvider getProviderImpl() {
         if (!sUsingSystemWebView) {
-            ZeusPerformanceTiming.getProviderImplStart();
-            ZeusPerformanceTiming.shouldUseSystemWebViewStart();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
         boolean shouldUseSystemWebView = shouldUseSystemWebView(false);
         if (!sUsingSystemWebView) {
-            ZeusPerformanceTiming.shouldUseSystemWebViewEnd();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
         if (getDataDirectorySuffix() == null) {
             String processSuffix = getProcessSuffix(mContext);
@@ -468,9 +480,9 @@ public final class WebViewFactory {
             }
         }
         if (mPackageInfo == null && !shouldUseSystemWebView) {
-            ZeusPerformanceTiming.fetchDefaultPackageInfoStart();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_FETCH_PACKAGE_INFO);
             fetchDefaultPackageInfo();
-            ZeusPerformanceTiming.fetchDefaultPackageInfoEnd();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_FETCH_PACKAGE_INFO);
             if (mPackageInfo == null && ZeusSDK.usingZeusSDK() && installZesEngineIfNeeded(false, true)) {
                 fetchDefaultPackageInfo();
             }
@@ -483,12 +495,10 @@ public final class WebViewFactory {
                 }
                 boolean equals = mPackageInfo.packageName.equals(mContext.getPackageName());
                 File optFile = getOptFile();
-                ZeusPerformanceTiming.newZeusClassLoaderStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_NEW_ZEUS_CL);
                 ClassLoader classLoader = equals ? WebViewFactory.class.getClassLoader() : new ZeusClassLoader(mPackageInfo.applicationInfo.sourceDir, optFile, mPackageInfo.applicationInfo.nativeLibraryDir, WebViewFactory.class.getClassLoader());
-                ZeusPerformanceTiming.newZeusClassLoaderEnd();
-                ZeusPerformanceTiming.classLoaderLoadClassStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_NEW_ZEUS_CL);
                 Class<?> loadClass = classLoader.loadClass(CHROMIUM_WEBVIEW_FACTORY);
-                ZeusPerformanceTiming.classLoaderLoadClassEnd();
                 if (!isRendererProcess()) {
                     d.a(mContext).b();
                 }
@@ -496,9 +506,9 @@ public final class WebViewFactory {
                     sforceMainProcessNoZeus = true;
                     throw new Exception("disable main process zeus under android 5.0");
                 }
-                ZeusPerformanceTiming.newWebViewChromiumFactoryProviderInstanceStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
                 mProvider = (WebViewFactoryProvider) loadClass.getMethod("getInstance", null).invoke(null, null);
-                ZeusPerformanceTiming.newWebViewChromiumFactoryProviderInstanceEnd();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
                 if (mProvider != null && !isRendererProcess()) {
                     checkNativeLibraryVersion(mPackageInfo, mProvider);
                     mEngineType.set(1);
@@ -543,9 +553,6 @@ public final class WebViewFactory {
         if (!isRendererProcess()) {
             LoadErrorCode.Statistics.record();
         }
-        if (!sUsingSystemWebView) {
-            ZeusPerformanceTiming.getProviderImplEnd();
-        }
         return mProvider;
     }
 
@@ -584,9 +591,8 @@ public final class WebViewFactory {
         return packageInfo;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0088  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00cf  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0099  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00a8  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -595,19 +601,19 @@ public final class WebViewFactory {
         WebViewFactoryProvider webViewFactoryProvider;
         Throwable th;
         if (!sUsingSystemWebView) {
-            ZeusPerformanceTiming.getProviderImplStart();
-            ZeusPerformanceTiming.shouldUseSystemWebViewStart();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
         boolean shouldUseSystemWebView = shouldUseSystemWebView(true);
         if (!sUsingSystemWebView) {
-            ZeusPerformanceTiming.shouldUseSystemWebViewEnd();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
         if (shouldUseSystemWebView) {
             packageInfo = null;
         } else {
-            ZeusPerformanceTiming.fetchDefaultPackageInfoStart();
-            packageInfo = fetchPackageInfo();
-            ZeusPerformanceTiming.fetchDefaultPackageInfoEnd();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_FETCH_PACKAGE_INFO);
+            PackageInfo fetchPackageInfo = fetchPackageInfo();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_FETCH_PACKAGE_INFO);
+            packageInfo = fetchPackageInfo;
         }
         if (packageInfo == null || shouldUseSystemWebView) {
             webViewFactoryProvider = null;
@@ -618,19 +624,17 @@ public final class WebViewFactory {
                 }
                 boolean equals = packageInfo.packageName.equals(mContext.getPackageName());
                 File optFile = getOptFile();
-                ZeusPerformanceTiming.newZeusClassLoaderStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_NEW_ZEUS_CL);
                 ClassLoader classLoader = equals ? WebViewFactory.class.getClassLoader() : new ZeusClassLoader(packageInfo.applicationInfo.sourceDir, optFile, packageInfo.applicationInfo.nativeLibraryDir, WebViewFactory.class.getClassLoader());
-                ZeusPerformanceTiming.newZeusClassLoaderEnd();
-                ZeusPerformanceTiming.classLoaderLoadClassStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_NEW_ZEUS_CL);
                 Class<?> loadClass = classLoader.loadClass(CHROMIUM_WEBVIEW_FACTORY);
-                ZeusPerformanceTiming.classLoaderLoadClassEnd();
                 if (!isRendererProcess()) {
                     d.a(mContext).b();
                 }
-                ZeusPerformanceTiming.newWebViewChromiumFactoryProviderInstanceStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
                 webViewFactoryProvider = (WebViewFactoryProvider) loadClass.getMethod("getInstance", null).invoke(null, null);
                 try {
-                    ZeusPerformanceTiming.newWebViewChromiumFactoryProviderInstanceEnd();
+                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
                     if (webViewFactoryProvider != null) {
                         checkNativeLibraryVersion(packageInfo, webViewFactoryProvider);
                     }
@@ -643,8 +647,6 @@ public final class WebViewFactory {
                     if (LoadErrorCode.getInstance().getInt() != 0) {
                     }
                     LoadErrorCode.Statistics.record();
-                    if (!sUsingSystemWebView) {
-                    }
                     return webViewFactoryProvider;
                 }
             } catch (Throwable th3) {
@@ -660,21 +662,21 @@ public final class WebViewFactory {
             Log.i(TAG, "getProvider error code : " + LoadErrorCode.getInstance().getInt() + " , " + LoadErrorCode.getInstance().getString());
         }
         LoadErrorCode.Statistics.record();
-        if (!sUsingSystemWebView) {
-            ZeusPerformanceTiming.getProviderImplEnd();
-        }
         return webViewFactoryProvider;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void handleTaskAfterWebkitInited() {
-        if (mProvider == null || isRendererProcess()) {
-            return;
+        if (mProvider != null) {
+            mProvider.commonInitialize();
+            if (isRendererProcess()) {
+                return;
+            }
+            if (mABTestObject != null) {
+                mProvider.onABTestReady();
+            }
+            mProvider.lazyInitialize();
         }
-        if (mABTestObject != null) {
-            mProvider.onABTestReady();
-        }
-        mProvider.lazyInitialize();
     }
 
     public static boolean hasProvider() {
@@ -784,7 +786,7 @@ public final class WebViewFactory {
             }
             return false;
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
             return false;
         }
     }

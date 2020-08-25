@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes16.dex */
 public class ak {
-    public boolean kth;
-    public boolean kts;
-    public boolean kte = false;
-    public boolean ktf = false;
-    public boolean ktg = false;
-    public boolean kti = false;
-    public boolean ktj = false;
-    public boolean ktk = false;
-    public boolean ktl = false;
-    public boolean ktm = false;
-    public boolean ktn = false;
-    public boolean kto = false;
+    public boolean kIM;
+    public boolean kIX;
+    public boolean kIJ = false;
+    public boolean kIK = false;
+    public boolean kIL = false;
+    public boolean kIN = false;
+    public boolean kIO = false;
+    public boolean kIP = false;
+    public boolean kIQ = false;
+    public boolean kIR = false;
+    public boolean kIS = false;
+    public boolean kIT = false;
     public boolean isHostOnly = false;
-    public boolean ktp = false;
-    public boolean Ef = false;
-    public boolean ktq = false;
-    public boolean ktr = false;
-    public boolean ktt = false;
+    public boolean kIU = false;
+    public boolean EK = false;
+    public boolean kIV = false;
+    public boolean kIW = false;
+    public boolean kIY = false;
 }

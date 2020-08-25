@@ -1,0 +1,105 @@
+package com.baidu.e;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import io.flutter.plugin.common.BinaryMessenger;
+import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.plugin.platform.PlatformView;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public class a implements MethodChannel.MethodCallHandler, PlatformView {
+    private View amn;
+    private String amo;
+    private com.baidu.tieba.square.a amp;
+    private final MethodChannel methodChannel;
+    private int viewId;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @TargetApi(17)
+    public a(Context context, BinaryMessenger binaryMessenger, int i, Map<String, Object> map) {
+        d(context, map);
+        this.viewId = i;
+        this.methodChannel = new MethodChannel(binaryMessenger, "common_platform_view_" + i);
+        this.methodChannel.setMethodCallHandler(this);
+    }
+
+    private void d(Context context, Map<String, Object> map) {
+        if (map != null && (map instanceof Map)) {
+            Object obj = map.get("x");
+            if (obj != null) {
+                Double.valueOf(obj.toString()).doubleValue();
+            }
+            Object obj2 = map.get("y");
+            if (obj2 != null) {
+                Double.valueOf(obj2.toString()).doubleValue();
+            }
+            Object obj3 = map.get("width");
+            if (obj3 != null) {
+                Double.valueOf(obj3.toString()).doubleValue();
+            }
+            Object obj4 = map.get("height");
+            if (obj4 != null) {
+                Double.valueOf(obj4.toString()).doubleValue();
+            }
+            this.amo = String.valueOf(map.get("persistentViewId"));
+            if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
+                this.amp = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                this.amp.duC();
+                this.amp.startLoadData();
+                this.amn = this.amp.lXy.getRootLayout();
+            }
+        }
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public View getView() {
+        return this.amn;
+    }
+
+    @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
+    public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+        if (methodCall.method.equals("getPlatformVersion")) {
+            result.success("Android " + Build.VERSION.RELEASE);
+        } else if (methodCall.method.equals("removePlatformView")) {
+            b.bE(this.viewId);
+            result.success(true);
+        } else if (methodCall.method.equals("selectForumCategory")) {
+            String str = (String) methodCall.arguments;
+            if (this.amp != null && !TextUtils.isEmpty(str)) {
+                this.amp.Qp(str);
+            }
+            result.success(null);
+        } else {
+            result.notImplemented();
+        }
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void onFlutterViewAttached(@NonNull View view) {
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void onFlutterViewDetached() {
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void onInputConnectionLocked() {
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void onInputConnectionUnlocked() {
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void dispose() {
+        Log.d("CommonPlatformView", "dispose() called");
+    }
+}

@@ -4,13 +4,23 @@ import android.app.Application;
 import android.content.Context;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.pano.platform.c.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BMapManager {
     private static boolean a = true;
     private Context b;
 
     static {
-        System.loadLibrary("app_BaiduPanoramaAppLib");
+        try {
+            System.loadLibrary("app_BaiduPanoramaAppLib");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        } catch (SecurityException e2) {
+            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        } catch (UnsatisfiedLinkError e4) {
+            e4.printStackTrace();
+        }
     }
 
     public BMapManager(Context context) {

@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.g.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SyncSwitch {
     public static void initSyncSwitch() {
         SwitchManager.getInstance().registerSwitch(GiftSwitch.class);

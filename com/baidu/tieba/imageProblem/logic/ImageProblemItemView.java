@@ -15,72 +15,72 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class ImageProblemItemView extends FrameLayout {
-    protected LinearLayout ewV;
-    protected TextView ewW;
-    protected ImageView ewZ;
-    protected LinearLayout juW;
-    protected TextView juX;
+    protected ImageView eHA;
+    protected LinearLayout eHv;
+    protected TextView eHw;
+    protected LinearLayout jKr;
+    protected TextView jKs;
     protected Context mContext;
     protected TextView textView;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bhn();
+        bpZ();
         e(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        bhn();
+        bpZ();
     }
 
     public void displayTip() {
-        if (this.ewW != null) {
-            this.ewW.setVisibility(0);
+        if (this.eHw != null) {
+            this.eHw.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.ewW != null) {
-            this.ewW.setVisibility(8);
+        if (this.eHw != null) {
+            this.eHw.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.ewW != null) {
-            this.ewW.setTextColor(i);
+        if (this.eHw != null) {
+            this.eHw.setTextColor(i);
         }
     }
 
     public void hideArrow() {
-        this.ewZ.setVisibility(8);
+        this.eHA.setVisibility(8);
     }
 
     public void displayArrow() {
-        this.ewZ.setVisibility(0);
+        this.eHA.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.ewZ.setImageResource(i);
+        this.eHA.setImageResource(i);
     }
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.juW.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jKr.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.juW.setLayoutParams(layoutParams);
-            this.juX.setText("");
-            this.juX.setVisibility(8);
+            this.jKr.setLayoutParams(layoutParams);
+            this.jKs.setText("");
+            this.jKs.setVisibility(8);
             return;
         }
-        this.juW.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.juW.getLayoutParams();
+        this.jKr.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.jKr.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.juW.setLayoutParams(layoutParams2);
-        this.juX.setText(str);
-        this.juX.setVisibility(0);
+        this.jKr.setLayoutParams(layoutParams2);
+        this.jKs.setText(str);
+        this.jKs.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -103,25 +103,25 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.ewW.setText(str);
+        this.eHw.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.ewW.getText();
+        return this.eHw.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.ewW.setBackgroundDrawable(drawable);
+        this.eHw.setBackgroundDrawable(drawable);
     }
 
-    protected void bhn() {
+    protected void bpZ() {
         LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
-        this.ewV = (LinearLayout) findViewById(R.id.container);
+        this.eHv = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.ewW = (TextView) findViewById(R.id.tip);
-        this.ewZ = (ImageView) findViewById(R.id.arrow2);
-        this.juW = (LinearLayout) findViewById(R.id.ll_container);
-        this.juX = (TextView) findViewById(R.id.tv_help);
+        this.eHw = (TextView) findViewById(R.id.tip);
+        this.eHA = (ImageView) findViewById(R.id.arrow2);
+        this.jKr = (LinearLayout) findViewById(R.id.ll_container);
+        this.jKs = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void e(AttributeSet attributeSet) {
@@ -137,14 +137,14 @@ public class ImageProblemItemView extends FrameLayout {
             this.textView.setTextColor(color);
         }
         if (string2 != null) {
-            this.ewW.setText(string2);
+            this.eHw.setText(string2);
         }
         if (color2 > -1) {
-            this.ewW.setTextColor(color2);
+            this.eHw.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.ewV.setClickable(false);
-        this.ewV.setFocusable(false);
-        this.ewZ.setVisibility(4);
+        this.eHv.setClickable(false);
+        this.eHv.setFocusable(false);
+        this.eHA.setVisibility(4);
     }
 }

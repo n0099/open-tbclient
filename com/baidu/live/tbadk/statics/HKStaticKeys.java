@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.statics;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HKStaticKeys extends SdkStaticKeys {
     public static final String HK_STATIC_FOLLOW_CLICK = "hk_follow_click";
     public static final String HK_STATIC_PLAYTIME_END = "hk_playtime_end";

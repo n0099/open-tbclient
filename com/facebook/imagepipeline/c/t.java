@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class t implements n {
-    private static t nal = null;
+    private static t nua = null;
 
     private t() {
     }
 
-    public static synchronized t dGc() {
+    public static synchronized t dSb() {
         t tVar;
         synchronized (t.class) {
-            if (nal == null) {
-                nal = new t();
+            if (nua == null) {
+                nua = new t();
             }
-            tVar = nal;
+            tVar = nua;
         }
         return tVar;
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFU() {
+    public void dRT() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -26,11 +26,11 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFV() {
+    public void dRU() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFW() {
+    public void dRV() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -38,7 +38,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFX() {
+    public void dRW() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -46,19 +46,19 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFY() {
+    public void dRX() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dFZ() {
+    public void dRY() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dGa() {
+    public void dRZ() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dGb() {
+    public void dSa() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

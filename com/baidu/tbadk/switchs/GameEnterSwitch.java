@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GameEnterSwitch extends a {
     public static final String GAME_ENTER_KEY = "android_game_enter_switch";
     public static final int OFF_TYPE = 0;

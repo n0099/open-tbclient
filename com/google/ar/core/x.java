@@ -5,7 +5,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class x extends com.google.a.b.a.a.a.e {
     private final /* synthetic */ AtomicBoolean a;
     private final /* synthetic */ aj b;
@@ -22,38 +22,38 @@ final class x extends com.google.a.b.a.a.a.e {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.b.nit.a(p.COMPLETED);
+                this.b.nCk.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.b.niI;
-                w.b(this.b.a, this.b.nit);
+                w wVar = this.b.nCz;
+                w.b(this.b.a, this.b.nCk);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.b.niI;
-                w.a(this.b.a, bundle, this.b.nit);
+                w wVar2 = this.b.nCz;
+                w.a(this.b.a, bundle, this.b.nCk);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.b.nit.a(p.ACCEPTED);
+                        this.b.nCk.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.b.nit.a(p.COMPLETED);
+                        this.b.nCk.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.b.nit.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.b.nCk.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.b.nit.a(p.CANCELLED);
+                        this.b.nCk.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.b.nit.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.b.nCk.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.b.nit.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.b.nCk.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

@@ -3,10 +3,6 @@ package com.baidu.browser.sailor.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.StatFs;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +11,14 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-import java.io.Closeable;
 import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class b {
-    private static Handler a;
-    private static SimpleDateFormat b = null;
+    private static SimpleDateFormat a = null;
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -86,24 +78,10 @@ public final class b {
         }
     }
 
-    public static String a(String str, String str2) {
-        if (!TextUtils.isEmpty(str2)) {
-            if (str2.startsWith("/")) {
-                str2 = str2.substring(1);
-            }
-            str = str + str2;
-            File parentFile = new File(str).getParentFile();
-            if (parentFile != null && !parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-        }
-        return str;
-    }
-
     private static String a(byte[] bArr, String str) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 sb.append("0");
             }
@@ -112,54 +90,13 @@ public final class b {
         return sb.toString();
     }
 
-    public static Thread a(Runnable runnable, String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("thread name should not be empty");
-        }
-        if (!str.startsWith("BDSB_")) {
-            str = "BDSB_" + str;
-        }
-        return new Thread(runnable, str);
-    }
-
-    public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void a(Runnable runnable) {
-        if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            rG().post(runnable);
-        } else {
-            runnable.run();
-        }
-    }
-
     public static boolean a() {
-        boolean z = false;
-        long currentTimeMillis = System.currentTimeMillis();
-        if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && WebKitFactory.getContext() != null) {
-            File externalFilesDir = WebKitFactory.getContext().getExternalFilesDir("");
-            if (externalFilesDir.exists() && externalFilesDir.canWrite()) {
-                File file = new File(externalFilesDir, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
-                if (file.exists()) {
-                    z = true;
-                } else {
-                    try {
-                        z = file.createNewFile();
-                    } catch (IOException e) {
-                        Log.w("CommonUtils", "isExternalStorageWriteable() can't create test file.");
-                    }
-                }
-            }
+        String processTypeString = WebKitFactory.getProcessTypeString();
+        if (TextUtils.isEmpty(processTypeString) || !processTypeString.equals("1")) {
+            WebViewFactoryProvider provider = WebViewFactory.getProvider();
+            return (provider != null ? (Boolean) provider.getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE) : false).booleanValue();
         }
-        Log.i("CommonUtils", "Utility.isExternalStorageWriteable(" + z + ") cost " + (System.currentTimeMillis() - currentTimeMillis) + "ms.");
-        return z;
+        return false;
     }
 
     public static boolean a(Context context) {
@@ -197,24 +134,6 @@ public final class b {
         return false;
     }
 
-    public static boolean a(File file) {
-        if (file == null) {
-            return false;
-        }
-        if (!file.exists()) {
-            try {
-                file.mkdirs();
-            } catch (SecurityException e) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static boolean a(String str, File file) {
-        return file.getAbsolutePath().startsWith(str);
-    }
-
     public static String b(String str) {
         try {
             return URLEncoder.encode(new String(a.a(str.getBytes())), "UTF-8");
@@ -222,36 +141,5 @@ public final class b {
             Log.printStackTrace(e);
             return "";
         }
-    }
-
-    public static boolean b() {
-        if (WebKitFactory.getContext() != null && WebKitFactory.getContext().getExternalFilesDir("") != null && "mounted".equals(Environment.getExternalStorageState())) {
-            StatFs statFs = new StatFs(WebKitFactory.getContext().getExternalFilesDir("").getPath());
-            long blockSize = statFs.getBlockSize();
-            long availableBlocks = statFs.getAvailableBlocks();
-            Log.d("CommonUtils", "Available size:" + (blockSize * availableBlocks));
-            if (availableBlocks * blockSize > 10485760) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean c() {
-        String processTypeString = WebKitFactory.getProcessTypeString();
-        if (TextUtils.isEmpty(processTypeString) || !processTypeString.equals("1")) {
-            WebViewFactoryProvider provider = WebViewFactory.getProvider();
-            return (provider != null ? (Boolean) provider.getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE) : false).booleanValue();
-        }
-        return false;
-    }
-
-    private static Handler rG() {
-        synchronized (b.class) {
-            if (a == null) {
-                a = new Handler(Looper.getMainLooper());
-            }
-        }
-        return a;
     }
 }

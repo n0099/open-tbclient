@@ -1,7 +1,7 @@
 package com.baidu.webkit.logsdk.d;
 
 import android.util.Base64;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class b {
     private byte[] a;
     private int b;
@@ -52,7 +52,7 @@ public final class b {
             }
             return new String(bArr2);
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return null;
         }
     }

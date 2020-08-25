@@ -12,16 +12,16 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.b;
-import org.a.d;
+import org.b.b;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class CompletableConcat extends a {
-    final b<? extends e> nSB;
+    final b<? extends e> omw;
     final int prefetch;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
-        this.nSB.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
+        this.omw.subscribe(new CompletableConcatSubscriber(cVar, this.prefetch));
     }
 
     /* loaded from: classes7.dex */
@@ -45,7 +45,7 @@ public final class CompletableConcat extends a {
             this.limit = i - (i >> 2);
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -69,7 +69,7 @@ public final class CompletableConcat extends a {
                     }
                 }
                 if (this.prefetch == Integer.MAX_VALUE) {
-                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.dSN());
+                    this.queue = new io.reactivex.internal.queue.a(io.reactivex.g.eeP());
                 } else {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }
@@ -79,7 +79,7 @@ public final class CompletableConcat extends a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(e eVar) {
             if (this.sourceFused == 0 && !this.queue.offer(eVar)) {
                 onError(new MissingBackpressureException());
@@ -88,7 +88,7 @@ public final class CompletableConcat extends a {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.once.compareAndSet(false, true)) {
                 DisposableHelper.dispose(this.inner);
@@ -98,7 +98,7 @@ public final class CompletableConcat extends a {
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.done = true;
             drain();
@@ -135,7 +135,7 @@ public final class CompletableConcat extends a {
                                 request();
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.K(th);
+                            io.reactivex.exceptions.a.J(th);
                             innerError(th);
                             return;
                         }

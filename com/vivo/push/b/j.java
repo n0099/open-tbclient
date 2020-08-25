@@ -1,12 +1,10 @@
 package com.vivo.push.b;
-
-import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class j extends com.vivo.push.y {
     private String a;
 
     public j() {
-        super(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME);
+        super(2013);
     }
 
     public j(String str) {

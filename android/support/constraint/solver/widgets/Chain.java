@@ -6,7 +6,7 @@ import android.support.constraint.solver.SolverVariable;
 import android.support.constraint.solver.widgets.ConstraintWidget;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Chain {
     private static final boolean DEBUG = false;
 

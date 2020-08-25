@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.a;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     public String mErrorString;
     public int mNetErrorCode;

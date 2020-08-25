@@ -5,50 +5,50 @@ import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes11.dex */
 public class a extends d implements ICloudIR {
-    private WeakReference<ICloudIR> ll;
-    private ICloudIRStateChangedListener lm;
+    private WeakReference<ICloudIR> lU;
+    private ICloudIRStateChangedListener lV;
 
     @Override // com.baidu.ar.d
     public void a(c cVar) {
         if (cVar instanceof ICloudIR) {
-            this.ll = new WeakReference<>((ICloudIR) cVar);
-            if (this.lm != null) {
-                ((ICloudIR) cVar).setStateChangedListener(this.lm);
+            this.lU = new WeakReference<>((ICloudIR) cVar);
+            if (this.lV != null) {
+                ((ICloudIR) cVar).setStateChangedListener(this.lV);
             }
         }
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void pause() {
-        if (this.ll == null || this.ll.get() == null) {
+        if (this.lU == null || this.lU.get() == null) {
             return;
         }
-        this.ll.get().pause();
+        this.lU.get().pause();
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.ll != null) {
-            this.ll.clear();
-            this.ll = null;
+        if (this.lU != null) {
+            this.lU.clear();
+            this.lU = null;
         }
-        this.lm = null;
+        this.lV = null;
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void resume() {
-        if (this.ll == null || this.ll.get() == null) {
+        if (this.lU == null || this.lU.get() == null) {
             return;
         }
-        this.ll.get().resume();
+        this.lU.get().resume();
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void setStateChangedListener(ICloudIRStateChangedListener iCloudIRStateChangedListener) {
-        this.lm = iCloudIRStateChangedListener;
-        if (this.lm == null || this.ll == null || this.ll.get() == null) {
+        this.lV = iCloudIRStateChangedListener;
+        if (this.lV == null || this.lU == null || this.lU.get() == null) {
             return;
         }
-        this.ll.get().setStateChangedListener(this.lm);
+        this.lU.get().setStateChangedListener(this.lV);
     }
 }

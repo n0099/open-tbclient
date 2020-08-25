@@ -7,8 +7,9 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -23,12 +24,12 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
-public class SapiDeviceInfo implements com.baidu.sapi2.c {
+/* loaded from: classes12.dex */
+public class SapiDeviceInfo implements NoProguard {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", Config.APP_VERSION_CODE, "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
 
     static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
@@ -130,26 +131,26 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (a.a.isEmpty() || list == null) {
-            return null;
-        }
-        for (String str : list) {
-            try {
-                jSONObject.put(str, a.a.get(str));
-            } catch (JSONException e) {
-                Log.e(e);
+        if (!a.a.isEmpty() && list != null) {
+            for (String str : list) {
+                try {
+                    jSONObject.put(str, a.a.get(str));
+                } catch (JSONException e) {
+                    Log.e(e);
+                }
             }
-        }
-        if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
-            try {
-                ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
-                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, currentAccount == null ? null : currentAccount.uid, 120));
-            } catch (JSONException e2) {
-                Log.e(e2);
+            if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
+                try {
+                    ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
+                    SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                    jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, currentAccount == null ? null : currentAccount.uid, 120));
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
             }
-        }
-        if (jSONObject.length() != 0) {
+            if (jSONObject.length() == 0) {
+                return null;
+            }
             if (z) {
                 return a(jSONObject.toString());
             }
@@ -162,11 +163,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
         try {
             String a2 = a();
             String base64Encode = SapiDeviceUtils.DeviceCrypto.base64Encode(new AES().encrypt(str, a2, d));
-            String[] strArr = new String[3];
-            strArr[0] = a2;
-            strArr[1] = base64Encode;
-            strArr[2] = "check";
-            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, SecurityUtil.md5(TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, strArr).getBytes(), false).substring(0, 6)});
+            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, SecurityUtil.md5(TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";
@@ -174,7 +171,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         static Map<String, String> a = new HashMap();
 

@@ -12,10 +12,10 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PrologueImageView extends ImageView {
-    private RequestOptions bGy;
-    private boolean bGz;
+    private RequestOptions bLY;
+    private boolean bLZ;
 
     public PrologueImageView(@NonNull Context context) {
         this(context, null);
@@ -27,8 +27,8 @@ public class PrologueImageView extends ImageView {
 
     public PrologueImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bGy = null;
-        this.bGz = false;
+        this.bLY = null;
+        this.bLZ = false;
         d(attributeSet);
     }
 
@@ -37,35 +37,35 @@ public class PrologueImageView extends ImageView {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, b.e.PrologueImageView);
             int resourceId = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_holder, 0);
             if (resourceId != 0) {
-                Qa();
-                this.bGy = this.bGy.placeholder(resourceId);
+                VV();
+                this.bLY = this.bLY.placeholder(resourceId);
             }
             int resourceId2 = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_errorHolder, 0);
             if (resourceId2 != 0) {
-                Qa();
-                this.bGy = this.bGy.error(resourceId2);
+                VV();
+                this.bLY = this.bLY.error(resourceId2);
             }
             Transformation transformation = null;
             if (obtainStyledAttributes.getBoolean(b.e.PrologueImageView_prologue_circleType, false)) {
-                transformation = new a(com.baidu.prologue.a.b.a.bEI.get().OO());
+                transformation = new a(com.baidu.prologue.a.b.a.bKi.get().UK());
             } else {
                 int i = obtainStyledAttributes.getInt(b.e.PrologueImageView_prologue_cornerRadius, 0);
                 if (i > 0) {
-                    this.bGz = true;
+                    this.bLZ = true;
                     transformation = new RoundedCorners(i);
                 }
             }
             if (transformation != null) {
-                Qa();
-                this.bGy = this.bGy.transform(transformation);
+                VV();
+                this.bLY = this.bLY.transform(transformation);
             }
             obtainStyledAttributes.recycle();
         }
     }
 
-    private void Qa() {
-        if (this.bGy == null) {
-            this.bGy = new RequestOptions();
+    private void VV() {
+        if (this.bLY == null) {
+            this.bLY = new RequestOptions();
         }
     }
 }

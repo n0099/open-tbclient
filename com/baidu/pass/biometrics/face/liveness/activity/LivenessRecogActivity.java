@@ -1,13 +1,11 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
-import android.animation.IntEvaluator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -29,7 +27,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.idl.facesdk.FaceInfo;
 import com.baidu.idl.facesdk.FaceSDK;
 import com.baidu.idl.facesdk.FaceTracker;
@@ -40,7 +37,6 @@ import com.baidu.pass.biometrics.base.dynamicupdate.LocalConfigOptions;
 import com.baidu.pass.biometrics.base.dynamicupdate.SdkConfigOptions;
 import com.baidu.pass.biometrics.base.dynamicupdate.SoManager;
 import com.baidu.pass.biometrics.base.http.HttpClientWrap;
-import com.baidu.pass.biometrics.base.http.HttpHandlerWrap;
 import com.baidu.pass.biometrics.base.http.HttpHashMapWrap;
 import com.baidu.pass.biometrics.base.http.result.ContrastPortraitResult;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
@@ -50,19 +46,14 @@ import com.baidu.pass.biometrics.base.utils.PassBioDataEncryptor;
 import com.baidu.pass.biometrics.base.utils.PassBioDisplayUtil;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.pass.biometrics.base.utils.ViewUtility;
 import com.baidu.pass.biometrics.face.R;
 import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraSurfaceView;
+import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.pass.biometrics.face.liveness.utils.BioSensorManager;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-import com.baidu.pass.biometrics.face.liveness.view.BioAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.ConstrastLoadingView;
-import com.baidu.pass.biometrics.face.liveness.view.CustomAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.xiaomi.mipush.sdk.Constants;
@@ -76,132 +67,423 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 @TargetApi(3)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
-    private static final int COUNTDOWNINTERVAL = 200;
     public static final String EXTRA_TIME_POINT_START = "time_point_start";
-    private static final int HEAD_DOWN = 1;
-    private static final int HEAD_EYES_BLINK = 0;
-    private static final int HEAD_MOUTH_OPEN = 5;
-    private static final int HEAD_POSE_STATE_OPEN = 1;
-    private static final int HEAD_TURN_LEFT = 3;
-    private static final int HEAD_TURN_RIGHT = 4;
-    private static final int HEAD_UP = 2;
-    private static final int IS_BRIGHTNESS_TOO_DARK = 2;
-    private static final int IS_FACE_OUT_OR_RANGE = 4;
-    private static final int IS_LOSE_FACE_FROM_CAMREA = 3;
-    private static final int IS_TOO_FAR_FROM_CAMREA = 1;
-    private static final int IS_TOO_NEAR_FROM_CAMERA = 0;
-    private static final int MILLISINFUTURE = 5000;
-    private static final int PERMISSION_REQUEST_CODE_CAMERA = 2002;
-    private static final int SCREEN_MAX_BRIGHTNESS = 255;
-    private static final String TAG = "LivenessRecog";
-    private static final FaceTracker.ActionType action = FaceTracker.ActionType.RECOGNIZE;
-    private AnimState animState;
-    private ImageView backBtn;
-    private PassFaceRecogCallback callback;
-    private int cameraAngle;
-    private byte[] cameraData;
-    private CameraInterface cameraInterface;
-    private int[] canvasBitmapSize;
-    private ConstrastLoadingView constrastLoadingView;
-    private int currentConstrastBeanPos;
-    private FaceTracker.ErrCode errorCode;
-    private byte[] faceData;
-    private byte[] faceDigest;
-    private FaceInfo[] faceInfos;
-    private FaceRecognitionTask faceRecognitionTask;
-    private ImageView faceStateIv;
-    private FaceTracker faceTracker;
-    private long firstLivenessRcogType;
-    private int firstLivenessRecogTime;
-    private boolean hasCameraReadyStatistics;
-    private int headMode;
-    private String[] headPoses;
-    private int illumValue;
-    private long lastCurMills;
-    private SdkConfigOptions.LivenessConfigOption livenessConfig;
-    private BioAlertDialog permissionAlertDialog;
-    private ArrayList<HashMap<String, byte[]>> portraitList;
-    private FrameLayout poseTipFl;
-    private TextView poseTipTv;
-    private FrameLayout poseTipWarningFl;
-    private ImageView poseTipWarningIv;
-    private TextView poseTipWarningTv;
-    private int previewHeight;
-    private int previewWidth;
-    private ProcessState processState;
-    private BioSensorManager sensorManager;
-    private CameraSurfaceView surfaceView;
-    private TimeCount timerCount;
-    private int totalConstrastBeanCount;
-    private Handler uiHandler;
-    private ViewGroup viewGroup;
-    private String voiceCredential;
-    private XfordView xfordView;
-    private int lastWaringType = -1;
-    private int[] argbData = null;
-    private boolean isActivityFinished = false;
-    private int frameStack = 0;
-    private Map<Integer, SoftReference<Bitmap>> bitmapCache = new ConcurrentHashMap();
-    private List<int[]> cameraDataCache = new ArrayList();
-    private boolean lifeCyclePause = false;
-    private LivenessStat livenessStat = new LivenessStat();
-    private boolean isLast = false;
-    private boolean guideLiveness = true;
-    private boolean whiteBgFlag = false;
-    private boolean firstillumCallback = true;
-    private Runnable recogTimeCountRunnable = new Runnable() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.1
-        @Override // java.lang.Runnable
-        public void run() {
-            if (LivenessRecogActivity.this.firstLivenessRcogType == 2) {
-                LivenessRecogActivity.this.processState.stateFlag = 5;
-                Log.w(LivenessRecogActivity.TAG, "timePointLivingEyeStart" + LivenessRecogActivity.this.livenessStat.timePointLivingEyeStart);
-                LivenessRecogActivity.this.headMode = 0;
-            } else {
-                LivenessRecogActivity.this.processState.stateFlag = 7;
-                Log.w(LivenessRecogActivity.TAG, "timePointLivingMouthStart" + LivenessRecogActivity.this.livenessStat.timePointLivingMouthStart);
-                LivenessRecogActivity.this.headMode = 5;
-            }
-            long currentTimeMillis = 20000 - (System.currentTimeMillis() - LivenessRecogActivity.this.processState.wholeProcessStartTime);
-            if (currentTimeMillis < 5000) {
-                LivenessRecogActivity.this.processState.wholeProcessTimeOut = 25000 - currentTimeMillis;
-            }
+    private static final String a = "LivenessRecog";
+    private static final int b = 2002;
+    private static final int c = 0;
+    private static final int d = 1;
+    private static final int e = 2;
+    private static final int f = 3;
+    private static final int g = 4;
+    private static final int h = 5;
+    private static final int i = 255;
+    private static final int j = 1;
+    private static final int k = 5000;
+    private static final int l = 200;
+    private static final int m = 0;
+    private static final int n = 1;
+    private static final int o = 2;
+    private static final int p = 3;
+    private static final int q = 4;
+    private static final FaceTracker.ActionType r = FaceTracker.ActionType.RECOGNIZE;
+    private TextView A;
+    private ConstrastLoadingView B;
+    private com.baidu.pass.biometrics.face.liveness.b.b C;
+    private com.baidu.pass.biometrics.face.liveness.view.a D;
+    private XfordView E;
+    private FaceTracker F;
+    private FaceInfo[] G;
+    private String[] I;
+    private int J;
+    private d K;
+    private int[] L;
+    private FaceTracker.ErrCode M;
+    private Handler O;
+    private c P;
+    private a Q;
+    private long R;
+    private b T;
+    private com.baidu.pass.biometrics.face.liveness.b.a U;
+    private ViewGroup V;
+    private int Y;
+    private long Z;
+    private SdkConfigOptions.LivenessConfigOption aa;
+    private String ba;
+    private int ea;
+    private int fa;
+    private ArrayList<HashMap<String, byte[]>> ga;
+    private boolean ha;
+    private byte[] ia;
+    private byte[] ja;
+    private int oa;
+    private com.baidu.pass.biometrics.face.liveness.d.b pa;
+    private byte[] ra;
+    private int sa;
+    private PassFaceRecogCallback t;
+    private int ta;
+    private ImageView u;
+    private int ua;
+    private ImageView v;
+    private FrameLayout w;
+    private TextView x;
+    private FrameLayout y;
+    private ImageView z;
+    private int s = -1;
+    private int[] H = null;
+    private boolean N = false;
+    private int S = 0;
+    private Map<Integer, SoftReference<Bitmap>> W = new ConcurrentHashMap();
+    private List<int[]> X = new ArrayList();
+    private boolean ca = false;
+    private com.baidu.pass.biometrics.face.liveness.c.a da = new com.baidu.pass.biometrics.face.liveness.c.a();
+    private boolean ka = false;
+    private boolean la = true;
+    private boolean ma = false;
+    private boolean na = true;
+    private Runnable qa = new j(this);
+    Camera.PreviewCallback va = new com.baidu.pass.biometrics.face.liveness.activity.c(this);
+    private boolean wa = false;
+    private int xa = -1;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public class a {
+        static final int a = 0;
+        static final int b = 1;
+        static final int c = 2;
+        static final int d = 3;
+        private static final int e = 0;
+        private static final int f = 1;
+        boolean g = false;
+        boolean h = false;
+        boolean i = false;
+        boolean j = false;
+
+        a() {
         }
-    };
-    Camera.PreviewCallback previewCallback = new Camera.PreviewCallback() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.11
-        @Override // android.hardware.Camera.PreviewCallback
-        public void onPreviewFrame(byte[] bArr, Camera camera) {
-            if (LivenessRecogActivity.this.processState.stateFlag != 0 && LivenessRecogActivity.this.processState.stateFlag != 10 && LivenessRecogActivity.this.processState.stateFlag != 17 && LivenessRecogActivity.this.processState.stateFlag != 19 && LivenessRecogActivity.this.processState.stateFlag != 18) {
-                try {
-                    if (LivenessRecogActivity.this.frameStack <= 0) {
-                        LivenessRecogActivity.this.cameraData = bArr;
-                        LivenessRecogActivity.this.doSomethingWithPreviewSize(camera);
-                        LivenessRecogActivity.this.faceRecognitionTask = new FaceRecognitionTask();
-                        LivenessRecogActivity.this.faceRecognitionTask.execute(new Void[0]);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes4.dex */
+    public class b extends AsyncTask<Void, Void, String> {
+        private b() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public String doInBackground(Void... voidArr) {
+            LivenessRecogActivity.n(LivenessRecogActivity.this);
+            LivenessRecogActivity.this.e();
+            return null;
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ b(LivenessRecogActivity livenessRecogActivity, j jVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public void onPostExecute(String str) {
+            super.onPostExecute(str);
+            LivenessRecogActivity.o(LivenessRecogActivity.this);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public class c {
+        static final int a = 0;
+        static final int b = 1;
+        static final int c = 2;
+        static final int d = 3;
+        static final int e = 4;
+        static final int f = 5;
+        static final int g = 6;
+        static final int h = 7;
+        static final int i = 8;
+        static final int j = 9;
+        static final int k = 10;
+        static final int l = 11;
+        static final int m = 17;
+        static final int n = 18;
+        static final int o = 19;
+        static final int p = 20;
+        static final int q = 5000;
+        static final int r = 20000;
+        long v;
+        int s = 0;
+        boolean t = false;
+        boolean u = false;
+        long w = 20000;
+        boolean x = false;
+        boolean y = false;
+
+        c() {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public class d extends CountDownTimer {
+        public d(long j, long j2) {
+            super(j, j2);
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            if (LivenessRecogActivity.this.N) {
+                return;
+            }
+            LivenessRecogActivity.this.K.start();
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            if (LivenessRecogActivity.this.P.s != 0 && LivenessRecogActivity.this.P.s != 17 && LivenessRecogActivity.this.P.s != 19 && LivenessRecogActivity.this.P.s != 18 && LivenessRecogActivity.this.P.s != 10) {
+                FaceInfo[] faceInfoArr = LivenessRecogActivity.this.G;
+                if (LivenessRecogActivity.this.P.s == 1) {
+                    if (LivenessRecogActivity.this.n()) {
+                        LivenessRecogActivity.this.i();
+                        return;
+                    } else if (LivenessRecogActivity.this.b(faceInfoArr)) {
+                        if (LivenessRecogActivity.this.M == FaceTracker.ErrCode.POOR_ILLUMINATION) {
+                            LivenessRecogActivity.this.d(2);
+                            return;
+                        }
+                        LivenessRecogActivity livenessRecogActivity = LivenessRecogActivity.this;
+                        if (livenessRecogActivity.a(faceInfoArr[0], livenessRecogActivity.M)) {
+                            LivenessRecogActivity.this.d(4);
+                            return;
+                        } else if (!LivenessRecogActivity.this.a(faceInfoArr)) {
+                            LivenessRecogActivity.this.s = -1;
+                            LivenessRecogActivity.this.y.setVisibility(8);
+                            LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
+                            LivenessRecogActivity.this.P.t = false;
+                            LivenessRecogActivity.this.da.w = 0;
+                            Log.w(LivenessRecogActivity.a, "STATE_START_RECOGNIZE, livenessStat.resetTimePoint()");
+                            return;
+                        } else if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
+                            LivenessRecogActivity.this.d(1);
+                            return;
+                        } else if (PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
+                            LivenessRecogActivity.this.d(0);
+                            return;
+                        } else {
+                            LivenessRecogActivity.this.s = -1;
+                            LivenessRecogActivity.this.y.setVisibility(8);
+                            LivenessRecogActivity.this.P.s = 2;
+                            if (!LivenessRecogActivity.this.P.t) {
+                                LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_successed));
+                                LivenessRecogActivity.this.R = System.currentTimeMillis();
+                                LivenessRecogActivity.this.P.t = true;
+                            }
+                            LivenessRecogActivity.this.x();
+                            LivenessRecogActivity.this.c(faceInfoArr);
+                            return;
+                        }
+                    } else {
+                        LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
+                        LivenessRecogActivity.this.P.t = false;
+                        LivenessRecogActivity.this.s = -1;
+                        LivenessRecogActivity.this.y.setVisibility(8);
+                        return;
                     }
-                } catch (Throwable th) {
-                    Log.e(th);
+                }
+                if (LivenessRecogActivity.this.P.s == 4) {
+                    if (LivenessRecogActivity.this.n()) {
+                        LivenessRecogActivity.this.i();
+                        return;
+                    } else if (!LivenessRecogActivity.this.b(faceInfoArr)) {
+                        LivenessRecogActivity.this.P.s = 1;
+                        LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
+                        LivenessRecogActivity.this.da.a();
+                        Log.w(LivenessRecogActivity.a, "STATE_FIND_FACE_SPECIAL_ANIM_DONE NO FACE, livenessStat.resetTimePoint()");
+                        LivenessRecogActivity.this.P.t = false;
+                        LivenessRecogActivity.this.da.w = 0;
+                        LivenessRecogActivity.this.da.Z = System.currentTimeMillis();
+                        return;
+                    } else {
+                        LivenessRecogActivity.this.s = -1;
+                        LivenessRecogActivity.this.y.setVisibility(8);
+                        if (LivenessRecogActivity.this.a(faceInfoArr)) {
+                            if (LivenessRecogActivity.this.d(faceInfoArr)) {
+                                if (LivenessRecogActivity.this.Z == 1) {
+                                    LivenessRecogActivity.this.P.s = 5;
+                                } else {
+                                    LivenessRecogActivity.this.P.s = 7;
+                                }
+                                LivenessRecogActivity.this.da.ba = System.currentTimeMillis();
+                                LivenessRecogActivity.this.da.da = System.currentTimeMillis();
+                                Log.w(LivenessRecogActivity.a, "timePointLivingMouthStart" + LivenessRecogActivity.this.da.da);
+                                LivenessRecogActivity.this.c(faceInfoArr);
+                                long j2 = LivenessRecogActivity.this.Y * 1000;
+                                if (j2 < 20000) {
+                                    LivenessRecogActivity.this.O.postDelayed(LivenessRecogActivity.this.qa, j2);
+                                }
+                            } else {
+                                LivenessRecogActivity.this.P.s = 1;
+                                LivenessRecogActivity.this.v.setImageBitmap(LivenessRecogActivity.this.b(R.drawable.pass_liveness_recog_face_failed));
+                                LivenessRecogActivity.this.da.a();
+                                Log.w(LivenessRecogActivity.a, "STATE_FIND_FACE_SPECIAL_ANIM_DONE, livenessStat.resetTimePoint()");
+                                LivenessRecogActivity.this.P.t = false;
+                                LivenessRecogActivity.this.da.w = 0;
+                                LivenessRecogActivity.this.da.Z = System.currentTimeMillis();
+                                return;
+                            }
+                        }
+                    }
+                }
+                if (LivenessRecogActivity.this.P.s != 5) {
+                    if (LivenessRecogActivity.this.P.s == 7) {
+                        if (LivenessRecogActivity.this.b(faceInfoArr)) {
+                            LivenessRecogActivity.this.s = -1;
+                            LivenessRecogActivity.this.y.setVisibility(8);
+                        }
+                        if (!LivenessRecogActivity.this.Q.i) {
+                            LivenessRecogActivity.this.c(3);
+                            LivenessRecogActivity.this.Q.i = true;
+                        }
+                    }
+                } else {
+                    if (LivenessRecogActivity.this.b(faceInfoArr)) {
+                        LivenessRecogActivity.this.s = -1;
+                        LivenessRecogActivity.this.y.setVisibility(8);
+                    }
+                    if (!LivenessRecogActivity.this.Q.h) {
+                        LivenessRecogActivity.this.c(1);
+                        LivenessRecogActivity.this.Q.h = true;
+                    }
+                }
+                Log.e(LivenessRecogActivity.a, "state STATE_START_TRACK_BLICK state", Integer.valueOf(LivenessRecogActivity.this.P.s));
+                if (LivenessRecogActivity.this.P.s == 6 || LivenessRecogActivity.this.P.s == 8) {
+                    Log.e(LivenessRecogActivity.a, "state STATE_START_TRACK_BLICK");
+                    if (LivenessRecogActivity.this.n()) {
+                        LivenessRecogActivity.this.i();
+                        return;
+                    } else if (LivenessRecogActivity.this.b(faceInfoArr)) {
+                        if (LivenessRecogActivity.this.M == FaceTracker.ErrCode.POOR_ILLUMINATION) {
+                            LivenessRecogActivity.this.d(2);
+                            return;
+                        }
+                        LivenessRecogActivity livenessRecogActivity2 = LivenessRecogActivity.this;
+                        if (livenessRecogActivity2.a(faceInfoArr[0], livenessRecogActivity2.M)) {
+                            LivenessRecogActivity.this.d(4);
+                            return;
+                        } else if (!LivenessRecogActivity.this.a(faceInfoArr)) {
+                            LivenessRecogActivity.this.s = -1;
+                            LivenessRecogActivity.this.y.setVisibility(8);
+                            return;
+                        } else if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
+                            LivenessRecogActivity.this.d(1);
+                            return;
+                        } else if (PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
+                            LivenessRecogActivity.this.d(0);
+                            return;
+                        } else {
+                            LivenessRecogActivity.this.s = -1;
+                            LivenessRecogActivity.this.y.setVisibility(8);
+                            LivenessRecogActivity.this.c(faceInfoArr);
+                        }
+                    } else {
+                        LivenessRecogActivity.this.d(3);
+                        LivenessRecogActivity.this.P.u = false;
+                        return;
+                    }
+                }
+                if (LivenessRecogActivity.this.P.s == 9) {
+                    if (LivenessRecogActivity.this.n()) {
+                        LivenessRecogActivity.this.i();
+                        return;
+                    } else if (LivenessRecogActivity.this.b(faceInfoArr)) {
+                        if (LivenessRecogActivity.this.M == FaceTracker.ErrCode.POOR_ILLUMINATION) {
+                            LivenessRecogActivity.this.d(2);
+                            return;
+                        }
+                        LivenessRecogActivity livenessRecogActivity3 = LivenessRecogActivity.this;
+                        if (livenessRecogActivity3.a(faceInfoArr[0], livenessRecogActivity3.M)) {
+                            LivenessRecogActivity.this.d(4);
+                            return;
+                        } else if (LivenessRecogActivity.this.a(faceInfoArr)) {
+                            if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
+                                LivenessRecogActivity.this.d(1);
+                                return;
+                            } else if (PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.L)) {
+                                LivenessRecogActivity.this.d(0);
+                                return;
+                            } else {
+                                LivenessRecogActivity.this.s = -1;
+                                LivenessRecogActivity.this.y.setVisibility(8);
+                            }
+                        }
+                    } else {
+                        LivenessRecogActivity.this.d(3);
+                        LivenessRecogActivity.this.P.u = false;
+                        return;
+                    }
+                }
+                Log.w(LivenessRecogActivity.a, "onTick|state" + LivenessRecogActivity.this.P.s + "|errcode|" + LivenessRecogActivity.this.M);
+                if (LivenessRecogActivity.this.b(faceInfoArr) && !LivenessRecogActivity.this.N) {
+                    if ((LivenessRecogActivity.this.P.s == 9 || LivenessRecogActivity.this.P.s == 20) && LivenessRecogActivity.this.M == FaceTracker.ErrCode.OK) {
+                        FaceVerifyData[] faceVerifyDataArr = LivenessRecogActivity.this.F.get_FaceVerifyData(0);
+                        LivenessRecogActivity.this.da.ha = true;
+                        if (faceVerifyDataArr == null || faceVerifyDataArr.length <= 0) {
+                            LivenessRecogActivity.this.da.G = 0;
+                        } else {
+                            LivenessRecogActivity.this.da.G = 1;
+                        }
+                        Object[] objArr = new Object[1];
+                        objArr[0] = "livenessdone|faceVerifyDatas length|" + (faceVerifyDataArr != null ? Integer.valueOf(faceVerifyDataArr.length) : "0") + "|state|" + LivenessRecogActivity.this.P.s;
+                        Log.w(LivenessRecogActivity.a, objArr);
+                        LivenessRecogActivity livenessRecogActivity4 = LivenessRecogActivity.this;
+                        if (livenessRecogActivity4.b(faceInfoArr[0], livenessRecogActivity4.M) && faceVerifyDataArr != null && faceVerifyDataArr.length > 0) {
+                            LivenessRecogActivity.this.P.s = 10;
+                            LivenessRecogActivity.this.O.removeCallbacks(LivenessRecogActivity.this.qa);
+                            LivenessRecogActivity.this.K.cancel();
+                            LivenessRecogActivity.this.U.f();
+                            LivenessRecogActivity.this.B.setVisible(0);
+                            LivenessRecogActivity.this.a(LivenessRecogActivity.this.b(faceVerifyDataArr));
+                        }
+                    }
                 }
             }
         }
-    };
-    private boolean isFinish = false;
-    private int lastFaceId = -1;
-
-    static /* synthetic */ int access$2004(LivenessRecogActivity livenessRecogActivity) {
-        int i = livenessRecogActivity.frameStack + 1;
-        livenessRecogActivity.frameStack = i;
-        return i;
     }
 
-    static /* synthetic */ int access$2006(LivenessRecogActivity livenessRecogActivity) {
-        int i = livenessRecogActivity.frameStack - 1;
-        livenessRecogActivity.frameStack = i;
-        return i;
+    static /* synthetic */ int n(LivenessRecogActivity livenessRecogActivity) {
+        int i2 = livenessRecogActivity.S + 1;
+        livenessRecogActivity.S = i2;
+        return i2;
+    }
+
+    static /* synthetic */ int o(LivenessRecogActivity livenessRecogActivity) {
+        int i2 = livenessRecogActivity.S - 1;
+        livenessRecogActivity.S = i2;
+        return i2;
+    }
+
+    public static void setBrightness(Activity activity, int i2) {
+        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+        attributes.screenBrightness = Float.valueOf(i2).floatValue() * 0.003921569f;
+        activity.getWindow().setAttributes(attributes);
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        return false;
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // com.baidu.pass.biometrics.face.liveness.activity.LivenessBaseActivity, com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
@@ -209,15 +491,15 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         setRequestedOrientation(1);
         super.onCreate(bundle);
         if (bundle != null) {
-            this.hasCameraReadyStatistics = bundle.getBoolean("hasCameraReadyStatistics", false);
+            this.ha = bundle.getBoolean("hasCameraReadyStatistics", false);
         }
         requestWindowFeature(1);
         getWindow().addFlags(67108864);
         getWindow().addFlags(128);
-        this.viewGroup = (ViewGroup) View.inflate(this, R.layout.layout_pass_liveness_recognize, null);
-        setContentView(this.viewGroup);
-        this.livenessStat.timePointStart = getIntent().getLongExtra(EXTRA_TIME_POINT_START, System.currentTimeMillis());
-        this.livenessStat.asyncGetPortraitType = 1;
+        this.V = (ViewGroup) View.inflate(this, R.layout.layout_pass_liveness_recognize, null);
+        setContentView(this.V);
+        this.da.U = getIntent().getLongExtra(EXTRA_TIME_POINT_START, System.currentTimeMillis());
+        this.da.v = 1;
         if (this.passFaceRecogDTO == null) {
             PassFaceRecogCallback passFaceRecogCallback = PassFaceRecogManager.getInstance().getPassFaceRecogCallback();
             if (passFaceRecogCallback != null) {
@@ -226,154 +508,109 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_PARAM);
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
             }
-            activityFinish(-205);
+            a(-205);
             return;
         }
-        init();
-        if (!this.livenessConfig.closeSkipLiving) {
-            this.guideLiveness = this.passFaceRecogDTO.guideLiveness;
+        j();
+        if (!this.aa.closeSkipLiving) {
+            this.la = this.passFaceRecogDTO.guideLiveness;
         }
-        setupViews();
-        this.sensorManager.registerSensorListener(new BioSensorManager.SensorCallback() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.2
-            @Override // com.baidu.pass.biometrics.face.liveness.utils.BioSensorManager.SensorCallback
-            public void onChange(float f) {
-                if (LivenessRecogActivity.this.firstillumCallback) {
-                    LivenessRecogActivity.this.firstillumCallback = false;
-                    if (LivenessRecogActivity.this.isUpdateWhiteBg(f)) {
-                        LivenessRecogActivity.this.firstLivenessRcogType = 2L;
-                        LivenessRecogActivity.this.headMode = 5;
-                    }
-                }
-                LivenessRecogActivity.this.updateWhiteBg(f);
-            }
-        });
-        requestCameraPermission();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String argb2String(int[] iArr) {
-        CameraInterface.CameraSize previewSize = this.cameraInterface.getPreviewSize();
-        Bitmap createBitmap = Bitmap.createBitmap(iArr, previewSize.height, previewSize.width, Bitmap.Config.ARGB_8888);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        try {
-            byteArrayOutputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return new String(Base64Utils.encode(byteArray));
-    }
-
-    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$3] */
-    @TargetApi(3)
-    private void goToFaceMatchResult(final ContrastPortraitResult contrastPortraitResult) {
-        if (this.callback != null && contrastPortraitResult != null) {
-            new AsyncTask<Void, Void, PassFaceRecogResult>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.3
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // android.os.AsyncTask
-                public PassFaceRecogResult doInBackground(Void... voidArr) {
-                    byte[] encode;
-                    int i = 0;
-                    PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                    if (contrastPortraitResult.isProcessPass()) {
-                        LivenessRecogActivity.this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_PASS;
-                        passFaceRecogResult.setResultCode(0);
-                    } else {
-                        LivenessRecogActivity.this.livenessStat.faceMatchType = "fail";
-                        passFaceRecogResult.setResultCode(-302);
-                    }
-                    passFaceRecogResult.callbackkey = contrastPortraitResult.callbackkey;
-                    if (!TextUtils.isEmpty(contrastPortraitResult.imgdigests) && LivenessRecogActivity.this.portraitList != null && LivenessRecogActivity.this.portraitList.size() > 0) {
-                        int size = LivenessRecogActivity.this.portraitList.size();
-                        while (true) {
-                            if (i < size) {
-                                byte[] bArr = (byte[]) ((HashMap) LivenessRecogActivity.this.portraitList.get(i)).get("digest");
-                                if (bArr != null && contrastPortraitResult.imgdigests.equals(new String(bArr))) {
-                                    break;
-                                }
-                                i++;
-                            } else {
-                                i = -1;
-                                break;
-                            }
-                        }
-                        if (i != -1 && LivenessRecogActivity.this.passFaceRecogDTO != null) {
-                            if (LivenessRecogActivity.this.passFaceRecogDTO.isReturnOriginImage() && LivenessRecogActivity.this.cameraDataCache != null && LivenessRecogActivity.this.cameraDataCache.size() > 0) {
-                                passFaceRecogResult.originalImage = LivenessRecogActivity.this.argb2String((int[]) LivenessRecogActivity.this.cameraDataCache.get((LivenessRecogActivity.this.cameraDataCache.size() - i) - 1));
-                            }
-                            if (LivenessRecogActivity.this.passFaceRecogDTO.isReturnCutImage()) {
-                                byte[] bArr2 = (byte[]) ((HashMap) LivenessRecogActivity.this.portraitList.get(i)).get("data");
-                                if (bArr2 != null && (encode = Base64Utils.encode(bArr2)) != null) {
-                                    passFaceRecogResult.faceimage = new String(encode);
-                                }
-                                passFaceRecogResult.imgdigests = new String(contrastPortraitResult.imgdigests);
-                            }
-                        }
-                    }
-                    passFaceRecogResult.authSid = contrastPortraitResult.authsid;
-                    return passFaceRecogResult;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // android.os.AsyncTask
-                public void onPostExecute(PassFaceRecogResult passFaceRecogResult) {
-                    super.onPostExecute((AnonymousClass3) passFaceRecogResult);
-                    if (contrastPortraitResult.isProcessPass()) {
-                        LivenessRecogActivity.this.callback.onSuccess(passFaceRecogResult);
-                    } else {
-                        LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
-                    }
-                    LivenessRecogActivity.this.activityFinish(passFaceRecogResult.getResultCode());
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void callbackFailureOrContinueFaceDetect(int i, String str) {
-        if (this.currentConstrastBeanPos == this.totalConstrastBeanCount) {
-            this.livenessStat.faceMatchType = "fail";
-            if (this.callback != null) {
-                PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                passFaceRecogResult.setResultCode(i);
-                passFaceRecogResult.setResultMsg(str);
-                this.callback.onFailure(passFaceRecogResult);
-                setActivityResult(-1);
-                activityFinish(passFaceRecogResult.getResultCode());
-                return;
-            }
-            return;
-        }
-        dofaceDetect();
+        s();
+        this.pa.a(new k(this));
+        q();
     }
 
     @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        if (this.lifeCyclePause) {
-            this.lifeCyclePause = false;
-            if (!this.processState.permissionFlag) {
-                if (this.processState.stateFlag < 10) {
-                    startLiveness();
-                    openCamera();
-                } else if (this.processState.stateFlag == 17) {
-                    openCamera();
-                }
-            }
+    public void onDestroy() {
+        super.onDestroy();
+        com.baidu.pass.biometrics.face.liveness.d.b bVar = this.pa;
+        if (bVar != null) {
+            bVar.b();
         }
+        this.N = true;
+        this.H = null;
+        this.ra = null;
+        this.X.clear();
+        this.X = null;
+        try {
+            b();
+            this.V.removeView(this.C);
+            this.C = null;
+            a(this.V);
+            this.V.removeCallbacks(null);
+            this.V = null;
+            this.O.removeCallbacksAndMessages(null);
+            System.gc();
+        } catch (Exception e2) {
+            Log.e(e2);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
+            y();
+            a();
+            this.U.a();
+            setActivityResult(0);
+            a(-204);
+        }
+        return super.onKeyUp(i2, keyEvent);
     }
 
     @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.lifeCyclePause = true;
-        if (!this.processState.permissionFlag) {
-            this.timerCount.cancel();
-            this.cameraInterface.doStopCamera();
+        this.ca = true;
+        if (!this.P.y) {
+            this.K.cancel();
+            this.U.a();
         }
+    }
+
+    @Override // android.app.Activity
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        this.P.y = false;
+        if (i2 == 2002) {
+            if (iArr.length > 0 && iArr[0] == 0) {
+                com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
+                aVar.t = 1;
+                aVar.u = 1;
+                aVar.V = System.currentTimeMillis();
+                w();
+                if (p()) {
+                    this.da.W = System.currentTimeMillis();
+                    return;
+                }
+                return;
+            }
+            u();
+        }
+    }
+
+    @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        if (this.ca) {
+            this.ca = false;
+            c cVar = this.P;
+            if (!cVar.y) {
+                int i2 = cVar.s;
+                if (i2 < 10) {
+                    w();
+                    p();
+                } else if (i2 == 17) {
+                    p();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.pass.biometrics.face.liveness.activity.LivenessBaseActivity, android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putBoolean("hasCameraReadyStatistics", this.ha);
     }
 
     @Override // android.app.Activity
@@ -381,165 +618,96 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         super.onStop();
     }
 
-    @Override // com.baidu.pass.biometrics.face.liveness.activity.LivenessBaseActivity, android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putBoolean("hasCameraReadyStatistics", this.hasCameraReadyStatistics);
+    public void setActivityResult(int i2) {
+        Intent intent = new Intent();
+        intent.putExtras(new Bundle());
+        setResult(i2, intent);
     }
 
-    @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.sensorManager != null) {
-            this.sensorManager.unRegisterSensorListener();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        c cVar = this.P;
+        cVar.v = 0L;
+        if (!cVar.x) {
+            v();
+            this.P.x = true;
+            return;
         }
-        this.isActivityFinished = true;
-        this.argbData = null;
-        this.cameraData = null;
-        this.cameraDataCache.clear();
-        this.cameraDataCache = null;
+        t();
+    }
+
+    private void j() {
+        this.I = getResources().getStringArray(R.array.pass_liveness_head_pose);
+        this.O = new Handler(Looper.getMainLooper(), this);
+        this.P = new c();
+        this.Q = new a();
+        this.K = new d(5000L, 200L);
+        this.P.v = System.currentTimeMillis();
+        this.da.r = this.passFaceRecogDTO.getSpno();
+        this.t = PassFaceRecogManager.getInstance().getPassFaceRecogCallback();
+        m();
+        this.J = g();
+        l();
+        this.oa = h();
+        this.da.D = this.oa;
+        this.pa = new com.baidu.pass.biometrics.face.liveness.d.b(this);
+    }
+
+    private void k() throws Exception {
+        String token = RimArmor.getInstance().getToken();
+        if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty("frfsd_ai")) {
+            try {
+                this.F = new FaceTracker(getAssets(), this, "frfsd_ai", token, "", FaceSDK.AlignMethodType.SDM_7PTS, FaceSDK.ParsMethodType.NOT_USE);
+                this.F.set_isFineAlign(false);
+                this.F.set_isVerifyLive(true);
+                this.F.set_min_face_size(this.aa.getMinFaceSize());
+                this.F.set_illum_thr(this.aa.getIllumThr());
+                this.F.set_track_by_detection_interval(this.aa.getTrackInterval());
+                this.F.set_detect_in_video_interval(this.aa.getDetectInterval());
+                this.F.set_eulur_angle_thr(this.aa.getYaw(), this.aa.getPitch(), this.aa.getRoll());
+                this.F.set_max_reg_img_num(this.aa.getMaxRegImgNum());
+                this.F.set_prefetch_reg_img_interval(this.aa.getPrefetchRegImgInterval());
+                this.F.set_cropFaceSize(this.aa.getCropFaceSize());
+                this.F.set_cropFaceEnlargeRatio(this.aa.getCropFaceRatio());
+                return;
+            } catch (Exception e2) {
+                throw new Exception("init faceTracker failure: " + e2.getMessage());
+            }
+        }
+        throw new Exception("idlToken or apiKey is empty");
+    }
+
+    private void l() {
         try {
-            clearBitmapCache();
-            this.viewGroup.removeView(this.surfaceView);
-            this.surfaceView = null;
-            unbindDrawables(this.viewGroup);
-            this.viewGroup.removeCallbacks(null);
-            this.viewGroup = null;
-            this.uiHandler.removeCallbacksAndMessages(null);
-            System.gc();
-        } catch (Exception e) {
-            Log.e(e);
-        }
-    }
-
-    private void unbindDrawables(View view) {
-        if (view.getBackground() != null) {
-            view.getBackground().setCallback(null);
-            view.setBackgroundResource(0);
-        }
-        if (view instanceof ImageView) {
-            ((ImageView) view).setImageBitmap(null);
-        }
-        if (view instanceof ViewGroup) {
-            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
-                unbindDrawables(((ViewGroup) view).getChildAt(i));
-            }
-            ((ViewGroup) view).removeAllViews();
-            view.setBackgroundResource(0);
-        }
-    }
-
-    private void clearBitmapCache() {
-        for (SoftReference<Bitmap> softReference : this.bitmapCache.values()) {
-            Bitmap bitmap = softReference.get();
-            if (bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void userCancel() {
-        if (this.callback != null) {
-            PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-            passFaceRecogResult.setResultMsg(PassFaceRecogResult.ERROR_MSG_USER_CANCEL);
-            passFaceRecogResult.setResultCode(-204);
-            this.callback.onFailure(passFaceRecogResult);
-        }
-    }
-
-    private void setupViews() {
-        PassBioDisplayUtil.enableNavigationBarTint(this, getResources().getColor(17170445));
-        setBrightness(this, 255);
-        this.backBtn = (ImageView) findViewById(R.id.btn_cancel);
-        this.backBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                LivenessRecogActivity.this.userCancel();
-                LivenessRecogActivity.this.btnBackStat();
-                LivenessRecogActivity.this.setActivityResult(0);
-                LivenessRecogActivity.this.activityFinish(-204);
-                LivenessRecogActivity.this.cameraInterface.doStopCamera();
-            }
-        });
-        this.poseTipFl = (FrameLayout) findViewById(R.id.layout_pose_tip);
-        this.poseTipTv = (TextView) findViewById(R.id.tv_pose_tip);
-        this.poseTipWarningFl = (FrameLayout) findViewById(R.id.layout_pose_warning);
-        this.poseTipWarningIv = (ImageView) findViewById(R.id.iv_pose_warning_tip);
-        this.poseTipWarningTv = (TextView) findViewById(R.id.tv_pose_warning_tip);
-        this.constrastLoadingView = (ConstrastLoadingView) findViewById(R.id.constrastLoadingView);
-        this.faceStateIv = (ImageView) findViewById(R.id.img_face_recognized_state);
-        this.faceStateIv.setImageBitmap(getScaleBitmap(R.drawable.pass_liveness_recog_face_failed));
-        this.surfaceView = new CameraSurfaceView(this, null);
-        this.viewGroup.addView(this.surfaceView, 0, new ViewGroup.LayoutParams(-2, -1));
-        this.cameraInterface = new CameraInterface();
-        this.surfaceView.setCameraInterface(this.cameraInterface);
-        this.surfaceView.setVisibility(4);
-        this.xfordView = (XfordView) findViewById(R.id.xfordview);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void btnBackStat() {
-        if (this.processState.stateFlag < 4) {
-            this.livenessStat.clickCloseType = LivenessStat.TYPE_CLOSE_FIND_FACE;
-        } else if (this.processState.stateFlag >= 4 && this.processState.stateFlag < 9) {
-            if (this.headMode == 0) {
-                this.livenessStat.clickCloseType = LivenessStat.TYPE_CLOSE_FIND_EYE;
-            } else if (this.headMode == 5) {
-                this.livenessStat.clickCloseType = LivenessStat.TYPE_CLOSE_FIND_MOUTH;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getHeadMode() {
-        if (this.firstLivenessRcogType == 1) {
-            this.headMode = 0;
-        } else {
-            this.headMode = 5;
-        }
-        return this.headMode;
-    }
-
-    private void init() {
-        this.headPoses = getResources().getStringArray(R.array.pass_liveness_head_pose);
-        this.uiHandler = new Handler(Looper.getMainLooper(), this);
-        this.processState = new ProcessState();
-        this.animState = new AnimState();
-        this.timerCount = new TimeCount(5000L, 200L);
-        this.processState.wholeProcessStartTime = System.currentTimeMillis();
-        this.livenessStat.subPro = this.passFaceRecogDTO.getSpno();
-        this.callback = PassFaceRecogManager.getInstance().getPassFaceRecogCallback();
-        initOnlineConfig();
-        this.headMode = getHeadMode();
-        initLiveness();
-        this.illumValue = getOnlineIllum();
-        this.livenessStat.onLineIllum = this.illumValue;
-        this.sensorManager = new BioSensorManager(this);
-    }
-
-    private void initOnlineConfig() {
-        this.livenessConfig = LocalConfigOptions.getInstance(this).getBioOptions().livenessConfigOption;
-        this.firstLivenessRecogTime = this.livenessConfig.getRecogtimeInterval();
-        this.firstLivenessRcogType = this.livenessConfig.getRecogActionType();
-    }
-
-    private void initLiveness() {
-        try {
-            loadSo();
-            initFaceTracker();
-        } catch (Exception e) {
-            if (this.callback != null) {
+            o();
+            k();
+        } catch (Exception e2) {
+            if (this.t != null) {
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(-303);
-                this.callback.onFailure(passFaceRecogResult);
+                this.t.onFailure(passFaceRecogResult);
             }
             setActivityResult(0);
-            activityFinish(-303);
+            a(-303);
         }
     }
 
-    private void loadSo() throws Exception {
+    private void m() {
+        this.aa = LocalConfigOptions.getInstance(this).getBioOptions().livenessConfigOption;
+        this.Y = this.aa.getRecogtimeInterval();
+        this.Z = this.aa.getRecogActionType();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean n() {
+        Log.e(a, "processState.wholeProcessStartTime", Long.valueOf(this.P.v));
+        long currentTimeMillis = System.currentTimeMillis();
+        c cVar = this.P;
+        long j2 = cVar.v;
+        return currentTimeMillis - j2 > cVar.w && j2 > 0;
+    }
+
+    private void o() throws Exception {
         Bundle bundle = new Bundle();
         bundle.putString("uuid", this.passFaceRecogDTO.processid);
         bundle.putString("tpl", BeanConstants.tpl);
@@ -549,314 +717,208 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private void initFaceTracker() throws Exception {
-        String token = RimArmor.getInstance().getToken();
-        if (TextUtils.isEmpty(token) || TextUtils.isEmpty("frfsd_ai")) {
-            throw new Exception("idlToken or apiKey is empty");
-        }
-        try {
-            this.faceTracker = new FaceTracker(getAssets(), this, "frfsd_ai", token, "", FaceSDK.AlignMethodType.SDM_7PTS, FaceSDK.ParsMethodType.NOT_USE);
-            this.faceTracker.set_isFineAlign(false);
-            this.faceTracker.set_isVerifyLive(true);
-            this.faceTracker.set_min_face_size(this.livenessConfig.getMinFaceSize());
-            this.faceTracker.set_illum_thr(this.livenessConfig.getIllumThr());
-            this.faceTracker.set_track_by_detection_interval(this.livenessConfig.getTrackInterval());
-            this.faceTracker.set_detect_in_video_interval(this.livenessConfig.getDetectInterval());
-            this.faceTracker.set_eulur_angle_thr(this.livenessConfig.getYaw(), this.livenessConfig.getPitch(), this.livenessConfig.getRoll());
-            this.faceTracker.set_max_reg_img_num(this.livenessConfig.getMaxRegImgNum());
-            this.faceTracker.set_prefetch_reg_img_interval(this.livenessConfig.getPrefetchRegImgInterval());
-            this.faceTracker.set_cropFaceSize(this.livenessConfig.getCropFaceSize());
-            this.faceTracker.set_cropFaceEnlargeRatio(this.livenessConfig.getCropFaceRatio());
-        } catch (Exception e) {
-            throw new Exception("init faceTracker failure: " + e.getMessage());
-        }
-    }
-
-    private boolean openCamera() {
-        this.surfaceView.setVisibility(4);
-        boolean doOpenCamera = this.cameraInterface.doOpenCamera(this, 3);
-        if (!doOpenCamera) {
-            showPermissionDialog();
+    private boolean p() {
+        this.C.setVisibility(4);
+        boolean a2 = this.U.a(this, 3);
+        if (!a2) {
+            u();
         } else {
-            CameraInterface.CameraSize previewSize = this.cameraInterface.getPreviewSize();
-            bindSurfaceView(previewSize);
-            this.cameraInterface.setPreviewCallback(this.previewCallback);
-            this.surfaceView.startPreview();
-            this.livenessStat.previewSize = previewSize.height + Constants.ACCEPT_TIME_SEPARATOR_SP + previewSize.width;
+            a.C0233a c2 = this.U.c();
+            a(c2);
+            this.U.a(this.va);
+            this.C.a();
+            this.da.s = c2.b + Constants.ACCEPT_TIME_SEPARATOR_SP + c2.a;
         }
-        this.surfaceView.setVisibility(0);
-        return doOpenCamera;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @TargetApi(9)
-    public void doSomethingWithPreviewSize(Camera camera) {
-        if (this.previewWidth == 0) {
-            Camera.Size previewSize = camera.getParameters().getPreviewSize();
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            if (this.cameraInterface.isFrontCamera()) {
-                Camera.getCameraInfo(1, cameraInfo);
-            } else {
-                Camera.getCameraInfo(0, cameraInfo);
-            }
-            this.previewWidth = previewSize.width;
-            this.previewHeight = previewSize.height;
-            this.cameraAngle = cameraInfo.orientation;
-        }
-        if (this.canvasBitmapSize == null) {
-            this.canvasBitmapSize = new int[2];
-            this.canvasBitmapSize[0] = this.previewHeight;
-            this.canvasBitmapSize[1] = this.previewWidth;
-        }
-        if (this.livenessConfig == null || TextUtils.isEmpty(this.livenessConfig.minFaceSize)) {
-            if (this.previewWidth > 640 && this.previewHeight > 480) {
-                this.faceTracker.set_min_face_size(200);
-            } else {
-                this.faceTracker.set_min_face_size(100);
-            }
-        }
-        if (this.argbData == null) {
-            this.argbData = new int[this.previewWidth * this.previewHeight];
-        }
-    }
-
-    private void bindSurfaceView(CameraInterface.CameraSize cameraSize) {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.surfaceView.getLayoutParams());
-        CameraInterface.CameraSize surfaceViewSize = getSurfaceViewSize(cameraSize);
-        if (surfaceViewSize == null || (surfaceViewSize.width == cameraSize.width && surfaceViewSize.height == cameraSize.height)) {
-            layoutParams.width = -2;
-            layoutParams.height = -1;
-        } else {
-            layoutParams.width = surfaceViewSize.width;
-            layoutParams.height = surfaceViewSize.height;
-        }
-        this.surfaceView.setLayoutParams(layoutParams);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void resetViews() {
-        this.poseTipWarningFl.setVisibility(4);
-        this.lastWaringType = -1;
-        this.poseTipTv.setText(R.string.pass_liveness_put_face_round);
-        if (this.faceStateIv != null) {
-            this.faceStateIv.setImageBitmap(getScaleBitmap(R.drawable.pass_liveness_recog_face_failed));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startLiveness() {
-        this.processState.wholeProcessStartTime = System.currentTimeMillis();
-        startPoseTipAnim(0);
-        this.timerCount.start();
-        this.livenessStat.timePointStartFindFace = System.currentTimeMillis();
-    }
-
-    private CameraInterface.CameraSize getSurfaceViewSize(CameraInterface.CameraSize cameraSize) {
-        if (cameraSize == null) {
-            return null;
-        }
-        CameraInterface.CameraSize displaySize = getDisplaySize();
-        CameraInterface.CameraSize cameraSize2 = new CameraInterface.CameraSize(cameraSize.width, cameraSize.height);
-        float f = cameraSize.width / cameraSize.height;
-        float f2 = displaySize.height / displaySize.width;
-        if (Math.abs(f - f2) > 0.02d) {
-            if (f < f2) {
-                cameraSize2.width = (displaySize.height * cameraSize.height) / cameraSize.width;
-                cameraSize2.height = displaySize.height;
-                return cameraSize2;
-            }
-            cameraSize2.width = displaySize.width;
-            cameraSize2.height = (displaySize.width * cameraSize.width) / cameraSize.height;
-            return cameraSize2;
-        }
-        return cameraSize2;
-    }
-
-    private CameraInterface.CameraSize getDisplaySize() {
-        Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new CameraInterface.CameraSize(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
+        this.C.setVisibility(0);
+        return a2;
     }
 
     @TargetApi(23)
-    private void requestCameraPermission() {
+    private void q() {
         if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
             if (!this.configuration.showPmnRationaleDialog) {
-                this.processState.permissionFlag = true;
+                this.P.y = true;
                 requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
                 return;
             } else if (shouldShowRequestPermissionRationale(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                final CustomAlertDialog customAlertDialog = new CustomAlertDialog(this);
-                customAlertDialog.setPositiveBtn(getString(R.string.pass_bio_pmn_ok), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.5
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        ViewUtility.dismissDialog(LivenessRecogActivity.this, customAlertDialog);
-                        LivenessRecogActivity.this.processState.permissionFlag = true;
-                        LivenessRecogActivity.this.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
-                    }
-                });
-                customAlertDialog.setNegativeBtn(getString(R.string.pass_bio_pmn_cancel), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.6
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        ViewUtility.dismissDialog(LivenessRecogActivity.this, customAlertDialog);
-                        if (LivenessRecogActivity.this.callback != null) {
-                            PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                            passFaceRecogResult.setResultCode(-307);
-                            LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
-                        }
-                        LivenessRecogActivity.this.activityFinish(-307);
-                    }
-                });
-                customAlertDialog.setTitleText(String.format(getString(R.string.pass_bio_pmn_title_liveness), PassBiometricUtil.getAppName(this), getString(R.string.pass_bio_pmn_camera)));
-                customAlertDialog.setMessageText(String.format(getString(R.string.pass_bio_pmn_msg_liveness), PassBiometricUtil.getAppName(this), getString(R.string.pass_bio_pmn_camera)));
-                customAlertDialog.show();
+                com.baidu.pass.biometrics.face.liveness.view.b bVar = new com.baidu.pass.biometrics.face.liveness.view.b(this);
+                bVar.c(getString(R.string.pass_bio_pmn_ok), new n(this, bVar));
+                bVar.a(getString(R.string.pass_bio_pmn_cancel), new o(this, bVar));
+                bVar.b(String.format(getString(R.string.pass_bio_pmn_title_liveness), PassBiometricUtil.getAppName(this), getString(R.string.pass_bio_pmn_camera)));
+                bVar.a(String.format(getString(R.string.pass_bio_pmn_msg_liveness), PassBiometricUtil.getAppName(this), getString(R.string.pass_bio_pmn_camera)));
+                bVar.show();
                 return;
             } else {
-                this.processState.permissionFlag = true;
+                this.P.y = true;
                 requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
                 return;
             }
         }
-        this.livenessStat.timePointStartRecog = System.currentTimeMillis();
-        startLiveness();
-        if (openCamera()) {
-            this.livenessStat.withCameraPermission = 1;
-            this.livenessStat.timePointCameraReady = System.currentTimeMillis();
+        this.da.V = System.currentTimeMillis();
+        w();
+        if (p()) {
+            com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
+            aVar.t = 1;
+            aVar.W = System.currentTimeMillis();
         }
     }
 
-    private void showVerifyTimeoutDialog() {
-        this.livenessStat.tipOverTime = 1;
-        this.processState.stateFlag = 17;
-        this.uiHandler.removeCallbacks(this.recogTimeCountRunnable);
-        final BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-        bioAlertDialog.setTitleMsg(getString(R.string.pass_face_timeout_dialog_title));
-        bioAlertDialog.setTimeOutVisible(0);
-        bioAlertDialog.setMessageText(getString(R.string.pass_face_timeout_dialog_msg));
-        bioAlertDialog.setPositiveBtn(getString(R.string.pass_liveness_dialog_recognized_fail_cancel), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.7
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                Log.w(LivenessRecogActivity.TAG, "showVerifyTimeoutDialog, livenessStat.resetTimePoint()");
-                LivenessRecogActivity.this.livenessStat.resetTimePoint();
-                LivenessRecogActivity.this.livenessStat.tipOverTimeRetry = 1;
-                LivenessRecogActivity.this.resetViews();
-                LivenessRecogActivity.this.processState.stateFlag = 1;
-                LivenessRecogActivity.this.startLiveness();
-                LivenessRecogActivity.this.headMode = LivenessRecogActivity.this.getHeadMode();
-                LivenessRecogActivity.this.animState.startBlinkAnimFlag = false;
-                LivenessRecogActivity.this.animState.startMouthOpenAnimFlag = false;
-                LivenessRecogActivity.this.processState.wholeProcessStartTime = System.currentTimeMillis();
-                bioAlertDialog.dismiss();
-            }
-        });
-        bioAlertDialog.setNegativeBtn(getString(R.string.pass_bio_cancel), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.8
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                bioAlertDialog.dismiss();
-                LivenessRecogActivity.this.userCancel();
-                LivenessRecogActivity.this.cameraInterface.doStopCamera();
-                LivenessRecogActivity.this.livenessStat.tipOverTimeCancel = 1;
-                LivenessRecogActivity.this.setActivityResult(0);
-                LivenessRecogActivity.this.activityFinish(-204);
-            }
-        });
-        bioAlertDialog.setCancelable(false);
-        if (!isFinishing() && !bioAlertDialog.isShowing()) {
-            bioAlertDialog.show();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void r() {
+        this.y.setVisibility(4);
+        this.s = -1;
+        this.x.setText(R.string.pass_liveness_put_face_round);
+        if (this.v != null) {
+            this.v.setImageBitmap(b(R.drawable.pass_liveness_recog_face_failed));
         }
     }
 
-    private void showChangeDeviceDialog() {
-        this.livenessStat.tipOverTimeAgain = 1;
-        this.processState.stateFlag = 17;
-        this.uiHandler.removeCallbacks(this.recogTimeCountRunnable);
-        final BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-        bioAlertDialog.setDialogMsg(getString(R.string.pass_liveness_recog_fail_dialog_msg));
-        bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-        bioAlertDialog.setBtnCount(1);
-        bioAlertDialog.setNeutralBtn(getString(R.string.pass_bio_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.9
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                bioAlertDialog.dismiss();
-                LivenessRecogActivity.this.livenessStat.tipOverTimeSure = 1;
-                LivenessRecogActivity.this.setActivityResult(-1);
-                if (LivenessRecogActivity.this.callback != null) {
-                    PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                    passFaceRecogResult.setResultCode(-301);
-                    LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
-                }
-                LivenessRecogActivity.this.activityFinish(-301);
-            }
-        });
-        bioAlertDialog.setCancelable(false);
-        if (!isFinishing() && !bioAlertDialog.isShowing()) {
-            bioAlertDialog.show();
-        }
+    private void s() {
+        PassBioDisplayUtil.enableNavigationBarTint(this, getResources().getColor(17170445));
+        setBrightness(this, 255);
+        this.u = (ImageView) findViewById(R.id.btn_cancel);
+        this.u.setOnClickListener(new m(this));
+        this.w = (FrameLayout) findViewById(R.id.layout_pose_tip);
+        this.x = (TextView) findViewById(R.id.tv_pose_tip);
+        this.y = (FrameLayout) findViewById(R.id.layout_pose_warning);
+        this.z = (ImageView) findViewById(R.id.iv_pose_warning_tip);
+        this.A = (TextView) findViewById(R.id.tv_pose_warning_tip);
+        this.B = (ConstrastLoadingView) findViewById(R.id.constrastLoadingView);
+        this.v = (ImageView) findViewById(R.id.img_face_recognized_state);
+        this.v.setImageBitmap(b(R.drawable.pass_liveness_recog_face_failed));
+        this.C = new com.baidu.pass.biometrics.face.liveness.b.b(this, null);
+        this.V.addView(this.C, 0, new ViewGroup.LayoutParams(-2, -1));
+        this.U = new com.baidu.pass.biometrics.face.liveness.b.a();
+        this.C.setCameraInterface(this.U);
+        this.C.setVisibility(4);
+        this.E = (XfordView) findViewById(R.id.xfordview);
     }
 
-    private void showPermissionDialog() {
-        this.processState.permissionFlag = true;
-        if (this.permissionAlertDialog == null) {
-            this.permissionAlertDialog = new BioAlertDialog(this);
-            this.permissionAlertDialog.setTitleMsg(getString(R.string.pass_bio_permission_request));
-            this.permissionAlertDialog.setTitleVisible(true);
-            this.permissionAlertDialog.setDialogMsg(String.format(getString(R.string.pass_liveness_permission_camera), PassBiometricUtil.getAppName(this)));
-            this.permissionAlertDialog.setBtnCount(1);
-            this.permissionAlertDialog.setNeutralBtn(getString(R.string.pass_bio_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.10
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    LivenessRecogActivity.this.permissionAlertDialog.dismiss();
-                    LivenessRecogActivity.this.processState.permissionFlag = false;
-                    if (LivenessRecogActivity.this.callback != null) {
-                        PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                        passFaceRecogResult.setResultCode(-307);
-                        LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
-                    }
-                    LivenessRecogActivity.this.activityFinish(-307);
-                }
-            });
+    private void t() {
+        this.da.S = 1;
+        this.P.s = 17;
+        this.O.removeCallbacks(this.qa);
+        com.baidu.pass.biometrics.face.liveness.view.a aVar = new com.baidu.pass.biometrics.face.liveness.view.a(this);
+        aVar.c(getString(R.string.pass_liveness_recog_fail_dialog_title));
+        aVar.a(getString(R.string.pass_liveness_recog_fail_dialog_msg));
+        aVar.a(1);
+        aVar.b(getString(R.string.pass_bio_alert_dialog_btn_back), new r(this, aVar));
+        aVar.setCancelable(false);
+        if (isFinishing() || aVar.isShowing()) {
+            return;
         }
-        this.permissionAlertDialog.setCancelable(false);
-        if (!isFinishing() && !this.permissionAlertDialog.isShowing()) {
-            this.permissionAlertDialog.show();
+        aVar.show();
+    }
+
+    private void u() {
+        this.P.y = true;
+        if (this.D == null) {
+            this.D = new com.baidu.pass.biometrics.face.liveness.view.a(this);
+            this.D.c(getString(R.string.pass_bio_permission_request));
+            this.D.a(true);
+            this.D.a(getString(R.string.pass_liveness_permission_camera));
+            this.D.c(getString(R.string.pass_bio_alert_dialog_btn_go_setting), new com.baidu.pass.biometrics.face.liveness.activity.a(this));
+            this.D.a(getString(R.string.pass_bio_alert_dialog_btn_cancel), new com.baidu.pass.biometrics.face.liveness.activity.b(this));
+        }
+        this.D.setCancelable(false);
+        if (isFinishing() || this.D.isShowing()) {
+            return;
+        }
+        this.D.show();
+    }
+
+    private void v() {
+        this.da.P = 1;
+        this.P.s = 17;
+        this.O.removeCallbacks(this.qa);
+        com.baidu.pass.biometrics.face.liveness.view.a aVar = new com.baidu.pass.biometrics.face.liveness.view.a(this);
+        aVar.c(getString(R.string.pass_face_timeout_dialog_title));
+        aVar.c(0);
+        aVar.b(getString(R.string.pass_face_timeout_dialog_msg));
+        aVar.c(getString(R.string.pass_bio_alert_dialog_btn_ok), new p(this, aVar));
+        aVar.a(getString(R.string.pass_bio_cancel), new q(this, aVar));
+        aVar.setCancelable(false);
+        if (isFinishing() || aVar.isShowing()) {
+            return;
+        }
+        aVar.show();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void w() {
+        this.P.v = System.currentTimeMillis();
+        c(0);
+        this.K.start();
+        this.da.Z = System.currentTimeMillis();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void x() {
+        c cVar = this.P;
+        cVar.s = 3;
+        if (this.la) {
+            cVar.s = 4;
+        } else {
+            cVar.s = 20;
+        }
+        this.v.setImageBitmap(b(R.drawable.pass_liveness_recog_face_successed));
+        this.da.aa = System.currentTimeMillis();
+        Log.w(a, "livenessStat.timePointFindFaceDone:" + this.da.aa);
+        com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
+        aVar.x++;
+        aVar.w = 1;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void y() {
+        if (this.t != null) {
+            PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
+            passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_USER_CANCEL);
+            passFaceRecogResult.setResultCode(-204);
+            this.t.onFailure(passFaceRecogResult);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(9)
-    public void faceRecognize() {
-        if (this.cameraData != null && this.argbData != null && !this.isActivityFinished) {
+    public void e() {
+        if (this.ra != null && this.H != null && !this.N) {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                FaceSDK.getARGBFromYUVimg(this.cameraData, this.argbData, this.previewWidth, this.previewHeight, this.cameraAngle, 1);
-                this.errorCode = this.faceTracker.face_verification(this.argbData, this.previewWidth, this.previewHeight, FaceSDK.ImgType.ARGB, action, "", "", "");
-                Log.w(TAG, "errorcode:" + this.errorCode);
-                this.faceInfos = this.faceTracker.get_TrackedFaceInfo();
-                int i = (this.faceInfos == null || this.faceInfos.length <= 0 || this.faceInfos[0] == null) ? 0 : this.faceInfos[0].face_id;
-                if (i != 0 && i != this.lastFaceId) {
-                    this.cameraDataCache.clear();
+                FaceSDK.getARGBFromYUVimg(this.ra, this.H, this.sa, this.ta, this.ua, 1);
+                this.M = this.F.face_verification(this.H, this.sa, this.ta, FaceSDK.ImgType.ARGB, r, "", "", "");
+                Object[] objArr = new Object[1];
+                objArr[0] = "errorcode:" + this.M;
+                Log.w(a, objArr);
+                this.G = this.F.get_TrackedFaceInfo();
+                int i2 = (this.G == null || this.G.length <= 0 || this.G[0] == null) ? 0 : this.G[0].face_id;
+                if (i2 != 0 && i2 != this.xa) {
+                    this.X.clear();
                 }
-                this.lastFaceId = i;
-                if (this.errorCode == FaceTracker.ErrCode.DATA_HIT_ONE) {
-                    if (this.isFinish) {
-                        this.cameraDataCache.clear();
-                        this.isFinish = false;
+                this.xa = i2;
+                if (this.M == FaceTracker.ErrCode.DATA_HIT_ONE) {
+                    if (this.wa) {
+                        this.X.clear();
+                        this.wa = false;
                     }
-                    if (this.argbData != null) {
-                        this.cameraDataCache.add(Arrays.copyOf(this.argbData, this.argbData.length));
+                    if (this.H != null) {
+                        this.X.add(Arrays.copyOf(this.H, this.H.length));
                     }
-                } else if (this.errorCode == FaceTracker.ErrCode.DATA_HIT_LAST) {
-                    if (this.argbData != null) {
-                        this.cameraDataCache.add(Arrays.copyOf(this.argbData, this.argbData.length));
+                } else if (this.M == FaceTracker.ErrCode.DATA_HIT_LAST) {
+                    if (this.H != null) {
+                        this.X.add(Arrays.copyOf(this.H, this.H.length));
                     }
-                    this.isFinish = true;
+                    this.wa = true;
                 }
-                this.cameraData = null;
-                if (this.faceInfos != null && this.faceInfos.length > 0 && this.faceInfos[0] != null) {
+                this.ra = null;
+                if (this.G != null && this.G.length > 0 && this.G[0] != null) {
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    Log.w(TAG, "idl tracker time" + currentTimeMillis2);
-                    LivenessStat livenessStat = this.livenessStat;
-                    livenessStat.timePointIdlTrackTimeAll = currentTimeMillis2 + livenessStat.timePointIdlTrackTimeAll;
-                    this.livenessStat.timePointIdlTrackCounts++;
+                    Object[] objArr2 = new Object[1];
+                    objArr2[0] = "idl tracker time" + currentTimeMillis2;
+                    Log.w(a, objArr2);
+                    com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
+                    aVar.X = currentTimeMillis2 + aVar.X;
+                    this.da.Y++;
                 }
             } catch (Throwable th) {
                 Log.e(th);
@@ -864,749 +926,586 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes6.dex */
-    private class FaceRecognitionTask extends AsyncTask<Void, Void, String> {
-        private FaceRecognitionTask() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public String doInBackground(Void... voidArr) {
-            LivenessRecogActivity.access$2004(LivenessRecogActivity.this);
-            LivenessRecogActivity.this.faceRecognize();
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((FaceRecognitionTask) str);
-            LivenessRecogActivity.access$2006(LivenessRecogActivity.this);
-        }
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public class TimeCount extends CountDownTimer {
-        public TimeCount(long j, long j2) {
-            super(j, j2);
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            if (LivenessRecogActivity.this.processState.stateFlag != 0 && LivenessRecogActivity.this.processState.stateFlag != 17 && LivenessRecogActivity.this.processState.stateFlag != 19 && LivenessRecogActivity.this.processState.stateFlag != 18 && LivenessRecogActivity.this.processState.stateFlag != 10) {
-                FaceInfo[] faceInfoArr = LivenessRecogActivity.this.faceInfos;
-                if (LivenessRecogActivity.this.processState.stateFlag == 1) {
-                    if (LivenessRecogActivity.this.isTimeOut()) {
-                        LivenessRecogActivity.this.handleTimeOut();
-                        return;
-                    } else if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                        if (LivenessRecogActivity.this.errorCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(2);
-                            return;
-                        } else if (LivenessRecogActivity.this.isAngleOfRange(faceInfoArr[0], LivenessRecogActivity.this.errorCode)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(4);
-                            return;
-                        } else if (!LivenessRecogActivity.this.isFaceInsideRound(faceInfoArr)) {
-                            LivenessRecogActivity.this.lastWaringType = -1;
-                            LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                            LivenessRecogActivity.this.faceStateIv.setImageBitmap(LivenessRecogActivity.this.getScaleBitmap(R.drawable.pass_liveness_recog_face_failed));
-                            LivenessRecogActivity.this.processState.firstFindFaceFlag = false;
-                            LivenessRecogActivity.this.livenessStat.findFaceLast = 0;
-                            Log.w(LivenessRecogActivity.TAG, "STATE_START_RECOGNIZE, livenessStat.resetTimePoint()");
-                            return;
-                        } else if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.canvasBitmapSize)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(1);
-                            return;
-                        } else if (PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.canvasBitmapSize)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(0);
-                            return;
-                        } else {
-                            LivenessRecogActivity.this.lastWaringType = -1;
-                            LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                            LivenessRecogActivity.this.processState.stateFlag = 2;
-                            if (!LivenessRecogActivity.this.processState.firstFindFaceFlag) {
-                                LivenessRecogActivity.this.faceStateIv.setImageBitmap(LivenessRecogActivity.this.getScaleBitmap(R.drawable.pass_liveness_recog_face_successed));
-                                LivenessRecogActivity.this.lastCurMills = System.currentTimeMillis();
-                                LivenessRecogActivity.this.processState.firstFindFaceFlag = true;
-                            }
-                            LivenessRecogActivity.this.startRecognizingAnim();
-                            LivenessRecogActivity.this.liveNessDetect(faceInfoArr);
-                            return;
-                        }
-                    } else {
-                        LivenessRecogActivity.this.faceStateIv.setImageBitmap(LivenessRecogActivity.this.getScaleBitmap(R.drawable.pass_liveness_recog_face_failed));
-                        LivenessRecogActivity.this.processState.firstFindFaceFlag = false;
-                        LivenessRecogActivity.this.lastWaringType = -1;
-                        LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                        return;
-                    }
-                }
-                if (LivenessRecogActivity.this.processState.stateFlag == 4) {
-                    if (LivenessRecogActivity.this.isTimeOut()) {
-                        LivenessRecogActivity.this.handleTimeOut();
-                        return;
-                    } else if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                        LivenessRecogActivity.this.lastWaringType = -1;
-                        LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                        if (LivenessRecogActivity.this.isFaceInsideRound(faceInfoArr)) {
-                            if (LivenessRecogActivity.this.meetStartTrackRequirement(faceInfoArr)) {
-                                if (LivenessRecogActivity.this.firstLivenessRcogType == 1) {
-                                    LivenessRecogActivity.this.processState.stateFlag = 5;
-                                } else {
-                                    LivenessRecogActivity.this.processState.stateFlag = 7;
-                                }
-                                LivenessRecogActivity.this.livenessStat.timePointLivingEyeStart = System.currentTimeMillis();
-                                LivenessRecogActivity.this.livenessStat.timePointLivingMouthStart = System.currentTimeMillis();
-                                Log.w(LivenessRecogActivity.TAG, "timePointLivingMouthStart" + LivenessRecogActivity.this.livenessStat.timePointLivingMouthStart);
-                                LivenessRecogActivity.this.liveNessDetect(faceInfoArr);
-                                long j2 = LivenessRecogActivity.this.firstLivenessRecogTime * 1000;
-                                if (j2 < 20000) {
-                                    LivenessRecogActivity.this.uiHandler.postDelayed(LivenessRecogActivity.this.recogTimeCountRunnable, j2);
-                                }
-                            } else {
-                                LivenessRecogActivity.this.processState.stateFlag = 1;
-                                LivenessRecogActivity.this.faceStateIv.setImageBitmap(LivenessRecogActivity.this.getScaleBitmap(R.drawable.pass_liveness_recog_face_failed));
-                                LivenessRecogActivity.this.livenessStat.resetTimePoint();
-                                Log.w(LivenessRecogActivity.TAG, "STATE_FIND_FACE_SPECIAL_ANIM_DONE, livenessStat.resetTimePoint()");
-                                LivenessRecogActivity.this.processState.firstFindFaceFlag = false;
-                                LivenessRecogActivity.this.livenessStat.findFaceLast = 0;
-                                LivenessRecogActivity.this.livenessStat.timePointStartFindFace = System.currentTimeMillis();
-                                return;
-                            }
-                        }
-                    } else {
-                        LivenessRecogActivity.this.processState.stateFlag = 1;
-                        LivenessRecogActivity.this.faceStateIv.setImageBitmap(LivenessRecogActivity.this.getScaleBitmap(R.drawable.pass_liveness_recog_face_failed));
-                        LivenessRecogActivity.this.livenessStat.resetTimePoint();
-                        Log.w(LivenessRecogActivity.TAG, "STATE_FIND_FACE_SPECIAL_ANIM_DONE NO FACE, livenessStat.resetTimePoint()");
-                        LivenessRecogActivity.this.processState.firstFindFaceFlag = false;
-                        LivenessRecogActivity.this.livenessStat.findFaceLast = 0;
-                        LivenessRecogActivity.this.livenessStat.timePointStartFindFace = System.currentTimeMillis();
-                        return;
-                    }
-                }
-                if (LivenessRecogActivity.this.processState.stateFlag == 5) {
-                    if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                        LivenessRecogActivity.this.lastWaringType = -1;
-                        LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                    }
-                    if (!LivenessRecogActivity.this.animState.startBlinkAnimFlag) {
-                        LivenessRecogActivity.this.startPoseTipAnim(1);
-                        LivenessRecogActivity.this.animState.startBlinkAnimFlag = true;
-                    }
-                } else if (LivenessRecogActivity.this.processState.stateFlag == 7) {
-                    if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                        LivenessRecogActivity.this.lastWaringType = -1;
-                        LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                    }
-                    if (!LivenessRecogActivity.this.animState.startMouthOpenAnimFlag) {
-                        LivenessRecogActivity.this.startPoseTipAnim(3);
-                        LivenessRecogActivity.this.animState.startMouthOpenAnimFlag = true;
-                    }
-                }
-                Log.e(LivenessRecogActivity.TAG, "state STATE_START_TRACK_BLICK state", Integer.valueOf(LivenessRecogActivity.this.processState.stateFlag));
-                if (LivenessRecogActivity.this.processState.stateFlag == 6 || LivenessRecogActivity.this.processState.stateFlag == 8) {
-                    Log.e(LivenessRecogActivity.TAG, "state STATE_START_TRACK_BLICK");
-                    if (LivenessRecogActivity.this.isTimeOut()) {
-                        LivenessRecogActivity.this.handleTimeOut();
-                        return;
-                    } else if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                        if (LivenessRecogActivity.this.errorCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(2);
-                            return;
-                        } else if (LivenessRecogActivity.this.isAngleOfRange(faceInfoArr[0], LivenessRecogActivity.this.errorCode)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(4);
-                            return;
-                        } else if (!LivenessRecogActivity.this.isFaceInsideRound(faceInfoArr)) {
-                            LivenessRecogActivity.this.lastWaringType = -1;
-                            LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                            return;
-                        } else if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.canvasBitmapSize)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(1);
-                            return;
-                        } else if (PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.canvasBitmapSize)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(0);
-                            return;
-                        } else {
-                            LivenessRecogActivity.this.lastWaringType = -1;
-                            LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                            LivenessRecogActivity.this.liveNessDetect(faceInfoArr);
-                        }
-                    } else {
-                        LivenessRecogActivity.this.startPoseWarningAnim(3);
-                        LivenessRecogActivity.this.processState.blickFindFaceFlag = false;
-                        return;
-                    }
-                }
-                if (LivenessRecogActivity.this.processState.stateFlag == 9) {
-                    if (LivenessRecogActivity.this.isTimeOut()) {
-                        LivenessRecogActivity.this.handleTimeOut();
-                        return;
-                    } else if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                        if (LivenessRecogActivity.this.errorCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(2);
-                            return;
-                        } else if (LivenessRecogActivity.this.isAngleOfRange(faceInfoArr[0], LivenessRecogActivity.this.errorCode)) {
-                            LivenessRecogActivity.this.startPoseWarningAnim(4);
-                            return;
-                        } else if (LivenessRecogActivity.this.isFaceInsideRound(faceInfoArr)) {
-                            if (PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.canvasBitmapSize)) {
-                                LivenessRecogActivity.this.startPoseWarningAnim(1);
-                                return;
-                            } else if (PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, LivenessRecogActivity.this.canvasBitmapSize)) {
-                                LivenessRecogActivity.this.startPoseWarningAnim(0);
-                                return;
-                            } else {
-                                LivenessRecogActivity.this.lastWaringType = -1;
-                                LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                            }
-                        }
-                    } else {
-                        LivenessRecogActivity.this.startPoseWarningAnim(3);
-                        LivenessRecogActivity.this.processState.blickFindFaceFlag = false;
-                        return;
-                    }
-                }
-                Log.w(LivenessRecogActivity.TAG, "onTick|state" + LivenessRecogActivity.this.processState.stateFlag + "|errcode|" + LivenessRecogActivity.this.errorCode);
-                if (LivenessRecogActivity.this.isHasFace(faceInfoArr) && !LivenessRecogActivity.this.isActivityFinished) {
-                    if ((LivenessRecogActivity.this.processState.stateFlag == 9 || LivenessRecogActivity.this.processState.stateFlag == 20) && LivenessRecogActivity.this.errorCode == FaceTracker.ErrCode.OK) {
-                        FaceVerifyData[] faceVerifyDataArr = LivenessRecogActivity.this.faceTracker.get_FaceVerifyData(0);
-                        LivenessRecogActivity.this.livenessStat.isLivenessSuc = true;
-                        if (faceVerifyDataArr == null || faceVerifyDataArr.length <= 0) {
-                            LivenessRecogActivity.this.livenessStat.getIDLPicture = 0;
-                        } else {
-                            LivenessRecogActivity.this.livenessStat.getIDLPicture = 1;
-                        }
-                        Object[] objArr = new Object[1];
-                        objArr[0] = "livenessdone|faceVerifyDatas length|" + (faceVerifyDataArr != null ? Integer.valueOf(faceVerifyDataArr.length) : "0") + "|state|" + LivenessRecogActivity.this.processState.stateFlag;
-                        Log.w(LivenessRecogActivity.TAG, objArr);
-                        if (LivenessRecogActivity.this.shouldPhotograph(faceInfoArr[0], LivenessRecogActivity.this.errorCode) && faceVerifyDataArr != null && faceVerifyDataArr.length > 0) {
-                            LivenessRecogActivity.this.processState.stateFlag = 10;
-                            LivenessRecogActivity.this.uiHandler.removeCallbacks(LivenessRecogActivity.this.recogTimeCountRunnable);
-                            LivenessRecogActivity.this.timerCount.cancel();
-                            LivenessRecogActivity.this.cameraInterface.stopPreview();
-                            LivenessRecogActivity.this.constrastLoadingView.setVisible(0);
-                            LivenessRecogActivity.this.constrastPortrait(LivenessRecogActivity.this.revertData(faceVerifyDataArr));
-                        }
-                    }
-                }
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            if (!LivenessRecogActivity.this.isActivityFinished) {
-                LivenessRecogActivity.this.timerCount.start();
-            }
-        }
+    private a.C0233a f() {
+        Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
+        return new a.C0233a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isTimeOut() {
-        Log.e(TAG, "processState.wholeProcessStartTime", Long.valueOf(this.processState.wholeProcessStartTime));
-        return System.currentTimeMillis() - this.processState.wholeProcessStartTime > this.processState.wholeProcessTimeOut && this.processState.wholeProcessStartTime > 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handleTimeOut() {
-        this.processState.wholeProcessStartTime = 0L;
-        if (!this.processState.timeOutFlag) {
-            showVerifyTimeoutDialog();
-            this.processState.timeOutFlag = true;
-            return;
+    public int g() {
+        if (this.Z == 1) {
+            this.J = 0;
+        } else {
+            this.J = 5;
         }
-        showChangeDeviceDialog();
+        return this.J;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public FaceVerifyData[] revertData(FaceVerifyData[] faceVerifyDataArr) {
-        FaceVerifyData[] faceVerifyDataArr2 = null;
-        if (faceVerifyDataArr != null && faceVerifyDataArr.length > 0) {
-            int length = faceVerifyDataArr.length;
-            for (int i = 0; i < length; i++) {
-                Log.d("hello", "原始数据照片签名" + i + "    :" + faceVerifyDataArr[i].mRegDigest);
-            }
-            faceVerifyDataArr2 = new FaceVerifyData[faceVerifyDataArr.length];
-            for (int i2 = 0; i2 < length; i2++) {
-                faceVerifyDataArr2[i2] = faceVerifyDataArr[(length - 1) - i2];
-                Log.d("hello", "翻转后数据照片签名" + i2 + "    :" + faceVerifyDataArr[i2].mRegDigest);
-            }
-        }
-        return faceVerifyDataArr2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap getScaleBitmap(int i) {
-        Bitmap bitmap;
-        if (!this.bitmapCache.containsKey(Integer.valueOf(i)) || this.bitmapCache.get(Integer.valueOf(i)) == null || (bitmap = this.bitmapCache.get(Integer.valueOf(i)).get()) == null) {
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.pass_liveness_face_round_height);
-            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.pass_liveness_face_round_width);
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeResource(getResources(), i, options);
-            options.inSampleSize = PassBiometricUtil.calculateInSampleSize(options, dimensionPixelSize2, dimensionPixelSize);
-            options.inJustDecodeBounds = false;
-            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), i, options);
-            this.bitmapCache.put(Integer.valueOf(i), new SoftReference<>(decodeResource));
-            return decodeResource;
-        }
-        return bitmap;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void liveNessDetect(FaceInfo[] faceInfoArr) {
-        boolean is_live_mouth;
-        boolean is_live;
-        boolean z;
-        if (faceInfoArr != null && faceInfoArr.length > 0 && this.processState.stateFlag >= 1 && this.processState.stateFlag < 9) {
-            switch (this.headMode) {
-                case 0:
-                    is_live_mouth = faceInfoArr[0].is_live_mouth();
-                    is_live = faceInfoArr[0].is_live();
-                    if (!is_live && !is_live_mouth) {
-                        z = false;
-                        break;
-                    } else {
-                        z = true;
-                        break;
-                    }
-                case 1:
-                    z = faceInfoArr[0].is_live_head_down();
-                    is_live_mouth = false;
-                    is_live = false;
-                    break;
-                case 2:
-                    z = faceInfoArr[0].is_live_head_up();
-                    is_live_mouth = false;
-                    is_live = false;
-                    break;
-                case 3:
-                    z = faceInfoArr[0].is_live_head_turn_left();
-                    is_live_mouth = false;
-                    is_live = false;
-                    break;
-                case 4:
-                    z = faceInfoArr[0].is_live_head_turn_right();
-                    is_live_mouth = false;
-                    is_live = false;
-                    break;
-                case 5:
-                    is_live_mouth = faceInfoArr[0].is_live_mouth();
-                    is_live = faceInfoArr[0].is_live();
-                    if (!is_live && !is_live_mouth) {
-                        z = false;
-                        break;
-                    } else {
-                        z = true;
-                        break;
-                    }
-                default:
-                    z = false;
-                    is_live_mouth = false;
-                    is_live = false;
-                    break;
-            }
-            Log.w(TAG, "liveNessDetect|isLiveNess|" + z);
-            if (z) {
-                if (is_live) {
-                    this.livenessStat.livingPassEyesNum++;
-                    this.livenessStat.timePointLivingEyePass = System.currentTimeMillis();
-                    this.livenessStat.livingPassType = LivenessStat.TYPE_LIVING_EYE;
-                    Log.w(TAG, "timePointLivingEyePass:" + this.livenessStat.timePointLivingEyePass);
-                } else if (is_live_mouth) {
-                    this.livenessStat.livingPassMouthNum++;
-                    this.livenessStat.timePointLivingMouthPass = System.currentTimeMillis();
-                    this.livenessStat.livingPassType = LivenessStat.TYPE_LIVING_MOUTH;
-                    Log.w(TAG, "timePointLivingMouthPass:" + this.livenessStat.timePointLivingMouthPass);
-                }
-                if (this.processState.stateFlag < 7) {
-                    this.livenessStat.livingPassPeriod = LivenessStat.TYPE_LIVING_EYE;
-                } else {
-                    this.livenessStat.livingPassPeriod = LivenessStat.TYPE_LIVING_MOUTH;
-                }
-                Log.w(TAG, "isLiveNess ProcessState:" + this.processState.stateFlag);
-                this.processState.stateFlag = 9;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean meetStartTrackRequirement(FaceInfo[] faceInfoArr) {
-        if (faceInfoArr == null || faceInfoArr.length == 0) {
-            return false;
-        }
-        return faceInfoArr == null || faceInfoArr.length <= 0 || !(PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, this.canvasBitmapSize) || PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, this.canvasBitmapSize));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isHasFace(FaceInfo[] faceInfoArr) {
-        return faceInfoArr != null && faceInfoArr.length > 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isFaceInsideRound(FaceInfo[] faceInfoArr) {
-        return faceInfoArr != null && faceInfoArr.length > 0 && PassBiometricUtil.isFaceInsideRound(faceInfoArr[0].landmarks, this.canvasBitmapSize);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean shouldPhotograph(FaceInfo faceInfo, FaceTracker.ErrCode errCode) {
-        return faceInfo != null && this.errorCode == FaceTracker.ErrCode.OK;
-    }
-
-    private int getOnlineIllum() {
-        List<Integer> aBtestIllumList = this.livenessConfig.getABtestIllumList();
+    private int h() {
+        List<Integer> aBtestIllumList = this.aa.getABtestIllumList();
         int illumVlaueGray = LocalConfigOptions.getInstance(this).getIllumVlaueGray();
         if (illumVlaueGray == -1) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             illumVlaueGray = random.nextInt(aBtestIllumList.size());
             LocalConfigOptions.getInstance(this).setIllumValueGray(illumVlaueGray);
-            Log.w(TAG, "getOnlineIllum random" + illumVlaueGray);
+            Log.w(a, "getOnlineIllum random" + illumVlaueGray);
         }
-        Log.w(TAG, "getOnlineIllum" + illumVlaueGray);
+        Log.w(a, "getOnlineIllum" + illumVlaueGray);
         return aBtestIllumList.get(illumVlaueGray).intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isUpdateWhiteBg(float f) {
-        Log.w(TAG, "whiteBgIllumThr" + this.illumValue);
-        return f <= ((float) this.illumValue);
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00b5, code lost:
+        if (r0 == false) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ba, code lost:
+        r3 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00f7, code lost:
+        if (r0 == false) goto L28;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(FaceInfo[] faceInfoArr) {
+        int i2;
+        boolean is_live_mouth;
+        boolean is_live;
+        boolean is_live_head_down;
+        if (faceInfoArr == null || faceInfoArr.length <= 0 || (i2 = this.P.s) < 1 || i2 >= 9) {
+            return;
+        }
+        switch (this.J) {
+            case 0:
+                is_live_mouth = faceInfoArr[0].is_live_mouth();
+                is_live = faceInfoArr[0].is_live();
+                if (!is_live) {
+                }
+                is_live_head_down = true;
+                break;
+            case 1:
+                is_live = false;
+                is_live_head_down = faceInfoArr[0].is_live_head_down();
+                is_live_mouth = false;
+                break;
+            case 2:
+                is_live = false;
+                is_live_head_down = faceInfoArr[0].is_live_head_up();
+                is_live_mouth = false;
+                break;
+            case 3:
+                is_live = false;
+                is_live_head_down = faceInfoArr[0].is_live_head_turn_left();
+                is_live_mouth = false;
+                break;
+            case 4:
+                is_live = false;
+                is_live_head_down = faceInfoArr[0].is_live_head_turn_right();
+                is_live_mouth = false;
+                break;
+            case 5:
+                is_live_mouth = faceInfoArr[0].is_live_mouth();
+                is_live = faceInfoArr[0].is_live();
+                if (!is_live) {
+                }
+                is_live_head_down = true;
+                break;
+            default:
+                is_live_mouth = false;
+                is_live = false;
+                is_live_head_down = false;
+                break;
+        }
+        Log.w(a, "liveNessDetect|isLiveNess|" + is_live_head_down);
+        if (is_live_head_down) {
+            if (is_live) {
+                com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
+                aVar.y++;
+                aVar.ca = System.currentTimeMillis();
+                this.da.A = com.baidu.pass.biometrics.face.liveness.c.a.h;
+                Log.w(a, "timePointLivingEyePass:" + this.da.ca);
+            } else if (is_live_mouth) {
+                com.baidu.pass.biometrics.face.liveness.c.a aVar2 = this.da;
+                aVar2.z++;
+                aVar2.ea = System.currentTimeMillis();
+                this.da.A = com.baidu.pass.biometrics.face.liveness.c.a.i;
+                Log.w(a, "timePointLivingMouthPass:" + this.da.ea);
+            }
+            if (this.P.s < 7) {
+                this.da.F = com.baidu.pass.biometrics.face.liveness.c.a.h;
+            } else {
+                this.da.F = com.baidu.pass.biometrics.face.liveness.c.a.i;
+            }
+            Log.w(a, "isLiveNess ProcessState:" + this.P.s);
+            this.P.s = 9;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean d(FaceInfo[] faceInfoArr) {
+        if (faceInfoArr == null || faceInfoArr.length == 0) {
+            return false;
+        }
+        return faceInfoArr == null || faceInfoArr.length <= 0 || !(PassBiometricUtil.isTooNearFromCamera(faceInfoArr[0].landmarks, this.L) || PassBiometricUtil.isTooFarFromCamera(faceInfoArr[0].landmarks, this.L));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(int i2) {
+        this.y.setVisibility(0);
+        if (this.s != i2) {
+            if (i2 == 1) {
+                this.da.L++;
+                this.A.setText(getString(R.string.pass_liveness_tofar_from_camera));
+            } else if (i2 == 0) {
+                this.da.K++;
+                this.A.setText(getString(R.string.pass_liveness_tonear_from_camera));
+            } else if (i2 == 2) {
+                this.da.O++;
+                this.A.setText(getString(R.string.pass_liveness_brightness_too_dark));
+            } else if (i2 == 4) {
+                this.da.M++;
+                this.A.setText(getString(R.string.pass_liveness_face_to_screen));
+            } else {
+                this.da.N++;
+                this.A.setText(getString(R.string.pass_liveness_put_face_round));
+            }
+            Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.pass_liveness_tip_warning);
+            loadAnimation.setAnimationListener(new e(this, loadAnimation));
+            if (!this.Q.g) {
+                this.z.startAnimation(loadAnimation);
+                this.Q.g = true;
+            }
+        }
+        this.s = i2;
+    }
+
+    private void b() {
+        for (SoftReference<Bitmap> softReference : this.W.values()) {
+            Bitmap bitmap = softReference.get();
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(int[] iArr) {
+        a.C0233a c2 = this.U.c();
+        Bitmap createBitmap = Bitmap.createBitmap(iArr, c2.b, c2.a, Bitmap.Config.ARGB_8888);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        try {
+            byteArrayOutputStream.close();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        return new String(Base64Utils.encode(byteArray));
+    }
+
+    private a.C0233a b(a.C0233a c0233a) {
+        if (c0233a == null) {
+            return null;
+        }
+        a.C0233a f2 = f();
+        a.C0233a c0233a2 = new a.C0233a(c0233a.a, c0233a.b);
+        float f3 = c0233a.a / c0233a.b;
+        float f4 = f2.b / f2.a;
+        if (Math.abs(f3 - f4) > 0.02d) {
+            if (f3 < f4) {
+                int i2 = f2.b;
+                c0233a2.a = (c0233a.b * i2) / c0233a.a;
+                c0233a2.b = i2;
+                return c0233a2;
+            }
+            c0233a2.a = f2.a;
+            c0233a2.b = (f2.a * c0233a.a) / c0233a.b;
+            return c0233a2;
+        }
+        return c0233a2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public FaceVerifyData[] b(FaceVerifyData[] faceVerifyDataArr) {
+        FaceVerifyData[] faceVerifyDataArr2 = null;
+        if (faceVerifyDataArr != null && faceVerifyDataArr.length > 0) {
+            int length = faceVerifyDataArr.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                Log.d("hello", "原始数据照片签名" + i2 + "    :" + faceVerifyDataArr[i2].mRegDigest);
+            }
+            faceVerifyDataArr2 = new FaceVerifyData[faceVerifyDataArr.length];
+            for (int i3 = 0; i3 < length; i3++) {
+                faceVerifyDataArr2[i3] = faceVerifyDataArr[(length - 1) - i3];
+                Log.d("hello", "翻转后数据照片签名" + i3 + "    :" + faceVerifyDataArr[i3].mRegDigest);
+            }
+        }
+        return faceVerifyDataArr2;
+    }
+
+    @TargetApi(3)
+    private void a(ContrastPortraitResult contrastPortraitResult) {
+        if (this.t == null || contrastPortraitResult == null) {
+            return;
+        }
+        new l(this, contrastPortraitResult).execute(new Void[0]);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        if (this.ka) {
+            if (this.t != null) {
+                this.da.H = "fail";
+                PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
+                passFaceRecogResult.setResultCode(-206);
+                passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_SERVER_ERROR);
+                this.t.onFailure(passFaceRecogResult);
+                setActivityResult(-1);
+                a(passFaceRecogResult.getResultCode());
+                return;
+            }
+            return;
+        }
+        this.fa++;
+        ArrayList<HashMap<String, byte[]>> arrayList = this.ga;
+        if (arrayList != null && this.fa <= arrayList.size()) {
+            byte[] bArr = this.ga.get(this.fa - 1).get("data");
+            byte[] bArr2 = this.ga.get(this.fa - 1).get("digest");
+            this.ka = this.fa == this.ga.size();
+            a(bArr2 == null ? null : new String(bArr2), bArr == null ? null : Base64Utils.encodeToString(bArr), this.ka, this.ba);
+        } else if (this.t != null) {
+            this.da.H = "fail";
+            PassFaceRecogResult passFaceRecogResult2 = new PassFaceRecogResult();
+            passFaceRecogResult2.setResultCode(-206);
+            passFaceRecogResult2.setResultMsg(PassBiometricResult.ERROR_MSG_SERVER_ERROR);
+            this.t.onFailure(passFaceRecogResult2);
+            setActivityResult(-1);
+            a(passFaceRecogResult2.getResultCode());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i2, String str) {
+        if (this.fa == this.ea) {
+            this.da.H = "fail";
+            if (this.t != null) {
+                PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
+                passFaceRecogResult.setResultCode(i2);
+                passFaceRecogResult.setResultMsg(str);
+                this.t.onFailure(passFaceRecogResult);
+                setActivityResult(-1);
+                a(passFaceRecogResult.getResultCode());
+                return;
+            }
+            return;
+        }
+        c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Bitmap b(int i2) {
+        Bitmap bitmap;
+        if (!this.W.containsKey(Integer.valueOf(i2)) || this.W.get(Integer.valueOf(i2)) == null || (bitmap = this.W.get(Integer.valueOf(i2)).get()) == null) {
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.pass_liveness_face_round_height);
+            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.pass_liveness_face_round_width);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeResource(getResources(), i2, options);
+            options.inSampleSize = PassBiometricUtil.calculateInSampleSize(options, dimensionPixelSize2, dimensionPixelSize);
+            options.inJustDecodeBounds = false;
+            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), i2, options);
+            this.W.put(Integer.valueOf(i2), new SoftReference<>(decodeResource));
+            return decodeResource;
+        }
+        return bitmap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(11)
-    public void updateWhiteBg(float f) {
-        if (!this.whiteBgFlag) {
-            this.livenessStat.illumValue = f;
-            if (isUpdateWhiteBg(f)) {
-                this.whiteBgFlag = true;
-                this.livenessStat.whiteBg = 1;
-                this.sensorManager.unRegisterSensorListener();
+    public void c(int i2) {
+        e(i2);
+        c cVar = this.P;
+        int i3 = cVar.s;
+        if (i3 == 0) {
+            cVar.s = 1;
+        } else if (i3 == 5) {
+            cVar.s = 6;
+        } else if (i3 == 7) {
+            cVar.s = 8;
+        }
+        this.w.setVisibility(0);
+        this.x.setVisibility(0);
+    }
+
+    private void e(int i2) {
+        String[] strArr;
+        int i3;
+        int i4;
+        int i5;
+        if (i2 == 0) {
+            this.x.setText(R.string.pass_liveness_put_face_round);
+        } else if (i2 == 1) {
+            String[] strArr2 = this.I;
+            if (strArr2 != null && (i5 = this.J) < strArr2.length) {
+                this.x.setText(strArr2[i5]);
+            }
+        } else if (i2 == 2) {
+            String[] strArr3 = this.I;
+            if (strArr3 != null && (i4 = this.J) < strArr3.length) {
+                this.x.setText(strArr3[i4]);
+            }
+        } else if (i2 != 3 || (strArr = this.I) == null || (i3 = this.J) >= strArr.length) {
+        } else {
+            this.x.setText(strArr[i3]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(ContrastPortraitResult contrastPortraitResult) {
+        if (contrastPortraitResult.getResultCode() != 0) {
+            b(contrastPortraitResult);
+            this.da.H = "fail";
+            return;
+        }
+        this.ba = contrastPortraitResult.callbackkey;
+        if (contrastPortraitResult.isFinish()) {
+            if (contrastPortraitResult.isProcessPass()) {
+                a(contrastPortraitResult);
+                return;
+            } else {
+                a(contrastPortraitResult);
+                return;
+            }
+        }
+        d();
+    }
+
+    private void a(View view) {
+        if (view.getBackground() != null) {
+            view.getBackground().setCallback(null);
+            view.setBackgroundResource(0);
+        }
+        if (view instanceof ImageView) {
+            ((ImageView) view).setImageBitmap(null);
+        }
+        if (!(view instanceof ViewGroup)) {
+            return;
+        }
+        int i2 = 0;
+        while (true) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            if (i2 < viewGroup.getChildCount()) {
+                a(viewGroup.getChildAt(i2));
+                i2++;
+            } else {
+                viewGroup.removeAllViews();
+                view.setBackgroundResource(0);
+                return;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean b(FaceInfo[] faceInfoArr) {
+        return faceInfoArr != null && faceInfoArr.length > 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean b(FaceInfo faceInfo, FaceTracker.ErrCode errCode) {
+        return faceInfo != null && this.M == FaceTracker.ErrCode.OK;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(11)
+    public void b(float f2) {
+        if (!this.ma) {
+            this.da.C = f2;
+            if (a(f2)) {
+                this.ma = true;
+                this.da.B = 1;
+                this.pa.b();
                 if (Build.VERSION.SDK_INT >= 11) {
                     ValueAnimator valueAnimator = new ValueAnimator();
                     valueAnimator.setDuration(200L);
                     valueAnimator.setInterpolator(new LinearInterpolator());
                     valueAnimator.setIntValues(1, 100);
-                    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.12
-                        private IntEvaluator mEvaluator = new IntEvaluator();
-
-                        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                        public void onAnimationUpdate(ValueAnimator valueAnimator2) {
-                            float intValue = ((Integer) valueAnimator2.getAnimatedValue()).intValue() / 100.0f;
-                            int intValue2 = this.mEvaluator.evaluate(intValue, (Integer) 255, (Integer) 51).intValue();
-                            LivenessRecogActivity.this.poseTipTv.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-                            int intValue3 = this.mEvaluator.evaluate(intValue, (Integer) 0, (Integer) 255).intValue();
-                            int intValue4 = this.mEvaluator.evaluate(intValue, (Integer) 66, (Integer) 255).intValue();
-                            if (LivenessRecogActivity.this.xfordView != null) {
-                                LivenessRecogActivity.this.xfordView.setBgPaintColor(Color.argb(intValue4, intValue3, intValue3, intValue3));
-                                LivenessRecogActivity.this.xfordView.postInvalidate();
-                            }
-                        }
-                    });
+                    valueAnimator.addUpdateListener(new com.baidu.pass.biometrics.face.liveness.activity.d(this));
                     valueAnimator.start();
                     return;
                 }
-                this.poseTipTv.setTextColor(-11447983);
-                if (this.xfordView != null) {
-                    this.xfordView.setBgPaintColor(-1);
-                    this.xfordView.postInvalidate();
+                this.x.setTextColor(-11447983);
+                XfordView xfordView = this.E;
+                if (xfordView != null) {
+                    xfordView.setBgPaintColor(-1);
+                    this.E.postInvalidate();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @TargetApi(11)
-    public void startPoseTipAnim(int i) {
-        updatePoseTip(i);
-        if (this.processState.stateFlag == 0) {
-            this.processState.stateFlag = 1;
-        } else if (this.processState.stateFlag == 5) {
-            this.processState.stateFlag = 6;
-        } else if (this.processState.stateFlag == 7) {
-            this.processState.stateFlag = 8;
-        }
-        this.poseTipFl.setVisibility(0);
-        this.poseTipTv.setVisibility(0);
-    }
-
-    private void updatePoseTip(int i) {
-        if (i == 0) {
-            this.poseTipTv.setText(R.string.pass_liveness_put_face_round);
-        } else if (i == 1) {
-            if (this.headPoses != null && this.headMode < this.headPoses.length) {
-                this.poseTipTv.setText(this.headPoses[this.headMode]);
-            }
-        } else if (i == 2) {
-            if (this.headPoses != null && this.headMode < this.headPoses.length) {
-                this.poseTipTv.setText(this.headPoses[this.headMode]);
-            }
-        } else if (i == 3 && this.headPoses != null && this.headMode < this.headPoses.length) {
-            this.poseTipTv.setText(this.headPoses[this.headMode]);
+    public void c() {
+        int i2;
+        this.fa++;
+        ArrayList<HashMap<String, byte[]>> arrayList = this.ga;
+        if (arrayList != null && (i2 = this.fa) <= this.ea && i2 <= arrayList.size()) {
+            this.ia = this.ga.get(this.fa - 1).get("data");
+            this.ja = this.ga.get(this.fa - 1).get("digest");
+            this.ka = this.fa == this.ga.size();
+            byte[] bArr = this.ja;
+            a(bArr != null ? new String(bArr) : null, Base64Utils.encodeToString(this.ia), this.ka);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startPoseWarningAnim(int i) {
-        this.poseTipWarningFl.setVisibility(0);
-        if (this.lastWaringType != i) {
-            if (i == 1) {
-                this.livenessStat.tipDistanceFarNum++;
-                this.poseTipWarningTv.setText(getString(R.string.pass_liveness_tofar_from_camera));
-            } else if (i == 0) {
-                this.livenessStat.tipDistanceNearNum++;
-                this.poseTipWarningTv.setText(getString(R.string.pass_liveness_tonear_from_camera));
-            } else if (i == 2) {
-                this.livenessStat.tipLightLowNum++;
-                this.poseTipWarningTv.setText(getString(R.string.pass_liveness_brightness_too_dark));
-            } else if (i == 4) {
-                this.livenessStat.tipEyeSlopeNum++;
-                this.poseTipWarningTv.setText(getString(R.string.pass_liveness_face_to_screen));
+    public void a() {
+        int i2 = this.P.s;
+        if (i2 < 4) {
+            this.da.I = com.baidu.pass.biometrics.face.liveness.c.a.j;
+        } else if (i2 >= 4 && i2 < 9) {
+            int i3 = this.J;
+            if (i3 == 0) {
+                this.da.I = com.baidu.pass.biometrics.face.liveness.c.a.k;
+            } else if (i3 == 5) {
+                this.da.I = com.baidu.pass.biometrics.face.liveness.c.a.l;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(9)
+    public void a(Camera camera) {
+        if (this.sa == 0) {
+            Camera.Size previewSize = camera.getParameters().getPreviewSize();
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            if (this.U.d()) {
+                Camera.getCameraInfo(1, cameraInfo);
             } else {
-                this.livenessStat.tipPutFaceRoundNum++;
-                this.poseTipWarningTv.setText(getString(R.string.pass_liveness_put_face_round));
+                Camera.getCameraInfo(0, cameraInfo);
             }
-            final Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.pass_liveness_tip_warning);
-            loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.13
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationStart(Animation animation) {
-                }
-
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationEnd(Animation animation) {
-                    LivenessRecogActivity.this.poseTipWarningIv.startAnimation(loadAnimation);
-                }
-
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationRepeat(Animation animation) {
-                }
-            });
-            if (!this.animState.startWarningFlag) {
-                this.poseTipWarningIv.startAnimation(loadAnimation);
-                this.animState.startWarningFlag = true;
+            this.sa = previewSize.width;
+            this.ta = previewSize.height;
+            this.ua = cameraInfo.orientation;
+        }
+        if (this.L == null) {
+            this.L = new int[2];
+            int[] iArr = this.L;
+            iArr[0] = this.ta;
+            iArr[1] = this.sa;
+        }
+        SdkConfigOptions.LivenessConfigOption livenessConfigOption = this.aa;
+        if (livenessConfigOption == null || TextUtils.isEmpty(livenessConfigOption.minFaceSize)) {
+            if (this.sa > 640 && this.ta > 480) {
+                this.F.set_min_face_size(200);
+            } else {
+                this.F.set_min_face_size(100);
             }
         }
-        this.lastWaringType = i;
+        if (this.H == null) {
+            this.H = new int[this.sa * this.ta];
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startRecognizingAnim() {
-        this.processState.stateFlag = 3;
-        if (this.guideLiveness) {
-            this.processState.stateFlag = 4;
+    public void b(ContrastPortraitResult contrastPortraitResult) {
+        if (this.ka) {
+            this.da.H = "fail";
+            if (this.t != null) {
+                PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
+                passFaceRecogResult.setResultCode(contrastPortraitResult.getResultCode());
+                passFaceRecogResult.setResultMsg(contrastPortraitResult.getResultMsg());
+                this.t.onFailure(passFaceRecogResult);
+                setActivityResult(-1);
+                a(passFaceRecogResult.getResultCode());
+                return;
+            }
+            return;
+        }
+        d();
+    }
+
+    private void a(a.C0233a c0233a) {
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.C.getLayoutParams());
+        a.C0233a b2 = b(c0233a);
+        if (b2 != null && (b2.a != c0233a.a || b2.b != c0233a.b)) {
+            layoutParams.width = b2.a;
+            layoutParams.height = b2.b;
         } else {
-            this.processState.stateFlag = 20;
+            layoutParams.width = -2;
+            layoutParams.height = -1;
         }
-        this.faceStateIv.setImageBitmap(getScaleBitmap(R.drawable.pass_liveness_recog_face_successed));
-        this.livenessStat.timePointFindFaceDone = System.currentTimeMillis();
-        Log.w(TAG, "livenessStat.timePointFindFaceDone:" + this.livenessStat.timePointFindFaceDone);
-        this.livenessStat.findFaceNum++;
-        this.livenessStat.findFaceLast = 1;
+        this.C.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isAngleOfRange(FaceInfo faceInfo, FaceTracker.ErrCode errCode) {
+    public boolean a(FaceInfo[] faceInfoArr) {
+        return faceInfoArr != null && faceInfoArr.length > 0 && PassBiometricUtil.isFaceInsideRound(faceInfoArr[0].landmarks, this.L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(float f2) {
+        Log.w(a, "whiteBgIllumThr" + this.oa);
+        return f2 <= ((float) this.oa);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(FaceInfo faceInfo, FaceTracker.ErrCode errCode) {
         if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE || errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
             return true;
         }
-        if (errCode == FaceTracker.ErrCode.OK && faceInfo.headPose.length == 3) {
-            if (Math.abs(faceInfo.headPose[0]) >= (this.livenessConfig != null ? this.livenessConfig.getPitch() : 15)) {
-                return true;
-            }
-            if (Math.abs(faceInfo.headPose[1]) >= (this.livenessConfig != null ? this.livenessConfig.getYaw() : 15)) {
-                return true;
+        if (errCode == FaceTracker.ErrCode.OK) {
+            float[] fArr = faceInfo.headPose;
+            if (fArr.length == 3) {
+                float abs = Math.abs(fArr[0]);
+                SdkConfigOptions.LivenessConfigOption livenessConfigOption = this.aa;
+                if (abs >= (livenessConfigOption != null ? livenessConfigOption.getPitch() : 15)) {
+                    return true;
+                }
+                float abs2 = Math.abs(faceInfo.headPose[1]);
+                SdkConfigOptions.LivenessConfigOption livenessConfigOption2 = this.aa;
+                if (abs2 >= (livenessConfigOption2 != null ? livenessConfigOption2.getYaw() : 15)) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    public static void setBrightness(Activity activity, int i) {
-        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-        attributes.screenBrightness = Float.valueOf(i).floatValue() * 0.003921569f;
-        activity.getWindow().setAttributes(attributes);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            userCancel();
-            btnBackStat();
-            this.cameraInterface.doStopCamera();
-            setActivityResult(0);
-            activityFinish(-204);
-        }
-        return super.onKeyUp(i, keyEvent);
-    }
-
-    @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-        this.processState.permissionFlag = false;
-        if (i == 2002) {
-            if (iArr.length > 0 && iArr[0] == 0) {
-                this.livenessStat.withCameraPermission = 1;
-                this.livenessStat.openCameraPermissionSuc = 1;
-                this.livenessStat.timePointStartRecog = System.currentTimeMillis();
-                startLiveness();
-                if (openCamera()) {
-                    this.livenessStat.timePointCameraReady = System.currentTimeMillis();
-                    return;
-                }
-                return;
-            }
-            showPermissionDialog();
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void activityFinish(int i) {
-        Log.w(TAG, "activityFinish");
-        this.livenessStat.timePointEnd = System.currentTimeMillis();
-        if (this.passFaceRecogDTO != null) {
-            this.livenessStat.guideLiveness = this.passFaceRecogDTO.guideLiveness ? 1 : 0;
+    public void a(int i2) {
+        Log.w(a, "activityFinish");
+        this.da.fa = System.currentTimeMillis();
+        PassFaceRecogDTO passFaceRecogDTO = this.passFaceRecogDTO;
+        if (passFaceRecogDTO != null) {
+            this.da.E = passFaceRecogDTO.guideLiveness ? 1 : 0;
         }
-        this.livenessStat.errCode = i;
-        this.livenessStat.recogType = this.passFaceRecogDTO != null ? this.passFaceRecogDTO.livenessType.getRecogTypeName() : "unknown_type";
-        this.livenessStat.onStat(this);
-        if (this.timerCount != null) {
-            this.timerCount.cancel();
+        com.baidu.pass.biometrics.face.liveness.c.a aVar = this.da;
+        aVar.ga = i2;
+        PassFaceRecogDTO passFaceRecogDTO2 = this.passFaceRecogDTO;
+        aVar.q = passFaceRecogDTO2 != null ? passFaceRecogDTO2.livenessType.getRecogTypeName() : "unknown_type";
+        this.da.a(this);
+        d dVar = this.K;
+        if (dVar != null) {
+            dVar.cancel();
         }
         PassFaceRecogManager.getInstance().cleanPassFaceRecogCallback();
         finish();
     }
 
-    public void setActivityResult(int i) {
-        Intent intent = new Intent();
-        intent.putExtras(new Bundle());
-        setResult(i, intent);
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$14] */
-    public void constrastPortrait(FaceVerifyData[] faceVerifyDataArr) {
-        new AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String, byte[]>>>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.14
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // android.os.AsyncTask
-            public ArrayList<HashMap<String, byte[]>> doInBackground(FaceVerifyData... faceVerifyDataArr2) {
-                int i;
-                int i2;
-                Bitmap createBitmap;
-                LivenessRecogActivity.this.totalConstrastBeanCount = 0;
-                LivenessRecogActivity.this.currentConstrastBeanPos = 0;
-                ArrayList<HashMap<String, byte[]>> arrayList = new ArrayList<>();
-                for (FaceVerifyData faceVerifyData : faceVerifyDataArr2) {
-                    int[] iArr = faceVerifyData.mRegImg;
-                    byte[] bArr = faceVerifyData.mRegDigest;
-                    if (iArr != null && iArr.length > 0 && bArr != null && bArr.length > 0 && (createBitmap = Bitmap.createBitmap((i2 = faceVerifyData.cols), (i = faceVerifyData.rows), Bitmap.Config.ARGB_8888)) != null) {
-                        createBitmap.setPixels(iArr, 0, i2, 0, 0, i2, i);
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                        if (!createBitmap.isRecycled()) {
-                            createBitmap.recycle();
-                        }
-                        HashMap<String, byte[]> hashMap = new HashMap<>();
-                        hashMap.put("data", byteArrayOutputStream.toByteArray());
-                        hashMap.put("digest", bArr);
-                        arrayList.add(hashMap);
-                        if (byteArrayOutputStream != null) {
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // android.os.AsyncTask
-            public void onPostExecute(ArrayList<HashMap<String, byte[]>> arrayList) {
-                if (arrayList == null || arrayList.size() <= 0) {
-                    if (LivenessRecogActivity.this.callback != null) {
-                        PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                        passFaceRecogResult.setResultCode(-306);
-                        passFaceRecogResult.setResultMsg(PassFaceRecogResult.ERROR_MSG_IMAGE_FILE_EMPTY);
-                        LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
-                    }
-                    LivenessRecogActivity.this.activityFinish(-306);
-                    return;
-                }
-                LivenessRecogActivity.this.totalConstrastBeanCount = arrayList.size();
-                LivenessRecogActivity.this.portraitList = arrayList;
-                if (LivenessRecogActivity.this.passFaceRecogDTO != null) {
-                    if (LivenessRecogActivity.this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_FACEDETECT) {
-                        if (LivenessRecogActivity.this.livenessConfig != null) {
-                            LivenessRecogActivity.this.totalConstrastBeanCount = LivenessRecogActivity.this.livenessConfig.getRecogUploadPortraitCount(LivenessRecogActivity.this.totalConstrastBeanCount);
-                        }
-                        LivenessRecogActivity.this.dofaceDetect();
-                        return;
-                    }
-                    LivenessRecogActivity.this.dofaceMatch();
-                }
-            }
-        }.execute(faceVerifyDataArr);
+    public void a(FaceVerifyData[] faceVerifyDataArr) {
+        new f(this).execute(faceVerifyDataArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dofaceMatch() {
-        if (this.isLast) {
-            if (this.callback != null) {
-                this.livenessStat.faceMatchType = "fail";
-                PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                passFaceRecogResult.setResultCode(-206);
-                passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_SERVER_ERROR);
-                this.callback.onFailure(passFaceRecogResult);
-                setActivityResult(-1);
-                activityFinish(passFaceRecogResult.getResultCode());
-                return;
-            }
-            return;
-        }
-        this.currentConstrastBeanPos++;
-        if (this.portraitList == null || this.currentConstrastBeanPos > this.portraitList.size()) {
-            if (this.callback != null) {
-                this.livenessStat.faceMatchType = "fail";
-                PassFaceRecogResult passFaceRecogResult2 = new PassFaceRecogResult();
-                passFaceRecogResult2.setResultCode(-206);
-                passFaceRecogResult2.setResultMsg(PassBiometricResult.ERROR_MSG_SERVER_ERROR);
-                this.callback.onFailure(passFaceRecogResult2);
-                setActivityResult(-1);
-                activityFinish(passFaceRecogResult2.getResultCode());
-                return;
-            }
-            return;
-        }
-        byte[] bArr = this.portraitList.get(this.currentConstrastBeanPos - 1).get("data");
-        byte[] bArr2 = this.portraitList.get(this.currentConstrastBeanPos - 1).get("digest");
-        this.isLast = this.currentConstrastBeanPos == this.portraitList.size();
-        portraitContrast(bArr2 == null ? null : new String(bArr2), bArr == null ? null : Base64Utils.encodeToString(bArr), this.isLast, this.voiceCredential);
-    }
-
-    private void portraitContrast(String str, String str2, boolean z, String str3) {
-        final ContrastPortraitResult contrastPortraitResult = new ContrastPortraitResult();
+    private void a(String str, String str2, boolean z, String str3) {
+        ContrastPortraitResult contrastPortraitResult = new ContrastPortraitResult();
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("processid", this.passFaceRecogDTO.processid);
-        if (this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_BDUSS) {
+        PassFaceRecogType passFaceRecogType = this.passFaceRecogDTO.livenessType;
+        if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_BDUSS) {
             httpHashMapWrap.put("type", "contrastportrait");
             httpHashMapWrap.put("atbc", PassBioDataEncryptor.encryptParams(getAtbc(this.passFaceRecogDTO)));
-        } else if (this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_CERTINFO) {
+        } else if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_CERTINFO) {
             httpHashMapWrap.put("type", "certinfo");
             httpHashMapWrap.put("exuid", this.passFaceRecogDTO.exUid);
             JSONObject jSONObject = new JSONObject();
@@ -1615,13 +1514,13 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 jSONObject.put("cert", this.passFaceRecogDTO.idCardNum);
                 jSONObject.put("bankmobile", this.passFaceRecogDTO.phoneNum);
                 httpHashMapWrap.put("certinfo", PassBioDataEncryptor.encryptParams(jSONObject.toString()));
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } else if (this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
+        } else if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
             httpHashMapWrap.put("type", "authtoken");
             httpHashMapWrap.put("authtoken", this.passFaceRecogDTO.authToken);
-        } else if (this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_OUTER) {
+        } else if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_OUTER) {
             httpHashMapWrap.put("type", "outer");
             httpHashMapWrap.put("exuid", this.passFaceRecogDTO.exUid);
         }
@@ -1642,91 +1541,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             httpHashMapWrap.put("nonce", nonce);
         }
         httpHashMapWrap.put("sig", HttpClientWrap.calculateSig(httpHashMapWrap.getMap(), BeanConstants.appSignKey));
-        new HttpClientWrap(this).post(getPortraitContrastUrl(), httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.15
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onSuccess(int i, String str4) {
-                try {
-                    Log.i(LivenessRecogActivity.TAG, "portraitContrast|responseBody|" + str4);
-                    JSONObject jSONObject2 = new JSONObject(str4);
-                    int optInt = jSONObject2.optInt(BaiduRimConstants.RETCODE_KEY);
-                    String optString = jSONObject2.optString("retMsg");
-                    contrastPortraitResult.setResultCode(optInt);
-                    contrastPortraitResult.setResultMsg(optString);
-                    if (contrastPortraitResult.getResultCode() == 0) {
-                        JSONObject jSONObject3 = new JSONObject(str4);
-                        if (jSONObject3 != null) {
-                            JSONObject optJSONObject = jSONObject3.optJSONObject("result");
-                            if (LivenessRecogActivity.this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
-                                contrastPortraitResult.authsid = optJSONObject.optString("authsid");
-                            }
-                            contrastPortraitResult.callbackkey = optJSONObject.optString("callbackkey");
-                            contrastPortraitResult.contrastres = optJSONObject.optInt("contrastres");
-                            contrastPortraitResult.finalres = optJSONObject.optInt("finalres");
-                            contrastPortraitResult.finish = optJSONObject.optInt("finish");
-                            contrastPortraitResult.imgdigests = optJSONObject.optString("imgdigests");
-                            contrastPortraitResult.recordvideo = optJSONObject.optInt("recordvideo");
-                        } else {
-                            return;
-                        }
-                    }
-                } catch (JSONException e2) {
-                    Log.e(e2);
-                    contrastPortraitResult.setResultCode(-206);
-                    contrastPortraitResult.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
-                }
-                LivenessRecogActivity.this.handlePortraitContrastSuc(contrastPortraitResult);
-            }
-
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onFailure(Throwable th, int i, String str4) {
-                contrastPortraitResult.setResultCode(-206);
-                contrastPortraitResult.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
-                LivenessRecogActivity.this.handlePortraitContrastFail(contrastPortraitResult);
-            }
-        });
+        new HttpClientWrap(this).post(getPortraitContrastUrl(), httpHashMapWrap, new g(this, Looper.getMainLooper(), contrastPortraitResult));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handlePortraitContrastFail(ContrastPortraitResult contrastPortraitResult) {
-        if (this.isLast) {
-            this.livenessStat.faceMatchType = "fail";
-            if (this.callback != null) {
-                PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                passFaceRecogResult.setResultCode(contrastPortraitResult.getResultCode());
-                passFaceRecogResult.setResultMsg(contrastPortraitResult.getResultMsg());
-                this.callback.onFailure(passFaceRecogResult);
-                setActivityResult(-1);
-                activityFinish(passFaceRecogResult.getResultCode());
-                return;
-            }
-            return;
-        }
-        dofaceMatch();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handlePortraitContrastSuc(ContrastPortraitResult contrastPortraitResult) {
-        if (contrastPortraitResult.getResultCode() != 0) {
-            handlePortraitContrastFail(contrastPortraitResult);
-            this.livenessStat.faceMatchType = "fail";
-            return;
-        }
-        this.voiceCredential = contrastPortraitResult.callbackkey;
-        if (contrastPortraitResult.isFinish()) {
-            if (contrastPortraitResult.isProcessPass()) {
-                goToFaceMatchResult(contrastPortraitResult);
-                return;
-            } else {
-                goToFaceMatchResult(contrastPortraitResult);
-                return;
-            }
-        }
-        dofaceMatch();
-    }
-
-    private void faceDetectHttp(String str, String str2, boolean z) {
+    private void a(String str, String str2, boolean z) {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("processid", this.passFaceRecogDTO.processid);
         httpHashMapWrap.put("exuid", this.passFaceRecogDTO.exUid);
@@ -1739,123 +1557,6 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             httpHashMapWrap.put("nonce", nonce);
         }
         httpHashMapWrap.put("sig", HttpClientWrap.calculateSig(httpHashMapWrap.getMap(), BeanConstants.appSignKey));
-        new HttpClientWrap(this).post(getFaceDetectUrl(), httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.16
-            /* JADX INFO: Access modifiers changed from: protected */
-            /* JADX WARN: Type inference failed for: r1v11, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$16$1] */
-            @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onSuccess(int i, String str3) {
-                Log.i(LivenessRecogActivity.TAG, "faceDetectHttp|responseBody|" + str3);
-                final PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                try {
-                    passFaceRecogResult.extraJson = new JSONObject(str3).getJSONObject("result");
-                    passFaceRecogResult.callbackkey = passFaceRecogResult.extraJson.optString("faceid");
-                    if (TextUtils.isEmpty(passFaceRecogResult.callbackkey)) {
-                        LivenessRecogActivity.this.callbackFailureOrContinueFaceDetect(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
-                    } else if (LivenessRecogActivity.this.callback != null) {
-                        new AsyncTask<Void, Void, PassFaceRecogResult>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.16.1
-                            /* JADX DEBUG: Method merged with bridge method */
-                            /* JADX INFO: Access modifiers changed from: protected */
-                            @Override // android.os.AsyncTask
-                            public PassFaceRecogResult doInBackground(Void... voidArr) {
-                                byte[] encode;
-                                if (LivenessRecogActivity.this.passFaceRecogDTO != null) {
-                                    if (LivenessRecogActivity.this.cameraDataCache != null && LivenessRecogActivity.this.cameraDataCache.size() > 0) {
-                                        passFaceRecogResult.originalImage = LivenessRecogActivity.this.argb2String((int[]) LivenessRecogActivity.this.cameraDataCache.get(LivenessRecogActivity.this.cameraDataCache.size() - LivenessRecogActivity.this.currentConstrastBeanPos));
-                                    }
-                                    if (LivenessRecogActivity.this.faceData != null && (encode = Base64Utils.encode(LivenessRecogActivity.this.faceData)) != null) {
-                                        passFaceRecogResult.faceimage = new String(encode);
-                                    }
-                                    if (LivenessRecogActivity.this.faceDigest != null) {
-                                        passFaceRecogResult.imgdigests = new String(LivenessRecogActivity.this.faceDigest);
-                                    }
-                                }
-                                return passFaceRecogResult;
-                            }
-
-                            /* JADX DEBUG: Method merged with bridge method */
-                            /* JADX INFO: Access modifiers changed from: protected */
-                            @Override // android.os.AsyncTask
-                            public void onPostExecute(PassFaceRecogResult passFaceRecogResult2) {
-                                super.onPostExecute((AnonymousClass1) passFaceRecogResult2);
-                                passFaceRecogResult2.setResultCode(0);
-                                LivenessRecogActivity.this.callback.onSuccess(passFaceRecogResult2);
-                                LivenessRecogActivity.this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_PASS;
-                                LivenessRecogActivity.this.activityFinish(passFaceRecogResult2.getResultCode());
-                            }
-                        }.execute(new Void[0]);
-                    }
-                } catch (JSONException e) {
-                    LivenessRecogActivity.this.callbackFailureOrContinueFaceDetect(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
-                }
-            }
-
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onFailure(Throwable th, int i, String str3) {
-                LivenessRecogActivity.this.callbackFailureOrContinueFaceDetect(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dofaceDetect() {
-        this.currentConstrastBeanPos++;
-        if (this.portraitList != null && this.currentConstrastBeanPos <= this.totalConstrastBeanCount && this.currentConstrastBeanPos <= this.portraitList.size()) {
-            this.faceData = this.portraitList.get(this.currentConstrastBeanPos - 1).get("data");
-            this.faceDigest = this.portraitList.get(this.currentConstrastBeanPos - 1).get("digest");
-            this.isLast = this.currentConstrastBeanPos == this.portraitList.size();
-            faceDetectHttp(this.faceDigest != null ? new String(this.faceDigest) : null, Base64Utils.encodeToString(this.faceData), this.isLast);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public class ProcessState {
-        static final int DEFAULT_WHOLE_PROCESS_TIME_OUT = 20000;
-        static final int LIVENESS_RECOG_MIN_TIME = 5000;
-        static final int STAET_VIDEO_UNRECOGNIZED = 18;
-        static final int STATE_BEFORE_TRACK_BLINK = 5;
-        static final int STATE_BEFORE_TRACK_MOUTH_OPEN = 7;
-        static final int STATE_FACE_RECOG_DONE = 10;
-        static final int STATE_FACE_RECOG_TIME_OUT = 17;
-        static final int STATE_FIND_FACE = 2;
-        static final int STATE_FIND_FACE_SPECIAL_ANIM_DONE = 4;
-        static final int STATE_FIND_FACE_SPECIAL_ANIM_START = 3;
-        static final int STATE_LIVE_NESS = 9;
-        static final int STATE_LOST_FACE = 11;
-        static final int STATE_NO_CAMERA_PERMISSION = 19;
-        static final int STATE_NO_GUIDE_LIVENESS = 20;
-        static final int STATE_OPEN_APP = 0;
-        static final int STATE_START_RECOGNIZE = 1;
-        static final int STATE_START_TRACK_BLICK = 6;
-        static final int STATE_START_TRACK_MOUTH_OPEN = 8;
-        long wholeProcessStartTime;
-        int stateFlag = 0;
-        boolean firstFindFaceFlag = false;
-        boolean blickFindFaceFlag = false;
-        long wholeProcessTimeOut = 20000;
-        boolean timeOutFlag = false;
-        boolean permissionFlag = false;
-
-        ProcessState() {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public class AnimState {
-        private static final int POSE_BOTTOM_TO_MIDDLE = 0;
-        private static final int POSE_MIDDLE_TO_TOP = 1;
-        static final int POSE_STATE_BLINK = 1;
-        static final int POSE_STATE_MOUTH_OPEN = 3;
-        static final int POSE_STATE_NOD_HEAD = 2;
-        static final int POSE_STATE_PUSH_FACE_ROUND = 0;
-        boolean startWarningFlag = false;
-        boolean startBlinkAnimFlag = false;
-        boolean startMouthOpenAnimFlag = false;
-        boolean swipFaceFlag = false;
-
-        AnimState() {
-        }
+        new HttpClientWrap(this).post(getFaceDetectUrl(), httpHashMapWrap, new i(this, Looper.getMainLooper()));
     }
 }

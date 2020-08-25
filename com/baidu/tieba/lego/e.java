@@ -1,13 +1,13 @@
 package com.baidu.tieba.lego;
 
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface e {
-    e I(String str, long j);
+    e J(String str, long j);
 
     void a(ICardInfo iCardInfo);
 
-    e bl(String str, int i);
+    e bo(String str, int i);
 
-    e eJ(String str, String str2);
+    e fa(String str, String str2);
 }

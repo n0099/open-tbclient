@@ -5,16 +5,17 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
-    public static final Parcelable.Creator<BikingRouteLine> CREATOR = new c();
+    public static final Parcelable.Creator<BikingRouteResult> CREATOR = new c();
     private List<BikingRouteLine> a;
     private SuggestAddrInfo b;
 
     public BikingRouteResult() {
     }
 
-    protected BikingRouteResult(Parcel parcel) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public BikingRouteResult(Parcel parcel) {
         this.a = new ArrayList();
         parcel.readList(this.a, BikingRouteLine.class.getClassLoader());
         this.b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());

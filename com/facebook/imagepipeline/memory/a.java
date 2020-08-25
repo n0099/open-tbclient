@@ -2,22 +2,22 @@ package com.facebook.imagepipeline.memory;
 
 import android.graphics.Bitmap;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private final int jne;
+    private final int jCc;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
     @GuardedBy("this")
     private long mSize;
-    private final com.facebook.common.references.c<Bitmap> ndd;
+    private final com.facebook.common.references.c<Bitmap> nwT;
 
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
-        this.jne = i;
+        this.jCc = i;
         this.mMaxSize = i2;
-        this.ndd = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.nwT = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: Y */
@@ -34,7 +34,7 @@ public class a {
     public synchronized boolean ab(Bitmap bitmap) {
         boolean z;
         int aj = com.facebook.d.a.aj(bitmap);
-        if (this.mCount < this.jne) {
+        if (this.mCount < this.jCc) {
             if (this.mSize + aj <= this.mMaxSize) {
                 this.mCount++;
                 this.mSize = aj + this.mSize;
@@ -63,15 +63,15 @@ public class a {
         return this.mSize;
     }
 
-    public synchronized int bBV() {
-        return this.jne;
+    public synchronized int bLp() {
+        return this.jCc;
     }
 
     public synchronized int getMaxSize() {
         return this.mMaxSize;
     }
 
-    public com.facebook.common.references.c<Bitmap> dIH() {
-        return this.ndd;
+    public com.facebook.common.references.c<Bitmap> dUG() {
+        return this.nwT;
     }
 }

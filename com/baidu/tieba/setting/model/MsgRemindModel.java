@@ -35,25 +35,25 @@ public class MsgRemindModel extends BdBaseModel {
     public static final int SWITCH_TYPE_NUM = 8;
     public static final int SWITCH_YY_MSG = 6;
     public static final int SWITCH_ZAN = 20;
-    private BaseActivity lwU;
-    private a lwV;
-    private HttpMessageListener lwW;
-    private c lwX;
-    private c lwY;
-    private c lwZ;
+    private BaseActivity lOi;
+    private a lOj;
+    private HttpMessageListener lOk;
+    private c lOl;
+    private c lOm;
+    private c lOn;
 
     /* loaded from: classes20.dex */
     public interface a {
-        void h(int i, boolean z, boolean z2);
+        void i(int i, boolean z, boolean z2);
     }
 
     public MsgRemindModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.lwW = new HttpMessageListener(1003318) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.1
+        this.lOk = new HttpMessageListener(1003318) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                MsgRemindModel.this.lwU.hideProgressBar();
+                MsgRemindModel.this.lOi.hideProgressBar();
                 if ((httpResponsedMessage instanceof FriendAndStrangerSwitchResMsg) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                     FriendAndStrangerReqMsg friendAndStrangerReqMsg = (FriendAndStrangerReqMsg) httpResponsedMessage.getOrginalMessage();
                     FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
@@ -74,11 +74,11 @@ public class MsgRemindModel extends BdBaseModel {
                 }
             }
         };
-        this.lwX = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.2
+        this.lOl = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                MsgRemindModel.this.lwU.hideProgressBar();
+                MsgRemindModel.this.lOi.hideProgressBar();
                 if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
                     ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
@@ -86,33 +86,33 @@ public class MsgRemindModel extends BdBaseModel {
                 }
             }
         };
-        this.lwY = new c(CmdConfigSocket.CMD_UPDATE_MASK) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.3
+        this.lOm = new c(CmdConfigSocket.CMD_UPDATE_MASK) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                MsgRemindModel.this.lwU.hideProgressBar();
+                MsgRemindModel.this.lOi.hideProgressBar();
                 if ((socketResponsedMessage instanceof ResponseUpdateMaskMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskMessage)) {
                     ResponseUpdateMaskMessage responseUpdateMaskMessage = (ResponseUpdateMaskMessage) socketResponsedMessage;
                     MsgRemindModel.this.a(4, responseUpdateMaskMessage.getError() == 0, ((RequestUpdateMaskMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask(), responseUpdateMaskMessage.getErrorString());
                 }
             }
         };
-        this.lwZ = new c(CmdConfigSocket.CMD_UPDATE_FORUM_MAST_STAT) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.4
+        this.lOn = new c(CmdConfigSocket.CMD_UPDATE_FORUM_MAST_STAT) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                MsgRemindModel.this.lwU.hideProgressBar();
+                MsgRemindModel.this.lOi.hideProgressBar();
                 if (socketResponsedMessage instanceof ResponseUpdateForumMask) {
                     ResponseUpdateForumMask responseUpdateForumMask = (ResponseUpdateForumMask) socketResponsedMessage;
                     MsgRemindModel.this.a(7, responseUpdateForumMask.getError() == 0, !((RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage()).getFlag(), responseUpdateForumMask.getErrorString());
                 }
             }
         };
-        this.lwU = baseActivity;
-        registerListener(this.lwY);
-        registerListener(this.lwX);
-        registerListener(this.lwZ);
-        registerListener(this.lwW);
+        this.lOi = baseActivity;
+        registerListener(this.lOm);
+        registerListener(this.lOl);
+        registerListener(this.lOn);
+        registerListener(this.lOk);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -129,7 +129,7 @@ public class MsgRemindModel extends BdBaseModel {
         Message<?> friendAndStrangerReqMsg;
         Message<?> friendAndStrangerReqMsg2;
         if (i == 14 || i == 2 || i == 3 || i == 4 || i == 5 || i == 1 || i == 7 || i == 8 || i == 9 || i == 20) {
-            this.lwV = aVar;
+            this.lOj = aVar;
             if (i == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
@@ -159,40 +159,40 @@ public class MsgRemindModel extends BdBaseModel {
                 requestUpdateMaskInfoMessage.setSettingMask(z);
                 sendMessage(requestUpdateMaskInfoMessage);
             }
-            this.lwU.showProgressBar();
+            this.lOi.showProgressBar();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, boolean z, boolean z2, String str) {
         if (z) {
-            this.lwU.showToast(this.lwU.getResources().getString(R.string.success));
-            if (this.lwV != null) {
-                this.lwV.h(i, true, z2);
+            this.lOi.showToast(this.lOi.getResources().getString(R.string.success));
+            if (this.lOj != null) {
+                this.lOj.i(i, true, z2);
                 if (i != 14) {
-                    if (!d.bfO().bfT() && !d.bfO().bfW() && !d.bfO().bfU() && !d.bfO().bfV() && !d.bfO().bgf() && !d.bfO().bge() && !d.bfO().bfS()) {
-                        this.lwV.h(14, true, false);
+                    if (!d.boy().boD() && !d.boy().boG() && !d.boy().boE() && !d.boy().boF() && !d.boy().boP() && !d.boy().boO() && !d.boy().boC()) {
+                        this.lOj.i(14, true, false);
                         return;
                     }
                     return;
                 }
-                this.lwV.h(2, true, z2);
-                this.lwV.h(3, true, z2);
-                this.lwV.h(4, true, z2);
-                this.lwV.h(5, true, z2);
-                this.lwV.h(1, true, z2);
-                this.lwV.h(20, true, z2);
+                this.lOj.i(2, true, z2);
+                this.lOj.i(3, true, z2);
+                this.lOj.i(4, true, z2);
+                this.lOj.i(5, true, z2);
+                this.lOj.i(1, true, z2);
+                this.lOj.i(20, true, z2);
                 return;
             }
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.lwU.showToast(str);
+            this.lOi.showToast(str);
         } else {
-            this.lwU.showToast(R.string.setdefualt_error);
+            this.lOi.showToast(R.string.setdefualt_error);
         }
-        if (this.lwV != null) {
-            this.lwV.h(i, false, z2);
+        if (this.lOj != null) {
+            this.lOj.i(i, false, z2);
         }
     }
 }

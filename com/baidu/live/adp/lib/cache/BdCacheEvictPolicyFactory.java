@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.cache.BdCacheEvictPolicy;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdCacheEvictPolicyFactory {
     public static BdCacheEvictPolicy newLRUCachePolicy(int i, boolean z) {
         return z ? new EvictOnInsertLRUCachePolicy(i) : new EvictOnCountLRUCachePolicy(i);
@@ -14,7 +14,7 @@ public class BdCacheEvictPolicyFactory {
         return new NoEvictCachePolicy();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     static class NoEvictCachePolicy implements BdCacheEvictPolicy {
         NoEvictCachePolicy() {
         }
@@ -35,7 +35,7 @@ public class BdCacheEvictPolicyFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     static class EvictOnCountLRUCachePolicy implements BdCacheEvictPolicy.EvictOnCountSupport {
         private final int maxSize;
         private LinkedList<BdCacheItem<?>> tempItems;
@@ -105,7 +105,7 @@ public class BdCacheEvictPolicyFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     static class EvictOnInsertLRUCachePolicy implements BdCacheEvictPolicy.EvictOnInsertSupport {
         private HashMap<String, Long> items = new HashMap<>();
         private final int maxSize;

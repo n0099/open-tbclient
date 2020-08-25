@@ -1,8 +1,8 @@
 package com.baidu.sapi2.shell;
 
-import com.baidu.sapi2.c;
-/* loaded from: classes19.dex */
-public interface SapiErrorCode extends c {
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public interface SapiErrorCode extends NoProguard {
     public static final int CANNOT_LOGIN = 16;
     public static final int ERROR_UNKNOWN = -100;
     public static final int GUIDE_PROCESS = 302;

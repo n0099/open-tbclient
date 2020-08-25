@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk.dumper;
 
-import com.a.a.a.a.a.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.webkit.internal.d;
 import com.baidu.webkit.sdk.Log;
@@ -29,7 +28,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class ZeusLogUploader {
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
     private static final int BUFF_SIZE = 4096;
@@ -59,7 +58,7 @@ public final class ZeusLogUploader {
     private static boolean sIsEnabled = true;
     private static boolean mUploadCrashLogFailedEncrypt = true;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class LogFilter implements FilenameFilter {
         String mLogType;
 
@@ -84,7 +83,7 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class MyRunner implements Runnable {
         String cuid;
         boolean deletAfterUpload;
@@ -173,12 +172,12 @@ public final class ZeusLogUploader {
                 } catch (Exception e4) {
                     e = e4;
                     this.status = 5;
-                    a.a(e);
+                    e.printStackTrace();
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
                         } catch (Exception e5) {
-                            a.a(e5);
+                            e5.printStackTrace();
                         }
                     }
                     if (ZeusLogUploader.mUploadCrashLogFailedEncrypt) {
@@ -197,7 +196,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }
@@ -211,7 +210,7 @@ public final class ZeusLogUploader {
         try {
             jSONObject.put("CUID", jSONArray);
         } catch (JSONException e) {
-            a.a(e);
+            e.printStackTrace();
         }
         this.mCuid = jSONObject.toString();
     }
@@ -251,13 +250,13 @@ public final class ZeusLogUploader {
                         gZIPOutputStream.write(bArr2, 0, read);
                     } catch (Exception e) {
                         e = e;
-                        a.a(e);
+                        e.printStackTrace();
                         stringBuffer.append(e.getMessage());
                         if (byteArrayInputStream != null) {
                             try {
                                 byteArrayInputStream.close();
                             } catch (Exception e2) {
-                                a.a(e2);
+                                e2.printStackTrace();
                                 return null;
                             }
                         }
@@ -369,7 +368,7 @@ public final class ZeusLogUploader {
                     }
                 }
             } catch (Exception e) {
-                a.a(e);
+                e.printStackTrace();
             }
         }
         byte[] bArr2 = new byte[4096];
@@ -433,7 +432,7 @@ public final class ZeusLogUploader {
                         e = e3;
                         try {
                             stringBuffer.append(e.getMessage());
-                            a.a(e);
+                            e.printStackTrace();
                             if (r3 != null) {
                                 try {
                                     r3.close();
@@ -619,7 +618,7 @@ public final class ZeusLogUploader {
                             fileOutputStream.close();
                             return 5;
                         } catch (IOException e11) {
-                            a.a(e11);
+                            e11.printStackTrace();
                             return 5;
                         }
                     }

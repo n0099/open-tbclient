@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.view;
 
 import com.baidu.tieba.frs.aggregation.a;
 import com.baidu.tieba.frs.videomiddlepage.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface h {
     void setAutoPlayCallBack(a aVar);
 

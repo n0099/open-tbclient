@@ -29,28 +29,28 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.pU());
+        addParam("pid", aVar.rt());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.pJ()));
+        addParam("flr", String.valueOf(aVar.ri()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.pJ()));
-        addParam("ft", aVar.pH());
+        addParam("fc", String.valueOf(aVar.ri()));
+        addParam("ft", aVar.rg());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
     private static String getExt(com.baidu.afd.videopaster.a aVar) {
-        if (aVar == null || aVar.pK() == null || aVar.pK().isEmpty()) {
+        if (aVar == null || aVar.rj() == null || aVar.rj().isEmpty()) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : aVar.pK().entrySet()) {
+        for (Map.Entry<String, String> entry : aVar.rj().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
     private static final String DEFAULT_FROM = "aladdin_wake";
 

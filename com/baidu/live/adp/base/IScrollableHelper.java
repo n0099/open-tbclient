@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.BSBeanUtils;
 import com.baidu.megapp.ma.MAActivity;
 import com.baidu.megapp.ma.MAFragmentActivity;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class IScrollableHelper {
     public static BdPageContextCreator defaultPageContextCreater = null;
 

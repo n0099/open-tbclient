@@ -1,19 +1,19 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ar<T> implements aj<Void> {
-    private final aj<T> ndV;
+    private final aj<T> nxL;
 
     public ar(aj<T> ajVar) {
-        this.ndV = ajVar;
+        this.nxL = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<Void> kVar, ak akVar) {
-        this.ndV.c(new n<T, Void>(kVar) { // from class: com.facebook.imagepipeline.producers.ar.1
+        this.nxL.c(new n<T, Void>(kVar) { // from class: com.facebook.imagepipeline.producers.ar.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void g(T t, int i) {
-                if (JH(i)) {
-                    dJB().h(null, i);
+                if (Ml(i)) {
+                    dVA().h(null, i);
                 }
             }
         }, akVar);

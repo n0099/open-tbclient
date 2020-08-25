@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.DeleteFriend.DeleteFriendReqIdl;
 import tbclient.DeleteFriend.ReqData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestDeleteFriendMessage extends TbSocketMessage {
     private long friendId;
 

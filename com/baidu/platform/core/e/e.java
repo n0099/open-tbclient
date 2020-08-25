@@ -1,14 +1,14 @@
 package com.baidu.platform.core.e;
 
 import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e extends com.baidu.platform.base.e {
     public e(RouteShareURLOption routeShareURLOption) {
         a(routeShareURLOption);

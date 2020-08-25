@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public final class DrawableCompat {
     private static final String TAG = "DrawableCompat";
     private static Method sGetLayoutDirectionMethod;

@@ -7,7 +7,7 @@ import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.share.x;
+import com.baidu.sapi2.share.e;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
@@ -19,20 +19,20 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class FaceLoginService {
-    private static final String a = "FaceLoginService";
-    private static final String b = "face_login_model_v2";
-    private static final String c = "livingunames";
-    private static final int d = 10;
-    private Context e = SapiAccountManager.getInstance().getConfignation().context;
+    private static final String b = "FaceLoginService";
+    private static final String c = "face_login_model_v2";
+    private static final String d = "livingunames";
+    private static final int e = 10;
+    private Context a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(c, SapiUtils.map2JsonArray(map, "livinguname", "time"));
+            jSONObject.put(d, SapiUtils.map2JsonArray(map, "livinguname", "time"));
             return jSONObject.toString();
-        } catch (JSONException e) {
+        } catch (JSONException e2) {
             return null;
         }
     }
@@ -50,7 +50,7 @@ public class FaceLoginService {
         ArrayList arrayList = new ArrayList();
         try {
             if (!TextUtils.isEmpty(str)) {
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray(c);
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray(d);
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("livinguname");
@@ -60,7 +60,7 @@ public class FaceLoginService {
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception e2) {
         }
         return arrayList;
     }
@@ -80,34 +80,34 @@ public class FaceLoginService {
         }
         arrayList.addAll(b());
         arrayList.addAll(a());
-        Map<String, Long> a2 = a(arrayList);
+        Map<String, Long> a = a(arrayList);
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
         try {
-            for (String str : a2.keySet()) {
+            for (String str : a.keySet()) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("livinguname", str);
-                jSONObject2.put("time", a2.get(str));
+                jSONObject2.put("time", a.get(str));
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("list", jSONArray);
-        } catch (JSONException e) {
-            Log.i(e);
+        } catch (JSONException e2) {
+            Log.i(e2);
         }
-        String a3 = a(a2);
-        a(a3);
-        SapiContext.getInstance().setV2FaceLivingunames(a3);
+        String a2 = a(a);
+        a(a2);
+        SapiContext.getInstance().setV2FaceLivingunames(a2);
         SapiContext.getInstance().setV2FaceLoginCheckResults(jSONObject.toString());
     }
 
     private void a(String str) {
         if (SapiContext.getInstance().getShareCommonStorageEnabel() && !TextUtils.isEmpty(str) && SapiContext.getInstance().shareLivingunameEnable()) {
             ShareStorage shareStorage = new ShareStorage();
-            shareStorage.setSp(b, str);
-            shareStorage.setSd(SecurityUtil.md5(b.getBytes(), false), str);
+            shareStorage.setSp(c, str);
+            shareStorage.setSd(SecurityUtil.md5(c.getBytes(), false), str);
             return;
         }
-        Log.i(a, "setV2ShareFaceUids false");
+        Log.i(b, "setV2ShareFaceUids false");
     }
 
     private Map<String, Long> a(List<a> list) {
@@ -135,15 +135,15 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> c2 = x.c(this.e);
+            List<Intent> c2 = e.c(this.a);
             if (c2.isEmpty()) {
                 return arrayList;
             }
             ShareStorage shareStorage = new ShareStorage();
             for (Intent intent : c2) {
-                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), b)));
+                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), c)));
             }
-            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(b.getBytes(), false))));
+            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(c.getBytes(), false))));
             return arrayList;
         }
         return arrayList;

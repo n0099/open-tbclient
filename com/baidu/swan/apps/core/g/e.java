@@ -5,28 +5,40 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.swan.apps.core.g;
 import com.baidu.swan.apps.core.g.d;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private d cdA;
-    private String cdB;
-    private String cdC;
-    private boolean cdD;
-    private boolean cdE;
+    private String cjA;
+    private String cjB;
+    private boolean cjC;
+    private boolean cjD;
+    private d cjz;
 
     public e(Context context) {
     }
 
     @Override // com.baidu.swan.apps.core.g.a
+    public String aaU() {
+        if (this.cjz != null) {
+            return this.cjz.aia();
+        }
+        if (DEBUG) {
+            Log.d("V8MasterAdapter", Log.getStackTraceString(new Exception("illegal state")));
+        }
+        return "";
+    }
+
+    @Override // com.baidu.swan.apps.core.g.a
     public void loadUrl(String str) {
-        if (this.cdA == null) {
-            final String adH = com.baidu.swan.apps.core.turbo.d.adw().adH();
-            this.cdA = new d(adH, "runtime/index.js");
-            this.cdB = str;
-            this.cdA.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
+        if (this.cjz == null) {
+            final String akf = com.baidu.swan.apps.core.turbo.d.ajS().akf();
+            this.cjz = new d(akf, "runtime/index.js");
+            this.cjA = str;
+            this.cjz.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
                 @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
                 public void onCacheResult(V8EngineConfiguration.CacheInfo cacheInfo) {
                     if (e.DEBUG) {
@@ -35,10 +47,10 @@ public class e implements a {
                     if (cacheInfo.cached && !TextUtils.isEmpty(cacheInfo.jsPath)) {
                         File file = new File(cacheInfo.jsPath);
                         try {
-                            if (file.getPath().startsWith(new File(adH).getCanonicalPath())) {
-                                e.this.cdD = true;
-                            } else if (!TextUtils.isEmpty(e.this.cdC) && file.getCanonicalPath().startsWith(new File(e.this.cdC).getCanonicalPath())) {
-                                e.this.cdE = true;
+                            if (file.getPath().startsWith(new File(akf).getCanonicalPath())) {
+                                e.this.cjC = true;
+                            } else if (!TextUtils.isEmpty(e.this.cjB) && file.getCanonicalPath().startsWith(new File(e.this.cjB).getCanonicalPath())) {
+                                e.this.cjD = true;
                             }
                         } catch (IOException e) {
                             if (e.DEBUG) {
@@ -54,13 +66,13 @@ public class e implements a {
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public void a(final com.baidu.swan.apps.core.e eVar) {
-        if (this.cdA != null) {
-            this.cdA.a(new d.b() { // from class: com.baidu.swan.apps.core.g.e.2
+    public void a(final g gVar) {
+        if (this.cjz != null) {
+            this.cjz.a(new d.b() { // from class: com.baidu.swan.apps.core.g.e.2
                 @Override // com.baidu.swan.apps.core.g.d.b
                 public void c(com.baidu.swan.games.f.a aVar) {
-                    if (eVar != null) {
-                        eVar.fH(e.this.cdB);
+                    if (gVar != null) {
+                        gVar.hs(e.this.cjA);
                     }
                 }
             });
@@ -69,33 +81,33 @@ public class e implements a {
 
     @Override // com.baidu.swan.apps.core.g.a
     public void destroy() {
-        if (this.cdA != null) {
-            this.cdA.finish();
+        if (this.cjz != null) {
+            this.cjz.finish();
         }
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void attachActivity(Activity activity) {
-        this.cdA.D(activity);
+        this.cjz.E(activity);
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public com.baidu.swan.apps.core.container.a VC() {
-        return this.cdA.getV8Engine();
+    public com.baidu.swan.apps.core.container.a abI() {
+        return this.cjz.getV8Engine();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(com.baidu.swan.apps.core.turbo.a aVar) {
-        if (com.baidu.swan.apps.t.a.ahm().et(0) && aVar != null) {
+        if (com.baidu.swan.apps.t.a.aoM().gr(0) && aVar != null) {
             if (DEBUG) {
                 Log.d("V8MasterAdapter", "pathList item: " + aVar.appPath);
             }
-            this.cdC = aVar.appPath;
-            this.cdA.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.aZ("appjs", aVar.appPath));
+            this.cjB = aVar.appPath;
+            this.cjz.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.bg("appjs", aVar.appPath));
         }
     }
 
-    public int abR() {
-        return com.baidu.swan.apps.core.b.a.k(this.cdD, this.cdE);
+    public int aie() {
+        return com.baidu.swan.apps.core.b.a.l(this.cjC, this.cjD);
     }
 }

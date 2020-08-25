@@ -6,19 +6,18 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
-import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes10.dex */
+import com.baidu.mapsdkplatform.comapi.util.h;
+/* loaded from: classes20.dex */
 public class a implements PermissionCheck.c {
     private static a f;
     private Context b;
     private Handler c;
-    private e d;
+    private f d;
     private int e;
     private static final String a = a.class.getSimpleName();
     private static int g = -100;
@@ -88,17 +87,20 @@ public class a implements PermissionCheck.c {
             return;
         }
         if (bVar.a == 0) {
-            f.z = bVar.e;
-            f.a(bVar.b, bVar.c);
+            h.d = bVar.e;
+            h.a(bVar.b, bVar.c);
         } else {
             Log.e("baidumapsdk", "Authentication Error\n" + bVar.toString());
+        }
+        if (bVar.a != PermissionCheck.b && bVar.a != PermissionCheck.a && bVar.a != PermissionCheck.c) {
+            com.baidu.mapsdkplatform.comapi.util.c.a().a(bVar.f);
         }
         if (this.c == null || bVar.a == g) {
             return;
         }
         g = bVar.a;
         Message obtainMessage = this.c.obtainMessage();
-        obtainMessage.what = IMConstants.IM_MSG_TYPE_SHIELD_ME;
+        obtainMessage.what = 2012;
         obtainMessage.arg1 = bVar.a;
         obtainMessage.obj = bVar.d;
         this.c.sendMessage(obtainMessage);
@@ -107,9 +109,9 @@ public class a implements PermissionCheck.c {
     public void b() {
         if (this.e == 0) {
             if (this.b == null) {
-                throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
+                throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
-            this.d = new e();
+            this.d = new f();
             f();
             SysUpdateObservable.getInstance().updateNetworkInfo(this.b);
         }
@@ -118,11 +120,12 @@ public class a implements PermissionCheck.c {
 
     public boolean c() {
         if (this.b == null) {
-            throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
+            throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
         }
         this.c = new b(this);
-        f.b(this.b);
-        f.f();
+        h.b(this.b);
+        com.baidu.mapsdkplatform.comapi.util.c.a().a(this.b);
+        h.g();
         PermissionCheck.init(this.b);
         PermissionCheck.setPermissionCheckResultListener(this);
         PermissionCheck.permissionCheck();
@@ -133,13 +136,13 @@ public class a implements PermissionCheck.c {
         this.e--;
         if (this.e == 0) {
             g();
-            f.a();
+            h.a();
         }
     }
 
     public Context e() {
         if (this.b == null) {
-            throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
+            throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
         }
         return this.b;
     }

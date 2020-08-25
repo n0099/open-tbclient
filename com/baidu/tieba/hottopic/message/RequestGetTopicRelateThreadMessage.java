@@ -136,7 +136,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1125common = getCommon();
+            builder.f1129common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.rn = getRn();

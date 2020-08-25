@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.base.d.d;
@@ -22,7 +23,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static final int a = 1;
     public static final int b = 2;
@@ -224,17 +225,17 @@ public class b {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                 Camera.getCameraInfo(o, cameraInfo);
                 if (cameraInfo.facing == 1) {
-                    i = (i2 + cameraInfo.orientation) % 360;
-                    i = (360 - i) % 360;
+                    i = (i2 + cameraInfo.orientation) % EncoderTextureDrawer.X264_WIDTH;
+                    i = (360 - i) % EncoderTextureDrawer.X264_WIDTH;
                 } else {
-                    i = ((cameraInfo.orientation - i2) + 360) % 360;
+                    i = ((cameraInfo.orientation - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
                 }
                 this.f.setDisplayOrientation(i);
             } else if (Build.VERSION.SDK_INT == 8) {
-                i = ((90 - i2) + 360) % 360;
+                i = ((90 - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
                 this.f.setDisplayOrientation(i);
             } else {
-                i = ((90 - i2) + 360) % 360;
+                i = ((90 - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
                 try {
                     Method method = this.f.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
                     if (method != null) {
@@ -506,7 +507,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public int a;
         public int b;

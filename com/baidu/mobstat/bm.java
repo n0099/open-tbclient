@@ -8,17 +8,17 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public final class bm {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public static byte[] a(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
             if (i2 < 0 || br.a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(br.a[i2].getBytes(), com.baidu.sapi2.utils.h.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(br.a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(1, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -29,7 +29,7 @@ public final class bm {
             if (i2 < 0 || br.a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(br.a[i2].getBytes(), com.baidu.sapi2.utils.h.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(br.a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(2, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -49,19 +49,19 @@ public final class bm {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         @SuppressLint({"TrulyRandom"})
         public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.e.q);
             IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
-            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.h.p);
+            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.e.p);
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr3);
         }
 
         public static byte[] a() throws Exception {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance(com.baidu.sapi2.utils.h.q);
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(com.baidu.sapi2.utils.e.q);
             keyGenerator.init(128, new SecureRandom());
             return keyGenerator.generateKey().getEncoded();
         }

@@ -5,11 +5,11 @@ import android.graphics.PointF;
 import android.support.annotation.ColorInt;
 import android.util.JsonReader;
 import android.util.JsonToken;
-import com.baidu.mobstat.Config;
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     @ColorInt
@@ -40,21 +40,21 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.tb.airbnb.lottie.c.p$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] FX = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] GC = new int[JsonToken.values().length];
 
         static {
             try {
-                FX[JsonToken.NUMBER.ordinal()] = 1;
+                GC[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                FX[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                GC[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                FX[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                GC[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -62,7 +62,7 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PointF g(JsonReader jsonReader, float f) throws IOException {
-        switch (AnonymousClass1.FX[jsonReader.peek().ordinal()]) {
+        switch (AnonymousClass1.GC[jsonReader.peek().ordinal()]) {
             case 1:
                 return h(jsonReader, f);
             case 2:
@@ -103,12 +103,12 @@ class p {
             char c = 65535;
             switch (nextName.hashCode()) {
                 case 120:
-                    if (nextName.equals(Config.EVENT_HEAT_X)) {
+                    if (nextName.equals("x")) {
                         c = 0;
                         break;
                     }
                     break;
-                case 121:
+                case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
                     if (nextName.equals("y")) {
                         c = 1;
                         break;
@@ -134,7 +134,7 @@ class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static float c(JsonReader jsonReader) throws IOException {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.FX[peek.ordinal()]) {
+        switch (AnonymousClass1.GC[peek.ordinal()]) {
             case 1:
                 return (float) jsonReader.nextDouble();
             case 2:

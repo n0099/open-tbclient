@@ -4,39 +4,39 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.y;
 import java.util.Iterator;
 import tbclient.ThreadInfo;
 /* loaded from: classes15.dex */
 public class b implements q {
-    public int aoJ;
+    public int atH;
     public String cover;
-    public bv dLK;
+    public bw dUS;
     public String desc;
-    public boolean isLast;
+    public boolean hNV;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.isLast = z;
+        this.hNV = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jWE;
+        return a.kma;
     }
 
     private void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.dLK = new bv();
-            this.dLK.a(threadInfo);
+            this.dUS = new bw();
+            this.dUS.a(threadInfo);
             this.desc = threadInfo.title;
-            this.aoJ = threadInfo.reply_num.intValue();
+            this.atH = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
-            if (!x.isEmpty(this.dLK.aWu())) {
-                Iterator<MediaData> it = this.dLK.aWu().iterator();
+            if (!y.isEmpty(this.dUS.beN())) {
+                Iterator<MediaData> it = this.dUS.beN().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {

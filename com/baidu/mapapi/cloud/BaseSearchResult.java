@@ -1,9 +1,8 @@
 package com.baidu.mapapi.cloud;
 
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class BaseSearchResult {
     public static final int STATUS_CODE_NETWORK_ERROR = -3;
     public static final int STATUS_CODE_NETWORK_TIME_OUT = -2;
@@ -21,7 +20,7 @@ public abstract class BaseSearchResult {
         if (this.status == 1233 || this.status == 2) {
             this.status = 2;
         }
-        this.size = jSONObject.optInt(TiebaInitialize.LogFields.SIZE);
+        this.size = jSONObject.optInt("size");
         this.total = jSONObject.optInt("total");
     }
 }

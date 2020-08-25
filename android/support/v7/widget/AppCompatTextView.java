@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.TextView;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class AppCompatTextView extends TextView implements TintableBackgroundView, AutoSizeableTextView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatTextHelper mTextHelper;
@@ -108,8 +108,9 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTextHelper != null) {
             this.mTextHelper.onLayout(z, i, i2, i3, i4);

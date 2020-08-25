@@ -6,11 +6,11 @@ public abstract class o {
 
     /* loaded from: classes9.dex */
     public interface a<D> {
-        void a(com.baidu.swan.support.v4.a.c<D> cVar);
+        void a(com.baidu.swan.support.v4.a.d<D> dVar);
 
-        void a(com.baidu.swan.support.v4.a.c<D> cVar, D d);
+        void a(com.baidu.swan.support.v4.a.d<D> dVar, D d);
 
-        com.baidu.swan.support.v4.a.c<D> e(int i, Bundle bundle);
+        com.baidu.swan.support.v4.a.d<D> e(int i, Bundle bundle);
     }
 
     public boolean hasRunningLoaders() {

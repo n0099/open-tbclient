@@ -26,12 +26,12 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ChatUserManagerImpl {
     private static final String TAG = ChatUserManagerImpl.class.getSimpleName();
     private static Context mContext;
@@ -238,7 +238,7 @@ public class ChatUserManagerImpl {
                 arrayList2.add(chatUserByBuid);
             }
         }
-        if (arrayList2.size() > 0) {
+        if (arrayList2.size() > 0 && arrayList2.size() >= arrayList.size()) {
             onGetUsersProfileBatchResult(addListener, 0, Constants.ERROR_MSG_SUCCESS, arrayList, arrayList2);
             return;
         }
@@ -304,7 +304,7 @@ public class ChatUserManagerImpl {
             bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
             creatMethodIntent.putExtras(bundle);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
                 onGetUsersStatusResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
@@ -388,7 +388,7 @@ public class ChatUserManagerImpl {
             creatMethodIntent.putExtras(bundle);
             creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
                 onGetUserIpResult(mContext, i, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, arrayList, null);

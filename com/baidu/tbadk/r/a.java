@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static final boolean a(TbPageContext<?> tbPageContext, View view) {
         boolean z = false;

@@ -3,66 +3,66 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class t {
-    private final ak neB;
-    private long neC = 0;
-    private int neD;
+    private final k<com.facebook.imagepipeline.g.e> nyj;
+    private final ak nyq;
+    private long nyr = 0;
+    private int nys;
     @Nullable
-    private com.facebook.imagepipeline.common.a neE;
-    private final k<com.facebook.imagepipeline.g.e> neu;
+    private com.facebook.imagepipeline.common.a nyt;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.neu = kVar;
-        this.neB = akVar;
+        this.nyj = kVar;
+        this.nyq = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> dJB() {
-        return this.neu;
+    public k<com.facebook.imagepipeline.g.e> dVA() {
+        return this.nyj;
     }
 
-    public ak dJC() {
-        return this.neB;
+    public ak dVB() {
+        return this.nyq;
     }
 
     public String getId() {
-        return this.neB.getId();
+        return this.nyq.getId();
     }
 
-    public am dJq() {
-        return this.neB.dJq();
+    public am dVp() {
+        return this.nyq.dVp();
     }
 
     public Uri getUri() {
-        return this.neB.dJp().dKh();
+        return this.nyq.dVo().dWg();
     }
 
-    public long dJD() {
-        return this.neC;
+    public long dVC() {
+        return this.nyr;
     }
 
-    public void gi(long j) {
-        this.neC = j;
+    public void gv(long j) {
+        this.nyr = j;
     }
 
-    public int dJE() {
-        return this.neD;
+    public int dVD() {
+        return this.nys;
     }
 
-    public void JJ(int i) {
-        this.neD = i;
+    public void Mn(int i) {
+        this.nys = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dJF() {
-        return this.neE;
+    public com.facebook.imagepipeline.common.a dVE() {
+        return this.nyt;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.neE = aVar;
+        this.nyt = aVar;
     }
 
-    public Map<String, String> dJG() {
-        return this.neB.dJp().dJG();
+    public Map<String, String> dVF() {
+        return this.nyq.dVo().dVF();
     }
 }

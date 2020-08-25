@@ -2,16 +2,16 @@ package com.baidu.live.follow.http;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FollowStatusHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private boolean aHt;
+    private boolean aMD;
 
     public FollowStatusHttpResponsedMessage() {
         super(1021196);
     }
 
-    public boolean xR() {
-        return this.aHt;
+    public boolean Du() {
+        return this.aMD;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -19,7 +19,7 @@ public class FollowStatusHttpResponsedMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aHt = optJSONObject.optInt("is_follow", 0) == 1;
+            this.aMD = optJSONObject.optInt("is_follow", 0) == 1;
         }
     }
 }

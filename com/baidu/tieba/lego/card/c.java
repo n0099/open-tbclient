@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card;
 
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface c {
-    void b(AdvertAppInfo advertAppInfo, int i);
+    void c(AdvertAppInfo advertAppInfo, int i);
 }

@@ -4,7 +4,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 /* loaded from: classes15.dex */
 public class c {
-    public static int sZ(int i) {
+    public static int vo(int i) {
         if (i == 6) {
             return 90;
         }
@@ -17,7 +17,7 @@ public class c {
         return 0;
     }
 
-    public static int ac(byte[] bArr) {
+    public static int ad(byte[] bArr) {
         int i;
         int i2;
         if (bArr == null) {

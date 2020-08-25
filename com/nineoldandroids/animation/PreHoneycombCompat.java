@@ -1,12 +1,12 @@
 package com.nineoldandroids.animation;
 
 import android.view.View;
-import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.nineoldandroids.util.FloatProperty;
 import com.nineoldandroids.util.IntProperty;
 import com.nineoldandroids.util.Property;
 import com.nineoldandroids.view.animation.AnimatorProxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 final class PreHoneycombCompat {
     static Property<View, Float> ALPHA = new FloatProperty<View>("alpha") { // from class: com.nineoldandroids.animation.PreHoneycombCompat.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ final class PreHoneycombCompat {
             return Float.valueOf(AnimatorProxy.wrap(view).getTranslationY());
         }
     };
-    static Property<View, Float> ROTATION = new FloatProperty<View>("rotation") { // from class: com.nineoldandroids.animation.PreHoneycombCompat.6
+    static Property<View, Float> ROTATION = new FloatProperty<View>(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION) { // from class: com.nineoldandroids.animation.PreHoneycombCompat.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.nineoldandroids.util.FloatProperty
         public void setValue(View view, float f) {
@@ -164,7 +164,7 @@ final class PreHoneycombCompat {
             return Integer.valueOf(AnimatorProxy.wrap(view).getScrollY());
         }
     };
-    static Property<View, Float> X = new FloatProperty<View>(Config.EVENT_HEAT_X) { // from class: com.nineoldandroids.animation.PreHoneycombCompat.13
+    static Property<View, Float> X = new FloatProperty<View>("x") { // from class: com.nineoldandroids.animation.PreHoneycombCompat.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.nineoldandroids.util.FloatProperty
         public void setValue(View view, float f) {

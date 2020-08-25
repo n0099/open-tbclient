@@ -5,20 +5,20 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.live.barrage.view.LandscapeImBarrageItemView;
-import com.baidu.live.data.ah;
-import com.baidu.live.data.bp;
+import com.baidu.live.data.aj;
+import com.baidu.live.data.br;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LandscapeImBarrageTrackView extends FrameLayout {
-    private int avY;
-    private int avZ;
-    private boolean awa;
-    private a awk;
-    private List<View> awl;
+    private int aBa;
+    private int aBb;
+    private boolean aBc;
+    private a aBm;
+    private List<View> aBn;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(LandscapeImBarrageTrackView landscapeImBarrageTrackView);
 
@@ -31,39 +31,39 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.awk = aVar;
+        this.aBm = aVar;
     }
 
-    public boolean vU() {
-        return this.awa;
+    public boolean Bs() {
+        return this.aBc;
     }
 
     public void setCanAddNext() {
-        this.awa = true;
+        this.aBc = true;
     }
 
-    public void b(bp bpVar, ah ahVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
-        this.awa = false;
-        LandscapeImBarrageItemView c = c(bpVar, ahVar, aVar, str, str2, i);
+    public void b(br brVar, aj ajVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
+        this.aBc = false;
+        LandscapeImBarrageItemView c = c(brVar, ajVar, aVar, str, str2, i);
         c.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         int measuredWidth = c.getMeasuredWidth();
-        c.awh = getWidth() + c.getMeasuredWidth();
-        c.awg = ((c.awh * 1.0f) / this.avY) * 1000.0f;
+        c.aBj = getWidth() + c.getMeasuredWidth();
+        c.aBi = ((c.aBj * 1.0f) / this.aBa) * 1000.0f;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(measuredWidth, -1);
         layoutParams.leftMargin = getWidth();
         addView(c, layoutParams);
     }
 
-    public void vW() {
-        if (this.awl != null && !this.awl.isEmpty()) {
-            for (View view : this.awl) {
+    public void Bu() {
+        if (this.aBn != null && !this.aBn.isEmpty()) {
+            for (View view : this.aBn) {
                 removeView(view);
             }
-            this.awl.clear();
+            this.aBn.clear();
         }
         int childCount = getChildCount();
         if (childCount <= 0) {
-            vV();
+            Bt();
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -78,11 +78,11 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     private void a(LandscapeImBarrageItemView landscapeImBarrageItemView, long j) {
         int i;
         long j2 = j - landscapeImBarrageItemView.timeStamp;
-        if (j2 > landscapeImBarrageItemView.awg) {
-            this.awl.add(landscapeImBarrageItemView);
+        if (j2 > landscapeImBarrageItemView.aBi) {
+            this.aBn.add(landscapeImBarrageItemView);
             return;
         }
-        int i2 = (int) (((((float) j2) * 1.0f) / 1000.0f) * this.avY);
+        int i2 = (int) (((((float) j2) * 1.0f) / 1000.0f) * this.aBa);
         if (i2 < getWidth()) {
             i = getWidth() - i2;
         } else {
@@ -91,46 +91,46 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) landscapeImBarrageItemView.getLayoutParams();
         layoutParams.leftMargin = i;
         landscapeImBarrageItemView.setLayoutParams(layoutParams);
-        if (indexOfChild(landscapeImBarrageItemView) == getChildCount() - 1 && landscapeImBarrageItemView.getMeasuredWidth() + i + this.avZ < getWidth()) {
-            vV();
+        if (indexOfChild(landscapeImBarrageItemView) == getChildCount() - 1 && landscapeImBarrageItemView.getMeasuredWidth() + i + this.aBb < getWidth()) {
+            Bt();
         }
     }
 
     public void release() {
         removeAllViews();
-        if (this.awl != null) {
-            this.awl.clear();
+        if (this.aBn != null) {
+            this.aBn.clear();
         }
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.awl = new ArrayList();
-        this.avY = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.avZ = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.aBn = new ArrayList();
+        this.aBa = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.aBb = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
-    private LandscapeImBarrageItemView c(bp bpVar, ah ahVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
+    private LandscapeImBarrageItemView c(br brVar, aj ajVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
         LandscapeImBarrageItemView landscapeImBarrageItemView = new LandscapeImBarrageItemView(getContext());
         landscapeImBarrageItemView.setDisplayInfo(aVar, str2, str, i);
-        landscapeImBarrageItemView.setEffectInfo(ahVar);
-        landscapeImBarrageItemView.setUIInfo(bpVar, false);
+        landscapeImBarrageItemView.setEffectInfo(ajVar);
+        landscapeImBarrageItemView.setUIInfo(brVar, false);
         landscapeImBarrageItemView.setCallback(new LandscapeImBarrageItemView.a() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageTrackView.1
             @Override // com.baidu.live.barrage.view.LandscapeImBarrageItemView.a
             public void b(com.baidu.live.data.a aVar2) {
-                if (LandscapeImBarrageTrackView.this.awk != null) {
-                    LandscapeImBarrageTrackView.this.awk.b(aVar2);
+                if (LandscapeImBarrageTrackView.this.aBm != null) {
+                    LandscapeImBarrageTrackView.this.aBm.b(aVar2);
                 }
             }
         });
         return landscapeImBarrageItemView;
     }
 
-    private void vV() {
-        if (!this.awa) {
-            this.awa = true;
-            if (this.awk != null) {
-                this.awk.a(this);
+    private void Bt() {
+        if (!this.aBc) {
+            this.aBc = true;
+            if (this.aBm != null) {
+                this.aBm.a(this);
             }
         }
     }

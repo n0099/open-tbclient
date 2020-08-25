@@ -1,7 +1,7 @@
 package android.support.v7.view.menu;
 
 import android.support.v7.view.menu.MenuPresenter;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 interface MenuHelper {
     void dismiss();
 

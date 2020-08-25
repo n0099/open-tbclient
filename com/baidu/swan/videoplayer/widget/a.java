@@ -8,78 +8,84 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
-import com.baidu.swan.apps.aq.p;
+import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.p.b.a;
-import com.baidu.swan.apps.p.d;
+import com.baidu.swan.apps.inlinewidget.b.a;
+import com.baidu.swan.apps.inlinewidget.d;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.util.Map;
-/* loaded from: classes3.dex */
-public class a implements com.baidu.swan.apps.p.b.a {
+/* loaded from: classes9.dex */
+public class a implements com.baidu.swan.apps.inlinewidget.b.a {
     private static final boolean DEBUG = b.DEBUG;
-    private String bOl;
-    private volatile boolean bvu = false;
-    private a.InterfaceC0371a dDD;
-    private CyberExtractor dDE;
+    private volatile boolean bBf = false;
+    private String bTJ;
+    private a.InterfaceC0407a dMM;
+    private CyberExtractor dMN;
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
-        this.bOl = str;
+        this.bTJ = str;
     }
 
-    @Override // com.baidu.swan.apps.p.d
+    @Override // com.baidu.swan.apps.inlinewidget.d
     public void a(@NonNull d.a aVar) {
-        this.dDE = new CyberExtractor(true);
-        aVar.ed(true);
+        this.dMN = new CyberExtractor(true);
+        aVar.eq(true);
     }
 
-    @Override // com.baidu.swan.apps.p.d
+    @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
-    public String agD() {
+    public String anL() {
         return null;
     }
 
+    @Override // com.baidu.swan.apps.inlinewidget.d
+    @Nullable
+    public String getSlaveId() {
+        return this.bTJ;
+    }
+
     public Context getContext() {
-        return com.baidu.swan.apps.t.a.ahj();
+        return com.baidu.swan.apps.t.a.aoJ();
     }
 
-    @Override // com.baidu.swan.apps.p.b.a
-    public void a(a.InterfaceC0371a interfaceC0371a) {
-        this.dDD = interfaceC0371a;
+    @Override // com.baidu.swan.apps.inlinewidget.b.a
+    public void a(a.InterfaceC0407a interfaceC0407a) {
+        this.dMM = interfaceC0407a;
     }
 
-    @Override // com.baidu.swan.apps.p.b.a
+    @Override // com.baidu.swan.apps.inlinewidget.b.a
     public void f(final String str, final Map<String, String> map) {
         if (!TextUtils.isEmpty(str)) {
             p.postOnComputation(new Runnable() { // from class: com.baidu.swan.videoplayer.widget.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.bvu) {
+                    if (a.this.bBf) {
                         if (a.DEBUG) {
                             Log.d("MediaExtractorWidget", "media extractor already released");
                             return;
                         }
                         return;
                     }
-                    a.this.dDE.setDataSource(a.this.getContext(), Uri.parse(com.baidu.swan.apps.p.e.a.lb(str)), map);
-                    Bundle metaData = a.this.dDE.getMetaData();
-                    if (a.this.dDD != null) {
-                        a.this.dDD.B(metaData);
+                    a.this.dMN.setDataSource(a.this.getContext(), Uri.parse(com.baidu.swan.apps.inlinewidget.e.a.mT(str)), map);
+                    Bundle metaData = a.this.dMN.getMetaData();
+                    if (a.this.dMM != null) {
+                        a.this.dMM.z(metaData);
                     }
                 }
             }, "loadMetadata");
         }
     }
 
-    @Override // com.baidu.swan.apps.p.b.a
+    @Override // com.baidu.swan.apps.inlinewidget.b.a
     public void release() {
-        this.bvu = true;
-        if (this.dDE != null) {
-            this.dDE.release();
+        this.bBf = true;
+        if (this.dMN != null) {
+            this.dMN.release();
         }
-        this.dDE = null;
-        if (this.dDD != null) {
-            this.dDD.onRelease();
+        this.dMN = null;
+        if (this.dMM != null) {
+            this.dMM.onRelease();
         }
-        this.dDD = null;
+        this.dMM = null;
     }
 }

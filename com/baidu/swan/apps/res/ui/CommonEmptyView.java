@@ -13,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommonEmptyView extends RelativeLayout {
-    public TextView cCI;
+    public TextView cKW;
     public FrameLayout mBottomLayout;
     public ImageView mIcon;
     public TextView mLinkText;
@@ -45,7 +45,7 @@ public class CommonEmptyView extends RelativeLayout {
         this.mLinkText = (TextView) findViewById(a.f.emptyview_link);
         this.mRefreshTextBtn = (TextView) findViewById(a.f.emptyview_btn);
         this.mBottomLayout = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
-        this.cCI = (TextView) findViewById(a.f.emptyview_problem_feedback);
+        this.cKW = (TextView) findViewById(a.f.emptyview_problem_feedback);
         setPageResources();
     }
 
@@ -116,14 +116,14 @@ public class CommonEmptyView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.ahF().a(this, new com.baidu.swan.apps.ak.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
+        com.baidu.swan.apps.t.a.apf().a(this, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.ahF().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.t.a.apf().unsubscribeNightModeChangedEvent(this);
     }
 
     public void setPageResources() {

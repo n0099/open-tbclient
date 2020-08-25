@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 class ResourcePaths {
     public static final String TEMPORARY_RESOURCE_PREFIX = ".org.chromium.Chromium.";
 

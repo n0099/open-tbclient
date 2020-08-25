@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class BdSailorSettings implements INoProGuard {
     private boolean mDebugEnable;
     private String mEmulatedUA;
@@ -109,6 +109,10 @@ public final class BdSailorSettings implements INoProGuard {
 
     public final boolean isOpenSpdy() {
         return getStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY);
+    }
+
+    public final boolean isPageFreezeDisable() {
+        return getStaticWebSeting(WebViewFactoryProvider.SETTING_PAGE_FREEZE);
     }
 
     public final boolean isSaveFlow() {

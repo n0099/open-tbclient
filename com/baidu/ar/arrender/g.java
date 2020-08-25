@@ -1,29 +1,29 @@
 package com.baidu.ar.arrender;
 /* loaded from: classes11.dex */
 public class g {
-    private int ij;
-    private int ik = 0;
-    private long il = 0;
+    private int hB;
+    private int hC = 0;
+    private long hD = 0;
 
     public g(int i) {
-        this.ij = 33;
+        this.hB = 33;
         if (i > 0) {
-            this.ij = 1000 / i;
+            this.hB = 1000 / i;
         }
     }
 
-    public boolean bF() {
+    public boolean bQ() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.il == 0) {
-            this.il = currentTimeMillis;
+        if (this.hD == 0) {
+            this.hD = currentTimeMillis;
         }
         long j = currentTimeMillis % 1000;
-        if (currentTimeMillis / 1000 != this.il / 1000) {
-            this.il = currentTimeMillis;
-            this.ik = 0;
+        if (currentTimeMillis / 1000 != this.hD / 1000) {
+            this.hD = currentTimeMillis;
+            this.hC = 0;
         }
-        if (this.ik * this.ij < j) {
-            this.ik++;
+        if (this.hC * this.hB < j) {
+            this.hC++;
             return true;
         }
         return false;

@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ap;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 class bs implements ap.a {
     final /* synthetic */ XMPushService a;
 
@@ -14,7 +14,7 @@ class bs implements ap.a {
     @Override // com.xiaomi.push.service.ap.a
     public void a() {
         this.a.e();
-        if (ap.a().m538a() <= 0) {
+        if (ap.a().m543a() <= 0) {
             this.a.a(new XMPushService.f(12, null));
         }
     }

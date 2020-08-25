@@ -5,17 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a implements c {
-    private boolean rW = false;
-    private boolean rX = false;
+    private boolean sC = false;
+    private boolean sD = false;
 
     @Override // com.baidu.ar.lua.c
     public void a(int i, int i2, HashMap<String, Object> hashMap) {
         switch (i) {
             case 103:
-                this.rX = true;
+                this.sD = true;
                 return;
             case 104:
-                this.rW = true;
+                this.sC = true;
                 return;
             default:
                 return;
@@ -26,9 +26,9 @@ public class a implements c {
         bVar.c(this);
     }
 
-    public void dY() {
-        this.rW = false;
-        this.rX = false;
+    public void fk() {
+        this.sC = false;
+        this.sD = false;
     }
 
     @Override // com.baidu.ar.lua.c
@@ -37,6 +37,6 @@ public class a implements c {
     }
 
     public void release() {
-        dY();
+        fk();
     }
 }

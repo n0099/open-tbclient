@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<UserSettingPaCmdMsg> CREATOR = new Parcelable.Creator<UserSettingPaCmdMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UserSettingPaCmdMsg.1
         /* JADX DEBUG: Method merged with bridge method */

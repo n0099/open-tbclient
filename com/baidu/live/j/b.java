@@ -1,28 +1,30 @@
 package com.baidu.live.j;
 
 import android.view.View;
-import com.baidu.live.data.q;
+import com.baidu.live.data.r;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface b {
-    com.baidu.live.core.a.a Fh();
+    com.baidu.live.core.a.a KO();
 
-    void Fi();
+    void KP();
 
     void S(View view);
 
-    void a(q qVar, PendantParentView pendantParentView);
+    void a(r rVar, PendantParentView pendantParentView);
 
     void a(c cVar);
 
-    void a(String str, long j, boolean z, boolean z2, long j2);
+    void bW(boolean z);
 
     void c(TbPageContext tbPageContext);
 
-    void fz(String str);
+    void dz(int i);
 
-    void i(q qVar);
+    void gU(String str);
+
+    void i(r rVar);
 
     void onPause();
 

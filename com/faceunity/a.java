@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes17.dex */
 public class a {
-    public static int gc(Context context) {
+    public static int gv(Context context) {
         try {
             InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
             byte[] bArr = new byte[open.available()];

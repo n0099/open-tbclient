@@ -3,11 +3,10 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.provider.Settings;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class e {
     protected static UUID a;
 
@@ -26,8 +25,7 @@ public final class e {
                                 if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
                                     a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
                                 } else {
-                                    String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                                    a = deviceId != null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
+                                    a = UUID.randomUUID();
                                 }
                             } catch (UnsupportedEncodingException e) {
                             }

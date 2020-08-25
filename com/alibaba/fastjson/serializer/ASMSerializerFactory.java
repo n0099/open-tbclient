@@ -17,7 +17,6 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import java.io.Serializable;
@@ -31,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ASMSerializerFactory implements Opcodes {
     protected final ASMClassLoader classLoader = new ASMClassLoader();
     private final AtomicLong seed = new AtomicLong();
@@ -46,7 +45,7 @@ public class ASMSerializerFactory implements Opcodes {
     static final String SerializeFilterable_desc = ASMUtils.desc(SerializeFilterable.class);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public static class Context {
         static final int features = 5;
         static final int obj = 2;
@@ -415,8 +414,8 @@ public class ASMSerializerFactory implements Opcodes {
                     methodVisitor.visitJumpInsn(167, label);
                     methodVisitor.visitLabel(label2);
                     methodVisitor.visitVarInsn(25, context.var("list"));
-                    methodVisitor.visitMethodInsn(185, "java/util/List", TiebaInitialize.LogFields.SIZE, "()I");
-                    methodVisitor.visitVarInsn(54, context.var(TiebaInitialize.LogFields.SIZE));
+                    methodVisitor.visitMethodInsn(185, "java/util/List", "size", "()I");
+                    methodVisitor.visitVarInsn(54, context.var("size"));
                     methodVisitor.visitVarInsn(25, context.var("out"));
                     methodVisitor.visitVarInsn(16, 91);
                     methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "write", "(I)V");
@@ -427,7 +426,7 @@ public class ASMSerializerFactory implements Opcodes {
                     methodVisitor.visitVarInsn(54, context.var("i"));
                     methodVisitor.visitLabel(label3);
                     methodVisitor.visitVarInsn(21, context.var("i"));
-                    methodVisitor.visitVarInsn(21, context.var(TiebaInitialize.LogFields.SIZE));
+                    methodVisitor.visitVarInsn(21, context.var("size"));
                     methodVisitor.visitJumpInsn(162, label5);
                     methodVisitor.visitVarInsn(21, context.var("i"));
                     methodVisitor.visitJumpInsn(Opcodes.IFEQ, label4);
@@ -704,7 +703,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitJumpInsn(Opcodes.IF_ACMPEQ, label7);
             methodVisitor.visitLabel(label8);
             methodVisitor.visitVarInsn(25, context.var("out"));
-            methodVisitor.visitVarInsn(16, 123);
+            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "write", "(I)V");
             methodVisitor.visitVarInsn(25, 0);
             methodVisitor.visitVarInsn(25, 1);
@@ -718,10 +717,10 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(16, 44);
             methodVisitor.visitJumpInsn(167, label6);
             methodVisitor.visitLabel(label7);
-            methodVisitor.visitVarInsn(16, 123);
+            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
             methodVisitor.visitLabel(label6);
         } else {
-            methodVisitor.visitVarInsn(16, 123);
+            methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
         }
         methodVisitor.visitVarInsn(54, context.var("seperator"));
         if (!context.writeDirect) {
@@ -774,10 +773,10 @@ public class ASMSerializerFactory implements Opcodes {
         Label label9 = new Label();
         Label label10 = new Label();
         methodVisitor.visitVarInsn(21, context.var("seperator"));
-        methodVisitor.visitIntInsn(16, 123);
+        methodVisitor.visitIntInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
         methodVisitor.visitJumpInsn(160, label9);
         methodVisitor.visitVarInsn(25, context.var("out"));
-        methodVisitor.visitVarInsn(16, 123);
+        methodVisitor.visitVarInsn(16, Constants.METHOD_IM_FRIEND_GROUP_QUERY);
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "write", "(I)V");
         methodVisitor.visitLabel(label9);
         methodVisitor.visitVarInsn(25, context.var("out"));
@@ -1017,11 +1016,11 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "write", "(I)V");
         _writeFieldName(methodVisitor, context);
         methodVisitor.visitVarInsn(25, context.var("list"));
-        methodVisitor.visitMethodInsn(185, "java/util/List", TiebaInitialize.LogFields.SIZE, "()I");
-        methodVisitor.visitVarInsn(54, context.var(TiebaInitialize.LogFields.SIZE));
+        methodVisitor.visitMethodInsn(185, "java/util/List", "size", "()I");
+        methodVisitor.visitVarInsn(54, context.var("size"));
         Label label4 = new Label();
         Label label5 = new Label();
-        methodVisitor.visitVarInsn(21, context.var(TiebaInitialize.LogFields.SIZE));
+        methodVisitor.visitVarInsn(21, context.var("size"));
         methodVisitor.visitInsn(3);
         methodVisitor.visitJumpInsn(160, label4);
         methodVisitor.visitVarInsn(25, context.var("out"));
@@ -1050,7 +1049,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(54, context.var("i"));
             methodVisitor.visitLabel(label6);
             methodVisitor.visitVarInsn(21, context.var("i"));
-            methodVisitor.visitVarInsn(21, context.var(TiebaInitialize.LogFields.SIZE));
+            methodVisitor.visitVarInsn(21, context.var("size"));
             methodVisitor.visitJumpInsn(162, label8);
             methodVisitor.visitVarInsn(21, context.var("i"));
             methodVisitor.visitJumpInsn(Opcodes.IFEQ, label7);

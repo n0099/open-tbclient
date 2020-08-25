@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.im.view.ALALiveTextView;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ALaImInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913003, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.im.ALaImInitialize.1
@@ -32,8 +32,8 @@ public class ALaImInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.aYG != null) {
-                        aVar.a(new e(aVar.aYG.context, aVar.aYG.aYI));
+                    if (aVar.bdX != null) {
+                        aVar.a(new e(aVar.bdX.context, aVar.bdX.bdZ));
                     }
                 }
             }
@@ -42,7 +42,7 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.live.view.c.bnn.clear();
+                com.baidu.live.view.c.bsS.clear();
             }
         });
     }

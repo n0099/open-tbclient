@@ -2,10 +2,10 @@ package com.baidu.swan.games.i;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j {
-    private boolean diA;
-    private boolean diz;
+    private boolean dsH;
+    private boolean dsI;
     @V8JavascriptField
     public long lastAccessedTime;
     @V8JavascriptField
@@ -17,19 +17,19 @@ public class j {
 
     @JavascriptInterface
     public boolean isDirectory() {
-        return this.diz;
+        return this.dsH;
     }
 
     @JavascriptInterface
     public boolean isFile() {
-        return this.diA;
+        return this.dsI;
     }
 
-    public void gh(boolean z) {
-        this.diz = z;
+    public void gD(boolean z) {
+        this.dsH = z;
     }
 
-    public void gi(boolean z) {
-        this.diA = z;
+    public void gE(boolean z) {
+        this.dsI = z;
     }
 }

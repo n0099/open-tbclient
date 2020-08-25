@@ -1,26 +1,28 @@
 package com.baidu.searchbox.elasticthread.task;
 
 import android.os.SystemClock;
-/* loaded from: classes5.dex */
+import java.util.concurrent.locks.ReentrantLock;
+/* loaded from: classes9.dex */
 public class ElasticTask implements Runnable {
     private long id;
     private ElasticTaskCallback mCallback;
     private Runnable mTaskEntity;
     private String name;
     private int priority;
-    public Status status = Status.WAITING;
     private long timeOnComplete;
     private long timeOnExecute;
     private long timeOnQueue;
+    public Status status = Status.WAITING;
+    private ReentrantLock mCallbackLock = new ReentrantLock();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
         void beforeExecuteTask();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public enum Status {
         WAITING,
         RUNNING,
@@ -35,18 +37,16 @@ public class ElasticTask implements Runnable {
     }
 
     public void setElasticTaskCallback(ElasticTaskCallback elasticTaskCallback) {
+        this.mCallbackLock.lock();
         this.mCallback = elasticTaskCallback;
+        this.mCallbackLock.unlock();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.mCallback != null) {
-            this.mCallback.beforeExecuteTask();
-        }
+        beforeExecuteCallback();
         this.mTaskEntity.run();
-        if (this.mCallback != null) {
-            this.mCallback.afterExecuteTask();
-        }
+        afterExecuteCallback();
     }
 
     public int getPriority() {
@@ -100,5 +100,21 @@ public class ElasticTask implements Runnable {
     public synchronized void recordCompleteTime() {
         this.status = Status.COMPLETE;
         this.timeOnComplete = SystemClock.elapsedRealtime();
+    }
+
+    private void beforeExecuteCallback() {
+        this.mCallbackLock.lock();
+        if (this.mCallback != null) {
+            this.mCallback.beforeExecuteTask();
+        }
+        this.mCallbackLock.unlock();
+    }
+
+    private void afterExecuteCallback() {
+        this.mCallbackLock.lock();
+        if (this.mCallback != null) {
+            this.mCallback.afterExecuteTask();
+        }
+        this.mCallbackLock.unlock();
     }
 }

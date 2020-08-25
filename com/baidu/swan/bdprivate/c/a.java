@@ -10,22 +10,22 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.setting.oauth.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class a extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CookieManager cWr;
+    private CookieManager dfy;
 
     public a() {
-        this.cWr = null;
-        this.cWr = new b();
+        this.dfy = null;
+        this.dfy = new b();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldAcceptCookie(String str, String str2) {
         if (ProcessUtils.isMainProcess()) {
-            return this.cWr.shouldAcceptCookie(str, str2);
+            return this.dfy.shouldAcceptCookie(str, str2);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, f(str, str2, 1));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, h(str, str2, 1));
         if (!callOnMainWithContentProvider.isOk()) {
             return false;
         }
@@ -35,9 +35,9 @@ public class a extends g {
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldSendCookie(String str, String str2) {
         if (ProcessUtils.isMainProcess()) {
-            return this.cWr.shouldSendCookie(str, str2);
+            return this.dfy.shouldSendCookie(str, str2);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, f(str, str2, 2));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, h(str, str2, 2));
         if (!callOnMainWithContentProvider.isOk()) {
             return false;
         }
@@ -47,7 +47,7 @@ public class a extends g {
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public void storeCookie(String str, List<String> list) {
         if (ProcessUtils.isMainProcess()) {
-            this.cWr.storeCookie(str, list);
+            this.dfy.storeCookie(str, list);
             return;
         }
         Bundle bundle = new Bundle();
@@ -63,9 +63,9 @@ public class a extends g {
     @Override // com.baidu.swan.apps.setting.oauth.g, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         if (ProcessUtils.isMainProcess()) {
-            return this.cWr.getCookie(str);
+            return this.dfy.getCookie(str);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, f(str, "", 4));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, h(str, "", 4));
         if (!callOnMainWithContentProvider.isOk()) {
             return "";
         }
@@ -77,7 +77,7 @@ public class a extends g {
         return string;
     }
 
-    private Bundle f(String str, String str2, int i) {
+    private Bundle h(String str, String str2, int i) {
         Bundle bundle = new Bundle();
         bundle.putInt("type", i);
         bundle.putString("param1", str);

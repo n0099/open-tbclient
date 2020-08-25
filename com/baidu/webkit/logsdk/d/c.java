@@ -19,7 +19,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class c {
     private static String a;
 
@@ -191,7 +191,7 @@ public final class c {
     }
 
     public static void a(Throwable th) {
-        com.a.a.a.a.a.a.a.a(th);
+        th.printStackTrace();
         if (com.baidu.webkit.logsdk.a.b) {
             System.exit(0);
         }
@@ -336,10 +336,10 @@ public final class c {
             }
             return sb.toString();
         } catch (UnsupportedEncodingException e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return null;
         } catch (NoSuchAlgorithmException e2) {
-            com.a.a.a.a.a.a.a.a(e2);
+            e2.printStackTrace();
             return null;
         }
     }

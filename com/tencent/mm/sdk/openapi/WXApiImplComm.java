@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.tencent.mm.sdk.b.a;
 /* loaded from: classes7.dex */
 class WXApiImplComm {
@@ -29,7 +28,7 @@ class WXApiImplComm {
             String lowerCase = signature.toCharsString().toLowerCase();
             a.c(TAG, "check signature:" + lowerCase);
             if (lowerCase.equals(WX_APP_SIGNATURE)) {
-                a.c(TAG, LivenessStat.TYPE_FACE_MATCH_PASS);
+                a.c(TAG, com.baidu.pass.biometrics.face.liveness.c.a.o);
                 return true;
             }
         }

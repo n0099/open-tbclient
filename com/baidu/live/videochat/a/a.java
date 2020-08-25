@@ -13,12 +13,12 @@ import com.baidu.live.data.AlaAvtsData;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.live.videochat.c.a {
-    private com.baidu.live.p.b blE;
-    private AlaLiveRecorder blF;
+    private com.baidu.live.p.b brk;
+    private AlaLiveRecorder brl;
     private Context mContext;
-    private int blG = 2;
+    private int brm = 2;
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.videochat.a.a.1
         @Override // com.baidu.ala.recorder.RecorderCallback
         public void flashLightSwitched(boolean z) {
@@ -59,13 +59,13 @@ public class a implements com.baidu.live.videochat.c.a {
 
         @Override // com.baidu.ala.recorder.RecorderCallback
         public void onRtcConnected(int i) {
-            a.this.blG = i == 0 ? 1 : 2;
+            a.this.brm = i == 0 ? 1 : 2;
         }
 
         @Override // com.baidu.ala.recorder.RecorderCallback
         public void onPKPlayerFirstFrame() {
-            if (a.this.blE != null) {
-                a.this.blE.bR(1);
+            if (a.this.brk != null) {
+                a.this.brk.dD(1);
             }
         }
 
@@ -79,73 +79,73 @@ public class a implements com.baidu.live.videochat.c.a {
     }
 
     public void a(com.baidu.live.p.b bVar) {
-        this.blE = bVar;
+        this.brk = bVar;
     }
 
     public boolean a(AlaLiveInfoData alaLiveInfoData, AlaAvtsData alaAvtsData, AlaAvtsConfigInfo alaAvtsConfigInfo) {
-        JY();
+        PQ();
         String str = "";
         if (alaLiveInfoData != null && alaLiveInfoData.session_info != null) {
             str = alaLiveInfoData.session_info.getPushUrl();
         }
-        return com.baidu.live.videochat.d.a.a(this.blF, com.baidu.live.videochat.d.a.b(alaAvtsData, alaAvtsConfigInfo), str);
+        return com.baidu.live.videochat.d.a.a(this.brl, com.baidu.live.videochat.d.a.b(alaAvtsData, alaAvtsConfigInfo), str);
     }
 
-    public void JS() {
-        if (this.blF != null) {
-            this.blF.stopRecord();
-            this.blF.release();
-            this.blF = null;
+    public void PK() {
+        if (this.brl != null) {
+            this.brl.stopRecord();
+            this.brl.release();
+            this.brl = null;
         }
     }
 
-    public boolean JT() {
-        return this.blF != null;
+    public boolean PL() {
+        return this.brl != null;
     }
 
-    public View JU() {
-        if (this.blF != null) {
-            return this.blF.getPreview();
-        }
-        return null;
-    }
-
-    public View JV() {
-        if (this.blF != null) {
-            return this.blF.createPKPlayer();
+    public View PM() {
+        if (this.brl != null) {
+            return this.brl.getPreview();
         }
         return null;
     }
 
-    public void JW() {
-        if (this.blF != null && !UtilHelper.isAppForeground()) {
-            this.blF.stopRecord();
+    public View PN() {
+        if (this.brl != null) {
+            return this.brl.createPKPlayer();
+        }
+        return null;
+    }
+
+    public void PO() {
+        if (this.brl != null && !UtilHelper.isAppForeground()) {
+            this.brl.stopRecord();
         }
     }
 
-    public void JX() {
-        if (this.blF != null) {
-            this.blF.startRecord();
+    public void PP() {
+        if (this.brl != null) {
+            this.brl.startRecord();
         }
     }
 
-    private void JY() {
-        if (this.blF == null) {
-            this.blF = new AlaLiveRecorder(this.mContext, LiveRecorderConfigHelper.GN().d(4, 1, false), VideoRecorderType.CAMERA, VideoBeautyType.BEAUTY_NONE);
-            this.blF.addRecorderCallback(this.mRecorderCallback);
+    private void PQ() {
+        if (this.brl == null) {
+            this.brl = new AlaLiveRecorder(this.mContext, LiveRecorderConfigHelper.MC().d(4, 1, false), VideoRecorderType.CAMERA, VideoBeautyType.BEAUTY_NONE);
+            this.brl.addRecorderCallback(this.mRecorderCallback);
         }
     }
 
     @Override // com.baidu.live.videochat.c.a
-    public int ww() {
-        if (this.blF != null) {
-            return this.blF.getRtcStreamStatus();
+    public int BU() {
+        if (this.brl != null) {
+            return this.brl.getRtcStreamStatus();
         }
         return 0;
     }
 
     @Override // com.baidu.live.videochat.c.a
-    public int JG() {
-        return this.blG;
+    public int Py() {
+        return this.brm;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MsgLocalData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -6687040214263261976L;
     private long errno;

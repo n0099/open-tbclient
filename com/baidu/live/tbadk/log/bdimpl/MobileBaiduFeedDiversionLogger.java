@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MobileBaiduFeedDiversionLogger implements IFeedDiversionLogger {
     @Override // com.baidu.live.tbadk.log.IFeedDiversionLogger
     public void doDisplayGuideFloatLayerLog(String str, String str2) {

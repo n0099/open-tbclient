@@ -13,17 +13,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes20.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
-    protected TextView loA;
-    protected XfremodeRoundLayout loB;
-    protected TbImageView loC;
-    protected TextView loD;
-    protected View loE;
-    protected TextView loF;
-    protected XfremodeRoundLayout lou;
-    protected TbImageView lov;
-    protected TextView lox;
-    protected XfremodeRoundLayout loy;
-    protected TbImageView loz;
+    protected XfremodeRoundLayout lEQ;
+    protected TbImageView lER;
+    protected TextView lES;
+    protected XfremodeRoundLayout lET;
+    protected TbImageView lEU;
+    protected TextView lEV;
+    protected XfremodeRoundLayout lEW;
+    protected TbImageView lEX;
+    protected TextView lEY;
+    protected View lEZ;
+    protected TextView lFa;
 
     public AdCardMultiPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -40,25 +40,25 @@ public class AdCardMultiPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void de(View view) {
-        this.lou = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_left);
-        this.lov = (TbImageView) view.findViewById(R.id.advert_app_img_left);
-        this.lox = (TextView) view.findViewById(R.id.txt_left);
-        this.loy = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_center);
-        this.loz = (TbImageView) view.findViewById(R.id.advert_app_img_center);
-        this.loA = (TextView) view.findViewById(R.id.txt_center);
-        this.loB = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_right);
-        this.loC = (TbImageView) view.findViewById(R.id.advert_app_img_right);
-        this.loD = (TextView) view.findViewById(R.id.txt_right);
-        this.loF = (TextView) view.findViewById(R.id.advert_source_right);
-        float dimensionPixelSize = this.dVN.getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.lou.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
-        this.loy.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
-        this.loB.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
-        this.lov.setPlaceHolder(2);
-        this.loz.setPlaceHolder(2);
-        this.loC.setPlaceHolder(2);
-        this.loE = view.findViewById(R.id.channel_ad_right);
+    protected void di(View view) {
+        this.lEQ = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_left);
+        this.lER = (TbImageView) view.findViewById(R.id.advert_app_img_left);
+        this.lES = (TextView) view.findViewById(R.id.txt_left);
+        this.lET = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_center);
+        this.lEU = (TbImageView) view.findViewById(R.id.advert_app_img_center);
+        this.lEV = (TextView) view.findViewById(R.id.txt_center);
+        this.lEW = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_right);
+        this.lEX = (TbImageView) view.findViewById(R.id.advert_app_img_right);
+        this.lEY = (TextView) view.findViewById(R.id.txt_right);
+        this.lFa = (TextView) view.findViewById(R.id.advert_source_right);
+        float dimensionPixelSize = this.efn.getResources().getDimensionPixelSize(R.dimen.tbds10);
+        this.lEQ.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        this.lET.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        this.lEW.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        this.lER.setPlaceHolder(2);
+        this.lEU.setPlaceHolder(2);
+        this.lEX.setPlaceHolder(2);
+        this.lEZ = view.findViewById(R.id.channel_ad_right);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
@@ -67,87 +67,87 @@ public class AdCardMultiPicView extends AdCardBaseView {
         int length = dVarArr != null ? dVarArr.length : 0;
         int dimensionPixelSize = (int) ((this.mMaxWidth - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10) * 2)) / 3.0f);
         if (length <= 0) {
-            this.lnu.setVisibility(8);
+            this.lDU.setVisibility(8);
             return;
         }
-        this.lox.setVisibility(8);
-        this.lov.setVisibility(8);
-        this.loA.setVisibility(8);
-        this.loz.setVisibility(8);
-        this.loD.setVisibility(8);
-        this.loC.setVisibility(8);
-        a(this.lov, dimensionPixelSize, dimensionPixelSize);
-        a(this.loz, dimensionPixelSize, dimensionPixelSize);
-        a(this.loC, dimensionPixelSize, dimensionPixelSize);
+        this.lES.setVisibility(8);
+        this.lER.setVisibility(8);
+        this.lEV.setVisibility(8);
+        this.lEU.setVisibility(8);
+        this.lEY.setVisibility(8);
+        this.lEX.setVisibility(8);
+        a(this.lER, dimensionPixelSize, dimensionPixelSize);
+        a(this.lEU, dimensionPixelSize, dimensionPixelSize);
+        a(this.lEX, dimensionPixelSize, dimensionPixelSize);
         if (length == 1) {
-            this.lov.startLoad(dVarArr[0].pic, 30, false);
-            this.lov.setVisibility(0);
-            a(this.lov, dVarArr[0].lne);
+            this.lER.startLoad(dVarArr[0].pic, 30, false);
+            this.lER.setVisibility(0);
+            a(this.lER, dVarArr[0].lDF);
             if (StringUtils.isNull(dVarArr[0].desc, true)) {
-                this.lox.setVisibility(8);
+                this.lES.setVisibility(8);
             } else {
-                this.lox.setVisibility(0);
-                this.lox.setText(dVarArr[0].desc);
+                this.lES.setVisibility(0);
+                this.lES.setText(dVarArr[0].desc);
             }
         } else if (length == 2) {
-            this.lov.startLoad(dVarArr[0].pic, 30, false);
-            this.lov.setVisibility(0);
-            this.loz.setVisibility(0);
-            a(this.lov, dVarArr[0].lne);
+            this.lER.startLoad(dVarArr[0].pic, 30, false);
+            this.lER.setVisibility(0);
+            this.lEU.setVisibility(0);
+            a(this.lER, dVarArr[0].lDF);
             if (StringUtils.isNull(dVarArr[0].desc, true)) {
-                this.lox.setVisibility(8);
+                this.lES.setVisibility(8);
             } else {
-                this.lox.setVisibility(0);
-                this.lox.setText(dVarArr[0].desc);
+                this.lES.setVisibility(0);
+                this.lES.setText(dVarArr[0].desc);
             }
-            this.loz.startLoad(dVarArr[1].pic, 30, false);
-            a(this.loz, dVarArr[1].lne);
+            this.lEU.startLoad(dVarArr[1].pic, 30, false);
+            a(this.lEU, dVarArr[1].lDF);
             if (StringUtils.isNull(dVarArr[1].desc, true)) {
-                this.loA.setVisibility(8);
+                this.lEV.setVisibility(8);
             } else {
-                this.loA.setVisibility(0);
-                this.loA.setText(dVarArr[1].desc);
+                this.lEV.setVisibility(0);
+                this.lEV.setText(dVarArr[1].desc);
             }
         } else if (length >= 3) {
-            this.lov.startLoad(dVarArr[0].pic, 30, false);
-            this.lov.setVisibility(0);
-            this.loz.setVisibility(0);
-            this.loC.setVisibility(0);
-            a(this.lov, dVarArr[0].lne);
+            this.lER.startLoad(dVarArr[0].pic, 30, false);
+            this.lER.setVisibility(0);
+            this.lEU.setVisibility(0);
+            this.lEX.setVisibility(0);
+            a(this.lER, dVarArr[0].lDF);
             if (StringUtils.isNull(dVarArr[0].desc, true)) {
-                this.lox.setVisibility(8);
+                this.lES.setVisibility(8);
             } else {
-                this.lox.setVisibility(0);
-                this.lox.setText(dVarArr[0].desc);
+                this.lES.setVisibility(0);
+                this.lES.setText(dVarArr[0].desc);
             }
-            this.loz.startLoad(dVarArr[1].pic, 30, false);
-            a(this.loz, dVarArr[1].lne);
+            this.lEU.startLoad(dVarArr[1].pic, 30, false);
+            a(this.lEU, dVarArr[1].lDF);
             if (StringUtils.isNull(dVarArr[1].desc, true)) {
-                this.loA.setVisibility(8);
+                this.lEV.setVisibility(8);
             } else {
-                this.loA.setVisibility(0);
-                this.loA.setText(dVarArr[1].desc);
+                this.lEV.setVisibility(0);
+                this.lEV.setText(dVarArr[1].desc);
             }
-            this.loC.startLoad(dVarArr[2].pic, 30, false);
-            a(this.loC, dVarArr[2].lne);
+            this.lEX.startLoad(dVarArr[2].pic, 30, false);
+            a(this.lEX, dVarArr[2].lDF);
             if (StringUtils.isNull(dVarArr[2].desc, true)) {
-                this.loD.setVisibility(8);
+                this.lEY.setVisibility(8);
             } else {
-                this.loD.setVisibility(0);
-                this.loD.setText(dVarArr[2].desc);
+                this.lEY.setVisibility(0);
+                this.lEY.setText(dVarArr[2].desc);
             }
         }
         AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
         if (!StringUtils.isNull(adCard.adSource, true)) {
-            this.loF.setText(adCard.adSource);
-            this.loE.setVisibility(0);
-        } else if (advertAppInfo != null && advertAppInfo.dNf != null && !TextUtils.isEmpty(advertAppInfo.dNf.adSource)) {
-            this.loF.setText(advertAppInfo.dNf.adSource);
-            this.loE.setVisibility(0);
+            this.lFa.setText(adCard.adSource);
+            this.lEZ.setVisibility(0);
+        } else if (advertAppInfo != null && advertAppInfo.dWo != null && !TextUtils.isEmpty(advertAppInfo.dWo.adSource)) {
+            this.lFa.setText(advertAppInfo.dWo.adSource);
+            this.lEZ.setVisibility(0);
         } else {
-            this.loE.setVisibility(8);
+            this.lEZ.setVisibility(8);
         }
-        this.lnu.setVisibility(0);
+        this.lDU.setVisibility(0);
     }
 
     private void a(TbImageView tbImageView, int i, int i2) {

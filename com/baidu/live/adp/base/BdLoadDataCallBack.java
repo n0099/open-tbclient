@@ -1,5 +1,5 @@
 package com.baidu.live.adp.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BdLoadDataCallBack {
     public abstract void callback(Object obj);
 

@@ -2,7 +2,6 @@ package com.baidu.tieba.write.b.c;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.searchbox.ugc.utils.UgcLoginUtils;
 import com.baidu.tieba.write.upload.BaseUploadData;
@@ -162,7 +161,7 @@ public final class c {
             try {
                 jSONObject.put("mediaId", videoInfo.mediaId);
                 jSONObject.put("cover_img", videoInfo.coverUrl);
-                jSONObject.put(TiebaInitialize.LogFields.SIZE, videoInfo.size);
+                jSONObject.put("size", videoInfo.size);
                 jSONObject.put("duration", videoInfo.duration);
                 jSONObject.put("height_in_pixel", videoInfo.height);
                 jSONObject.put("width_in_pixel", videoInfo.width);

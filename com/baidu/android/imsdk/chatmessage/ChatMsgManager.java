@@ -28,7 +28,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ChatMsgManager extends BaseManager {
     public static void init(Context context) {
         if (!isNullContext(context)) {
@@ -53,65 +53,68 @@ public class ChatMsgManager extends BaseManager {
     public static void forwardMessage(final Context context, String str, int i, final ChatMsg chatMsg, final ISendMessageListener iSendMessageListener) {
         long j;
         long j2;
-        if (TextUtils.isEmpty(str) || chatMsg == null) {
+        if (context == null) {
+            if (iSendMessageListener != null) {
+                iSendMessageListener.onSendMessageResult(1005, chatMsg);
+            }
+        } else if (TextUtils.isEmpty(str) || chatMsg == null) {
             LogUtils.e(TAG, "uid is null or msg is null");
             if (iSendMessageListener != null) {
                 iSendMessageListener.onSendMessageResult(1005, chatMsg);
-                return;
             }
-            return;
-        }
-        try {
-            j = Long.parseLong(str);
-        } catch (Exception e) {
-            LogUtils.e(TAG, "uid parse error " + e.getMessage());
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-            j = 0;
-        }
-        if (j == 0) {
-            if (iSendMessageListener != null) {
-                iSendMessageListener.onSendMessageResult(1005, chatMsg);
-            }
-        } else if (i == 0) {
-            chatMsg.setRowId(-1L);
-            chatMsg.setCategory(0);
-            chatMsg.setFromUser(AccountManager.getUK(context));
-            chatMsg.setStatus(1);
-            chatMsg.setSenderUid(AccountManager.getUid(context));
-            chatMsg.setContacterBduid(str);
-            chatMsg.setIsZhida(false);
-            chatMsg.setChatType(0);
-            chatMsg.parseForwardmessage(0);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(j));
-            ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
-                @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
-                    if (i2 == 0 && list != null) {
-                        ChatMsg.this.setContacter(list.get(0).getUk());
-                        ChatMsg.this.setMsgTime(System.currentTimeMillis());
-                        ChatMsgManager.sendMessage(context, ChatMsg.this, iSendMessageListener);
-                    }
-                }
-            });
-        } else if (i == 1) {
+        } else {
             try {
-                j2 = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
-                LogUtils.e(TAG, "id is not long type!!");
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = Long.parseLong(str);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "uid parse error " + e.getMessage());
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+                j = 0;
             }
-            chatMsg.setRowId(-1L);
-            chatMsg.setCategory(i);
-            chatMsg.setContacter(j2);
-            chatMsg.setFromUser(AccountManager.getUK(context));
-            chatMsg.setStatus(1);
-            chatMsg.setSenderUid(AccountManager.getUid(context));
-            chatMsg.setChatType(3);
-            chatMsg.setMsgTime(System.currentTimeMillis());
-            chatMsg.parseForwardmessage(i);
-            sendMessage(context, chatMsg, iSendMessageListener);
+            if (j == 0) {
+                if (iSendMessageListener != null) {
+                    iSendMessageListener.onSendMessageResult(1005, chatMsg);
+                }
+            } else if (i == 0) {
+                chatMsg.setRowId(-1L);
+                chatMsg.setCategory(0);
+                chatMsg.setFromUser(AccountManager.getUK(context));
+                chatMsg.setStatus(1);
+                chatMsg.setSenderUid(AccountManager.getUid(context));
+                chatMsg.setContacterBduid(str);
+                chatMsg.setIsZhida(false);
+                chatMsg.setChatType(0);
+                chatMsg.parseForwardmessage(0);
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Long.valueOf(j));
+                ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
+                    @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+                    public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
+                        if (i2 == 0 && list != null) {
+                            ChatMsg.this.setContacter(list.get(0).getUk());
+                            ChatMsg.this.setMsgTime(System.currentTimeMillis());
+                            ChatMsgManager.sendMessage(context, ChatMsg.this, iSendMessageListener);
+                        }
+                    }
+                });
+            } else if (i == 1) {
+                try {
+                    j2 = Long.valueOf(str).longValue();
+                } catch (NumberFormatException e2) {
+                    LogUtils.e(TAG, "id is not long type!!");
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    j2 = -1;
+                }
+                chatMsg.setRowId(-1L);
+                chatMsg.setCategory(i);
+                chatMsg.setContacter(j2);
+                chatMsg.setFromUser(AccountManager.getUK(context));
+                chatMsg.setStatus(1);
+                chatMsg.setSenderUid(AccountManager.getUid(context));
+                chatMsg.setChatType(3);
+                chatMsg.setMsgTime(System.currentTimeMillis());
+                chatMsg.parseForwardmessage(i);
+                sendMessage(context, chatMsg, iSendMessageListener);
+            }
         }
     }
 
@@ -447,11 +450,19 @@ public class ChatMsgManager extends BaseManager {
     }
 
     public static void fetchMsgRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+        fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener, false);
+    }
+
+    public static void fetchMsgRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener, z);
     }
 
     public static void fetchMsgByHostRequst(Context context, long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, i, j2, j3, j4, i2, iFetchMsgByIdListener);
+        fetchMsgByHostRequst(context, j, i, j2, j3, j4, i2, iFetchMsgByIdListener, false);
+    }
+
+    public static void fetchMsgByHostRequst(Context context, long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, i, j2, j3, j4, i2, iFetchMsgByIdListener, z);
     }
 
     public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
@@ -500,19 +511,19 @@ public class ChatMsgManager extends BaseManager {
     }
 
     public static void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(context, j, chatMsg, iMediaSendChatMsgListener);
+        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(j, chatMsg, iMediaSendChatMsgListener);
     }
 
     public static void mediaSendChatMsg(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(context, j, i, j2, str, chatMsg, iMediaSendChatMsgListener);
+        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(j, i, j2, str, chatMsg, iMediaSendChatMsgListener);
     }
 
     public static void mediaDeleteChatMsg(Context context, long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(context, j, j2, list, iMediaDeleteChatMsgListener);
+        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(j, j2, list, iMediaDeleteChatMsgListener);
     }
 
     public static void mediaDeleteChatMsg(Context context, long j, int i, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(context, j, i, j2, str, j3, list, iMediaDeleteChatMsgListener);
+        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(j, i, j2, str, j3, list, iMediaDeleteChatMsgListener);
     }
 
     public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {

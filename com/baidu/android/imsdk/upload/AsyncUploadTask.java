@@ -19,7 +19,7 @@ import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     private static final int RESPONSE_TIMEOUT = 6000;
     public static final String TAG = AsyncUploadTask.class.getSimpleName();

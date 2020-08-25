@@ -4,23 +4,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BazhuInfoData extends OrmObject {
     public ArrayList<BaInfo> bazhu_info;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class BaInfo extends OrmObject implements Parcelable {
         public static final Parcelable.Creator<BaInfo> CREATOR = new Parcelable.Creator<BaInfo>() { // from class: com.baidu.tbadk.data.BazhuInfoData.BaInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Q */
+            /* renamed from: R */
             public BaInfo createFromParcel(Parcel parcel) {
                 return new BaInfo(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: nK */
+            /* renamed from: pV */
             public BaInfo[] newArray(int i) {
                 return new BaInfo[i];
             }

@@ -1,14 +1,14 @@
 package com.baidu.tbadk.BdToken;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class k extends h {
-    private long dEQ;
+    private long dNY;
 
     public k(b bVar, long j) {
         super(bVar);
-        this.dEQ = j;
+        this.dNY = j;
     }
 
     public long getTid() {
-        return this.dEQ;
+        return this.dNY;
     }
 }

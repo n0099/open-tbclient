@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.mvc.b.c;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl ae(byte[] bArr) {
+    public StarTrendsResIdl af(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -42,7 +42,7 @@ public class a implements c {
 
     private void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!x.isEmpty(dataRes.user_list)) {
+            if (!y.isEmpty(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -54,15 +54,15 @@ public class a implements c {
                     }
                 }
             }
-            if (!x.isEmpty(dataRes.thread_list)) {
+            if (!y.isEmpty(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        bv bvVar = new bv();
-                        bvVar.setUserMap(this.userMap);
-                        bvVar.a(threadInfo);
-                        bvVar.aXj();
-                        if (bvVar.getType() == bv.dRx || bvVar.getType() == bv.dRR || bvVar.getType() == bv.dRW || bvVar.getType() == bv.dRS || bvVar.getType() == bv.dSa || bvVar.getType() == bv.dSb) {
-                            this.threadList.add(bvVar);
+                        bw bwVar = new bw();
+                        bwVar.setUserMap(this.userMap);
+                        bwVar.a(threadInfo);
+                        bwVar.bfC();
+                        if (bwVar.getType() == bw.eaS || bwVar.getType() == bw.ebn || bwVar.getType() == bw.ebs || bwVar.getType() == bw.ebo || bwVar.getType() == bw.ebw || bwVar.getType() == bw.ebx) {
+                            this.threadList.add(bwVar);
                         }
                     }
                 }

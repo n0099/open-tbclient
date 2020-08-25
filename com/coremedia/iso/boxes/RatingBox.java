@@ -10,18 +10,18 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class RatingBox extends AbstractFullBox {
     public static final String TYPE = "rtng";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_8 = null;
     private String language;
     private String ratingCriteria;
     private String ratingEntity;
@@ -33,15 +33,15 @@ public class RatingBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("RatingBox.java", RatingBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setRatingEntity", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "ratingEntity", "", "void"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setRatingCriteria", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "ratingCriteria", "", "void"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "language", "", "void"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setRatingInfo", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "ratingInfo", "", "void"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getRatingEntity", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 73);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getRatingCriteria", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 83);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getRatingInfo", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 87);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 115);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "setRatingEntity", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "ratingEntity", "", "void"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setRatingCriteria", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "ratingCriteria", "", "void"), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "language", "", "void"), 54);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setRatingInfo", "com.coremedia.iso.boxes.RatingBox", FieldUtil.TYPE_STRING, "ratingInfo", "", "void"), 58);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 62);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "getRatingEntity", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 73);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "getRatingCriteria", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 83);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.d("1", "getRatingInfo", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 87);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.RatingBox", "", "", "", FieldUtil.TYPE_STRING), 115);
     }
 
     public RatingBox() {

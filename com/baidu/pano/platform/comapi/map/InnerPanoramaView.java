@@ -12,13 +12,13 @@ import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.lbsapi.panoramaview.PanoramaViewListener;
 import com.baidu.lbsapi.panoramaview.StatisticsCallback;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.MessageProxy;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class InnerPanoramaView extends BaseGLMapView {
     private HashMap<String, com.baidu.pano.platform.comapi.a.a> d;
     private PanoramaViewListener e;
@@ -36,7 +36,10 @@ public class InnerPanoramaView extends BaseGLMapView {
     private StatisticsCallback q;
     private boolean r;
     private boolean s;
-    private Handler t;
+    private String t;
+    private PanoramaView.ImageDefinition u;
+    private PanoramaView.ImageDefinition v;
+    private Handler w;
 
     public InnerPanoramaView(Context context) {
         this(context, null);
@@ -47,8 +50,9 @@ public class InnerPanoramaView extends BaseGLMapView {
         this.d = new HashMap<>();
         this.r = true;
         this.s = true;
-        this.t = new c(this);
-        b = context;
+        this.t = "street";
+        this.w = new c(this);
+        this.b = context;
         MessageProxy.registerPanoViewListener(new d(this));
     }
 
@@ -116,12 +120,34 @@ public class InnerPanoramaView extends BaseGLMapView {
     public void f(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                String optString = new JSONObject(str).optString("Type", "");
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("Type", "");
+                String optString2 = jSONObject.optString("ImgVmax");
+                String optString3 = jSONObject.optString("ImgVmin");
                 if (optString.equals("street")) {
-                    this.a.b(-15.0f, 90.0f);
+                    if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                        float floatValue = (float) (Float.valueOf(optString3).floatValue() * 0.31d);
+                        this.a.b(floatValue, (float) (Float.valueOf(optString2).floatValue() * 0.31d));
+                    } else {
+                        this.a.b(-15.0f, 90.0f);
+                    }
+                    if (this.u == PanoramaView.ImageDefinition.ImageDefinitionHigh) {
+                        this.u = PanoramaView.ImageDefinition.ImageDefinitionMiddle;
+                        this.a.b(this.u.getValue());
+                    }
                 } else if (optString.equals("inter")) {
-                    this.a.b(-25.0f, 90.0f);
+                    if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                        float floatValue2 = (float) (Float.valueOf(optString3).floatValue() * 0.31d);
+                        this.a.b(floatValue2, (float) (Float.valueOf(optString2).floatValue() * 0.31d));
+                    } else {
+                        this.a.b(-25.0f, 90.0f);
+                    }
+                    if ("street".equals(this.t) && this.v == PanoramaView.ImageDefinition.ImageDefinitionHigh) {
+                        this.u = PanoramaView.ImageDefinition.ImageDefinitionHigh;
+                        this.a.b(this.u.getValue());
+                    }
                 }
+                this.t = optString;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -216,6 +242,8 @@ public class InnerPanoramaView extends BaseGLMapView {
 
     public void a(PanoramaView.ImageDefinition imageDefinition) {
         if (this.a != null) {
+            this.v = imageDefinition;
+            this.u = imageDefinition;
             this.a.b(imageDefinition.getValue());
         }
     }
@@ -288,9 +316,9 @@ public class InnerPanoramaView extends BaseGLMapView {
         }
         Bundle bundle = new Bundle();
         bundle.putString("key", str);
-        bundle.putDouble(Config.EVENT_HEAT_X, d * 100.0d);
+        bundle.putDouble("x", d * 100.0d);
         bundle.putDouble("y", d2 * 100.0d);
-        bundle.putFloat("z", ((float) d3) * 100.0f);
+        bundle.putFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, ((float) d3) * 100.0f);
         return this.a.a(bundle, bitmap);
     }
 

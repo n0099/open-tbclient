@@ -5,15 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.ap.ah;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
 /* loaded from: classes19.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
-    private com.baidu.tbadk.core.view.a eJP;
-    private SwanAppBdActionBar fgY;
+    private com.baidu.tbadk.core.view.a eUv;
+    private SwanAppBdActionBar fst;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -24,14 +24,14 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
-        this.fgY = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
+        this.fst = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        btA();
+        bCv();
         super.setContentView(inflate);
     }
 
@@ -47,34 +47,34 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eJP = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.eJP.setTipString("加载中...");
-        this.eJP.setCancelable(true);
+        this.eUv = new com.baidu.tbadk.core.view.a(getPageContext());
+        this.eUv.setTipString("加载中...");
+        this.eUv.setCancelable(true);
     }
 
-    private void btA() {
-        if (this.fgY != null) {
-            this.fgY.setLeftTitleInvalidate(true);
-            this.fgY.setRightTxtZone1Visibility(8);
-            this.fgY.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
+    private void bCv() {
+        if (this.fst != null) {
+            this.fst.setLeftTitleInvalidate(true);
+            this.fst.setRightTxtZone1Visibility(8);
+            this.fst.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TbSwanAppBaseActivity.this.aao();
+                    TbSwanAppBaseActivity.this.agy();
                 }
             });
-            this.fgY.setRightExitViewVisibility(false);
-            this.fgY.setRightMenuVisibility(false);
-            this.fgY.setLeftZoneImageSrcMinWidth(ai.dip2px(this, 38.0f));
-            this.fgY.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
+            this.fst.setRightExitViewVisibility(false);
+            this.fst.setRightMenuVisibility(false);
+            this.fst.setLeftZoneImageSrcMinWidth(ah.dip2px(this, 38.0f));
+            this.fst.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TbSwanAppBaseActivity.this.aao();
+                    TbSwanAppBaseActivity.this.agy();
                 }
             });
         }
     }
 
-    protected void aao() {
+    protected void agy() {
         finish();
     }
 }

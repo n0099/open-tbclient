@@ -16,14 +16,14 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.k;
 import com.baidu.live.view.ALALevelView;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CharmRankMedalItemView extends LinearLayout {
-    public TextView avN;
-    public ALALevelView fGA;
-    public ImageView fGC;
-    private View fGD;
-    public TextView fGE;
-    public HeadImageView fGy;
+    public TextView aAP;
+    public HeadImageView fRP;
+    public ALALevelView fRR;
+    public ImageView fRT;
+    private View fRU;
+    public TextView fRV;
 
     public CharmRankMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -32,10 +32,10 @@ public class CharmRankMedalItemView extends LinearLayout {
 
     public void setData(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
-            k.a(this.fGy, aLaCharmData.portrait, true, false);
-            this.fGA.setupLevelIcon(aLaCharmData.level_id);
-            this.avN.setText(aLaCharmData.user_name);
-            this.fGE.setText(String.format(getResources().getString(a.i.sdk_charm_rank_forward_diff), StringHelper.formatValue(aLaCharmData.forwardDiff)));
+            k.a(this.fRP, aLaCharmData.portrait, true, false);
+            this.fRR.setupLevelIcon(aLaCharmData.level_id);
+            this.aAP.setText(aLaCharmData.user_name);
+            this.fRV.setText(String.format(getResources().getString(a.i.sdk_charm_rank_forward_diff), StringHelper.formatValue(aLaCharmData.forwardDiff)));
         }
     }
 
@@ -48,31 +48,31 @@ public class CharmRankMedalItemView extends LinearLayout {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.sdk_charm_rank_medal_item, (ViewGroup) this, true);
-        this.fGy = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.fGC = (ImageView) findViewById(a.g.iv_pendant);
-        this.fGD = findViewById(a.g.layout_name);
-        this.fGA = (ALALevelView) findViewById(a.g.level);
-        this.avN = (TextView) findViewById(a.g.tv_name);
-        this.fGE = (TextView) findViewById(a.g.tv_content);
-        this.fGy.setIsRound(true);
-        this.fGy.setAutoChangeStyle(false);
-        this.fGy.setDrawBorder(false);
-        this.fGy.setDefaultBgResource(a.f.sdk_charm_rank_medal_avatar_default);
-        this.fGy.setDefaultErrorResource(a.f.sdk_charm_rank_medal_avatar_default);
+        this.fRP = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.fRT = (ImageView) findViewById(a.g.iv_pendant);
+        this.fRU = findViewById(a.g.layout_name);
+        this.fRR = (ALALevelView) findViewById(a.g.level);
+        this.aAP = (TextView) findViewById(a.g.tv_name);
+        this.fRV = (TextView) findViewById(a.g.tv_content);
+        this.fRP.setIsRound(true);
+        this.fRP.setAutoChangeStyle(false);
+        this.fRP.setDrawBorder(false);
+        this.fRP.setDefaultBgResource(a.f.sdk_charm_rank_medal_avatar_default);
+        this.fRP.setDefaultErrorResource(a.f.sdk_charm_rank_medal_avatar_default);
         int dimensionPixelSize = getResources().getDimensionPixelSize(a.e.sdk_tbds7);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(a.e.sdk_tbds12);
-        this.fGA.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        this.fRR.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_CharmRankMedalItemView);
         int resourceId = obtainStyledAttributes.getResourceId(a.k.sdk_CharmRankMedalItemView_sdk_charm_rmi_pendant_src, -1);
         if (resourceId > 0) {
-            this.fGC.setImageResource(resourceId);
+            this.fRT.setImageResource(resourceId);
         }
         int resourceId2 = obtainStyledAttributes.getResourceId(a.k.sdk_CharmRankMedalItemView_sdk_charm_rmi_name_bg, -1);
         if (resourceId2 > 0) {
-            this.fGD.setBackgroundResource(resourceId2);
+            this.fRU.setBackgroundResource(resourceId2);
         }
         obtainStyledAttributes.recycle();
     }

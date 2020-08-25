@@ -4,15 +4,15 @@ import java.util.AbstractQueue;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 abstract class a<E> extends AbstractQueue<E> {
     protected final int mask;
-    protected final AtomicReferenceArray<E> ooZ;
+    protected final AtomicReferenceArray<E> oIU;
 
     public a(int i) {
-        int Lo = h.Lo(i);
-        this.mask = Lo - 1;
-        this.ooZ = new AtomicReferenceArray<>(Lo);
+        int NR = h.NR(i);
+        this.mask = NR - 1;
+        this.oIU = new AtomicReferenceArray<>(NR);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -51,6 +51,6 @@ abstract class a<E> extends AbstractQueue<E> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E lvElement(int i) {
-        return b(this.ooZ, i);
+        return b(this.oIU, i);
     }
 }

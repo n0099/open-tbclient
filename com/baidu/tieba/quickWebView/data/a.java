@@ -1,8 +1,8 @@
 package com.baidu.tieba.quickWebView.data;
 
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public ArrayList<String> lkD;
-    public boolean lkE;
+    public ArrayList<String> lBb;
+    public boolean lBc;
 }

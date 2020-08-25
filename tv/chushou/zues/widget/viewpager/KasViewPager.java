@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public class KasViewPager extends ViewPager {
-    private boolean oxZ;
-    private int[] oya;
-    private boolean oyb;
+    private boolean oRQ;
+    private int[] oRR;
+    private boolean oRS;
 
     public KasViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oxZ = false;
-        this.oyb = false;
+        this.oRQ = false;
+        this.oRS = false;
     }
 
     public KasViewPager(Context context) {
@@ -23,7 +23,7 @@ public class KasViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         try {
-            if (this.oxZ) {
+            if (this.oRQ) {
                 return false;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -34,19 +34,19 @@ public class KasViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.oxZ || super.onTouchEvent(motionEvent);
+        return this.oRQ || super.onTouchEvent(motionEvent);
     }
 
     public void setNoFocus(boolean z) {
-        this.oxZ = z;
+        this.oRQ = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.oya != null && motionEvent.getX() >= this.oya[0] && motionEvent.getX() <= this.oya[1] && motionEvent.getY() >= this.oya[2] && motionEvent.getY() <= this.oya[3]) {
+        if (this.oRR != null && motionEvent.getX() >= this.oRR[0] && motionEvent.getX() <= this.oRR[1] && motionEvent.getY() >= this.oRR[2] && motionEvent.getY() <= this.oRR[3]) {
             super.dispatchTouchEvent(motionEvent);
-            boolean z = this.oyb;
-            this.oyb = false;
+            boolean z = this.oRS;
+            this.oRS = false;
             return z;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -54,7 +54,7 @@ public class KasViewPager extends ViewPager {
 
     public void setSurfaceLoc(int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            this.oya = iArr;
+            this.oRR = iArr;
         }
     }
 }

@@ -1,33 +1,52 @@
 package com.baidu.mapapi.map;
 
-import android.view.View;
-import com.baidu.mapsdkplatform.comapi.map.ab;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ MapView a;
+import android.graphics.Point;
+/* loaded from: classes20.dex */
+class l {
+    public final double a;
+    public final double b;
+    public final double c;
+    public final double d;
+    public final double e;
+    public final double f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(MapView mapView) {
-        this.a = mapView;
+    public l(double d, double d2, double d3, double d4) {
+        this.a = d;
+        this.b = d3;
+        this.c = d2;
+        this.d = d4;
+        this.e = (d + d2) / 2.0d;
+        this.f = (d3 + d4) / 2.0d;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
-        com.baidu.mapsdkplatform.comapi.map.j jVar2;
-        com.baidu.mapsdkplatform.comapi.map.j jVar3;
-        jVar = this.a.d;
-        float f = jVar.a().b;
-        jVar2 = this.a.d;
-        ab E = jVar2.a().E();
-        E.a -= 1.0f;
-        if (E.a >= f) {
-            f = E.a;
-        }
-        E.a = f;
-        BaiduMap.mapStatusReason |= 16;
-        jVar3 = this.a.d;
-        jVar3.a().a(E, 300);
+    public boolean a(double d, double d2) {
+        return this.a <= d && d <= this.c && this.b <= d2 && d2 <= this.d;
+    }
+
+    public boolean a(double d, double d2, double d3, double d4) {
+        return d < this.c && this.a < d2 && d3 < this.d && this.b < d4;
+    }
+
+    public boolean a(Point point) {
+        return a(point.x, point.y);
+    }
+
+    public boolean a(l lVar) {
+        return a(lVar.a, lVar.c, lVar.b, lVar.d);
+    }
+
+    public boolean b(l lVar) {
+        return lVar.a >= this.a && lVar.c <= this.c && lVar.b >= this.b && lVar.d <= this.d;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("minX: " + this.a);
+        sb.append(" minY: " + this.b);
+        sb.append(" maxX: " + this.c);
+        sb.append(" maxY: " + this.d);
+        sb.append(" midX: " + this.e);
+        sb.append(" midY: " + this.f);
+        return sb.toString();
     }
 }

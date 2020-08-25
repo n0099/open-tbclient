@@ -1,24 +1,25 @@
 package com.baidu.swan.apps.console.v8inspector;
 
 import android.util.Log;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String mTitle = "background";
     private static String mType = "page";
     private static String mUrl = "runtime/index.js";
-    private static String bYa = "ws://localhost:4000";
+    private static String cdK = "ws://localhost:4000";
     private String mId = String.valueOf(System.currentTimeMillis());
-    private String bYb = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
+    private String cdL = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
     private boolean mAttached = false;
-    private boolean bYc = true;
-    private int bYd = 0;
-    private int bYe = 0;
+    private boolean cdM = true;
+    private int cdN = 0;
+    private int cdO = 0;
     private boolean mVisible = true;
 
     public String toString() {
@@ -29,16 +30,16 @@ public class b {
             jSONObject.putOpt("title", mTitle);
             jSONObject.putOpt("type", mType);
             jSONObject.putOpt("url", mUrl);
-            jSONObject.putOpt("webSocketDebuggerUrl", bYa);
+            jSONObject.putOpt("webSocketDebuggerUrl", cdK);
             jSONObject.putOpt("id", this.mId);
-            jSONObject.putOpt("devtoolsFrontendUrl", this.bYb);
-            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.hv(0));
-            jSONObject.putOpt("appVersion", al.getVersionName());
+            jSONObject.putOpt("devtoolsFrontendUrl", this.cdL);
+            jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.jC(0));
+            jSONObject.putOpt("appVersion", ak.getVersionName());
             jSONObject2.putOpt("attached", Boolean.valueOf(this.mAttached));
-            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.bYc));
-            jSONObject2.putOpt("screenX", Integer.valueOf(this.bYd));
-            jSONObject2.putOpt("screenY", Integer.valueOf(this.bYe));
-            jSONObject2.putOpt("visible", Boolean.valueOf(this.mVisible));
+            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cdM));
+            jSONObject2.putOpt("screenX", Integer.valueOf(this.cdN));
+            jSONObject2.putOpt("screenY", Integer.valueOf(this.cdO));
+            jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.mVisible));
             jSONObject.putOpt("description", jSONObject2.toString());
             jSONArray.put(jSONObject);
         } catch (JSONException e) {

@@ -1,9 +1,8 @@
 package com.baidu.ala.data;
 
 import com.baidu.ar.gesture.GestureAR;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SdkMiddleStrategyInfo {
     public DisplayStrategy displayStrategy;
     public int score;
@@ -12,7 +11,7 @@ public class SdkMiddleStrategyInfo {
 
     public void fromJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ts = jSONObject.optLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+            this.ts = jSONObject.optLong("ts");
             this.score = jSONObject.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.displayStrategy = new DisplayStrategy();
             JSONObject optJSONObject = jSONObject.optJSONObject("display_strategy");
@@ -27,7 +26,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DisplayStrategy {
         public String attention;
         public int imageNum;
@@ -45,7 +44,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class StrategyExtra {
         public int click;
         public String ctr_fea;

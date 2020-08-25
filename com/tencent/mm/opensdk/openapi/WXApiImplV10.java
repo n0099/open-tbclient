@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.tencent.mm.opensdk.channel.MMessageActV2;
 import com.tencent.mm.opensdk.channel.a.a;
 import com.tencent.mm.opensdk.channel.a.b;
@@ -38,7 +37,7 @@ import com.tencent.mm.opensdk.utils.ILog;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.net.URLEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 final class WXApiImplV10 implements IWXAPI {
     private static final String TAG = "MicroMsg.SDK.WXApiImplV10";
     private static String wxappPayEntryClassname = null;
@@ -94,7 +93,7 @@ final class WXApiImplV10 implements IWXAPI {
                 SubscribeMessage.Resp resp = new SubscribeMessage.Resp();
                 resp.openId = parse.getQueryParameter("openid");
                 resp.templateID = parse.getQueryParameter("template_id");
-                resp.scene = d.b(parse.getQueryParameter(FaceBaseDTO.KEY_BUSINESS_SCENE));
+                resp.scene = d.b(parse.getQueryParameter("scene"));
                 resp.action = parse.getQueryParameter("action");
                 resp.reserved = parse.getQueryParameter(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 iWXAPIEventHandler.onResp(resp);
@@ -453,12 +452,12 @@ final class WXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d(TAG, "register app " + this.context.getPackageName());
-        a.C0877a c0877a = new a.C0877a();
-        c0877a.a = "com.tencent.mm";
-        c0877a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c0877a.content = "weixin://registerapp?appid=" + this.appId;
-        c0877a.b = j;
-        return a.a(this.context, c0877a);
+        a.C0935a c0935a = new a.C0935a();
+        c0935a.a = "com.tencent.mm";
+        c0935a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0935a.content = "weixin://registerapp?appid=" + this.appId;
+        c0935a.b = j;
+        return a.a(this.context, c0935a);
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
@@ -597,10 +596,10 @@ final class WXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d(TAG, "unregister app " + this.context.getPackageName());
-        a.C0877a c0877a = new a.C0877a();
-        c0877a.a = "com.tencent.mm";
-        c0877a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c0877a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0877a);
+        a.C0935a c0935a = new a.C0935a();
+        c0935a.a = "com.tencent.mm";
+        c0935a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0935a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0935a);
     }
 }

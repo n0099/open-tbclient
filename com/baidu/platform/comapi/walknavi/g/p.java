@@ -1,8 +1,6 @@
 package com.baidu.platform.comapi.walknavi.g;
-
-import android.app.Activity;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class p implements Runnable {
     final /* synthetic */ a a;
 
@@ -13,10 +11,7 @@ public class p implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Activity activity;
-        activity = this.a.i;
-        if (activity != null) {
-            com.baidu.platform.comapi.walknavi.b.a().H().b("WALKNAVI_AR_HINT_HAS_SHOW", true);
-        }
+        this.a.m();
+        com.baidu.platform.comapi.walknavi.b.a().K().b("WALKNAVI_AR_ADJUST_HAS_SHOW", true);
     }
 }

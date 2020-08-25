@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.apps.statistic.h;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void f(String str, String str2, String str3, String str4, String str5) {
+    public static void g(String str, String str2, String str3, String str4, String str5) {
         f fVar = new f();
         fVar.mFrom = "swan";
         fVar.mType = str;
@@ -17,7 +17,7 @@ public class d {
             fVar.mValue = str3;
         }
         fVar.mAppId = str5;
-        fVar.v("source", str4);
+        fVar.u("source", str4);
         if (DEBUG) {
             Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + fVar.toJSONObject());
         }

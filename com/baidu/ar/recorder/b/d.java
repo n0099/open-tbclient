@@ -7,9 +7,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class d {
     private static final String TAG = d.class.getSimpleName();
-    private e sW;
-    private MediaMuxer tD;
-    private volatile boolean tE = false;
+    private e tB;
+    private MediaMuxer ui;
+    private volatile boolean uj = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0007, code lost:
         if (r0 >= 0) goto L5;
@@ -20,12 +20,12 @@ public class d {
     public synchronized int a(MediaFormat mediaFormat) {
         int i;
         try {
-            i = this.tD.addTrack(mediaFormat);
+            i = this.ui.addTrack(mediaFormat);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return i;
-        com.baidu.ar.f.b.b(TAG, "addMuxerTrack error!!!");
+        com.baidu.ar.g.b.b(TAG, "addMuxerTrack error!!!");
         i = -1;
         return i;
     }
@@ -33,72 +33,72 @@ public class d {
     public boolean a(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (i != -1) {
             try {
-                this.tD.writeSampleData(i, byteBuffer, bufferInfo);
+                this.ui.writeSampleData(i, byteBuffer, bufferInfo);
                 return true;
             } catch (Exception e) {
-                com.baidu.ar.f.b.b(TAG, "startMuxer error!!!");
+                com.baidu.ar.g.b.b(TAG, "startMuxer error!!!");
             }
         }
         return false;
     }
 
     public boolean a(String str, int i, e eVar) {
-        if (!com.baidu.ar.recorder.c.a.ar(str)) {
-            com.baidu.ar.recorder.c.a.aq(str);
+        if (!com.baidu.ar.recorder.c.a.av(str)) {
+            com.baidu.ar.recorder.c.a.au(str);
         }
         try {
-            this.tD = new MediaMuxer(str, i);
-            this.sW = eVar;
-            this.tE = false;
+            this.ui = new MediaMuxer(str, i);
+            this.tB = eVar;
+            this.uj = false;
             return true;
         } catch (Exception e) {
-            com.baidu.ar.f.b.b(TAG, "initMovieMuxer init error!!!");
+            com.baidu.ar.g.b.b(TAG, "initMovieMuxer init error!!!");
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean eH() {
-        return this.tE;
+    public boolean fT() {
+        return this.uj;
     }
 
-    public synchronized void eI() {
+    public synchronized void fU() {
         boolean z = true;
         synchronized (this) {
             try {
-                this.tD.start();
-                this.tE = true;
+                this.ui.start();
+                this.uj = true;
             } catch (Exception e) {
-                com.baidu.ar.f.b.b(TAG, "startMuxer error!!!");
+                com.baidu.ar.g.b.b(TAG, "startMuxer error!!!");
                 z = false;
             }
-            if (this.sW != null) {
-                this.sW.P(z);
+            if (this.tB != null) {
+                this.tB.Q(z);
             }
         }
     }
 
-    public synchronized void eJ() {
+    public synchronized void fV() {
         boolean z = false;
         synchronized (this) {
             try {
-                this.tD.stop();
-                this.tE = false;
+                this.ui.stop();
+                this.uj = false;
                 z = true;
             } catch (Exception e) {
-                com.baidu.ar.f.b.b(TAG, "stopMuxer error!!!");
+                com.baidu.ar.g.b.b(TAG, "stopMuxer error!!!");
             }
-            if (this.sW != null) {
-                this.sW.Q(z);
+            if (this.tB != null) {
+                this.tB.R(z);
             }
         }
     }
 
-    public void eK() {
-        if (this.tE) {
+    public void fW() {
+        if (this.uj) {
             return;
         }
-        this.tD.release();
-        this.tD = null;
+        this.ui.release();
+        this.ui = null;
     }
 }

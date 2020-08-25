@@ -2,11 +2,11 @@ package com.baidu.tieba.tbadkCore.videoupload.a;
 
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
     void a(e eVar);
 
-    VideoFinishResult bD(String str, int i) throws IOException;
+    VideoFinishResult bI(String str, int i) throws IOException;
 
     void cancel();
 }

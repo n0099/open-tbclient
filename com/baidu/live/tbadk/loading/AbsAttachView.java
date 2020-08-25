@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.loading;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AbsAttachView {
     protected View attachedView;
     private boolean isAttached;

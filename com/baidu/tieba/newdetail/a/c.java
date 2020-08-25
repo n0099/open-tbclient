@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes15.dex */
 public class c implements q {
-    public boolean jJU = true;
+    public boolean jZl = true;
     public String title;
 
     public c(String str) {
@@ -13,6 +13,6 @@ public class c implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jWF;
+        return a.kmb;
     }
 }

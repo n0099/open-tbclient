@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,8 @@ import com.baidu.webkit.sdk.GeolocationServiceBridge;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.MimeTypeMap;
 import com.baidu.webkit.sdk.NativeRestore;
+import com.baidu.webkit.sdk.ServiceWorkerController;
+import com.baidu.webkit.sdk.TracingController;
 import com.baidu.webkit.sdk.WebIconDatabase;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebStorage;
@@ -26,7 +29,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     private static final String LOGTAG = "WebViewSystemFactoryProvider";
     private static WebViewSystemFactoryProvider mInstance;
@@ -35,6 +38,8 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     private GeolocationPermissionsImpl mGeolocationPermissions;
     private final Object mLock = new Object();
     private MimeTypeMapImpl mMimeTypeMap;
+    private ServiceWorkerControllerImpl mServiceWorkerController;
+    private TracingControllerImpl mTracingController;
     private WebIconDatabaseImpl mWebIconDatabase;
     private WebStorageImpl mWebStorage;
     private WebViewDatabaseImpl mWebViewDatabase;
@@ -127,6 +132,16 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final NativeRestore getNativeRestoreImpl(String str) {
         return null;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
+    public final ServiceWorkerController getServiceWorkerController() {
+        synchronized (this.mLock) {
+            if (this.mServiceWorkerController == null) {
+                this.mServiceWorkerController = new ServiceWorkerControllerImpl();
+            }
+        }
+        return this.mServiceWorkerController;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
@@ -521,6 +536,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public boolean hasQuicAltService(String str) {
+                return false;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void initCronet(Context context) {
             }
 
@@ -583,6 +603,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
             public void setAppId(String str) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
+            public void setAppStatus(boolean z) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -878,6 +902,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
+            public void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void addVirtualMemoryListener(WebView.IVirtualMemoryListener iVirtualMemoryListener) {
             }
 
@@ -947,6 +975,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
+            public boolean isInWebCache(String str) {
+                return false;
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void makeMF30Inited() {
             }
 
@@ -972,7 +1005,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void preconnectUrl(String str) {
+            public void preconnectUrl(String str, int i) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
@@ -981,6 +1014,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
             public void prefetchResource(String str, String[] strArr, Map<String, String> map) {
+            }
+
+            @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
+            public void removeFromWebCache(String str) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
@@ -1001,6 +1038,16 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
+    public final TracingController getTracingController() {
+        synchronized (this.mLock) {
+            if (this.mTracingController == null) {
+                this.mTracingController = new TracingControllerImpl();
+            }
+        }
+        return this.mTracingController;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
     public final WebIconDatabase getWebIconDatabase() {
         synchronized (this.mLock) {
             if (this.mWebIconDatabase == null) {
@@ -1018,6 +1065,15 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
         }
         return this.mWebStorage;
+    }
+
+    @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
+    @TargetApi(28)
+    public final ClassLoader getWebViewClassLoader() {
+        if (Build.VERSION.SDK_INT >= 28) {
+            return android.webkit.WebView.getWebViewClassLoader();
+        }
+        return null;
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider

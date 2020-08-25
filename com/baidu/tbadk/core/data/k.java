@@ -4,14 +4,14 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.BannerImage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class k extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.q {
-    public static BdUniqueId dNV = BdUniqueId.gen();
+    public static BdUniqueId dXe = BdUniqueId.gen();
     public List<j> dataList = new ArrayList();
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dNV;
+        return dXe;
     }
 
     public void parserProtobuf(List<BannerImage> list) {

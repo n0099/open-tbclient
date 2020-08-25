@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GetMaskInfo.DataReq;
 import protobuf.GetMaskInfo.GetMaskInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RequestGetMaskInfoMessage extends TbSocketMessage {
     private int maskType;
 

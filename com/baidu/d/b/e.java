@@ -1,0 +1,80 @@
+package com.baidu.d.b;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.common.others.url.UrlUtil;
+import com.baidu.android.util.connect.ConnectManager;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class e {
+    private static boolean DEBUG = AppConfig.isDebug();
+    private static String TAG = "networkparam";
+    private static HashMap<String, Integer> amk = new HashMap<>();
+    private Context mContext = AppRuntime.getAppContext();
+
+    static {
+        amk.put("WIFI", 1);
+        amk.put("3GNET", 21);
+        amk.put("3GWAP", 22);
+        amk.put("CMNET", 31);
+        amk.put("UNINET", 32);
+        amk.put("CTNET", 33);
+        amk.put("CMWAP", 41);
+        amk.put("UNIWAP", 42);
+        amk.put("CTWAP", 43);
+    }
+
+    public String uF() {
+        long j;
+        String str;
+        if (!DEBUG) {
+            j = 0;
+        } else {
+            j = SystemClock.uptimeMillis();
+        }
+        ConnectManager connectManager = new ConnectManager(this.mContext);
+        String netType = connectManager.getNetType();
+        int subType = connectManager.getSubType();
+        if (!TextUtils.isEmpty(netType)) {
+            String upperCase = netType.toUpperCase();
+            Integer num = amk.get(upperCase);
+            if (num == null) {
+                num = 5;
+            }
+            str = num + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + subType;
+            netType = upperCase;
+        } else {
+            str = ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + subType;
+        }
+        if (DEBUG) {
+            Log.i(TAG, "getCurrentNetTypeId cost " + (SystemClock.uptimeMillis() - j) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+        }
+        return str;
+    }
+
+    public String l(String str, boolean z) {
+        if (z) {
+            String uF = uF();
+            if (TextUtils.equals(uF, "5_0")) {
+                return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString("last network type", "5_0"));
+            }
+            if (!TextUtils.isEmpty(uF)) {
+                if (!TextUtils.equals(uF, "5_0")) {
+                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
+                    edit.putString("last network type", uF);
+                    edit.commit();
+                }
+                return UrlUtil.addParam(str, "network", uF);
+            }
+            return str;
+        }
+        return UrlUtil.addParam(str, "network", uF());
+    }
+}

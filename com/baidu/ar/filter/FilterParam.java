@@ -158,7 +158,9 @@ public interface FilterParam {
         redPoints("red_curve_points"),
         greenPoints("green_curve_points"),
         bluePoints("blue_curve_points"),
-        curve("intensity_curve");
+        curve("intensity_curve"),
+        hazeAtom("haze_atom"),
+        hazeBlend("haze_blend");
         
         private String mParamName;
 

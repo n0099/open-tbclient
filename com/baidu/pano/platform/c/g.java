@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.c;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class g {
     public static boolean a = false;
     public static String b = "PanoSDK2";

@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WhiteListData extends LinkedList<String> {
     private static final String HTTPS_PREFIX = "https://";
     private static final String HTTP_PREFIX = "http://";
@@ -85,12 +85,12 @@ public class WhiteListData extends LinkedList<String> {
     }
 
     private void save(String str) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putString(SharedPrefConfig.KEY_WHITE_LIST, str);
+        com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.KEY_WHITE_LIST, str);
     }
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.KEY_WHITE_LIST, null);
+        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.KEY_WHITE_LIST, null);
         if (!TextUtils.isEmpty(string)) {
             whiteListData.parserJson(string);
         }

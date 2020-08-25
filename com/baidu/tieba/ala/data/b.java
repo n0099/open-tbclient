@@ -1,31 +1,31 @@
 package com.baidu.tieba.ala.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private String fIM;
-    private int fIN = 1;
+    private String fUd;
+    private int fUe = 1;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.fIM = jSONObject.optString("content");
-            this.fIN = jSONObject.optInt("type", 1);
+            this.fUd = jSONObject.optString("content");
+            this.fUe = jSONObject.optInt("type", 1);
         }
     }
 
-    public String bzG() {
-        return this.fIM;
+    public String bIJ() {
+        return this.fUd;
     }
 
-    public int bzH() {
-        return this.fIN;
+    public int bIK() {
+        return this.fUe;
     }
 
-    public void CJ(String str) {
-        this.fIM = str;
+    public void Fe(String str) {
+        this.fUd = str;
     }
 
-    public void qV(int i) {
-        this.fIN = i;
+    public void th(int i) {
+        this.fUe = i;
     }
 }

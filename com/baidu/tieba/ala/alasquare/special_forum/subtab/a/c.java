@@ -3,25 +3,25 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.a;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private a fAf;
+    private a fLx;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.fAf = new a(getView());
+        this.fLx = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.fAf.textView, R.color.cp_cont_d);
-        ao.setBackgroundColor(this.fAf.dWz, R.color.cp_bg_line_c);
+        ap.setViewTextColor(this.fLx.textView, (int) R.color.cp_cont_d);
+        ap.setBackgroundColor(this.fLx.efZ, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -39,16 +39,16 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     }
 
     /* loaded from: classes4.dex */
-    public static class a extends ad.a {
-        public View dWz;
-        public View dpe;
+    public static class a extends af.a {
+        public View dzg;
+        public View efZ;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.dpe = view;
-            this.textView = (TextView) this.dpe.findViewById(R.id.tv_empty);
-            this.dWz = this.dpe.findViewById(R.id.devider_line);
+            this.dzg = view;
+            this.textView = (TextView) this.dzg.findViewById(R.id.tv_empty);
+            this.efZ = this.dzg.findViewById(R.id.devider_line);
         }
     }
 }

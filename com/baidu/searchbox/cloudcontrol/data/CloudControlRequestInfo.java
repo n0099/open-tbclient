@@ -1,7 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class CloudControlRequestInfo {
     private Object mCheckInfo;
     private Object mFilter;

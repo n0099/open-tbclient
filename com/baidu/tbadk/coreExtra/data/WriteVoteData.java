@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteVoteData extends OrmObject implements Serializable {
     public static final String VOTE_CONTENT_PREFIX_FORMAT = "#(poll,%s)";
     private int expireType;

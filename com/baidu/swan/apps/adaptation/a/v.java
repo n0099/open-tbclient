@@ -1,10 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.ContentValues;
-import android.support.annotation.Nullable;
-import java.util.List;
-/* loaded from: classes7.dex */
+import java.util.Map;
+/* loaded from: classes8.dex */
 public interface v {
-    @Nullable
-    List<ContentValues> TK();
+    void a(com.baidu.swan.apps.commonsync.a.a aVar);
+
+    void a(com.baidu.swan.apps.commonsync.a.b bVar);
+
+    void l(Map<String, String> map);
+
+    void m(Map<String, String> map);
 }

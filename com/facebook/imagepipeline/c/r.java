@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface r<K> {
-    void bg(K k);
+    void bi(K k);
 
-    void dFJ();
+    void dRI();
 
-    void dFK();
+    void dRJ();
 }

@@ -1,6 +1,6 @@
 package com.qiniu.android.common;
 
-import com.baidu.searchbox.account.data.UserAccountActionItem;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,23 +12,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ZoneInfo {
-    private static int nLy = 600;
-    public final Map<String, Long> nLA;
-    private final int nLB;
-    public final List<String> nLz;
+    private static int ofs = 600;
+    public final List<String> oft;
+    public final Map<String, Long> ofu;
+    private final int ofv;
 
     public ZoneInfo(int i, List<String> list, Map<String, Long> map) {
-        this.nLB = i;
-        this.nLz = list;
-        this.nLA = map;
+        this.ofv = i;
+        this.oft = list;
+        this.ofu = map;
     }
 
-    public static ZoneInfo ev(JSONObject jSONObject) throws JSONException {
+    public static ZoneInfo eG(JSONObject jSONObject) throws JSONException {
         int i = jSONObject.getInt("ttl");
         ArrayList arrayList = new ArrayList();
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        JSONObject jSONObject2 = jSONObject.getJSONObject("up");
-        for (String str : new String[]{"acc", UserAccountActionItem.KEY_SRC, "old_acc", "old_src"}) {
+        JSONObject jSONObject2 = jSONObject.getJSONObject(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE);
+        for (String str : new String[]{"acc", "src", "old_acc", "old_src"}) {
             JSONObject jSONObject3 = jSONObject2.getJSONObject(str);
             JSONArray jSONArray = jSONObject3.getJSONArray("main");
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -51,15 +51,15 @@ public class ZoneInfo {
         return new ZoneInfo(i, arrayList, concurrentHashMap);
     }
 
-    public void Sn(String str) {
-        this.nLA.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + nLy));
+    public void Vr(String str) {
+        this.ofu.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + ofs));
     }
 
     public String toString() {
         HashMap hashMap = new HashMap();
-        hashMap.put("ttl", Integer.valueOf(this.nLB));
-        hashMap.put("upDomainList", this.nLz);
-        hashMap.put("upDomainMap", this.nLA);
+        hashMap.put("ttl", Integer.valueOf(this.ofv));
+        hashMap.put("upDomainList", this.oft);
+        hashMap.put("upDomainMap", this.ofu);
         return new JSONObject(hashMap).toString();
     }
 }

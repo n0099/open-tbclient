@@ -2,7 +2,7 @@ package com.baidu.ar.npc;
 
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class aa implements GestureDetector.OnGestureListener {
     final /* synthetic */ BaiduArView a;
 

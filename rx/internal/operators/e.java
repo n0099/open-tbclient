@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
 import rx.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e<T, R> implements d.a<R> {
-    final d.a<T> okV;
-    final d.b<? extends R, ? super T> okW;
+    final d.a<T> oER;
+    final d.b<? extends R, ? super T> oES;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -12,17 +12,17 @@ public final class e<T, R> implements d.a<R> {
     }
 
     public e(d.a<T> aVar, d.b<? extends R, ? super T> bVar) {
-        this.okV = aVar;
-        this.okW = bVar;
+        this.oER = aVar;
+        this.oES = bVar;
     }
 
     public void call(rx.j<? super R> jVar) {
         try {
-            rx.j<? super T> call = rx.c.c.b(this.okW).call(jVar);
+            rx.j<? super T> call = rx.c.c.b(this.oES).call(jVar);
             call.onStart();
-            this.okV.call(call);
+            this.oER.call(call);
         } catch (Throwable th) {
-            rx.exceptions.a.K(th);
+            rx.exceptions.a.J(th);
             jVar.onError(th);
         }
     }

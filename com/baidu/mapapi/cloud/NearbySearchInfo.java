@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class NearbySearchInfo extends BaseCloudSearchInfo {
     public String location;
     public int radius;

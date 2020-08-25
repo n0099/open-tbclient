@@ -1,16 +1,16 @@
 package com.baidu.swan.games.z;
 
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static void v(com.baidu.swan.games.f.a aVar) {
-        if (aVar != null && aVar.aEm().hasEventListener("audiointerruptionbegin") && com.baidu.swan.games.audio.b.b.aCq().aCt()) {
+        if (aVar != null && aVar.aNb().hasEventListener("audiointerruptionbegin") && com.baidu.swan.games.audio.b.b.aLf().aLi()) {
             aVar.dispatchEvent(new JSEvent("audiointerruptionbegin"));
         }
     }
 
     public static void w(com.baidu.swan.games.f.a aVar) {
-        if (aVar != null && aVar.aEm().hasEventListener("audiointerruptionend")) {
+        if (aVar != null && aVar.aNb().hasEventListener("audiointerruptionend")) {
             aVar.dispatchEvent(new JSEvent("audiointerruptionend"));
         }
     }

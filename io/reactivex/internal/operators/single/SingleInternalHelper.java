@@ -20,12 +20,12 @@ public final class SingleInternalHelper {
     }
 
     /* loaded from: classes7.dex */
-    enum ToFlowable implements h<aa, org.a.b> {
+    enum ToFlowable implements h<aa, org.b.b> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
-        public org.a.b apply(aa aaVar) {
+        public org.b.b apply(aa aaVar) {
             return new SingleToFlowable(aaVar);
         }
     }

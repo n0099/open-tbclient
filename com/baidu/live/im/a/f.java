@@ -5,25 +5,25 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(Context context) {
-        super(context, com.baidu.live.im.a.aTd);
+        super(context, com.baidu.live.im.a.aYr);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void DV() {
-        if (DW()) {
-            DX();
+    protected void Jy() {
+        if (Jz()) {
+            JA();
         } else {
-            DY();
+            JB();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (DW()) {
+        if (Jz()) {
             return -1;
         }
         return this.mContext.getResources().getColor(a.d.sdk_common_color_10034);
@@ -32,16 +32,16 @@ public class f extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        boolean equals = aVar instanceof com.baidu.live.im.a ? ((com.baidu.live.im.a) aVar).CR().equals(aVar.Eh().userId) : false;
+        boolean equals = aVar instanceof com.baidu.live.im.a ? ((com.baidu.live.im.a) aVar).Iu().equals(aVar.JK().userId) : false;
         if (equals) {
             com.baidu.live.view.c cVar2 = new com.baidu.live.view.c(this.mContext, a.f.icon_im_anchor);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("  ");
             spannableStringBuilder2.setSpan(cVar2, 0, 1, 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
         }
-        a(spannableStringBuilder, aVar.Eh(), cVar, equals, true, true);
+        a(spannableStringBuilder, aVar.JK(), cVar, equals, true, true);
         if (equals) {
-            bK(false);
+            bQ(false);
         }
         String content = aVar.getContent();
         SpannableString valueOf = SpannableString.valueOf(content);

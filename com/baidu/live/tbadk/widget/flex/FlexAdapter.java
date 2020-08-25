@@ -4,12 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class FlexAdapter<T> {
     private Callback mCallback;
     private List<T> mDatas;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     interface Callback {
         void onChanged();
     }

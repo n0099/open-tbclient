@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaGuardThroneActivityConfig extends IntentConfig {
     public static final String DEFAULT_TAB_TYPE = "DEFAULT_TAB_TYPE";
     public static final String GUARD_THRONE_ANCHOR_ID = "GUARD_THRONE_ANCHOR_ID";

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMGetSubscriptionRequest";
 

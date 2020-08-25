@@ -6,31 +6,31 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public final class a {
-    public static <T> List<T> dQN() {
+    public static <T> List<T> ecP() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> dQO() {
+    public static <K, V> Map<K, V> ecQ() {
         return new LinkedHashMap();
     }
 
-    public static <T> List<T> u(String str, List<T> list) {
+    public static <T> List<T> t(String str, List<T> list) {
         if (list == null) {
             throw new NullPointerException(str + " == null");
         }
         return (list == Collections.emptyList() || (list instanceof ImmutableList)) ? new MutableOnWriteList(list) : new ArrayList(list);
     }
 
-    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> o(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
         return new LinkedHashMap(map);
     }
 
-    public static <T> List<T> v(String str, List<T> list) {
+    public static <T> List<T> u(String str, List<T> list) {
         if (list == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -47,7 +47,7 @@ public final class a {
         return list;
     }
 
-    public static <K, V> Map<K, V> q(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -75,7 +75,7 @@ public final class a {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static void fI(List<?> list) {
+    public static void fS(List<?> list) {
         if (list == null) {
             throw new NullPointerException("list == null");
         }

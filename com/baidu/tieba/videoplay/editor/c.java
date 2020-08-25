@@ -2,21 +2,21 @@ package com.baidu.tieba.videoplay.editor;
 
 import android.content.Context;
 import android.widget.EditText;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 /* loaded from: classes18.dex */
-public class c extends l {
-    private EditText eCh;
+public class c extends m {
+    private EditText eMG;
 
     public c(Context context) {
         super(context, (String) null, 28);
-        this.eAT = false;
-        this.eAS = 3;
-        this.ezZ = new VideoPlayInputContainer(context);
-        this.eCh = ((VideoPlayInputContainer) this.ezZ).getInputView();
-        this.eAU = new int[]{4, 24, 3, 9, 6};
+        this.eLs = false;
+        this.eLr = 3;
+        this.eKx = new VideoPlayInputContainer(context);
+        this.eMG = ((VideoPlayInputContainer) this.eKx).getInputView();
+        this.eLt = new int[]{4, 24, 3, 9, 6};
     }
 
     public EditText getInputView() {
-        return this.eCh;
+        return this.eMG;
     }
 }

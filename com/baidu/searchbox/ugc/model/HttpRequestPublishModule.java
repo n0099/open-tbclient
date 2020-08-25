@@ -7,8 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.b.b.b;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.d.b.b;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
@@ -24,7 +23,6 @@ import com.baidu.searchbox.ugc.utils.UgcLoginUtils;
 import com.baidu.searchbox.ugc.utils.UgcServerApiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.google.gson.a.c;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +31,7 @@ import org.apache.commons.codec.digest4util.EncryptUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class HttpRequestPublishModule {
     public static final boolean DEBUG = false;
     private static final int HTTP_NO_ERROR = 0;
@@ -44,7 +42,7 @@ public class HttpRequestPublishModule {
     private static final String TAG = HttpRequestPublishModule.class.getSimpleName();
     public static VideoUploadModel videoInfo;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public static class Forward {
         @c("account_type")
         public String accountType;
@@ -74,7 +72,7 @@ public class HttpRequestPublishModule {
         public String videoDuration;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public static class Target implements NoProGuard {
         @c("topics")
         public List<TopicItem> mTopicList = new ArrayList();
@@ -84,7 +82,7 @@ public class HttpRequestPublishModule {
         public List<LinkInfoItem> mLinkInfoList = new ArrayList();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public static class VideoUploadModel {
         public String authorUK;
         public String bgSound;
@@ -107,7 +105,7 @@ public class HttpRequestPublishModule {
     public void requestPublish(String str, Map<String, String> map, final PublishRequestListener publishRequestListener) {
         if (publishRequestListener != null) {
             try {
-                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.sQ().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
+                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.uy().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
                 String publisherUserAgent = UgcServerApiUtils.getPublisherUserAgent();
                 if (!TextUtils.isEmpty(publisherUserAgent)) {
                     cookieManager.addHeader("User-Agent", publisherUserAgent);
@@ -250,7 +248,7 @@ public class HttpRequestPublishModule {
                     jSONObject7.put("url", imageData.url);
                     jSONObject7.put("width", imageData.width + "");
                     jSONObject7.put("height", imageData.height + "");
-                    jSONObject7.put(TiebaInitialize.LogFields.SIZE, imageData.size + "");
+                    jSONObject7.put("size", imageData.size + "");
                     jSONArray.put(jSONObject7);
                 }
             }
@@ -260,7 +258,7 @@ public class HttpRequestPublishModule {
             if (videoUploadModel != null && !TextUtils.isEmpty(videoUploadModel.mediaId)) {
                 jSONObject8.put("mediaId", videoUploadModel.mediaId);
                 jSONObject8.put("cover_img", videoUploadModel.coverUrl);
-                jSONObject8.put(TiebaInitialize.LogFields.SIZE, videoUploadModel.size);
+                jSONObject8.put("size", videoUploadModel.size);
                 jSONObject8.put("duration", videoUploadModel.duration);
                 jSONObject8.put("height_in_pixel", videoUploadModel.height);
                 jSONObject8.put("width_in_pixel", videoUploadModel.width);
@@ -307,7 +305,7 @@ public class HttpRequestPublishModule {
             jSONObject3.put("location", "");
             jSONObject3.put("apinfo", "");
             jSONObject2.put("info", jSONObject3);
-            jSONObject2.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
+            jSONObject2.put("ts", System.currentTimeMillis());
             jSONObject2.put("data", jSONObject);
             String str = Build.VERSION.SDK_INT >= 8 ? new String(Base64.encode(jSONObject2.toString().getBytes(), 0)) : null;
             HashMap hashMap = new HashMap();

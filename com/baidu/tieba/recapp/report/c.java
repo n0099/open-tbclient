@@ -4,143 +4,143 @@ import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     private DownloadStaticsData downloadStaticsData;
     private String extInfo;
-    private JSONObject lqY;
-    private String lra;
-    private JSONObject lrb;
-    private int lrc;
-    private String lrd;
-    private int lre;
-    private int lrf;
-    private int lrg;
-    private int lrh;
-    private int lri;
-    private int lrj;
-    private String lrk;
-    private String lrl;
-    private String lrm;
-    private String lrn;
-    private String lro;
-    private String lrp;
+    private int lHA;
+    private int lHB;
+    private int lHC;
+    private int lHD;
+    private int lHE;
+    private String lHF;
+    private String lHG;
+    private String lHH;
+    private String lHI;
+    private String lHJ;
+    private String lHK;
+    private JSONObject lHt;
+    private String lHv;
+    private JSONObject lHw;
+    private int lHx;
+    private String lHy;
+    private int lHz;
     private String placeId;
-    private int Yv = -1;
-    private int Yx = -1;
+    private int Za = -1;
+    private int Zc = -1;
     private int pageNumber = -1;
-    private long lqZ = System.currentTimeMillis() / 1000;
+    private long lHu = System.currentTimeMillis() / 1000;
 
-    public void ME(String str) {
+    public void PB(String str) {
         this.extInfo = str;
     }
 
-    public void DQ(int i) {
-        this.Yv = i;
-        if (this.lrb != null) {
+    public void Gl(int i) {
+        this.Za = i;
+        if (this.lHw != null) {
             try {
-                this.lrb.put("da_type", i);
+                this.lHw.put("da_type", i);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void DR(int i) {
-        this.Yx = i;
+    public void Gm(int i) {
+        this.Zc = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void MF(String str) {
+    public void PC(String str) {
         this.placeId = str;
     }
 
-    public void MG(String str) {
-        this.lra = str;
+    public void PD(String str) {
+        this.lHv = str;
     }
 
-    public void MH(String str) {
+    public void PE(String str) {
     }
 
-    public void DS(int i) {
-        this.lrf = i;
+    public void Gn(int i) {
+        this.lHA = i;
     }
 
-    public void DT(int i) {
-        this.lrg = i;
+    public void Go(int i) {
+        this.lHB = i;
     }
 
-    public void DU(int i) {
-        this.lrh = i;
+    public void Gp(int i) {
+        this.lHC = i;
     }
 
-    public void DV(int i) {
-        this.lri = i;
+    public void Gq(int i) {
+        this.lHD = i;
     }
 
-    public void DW(int i) {
-        this.lrj = i;
+    public void Gr(int i) {
+        this.lHE = i;
     }
 
-    public void MI(String str) {
-        this.lrk = str;
+    public void PF(String str) {
+        this.lHF = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.Yx = com.baidu.adp.lib.f.b.toInt(downloadStaticsData.getAdPosition(), 0);
-            this.lra = downloadStaticsData.getPrice();
+            this.Zc = com.baidu.adp.lib.f.b.toInt(downloadStaticsData.getAdPosition(), 0);
+            this.lHv = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void fo(String str, String str2) {
-        if (this.lqY == null) {
-            this.lqY = new JSONObject();
+    public void fF(String str, String str2) {
+        if (this.lHt == null) {
+            this.lHt = new JSONObject();
         }
         try {
-            this.lqY.put(str, str2);
+            this.lHt.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject dcX() {
-        if (this.lrb != null) {
-            return this.lrb;
+    public JSONObject doh() {
+        if (this.lHw != null) {
+            return this.lHw;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.Yx != -1) {
-                jSONObject.put("da_locate", this.Yx);
+            if (this.Zc != -1) {
+                jSONObject.put("da_locate", this.Zc);
             }
-            if (this.Yv != -1) {
-                jSONObject.put("da_type", this.Yv);
+            if (this.Za != -1) {
+                jSONObject.put("da_type", this.Za);
             }
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.lqZ);
+            jSONObject.put("origin_time", this.lHu);
             if (this.pageNumber != -1) {
                 jSONObject.put("da_page_num", this.pageNumber);
             }
-            jSONObject.put("da_price", this.lra);
+            jSONObject.put("da_price", this.lHv);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.lrc);
-            jSONObject.put("ext3", this.lre);
-            jSONObject.put("ext2", this.lrd);
-            jSONObject.put("da_ext1", this.lrf);
-            jSONObject.put("da_ext2", this.lrg);
-            jSONObject.put("da_ext3", this.lrh);
-            jSONObject.put("da_ext4", this.lri);
-            jSONObject.put("da_ext5", this.lrj);
-            jSONObject.put("da_menu1", this.lrl);
-            jSONObject.put("da_menu2", this.lrm);
-            jSONObject.put("da_menu3", this.lrn);
-            jSONObject.put("da_page", this.lro);
+            jSONObject.put("ext1", this.lHx);
+            jSONObject.put("ext3", this.lHz);
+            jSONObject.put("ext2", this.lHy);
+            jSONObject.put("da_ext1", this.lHA);
+            jSONObject.put("da_ext2", this.lHB);
+            jSONObject.put("da_ext3", this.lHC);
+            jSONObject.put("da_ext4", this.lHD);
+            jSONObject.put("da_ext5", this.lHE);
+            jSONObject.put("da_menu1", this.lHG);
+            jSONObject.put("da_menu2", this.lHH);
+            jSONObject.put("da_menu3", this.lHI);
+            jSONObject.put("da_page", this.lHJ);
             jSONObject.put("place_id", this.placeId);
-            jSONObject.put("lego_extra", this.lrk);
+            jSONObject.put("lego_extra", this.lHF);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -148,36 +148,36 @@ public class c {
                 jSONObject.put("da_menu3", this.downloadStaticsData.getFid());
                 jSONObject.put(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME, this.downloadStaticsData.getApk_name());
             }
-            jSONObject.put("da_area", this.lrp);
+            jSONObject.put("da_area", this.lHK);
         } catch (JSONException e) {
         }
-        if (this.lqY != null) {
+        if (this.lHt != null) {
             try {
-                jSONObject.put("ext", this.lqY);
+                jSONObject.put("ext", this.lHt);
             } catch (Exception e2) {
             }
         }
-        this.lrb = jSONObject;
+        this.lHw = jSONObject;
         return jSONObject;
     }
 
-    public void MJ(String str) {
-        this.lrl = str;
+    public void PG(String str) {
+        this.lHG = str;
     }
 
-    public void MK(String str) {
-        this.lrm = str;
+    public void PH(String str) {
+        this.lHH = str;
     }
 
-    public void ML(String str) {
-        this.lrn = str;
+    public void PI(String str) {
+        this.lHI = str;
     }
 
-    public void MM(String str) {
-        this.lro = str;
+    public void PJ(String str) {
+        this.lHJ = str;
     }
 
-    public void MN(String str) {
-        this.lrp = str;
+    public void PK(String str) {
+        this.lHK = str;
     }
 }

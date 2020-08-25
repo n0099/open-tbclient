@@ -1,33 +1,38 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes.dex */
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes2.dex */
 public class v {
-    private int FrsMaxCache;
-    private int FrsPn;
-    private int maxCache;
+    public List<w> eAD;
 
-    public int getMaxCache() {
-        return this.maxCache == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.maxCache;
-    }
-
-    public void setMaxCache(String str) {
-        this.maxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
-    }
-
-    public int getFrsMaxCache() {
-        return this.FrsMaxCache;
-    }
-
-    public void setFrsMaxCache(String str) {
-        this.FrsMaxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
-    }
-
-    public int getFrsPn() {
-        return this.FrsPn;
-    }
-
-    public void setFrsPn(String str) {
-        this.FrsPn = com.baidu.adp.lib.f.b.toInt(str, 0);
+    public void V(JSONArray jSONArray) {
+        this.eAD = new ArrayList();
+        try {
+            if (jSONArray == null) {
+                com.baidu.tbadk.core.sharedPref.b.bik().putString("key_index_tab_info_list", "[]");
+                return;
+            }
+            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bik().getString("key_index_tab_info_list", "[]"));
+            for (int i = 0; i < jSONArray.length(); i++) {
+                w wVar = new w();
+                w wVar2 = new w();
+                wVar.parserJson(jSONArray.getJSONObject(i));
+                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                    wVar2.parserJson(jSONArray2.getJSONObject(i2));
+                    if (wVar.tabCode != null && wVar.tabCode.equals(wVar2.tabCode)) {
+                        wVar.isShowRedDot = TextUtils.isEmpty(wVar2.eAE) || !wVar2.eAE.equals(wVar.eAE);
+                    }
+                }
+                if (!wVar.isDirtyData()) {
+                    this.eAD.add(wVar);
+                }
+            }
+            com.baidu.tbadk.core.sharedPref.b.bik().putString("key_index_tab_info_list", jSONArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

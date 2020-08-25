@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.mapapi.map.WearMapView;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SwipeDismissView extends RelativeLayout {
     WearMapView.OnDismissCallback a;
 
@@ -28,7 +28,7 @@ public class SwipeDismissView extends RelativeLayout {
     }
 
     void a(Context context, View view) {
-        setOnTouchListener(new SwipeDismissTouchListener(view, new Object(), new r(this)));
+        setOnTouchListener(new SwipeDismissTouchListener(view, new Object(), new x(this)));
     }
 
     public void setCallback(WearMapView.OnDismissCallback onDismissCallback) {

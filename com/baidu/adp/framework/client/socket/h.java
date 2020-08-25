@@ -4,6 +4,7 @@ import android.app.Application;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
+import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -42,7 +43,7 @@ public class h {
     public static final int QUEUE_SEND_SET_BLOCK = BASE_ERROR_NO - 310;
     public static final int QUEUE_SEND_ERROR_MANUAL_CLOSE = BASE_ERROR_NO - 311;
     public static final int QUEUE_RECE_CMD_NOT_MATCH = BASE_ERROR_NO - 400;
-    public static final int LOCATION_PROCESS_ERROR = BASE_ERROR_NO - 501;
+    public static final int LOCATION_PROCESS_ERROR = BASE_ERROR_NO + AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_UNKOWN;
     private static String sUrl = null;
     private static String sExtensions = null;
     private static String[] sSubprotocols = null;

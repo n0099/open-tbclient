@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
     private FrameLayout content;
     private ViewGroup.LayoutParams frameLayoutParams;
@@ -25,11 +25,11 @@ public class d {
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
     private int mExcludeHeight = 0;
 
-    public static d ad(Activity activity) {
+    public static d ac(Activity activity) {
         return new d(activity);
     }
 
-    public static d h(Activity activity, boolean z) {
+    public static d i(Activity activity, boolean z) {
         return new d(activity, z);
     }
 
@@ -52,7 +52,7 @@ public class d {
     public void onSkinTypeChanged(int i) {
         if (this.isAutoChangeNightMode) {
             if (i != this.mSkinType && this.content != null) {
-                ao.setBackgroundColor(this.content, this.backColor);
+                ap.setBackgroundColor(this.content, this.backColor);
             }
             this.mSkinType = i;
         }
@@ -60,7 +60,7 @@ public class d {
 
     public void onDestory() {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         if (this.mResizeViewGroup != null) {
@@ -76,9 +76,9 @@ public class d {
         this.isAutoChangeNightMode = z;
         this.content = (FrameLayout) activity.findViewById(16908290);
         if (z) {
-            ao.setBackgroundColor(this.content, i);
+            ap.setBackgroundColor(this.content, i);
         } else {
-            ao.setBackgroundColor(this.content, i, 0);
+            ap.setBackgroundColor(this.content, i, 0);
         }
         this.mResizeViewGroup = this.content.getChildAt(0);
         if (this.mResizeViewGroup != null) {
@@ -139,7 +139,7 @@ public class d {
 
     private void dealyResize(int i) {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         this.mDealyResizeRunnable = new Runnable() { // from class: com.baidu.tbadk.core.view.d.2
@@ -148,6 +148,6 @@ public class d {
                 d.this.resizeForSoftInput();
             }
         };
-        com.baidu.adp.lib.f.e.lt().postDelayed(this.mDealyResizeRunnable, i);
+        com.baidu.adp.lib.f.e.mS().postDelayed(this.mDealyResizeRunnable, i);
     }
 }
